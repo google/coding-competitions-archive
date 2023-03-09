@@ -13,4 +13,50 @@ timeline or completness.
 
 See the competition problems already available below.
 
-TODO: add first problems
+## Hash Code
+
+ - 2020
+   - Qualification Round: Google Books
+     - [Problem Statement](hashcode/hashcode_2020_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2020_qualification_round)
+   - Final Round: Assembling smartphones
+     - [Problem Statement](hashcode/hashcode_2020_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2020_final_round)
+ - 2019
+   - Qualification Round: Photo slideshow
+     - [Problem Statement](hashcode/hashcode_2019_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2019_qualification_round)
+   - Final Round: Compiling Google
+     - [Problem Statement](hashcode/hashcode_2019_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2019_final_round)
+ - 2018
+   - Qualification Round: Self-driving rides
+     - [Problem Statement](hashcode/hashcode_2018_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2018_qualification_round)
+   - Final Round: City plan
+     - [Problem Statement](hashcode/hashcode_2018_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2018_final_round)
+ - 2017
+   - Qualification Round: Streaming videos
+     - [Problem Statement](hashcode/hashcode_2017_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2017_qualification_round)
+   - Final Round: Router placement
+     - [Problem Statement](hashcode/hashcode_2017_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2017_final_round)
+ - 2016
+   - Qualification Round: Delivery
+     - [Problem Statement](hashcode/hashcode_2016_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2016_qualification_round)
+   - Final Round: Satellites
+     - [Problem Statement](hashcode/hashcode_2016_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2016_final_round)
+ - 2015
+   - Qualification Round: Optimize a data center
+     - [Problem Statement](hashcode/hashcode_2015_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2015_qualification_round)
+   - Final Round: Loon
+     - [Problem Statement](hashcode/hashcode_2015_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2015_final_round)
+ - 2014 (single round year): Street View routing
+     - [Problem Statement](hashcode/hashcode_2014_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2014_final_round)
