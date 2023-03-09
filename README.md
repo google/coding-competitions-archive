@@ -16,7 +16,7 @@ See the competition problems already available below.
 ## Hash Code
 
  - 2020
-   - Qualification Round: Google Books
+   - Qualification Round: Book scanning
      - [Problem Statement](hashcode/hashcode_2020_qualification_round.pdf)
      - [Data Sets](hashcode/hashcode_2020_qualification_round)
    - Final Round: Assembling smartphones
