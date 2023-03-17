@@ -9,7 +9,7 @@ Coding Competitions, Google-organized programming competitions:
 
 Note: as of March 2023 not all past competition problems are present in the
 archive. We intend to add the missing problems but make no promises on the
-timeline or completness.
+timeline or completeness.
 
 See the competition problems already available below.
 
