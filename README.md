@@ -15,6 +15,13 @@ See the competition problems already available below.
 
 ## Hash Code
 
+ - 2021:
+   - Qualification Round: Traffic signaling
+     - [Problem Statement](hashcode/hashcode_2021_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2021_qualification_round)
+   - Final Round: Software engineering at scale
+     - [Problem Statement](hashcode/hashcode_2021_final_round.pdf)
+     - [Data Sets](hashcode/hashcode_2021_final_round)
  - 2020
    - Qualification Round: Book scanning
      - [Problem Statement](hashcode/hashcode_2020_qualification_round.pdf)
