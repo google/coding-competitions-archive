@@ -15,6 +15,10 @@ See the competition problems already available below.
 
 ## Hash Code
 
+ - 2022:
+   - Qualification Round: Mentorship and teamwork
+     - [Problem Statement](hashcode/hashcode_2022_qualification_round.pdf)
+     - [Data Sets](hashcode/hashcode_2022_qualification_round)
  - 2021:
    - Qualification Round: Traffic signaling
      - [Problem Statement](hashcode/hashcode_2021_qualification_round.pdf)
