@@ -1,0 +1,412 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Analysis: Ring-Preserving Networks</h1><p>
+For each testcase in this interactive problem, we are first given two integers $$$\mathbf{C}$$$ and $$$\mathbf{L}$$$.
+First we send the judge a design, $$$G$$$, that contains exactly $$$\mathbf{C}$$$ computers and $$$\mathbf{L}$$$ links,
+  then the judge sends back another design $$$H$$$ which is almost identical to the previous design $$$G$$$,
+  except that the IDs are randomly permuted.
+At the end, we are required to find out a ring on $$$H$$$.
+</p>
+<p>
+However, it's difficult to efficiently find out a ring on an arbitrary design.
+It's actually equivalent to the
+  <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem" target="_blank"> Hamiltonian cycle problem</a>
+, and currently there's no efficient solution for it yet.
+</p>
+<p>
+Thankfully, we don't need to do that in this problem.
+We can construct $$$G$$$ in such a way that finding a ring of $$$H$$$ is easier.
+
+There are several heuristics to do so, such as:
+<ul>
+<li> Make some computers distinguishable enough to find part of the bijection between $$$G$$$ and $$$H$$$
+<li> Make some computers sort of equivalent, so permuting their IDs doesn't matter
+<li> When $$$\mathbf{C}$$$, $$$\mathbf{L}$$$ meets some condition,
+     construct some kinds of special designs whose ring could be efficiently found.
+     For example, making use of <a href="https://en.wikipedia.org/wiki/Ore%27s_theorem" target="_blank">Ore's theorem</a>
+     when $$$\mathbf{L}$$$ is sufficiently large.
+</ul>
+<p>
+We might need to combine these heuristics to build a complete strategy that applies to all possible $$$\mathbf{C}$$$, $$$\mathbf{L}$$$.
+</p>
+<p>
+The IDs in $$$H$$$ are randomly permuted, which become meaningless to us. Afterward in this analysis, the ID of a computer refers to the one in $$$G$$$, that is, the ID before shuffled.
+</p>
+<p>
+In the following approaches, we first add the links $$$(1, 2), (2, 3), ..., (\mathbf{C}-1, C), (\mathbf{C}, 1)$$$ to form a ring $$$R$$$.
+Then, we add the remaining links apart from $$$R$$$ to fulfill the link number limit $$$\mathbf{L}$$$.
+</p>
+<p>
+Let's define the <a href="https://en.wikipedia.org/wiki/Degree_(graph_theory)" target="_blank">degree</a> of computer $$$i$$$,
+or $$$deg(i)$$$, to be the number of neighbors of computer $$$i$$$.
+It is an important property of a computer in this problem, because it remains invariant after the ID permuted.
+</p>
+
+<h3> Test Set 1 </h3>
+<p>
+In this test set, the number of links is at most $$$(C + 10)$$$. Apart from the ring $$$R$$$, there are at most $$$10$$$ links remaining.
+</p>
+<p>
+When $$$\mathbf{C}$$$ is large enough ($$$>12$$$), we can put the extra links in such a way that allow us to efficiently find a ring in $$$H$$$. Otherwise, $$$\mathbf{C}$$$ is suffiently small ($$$\leq 12$$$) that we could find a ring in $$$H$$$ by brute-force. 
+These two different approaches are explained in detail in the following sections.
+</p>
+<h4> $$$\mathbf{C} > 12$$$ </h4>
+<p>
+We could add the links in the order $$$(1, 3), (1, 4), (1, 5), ...$$$. There are at most $$$10$$$ remaining links, so the last link we add is at most $$$(1, 12)$$$.
+In this case, $$$\mathbf{C}>12$$$, so all of these links $$$(1, 3), (1, 4), ..., (1, 12)$$$ are not in $$$R$$$.
+</p>
+<p>
+All extra links are added on computer $$$1$$$, so computer $$$1$$$ has the greatest degree among all computers. This helps us to identify the computer $$$1$$$ in $$$H$$$.
+</p>
+<p>
+Then, we ignore the computer $$$1$$$ and all the links on it. The rest part in $$$H$$$ are the links $$$(2, 3), (3, 4), ..., (\mathbf{C}-1, \mathbf{C})$$$. Combine these links with computer $$$1$$$, then the ring $$$R$$$ is reconstructed.
+</p>
+<h4> $$$\mathbf{C} \leq 12$$$ </h4>
+<p>
+In this case, $$$\mathbf{C}$$$ is small enough for most of the brute-force approaches.
+<p>
+We can add the remaining $$$10$$$ links arbitrarily,
+and find a ring via plain <a href="https://en.wikipedia.org/wiki/Backtracking" target="_blank">backtracking</a>,
+or the <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem#Algorithms" target="_blank">$$$O(\mathbf{C}^2\times 2^{\mathbf{C}})$$$-time algorithm for Hamiltonian cycle</a>.
+
+
+<h3> Test Set 2 </h3>
+<p>
+We add the remaining links in the order<br>
+$$$(1, 2), $$$<br>
+$$$(1, 3), (2, 3), $$$<br>
+$$$(1, 4), (2, 4), (3, 4), $$$<br>
+..., <br>
+$$$(1, \mathbf{C}), (2, \mathbf{C}), (3, \mathbf{C}), ..., (\mathbf{C}-1, \mathbf{C})$$$<br>
+if it's not in the ring $$$R$$$ yet, until we put $$$\mathbf{L}$$$ links in total.
+</p>
+<p>
+Let the row $$$(1, k), (2, k), ..., (k-1, k)$$$ be the row $$$k$$$. Note that the last link in each rows is aready in the ring $$$R$$$, and so do the first link in row $$$\mathbf{C}$$$. These links are only listed to clarify the order.
+</p>
+<p>
+Let row $$$K$$$ be the last row that are completely added to $$$G$$$, then each pair of computers among $$$1..K$$$ is directly connected with a link.
+</p>
+<p>
+A <a href="https://en.wikipedia.org/wiki/Clique_(graph_theory)" target="_blank">clique</a> is a set of computers such that each pair of computers among them is directly connected with a link. In this case, computers $$$1..K$$$ form a clique of size $$$K$$$.
+</p>
+<p>
+Let's handle the edge cases $$$K \leq 3$$$ and $$$K \geq \mathbf{C}-1$$$ separately first.
+<ul>
+<li> When $$$K \leq 3$$$, $$$H$$$ is a ring with at most $$$2$$$ extra links. We can solve this case by the TS1 approach.
+<li> When $$$K = \mathbf{C}-1$$$, we can identify computer $$$\mathbf{C}$$$ as the computer with minimum degree. We first pick two neighbors of computer $$$C$$$, say, computer $$$A$$$ and $$$B$$$, and there's a ring $$$A \rightarrow C \rightarrow B \rightarrow$$$ other computers $$$\rightarrow A$$$.
+<li> When $$$K=\mathbf{C}$$$, $$$H$$$ itself is a clique, so each pair of computers is directly connected with a link. Any order of the $$$\mathbf{C}$$$ computers forms a ring.
+</ul>
+</p>
+<p>
+Afterward in this analysis,, $$$3 \lt K \lt \mathbf{C} - 1$$$.
+</p>
+<h4> The simpler case </h4>
+<p>
+If no extra links from the next row $$$(K+1)$$$ were added to $$$G$$$, that is, the last link is $$$(K-2, K)$$$, then things are simpler.
+</p>
+<p align="center"><img src="img/simple.png" alt="Illustration of the simpler case."/></p>
+<p>
+Let's call computers $$$1..K$$$ the <i>clique part</i>, and computers $$$(K+1)..\mathbf{C}$$$ the <i>ring part</i>.
+</p>
+<p>
+In $$$H$$$, we can classify the computers into the clique part and the ring part by their degrees.
+</p>
+<p>
+In the ring part, the only links on the computers are the links in the ring $$$R$$$, so the degrees of them are all $$$2$$$.
+On the other hand, if the degree of a computer is greater than $$$2$$$, then it's in the clique part.
+</p>
+<p>
+(Actually that's why we handled the case $$$K=3$$$ beforehand. When $$$K=3$$$, the degree of computer $$$2$$$ is also $$$2$$$, but it belongs to the clique part. This kind of confusion won't happen when $$$K>3$$$.)
+</p>
+<p>
+Then, we can identify computer $$$1$$$ and computer $$$K$$$ from the clique part, since they are the only computers that connected with the ring part.
+</p>
+<p>
+Though we can't tell which one is computer $$$1$$$ and which one is computer $$$K$$$,
+  we can start from either of them, pass along the ring part to the other, pass through the rest of the clique part in any order, and go back to the starting computer.
+</p>
+<p>
+The resulting ring is one of the following.
+<ul>
+<li>$$$1$$$ $$$\rightarrow$$$ ring part $$$\rightarrow$$$ $$$K$$$ $$$\rightarrow$$$ clique part $$$\rightarrow$$$ $$$1$$$
+<li>$$$K$$$ $$$\rightarrow$$$ ring part $$$\rightarrow$$$ $$$1$$$ $$$\rightarrow$$$ clique part $$$\rightarrow$$$ $$$K$$$
+</ul>
+</p>
+<h4> The more complicated case </h4>
+<p>
+Now let's handle the complicated case. Part but not all computers in the next row $$$(K+1)$$$ are added to $$$G$$$.
+  Since the link $$$(K, K+1)$$$ is already in the ring $$$R$$$, the last added link cannot be $$$(K-1, K+1)$$$, otherwise the row $$$(K+1)$$$ is completely added.
+</p>
+<p align="center"><img src="img/complicated.png" alt="Illustration of the more complicated case."/></p>
+<p>
+In this case, we have the clique part $$$1..K$$$, the ring part $$$(K+2)..\mathbf{C}$$$, and a special computer $$$(K+1)$$$.
+</p>
+<p>
+The degrees of the computers in the ring part are still all $$$2$$$, so we can identify the ring part in $$$H$$$.
+</p>
+<p>
+Among the computers not in the ring part, computers $$$1$$$ and $$$(K+1)$$$ are the only computers that connect with the ring part.
+</p>
+Though we can't tell which one is computer $$$1$$$ and which one is $$$(K+1)$$$, the following difference helps us to distinguish the two.
+<ul>
+<li> The non-ring part excluding computer $$$(K+1)$$$, which are the computers $$$1..K$$$, form a clique.
+<li> The non-ring part excluding computer $$$1$$$, which are the computers $$$2..(K+1)$$$, cannot form a clique, because $$$(K-1, K+1)$$$ must not be added.
+</ul>
+<p>
+Now we are able to identify the clique part, the ring part, and the special computer $$$(K+1)$$$,
+so we can obtain a ring using the same approach as the previous case.
+</p>
+    </div>
+  </body>
+</html>

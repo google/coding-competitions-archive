@@ -1,0 +1,447 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Analysis: Indispensable Overpass</h1><h4>
+  Test Set 1
+</h4>
+<p>
+  A brute-force solution would be to calculate and sum the distances between every pair of stations,
+  then divide by the total number of pairs. The total number of stations is $$$\mathbf{W} + \mathbf{E}$$$, which
+  means that there are $$$N = \frac{(\mathbf{W} + \mathbf{E}) \times (\mathbf{W} + \mathbf{E} - 1)}{2}$$$
+  total pairs of stations. Calculating the distance between any given pair takes $$$O(\mathbf{W} + \mathbf{E})$$$
+  time, so this solution has a time complexity of $$$O((\mathbf{W} + \mathbf{E})^3)$$$, which is too slow.
+</p>
+<p>
+  First notice that the western stations make a tree, because there is exactly one path between any
+  two stations. This also applies to the eastern stations. Let us define the western tree as
+  $$$T_W$$$, the eastern tree as $$$T_E$$$, and the tree created by connecting the two trees
+  as $$$T_{W+E}$$$.
+</p>
+<p>
+  Instead of calculating the distances between every pair of stations, we can instead compute how
+  many paths go through each edge, which we call the "contribution" of each edge, in
+  $$$T_{W+E}$$$. The total sum of all distances between pairs of nodes is equal to the total
+  sum of edge contributions. We just have to sum up these contributions and divide by $$$N$$$ to get
+  the average distance for the given case.
+</p>
+<p>
+  To compute an edge's contribution, we need two depth-first-search (DFS) traversals. First, choose
+  an arbitrary root $$$r$$$ in $$$T_{W+E}$$$. For the first traversal, for each node $$$n$$$
+  starting from $$$r$$$, compute and store the size of the subtree $$$S_n$$$ under $$$n$$$. This
+  can be calculated recursively by $$$S_n = 1 + \sum_i S_i$$$, where the sum is over all children
+  $$$i$$$ of $$$n$$$. Fig.1 has an example shown below.
+</p>
+<figure align="center">
+  <img src="img/Sn=1+sum(Si).png" alt="Illustration of Sn=1+sum(Si)"/>
+  <figcaption>Fig.1 - The size of a subtree under a node is the sum of subtrees under each
+    child of the node, plus the node itself.
+  </figcaption>
+</figure>
+<p>
+  Then, traverse the tree a second time to compute each edge's contribution. The key insight
+  here is that for an edge between nodes $$$n$$$ and $$$p$$$, where $$$n$$$ is the child of $$$p$$$,
+  the edge's contribution is equal to $$$S_n \times (\mathbf{W} + \mathbf{E} - S_n)$$$. Thus, the second traversal
+  goes through all the edges in $$$T_{W+E}$$$ and calculates their contributions using the
+  stored subtree sizes from the first traversal. This is demonstrated below in Fig.2.
+</p>
+<figure align="center">
+  <img src="img/edge_contribution.png" alt="Illustration of edge contribution Sn*(W+E-Sn)"/>
+  <figcaption>Fig.2 - The edge contribution, which is the number of node pairs that cross that edge,
+    can be calculated as the number of nodes on one side of the edge times the number of nodes on the
+    other side of the edge.
+  </figcaption>
+</figure>
+<p>
+  Afterwards, summing up the edge contributions and dividing by $$$N$$$ yields the answer.
+  Since the two traversals take $$$O(\mathbf{W} + \mathbf{E})$$$ each, and we need to redo the traversals for each
+  of the $$$\mathbf{C}$$$ cases, the total time complexity is $$$O((\mathbf{W} + \mathbf{E}) \times \mathbf{C})$$$. This is sufficient
+  for Test Set 1, but not for Test Set 2.
+</p>
+<h4>
+  Test Set 2
+</h4>
+<p>
+  The key insight for Test Set 2 is that the total path sum of the $$$N$$$ pairs can be computed
+  from the formula $$$\mathbf{E} \times P^W_{\mathbf{A_k}} + \mathbf{W} \times P^E_{\mathbf{B_k}} + \mathbf{W} \times \mathbf{E} + Q^W + Q^E$$$,
+  where $$$P^W_n$$$ is the path sum from node $$$n$$$ to all other nodes in $$$T_W$$$, $$$Q^W$$$
+  is the total path sum within $$$T_W$$$, and likewise for $$$P^E_n$$$ and $$$Q^E$$$. If these
+  values are precomputed already, then whenever we are given a connection $$$(\mathbf{A_k}, \mathbf{B_k})$$$, we
+  can return the average distance in a constant time operation using the formula above. Before
+  deriving this formula, let us first find out how to precompute $$$Q^W, Q^E$$$,
+  and $$$P^W_n, P^E_n$$$ for each node $$$n$$$ efficiently first. This can be accomplished with two
+  DFS traversals for both $$$T_W$$$ and $$$T_E$$$ individually.
+</p>
+<p>
+  Let us look at $$$T_W$$$ for convenience. For the first DFS, starting from an arbitrary root 
+  $$$r$$$, calculate at each node $$$n$$$:
+  <ol>
+    <li>
+      The size of the subtree rooted by $$$n$$$, defined as $$$S^W_n$$$. This can be calculated
+      recursively by $$$S^W_n = 1 + \sum_i S^W_i$$$, where the sum is over all children $$$i$$$
+      of $$$n$$$.
+    </li>
+    <li>
+      The path sum from $$$n$$$ to all its descendants, defined as $$$D^W_n$$$.
+      This can be computed recursively by $$$D^W_n = \sum_{i} D^W_i + (S_n-1)$$$, where the
+      sum is over all children $$$i$$$ of $$$n$$$.
+    </li>
+  </ol>
+</p>
+<figure align="center">
+  <img src="img/Dn=sum(Di+Si).png" alt="Illustration of Dn=sum(Di+Si)"/>
+  <figcaption>Fig.3 - The path sum from a node to its descendants can be calculated as the sum
+    of the path sums of the node's children to their descendants, plus the contribution of the edges between
+    the node and its children, which is the total number of descendants the node has.
+  </figcaption>
+</figure>
+<p>
+  This first traversal calculates the number of subtrees and subtree path sums below $$$n$$$.
+  However, $$$D^W_n$$$ is not the full sum of all paths from $$$n$$$ to other nodes in $$$T_W$$$
+  because we only counted paths travelling downwards from $$$n$$$. For every node, we also need to
+  compute path sums that go above and through its parent. This is done via a second DFS. In this
+  traversal, given a node $$$n$$$ and its parent $$$p$$$, the actual path sum $$$P^W_n$$$ is
+  computed as follows:
+</p>
+<p>
+  $$$P^W_n = D^W_n + (\mathbf{W} - S^W_n) + (P^W_p - (D^W_n + S^W_n))$$$
+</p>
+<p>
+  Essentially, we add onto $$$D^W_n$$$ two values:
+  <ol>
+    <li>
+      $$$(\mathbf{W} - S^W_n)$$$, the contribution of the edge connecting $$$n$$$ to $$$p$$$
+    </li>
+    <li>
+      $$$P^W_p - (D^W_n + S^W_n)$$$, the path sums starting from $$$p$$$ that do not go
+      through $$$n$$$.
+    </li>
+  </ol>
+</p>
+<p>
+  For the root $$$r$$$ of $$$T_W$$$, $$$P^W_r = D^W_r$$$, as shown below in Fig.4.
+</p>
+<figure align="center">
+  <img src="img/Pn=Dn+(N-Sn)+(Pp-Dn-Sn).png" alt="Illustration of Pn=Dn+(N-Sn)+(Pp-Dn-Sn)"/>
+  <figcaption>Fig.4 - The path sum from a node to all other nodes can be calculated as the path sum
+    from the node to all its descendants (e.g. path sum from 8 to all green nodes), plus the edge contribution
+    between the node and its parent (e.g. the number of blue nodes), plus the path sum from
+    the node's parent to all other nodes (e.g. path sum from 10 to all blue nodes).
+  </figcaption>
+</figure>
+<p>
+  With $$$P^W_n$$$ computed for all nodes $$$n$$$ in $$$T_W$$$ and again $$$P^E_n$$$ computed for
+  all nodes in $$$T_E$$$, we can calculate the average distance for each case in constant time. Now
+  let us derive the formula mentioned earlier. Suppose we are given a connection between
+  $$$\mathbf{A_k}$$$ from the west, and $$$\mathbf{B_k}$$$from the east. We first note that the total path sum can be computed
+  as:
+</p>
+<p>
+  $$$\sum_{i \in T_W} \sum_{j \in T_E} d_{i,j} + Q^W + Q^E$$$
+</p>
+<p>
+  where $$$d_{i,j}$$$ is the distance between nodes $$$i$$$ and $$$j$$$. Here, $$$Q^W$$$ is the sum
+  of all paths in $$$T_W$$$, and $$$Q^E$$$ is the sum of all paths in $$$T_E$$$. We can already
+  calculate them just by summing the $$$P_n$$$s on each side.
+</p>
+<p>
+  $$$Q^W = \frac{\sum_{n \in T_W} P^W_n}{2}, Q^E = \frac{\sum_{n \in T_E} P^E_n}{2}$$$
+</p>
+<p>
+  The first sum about $$$d_{i,j}$$$ is trickier, but we can separate it into three terms that
+  incorporate $$$\mathbf{A_k}$$$ and $$$\mathbf{B_k}$$$:
+</p>
+<p>
+  $$$\sum_{i \in T_W} \sum_{j \in T_E} (d_{i,\mathbf{A_k}} + d_{j,\mathbf{B_k}} + 1)$$$.
+</p>
+<p>
+  All the terms now allow us to simplify the double summation to single summations. The above
+  equation is equivalent to:
+</p>
+<p>
+  $$$\mathbf{E} \times \sum_{i \in T_W} d_{i,\mathbf{A_k}} + \mathbf{W} \times \sum_{j \in T_E} d_{j,\mathbf{B_k}} + \mathbf{W} \times \mathbf{E}$$$.
+</p>
+<p>
+  Because we precomputed all the path sums, $$$\sum_{i \in T_W} d_{i,\mathbf{A_k}}$$$ is equal to
+  $$$P^W_{\mathbf{A_k}}$$$, and $$$\sum_{j \in T_E} d_{j,\mathbf{B_k}}$$$ is equal to $$$P^E_{\mathbf{B_k}}$$$. Thus, the
+  total path distances between the two trees is
+</p>
+<p>
+  $$$\mathbf{E} \times P^W_{\mathbf{A_k}} + \mathbf{W} \times P^E_{\mathbf{B_k}} + \mathbf{W} \times \mathbf{E} + Q^W + Q^E$$$.
+</p>
+<p>
+  Divide that by $$$N$$$ to get the average distance for each query. Each traversal for $$$T_W$$$
+  and $$$T_E$$$ is $$$O(\mathbf{W})$$$ and $$$O(\mathbf{E})$$$ respectively, which makes the overall complexity
+  $$$O(\mathbf{W} + \mathbf{E} + \mathbf{C})$$$ for $$$\mathbf{C}$$$ cases.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

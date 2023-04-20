@@ -1,0 +1,494 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round C</h3><h1>Analysis: The Decades of Coding Competitions</h1><p>
+  Let's start by treating the city as a graph, where nodes represent bus stops,
+  edges represent bus routes, and a label on each edge represents the club cheered
+  on by the bus route driver.
+</p>
+<p>
+  There is a key observation for this problem: if two nodes $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$ are
+  connected, we would be able to traverse all the edges in the connected
+  component in the path from $$$\mathbf{P_j}$$$ to $$$\mathbf{C_j}$$$. The proof for this observation is
+  provided <a href="#proof-1">at the end of this analysis</a>. With this
+  observation, we can find that if the total number of distinct edge clubs in
+  this connected component is odd, there is always a path from $$$\mathbf{P_j}$$$ to $$$\mathbf{C_j}$$$
+  that can walk on an odd number of clubs by traversing all the edges in the
+  connected component at least once.
+</p>
+<p>
+  Therefore, for each query, we can check if there exists a
+  <a href="https://en.wikipedia.org/wiki/Glossary_of_graph_theory#subgraph" target="_blank">subgraph</a>
+  that satisfies:
+</p>
+<ul>
+  <li>$$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$ are connected.</li>
+  <li>
+    There is an odd number of distinct edge clubs in the connected component
+    that contains $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$.
+  </li>
+</ul>
+
+<h3>Test Set 1</h3>
+<p>
+  Since the number of distinct clubs $$$\mathbf{K}$$$ is small in Test Set 1, we can
+  enumerate all combinations of an odd number of distinct clubs. For each
+  combination, build a new graph $$$G'$$$ by removing edges with clubs not in
+  the combination. Afterwards, for each query we can check if $$$\mathbf{P_j}$$$and $$$\mathbf{C_j}$$$ are
+  connected in any $$$G'$$$, and if there is an odd number of edge clubs in the
+  corresponding connected component by iterating through all the edges in the
+  connected component.
+</p>
+<p>
+  We can use
+  <a
+    href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure"
+    target="_blank"
+    >Disjoint Set Union (DSU)</a
+  >
+  to find the connected componnets in $$$G'$$$ and all the nodes and edges in
+  them. A connected component has edge club $$$c$$$ if and only if $$$u$$$ and $$$v$$$ are
+  in this component (in the same set in DSU) and the edge $$$(u, v)$$$ has club
+  $$$c$$$. We can prebuild the DSU for all $$$G'$$$s and find the number of
+  distinct clubs for each of the connected component in them. For each
+  query, we can iterate through all prebuilt DSUs and check if $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$
+  are connected in a component with odd number of edge clubs in it.
+</p>
+<h4>Space complexity:</h4>
+<p>
+  There are at most $$$2^\mathbf{K}$$$ $$$G'$$$s, and each graph has at most $$$\mathbf{N}$$$
+  connected components:
+</p>
+<ul>
+  <li><b>Disjoint Set Unions(DSUs)</b>: $$$O(2^\mathbf{K} \times \mathbf{N})$$$</li>
+  <li>
+    <b>Number of distinct clubs in connected components in graphs</b>:
+    $$$O(2^\mathbf{K} \times \mathbf{N})$$$
+  </li>
+</ul>
+<h4>Time complexity:</h4>
+<ul>
+  <li>
+    <b>Build DSUs and component clubs set (number of distinct clubs)</b>:
+    $$$O(2^\mathbf{K} \times (\mathbf{N} + \mathbf{M}))$$$
+  </li>
+  <li>
+    <b>Per query</b>: $$$O(2^\mathbf{K})$$$ for checking all DSUs and number of
+    distinct clubs in the corresponding connected component.
+  </li>
+  <li>
+    <b>Overall</b>: $$$O(2^\mathbf{K} \times (\mathbf{N} + \mathbf{M}) + \mathbf{Q} \times 2^\mathbf{K}) = O(2^\mathbf{K}
+    \times (\mathbf{N} + \mathbf{M} + \mathbf{Q}))$$$
+  </li>
+</ul>
+
+<h3>Test Set 2 and Test Set 3</h3>
+<p>
+  We can improve our solution by reducing the club combinations to check: we
+  just need to check the original graph $$$G$$$ and all $$$G'$$$ built by
+  removing edges with one club. We can prove this statement by considering all
+  possible cases for query $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$:
+</p>
+<p>
+  Let $$$\text{Clubs}(G, \mathbf{P_j}, \mathbf{C_j})$$$ be the set of distinct clubs in the
+  connected component containing $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$ in graph $$$G$$$, and
+  $$$|\text{Clubs}(G, \mathbf{P_j}, \mathbf{C_j})|$$$ be the number of distinct clubs:
+</p>
+<ul>
+  <li>
+    If $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$ are not connected in $$$G$$$, there is no valid path for
+    this query.
+  </li>
+  <li>
+    If $$$\text{Clubs}(G, \mathbf{P_j}, \mathbf{C_j})$$$ has an odd number of distinct clubs
+    ($$$|\text{Clubs}(G, \mathbf{P_j}, \mathbf{C_j})| = 2n + 1$$$), there is always a valid path
+    walking on an odd number of distinct clubs.
+  </li>
+  <li>
+    Otherwise, if there is a path from $$$\mathbf{P_j}$$$ to $$$\mathbf{C_j}$$$ composed of edges with odd
+    number ($$$2n + 1$$$) of distinct clubs, $$$\mathbf{P_j}$$$ and $$$\mathbf{C_j}$$$ will always be
+    connected after removing edges with those $$$\mathbf{K} - (2n + 1)$$$ clubs not in
+    that path from graph $$$G$$$. Then, let $$$G_{minimal}$$$ be graph after
+    removing those edges, we can find another path with an odd number of clubs by
+    traversing additional connected edges with two extra clubs $$$c_1$$$ and
+    $$$c_2$$$ where $$$c_1, c_2 \notin \text{Clubs}(G_{minimal}, \mathbf{P_j}, \mathbf{C_j})$$$ and
+    $$$c_1, c_2 \in \text{Clubs}(G, \mathbf{P_j}, \mathbf{C_j})$$$. Recursively, we can find a valid
+    path in $$$G'$$$ by removing only one club from $$$\text{Clubs}(G, \mathbf{P_j},
+    \mathbf{C_j})$$$. It means if there is a valid path, there is always a $$$G'$$$
+    where $$$|\text{Clubs}(G', \mathbf{P_j}, \mathbf{C_j})|$$$ is odd and built by removing edges of
+    one club.
+  </li>
+</ul>
+<p>
+  Therefore, we just need to build the DSUs and connected components clubs sets
+  for the $$$\mathbf{K}+1$$$ graphs that result from removing $$$0$$$ or $$$1$$$ club from the original graph.
+</p>
+<h4>Space complexity:</h4>
+<p>
+  There are $$$\mathbf{K} + 1$$$ $$$G'$$$s, and each graph has at most $$$\mathbf{N}$$$
+  connected components:
+</p>
+<ul>
+  <li>
+    <b>Disjoint Set Unions(DSUs)</b>: $$$O((\mathbf{K} + 1) \times \mathbf{N}) = O(\mathbf{K} \times
+    \mathbf{N})$$$
+  </li>
+  <li>
+    <b>Number of distinct clubs in connected components in graphs</b>: $$$O(\mathbf{K}
+    \times \mathbf{N})$$$
+  </li>
+</ul>
+<h4>Time complexity:</h4>
+<ul>
+  <li>
+    <b>Build DSUs and component clubs set (number of distinct clubs)</b>:
+    $$$O((\mathbf{K} + 1) \times (\mathbf{N} + \mathbf{M})) = O(\mathbf{K} \times (\mathbf{N} + \mathbf{M}))$$$
+  </li>
+  <li>
+    <b>Per query</b>: $$$O(\mathbf{K})$$$ for checking all DSUs and number of distinct
+    clubs in the corresponding connected component.
+  </li>
+  <li><b>Overall</b>: $$$O(\mathbf{K} \times (\mathbf{N} + \mathbf{M} + \mathbf{Q}))$$$</li>
+</ul>
+<p>
+  Test Set 2 does not require prebuilding and sharing the DSU and clubs sets
+  across queries. Solutions with time complexity $$$O(\mathbf{Q} \times (\mathbf{K} \times
+  (\mathbf{N} + \mathbf{M})))$$$ that build DSUs and clubs sets for each of the query
+  separately are acceptable.
+</p>
+
+<h3 id="proof-1">
+  Proof: Path traversing all edges in the connect component always exists
+</h3>
+<p>
+  Suppose there is a path from $$$v_1$$$ to $$$v_n$$$ where
+  $$$p=(v_1,v_2,\dots,v_{n-1}, v_n)$$$, and let $$$\text{Nodes}(p) = \{v_1, v_2, \dots,
+  v_n\}$$$ to be the set of nodes visited at least once in path $$$p$$$:
+</p>
+<ol>
+  <li>
+    <b>Node Reachability:</b> For any node $$$v_i \in \text{Nodes}(p)$$$, if there is a
+    node $$$u_m$$$ and a path from $$$v_i$$$ to $$$u_m$$$ where $$$p'=(v_i, u_1,
+    u_2, \dots, u_m)$$$ in the graph, there is always a path $$$p_{merged}$$$
+    from $$$v_1$$$ to $$$v_n$$$ where $$$\text{Nodes}(p_{merged}) = \text{Nodes}(p) \cup
+    \text{Nodes}(p') \supseteq \text{Nodes}(p) \cup \{u_m\}$$$. A valid path would be
+    $$$p_{merged}=(v_1, \dots,v_i, u_1,\dots, u_{m-1}, u_m, u_{m-1}, \dots, u_1,
+    v_i, v_{i+1}, \dots, v_n)$$$. Notice that we can visit same node or edge
+    multiple times.
+  </li>
+  <li>
+    <b>Edge Reachability:</b> For any node $$$v_i \in \text{Nodes}(p)$$$, and for edges
+    $$$(v_i, u_1), (v_i, u_2), \dots, (v_i, u_m)$$$ directly connect to
+    $$$v_i$$$, there always exists a path $$$p'_{merged}$$$ from $$$v_1$$$ to
+    $$$v_n$$$ which traverses all these edges at least once. A valid path would
+    be $$$p'_{merged}=(v_1, \dots,v_i, u_1, v_i, u_2, \dots, v_i, u_m, v_i,
+    v_{i+1}, \dots, v_n)$$$.
+  </li>
+  <li>
+    From (1), we can derive that if nodes $$$\mathbf{P}$$$ and $$$\mathbf{C}$$$ are connected, there exist
+    a path from $$$\mathbf{P}$$$ to $$$\mathbf{C}$$$ which visits all reachable nodes from $$$\mathbf{P}$$$ at least
+    once, which are all nodes in the connected component.
+  </li>
+  <li>
+    From (2) and (3), we can derive that if nodes $$$\mathbf{P}$$$ and $$$\mathbf{C}$$$ are connected,
+    there exists a path which traverses all the edges in the connected component
+    at least once.
+  </li>
+</ol>
+<figure align="center">
+  <img
+    src="images/analysis_node_reachability.png"
+    alt="node reachability"
+    class="center"
+    style="width: 60%; max-width: 400px"
+  />
+  <figcaption>
+    Node Reachability: $$$p_{merged}$$$ visits additional nodes $$$u_1$$$ and
+    $$$u_2$$$, as there exists a path $$$p'=(v_2, u_1, u_2)$$$.
+  </figcaption>
+</figure>
+<figure align="center">
+  <img
+    src="images/analysis_edge_reachability.png"
+    alt="node reachability"
+    class="center"
+    style="width: 60%; max-width: 400px"
+  />
+  <figcaption>
+    Edge Reachability: $$$p_{merged}$$$ visits all edges connected to $$$v_2$$$
+    &#8212; $$$(v_2, u_1)$$$ and $$$(v_2, u_2)$$$.
+  </figcaption>
+</figure>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

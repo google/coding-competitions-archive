@@ -1,0 +1,432 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Genetic Sequences</h1><h3>Genetic Sequences</h3>
+<p>
+  Margaret researches genetic sequences. She is analysing two sequences $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$ from a new kind
+  of life that does not use the typical four letter genetic alphabet.
+  The code for the genetic sequences conveniently requires $$$26$$$ letters represented by the
+  uppercase English letters <code>'A'</code> through <code>'Z'</code>.
+</p>
+
+<p>
+  Margaret wants to compare the sequences $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$. The best way to do this is to do a series
+  of sequence analysis tests. Each test involves taking a prefix from $$$\mathbf{A}$$$
+  containing only the first $$$\mathbf{P}$$$ letters from $$$\mathbf{A}$$$, which is called the $$$\mathbf{A}$$$-prefix.
+  Each test also involes taking a suffix from $$$\mathbf{B}$$$ containing only the
+  last $$$\mathbf{S}$$$ letters from $$$\mathbf{B}$$$, which is called the $$$\mathbf{B}$$$-suffix. Margaret 
+  then needs to compare the $$$\mathbf{A}$$$-prefix to the $$$\mathbf{B}$$$-suffix. A substring is a subsequence of contiguous
+  letters. A substring from the $$$\mathbf{A}$$$-prefix matches the $$$\mathbf{B}$$$-suffix if the $$$\mathbf{B}$$$-suffix starts with
+  that substring. That is, the substring is a prefix of the $$$\mathbf{B}$$$-suffix. The result of a test is the
+  length of the longest substring from the $$$\mathbf{A}$$$-prefix that matches the $$$\mathbf{B}$$$-suffix.
+<p>
+
+<p>
+  Margaret needs some software to determine the outcome of a batch of $$$\mathbf{Q}$$$ sequence analysis tests.
+  Note that each test is independent. Margaret has many copies of $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$ and a new one is used
+  for each test.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.
+  Each test case begins with a line containing two strings and an integer,
+  $$$\mathbf{A}$$$, $$$\mathbf{B}$$$, and $$$\mathbf{Q}$$$ respectively.
+  Each test case ends with $$$\mathbf{Q}$$$ lines, the $$$i$$$-th of which contains two integers $$$\mathbf{P_i}$$$ and $$$\mathbf{S_i}$$$,
+  which are the prefix and suffix sizes for the $$$i$$$-th sequence analysis test.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing
+  <code>Case #$$$x$$$: $$$y_1 ~ y_2 ~ \dots ~ y_{\mathbf{Q}}$$$</code>,
+  where $$$x$$$ is the test case number (starting from 1) and $$$y_i$$$ is the answer to the
+  $$$i$$$-th query in the input.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds.<br/>
+Memory limit: 2 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 100$$$.<br/>
+  $$$1 \leq \mathbf{P_i} \leq $$$ the length of $$$\mathbf{A}$$$.<br/>
+  $$$1 \leq \mathbf{S_i} \leq $$$ the length of $$$\mathbf{B}$$$.<br/>
+</p>
+  
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$1 \le $$$ the length of $$$ \mathbf{A} \le 3000$$$.<br/>
+$$$1 \le $$$ the length of $$$ \mathbf{B} \le 3000$$$.<br/>
+$$$1 \le \mathbf{Q} \le 3000$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+  $$$1 \le $$$ the length of $$$ \mathbf{A} \le 10^5$$$.<br/>
+  $$$1 \le $$$ the length of $$$ \mathbf{B} \le 10^5$$$.<br/>
+  The sum of the lengths of $$$\mathbf{A}$$$ over all test cases is $$$\leq 5 \times 10^5$$$<br/>
+  The sum of the lengths of $$$\mathbf{B}$$$ over all test cases is $$$\leq 5 \times 10^5$$$<br/>
+  $$$1 \le \mathbf{Q} \le 10^5$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="genetic_sequences_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+ABCABAC CABABA 3
+3 6
+7 6
+6 5
+BANANA HABANA 2
+5 4
+5 5
+ABC ABD 1
+2 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="genetic_sequences_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 1 4 3
+Case #2: 4 1
+Case #3: 0
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In Sample Case #1, there are 3 tests. The prefix <code>ABC</code> from $$$\mathbf{A}$$$ and the complete suffix
+  <code>CABABA</code> from $$$\mathbf{B}$$$ are compared in the first test. The answer is 1, since <code>C</code>
+  is the longest substring that is contained in <code>ABC</code> and is a prefix of
+  <code>CABABA</code>. In the second test, <code>ABCABAC</code> is tested against
+  <code>CABABA</code> and the longest match is <code>CABA</code>. In the third test, <code>ABCABA</code>
+  is tested against <code>ABABA</code> and the longest match is <code>ABA</code>.
+</p>
+
+<p>
+  In Sample Case #2, there are 2 tests. In the first, <code>BANAN</code> is tested against
+  <code>BANA</code>, and the longest match is <code>BANA</code>. In the second, <code>BANAN</code>
+  is tested against <code>ABANA</code>, and the longest match is <code>A</code>.
+</p>
+
+<p>
+  In Sample Case #3, there is one test. In it, <code>AB</code> is tested against <code>D</code>.
+  Since there is no match the answer is 0.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,474 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Analysis: Old Gold</h1><h3>Test Set 1</h3>
+
+<p>
+  For a given gold placement, we can consider what the markings would look like
+  if they were all known. For example, if two consecutive gold nuggets are 3
+  kilometers apart, the expected pattern of markings would be <code>o<>o</code>.
+  If they are 6 kilometers apart, the expected pattern would be
+  <code>o<<=>>o</code>, and if they are 1 kilometer apart, it would be simply
+  <code>oo</code>.
+</p>
+
+<p>
+  Because each of the expected patterns only depends on the positions of the two
+  gold nuggets to the left and right, our solution can involve repeatedly adding
+  a new gold nugget to the east and checking that all of the markings between
+  the new gold nugget and the previous gold nugget match the expected pattern.
+  We can make this algorithm efficient with
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank"
+    >dynamic programming</a
+  >
+  by defining $$$dp(i)$$$ as the number of gold placements for the first $$$i$$$
+  kilometers that have a gold nugget at the $$$i$$$-th kilometer.
+</p>
+
+<p>
+  $$$dp(i)$$$ is calculated as the sum of $$$dp(j)$$$ for all $$$(j < i)$$$
+  where the markings between kilometer $$$j$$$ and $$$i$$$ are valid, plus
+  $$$1$$$ if $$$i$$$ can be the first gold nugget on the road. We can check if
+  the markings are valid by iterating over all positions between $$$j$$$ and
+  $$$i$$$ and checking if each one is either (<code>.</code>) or the expected
+  marking of (<code><</code>), (<code>=</code>), or (<code>></code>). Also, the
+  positions $$$j$$$ and $$$i$$$ themselves must have a (<code>.</code>) or
+  (<code>o</code>).
+</p>
+
+<p>
+  We also need to specially handle the parts of the road to the west of the
+  first gold nugget and to the east of the last gold nugget. All markings to the
+  west of the first gold nugget must be (<code>.</code>) or (<code>></code>).
+  Similarly, our final answer will be the sum of $$$dp(i)$$$ for all $$$i$$$
+  where all markings to the east are (<code>.</code>) or (<code><</code>).
+</p>
+
+<p>
+  In the solution above, we calculate the value of each $$$dp(i)$$$ by iterating
+  over all positions for the previous nugget and checking if the markings in
+  between are valid. This is $$$O(n^2)$$$, where $$$n$$$ is the length of $$$\mathbf{S}$$$.
+  Applying this to each element of the dynamic programming table leads to a
+  final time complexity of $$$O(n^3)$$$.
+</p>
+
+<h3>Test Set 2</h3>
+
+<p>
+  We will solve Test Set 2 by speeding up the calculation of each $$$dp(i)$$$.
+  Let's use $$$\mathbf{S}_x$$$ to denote the marking at position $$$x$$$, with
+  $$$\mathbf{S}_0$$$ being the first marking. Also, let's use $$$p$$$ to denote the
+  position of the last known (<code><</code>, <code>=</code>, <code>></code>, or
+  <code>o</code>) marking before $$$i$$$, or $$$-1$$$ if there is no known
+  marking before $$$i$$$. This means that $$$\mathbf{S}_j$$$ is (<code>.</code>) for
+  all ($$$p < j < i$$$). We need to find all positions $$$j$$$ that are valid
+  and part of our summation for $$$dp(i)$$$. We can make the following
+  observations:
+</p>
+
+<ol>
+  <li>
+    All positions ($$$p < j < i$$$) are valid since there are only
+    (<code>.</code>)s in this range.
+  </li>
+  <li>
+    If $$$\mathbf{S}_p$$$ is (<code>o</code>), then its position $$$j = p$$$ is valid.
+  </li>
+  <li>
+    If $$$\mathbf{S}_p$$$ is (<code><</code>), then it can be part of the left half of
+    the pattern between two gold nuggets. The range of valid positions extends
+    to the left of $$$p$$$ as long as the markings are (<code>.</code>) or
+    (<code><</code>) and the center of the pattern has not passed $$$p$$$. More
+    precisely, let $$$q$$$ be the largest position less than $$$p$$$ where
+    $$$\mathbf{S}_q$$$ is (<code>=</code>), (<code>></code>), or (<code>o</code>), or
+    $$$-1$$$ if there is no such position, and let $$$r$$$ be the leftmost
+    position for the gold nugget that keeps the center of the pattern to the
+    right of $$$p$$$. In this case, $$$r = p - (i - (p + 1)) = 2p - i + 1$$$.
+    Then all positions ($$$max(q, r - 1) < j < p$$$) where $$$\mathbf{S}_j$$$ is
+    (<code>.</code>) are valid. If $$$\mathbf{S}_q$$$ is (<code>o</code>), then $$$j =
+    q$$$ can be valid as well as long as $$$q \ge r$$$.
+  </li>
+  <li>
+    If $$$\mathbf{S}_p$$$ is (<code>=</code>), then it can be the center of the pattern
+    between two gold nuggets, as long as the markings that will end up on the
+    left side of the pattern are (<code>.</code>) or (<code><</code>). More
+    precisely, let $$$q$$$ again be the largest position less than $$$p$$$ where
+    $$$\mathbf{S}_q$$$ is (<code>=</code>), (<code>></code>), or (<code>o</code>), or
+    $$$-1$$$ if there is no such position. Let $$$r$$$ be the position of the
+    gold nugget that will result in the center of the pattern being at $$$p$$$.
+    In this case, $$$r = p - (i - p) = 2p - i$$$. Then $$$j = r$$$ is valid as
+    long as $$$r > q$$$, or if $$$\mathbf{S}_q$$$ is (<code>o</code>) and $$$r = q$$$.
+  </li>
+  <li>
+    If $$$\mathbf{S}_p$$$ is (<code>></code>), then it can be part of the right half of
+    the pattern between two gold nuggets. As such, the gold nugget
+    <i>cannot</i> be anywhere to the left of $$$p$$$ that causes the center of
+    the pattern to be to the right of $$$p$$$. More precisely, let $$$r$$$ be
+    the rightmost position for the gold nugget with the center of the pattern to
+    the left of $$$p$$$, so $$$r = p - 1 - (i - p) = 2p - i - 1$$$. Then ($$$r <
+    j < p$$$) is <i>not</i> valid.
+  </li>
+</ol>
+
+<p>
+  Observations 2, 3, and 4 all impose a limit on the lowest possible values for
+  $$$j$$$, but observation 5 does not. This means that we can traverse backwards
+  through $$$\mathbf{S}$$$ applying observation 5 for each (<code>></code>) until we reach a
+  (<code>o</code>), (<code><</code>), (<code>=</code>), at which point the
+  limits from observations 2, 3, and 4 take effect, or until we reach the start
+  of the road.
+</p>
+
+<p>
+  We need to make one more observation about the number of contiguous ranges of
+  positions for $$$j$$$ that are valid. Observation 5 causes the next range of
+  valid positions to be <i>double</i> the distance from the current
+  (<code>></code>) to $$$i$$$. Let's suppose that the position of the last
+  (<code>></code>) is $$$l$$$ kilometers to the west of $$$i$$$. If we were
+  trying to maximize the number of contiguous ranges of valid positions, we
+  would place the next (<code>></code>) at a position $$$2l + 2$$$ kilometers
+  west of $$$i$$$ so that there is a valid range of length 1 at $$$2l + 1$$$
+  kilometers west. Similarly, we would place the following (<code>></code>) at a
+  position $$$2(2l + 2) + 2 = 4l + 6$$$ kilometers west of $$$i$$$. Continuing
+  this logic and ignoring the constant term in the equation, we get that having
+  $$$k$$$ ranges of valid positions requires $$$n > 2^kl$$$ kilometers.
+  Therefore, $$$k < \log n - \log l$$$, which is $$$O(\log n)$$$ even if $$$l =
+  1$$$!
+</p>
+
+<p>
+  Our resulting algorithm will iterate over all ranges of valid positions for
+  $$$j$$$ and calculate the sum of $$$dp(j)$$$ in that range. We can calculate
+  this sum for a single range in $$$O(1)$$$ time complexity using a
+  <a href="https://en.wikipedia.org/wiki/Prefix_sum" target="_blank"
+    >prefix sum</a
+  >
+  array. This prefix sum array should be updated as we calculate each
+  $$$dp(i)$$$. Our target overall time complexity will be $$$O(n \log n)$$$.
+</p>
+
+<h4>Implementation</h4>
+
+<p>
+  To aid in the implementation of the observations above, we can precalculate
+  the positions of the last marking for each kilometer on the road, for various
+  combinations of marking types. In particular, we can precalculate the largest
+  $$$j < i$$$ such that $$$\mathbf{S}_j$$$ is (<code>></code>) for each possible
+  $$$i$$$. This would be needed to calculate observation 5. We can also
+  precalculate similar arrays for the last instance of (<code>o</code>),
+  (<code><</code>), or (<code>=</code>) to choose between observations 2, 3, and
+  4, and the last instance of (<code>o</code>), (<code>=</code>), or
+  (<code>></code>) for the calculation of observation 3 or 4.
+</p>
+
+<p>
+  Unfortunately, simply traversing through each (<code>></code>) until we reach
+  observation 2, 3, or 4 could be $$$O(n)$$$ if there are many
+  (<code>></code>)s. However, if $$$p$$$ is the position of the current
+  (<code>></code>), we know that there are no valid positions between $$$r = 2p
+  - i - 1$$$ and $$$p$$$, so we can simply skip to the leftmost (<code>></code>)
+  in that range, as long as we don't skip past any (<code>o</code>),
+  (<code><</code>), or (<code>=</code>). We can precalculate an array with the
+  next (<code>></code>) for each position $$$i$$$ for this purpose. Even though
+  we have not travelled our expected $$$2^k$$$ kilometers, we will reach that
+  point in the next iteration anyway because there were no more
+  (<code>></code>)s before the one we chose.
+</p>
+
+<p>
+  Also note that, when calculating observation 3, we can use the sum of all
+  values for $$$j$$$ in ($$$max(q, r - 1) < j < p$$$), even if some of the
+  positions have a
+  <code><</code>, because those positions cannot have a gold nugget and the
+  corresponding $$$dp$$$ value will be $$$0$$$.
+</p>
+
+<p>
+  Finally, note that the range of invalid positions in observation 5 between
+  $$$r = 2p - i - 1$$$ and $$$p$$$ can cause an upper bound on the valid
+  positions when applying observations 2, 3, or 4. An example of this is
+  <code>o.>.i</code>, where the (<code>o</code>) cannot be a valid $$$j$$$ when
+  calculating $$$dp(i)$$$.
+</p>
+
+<p>
+  Since none of these implementation details worsens the time complexity, our
+  final algorithm is $$$O(n \log n)$$$
+</p>
+
+<h4>Alternative Implementation</h4>
+
+<p>TODO: Add explanation of alternative implementation idea if desired.</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>
