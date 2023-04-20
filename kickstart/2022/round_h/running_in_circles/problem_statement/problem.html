@@ -1,0 +1,660 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round H</h3><h1>Running in Circles</h1><h3>Problem</h3>
+<p>
+  Ada has decided that this year, she will take part in the annual marathon that takes place in her
+  city. Since this is the first time she would be running such a long distance, she has decided to
+  start practising for it by running in the circular track of length $$$\mathbf{L}$$$ units near her house.
+</p>
+<p>
+  Ada wants to focus only on running, so she decides to use a machine to count the number of laps
+  she has run. The machine is placed at the starting line of the circular track and starts the
+  count from $$$0$$$. Every time Ada arrives at
+  the starting line running in the same direction as the last time she departed from the
+  starting line, the
+  machine increases the number of laps that Ada has run by $$$1$$$. If she crosses the starting line
+  or changes
+  direction at the starting line, the machine considers the new direction as the direction she
+  last touched the starting line. The machine only remembers the last direction in which Ada touched
+  the starting line. During a lap, Ada can change directions any number of times, but as long as she
+  eventually touches the starting line in the same direction as she last touched it, the count of
+  laps in the machine increases by $$$1$$$.
+</p>
+<p>
+  This is the first time Ada has practised running long distances, so she cannot run continuously.
+  She runs some distance, then takes a break to regain her energy. However, when she starts running
+  again after taking a break, she cannot remember which direction she was running in previously.
+  So she picks one of the directions, clockwise or anticlockwise, and starts running from the same
+  position where she stopped.
+</p>
+<p>
+  Ada begins at the starting line and is initially facing in the direction of her first run. She
+  runs a total of $$$\mathbf{N}$$$ times, taking breaks in between. Given
+  the information of the
+  distance $$$\mathbf{D_i}$$$ units Ada has run, and the direction $$$\mathbf{C_i}$$$ she has taken (clockwise or
+  anticlockwise) when she ran the $$$i$$$-th time, for all $$$i$$$ from
+  $$$1, \dots, \mathbf{N}$$$, can you tell the number
+  of laps that would be reported by the machine
+  at the end?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow. <br/>
+  The first line of each test case contains two positive integers $$$\mathbf{L}$$$ and $$$\mathbf{N}$$$, the length of the
+  circular track in units, and the number of times Ada has run respectively. <br/>
+  The next $$$\mathbf{N}$$$ lines describe Ada's runs. The $$$i$$$-th line contains a positive integer $$$\mathbf{D_i}$$$ and
+  a character $$$\mathbf{C_i}$$$, the distance in units Ada has run
+  and the direction she has taken (clockwise or anticlockwise) respectively
+  during the $$$i$$$-th run. $$$\mathbf{C_i}$$$ will always be either <code>'C'</code> (denoting clockwise
+  direction) or <code>'A'</code> (denoting anticlockwise direction).
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+  where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is a non negative integer
+  denoting the number of laps reported by the machine at the end.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 100$$$.<br/>
+  $$$1 \le \mathbf{L} \le 10^9$$$.<br/>
+  $$$1 \le \mathbf{N} \le 10^4$$$.<br/>
+  $$$1 \le \mathbf{D_i} \le 10^9$$$, for all $$$1 \le i \le \mathbf{N}$$$.<br/>
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+Time limit: 20 seconds.<br/>
+
+  $$$\mathbf{C_i}$$$ is always <code>'C'</code>, for all $$$1 \le i \le \mathbf{N}$$$.
+</p>
+
+<h4>Test Set 2</h4>
+<p>
+Time limit: 40 seconds.<br/>
+
+  $$$\mathbf{C_i}$$$ can be either <code>'C'</code> or <code>'A'</code>, for all $$$1 \le i \le \mathbf{N}$$$.
+</p>
+
+
+  <h3>Sample</h3>
+  <i>
+    Note: there are additional samples that are not run on submissions down below.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="running_in_circles_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+5 3
+8 C
+3 C
+6 C
+8 4
+5 C
+9 C
+8 C
+20 C
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="running_in_circles_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 3
+Case #2: 5
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In Sample Case #1, the length of the circular track is $$$5$$$ units. Ada is facing the
+  clockwise direction in the beginning.
+  <ul>
+    <li>
+      First, Ada runs $$$8$$$ units in the
+      clockwise direction, touching
+      the starting line in the process, and the number of laps in the machine increases by $$$1$$$.
+      The machine now reports $$$1$$$ lap.
+      Ada is now $$$3$$$ units from the starting line in the clockwise direction.
+    </li>
+    <li>
+      Next, she runs $$$3$$$ units in the clockwise direction. This time, she touches the starting
+      line again and the number of laps in the machine increase by $$$1$$$. The machine now reports
+      $$$2$$$ laps.
+      After this, she is $$$1$$$ unit from the starting line in the clockwise direction.
+    </li>
+    <li>
+      Finally, she runs $$$6$$$ units in the clockwise direction, and she touches the starting line
+      again, increasing the number of laps in the
+      machine by $$$1$$$. At the end, the machine reports $$$3$$$ laps.
+    </li>
+  </ul>
+</p>
+<p>
+  In Sample Case #2, the length of the circular track is $$$8$$$ units. Ada is facing the
+  clockwise direction in the beginning.
+  <ul>
+    <li>
+      First, Ada runs $$$5$$$ units in the clockwise direction. Ada is now $$$5$$$ units from the
+      starting line in the clockwise direction.
+    </li>
+    <li>
+      Next, she runs $$$9$$$ units in the clockwise direction, touching the starting line. The
+      number of laps in the machine increases by $$$1$$$. The machine now reports $$$1$$$ lap.
+      After this, she is $$$6$$$ units from the starting line in the clockwise direction.
+    </li>
+    <li>
+      Next, she runs $$$8$$$ units in the clockwise direction. She touches the starting line again,
+      increasing the number of laps in the machine by $$$1$$$. The machine now reports
+      $$$2$$$ laps. After this, she is $$$6$$$ units from the starting line in the clockwise
+      direction.
+    </li>
+    <li>
+      Finally, she runs $$$20$$$ units in the clockwise direction. This time, she touches the
+      starting line a total of $$$3$$$ times, increasing the number of laps in the machine by
+      $$$3$$$. At the end, the machine reports $$$5$$$ laps.
+    </li>
+  </ul>
+</p>
+
+
+  <br/>
+  <h3>Additional Sample - Test Set 2</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 2. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="running_in_circles_sample_ts2_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_1">3
+5 3
+8 C
+4 A
+5 C
+4 5
+2 C
+8 A
+3 A
+5 C
+8 A
+4 3
+3 C
+2 A
+5 C
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="running_in_circles_sample_ts2_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_1">Case #1: 1
+Case #2: 5
+Case #3: 1
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In Sample Case #1, the length of the circular track is $$$5$$$ units. Ada is facing the
+  clockwise direction in the beginning.
+  <ul>
+    <li>
+      First, Ada runs $$$8$$$ units in the
+      clockwise direction, touching
+      the starting line in the process, and the number of laps in the machine increases by $$$1$$$.
+      The machine now reports $$$1$$$ lap.
+      Ada is now $$$3$$$ units from the starting line in the clockwise direction.
+    </li>
+    <li>
+      Next, she runs runs $$$4$$$ units in the anticlockwise direction. She touches the starting
+      line,
+      but since she touches it running in the opposite direction to what she was running previously,
+      this does not increase the number of laps in the machine. She is now $$$1$$$ unit
+      from the starting line in the anticlockwise direction.
+    </li>
+    <li>
+      Finally, she runs $$$5$$$ units in the clockwise direction. This time, again, she touches the
+      starting line, but since she last touched it in the anticlockwise direction, this is not
+      counted
+      by the machine. She does not touch the starting line again and at the end, the machine
+      reports $$$1$$$ lap.
+    </li>
+
+  </ul>
+</p>
+<p>
+  In Sample Case #2, the length of the circular track is $$$4$$$ units. Ada is facing the
+  clockwise direction in the beginning.
+  <ul>
+    <li>
+      First, Ada runs $$$2$$$ units in the clockwise direction. Ada is now $$$2$$$ units from the
+      starting line in the clockwise direction.
+    </li>
+    <li>
+      Next, she runs runs $$$8$$$ units in the anticlockwise direction. She touches the starting
+      line,
+      but since she touches it running in the opposite direction to what she was running previously,
+      this does not increase the number of laps in the machine. She then continues running
+      and ends up touching the starting line again. This time the number of laps reported by the
+      machine increases by $$$1$$$. The machine now reports $$$1$$$ lap.
+      After this run, she is $$$2$$$ units from the starting line in the anticlockwise direction.
+    </li>
+    <li>
+      Next, she runs $$$3$$$ units in the anticlockwise direction. She touches the
+      starting line, and the number of laps in the machine increases by $$$1$$$. The machine now
+      reports $$$2$$$ laps. After this run, she is $$$1$$$ unit from the starting line in the
+      anticlockwise direction.
+    </li>
+    <li>
+      Next, she runs $$$5$$$ units in the clockwise direction. She touches the starting line, but
+      this is not counted by the machine. She keeps running and then touches the starting line at
+      the end of her run, increasing the number of laps in the machine by $$$1$$$. The machine now
+      reports $$$3$$$ laps. After this run, she is at the starting line facing the clockwise
+      direction.
+    </li>
+    <li>
+      Finally, she runs $$$8$$$ units in the anticlockwise direction. At the beginning of this run,
+      she changes her
+      direction at the starting line, and the machine now considers the new direction,
+      anticlockwise, as the direction she last touched the starting line. She continues running
+      and touches the starting
+      line twice in the anticlockwise direction, increasing the number of laps in the machine by
+      $$$2$$$. At the end, the machine reports $$$5$$$ laps.
+    </li>
+  </ul>
+</p>
+<p>
+  In Sample Case #3, the length of the circular track is $$$4$$$ units. Ada is facing in the
+  clockwise direction in the beginning.
+  <ul>
+    <li>
+      First, Ada runs $$$3$$$ units in the clockwise direction. After this, she is $$$3$$$ units
+      from the starting line in the clockwise direction.
+    </li>
+    <li>
+      Next, she runs $$$2$$$ units in the anticlockwise direction. During this run, she does not
+      touch the starting line, so the machine still considers the clockwise direction as the last
+      direction. After this run, she is $$$1$$$ unit from the starting line in the clockwise
+      direction.
+    </li>
+    <li>
+      Finally, she runs $$$5$$$ units in the clockwise direction. She crosses the starting line
+      once, running in the same direction, clockwise, as the last time she departed from it 
+      and the count of number of laps in the machine increases by $$$1$$$. At the end, the
+      machine reports $$$1$$$ lap.
+    </li>
+  </ul>
+</p>
+
+    </div>
+  </body>
+</html>

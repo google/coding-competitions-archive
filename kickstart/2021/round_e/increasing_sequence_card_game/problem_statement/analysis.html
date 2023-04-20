@@ -1,0 +1,377 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round E</h3><h1>Analysis: Increasing Sequence Card Game</h1><h3>
+    Test Set 1
+</h3>
+<p>
+For the first test set, we can generate all possible arrangements of the cards
+from $$$1$$$ to $$$\mathbf{N}$$$. For each arrangement of the cards, we can play the game to
+find the score for that particular arrangement. Then the expected score of the
+game will be the average score over all arrangements. The total number of
+possible arrangements for $$$\mathbf{N}$$$ cards is $$$\mathbf{N}!$$$.
+</p>
+
+<p>
+The time complexity is $$$O(\mathbf{N} \cdot \mathbf{N}!)$$$ which is under the required limit
+for $$$\mathbf{N} = 10$$$.
+</p>
+
+<h3>
+    Test Set 2
+</h3>
+<p>
+Our previous strategy would not work for this test set. <br />
+Let us consider arrangements where the number on top of the pile is $$$x$$$.
+Then among the remaining $$$\mathbf{N} - 1$$$ cards, all the cards that are smaller
+than $$$x$$$ will be discarded. We only need to take care of the ones that are
+greater than $$$x$$$. So, the expected score for arrangements with $$$x$$$ on
+top of the pile will be one higher than the expected score of the rest of the
+cards greater than $$$x$$$. Also, it does not matter what the starting and
+ending number on the cards is, all that matters is the number of cards. So, the
+expected score of cards from $$$x + 1$$$ to $$$\mathbf{N}$$$ is equal to expected score of
+cards from $$$1$$$ to $$$\mathbf{N} - x$$$. Assuming $$$E_\mathbf{N}$$$ denotes the expected
+score of $$$\mathbf{N}$$$ cards, the expected score when $$$x$$$ is on top is $$$E_{\mathbf{N} - x}
++ 1$$$.
+</p>
+
+<p>
+Now, $$$x$$$ ranges from $$$1$$$ to $$$\mathbf{N}$$$, so the expected score for $$$\mathbf{N}$$$ cards is
+$$$E_\mathbf{N} = \frac{\sum_{x=1}^{\mathbf{N}}(E_{\mathbf{N} - x} + 1)}{\mathbf{N}} =
+\frac{\sum_{i=0}^{\mathbf{N}-1}E_{i}}{\mathbf{N}} + 1$$$. The summation in the term is a
+cumulative sum of expected scores of first $$$\mathbf{N}-1$$$ natural numbers. So,
+expected score for $$$\mathbf{N}$$$ cards can be computed in linear time if we maintain the
+cumulative sum of the expected score for $$$\mathbf{N}-1$$$ cards.
+</p>
+
+<h3>
+    Test Set 3
+</h3>
+<p>
+Let us denote $$$\sum_{i=0}^{\mathbf{N}}E_i$$$ as $$$S_\mathbf{N}$$$, then from the result of
+the previous section, we have $$$E_\mathbf{N} = \frac{S_{\mathbf{N}-1}}{\mathbf{N}} + 1$$$. Now, for
+$$$E_{\mathbf{N}+1}$$$ we have: <br />
+$$$E_{\mathbf{N}+1} = \frac{S_\mathbf{N}}{\mathbf{N}+1} + 1 = \frac{E_\mathbf{N} + S_{\mathbf{N}-1}}{\mathbf{N}+1} + 1$$$
+<br />
+Now, substituting $$$E_\mathbf{N}$$$ from the previous result, we get: <br />
+$$$E_{\mathbf{N}+1} = \frac{\frac{S_{\mathbf{N}-1}}{\mathbf{N}} + 1 + S_{\mathbf{N}-1}}{\mathbf{N}+1} + 1 =
+\frac{\frac{(\mathbf{N}+1)S_{\mathbf{N}-1}}{\mathbf{N}} + 1}{\mathbf{N}+1} + 1$$$ <br />
+$$$\Rightarrow E_{\mathbf{N}+1} = \frac{S_{\mathbf{N}-1}}{\mathbf{N}} + \frac{1}{\mathbf{N}+1} + 1$$$ <br />
+$$$\Rightarrow E_{\mathbf{N}+1} = E_\mathbf{N} + \frac{1}{\mathbf{N}+1}$$$ <br />
+</p>
+
+<p>
+This is the
+<a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)" target="_blank">
+    harmonic series
+</a> since $$$E_1 = 1$$$. We can estimate $$$E_\mathbf{N}$$$ for $$$\mathbf{N} \gt 10^{6}$$$
+with $$$E_{10^{6}} + \int_{10^{6} +1}^{\mathbf{N}+1} \frac{1}{x} \,dx$$$.  Since
+$$$\int \frac{1}{x} \,dx = \log(x) + C$$$, we get (for $$$\mathbf{N} \gt 10^6$$$):
+<br/>
+$$$E_\mathbf{N} = E_{10^{6}} + \log(\mathbf{N}+1) - \log(10^{6} + 1)$$$.</p>
+
+<p>
+We can precompute the harmonic series till $$$10^6$$$ in linear time and then
+estimate the score using the above formula for $$$\mathbf{N} \gt 10^6$$$. So, the
+overall time complexity is constant, specifically $$$O(10^6)$$$ for the
+precomputation.
+</p>
+
+<h5>Error Bounds</h5>
+<p>
+Consider the following $$$3$$$ graphs:
+</p>
+<img src="images/actual.jpg" width="60%" alt="Actual area" />
+<img src="images/larger.jpg" width="60%" alt="Larger area" />
+<img src="images/smaller.jpg" width="60%" alt="Smaller area" />
+
+<p>
+The first image represents the actual number we need
+$$$\sum_{x=s+1}^{e}\frac{1}{x}$$$, second image represents a larger area
+$$$\int_{s}^{e}\frac{1}{x}\,dx$$$ and third image represents a smaller area
+$$$\int_{s+1}^{e+1}\frac{1}{x}\,dx$$$. So, error (denoted as $$$Er_{s,e}$$$) is
+given by:
+</p>
+<p>
+$$$Er_{s,e} \lt \int_{s}^{e}\frac{1}{x}\,dx -
+\int_{s+1}^{e+1}\frac{1}{x}\,dx$$$<br/>
+$$$\Rightarrow Er_{s,e} \lt \int_{s}^{s+1}\frac{1}{x}\,dx -
+\int_{e}^{e+1}\frac{1}{x}\,dx \lt \int_{s}^{s+1}\frac{1}{x}\,dx$$$<br/>
+$$$\Rightarrow Er_{s,e} \lt \frac{1}{s}$$$<br/>
+<br/>
+Now, we are estimating only after $$$10^6$$$, so $$$s = 10^6$$$, hence
+$$$Er_{10^6,e} \lt 10^{-6}$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

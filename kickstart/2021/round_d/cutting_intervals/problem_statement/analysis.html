@@ -1,0 +1,358 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round D</h3><h1>Analysis: Cutting Intervals</h1><p>
+  We are given $$$\mathbf{N}$$$ intervals and are asked to find the maximum number of intervals we can
+  obtain if we perform a maximum of $$$\mathbf{C}$$$ cuts. There are a few key observations required to
+  solve this problem.
+</p>
+<p>
+  First, performing a cut at the same point $$$X$$$ more than once will not result in any additional
+  intervals. After the initial cut, all intervals which contained $$$X$$$ will now be split into
+  intervals that have $$$X$$$ as an endpoint, and thus cannot be cut further at $$$X$$$.
+</p>
+<p>
+  Second, a cut at $$$X$$$ will result in the same number of additional intervals regardless of the
+  number of cuts performed earlier at other points. This implies that at most $$$N$$$ additional
+  intervals can be obtained with each cut.
+</p>
+<p>
+  Based on the aforementioned observations, we can solve this problem as follows. Let $$$A_{j}$$$
+  represent the number of points at which performing a cut will result in $$$j$$$ additional
+  intervals ($$$0 \le j \le \mathbf{N}$$$). Iterating over $$$A$$$ in reverse order, we perform the cuts
+  greedily, adding $$$j \cdot \min(A_{j}, \mathbf{C})$$$ to our result, and decrementing $$$\mathbf{C}$$$ by
+  $$$\min(A_{j}, \mathbf{C})$$$ until $$$\mathbf{C} = 0$$$. The final answer is the result.
+</p>
+<p>
+  Iterating over $$$A$$$ can be done in $$$O(\mathbf{N})$$$. Now, we will go over how to
+  populate $$$A$$$ for the two test sets.
+</p>
+
+<h3>Test set 1</h3>
+<p>
+  For this test set, we can iterate
+  over each point coordinate and count the number of intervals it lies strictly within, i.e. for
+  each $$$X \in [\min(\mathbf{L_i}),\max(\mathbf{R_i})]$$$, we count the number of intervals such that
+  $$$\mathbf{L_i} \lt X \lt \mathbf{R_i}$$$. Let that number be $$$k$$$. Then, we increment $$$A_k$$$.
+</p>
+<p>
+  This can be performed in $$$O(\mathbf{N} \cdot \max(\mathbf{R_i}))$$$.
+</p>
+
+<h3>Test set 2</h3>
+<p>
+  For this test set, the above solution would exceed the time limits.
+</p>
+<p>
+  We observe that the number of additional intervals obtained by a cut at two consecutive points
+  $$$X$$$ and $$$X+1$$$ are the same, except, possibly, when some intervals start or end at these
+  points.
+  We can construct a sorted map $$$M_X$$$ which maps the coordinate $$$X$$$ to the number of
+  <i>additional</i> intervals it lies <i>within</i> as compared to $$$X-1$$$. That is, for each
+  starting interval endpoint $$$\mathbf{L_i}$$$, we increment $$$M_{\mathbf{L_i}+1}$$$. And for each ending
+  interval endpoint $$$\mathbf{R_i}$$$, we decrement $$$M_{\mathbf{R_i}}$$$.
+</p>
+<p>
+  Consider an example with the following intervals: $$$[3, 7], [1, 5], [4, 7]$$$. The mappings
+  created are $$$M_2 = 1, M_4 = 1, M_5 = 0$$$, and $$$M_7 = -2$$$: because one interval begins at 1
+  ($$$M_2$$$ += $$$1$$$), one interval begins at 3 ($$$M_4$$$ += $$$1$$$),
+  one interval begins at 4 ($$$M_5$$$ += $$$1$$$), one intervals ends at 5
+  ($$$M_5$$$ -= $$$1$$$) and two intervals end at 7 ($$$M_7$$$ -= $$$2$$$).
+</p>
+<p>
+  Finally, we iterate over the map in sorted order of keys, keeping track of the number of
+  overlapping intervals $$$j$$$, the previous key $$$k_{prev}$$$, and the current key
+  $$$k_{curr}$$$. We increment $$$A_j$$$ by $$$k_{curr} - k_{prev}$$$. Now $$$A_j$$$ can be used
+  to compute the final solution as described above.
+</p>
+<p>
+  In the above example, we iterate over the keys of $$$M$$$, and start with $$$j = 0$$$. All points
+  smaller than the first key (2) will produce zero additional intervals.<br/>We increment $$$j$$$ by
+  $$$M_2$$$ and go to the next key. Now $$$j = 1, k_{curr} = 4, k_{prev} = 2$$$. We increment
+  $$$A_j = A_1$$$ by $$$k_{curr} - k_{prev} = 2$$$, because the 2 points (2, 3) will produce 1
+  additional interval if we perform a cut on them.<br/> Now we increment $$$j$$$ by $$$M_4$$$ and go
+  to the next key. Now $$$j = 2, k_{curr} = 5, k_{prev} = 4$$$. We increment $$$A_2$$$ by 1, because
+  there is 1 point (4) at which performing cuts will result in 2 additional intervals.<br/>Then, we
+  increment $$$j$$$ by $$$M_5 = 0$$$ and go to the next key, so
+  $$$j = 2, k_{curr} = 7, k_{prev} = 5$$$. Again we increment $$$A_2$$$ by 2, because the points 5,
+  6 also result in 2 additional intervals.<br/> Finally we increment $$$j$$$ by $$$M_7 = -2$$$ and
+  end.<br/> The final result is $$$A_1 = 2, A_2 = 3$$$, and we can start performing greedy cuts.
+</p>
+<p>
+  Constructing the map requires adding $$$2 \cdot \mathbf{N}$$$ endpoints to it, with each addition
+  requiring $$$O(\log(\mathbf{N}))$$$. Therefore, the overall time complexity is
+  $$$O(\mathbf{N} \cdot \log(\mathbf{N}))$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

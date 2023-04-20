@@ -1,0 +1,358 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2020 - Round H</h3><h1>Analysis: Friends</h1><h3>
+Test Set 1
+</h3>
+
+<p>
+  For this test set, we can build an undirected graph, where the nodes represent people and
+  there is an edge between two nodes if and only if the names of the respective people have a common
+  letter. Then each query can be answered by finding a shortest path between two nodes in the graph.
+</p>
+
+<p>
+  Assuming that L is the length of the longest name (recall that L &le; 20), it is straightforward
+  to build the graph in O(L<sup>2</sup><b>N</b><sup>2</sup>) time by considering each pair of nodes
+  and using a nested pair of loops to look for a common letter in the names. The time complexity
+  can be reduced to O(L<b>N</b><sup>2</sup>) if we mark the letters of one of the names, and then
+  iterate over the letters of the other name to see if any of those letters has been marked. A
+  better yet approach is to represent the letters of a name as a 32-bit integer, where the i-th bit
+  is 1 if the i-th letter of the alphabet is present in the name, and 0 otherwise. Then testing for
+  common letters in two names boils down to checking if the logical AND of the respective bitmasks
+  is non-zero, and thus the graph can be built in O(L<b>N</b>+<b>N</b><sup>2</sup>) time.
+</p>
+
+<p>
+  The graph may have up to <b>N</b> &times; (<b>N</b>-1) / 2 edges, therefore, if we answer each
+  query independently, say, using the
+  <a href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth-first search</a>, the overall
+  time complexity of answering all <b>Q</b> queries is
+  O(<b>Q</b><b>N</b><sup>2</sup>), which might be too slow for large values of <b>Q</b>. Even if we
+  never compute the answer for the same query twice by memoizing the results in a two-dimensional
+  array, the time complexity is still O(<b>N</b><sup>4</sup>).
+</p>
+
+<p>
+  A better alternative is to pre-compute the whole distance array in O(<b>N</b><sup>3</sup>) time
+  using the <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">
+  Floyd-Warshall</a> algorithm or running breadth-first seach <b>N</b> times, once from
+  each node. Then the individual queries can be answered in constant time and the overall
+  time complexity becomes O(L<b>N</b> + <b>N</b><sup>3</sup> + <b>Q</b>).
+</p>
+
+<h3>
+Test Set 2
+</h3>
+
+<p>
+  Here <b>N</b> can be large, so we really need an algorithm that is subquadratic in <b>N</b>. Let
+  us look at the problem from a different angle. Using the first sample test case, consider the
+  friendship graph below, and suppose that we need to find the length of the shortest friendship
+  chain between LIZZIE and RUOYU.
+</p>
+<img src="images/friends.png" width="70%" />
+<p>
+  We start out with the set of letters L<sub>0</sub> = {L,I,Z,E}. Since the names KEVIN and LALIT
+  have at least one letter in L<sub>0</sub>, we know that the shortest friendship chain to these
+  names has length 2. By extending our search to the names KEVIN and LALIT, we have reached the
+  letters L<sub>1</sub> = {K,V,N,A,T}. Since BOHDAN has some letters in L<sub>1</sub> (N and A), the
+  length of the shortest friendship chain from LIZZIE to BOHDAN is 3, and adding BOHDAN leads to a
+  new set of letters L<sub>2</sub> = {B,O,H,D}. The name RUOYU has the letter O in L<sub>2</sub>,
+  therefore, the shortest friendship chain to RUOYU has length 4.
+</p>
+<p>
+  The crucial observation here is that we are essentially doing a breadth-first search in a very
+  small graph G on the set of nodes {A,B,C,...,X,Y,Z}, where there is an edge between a pair of
+  letters {u,v} if and only if the letters occur in the same name. The graph for our example is
+  illustrated below.
+</p>
+<img src="images/graph.png" width="70%" />
+<p>
+  The goal of the breadth-first search was to find the shortest path connecting the sets of letters
+  {L,I,Z,E} and {R,U,O,Y}. One of such paths is highlighted in red in the picture below. Instead of
+  doing the breadth-first search, we could also pre-compute all-pairs shortest paths in G in
+  constant time (yes, O(26<sup>3</sup>) is still O(1)), and then answer each query in
+  O(L<sup>2</sup>) time by taking the minimum distance over all pairs of letters
+  {<i>a</i>,<i>b</i>}, where the letter <i>a</i> occurs in the first name, and the letter <i>b</i>
+  occurs in the other name.
+</p>
+<img src="images/path.png" width="70%" />
+<p>
+  We can build the graph G in O(L<sup>2</sup><b>N</b>) time by considering each of the input names
+  and creating an edge between each pair of letters in the name. Consequently, the overall time
+  complexity of the algorithm is O(L<sup>2</sup>(<b>N</b>+<b>Q</b>)).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,451 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round D</h3><h1>Final Exam</h1><h3>Problem</h3>
+<p>
+  It's time for the final exam in algorithms and data structures!
+</p>
+
+<p>
+  Edsger prepared $$$\mathbf{N}$$$ sets of problems.
+  Each set consists of problems in an increasing difficulty sequence;
+  the $$$i$$$-th set can be described by two integers $$$\mathbf{A_i}$$$ and $$$\mathbf{B_i}$$$ ($$$\mathbf{A_i} \le \mathbf{B_i}$$$),
+which denotes that this set contains problems with difficulties $$$\mathbf{A_i}, \mathbf{A_i}+1, \dots, \mathbf{B_i}$$$.
+Among all problems from all sets, it is guaranteed that no two problems have the same difficulty.
+</p>
+
+<p>This semester Edsger has to test $$$\mathbf{M}$$$ students.
+He wants to test each student with exactly one problem from one of his sets.
+No two students can get the exact same problem,
+so when Edsger tests a student
+with some problem, he cannot use this problem anymore.
+Through countless lectures, exercises, and projects, Edsger has gauged student number $$$j$$$ to have
+skill level $$$\mathbf{S_j}$$$, and wants to give that student a problem with difficulty $$$\mathbf{S_j}$$$.
+Unfortunately, this is not always possible, as Edsger may have not prepared a problem of this difficulty,
+or he may have already asked  this problem to some other student earlier.
+Therefore, Edsger will choose for the $$$j$$$-th student a problem of difficulty $$$P_j$$$,
+in a way that $$$|P_j - \mathbf{S_j}|$$$ is minimal and a question of difficulty $$$P_j$$$ was not already
+given to any of the students before the $$$j$$$-th student.
+In case of ties, Edsger will always choose the easier problem.
+Note that the problem chosen for the $$$j$$$-th student may
+affect problems chosen for all the students tested later,
+so you have to process students in the same order as they appear in the input.
+</p>
+
+<p>
+  As keeping track of all the problems can be fairly complicated,
+  can you help Edsger and determine which problems he should give to all of his students?
+</p>
+
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$.
+  $$$\mathbf{T}$$$ test cases follow.
+</p>
+<p>
+  Each test case begins with a line which contains
+  two integers $$$\mathbf{N}$$$ and $$$\mathbf{M}$$$: the number of problem sets,
+  and the number of students, respectively.
+  $$$\mathbf{N}$$$ lines follow, describing the problem sets. Each of these $$$\mathbf{N}$$$ lines
+  consists of two integers $$$\mathbf{A_i}$$$ and $$$\mathbf{B_i}$$$ denoting the easiest and the hardest
+  problem in the $$$i$$$-th problem set.
+  Finally, the test case ends with a single line with $$$\mathbf{M}$$$ integers $$$\mathbf{S_1}, \mathbf{S_2}, \dots,\mathbf{S_M}$$$
+  denoting students' skill levels in the order they will be tested.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$P_1\,P_2\,\dots\,P_M$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$P_j$$$ is a difficulty of a problem that will
+  be given to the $$$j$$$-th student.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+Among all problem sets, no two problems have the same difficulty.<br/>
+The number of problems in total is greater than or equal to the number of students.
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+Time limit: 20 seconds.<br/>
+
+$$$1 \le \mathbf{N} \le 1000$$$.<br/>
+$$$1 \le \mathbf{M} \le 1000$$$.<br/>
+$$$1 \le \mathbf{A_i} \le \mathbf{B_i} \le 1000$$$ for all $$$i$$$.<br/>
+$$$1 \le \mathbf{S_j} \le 1000$$$ for all $$$j$$$.<br/>
+
+</p>
+
+<h4>Test Set 2</h4>
+<p>
+Time limit: 40 seconds.<br/>
+
+$$$1 \le \mathbf{N} \le 10^5$$$.<br/>
+$$$1 \le \mathbf{M} \le 10^5$$$.<br/>
+$$$1 \le \mathbf{A_i} \le \mathbf{B_i} \le 10^{18}$$$ for all $$$i$$$.<br/>
+$$$1 \le \mathbf{S_j} \le 10^{18}$$$ for all $$$j$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="final_exam_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+5 4
+1 2
+6 7
+9 12
+24 24
+41 50
+14 24 24 4
+1 1
+42 42
+24
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="final_exam_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 12 24 11 2
+Case #2: 42</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, we have $$$\mathbf{N} = 5$$$ problem sets and $$$\mathbf{M} = 4$$$ students.
+  <ul>
+   <li> For the first student, we are looking for a problem with the difficulty closest to their skill level
+  $$$\mathbf{S_1}= 14$$$. The problem with the minimum difference is problem with difficulty $$$12$$$, which we can
+    find in the third problem set, so $$$P_1 = 12$$$.</li>
+    <li>For the second student, we are looking for a problem with the difficulty closest to their skill level
+    $$$\mathbf{S_2} = 24$$$. Fortunately, we can find a problem of this exact difficulty in the fourth problem set, so $$$P_2 = 24$$$.</li>
+    <li>For the third student, we are once again looking for a problem with the difficulty closest to the skill level
+    $$$\mathbf{S_3} = 24$$$. As we already used the problem with difficulty $$$24$$$, we cannot use this problem. The problem closest
+    in difficulty is $$$11$$$, as $$$12$$$ was already used as well. Therefore $$$P_3 = 11$$$.</li>
+    <li>Finally, for the fourth student, we are looking for the problem
+      closest to his skill level $$$\mathbf{S_4} = 4$$$. We have two problems with the same difference:
+    $$$2$$$ and $$$6$$$. We choose the easier problem, so $$$P_4 = 2$$$.</li>
+  </ul>
+</p>
+<p>
+  In Sample Case #2, we have $$$\mathbf{N} = 1$$$ problem set and $$$\mathbf{M} = 1$$$ student. In the only problem set, there is only one problem,
+  so we have to use this problem to examine the first and only student, so $$$P_1 = 42$$$.
+</p>
+
+    </div>
+  </body>
+</html>

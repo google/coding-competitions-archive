@@ -1,0 +1,400 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round A</h3><h1>Analysis: Checksum</h1><p>
+  Suppose we know a subset $$$S$$$ of elements of the matrix $$$\mathbf{A}$$$ because they are either given in
+  the input or revealed by Edsger. Can we restore the remaining elements? If there is only
+  one unknown element in some row or column, we can recover its true value from the known elements
+  in that row or column and the respective checksum. We can apply such an element recovery step
+  until all elements are known or we end up with a matrix where each row and column has at least two
+  unknown elements (aside from fully reconstructed rows and columns). It will be shown later that
+  the whole matrix can be restored using this simple strategy or the subset $$$S$$$ does not provide
+  enough information to do so.
+</p>
+
+<h3>
+Test Set 1
+</h3>
+
+<p>
+  For the small test set, we can examine every potential subset $$$S$$$ of matrix elements and check
+  if $$$S$$$ is sufficient to restore the whole matrix. Among all sufficient subsets $$$S$$$, we
+  pick the smallest in terms of hours as our answer.
+</p>
+
+<p>
+  Given a subset $$$S$$$ of known elements, the above matrix recovery strategy can be implemented in
+  $$$O(\mathbf{N}^2)$$$ time. For example, we can use a BFS-like algorithm iterating over a queue of
+  elements that are the only unknown elements in their rows or columns and calculating their true
+  values one by one. For the sake of efficiency, we also need to maintain the XOR values of
+  currently known elements for each row and column as well as the number of unknown elements per
+  each row and column. As soon as the number of unknown elements for a row or column becomes
+  $$$1$$$, we add that element to the queue.
+</p>
+
+<p>
+  There are $$$O(2^{\mathbf{N}^2})$$$ subsets of elements. Consequently, the overall
+  time complexity of this brute-force algorithm is $$$O(2^{\mathbf{N}^2} \times \mathbf{N}^2)$$$.
+</p>
+
+<h3>
+Test Set 2
+</h3>
+
+<p>
+  Let us look at our problem from graphs perspective. Namely, we construct a weighted bipartite
+  graph $$$G$$$, where the rows and columns of the matrix $$$\mathbf{A}$$$ are represented by nodes in $$$G$$$,
+  and there is an edge of weight $$$\mathbf{B_{i,j}}$$$ between $$$i$$$-th row and $$$j$$$-th column if and
+  only if $$$\mathbf{A_{i,j}} = -1$$$. Please see the below example to make the construction more clear.
+</p>
+<img src="images/checksum.png" width="60%" />
+<p>
+  An isolated node represents a row or column with all its elements known. We can safely disregard
+  such nodes. A leaf node with exactly one incident edge represents a row or column with precisely
+  one unknown element. Note that the process outlined in the first paragraph corresponds to repeated
+  removal of leaves from the graph. If we end up with an empty graph in this way, it means that the
+  original graph must have been a forest without any cycles and we can recover the full matrix
+  without spending any time.
+</p>
+<p>
+  So what if the graph $$$G$$$ does contain a cycle? Given any assignment of binary values to the
+  elements of the matrix, we can flip the values of elements corresponding to the edges of a cycle,
+  and this operation would not change the XOR checksum of any row or column. Consequently, we cannot
+  tell the true value of elements on a cycle unless we reveal at least one of them, and effectivelly
+  break the cycle by removing the edge from the graph and paying a delicious price. In other words,
+  in order to be able to recover the whole matrix, it is necessary to break all cycles by revealing
+  and removing some edges. It is also sufficient &mdash; once all cycles have been broken, what
+  remains is a forest of edges, and the true value of all remaining edges can be determined
+  unambiguously.
+</p>
+<p>
+  Thus we have reduced the original problem to finding a minimum weight subset of edges that breaks
+  all cycles. An intuitive greedy approach involves iterating over the edges in a non-decreasing
+  order of weights and removing the current edge from the graph if it is part of a cycle. An edge
+  is part of a cycle if there is a simple path between its end-nodes other than the edge
+  itself &mdash; a condition that can be tested by, say, running a
+  <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a> from one of
+  the end-nodes.
+</p>
+<p>
+  In our example above, once we remove the cheapest edge of cost $$$1$$$ (the red edge), what
+  remains is a tree, so no other edges will be removed.
+</p>
+<p>
+  Since there can be up to $$$\mathbf{N}^2$$$ edges, the above steps are repeated $$$O(\mathbf{N}^2)$$$ times.
+  One run of the depth-first search costs $$$O(\mathbf{N}^2)$$$ time as well, so the overall time
+  complexity of this approach is $$$O(\mathbf{N}^4)$$$.
+</p>
+<p>
+  But what about the correctness of this greedy approach? The proof is very similar to that of
+  <a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm">Kruskal's</a> algorithm. Consider
+  the first edge $$$e$$$ that is removed by the algorithm, so it has the smallest weight among all
+  edges on cycles. In particular, suppose that $$$e$$$ is part of a cycle $$$C$$$. Now, consider
+  any cycle breaking set of edges $$$X$$$ that does not include $$$e$$$. Since the cycle $$$C$$$
+  must be broken, $$$X$$$ must contain an edge $$$f \neq e$$$ that is also part of the cycle
+  $$$C$$$. The set of edges $$$Y = X - f + e$$$ has a total weight no larger than the weight of
+  $$$X$$$ and it is cycle breaking as well. To prove the second claim, assume the contrary that
+  the graph $$$G - Y$$$ contains a cycle $$$C'$$$, which necessarily includes the edge $$$f$$$ and
+  does not include the edge $$$e$$$. But then we can combine the paths $$$P = C - f$$$ and
+  $$$P' = C' - f$$$ to form a cycle in $$$G - X$$$, which contradicts the fact that $$$X$$$ was
+  cycle breaking. It follows that the edge $$$e$$$ is part of some optimal solution and our greedy
+  choice was valid.
+</p>
+
+<h3>
+Test Set 3
+</h3>
+
+<p>
+  Of course, the problem of finding a minimum weight cycle breaking edge set is equivalent to the
+  well known problem of finding a <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">
+  maximum weight spanning forest</a> of $$$G$$$, except that we would
+  build the complement set of edges to keep rather than the set of edges to remove. In the example
+  above, the edges of the maximum weight spanning forest are rendered green. It would cost Grace one
+  hour (the red edge) to reconstruct the whole matrix.
+</p>
+<p>
+  The graph may potentially have up to $$$\mathbf{N}^2$$$ edges, therefore, a
+  <a href="https://cp-algorithms.com/graph/mst_prim.html#toc-tgt-5">simple implementation</a> of
+  Prim's algorithm without maintaining a priority queue data structure would achieve an
+  $$$O(\mathbf{N}^2)$$$ time complexity. Note that because of the high density of the graph,
+  Prim's algorithm is a better choice than Kruskal's algorithm, as the
+  later would need $$$O(\mathbf{N}^2 \times \log \mathbf{N})$$$ time for sorting the edges.
+</p>
+<p>
+  It is interesting to note that we never use the actual checksums in the graph construction nor
+  the maximum spanning forest algorithm, therefore, the input values $$$\mathbf{R_i}$$$ and $$$\mathbf{C_i}$$$ can be safely
+  ignored.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,383 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Coding Practice with Kick Start Session #2</h3><h1>Analysis: Building Palindromes</h1><p
+  style="
+    display: inline-block;
+    padding: 5px;
+    background-color: #f1f3f4;
+    border: 2px solid #34a853;
+  "
+>
+  <a href="https://youtu.be/PThnKCZ1ZDI?t=306" target="_blank"
+    >View problem and solution walkthrough video
+  </a>
+</p>
+<p>
+  For each of Bob's questions, we have to figure out if it is possible to rearrange a string of
+  letters to form a palindrome. The set of letters is the substring $$$\left[ \mathbf{L_i}, \mathbf{R_i} \right]$$$
+  from the original string from the test case.
+</p>
+<p>
+  One possible approach is to enumerate all permutations of the substring and check if any are
+  palindromes. For a substring of length $$$l$$$, this would involve checking up to
+  <a target="_blank" href="https://en.wikipedia.org/wiki/Factorial">$$$Factorial$$$</a>$$$(l)$$$
+  permutations, each of which costs $$$O(l)$$$ to check if the permutation is a palindrome.
+  Sometimes, "brute force" solutions like this are sufficient to solve competition problems, but in
+  this case, even the $$$\mathbf{N}$$$-max of $$$20$$$ from the smaller test set would take on the order of
+  $$$20 \times Factorial(20) \approx 4.9 \times 10^{19}$$$ operations to perform. This is orders of
+  magnitude more than can be accomplished within the time limit.
+</p>
+<p>
+  One important observation is that a palindrome can be described as an arbitrary string of zero or
+  more letters, followed by the reverse of that string, optionally with one extra letter between
+  them. For example, <code>ABCCBA</code> (without a middle letter) and <code>ABCXCBA</code> (with a
+  middle letter) are both palindromes. These examples illustrate an important property of
+  palindromes, which is that all letters, with the exception of the optional middle letter, must
+  occur an even number of times.
+</p>
+<p>
+  This property holds true for all palindromes, and it turns out that a set of letters with this
+  property can <i>always</i> be arranged to form a palindrome. We can do this by selecting pairs of
+  letters and using them to construct two identical strings. Eventually, we will have at most one
+  letter left over. Finally, we can take one of the strings and concatenate the reverse of the other,
+  optionally with the leftover letter in between. The resulting string will be a palindrome!
+</p>
+<h3>Test set 1</h3>
+<p>
+  For each question, we can count the frequencies of all letters in the substring and decide if it
+  is possible to rearrange them to form a palindrome. For each question, the cost of calculating the
+  frequency of each letter is $$$O(\mathbf{N})$$$. With $$$\mathbf{Q}$$$ questions per test case, this approach has a
+  complexity of $$$O\left(\mathbf{Q} \times \mathbf{N} \right)$$$, which is sufficient for Test set 1.
+</p>
+<h3>Test set 2</h3>
+<p>
+  This test set has much larger limits for $$$\mathbf{Q}$$$ and $$$\mathbf{N}$$$, so the approach from Test set 1 will be too
+  slow to complete within the time limit. An important observation is that for a given test case,
+  Bob's questions are not independent - rather, they are all questions about substrings of the
+  <i>same</i> string. Can we use this to our advantage and share or reuse calculations among the
+  questions?
+</p>
+<p>
+  Thinking about the approach used in Test set 1, we can observe that the process of counting the
+  letters in each substring ends up being repeated many times between the different questions. For
+  example, if one question asked about the range $$$\left[20, 70\right]$$$ and another asked about
+  the range $$$\left[30, 80\right]$$$, these both involve repeating the same counting process for
+  the range $$$\left[30, 70\right]$$$. It turns out we can perform the counting process for
+  <i>every possible question</i> ahead of time by generating a
+  <a target="_blank" href="https://en.wikipedia.org/wiki/Prefix_sum">prefix sum</a> for the
+  frequency of each letter.
+</p>
+<p>
+  Generating a prefix sum for the letter frequencies in a string of length $$$\mathbf{N}$$$ has a complexity of
+  $$$O(\mathbf{N})$$$. Furthermore, once the prefix sum is generated, answering any of Bob's questions can
+  be done in constant time! For any question $$$\left[ \mathbf{L_i}, \mathbf{R_i} \right]$$$, the frequency of letters
+  in the substring is just the difference in value between the prefix sum at the beginning and the
+  end of the substring. This reduces the computational complexity of each test case from
+  $$$O\left(\mathbf{Q} \times \mathbf{N} \right)$$$ to $$$O\left(\mathbf{Q} + \mathbf{N} \right)$$$, which is sufficient for
+  Test set 2.
+</p>
+<p>
+  It is also worth mentioning that while the 1GB memory limit is more than sufficient for this
+  approach, we don't actually need to store the letter frequencies themselves. Because we only need
+  to check whether a letter occurs an even or odd number of times, we can actually calculate a
+  "prefix parity" and compare the parity at the beginning and end of a substring. If at most one
+  letter has a different parity, then the substring can be arranged to form a palindrome.
+</p>
+<h3>Example Solution</h3>
+<pre><code>
+Solve(<var>N</var>, <var>Q</var>, <var>letters</var>, <var>questions</var>) {
+  answer = 0
+  prefix[1]['A':'Z'] = 0
+  for i in 1:<var>N</var> {
+    prefix[i+1] = prefix[i]
+    prefix[i+1][<var>letters</var>[i]]++
+  }
+  for i in 1:<var>Q</var> {
+    [L,R] = <var>questions</var>[i]
+    frequencies = prefix[R+1] - prefix[L]
+    odds = 0
+    for c in 'A':'Z' {
+      if IsOdd(frequencies[c]) {
+        odds++
+      }
+    }
+    if odds &lt;= 1 {
+      answer++
+    }
+  }
+  return answer
+}
+</code></pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

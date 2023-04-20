@@ -1,0 +1,413 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2019 - Round C</h3><h1>Wiggle Walk</h1><h3>Problem</h3>
+<p>
+  Banny has just bought a new programmable robot. Eager to test his coding skills, he has placed the
+  robot in a grid of squares with
+  <b>R</b> rows (numbered 1 to <b>R</b> from north to south) and
+  <b>C</b> columns (numbered 1 to <b>C</b> from west to east).
+  The square in row r and column c is denoted (r, c).
+</p><p>
+  Initially the robot starts in the square (<b>S<sub>R</sub></b>, <b>S<sub>C</sub></b>).
+  Banny will give the robot <b>N</b> instructions. Each instruction is one of
+  <code>N</code>,
+  <code>S</code>,
+  <code>E</code> or
+  <code>W</code>, instructing the robot to move one square north, south, east or west respectively.
+</p><p>
+  If the robot moves into a square that it has been in before, the robot will continue moving in the
+  same direction until it reaches a square that it <i>has not</i> been in before.
+  Banny will never give the robot an instruction that will cause it to move out of the grid.
+</p><p>
+  Can you help Banny determine which square the robot will finish in, after following the <b>N</b>
+  instructions?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>. <b>T</b> test cases follow.
+  Each test case starts with a line containing the five integers <b>N</b>, <b>R</b>, <b>C</b>,
+  <b>S<sub>R</sub></b> and <b>S<sub>C</sub></b>,
+  the number of instructions, the number of rows, the number of columns, the robot's starting row
+  and starting column, respectively.
+</p><p>
+  Then, another line follows containing a single string of <b>N</b> characters;
+  the i-th of these characters is the i-th instruction Banny gives the robot (one of
+  <code>N</code>,
+  <code>S</code>,
+  <code>E</code> or
+  <code>W</code>, as described above).
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: r c</code>, where
+  <code>x</code> is the test case number (starting from 1),
+  <code>r</code> is the row the robot finishes in and
+  <code>c</code> is the column the robot finishes in.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  1 &le; <b>R</b> &le; 5 &times; 10<sup>4</sup>.</br>
+  1 &le; <b>C</b> &le; 5 &times; 10<sup>4</sup>.</br>
+  1 &le; <b>S<sub>R</sub></b> &le; <b>R</b>.</br>
+  1 &le; <b>S<sub>C</sub></b> &le; <b>C</b>.</br>
+  The instructions will not cause the robot to move out of the grid.</br>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  Time limit: 20 seconds.<br/>
+  1 &le; <b>N</b> &le; 100.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  Time limit: 60 seconds.<br/>
+  1 &le; <b>N</b> &le; 5 &times; 10<sup>4</sup>.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="wiggle_walk_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+5 3 6 2 3
+EEWNS
+4 3 3 1 1
+SESE
+11 5 8 3 4
+NEESSWWNESE
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="wiggle_walk_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 3 2
+Case #2: 3 3
+Case #3: 3 7
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+Sample Case #1 corresponds to the top-left diagram, Sample Case #2 corresponds to the top-right diagram and Sample Case #3 corresponds to the lower diagram.
+In each diagram, the yellow square is the square the robot starts in, while the green square is the square the robot finishes in.
+
+<svg version="1.1" viewBox="0.0 0.0 960.0 720.0" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><clipPath id="p.0"><path d="m0 0l960.0 0l0 720.0l-960.0 0l0 -720.0z" clip-rule="nonzero"/></clipPath><g clip-path="url(#p.0)"><path fill="#000000" fill-opacity="0.0" d="m0 0l960.0 0l0 720.0l-960.0 0z" fill-rule="evenodd"/><path shape-rendering="crispEdges" fill="#ffff00" d="m235.50919 128.35957l76.80054 0l0 76.80054l-76.80054 0l0 -76.80054z" fill-rule="nonzero"/><path shape-rendering="crispEdges" fill="#00ff00" d="m158.70866 205.16011l76.80052 0l0 76.80052l-76.80052 0l0 -76.80052z" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m81.908134 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m158.70866 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m235.50919 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m312.30972 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m389.11023 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m465.91077 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m542.7113 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m79.908134 51.559055l464.80316 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m79.908134 128.35957l464.80316 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m79.908134 205.16011l464.80316 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m79.908134 281.96063l464.80316 0" fill-rule="nonzero"/><path fill="#000000" fill-opacity="0.0" d="m272.6063 153.16536l74.77167 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m272.6063 153.16536l56.771667 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m329.37796 158.12054l13.614288 -4.955185l-13.614288 -4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m352.9685 153.16536l78.39371 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m352.9685 153.16536l60.393707 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m413.3622 158.12054l13.614288 -4.955185l-13.614288 -4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m430.15485 172.46194l-220.25195 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m430.15485 172.46194l-202.25195 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m227.9029 167.50674l-13.614304 4.9552l13.614304 4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m201.8924 173.6693l0 -80.8189" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m201.8924 173.6693l0 -62.8189" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m206.84758 110.850395l-4.955185 -13.614296l-4.9552 13.614296z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m182.5958 92.86352l0 154.36221" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m182.5958 92.86352l0 136.36221" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m177.64061 229.22572l4.955185 13.614288l4.9552 -13.614288z" fill-rule="evenodd"/><path shape-rendering="crispEdges" fill="#ffff00" d="m635.5696 51.559055l76.800476 0l0 76.80052l-76.800476 0l0 -76.80052z" fill-rule="nonzero"/><path shape-rendering="crispEdges" fill="#00ff00" d="m789.1706 205.16011l76.80054 0l0 76.80052l-76.80054 0l0 -76.80052z" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m635.5696 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m712.37006 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m789.1706 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m865.9711 49.559055l0 234.40158" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m633.5696 51.559055l234.40155 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m633.5696 128.35957l234.40155 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m633.5696 205.16011l234.40155 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m633.5696 281.96063l234.40155 0" fill-rule="nonzero"/><path fill="#000000" fill-opacity="0.0" d="m673.4514 99.173225l0 62.110237" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m673.4514 99.173225l0 44.110237" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m668.4962 143.28346l4.9552 13.614288l4.9552 -13.614288z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m750.7703 176.6798l0 62.11023" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m750.7703 176.6798l0 44.11023" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m745.8151 220.79002l4.9552 13.614288l4.9552 -13.614288z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m682.79395 166.75984l55.77954 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m682.79395 166.75984l37.77954 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m720.5735 171.71504l13.614319 -4.9552l-13.614319 -4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m765.88055 238.78871l55.77954 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m765.88055 238.78871l37.77954 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m803.6601 243.74391l13.614319 -4.9552l-13.614319 -4.9552z" fill-rule="evenodd"/><path shape-rendering="crispEdges" fill="#ffff00" d="m309.99213 472.01575l76.80054 0l0 76.80054l-76.80054 0l0 -76.80054z" fill-rule="nonzero"/><path shape-rendering="crispEdges" fill="#00ff00" d="m540.3937 472.01575l76.80054 0l0 76.80054l-76.80054 0l0 -76.80054z" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m79.59055 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m156.39108 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m233.1916 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m309.99213 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m386.79266 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m463.59317 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m540.3937 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m617.1942 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m693.99475 316.4147l0 388.0026" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m77.59055 318.4147l618.4042 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m77.59055 395.2152l618.4042 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m77.59055 472.01575l618.4042 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m77.59055 548.8163l618.4042 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m77.59055 625.6168l618.4042 0" fill-rule="nonzero"/><path stroke="#000000" stroke-width="4.0" stroke-linecap="butt" d="m77.59055 702.4173l618.4042 0" fill-rule="nonzero"/><path fill="#000000" fill-opacity="0.0" d="m357.79266 510.7467l0 -72.346436" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m357.79266 510.7467l0 -54.346436" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m362.74783 456.40027l-4.9551697 -13.614288l-4.9552 13.614288z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m364.2651 435.37796l69.95273 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m364.2651 435.37796l51.95273 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m416.21783 440.33316l13.614319 -4.9552l-13.614319 -4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m445.06824 434.77954l48.251984 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m445.06824 434.77954l30.251984 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m475.32022 439.7347l13.614288 -4.9551697l-13.614288 -4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m504.16272 436.58267l0 86.834625" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m504.16272 436.58267l0 68.834656" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m499.20752 505.41733l4.9552 13.614288l4.9552 -13.614288z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m504.16272 531.8609l0 54.2677" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m504.16272 531.8609l0 36.2677" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m499.20752 568.1286l4.9552 13.614319l4.9552 -13.614319z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m495.13123 588.54333l-74.17322 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m495.13123 588.54333l-56.173218 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m438.958 583.58813l-13.614288 4.9552l13.614288 4.955139z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m404.063 588.54333l-62.70865 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m404.063 588.54333l-44.70865 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m359.35434 583.58813l-13.614288 4.9552l13.614288 4.955139z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m335.3176 585.2126l0 -224.91336" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m335.3176 585.2126l0 -206.91336" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m340.2728 378.29922l-4.9552 -13.614319l-4.9552 13.614319z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m342.55643 360.60367l63.905518 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m342.55643 360.60367l45.905518 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m388.46194 365.55887l13.614288 -4.9552l-13.614288 -4.9552z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m406.46194 371.4567l0 124.22046" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m406.46194 371.4567l0 106.22046" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m401.50674 477.67715l4.9552 13.614319l4.9552 -13.614319z" fill-rule="evenodd"/><path fill="#000000" fill-opacity="0.0" d="m416.12335 495.67715l154.39374 0" fill-rule="evenodd"/><path stroke="#ff0000" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="butt" d="m416.12335 495.67715l136.39374 0" fill-rule="evenodd"/><path fill="#ff0000" stroke="#ff0000" stroke-width="3.0" stroke-linecap="butt" d="m552.5171 500.63235l13.614258 -4.9552l-13.614258 -4.9552z" fill-rule="evenodd"/></g></svg>
+
+    </div>
+  </body>
+</html>

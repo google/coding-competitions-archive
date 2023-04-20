@@ -1,0 +1,390 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round A</h3><h1>Analysis: L Shaped Plots</h1><h3>Test set 1</h3>
+
+<p>
+  In order to verify that a segment is good, we need to check whether all the cells in that segment
+  contain $$$1$$$ or not.
+
+  To check whether all the cells in a segment contain $$$1$$$ or not, we can calculate prefix sum of
+  the matrix and then check whether sum of cells on this segment is equal to the length of the
+  segment or not. Let $$$query(a,b,c,d)$$$ denote the sum of cells in submatrix with $$$(a,b)$$$ as top left corner
+  and $$$(c,d)$$$ as bottom right corner. We can calculate
+  this sum in $$$O(1)$$$ using the prefix sum matrix. For more details on using prefix sum to calculate sum
+  of cells on a submatrix, please refer
+  <a href="https://www.geeksforgeeks.org/submatrix-sum-queries/">this</a>.
+  In order to get the sum of cells on segment from $$$(i,j)$$$ to $$$(i,l)$$$, we can simply check if $$$query(i,j,i,l) = |j-l|+1$$$.
+</p>
+
+<p>
+  L-shape comprises of two segments which meet at a common point.
+  Except the common point, consider the other end point of one segment as $$$(i,j)$$$ and the end point of the other segment as $$$(k,l)$$$. Now
+  these end points could meet at either $$$(i,l)$$$ or $$$(k,j)$$$ to
+  form an L-shape. So, if we know the end points of each segment, we can figure out the common point
+  where segments would meet.
+</p>
+
+<p>
+   For each pair of end points $$$(i,j)$$$ and $$$(k,l)$$$ of segments of L-shape, we already saw that there could be $$$2$$$ possible meeting points.
+  <ul>
+    <li>
+      For segments meeting at $$$(i,l)$$$, check that
+      $$$query(i,j,i,l) = |j-l|+1$$$ and $$$query(k,l,i,l) = |i-k|+1$$$.
+      Besides, either $$$|j-l|+1 = 2 \times (|i-k|+1)$$$ or $$$|i-k|+1= 2 \times (|j-l|+1)$$$ should be true.
+      If these conditions are satisfied, increase the answer by $$$1$$$.
+    </li>
+    <li>
+      For segments meeting at $$$(k,j)$$$, check that
+      $$$query(i,j,k,j) = |i-k|+1$$$ and $$$query(k,l,k,j) = |j-l|+1$$$.
+      Besides, either $$$|i-k|+1 = 2 \times (|j-l|+1)$$$ or $$$|j-l|+1= 2 \times (|i-k|+1)$$$ should be true.
+      If these conditions are satisfied, increase the answer by $$$1$$$.
+    </li>
+  </ul>
+</p>
+
+<p>
+  We can iterate over all possible end points of these two segments L-shape because there
+  are $$$O(\mathbf{R}^{2} \times \mathbf{C}^{2})$$$ such possible combinations. We can calculate the number of possible L-shapes with these end points in $$$O(1)$$$. Hence, the overall complexity of the solution is $$$O(\mathbf{R}^{2} \times \mathbf{C}^{2})$$$.
+</p>
+
+<h3>Test set 2</h3>
+<p>
+  We cannot iterate over all possible end points of the segments for this test set as the solution
+  would time out. If for each cell, we can quickly calculate how many L-shapes are such that both of its segments
+meet at this cell, we can iterate over each cell of the matrix only once and calculate our answer. We can safely ignore those cells that
+have value 0 as they cannot be part of any L-shape.
+</p>
+
+<p>
+Consider a cell $$$(i,j)$$$.
+There can be 4 types of L-shapes that have both of its segments meet this cell.
+<ul>
+  <li>Type 1: One of the segments is to top of $$$(i,j)$$$, and other segment is to the right of $$$(i,j)$$$.</li>
+  <li>Type 2: One of the segments is to top of $$$(i,j)$$$, and other segment is to the left of $$$(i,j)$$$.</li>
+  <li>Type 3: One of the segments is to bottom of $$$(i,j)$$$, and other segment is to the right of $$$(i,j)$$$.</li>
+  <li>Type 4: One of the segments is to bottom of $$$(i,j)$$$, and other segment is to the left of $$$(i,j)$$$.</li>
+</ul>
+
+</p>
+
+<p>
+  Let $$$Count(x,y)$$$ be the number of L-shapes with both its segments meeting at a particular point of which the length of the segment
+  parallel to one axis is $$$x$$$
+  and the length of the segment parallel to the other axis is $$$y$$$. Number of L-shapes with longer segment as part of the segment with length $$$x$$$ are
+  $$$min(\frac{x}{2},y) - 1$$$. Similarly, number of L-shapes with longer segment as part of the segment with length $$$y$$$ are
+  $$$min(\frac{y}{2},x) - 1$$$. Hence, $$$Count(x,y) = min(\frac{x}{2},y) + min(\frac{y}{2},x) - 2$$$.
+</p>
+
+<p>
+If we can calculate number of consecutive cells that have value 1 in each side of $$$(i,j)$$$, we can calculate number of L-shapes of each type with this cell as the common endpoint of the segments using the $$$Count()$$$ function above.
+Let $$$top(i,j)$$$ denote the number of consecutive cells that have value 1 including $$$(i,j)$$$ and cells above it. For cells with value 0,
+  $$$top(i,j) = 0$$$.
+Formally for cells with value 1, $$$top(i,j) = i - k + 1$$$ where
+$$$1 \le k \le i$$$ and k is least possible value such that all cells from $$$(k,j)$$$ to $$$(i,j)$$$ have value 1.
+Similarly, we can define $$$bottom(i,j)$$$, $$$left(i,j)$$$ and $$$right(i,j)$$$ denoting maximum number
+of consecutive cells on bottom, left and right of $$$(i,j)$$$ respectively.
+</p>
+
+<p>
+  We can calculate $$$top(i,j)$$$ and $$$left(i,j)$$$ by iterating from the starting of the matrix and updating their values. Refer to the code
+  below to calculate these values.
+</p>
+
+<pre><code class="language-cpp">
+  for(<var>int</var> i = 1; i <= R; i++) {
+    for(<var>int</var> j = 1; j <= C; j++) {
+       if (matrix[i][j] == 0) continue;
+       top[i][j] = top[i - 1][j] + 1;
+       left[i][j] = left[i][j - 1] + 1;
+    }
+ }
+
+</code></pre>
+
+<p>
+  Similarly, we can calculate $$$bottom(i,j)$$$ and $$$right(i,j)$$$ by iterating from the end of
+  the matrix. After knowing these values, we can calculate number of L-shapes of each type for
+  cell $$$(i,j)$$$. $$$Count(top(i,j), right(i,j))$$$, $$$Count(top(i,j), left(i,j))$$$,
+  $$$Count(bottom(i,j), right(i,j))$$$ and $$$Count(bottom(i,j), left(i,j))$$$ denote the number of L-shapes of type 1, 2, 3 and 4
+  respectively. Thus, for each cell we can add $$$Count(top(i,j), left(i,j)) + Count(top(i,j), right(i,j))
+  + Count(bottom(i,j), left(i,j)) + Count(bottom(i,j), right(i,j))$$$ to the answer.
+</p>
+
+<p>
+  $$$top(i,j)$$$, $$$bottom(i,j)$$$, $$$left(i,j)$$$ and $$$right(i,j)$$$ can be calculated in $$$O(\mathbf{R} \times \mathbf{C})$$$ time complexity.
+  $$$Count(i,j)$$$ can be calculate in $$$O(\mathbf{R} \times \mathbf{C})$$$ time complexity. Finally, we need to iterate over each cell of the matrix, and we
+  can update the answer in $$$O(1)$$$ for each cell. Thus, the overall complexity of the solution is $$$O(\mathbf{R} \times \mathbf{C})$$$.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,363 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2020 - Round E</h3><h1>Analysis: High Buildings</h1><p>
+  Let the heights of buildings be H<sub>1</sub>, H<sub>2</sub>, H<sub>3</sub>, ... ,H<sub><b>N</b></sub>.
+  If we look from the left side, it is possible to view a building i, iff H<sub>i</sub> &ge; H<sub>j</sub> for all 1 &le; j &le; i.
+  Similarly, if we look from the right side, it is possible to view a building i, iff H<sub>i</sub> &ge; H<sub>j</sub> for all i &le; j &le; <b>N</b>.
+  It is possible to view a building i from both the sides if H<sub>i</sub> &ge; H<sub>j</sub> for all i &le; j &le; <b>N</b> and
+  H<sub>i</sub> &ge; H<sub>k</sub> for all 1 &le; k &le; i. This means that H<sub>i</sub> &ge; H<sub>j</sub> for all 1 &le; j &le; <b>N</b>.
+  Hence, only the buildings which have the maximum height would be visible from both sides.
+</p>
+
+<p>
+  The answer for <b>N</b> = 1 case is trivial. Consider the case where <b>A</b> + <b>B</b> - <b>C</b> &gt; <b>N</b>. <b>A</b> buildings are seen from the left side, <b>B</b> buildings
+  are visible from the right side and <b>C</b> buildings are visible from both sides. This means that <b>A</b> + <b>B</b> - <b>C</b> buildings will be
+  visible from at least one of the sides. Hence, there are more than <b>N</b> buildings which are visible from at least one side, which is not
+  possible. Thus, answer is <code>IMPOSSIBLE</code> in case <b>A</b> + <b>B</b> - <b>C</b> &gt; <b>N</b>. The rest of the analysis assumes <b>N</b> &gt; 1 and
+  <b>A</b> + <b>B</b> - <b>C</b> &le; <b>N</b>.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+  The height of each building is an integer between 1 to <b>N</b>, inclusive. Thus, each building can have
+  at most <b>N</b> distinct values. So, if we consider all possible heights of the given buildings,
+  we get <b>N</b><sup><b>N</b></sup> different combinations. Now, we need to check if a possible set of heights satisfy the given condition of <b>A</b>,
+  <b>B</b> and <b>C</b>.
+</p>
+
+<p>
+  To check how many buildings are visible from the left side, we start iterating from the left, and maintain a prefix_max variable that indicates what
+  is the maximum height of a building which are on the left side of the current building. Formally, for building i, prefix_max would indicate
+  maximum(H<sub>j</sub>) for 1 &le; j &lt; i. And then we update the prefix_max variable when we move onto the next index. This can be done in O(<b>N</b>).
+  Similarly, we can find how many buildings are visible from the right side by iterating from the right side, and maintaining a suffix maximum variable.
+  This can be done in O(<b>N</b>). To count the number of buildings, which are visible from both sides, we need to find the maximum height and
+  count the number of buildings with such maximum height. This can be done in O(<b>N</b>) too.
+  If for a given set of heights, we get buildings visible from left side equal to <b>A</b>, buildings visible from right side equal to <b>B</b> and
+  buildings visible from both the sides equal to <b>C</b>, we have found our answer. If there is no such set of heights that satisfy this condition,
+  then we say that it is not possible.
+</p>
+
+<p>
+  A given set of height can be checked in O(<b>N</b>) time. There are <b>N</b><sup><b>N</b></sup> different combinations. Thus the overall complexity
+  of the solution is O(<b>N</b><sup><b>N</b></sup> &times; <b>N</b>), which runs under the time limit for <b>N</b> &le; 5.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  In this test set, we cannot generate all possible set of heights as we have <b>N</b> &le; 100. This can be solved by splitting into some cases:
+  <ul>
+    <li>
+      Case 1: Let us first assume that <b>C</b> &gt; 1.</br>
+        Consider any 2 values P and Q such that 1 &le; P &lt; Q &le; <b>N</b>. In this case, we can put <b>A</b> - <b>C</b> buildings with height P
+on the left and <b>B</b> - <b>C</b> buildings with height P on the right and <b>C</b> buildings in the middle with height Q. Now, we have satisfied
+the constraint of <b>A</b>, <b>B</b> and <b>C</b>. We have <b>N</b> - <b>A</b> - <b>B</b> + <b>C</b> buildings remaining which should not be visible from
+either side. This can be done by assigning them height P and hiding them between the buildings with height Q.
+    </li>
+    <li>
+      Case 2: <b>C</b> &equals; 1. In this case, we cannot hide buildings between buildings with the
+      maximum height since there is only one of them. We would have to look for some cases here:</br>
+      <ul>
+         <li>
+           <b>A</b> + <b>B</b> - <b>C</b> &equals; <b>N</b>,</br>
+           In this case, we have no buildings to hide, thus we can assign the buildings similar to Case 1 when <b>C</b> &gt; 1 with heights P and Q.
+        </li>
+         <li>
+          Either <b>A</b> &gt; 1 or <b>B</b> &gt; 1. In this case, <b>A</b> + <b>B</b> - <b>C</b> &lt; <b>N</b>. <b>A</b> + <b>B</b> is at least 3
+           and <b>C</b> &equals; 1. Thus, we can say that <b>N</b> &gt; 2 holds.
+          Consider any 3 values P, Q and R such that 1 &le; P &lt; Q &lt; R &le; <b>N</b>. In this case, we can put <b>A</b> - 1 buildings
+          with height Q on the left, <b>B</b> - 1 buildings with height Q on the right side and a
+          building with height R in the middle. Now, we have satisfied the constraint of <b>A</b>, <b>B</b> and <b>C</b>.
+           We have <b>N</b> - <b>A</b> - <b>B</b> + <b>C</b> buildings remaining which
+           should not be visible from either side. Let the height of remaining buildings be P. We have
+           already placed at least 2 buildings, and all the buildings that we placed so far are
+           higher than the buildings that we want to hide, so we
+           can hide remaining buildings anywhere in between the already placed buildings.
+         </li>
+        <li>
+            <b>A</b> &equals; 1 and <b>B</b> &equals; 1</br>
+            This means that the building with maximum height is both on the leftmost point and rightmost point and it is not possible for
+            <b>N</b> &gt; 1. So, the answer is <code>IMPOSSIBLE</code> in this case.
+         </li>
+      </ul>
+    </li>
+</ul>
+</p>
+
+<p>
+  Checking which case our solution falls under takes constant time. We can then just assign the heights to the buildings in linear time.
+  Hence, the complexity of the solution is O(<b>N</b>).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

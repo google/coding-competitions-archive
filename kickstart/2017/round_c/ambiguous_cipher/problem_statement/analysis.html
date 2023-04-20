@@ -1,0 +1,374 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2017 - Round C</h3><h1>Analysis: Ambiguous Cipher</h1><h2>Ambiguous Cipher: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  There are only 26<sup>2</sup> + 26<sup>3</sup> + 26<sup>4</sup> = 475228
+  words with lengths in the [2, 4] range. The statement tells us exactly how to
+  encrypt a word, so we can encrypt all possible words and then create a
+  reverse dictionary. For example, when we find that <code>SOUP</code>
+  encrypts to <code>OMDU</code>, we can create an entry in our reverse
+  dictionary with key <code>OMDU</code> and value <code>SOUP</code>. If we
+  ever find that a word has encrypted to a key we already have in the
+  dictionary (for example, <code>ABC</code> and <code>CBA</code> both encrypt
+  to <code>BCB</code>), then that key's decryption is ambiguous, and we can
+  replace the value with <code>AMBIGUOUS</code>.
+</p><p>
+  Once we have done this, solving the problem is easy; we just look up each
+  word in our dictionary and output the value as our answer. We do not need to
+  worry about words with no valid decryption (and thus no dictionary key),
+  because the problem statement guarantees that these will not appear in the
+  datasets.
+</p><p>
+  This method will not work for the Large dataset, though; in that case, there
+  are just too many possible words to stuff into a dictionary in memory! We
+  need another approach.
+</p>
+<h3>Large dataset: words with even lengths</h3>
+<p>
+  For now, let's assume our encrypted word has an even length. We will consider
+  words of odd length in the next section.
+</p><p>
+  When a word is being encrypted, every letter in the word (except for the
+  first and last) is encrypted by summing the two letters adjacent to that
+  letter. For the first and last letters, the encrypted value is just the
+  unencrypted value of the one letter adjacent to it. This means that we can
+  easily find the the second and second-to-last letters of the unencrypted
+  word: they are just the first and last letters of the encrypted word,
+  respectively.
+</p><p>
+  Moreover, once we have these "footholds" into the decrypted word, we can use
+  them to decrypt the rest of the encrypted word! For example, we can decrypt
+  the encrypted word <code>ADMZZO</code> as follows. In this explanation, we
+  will denote a letter with E or D (referring to the encrypted or decrypted
+  words) followed by a number (giving the letter's position in the word,
+  counting starting from 1.)
+</p>
+<ul>
+  <li>The letter values of the encrypted word are: 0 3 12 25 25 14.</li>
+  <li>We know that D2 and D5 equal E1 and E6, as explained above, so we know
+    that our decrypted word has letter values _ 0 _ _ 14 _.
+  <li>We will now determine the letters in the even-numbered positions of the
+    decrypted word, going from left to right. We will start by determining D4.
+    We already know that D2 has value 0. Since we know that
+    (D2 + D4) % 26 = E3, then D4 = (E3 - D2) % 26. E3 has value 12, so
+    D4 = (12 - 0) % 26 = 12. So now our decrypted letter values are:
+    _ 0 _ 12 14 _.</li>
+  <li>Now that we know D4, we can find D6 in the same way: D6 = (E5 - D4) % 26
+    = (25 - 12) % 26 = 13. So we have _ 0 _ 12 14 13.</li>
+  <li>Then, we do the same thing from right to left, starting with D5. We have
+    D3 = (E4 - D5) % 26 = (25 - 14) = 11, and D1 = (E2 - D3) % 26 =
+    (3 - 11) % 26 = 18. (It is OK to take the modulus of a negative number,
+    but we can also always safely add 26 if we want to only handle positive
+    values, e.g., (3 - 11 + 26) % 26.) So we know all the letter values in the
+    decrypted word: 18 0 11 12 14 13.</li>
+  <li>Now we just need to convert this list of decrypted letter values back to
+    uppercase letters, which results in the decrypted word <code>SALMON</code>.
+  </li>
+</ul>
+<p>
+  This method will allow us to decrypt any word with an even length. Because
+  the method was deterministic and we had no choices about how to decrypt, we
+  can also see that any encrypted word with an even length has exactly one
+  possible decryption; that is, in mathematical terms, decryption is both
+  one-to-one and onto. But what about words with odd lengths?
+</p>
+<h3>Large dataset: words with odd lengths</h3>
+<p>
+  Let's look back at the example <code>BCB</code> from the problem statement.
+  We know that D2 = E1 and D2 = E3, so D2 is <code>B</code>. But what about D1
+  and D3? All we know is that (D1 + D3) % 26 = E2. There are 26 different pairs
+  for which this is valid! So the decryption is ambiguous.
+</p><p>
+  In fact, this is the case for <i>any</i> word of odd length that could appear
+  in our datasets. Our method above does not apply! Knowing the second and
+  second-to-last letters of the decrypted word does not help us get the entire
+  word, since now both of those letters are in even-numbered positions of the
+  decrypted word; they can only get us letters in the even-numbered positions
+  of the decrypted word. We have no foothold that we can use to get any of the
+  letters in the odd-numbered positions. The first letter of the decrypted word
+  could be any letter, and any choice determines all the others. We have no way
+  of knowing which of the 26 possibilities Calvin originally encrypted.
+</p><p>
+  The statement tells us that the datasets do not include words like
+  <code>APE</code> which have no valid decryption, so any word of odd length
+  in our dataset must have multiple decryptions. With this knowledge, we can
+  finish our solution: for words of even length, we use the method above, and
+  for words of odd length, we can just report <code>AMBIGUOUS</code>. Calvin
+  and Susie should come up with a method that can handle all words, not just
+  words of even length!
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

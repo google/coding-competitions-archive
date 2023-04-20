@@ -1,0 +1,594 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round G</h3><h1>Curling</h1><h3>Problem</h3>
+<p>
+  2022 is a year of the Winter Olympics! Curling has been one of the most
+  popular winter sports as it requires skill, strategy, and sometimes a bit of
+  luck.
+</p>
+
+<p>
+  In a curling game, two teams compete by sliding heavy granite stones on a long
+  ice sheet. We call the teams the <i>red</i> team and the <i>yellow</i> team,
+  as their stones are usually distinguished by the red and the yellow handle
+  color. A curling game consists of several <i>ends</i> (subgames); in every
+  end, the teams, each owning $$$8$$$ stones, take turns to slide them across
+  the long ice sheet toward a circular target area called the <i>house</i>. A
+  stone may hit existing stones to change its own moving direction and other
+  stones' position (including knocking them out of play). Roughly speaking, the
+  goal for a team is to make their stones as close to the center of the house as
+  possible.
+</p>
+
+<p>
+  Geometrically, a house and a stone can be modeled as a circle and a disk (the
+  region bounded by a circle), respectively, and the scoring rules at the
+  conclusion of each end are formally summarized as follows.
+</p>
+
+<ul>
+  <li>
+    Each stone can be viewed as a disk of radius $$$\mathbf{R_s}$$$ on a $$$2$$$-dimensional
+    plane.
+  </li>
+  <li>The house is a circle of radius $$$\mathbf{R_h}$$$ centered at $$$(0, 0)$$$.</li>
+  <li>
+    Only stones <i>in the house</i> are considered in the scoring. A stone is in
+    the house if any portion of the stone lies on or within the circle
+    representing the house. Tangency also counts.
+  </li>
+  <li>
+    A team is awarded $$$1$$$ point for each of their own stones in the house
+    such that no opponent's stone is closer (in Euclidean distance) to the
+    center than it. We assume in this problem that no two stones are equally
+    close to the center $$$(0,0)$$$.
+  </li>
+</ul>
+
+<p>
+  Two teams are playing and have just delivered all their stones. The red team
+  has $$$\mathbf{N}$$$ stones remaining on the curling sheet, centered at $$$(\mathbf{X_1}, \mathbf{Y_1}),
+  (\mathbf{X_2}, \mathbf{Y_2}), \dots, (\mathbf{X_N}, \mathbf{Y_N})$$$, while the yellow team has $$$\mathbf{M}$$$ stones
+  remaining, centered at $$$(\mathbf{Z_1}, \mathbf{W_1}), (\mathbf{Z_2}, \mathbf{W_2}), \dots, (\mathbf{Z_M},
+  \mathbf{W_M})$$$. Now you are asked to figure out the scores of both teams.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test
+  cases follow.
+</p>
+
+<p>
+  Each test case begins with a line containing the two space-separated integers
+  $$$\mathbf{R_s}$$$ and $$$\mathbf{R_h}$$$.
+</p>
+<p>
+  The next line contains the integer $$$\mathbf{N}$$$. Then $$$\mathbf{N}$$$ lines follow, the $$$i$$$-th
+  line of which containing the two space-separated integers $$$\mathbf{X_i}$$$ and $$$\mathbf{Y_i}$$$.
+</p>
+<p>
+  After that, similarly, the next line contains the integer $$$\mathbf{M}$$$. In the next $$$\mathbf{M}$$$
+  lines, the $$$i$$$-th line contains the two space-separated integers $$$\mathbf{Z_i}$$$ and
+  $$$\mathbf{W_i}$$$.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing
+  <code>Case #$$$x$$$: $$$y$$$ $$$z$$$</code>, where $$$x$$$ is the test case
+  number (starting from 1), $$$y$$$ is the score of the red team, and $$$z$$$ is
+  the score of the yellow team.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 100$$$.<br />
+  $$$1 \le \mathbf{R_s} \lt \mathbf{R_h} \le 10^4$$$.<br />
+  $$$0 \le \mathbf{N} \le 8$$$.<br />
+  $$$-2 \times 10^4 \le \mathbf{X_i} \le 2 \times 10^4$$$, for
+  all $$$i$$$.<br />
+  $$$-2 \times 10^4 \le \mathbf{Y_i} \le 2 \times 10^4$$$, for
+  all $$$i$$$.<br />
+  $$$-2 \times 10^4 \le \mathbf{Z_i} \le 2 \times 10^4$$$, for
+  all $$$i$$$.<br />
+  $$$-2 \times 10^4 \le \mathbf{W_i} \le 2 \times 10^4$$$, for
+  all $$$i$$$.<br />
+  The distances between the center of each stone and the center of the house
+  $$$(0, 0)$$$ are distinct, i.e., no two stones are equally close to the center
+  of the house.<br />
+  No two stones overlap (but two stones can be tangent).<br />
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+ $$$\mathbf{M} = 0$$$.<br /> </p>
+
+<h4>Test Set 2</h4>
+<p>
+ $$$0 \le \mathbf{M} \le 8$$$.<br /> </p>
+
+
+  <h3>Sample</h3>
+  <i>
+    Note: there are additional samples that are not run on submissions down below.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="curling_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+1 5
+4
+1 -1
+6 1
+0 6
+-5 0
+0
+10 100
+2
+-3 -4
+200 200
+0
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="curling_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 3 0
+Case #2: 1 0
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    The following picture illustrates Sample Case #1. The big circle with a
+    light blue interior represents the house, and the red disks represent the
+    red team's stones.
+  </p>
+  <p>
+    <img
+      src="images/sample_1.svg"
+      style="max-width: 600px"
+      alt="Illustration of Sample Case #1"
+    />
+  </p>
+  <p>
+    In this case, the yellow team has no stones left in the house, so the red
+    team receives a point for each of their stone in the house. All the existing
+    stones are in the house except the one centered at $$$(6, 1)$$$ (it would
+    have touched the house boundary if it were centered at $$$(6, 0)$$$), so the
+    red team gets $$$3$$$ points.
+  </p>
+</sampleio>
+
+
+  <br/>
+  <h3>Additional Sample - Test Set 2</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 2. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="curling_sample_ts2_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_1">2
+1 5
+2
+1 0
+-3 0
+1
+0 2
+10 50
+2
+-40 -31
+-35 70
+3
+59 0
+-10 0
+30 40
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="curling_sample_ts2_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_1">Case #1: 1 0
+Case #2: 0 2
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    The following picture illustrates Sample Case #1. Besides the big circle and
+    the red disks, the yellow disk represents the yellow team's only remaining
+    stone.
+  </p>
+  <p>
+    <img
+      src="images/sample_2.svg"
+      style="max-width: 600px"
+      alt="Illustration of Additional Sample Case #1"
+    />
+  </p>
+  <p>
+    In this case, both teams have stones inside the house. The red stone at
+    $$$(1, 0)$$$ is in the house and no yellow stone is closer than it to the
+    center of the house, so it is worthy of a point. Although the other red
+    stone (centered at $$$(-3, 0)$$$) is also in the house, it is not worthy of
+    a point because the yellow stone centered at $$$(0, 2)$$$ is closer than it
+    to the center $$$(0,0)$$$. The yellow stone is not worthy of a point,
+    either, due to the existence of the red stone at $$$(1, 0)$$$. Therefore,
+    the red team gets $$$1$$$ point and the yellow team gets $$$0$$$ points.
+  </p>
+</sampleio>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,452 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round H</h3><h1>Dependent Events</h1><h3>Problem</h3>
+<p>
+There are $$$\mathbf{N}$$$ events, numbered $$$1$$$ through $$$\mathbf{N}$$$. The probability of occurrence of each event depends upon the occurrence of
+exactly one other event called the parent event, except event $$$1$$$, which is an independent event.
+In other words, for each event from $$$2$$$ to $$$\mathbf{N}$$$, $$$3$$$ values are given: $$$\mathbf{P_{i}}$$$ denoting the parent event of event $$$i$$$,
+$$$\mathbf{A_{i}}$$$ denoting the probability of occurrence of event $$$i$$$ if its parent event occurs,
+  and $$$\mathbf{B_{i}}$$$ denoting the probability of occurrence
+of event $$$i$$$ if its parent event does not occur. For event $$$1$$$, its probability of occurrence $$$\mathbf{K}$$$
+  is given.
+
+There are $$$\mathbf{Q}$$$ queries that we want to answer. Each query consists of $$$2$$$ distinct events,
+  $$$\mathbf{u_{j}}$$$ and $$$\mathbf{v_{j}}$$$, and you need to find the probability that both events $$$\mathbf{u_{j}}$$$ and $$$\mathbf{v_{j}}$$$
+have occurred.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$.
+  $$$\mathbf{T}$$$ test cases follow.
+</p>
+<p>
+  The first line of each test case contains two integers $$$\mathbf{N}$$$ and $$$\mathbf{Q}$$$ denoting the number of events and
+  number of queries, respectively.
+  $$$\mathbf{N}$$$ lines follow. The $$$i$$$-th line describes event $$$i$$$.
+The first line contains a single integer $$$\mathbf{K}$$$ denoting
+  the probability of occurrence of event $$$1$$$ multiplied by $$$10^6$$$. Each of the next $$$\mathbf{N}-1$$$ lines consists of three
+  integers $$$\mathbf{P_{i}}$$$,  $$$\mathbf{A_{i}}$$$ and $$$\mathbf{B_{i}}$$$ denoting
+  the parent event of event $$$i$$$, the probability of occurrence of event $$$i$$$ if its parent event occurs multiplied by $$$10^6$$$, and the probability of occurrence
+  of event $$$i$$$ if its parent event does not occur multiplied by $$$10^6$$$, respectively.
+  Then, $$$\mathbf{Q}$$$ lines follow, describing the queries.
+  Each of these lines contains two distinct integers $$$\mathbf{u_{j}}$$$ and $$$\mathbf{v_{j}}$$$. For each
+  query, find the probability that both events $$$\mathbf{u_{j}}$$$ and $$$\mathbf{v_{j}}$$$ occurred.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$R_{1} \ R_{2} \ R_{3} \ \dots \ R_{Q}$$$</code>, where <code>$$$x$$$</code> is the
+  test case number (starting from 1) and $$$R_{j}$$$ is the sought probability computed for $$$j$$$-th query
+  <i>modulo</i> $$$10^9+7$$$, which is defined precisely as follows.
+  Represent the answer of $$$j$$$-th query as an irreducible fraction
+  $$$\frac{p}{q}$$$. The number $$$R_{j}$$$ then must satisfy the modular equation
+  $$$R_{j} \times q \equiv p \pmod{(10^{9} + 7)}$$$, and be between $$$0$$$ and
+  $$$10^9+6$$$, inclusive. It can be shown that under the constraints of this problem such a
+  number $$$R_{j}$$$ always exists and is uniquely determined.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 60 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 100$$$.<br/>
+   $$$1 \le \mathbf{P_{i}} \lt \mathbf{i}$$$, for each $$$i$$$ from $$$2$$$ to $$$\mathbf{N}$$$.<br/>
+   $$$1 \le \mathbf{u_{j}}, \mathbf{v_{j}} \le \mathbf{N}$$$ and $$$ \mathbf{u_{j}} \neq \mathbf{v_{j}} $$$, for all $$$j$$$.<br/>
+   $$$0 \le \mathbf{A_{i}} \le 10^6$$$, for each $$$i$$$ from $$$2$$$ to $$$\mathbf{N}$$$.<br/>
+  $$$0 \le \mathbf{B_{i}} \le 10^6$$$, for each $$$i$$$ from $$$2$$$ to $$$\mathbf{N}$$$.<br/>
+  $$$0 \le \mathbf{K} \le 10^6$$$.<br/>
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+
+$$$2 \le \mathbf{N} \le 1000$$$.<br/>
+$$$1 \le \mathbf{Q} \le 1000$$$.<br/>
+</p>
+
+<h4>Test Set 2</h4>
+<p>
+
+For at most 5 cases:<br/>
+$$$2 \le \mathbf{N} \le 2 \times 10^{5}$$$.<br/>
+$$$1 \le \mathbf{Q} \le 2 \times 10^{5}$$$.<br/>
+<br/>
+For the remaining cases:<br/>
+$$$2 \le \mathbf{N} \le 1000$$$.<br/>
+$$$1 \le \mathbf{Q} \le 1000$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="dependent_events_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+5 2
+200000
+1 400000 300000
+2 500000 200000
+1 800000 100000
+4 200000 400000
+1 5
+3 5
+4 2
+300000
+1 100000 100000
+2 300000 400000
+3 500000 600000
+1 2
+2 4
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="dependent_events_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 136000001 556640004
+Case #2: 710000005 849000006
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  For Sample Case #1, for the first query, the probability that both events
+  $$$1$$$ and $$$5$$$ occurred is given by (the probability that event $$$1$$$ occurred) $$$\times$$$
+  (probability that event $$$5$$$ occurs given event $$$1$$$ occurred).
+  Event $$$1$$$ would occur with probability $$$0.2$$$. Given that event $$$1$$$ occurred,
+  the probability that event $$$4$$$ occurs is $$$0.8$$$. Therefore, the probability of occurrence
+  of event $$$5$$$ given that event $$$1$$$ occurred is $$$0.2 \times 0.8 + 0.4 \times 0.2 = 0.24$$$
+  (probability of event $$$5$$$ occurring given than event $$$4$$$ occurred $$$+$$$ probability of event $$$5$$$
+  occurring given that event $$$4$$$ did not occur).
+  The probability that both events
+  $$$1$$$ and $$$5$$$ occurred is $$$0.2 \times 0.24 = 0.048$$$. The answer $$$0.048$$$ can be converted into fraction of
+  $$$\frac{6}{125}$$$, and one can confirm that the $$$136000001$$$ satisfies the conditions
+  mentioned in the output section as $$$136000001 \times 125 \equiv 6 \pmod{ (10^{9} + 7)}$$$ and is uniquely determined.
+  For the second query, the probability that both events $$$5$$$ and $$$3$$$ occurred is
+  $$$0.10352$$$.
+  </p>
+<p>
+  For Sample Case #2, for the first query, the probability that both events $$$1$$$ and $$$2$$$ occurred
+  is given by (the probability that event $$$1$$$ occurred) $$$\times$$$ (probability that event $$$2$$$ occurs given event $$$1$$$ occurred).
+  As $$$1$$$ is the parent event of event $$$2$$$, the
+  probability of event $$$2$$$ occurring given event $$$1$$$ occurred is $$$\mathbf{A_{2}}$$$ which is $$$0.1$$$.
+  Hence, the probability that both events $$$1$$$ and $$$2$$$ occurred
+  is $$$0.3 \times 0.1$$$. Hence, the output will be $$$ 3 \times 10^{-2} \bmod (10^9+7) = 710000005$$$.
+  For the second query, the probability of occurrence
+  of both events $$$2$$$ and $$$4$$$ is $$$0.057$$$.
+  </p>
+
+  
+
+    </div>
+  </body>
+</html>

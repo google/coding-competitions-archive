@@ -1,0 +1,511 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round B</h3><h1>Analysis: Unlock the Padlock</h1><p>
+   In the given problem, the range $$$[l_{i-1}, r_{i-1}]$$$ chosen in the $$$(i-1)$$$-th operation needs to be completely contained
+      within the range $$$[l_i, r_i]$$$ chosen in the $$$i$$$-th operation; that is,
+      $$$l_i \le l_{i-1} \le r_{i-1} \le r_i$$$. The initial range ($$$[l_1, r_1]$$$) can be chosen
+      arbitrarily. If we reverse the order of these operations, we would get the same final combination. For the remaining analysis, we would
+  assume the reverse order of operations, that is, $$$l_{i-1} \le l_i \le r_i \le r_{i-1}$$$. Whenever we say
+  rotations in the analysis, it means downward by default unless mentioned otherwise.
+</p>
+
+<h3> Test set 1 </h3>
+
+<p>
+  In this test set, we can start from range $$$[1, \mathbf{N}]$$$ and greedily choose the side that requires
+  lesser rotations and make it zero, and solve for the next number on that side. We should
+  also keep track of the number of rotations done till now. Let the current range that we are trying to solve
+  be $$$[i,j]$$$ and let the number of rotations modulo $$$\mathbf{D}$$$ be $$$k$$$. Then, the current value of index $$$i$$$ would
+  be $$$(\mathbf{V_{i}} - k + \mathbf{D}) \enspace mod \enspace \mathbf{D}$$$. Similarly, the current value of index $$$j$$$ would
+  be $$$(\mathbf{V_{j}} - k + \mathbf{D}) \enspace mod \enspace \mathbf{D}$$$. Let the current values of indexes $$$i$$$ and
+  $$$j$$$ be $$$currentVal_{i}$$$ and $$$currentVal_{j}$$$ respectively. The number of rotations required
+  to make dial at index $$$i$$$ zero would be $$$\min(currentVal_{i}, \mathbf{D} - currentVal_{i})$$$. The number of rotations required
+  to make dial at index $$$j$$$ zero would be $$$\min(currentVal_{j}, \mathbf{D} - currentVal_{j})$$$. If index $$$i$$$ requires less
+  number of rotations, we then add $$$\min(currentVal_{i}, \mathbf{D} - currentVal_{i})$$$ to the answer and solve for range
+  $$$[i+1, j]$$$. Otherwise, if index $$$j$$$ requires less number of rotations, we then add
+  $$$\min(currentVal_{j}, \mathbf{D} - currentVal_{j})$$$ to the answer and solve for range
+  $$$[i, j-1]$$$. If the minimum number of rotations done are $$$0$$$, $$$k$$$ remains same for the subsequent range.
+  Otherwise, we do $$$k = (k + 1) mod \mathbf{D}$$$ as we would need to do $$$1$$$ rotation. The transition is explained
+  below in detail.
+</p>
+
+<p>
+  Why would the greedy approach work? Let $$$solve(i, j, k)$$$ denote the number of operations required
+  to make all the elements in the range $$$[i,j]$$$ zero given that $$$k$$$ rotations have happened.
+  When we are solving for range $$$[i,j]$$$, there are $$$4$$$ possible
+  cases that could occur:
+  <ul>
+    <li>
+      $$$currentVal_{i} = 0, currentVal_{j} = 0$$$. In this case, we can reduce the range from both
+      the sides. Hence, $$$solve(i, j, k) = solve(i+1, j-1, k)$$$.
+    </li>
+    <li>
+      $$$currentVal_{i} = 1, currentVal_{j} = 1$$$. In this case, we can reduce the range from both
+      the sides. Hence, $$$solve(i, j, k) = 1 + solve(i+1, j-1, (k + 1) mod \mathbf{D})$$$.
+    </li>
+    <li>
+      $$$currentVal_{i} = 1, currentVal_{j} = 0$$$. In this case, it is optimal to reduce the range from
+      the right side because the value of index $$$j$$$ is already zero and we would not require any further operations.
+      If we choose to convert index $$$i$$$ to zero, we would need one operation to convert the value of
+      index $$$i$$$ to zero. And this would change the value of index $$$j$$$ to $$$1$$$ which may require
+      one more operation to convert it to zero. So, we might end up taking at least $$$1$$$ more operation
+      if we choose to make index $$$i$$$ to $$$0$$$. So, it is optimal to exclude the index $$$j$$$.
+      Hence, $$$solve(i, j, k) = solve(i, j-1, k)$$$.
+    </li>
+    <li>
+    $$$currentVal_{i} = 0, currentVal_{j} = 1$$$. Similar explanation as above, it is optimal to
+      exclude the index $$$i$$$. Hence, $$$solve(i, j, k) = solve(i+1, j, k)$$$.
+    </li>
+</ul>
+</p>
+
+<p>
+  At each step, we perform constant operations to check which index requires
+  less number of rotations and then make that element zero. Hence, it would
+  take $$$O(\mathbf{N})$$$ time complexity to make all the elements zero.
+</p>
+
+<h3> Test set 2 </h3>
+<p>
+  In this test set, the greedy approach would not work because the number of digits is more. We can use
+  dynamic programming to solve this test set. Let $$$dp(i, j, k)$$$ denote the minimum number of operations
+  required to make all elements from $$$i$$$ to $$$j$$$ equal to $$$0$$$ and $$$k$$$ be the number of rotations modulo $$$\mathbf{D}$$$
+  that have been done till now. Then, $$$currentVal_{i} = (\mathbf{V_{i}} - k + \mathbf{D}) \enspace mod \enspace \mathbf{D}$$$.
+  Similarly, $$$currentVal_{j} = (\mathbf{V_{j}} - k + \mathbf{D}) \enspace mod \enspace \mathbf{D}$$$. We then solve for both the
+  cases.
+  <ul>
+    <li>
+      For converting index $$$i$$$ to $$$0$$$, we could do one of the following:
+      <ul>
+        <li> Rotate downwards, it would take $$$currentVal_{i}$$$ operations. We then recursively solve for
+          $$$dp(i+1, j, (k+currentVal_{i}) \enspace mod \enspace \mathbf{D})$$$.
+        </li>
+        <li> Rotate upwards, it would take $$$\mathbf{D}$$$ - $$$currentVal_{i}$$$ operations. We then recursively solve for
+          $$$dp(i+1, j, (k - (\mathbf{D} - currentVal_{i}) + \mathbf{D}) \enspace mod \enspace \mathbf{D})$$$.
+        </li>
+      </ul>
+      Let $$$val_{1} = \min(currentVal_{i} + dp(i+1, j, (k+currentVal_{i}) \enspace mod \enspace \mathbf{D}),
+      \mathbf{D} - currentVal_{i} + dp(i+1, j, (k - (\mathbf{D} - currentVal_{i}) + \mathbf{D}) \enspace mod \enspace \mathbf{D}))$$$.
+    </li>
+    <li>
+      For converting index $$$j$$$ to $$$0$$$, we could do one of the following:
+      <ul>
+        <li> Rotate downwards, it would take $$$currentVal_{j}$$$ operations. We then recursively solve for
+          $$$dp(i, j - 1, (k+currentVal_{j}) \enspace mod \enspace \mathbf{D})$$$.
+        </li>
+        <li> Rotate upwards, it would take $$$\mathbf{D}$$$ - $$$currentVal_{j}$$$ operations. We then recursively solve for
+          $$$dp(i, j - 1, (k - (\mathbf{D} - currentVal_{j}) + \mathbf{D}) \enspace mod \enspace \mathbf{D})$$$.
+        </li>
+      </ul>
+      Let $$$val_{2} = \min(currentVal_{j} + dp(i, j - 1, (k+currentVal_{j}) \enspace mod \enspace \mathbf{D}),
+      \mathbf{D} - currentVal_{j} + dp(i, j - 1, (k - (\mathbf{D} - currentVal_{j}) + \mathbf{D}) \enspace mod \enspace \mathbf{D}))$$$.
+    </li>
+</ul>
+Finally, $$$dp(i,j,k) = \min(val_{1}, val_{2})$$$. Please take a look at the pseudocode below:
+</p>
+
+<h5>Sample Code(C++)</h5>
+<pre><code class="language-cpp">
+<var>int</var> solve(<var>int</var> i, <var>int</var> j, <var>int</var> k) {
+  if(i > j) {
+    return 0;
+  }
+  if(dp[i][j][k] != -1) {
+    return dp[i][j][k];
+  }
+  <var>int</var> currentVal_i = (V[i] - k + D) % D;
+  <var>int</var> currentVal_j = (V[j] - k + D) % D;
+  // Convert index i to 0.
+  <var>int</var> val_1 = min(currentVal_i + solve(i+1, j, (k + currentVal_i) % D), D - currentVal_i + solve(i+1, j, (k - (D - currentVal_i) + D) % D));
+  // Convert index j to 0.
+  <var>int</var> val_1 = min(currentVal_j + solve(i, j-1, (k + currentVal_j) % D), D - currentVal_j + solve(i, j-1, (k - (D - currentVal_j) + D) % D));
+  return dp[i][j][k] = min(val_1, val_2);
+}
+</code></pre>
+
+<p>
+  We can get the final answer from $$$dp(1, \mathbf{N}, 0)$$$. There are a total of $$$O(\mathbf{N}^{2} \cdot \mathbf{D})$$$ number of states. And we perform
+  constant operations for each state. Hence, the overall complexity of the solution is $$$O(\mathbf{N}^{2} \cdot \mathbf{D})$$$.
+</p>
+
+<h3> Test set 3 </h3>
+
+<p>
+  In this test set, $$$\mathbf{D}$$$ is very large, so the solution for the previous test set would time out.
+  An interesting observation is that we do not
+  need to keep track of the number of rotations when solving for a range $$$[i,j]$$$. If we keep track
+  of which side (left or right) was made zero in the previous operation, we can calculate the number
+  of rotations modulo $$$\mathbf{D}$$$ that has been done till now. The last element that becomes zero will be because of
+  the combination of all the rotations done so far. So, let us say initial value of the element that was made
+  zero in the previous operation was $$$x$$$. Then,
+  total rotations applied so far have combinely made it zero. Then all numbers inside the range
+  $$$[i,j]$$$ are affected by $$$x$$$ downward rotations.
+</p>
+
+<p>
+  We can then solve the current test set by having $$$dp(i,j,bit)$$$ denoting the minimum number of operations
+  required to make all elements from $$$i$$$ to $$$j$$$ equal to $$$0$$$ given that the element
+  that was made zero in the previous operation is on the left side if $$$bit = 0$$$, and is on the right
+  side if $$$bit = 1$$$.
+</p>
+
+<p>
+  Let the number of rotations done till now modulo $$$\mathbf{D}$$$ be $$$k$$$. The value of $$$k$$$ can be determined as follows:
+  <ul>
+    <li>
+    If $$$bit = 0$$$:
+      <ul>
+        <li>
+          If $$$i \gt 1$$$, then $$$k = \mathbf{V_{i-1}}$$$.
+        </li>
+        <li>
+          Otherwise, $$$k = 0$$$.
+        </li>
+      </ul>
+    </li>
+    <li>
+    If $$$bit = 1$$$:
+      <ul>
+        <li>
+          If $$$j \lt \mathbf{N}$$$, then $$$k = \mathbf{V_{j+1}}$$$.
+        </li>
+        <li>
+          Otherwise, $$$k = 0$$$.
+        </li>
+      </ul>
+    </li>
+</ul>
+  Then $$$currentVal_{i} = (\mathbf{V_{i}} + k) \enspace mod \enspace \mathbf{D}$$$
+      and $$$currentVal_{j} = (\mathbf{V_{j}} + k) \enspace mod \enspace \mathbf{D}$$$. For a particular
+  state $$$dp(i,j,bit)$$$, we would transition to the next state as follows.
+  <ul>
+    <li>
+      For converting index $$$i$$$ to $$$0$$$, it would take $$$\min(currentVal_{i}, \mathbf{D} - currentVal_{i})$$$ operations.
+      Let $$$currOperations = \min(currentVal_{i}, \mathbf{D} - currentVal_{i})$$$.
+      We then recursively solve for $$$dp(i+1, j, 0)$$$.
+      Let $$$val_{1} = dp(i+1, j, 0) + currOperations$$$.
+    </li>
+    <li>
+ For converting index $$$j$$$ to $$$0$$$, it would take $$$\min(currentVal_{j}, \mathbf{D} - currentVal_{j})$$$ operations.
+      Let $$$currOperations = \min(currentVal_{j}, \mathbf{D} - currentVal_{j})$$$.
+      We then recursively solve for $$$dp(i, j-1, 1)$$$.
+      Let $$$val_{2} = dp(i, j-1, 1) + currOperations$$$.
+    </li>
+</ul>
+Finally, $$$dp(i,j,bit) = \min(val_{1}, val_{2})$$$. Please take a look at the pseudocode below:
+</p>
+
+<h5>Sample Code(C++)</h5>
+<pre><code class="language-cpp">
+<var>int</var> solve(<var>int</var> i, <var>int</var> j, <var>bool</var> bit) {
+  if(i > j) {
+    return 0;
+  }
+  if(dp[i][j][bit] != -1) {
+    return dp[i][j][bit];
+  }
+  <var>int</var> k = 0;
+  if(!bit) {
+    if(i > 1) {
+      k = V[i-1];
+    }
+  }
+  else {
+    if(j < N ) {
+       k = V[j+1];
+    }
+  }
+  <var>int</var> currentVal_i = (V[i] - (D - k) + D) % D;
+  <var>int</var> currentVal_j = (V[j] - (D - k) + D) % D;
+  // Convert index i to 0.
+  <var>int</var> currOperations = min(currentVal_i, D - currentVal_i);
+  <var>int</var> val_1 = currOperations + solve(i+1, j, 0);
+  // Convert index j to 0.
+  currOperations = min(currentVal_j, D - currentVal_j);
+  <var>int</var> val_2 = currOperations + solve(i, j - 1, 1);
+  return dp[i][j][bit] = min(val_1, val_2);
+}
+</code></pre>
+
+<p>
+  We can get the final answer from $$$dp(1, \mathbf{N}, 0)$$$. There are a total of $$$O(\mathbf{N}^{2})$$$ number of states. And we perform
+  constant operations for each state. Hence, the overall complexity of the solution is $$$O(\mathbf{N}^{2})$$$.<br/>
+  Note that, if we solve the
+  dynamic programming solution mentioned in Test Set 2 recursively, we will only visit
+  $$$O(\mathbf{N}^2)$$$ states because the number of rotations from left side and right side
+  will always be fixed. Hence, the recursive version of Test Set 2 solution where we keep track of only the states
+  that we visit would pass this test set.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,476 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2014 - Round C</h3><h1>Tetris</h1><h3>Problem</h3>
+
+<p>Tetris is a famous video game that almost everyone has played it. In this
+problem, you need to simulate a simplified version of it.</p>
+
+<p>In our version, the game is played in a <b>W</b> by <b>H</b> field with gravity. At the
+beginning, the field is empty. Then the tetrominos start to fall from above top
+of the field to bottom of the field, one by one. Each tetromino will stop as
+soon as it touches some other tetrominos or bottom of the field.</p>
+<p>One interesting feature of the game is called "line clearing". A line will be
+cleared as soon as it is filled by tetrominos. More than one line may be cleared
+at a time. For example:</p>
+<pre><code>  |..............|      |..............|      |..............|
+  |.............o|      |..............|      |..............|
+  |.............o|      |..............|      |..............|
+  |.............o|      |..............|      |..............|
+  |.............o|      |..............|      |..............|
+  |..xx..........| --&gt;  |..xx..........| --&gt;  |..............|
+  |xxxxxxxxxxxxx.|      |xxxxxxxxxxxxxo|      |..............|
+  |xxxxxxxxxxxxx.|      |xxxxxxxxxxxxxo|      |..xx..........|
+  |xx..xxxxxxxxx.|      |xx..xxxxxxxxxo|      |xx..xxxxxxxxxo|
+  |xxxxxxxxxxx...|      |xxxxxxxxxxx..o|      |xxxxxxxxxxx..o|
+  ----------------      ----------------      ----------------
+
+  Falling               Stopped               Cleared 2 lines
+</code></pre>
+<p>Note that in this simplified version, the "floating" tetromino blocks won't
+continue to fall after lines are cleared. This is why the top-most two squares
+will keep in such position. Consequently, cascade clearing won't happen, even though it
+would happen in the original version of Tetris.</p>
+
+<p>The game ends when all the given tetrominos are placed, or the current
+tetromino cannot be placed due to the height limit of the field is reached.</p>
+
+<p>In this problem, each tetromino will has its type, rotation and falling position
+told by the input. They will start to fall from the <b>above</b> of the field. Your goal is to
+simulate and get the final result of each play.</p>
+
+<h3>Input</h3>
+<p>We have 7 types of tetromino:</p>
+<pre><code>1   2   3   4   5   6   7
+
+x    x  x    x  xx  x    x
+xx  xx  x    x  xx  x   xxx
+ x  x   xx  xx      x
+                    x
+</code></pre>
+<p>Rotation of a tetromino is represented by a number <b>r</b>. <b>r</b> can be 0, 1, 2 or 3.
+Rotation is counterclockwise.
+For example:</p>
+<pre><code>r=0   r=1  r=2   r=3
+
+  x     x   xxx   x
+ xxx   xx    x    xx
+        x         x
+
+ x     xx   x     xx
+ xx   xx    xx   xx
+  x          x
+</code></pre>
+
+<p>The horizontal falling position is represented by a number <b>x</b>. It is the
+coordinate of the lower left square of a tetromino's bounding box. Here <b>x</b>
+starts from 0.</p>
+
+<p>The first line of the input gives the number of test cases, <b>T</b>.
+For each test case, the first line of input has 3 integers, <b>W, H, N</b>. <b>W</b> is the
+width, <b>H</b> is the height and <b>N</b> is the number of blocks that are going to fall.</p>
+
+<p>Then <b>N</b> lines below, each line has 3 integers, <b>t<sub>i</sub>, r<sub>i</sub>, x<sub>i</sub></b>. <b>t<sub>i</sub></b> tells the tetromino
+type. <b>r<sub>i</sub></b> is the rotation of this tetromino. <b>x<sub>i</sub></b> is the horizontal falling position
+of this tetromino. It is guaranteed that <b>x<sub>i</sub></b> will make the tetromino inside
+the field, horizontally.</p>
+
+
+<h3>Output</h3>
+<p>For each test case, first output one line containing "Case #i:", where <b>i</b> is the
+test case number (starting from 1). And then, if the game ends before the <b>N</b>
+blocks, output "Game Over!"(without quotes). Otherwise, output the game field's
+final state, which should have <b>H</b> lines, each has <b>W</b> characters. Each character
+can be '.' or 'x'.</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 30 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+1 &lt;= <b>T</b> &lt;= 100 <br>
+1 &lt;= <b>t<sub>i</sub></b> &lt;= 7<br>
+0 &lt;= <b>r<sub>i</sub></b> &lt; 4
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+4 &lt;= <b>W</b> &lt;= 20 <br>
+1 &lt;= <b>H</b> &lt;= 20 <br>
+0 &lt;= <b>N</b> &lt;= 100
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+4 &lt;= <b>W</b> &lt;= 100 <br>
+1 &lt;= <b>H</b> &lt;= 100 <br>
+0 &lt;= <b>N</b> &lt;= 5000
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="tetris_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">5
+8 6 1
+1 0 0
+5 4 1
+1 1 1
+5 6 3
+5 0 0
+5 0 2
+3 2 3
+6 4 3
+6 2 0
+6 2 0
+6 2 0
+6 4 2
+6 0 0
+6 0 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="tetris_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1:
+........
+........
+........
+x.......
+xx......
+.x......
+Case #2:
+.....
+.....
+..xx.
+.xx..
+Case #3:
+.....
+.....
+.....
+.....
+.....
+...xx
+Case #4:
+Game Over!
+Case #5:
+xx....
+xx....
+xx....
+xx....
+
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

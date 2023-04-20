@@ -1,0 +1,363 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round B</h3><h1>Analysis: Truck Delivery</h1><h3>
+Test Set 1
+</h3>
+
+<p>
+  Let us root the tree at the capital city $$$1$$$. For the small test set, we can answer each query by
+  simply iterating the path from the given city
+  $$$\mathbf{C_j}$$$ up to the capital city. We start out with the answer $$$ans = 0$$$, and
+  whenever we
+  encounter a road on the path with $$$\mathbf{L_i} \leq \mathbf{W_j}$$$, we update the
+  answer to
+  $$$ans = \gcd(ans, \mathbf{A_i}$$$).
+</p>
+<p>
+  The time complexity of the Greatest Common Divisor (GCD) operation $$$\gcd(a, b)$$$ is $$$O(\log(\min(a, b)))$$$
+  or $$$O(\log(MaxA))$$$ in our case, where $$$MaxA$$$ is the largest toll among all roads.
+  A short proof of GCD time complexity is provided
+  <a href="https://codeforces.com/blog/entry/63771">here</a>, and it can be generalized to show
+  that the amortized time complexity of a sequence of $$$K$$$ GCD operations, where the result of a
+  previous operation is fed into the next one, is $$$O(K + \log(MaxA))$$$ as opposed to
+  $$$O(K \times \log(MaxA))$$$. Since a path in the tree can have up to $$$\mathbf{N}$$$ cities, the
+  overall time complexity of the algorithm for all $$$\mathbf{Q}$$$ days is therefore
+  $$$O(\mathbf{Q} \times (\mathbf{N} + \log(MaxA)))$$$.
+</p>
+
+<h3>
+Test Set 2
+</h3>
+
+<p>
+  Since all queries are known in advance, we do not have to answer them in the given order, so let's group the queries by city
+  $$$\mathbf{C_j}$$$.
+</p>
+
+<p>
+  Let's look at how we can answer all queries for a particular city $$$C$$$ efficiently. First,
+  we need to build a list of roads on the path from city $$$C$$$ to the capital city $$$1$$$ and sort them
+  by the load-limits $$$\mathbf{L_i}$$$ in an increasing order. Let's also sort the queries
+  for city $$$C$$$ by weight $$$\mathbf{W_j}$$$ in a non-decreasing order. Now we can answer the queries
+  by
+  iterating these two lists in parallel and calculating GCD of all roads with load-limit up to and
+  including the weight $$$\mathbf{W_j}$$$ of the current query.
+</p>
+
+<p>
+  The time complexity of this approach is
+  $$$O(\mathbf{N}^2 \log(\mathbf{N}) + \mathbf{N} \log(MaxA) + \mathbf{Q} \log(\mathbf{Q}))$$$ as
+  we need to sort the list of roads from each city to the capital city $$$1$$$, perform a series of GCD
+  operations for each of these $$$\mathbf{N}$$$ paths, and also have the queries sorted by loads.
+</p>
+
+
+<p>
+  Rather than building paths to the capital for each city independently,
+  we can perform a
+  <a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-first search</a> (DFS) of the
+  tree
+  starting at the capital city $$$1$$$ and answer all queries of a city $$$C$$$ as we visit the city for
+  the first time. That way, the cities and roads on the path from $$$C$$$ to $$$1$$$ are conveniently
+  stored in the DFS stack. All we need is an efficient data structure that would store the
+  toll
+  $$$\mathbf{A_i}$$$ of precisely these roads and support GCD queries of tolls in the load-limit
+  range $$$[1, \mathbf{W_j}]$$$.
+</p>
+
+<p>
+  That data structure happens to be a segment tree $$$ST$$$ with load-limits
+  $$$\mathbf{L_i}$$$ as keys (recall that all load-limits are unique), the
+  tolls $$$\mathbf{A_i}$$$ as values, and GCD as the merge operation.
+  Initially, the segment tree $$$ST$$$ is empty, namely, the values of all its nodes are $$$0$$$.
+  Whenever we traverse the $$$i$$$-th road, we perform a point update operation
+  $$$ST.update(\mathbf{L_i}, \mathbf{A_i})$$$, and, when we backtrack along this
+  road in the DFS traveral,
+  we cancel the value $$$\mathbf{A_i}$$$ by calling $$$ST.update(\mathbf{L_i}, 0)$$$.
+  By doing so, we ensure that at the
+  time of answering queries for a particular city, the segment tree $$$ST$$$ contains the
+  tolls of precisely the roads on the path to the capital city $$$1$$$, and the answer to a
+  query is $$$ST.query(1, \mathbf{W_j})$$$.
+</p>
+
+<p>
+  Let $$$MaxQ$$$ be the maximum load-limit among all roads. Each update or query
+  of the segment tree involves $$$O(\log(MaxQ))$$$ GCD operations so the amortized time
+  complexity of a single update or query operation is $$$O(\log(MaxA) + \log(MaxQ))$$$.
+  Since we have two update operations per road and one query operation per each day, the overall
+  time complexity of the algorithm is
+  $$$O((\mathbf{N} + \mathbf{Q}) \times (\log(MaxA) + \log(MaxQ)))$$$.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

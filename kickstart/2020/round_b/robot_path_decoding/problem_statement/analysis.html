@@ -1,0 +1,364 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2020 - Round B</h3><h1>Analysis: Robot Path Decoding</h1>
+<p>
+  To facilitate parsing of the program, let us define <i>ClosingBracket</i>(i) as the index of the
+  closing bracket corresponding to the opening bracket at index i. We can find
+  <i>ClosingBracket</i>(i) for each opening bracket using a stack in linear time, which is similar to
+  checking whether a string is a correct bracket sequence or not, see
+  <a href="https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/">this article</a>
+  for more details.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+  The total number of moves is limited by 10<sup>4</sup> per test. Consider the expanded
+  version of a program P to be the string consisting of characters N,S,W,E only and having the same
+  moves as P. For example, the program 2(3(N)EW) would expand to NNNEWNNNEW.  Since the number of moves
+  is small, we can generate the expanded program, and calculate the position of the robot easily by
+  taking one step at a time.
+</p>
+
+<p>
+  For an original subprogram between indices L and R, the equivalent expanded version
+  <i>Expanded</i>(L, R) can be constructed recursively as follows.
+  We start with an empty string <i>Result</i>, iterate the subprogram from the left index L to the
+  right index R, and consider two cases:
+  <ul>
+    <li>If the i-th symbol is in {'N','S','E','W'}, append it to <i>Result</i>.</li>
+    <li>If the i-th symbol is a digit D then
+      <ul>
+        <li>Call <i>Expanded</i>(i+2, <i>ClosingBracket</i>(i+1)-1) to construct the expanded
+          version P' of the next subprogram recursively,</li>
+        <li>Append P' to <i>Result</i> D times, and</li>
+        <li>Advance the current position i to <i>ClosingBracket</i>(i+1)+1.</li>
+      </ul>
+    </li>
+  </ul>
+</p>
+
+<p>
+The first case takes constant time. In the second case, it takes O(D &times; |P'|) time to append the
+subprogram P' to the result D times. Let LEN be the length of the expanded program. The total expanded
+length of the subprograms at the second nesting level is at most LEN/2. The total expanded length of
+subprograms at the third nesting level is at most LEN/4, and so on. Thus the time complexity would
+  be bounded by LEN + LEN / 2 + LEN / 4 + LEN / 8 + .. which is equal to 2 &times; LEN as this is a
+  geometric progression. Hence, the time complexity to generate the expanded version of the original
+  program would be O(LEN).
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  Now it is possible that the number of moves is exponential in the length of the original program.
+ Thus it would be impossible to execute the moves one by one in the given time.
+</p>
+
+<p>
+  For the ease of explanation, let us assume that the rows and columns are numbered from 0
+  (inclusive) to 10<sup>9</sup> (exclusive). Suppose that the robot is at position (a, b) and now we
+  come across instruction X(Y) in the program. Let us say subprogram Y changes the current position
+  of the robot by dx, dy (because of the torus shape of Mars, we can assume that
+  0 &le; dx &lt; 10<sup>9</sup> and 0 &le; dy &lt; 10<sup>9</sup>). Then the position of the robot
+  after following the instruction X(Y) would be ((a + X * dx) mod 10<sup>9</sup>, (b + X * dy) mod 10<sup>9</sup>)
+  as the subprogram Y is repeated X times. Hence, we just need to find the relative displacement of
+  the robot by each subprogram.
+</p>
+
+<p>
+ For a subprogram between indices L and R, the relative displacement of the robot can be calculated
+  using <i>Evaluate</i>(L, R) recursively as follows.
+
+ Consider that we are currently at the square (a, b), which is initially the square (0, 0). Iterate
+  the subprogram from the left index L to the right index R, and consider two cases:
+  <ul>
+    <li>If the i-th symbol is in {'N','S','E','W'}, change the current position of the robot
+      accordingly.</li>
+    <li>If the i-th symbol is a digit D then
+      <ul>
+        <li>Call <i>Evaluate</i>(i+2, <i>ClosingBracket</i>(i+1)-1)to get the relative displacement
+          (dx, dy) of the robot by the next subprogram recursively,</li>
+        <li>Change the current position to ((a + D * dx) mod 10<sup>9</sup>, (b + D * dy) mod 10<sup>9</sup>), and</li>
+        <li>Advance the current position i to <i>ClosingBracket</i>(i+1)+1.</li>
+      </ul>
+     </li>
+  </ul>
+</p>
+
+<p>
+  Clearly, we visit each character in the program exactly once. Hence, the time complexity of the
+  solution is O(N), where N is the length of the program.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

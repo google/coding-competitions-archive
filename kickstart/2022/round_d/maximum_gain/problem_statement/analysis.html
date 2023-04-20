@@ -1,0 +1,405 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round D</h3><h1>Analysis: Maximum Gain</h1><h3>Test Set 1</h3>
+<p>
+  One straightforward way to solve this problem is to simulate the process with
+  a recursive brute force method. Let us define the following variables:
+</p>
+<ul>
+  <li>
+    $$$Ai$$$: The pointer to the start of array $$$\mathbf{A}$$$. The pointer moves one step
+    ahead after answering the first question from $$$\mathbf{A}$$$, i.e. $$$Ai$$$ becomes
+    $$$Ai+1$$$.
+  </li>
+  <li>
+    $$$Aj$$$: The pointer to the end of array $$$\mathbf{A}$$$. The pointer moves one step
+    back after answering the last question from $$$\mathbf{A}$$$, i.e. $$$Aj$$$ becomes
+    $$$Aj-1$$$.
+  </li>
+  <li>$$$Bi$$$: The pointer to the start of array $$$\mathbf{B}$$$.</li>
+  <li>$$$Bj$$$: The pointer to the end of array $$$\mathbf{B}$$$.</li>
+  <li>$$$k$$$: The remaining number of questions to answer.</li>
+</ul>
+<p>With these variables, we can write down the recursive equation as follows:</p>
+<!-- prettier-ignore -->
+<div>
+$$$\begin{equation}\begin{split}
+  f(Ai, Aj, Bi, Bj, k) =
+  \begin{cases}
+    \begin{split}
+      -\text{inf}, &\quad \text{if } (Ai - 1) + (\mathbf{N} - Aj) \gt \mathbf{N} \text{ or } (Bi - 1) + (\mathbf{M} - Bj) \gt \mathbf{M}.\\
+      0, &\quad \text{if } k = 0.
+    \end{split}\\
+    \max \begin{pmatrix}\begin{split}
+    f(&Ai+1,&Aj,&Bi,&Bj,&k-1) + \mathbf{A}[Ai]\\
+    f(&Ai,&Aj-1,&Bi,&Bj,&k-1) + \mathbf{A}[Aj]\\
+    f(&Ai,&Aj,&Bi+1,&Bj,&k-1) + \mathbf{B}[Bi]\\
+    f(&Ai,&Aj,&Bi,&Bj-1,&k-1) + \mathbf{B}[Bj]
+    \end{split}\end{pmatrix}, \text{otherwise}.
+  \end{cases}
+\end{split}\end{equation}$$$
+</div>
+<p>
+  The maximum points we can get by answering $$$\mathbf{K}$$$ questions from arrays $$$\mathbf{A}$$$ and
+  $$$\mathbf{B}$$$ would be the return value of $$$f(1, \mathbf{N}, 1, \mathbf{M}, \mathbf{K})$$$. Be careful that
+  indexes $$$Ai$$$, $$$Aj$$$, $$$Bi$$$, and $$$Bj$$$ may go out of bounds of
+  arrays $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$. The out-of-bounds values are defined to be zeros in the
+  equations above.
+</p>
+<p>
+  However, the time complexity of the recursion above is $$$O(4^\mathbf{K})$$$. To
+  improve the performance, we can use dynamic programming: keep the return
+  values in a 4-dimensional array to avoid repeated computation. Notice that the
+  memoization array does not need to keep parameter $$$k$$$ since it can be
+  derived from the other four parameters with $$$k=\mathbf{K}-(Ai
+  -1)-(\mathbf{N}-Aj)-(Bi-1)-(\mathbf{M}-Bj)$$$. With memoization, the time complexity of this
+  method is $$$O(\mathbf{K}^4)$$$, and space complexity is $$$O(\mathbf{K}^4)$$$.
+</p>
+<h3>Test Set 2</h3>
+<p>
+  Notice that the order of questions to answer does not affect the points we get
+  from them. Therefore, we can always answer questions in the first array $$$\mathbf{A}$$$
+  first, and then in the second array $$$\mathbf{B}$$$. This observation allows us to divide
+  the problem into two sub-problems: find the maximum points $$$P_A$$$ we can
+  get by answering $$$K_A$$$ questions in the first array $$$\mathbf{A}$$$, and the maximum
+  points $$$P_B$$$ by answering $$$K_B$$$ questions in the second array $$$\mathbf{B}$$$.
+  Enumerating all possible combinations of $$$(K_A, K_B)$$$ where $$$K_A + K_B =
+  \mathbf{K}$$$, the total maximum points we can get by answering $$$\mathbf{K}$$$ questions would
+  be the maximum value of all $$$P_A + P_B$$$.
+</p>
+<p>
+  Now we want to find a way to get the maximum points $$$P_A$$$ by answering
+  $$$K_A$$$ questions in the first array $$$\mathbf{A}$$$. Since the order of questions to
+  answer does not matter, we can answer $$$K_{AStart}$$$ questions from the
+  start of the array first, and then $$$K_{AEnd}$$$ questions from the end of
+  the array, such that $$$K_{AStart} + K_{AEnd} = K_A$$$. The points we get
+  would be:
+</p>
+<!-- prettier-ignore -->
+<div style="margin-top: 1em;">
+  $$$\begin{equation}\begin{split}
+  P'_A &= (\mathbf{A}_1 + \mathbf{A}_2 + \cdots + \mathbf{A}_{K_{AStart}})
+          &+ (\mathbf{A}_{\mathbf{N}-K_{AEnd}+1} + \mathbf{A}_{\mathbf{N}-K_{AEnd} + 2} + \cdots + \mathbf{A}_\mathbf{N}) \\
+  &= \text{Prefix}(\mathbf{A}, K_{AStart}) &+ \text{Suffix}(\mathbf{A}, K_{AEnd})
+\end{split}\end{equation}$$$
+</div>
+<p>
+  Therefore, we can find the maximum points $$$P_A$$$ by enumerating all
+  combinations of $$$(K_{AStart}, K_{AEnd})$$$ where $$$K_{AStart} + K_{AEnd} =
+  \min(K_A, \mathbf{N})$$$, and find the maximum values of all $$$P'_A$$$ with the
+  equation aforementioned. With the prebuilt prefix sum and suffix sum arrays,
+  we can get $$$P'_A$$$ in $$$O(1)$$$ time, and the maximum points $$$P_A$$$ in
+  $$$O(K_A)$$$ time.
+</p>
+<p>
+  We can apply the same algorithm to find the maximum points $$$P_B$$$ by
+  answering $$$K_B$$$ questions in the second array $$$\mathbf{B}$$$. The time complexity for
+  this method would be:
+</p>
+<ul>
+  <li>
+    $$$O(\mathbf{N} + \mathbf{M})$$$ to prebuild the prefix and suffix arrays for $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$.
+  </li>
+  <li>
+    $$$O(\mathbf{K}^2)$$$ to get the total maximum points.
+    <ul style="padding-top: 0;">
+      <li>
+        $$$O(1)$$$ to get the points with a pair $$$(K_{AStart}, K_{AEnd})$$$ or
+        $$$(K_{BStart}, K_{BEnd})$$$.
+      </li>
+      <li>
+        $$$O(\mathbf{K})$$$ to enumerate all $$$(K_{AStart}, K_{AEnd})$$$ pairs and get
+        $$$P_A$$$ &mdash; maximum points by answering questions from array $$$\mathbf{A}$$$.
+        Same for array $$$\mathbf{B}$$$.
+      </li>
+      <li>
+        $$$O(\mathbf{K}^2)$$$ to enumerate all $$$(K_A, K_B)$$$ pairs and get the total
+        maximum points.
+      </li>
+    </ul>
+  </li>
+  <li>Overall: $$$O(\mathbf{K}^2 + \mathbf{N} + \mathbf{M})$$$.</li>
+</ul>
+
+<p style="border-style: groove; border: 2px solid #34a853; padding: 5px;">
+If you would like to explore more tasks like Audio Validation and Image Labeler Tasks on the
+Crowdsource app and directly train Google's artificial intelligence systems to
+make Google products work
+<a href="https://www.youtube.com/watch?v=oLTNtvIHJ7M" target="_blank"
+  >equally well for <i>everyone, everywhere</i></a
+>, you can <a href="http://goo.gle/cs-kick-start-2022" target="_blank">download it here</a>.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

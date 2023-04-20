@@ -1,0 +1,453 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2020 - Round H</h3><h1>Analysis: Rugby</h1><p>
+  We can divide this problem into two parts:
+  choosing where to place the line, and choosing the permutation of players on the line
+  (in other words, which players should be on which points on the line).
+</p>
+<p>
+  Regarding the permutation of players,
+  the first observation that we can make is that preserving the initial
+  X-ordering of the players is an optimal strategy. That means we should place the player
+  with the lowest <b>X</b> coordinate value as the first player on the line, the player with the
+  second lowest <b>X</b> coordinate value as the second player on the line, and so on. If there are
+  ties, we can break them arbitrarily.
+</p>
+<p>
+  We can prove that this greedy strategy is optimal.
+  First let us assume that there
+  are two players with X-coordinates <b>X</b><sub>1</sub> and <b>X</b><sub>2</sub>,
+  and let us denote the X-coordinate of the start of line as startX,
+  whereas <b>X</b><sub>1</sub> &le; startX &lt; <b>X</b><sub>2</sub>. If we do not preserve
+  the players' relative position on the final solution,
+  we have that the first player will move for (startX + 1) - <b>X</b><sub>1</sub> steps,
+  and the second player will move for <b>X</b><sub>2</sub> - startX steps,
+  so the final solution equals -<b>X</b><sub>1</sub> + <b>X</b><sub>2</sub> + 1 steps.
+
+  However, if we preserved the players' relative positions,
+  the first player would move for startX - <b>X</b><sub>1</sub> steps,
+  and the second player would move for <b>X</b><sub>2</sub> - (startX + 1) steps,
+  so the final solution would equal -<b>X</b><sub>1</sub> + <b>X</b><sub>2</sub> - 1 steps,
+  which is lower than the above strategy.
+
+  For the other possible values of startX,
+  which are startX &lt; <b>X</b><sub>1</sub> or <b>X</b><sub>2</sub> &le; startX,
+  both permutations for the players result on the same amount of steps.
+
+  Therefore, we can reach the conclusion that, for any solution, by swapping two players'
+  order in order to preserve the players' initial relative positions, the total number of steps
+  remains the same or decreases.
+</p>
+<p>
+  Now imagine that we have an arbitrary optimal solution S
+  (not necessarily sorted on the players' X-coordinates).
+  If we perform a swap, as described
+  above, the solution does not get any worse, so it is still optimal. If we perform such a swap
+  enough times we will reach a point in which the players are in non-descending order of
+  their X coordinate,
+  which is what our greedy solution looks like, and the solution is still optimal.
+  Therefore, our greedy solution is optimal.
+</p>
+<p>
+  Regarding where to place the line,
+  let <i>solutionFirstX</i> be the <b>X</b> position of the first point on the line,
+  and let <i>solutionRow</i> be the <b>Y</b> position of the line.
+</p>
+
+<h3>
+  Test Set 1
+</h3>
+<p>
+  Given the constraints of the Test Set 1, we can iterate through all possible values for
+  <i>solutionFirstX</i> and <i>solutionRow</i> and check which combination results on
+  the minimum total number of steps.
+
+  The grid is unbounded, however we can bound the possible values for <i>solutionFirstX</i>
+  based on the initial <b>X</b> positions
+  of the players, because placing the line entirely to the left of the player with the
+  lowest <b>X</b> coordinate would make them all take an extra step to get there, which intuitively
+  leads to a worse solution. The same applies on the right side.
+
+  Let <i>minPlayerX</i> represent the <b>X</b> value of the player the most to the left,
+  and <i>maxPlayerX</i> represent the <b>X</b> value of the player the most to the right.
+
+  The number of possible values for <i>solutionFirstX</i>
+  range between <i>minPlayerX</i>-(<b>N</b>-1) and <i>maxPlayerX</i>.
+
+  Given similar definitions for <i>minPlayerY</i> and <i>maxPlayerY</i>,
+  the same logic applies for <i>solutionRow</i>,
+  which ranges between <i>minPlayerY</i> and <i>maxPlayerY</i>.
+</p>
+<p>
+  To calculate what is the total number of steps for the players to reach the line at
+  <i>candidateFirstX</i> and <i>candidateRow</i>,
+  iterate through all players in non-descending X-coordinate order and add their
+  <a href="https://xlinux.nist.gov/dads/HTML/manhattanDistance.html">Manhattan distances</a>
+  to their relative locations on the line.
+  In other words, the total number of steps equals the sum of
+  |<b>X</b><sub>i</sub> - (candidateFirstX + (i - 1))| + |<b>Y</b><sub>i</sub> - candidateRow|,
+  for every player i in non-descending order of <b>X</b><sub>i</sub>.
+</p>
+<p>
+  The complexity of given solution is
+  O(<b>N</b> &times; log <b>N</b> +
+  (<i>maxPlayerX</i> - <i>minPlayerX</i> + <b>N</b>) &times;
+  (<i>maxPlayerY</i> - <i>minPlayerY</i> + 1) &times;
+  <b>N</b>).
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+<p>
+  Given that the limits for <b>N</b> and the players initial positions are much greater in
+  Test Set 2, the above mentioned solution would not be fast enough.
+</p>
+<p>
+  To divide our solution into smaller steps, we should notice that horizontal and vertical
+  movement can be solved independently.
+  In other words, the value <i>solutionRow</i> does not affect how many
+  horizontal steps the players will take,
+  as well as <i>solutionFirstX</i> does not affect how many
+  vertical steps the players will take.
+</p>
+<p>
+  Let us start by finding the value for <i>solutionRow</i>.
+  We can observe that most players will have to move vertically
+  to reach <i>solutionRow</i>, either by moving up or moving down (and some will not have
+  to move because they are initially on <i>solutionRow</i>).
+
+  We want the total number of steps to be as small as possible, so a good candidate is the
+  Y-position of the player that is positioned as the median among all players, regarding
+  their initial Y-position.
+</p>
+<p>
+  We can prove that this is optimal as follows:
+  first, let us start with the assumption that <b>N</b> is odd.
+  If we set <i>solutionRow</i> to be equal to <b>Y</b><sub>&lceil;<b>N</b>/2&rceil;</sub>
+  (the Y-position of the player in the middle),
+  then we can see that there will be at least &lfloor;<b>N</b>/2&rfloor; players
+  who are initially below or at the same line as the one in the middle,
+  and at least &lfloor;<b>N</b>/2&rfloor; players who are initially above or at
+  the same line as the one in the middle.
+
+  Let us call <i>totalStepsBelow</i> the total number of steps taken by the
+  &lfloor;<b>N</b>/2&rfloor; players who are initially below or at the same
+  line as the one in the middle,
+  and let us call <i>totalStepsAbove</i> the total number of steps taken by the
+  &lfloor;<b>N</b>/2&rfloor; players who are initially above or at the same
+  line as the one in the middle.
+
+  As is, the total number of steps equals <i>totalStepsBelow</i> + <i>totalStepsAbove</i>.
+
+  If we move <i>solutionRow</i> one position up,
+  then the player in the middle and all the players that were initially below
+  or at the same line as the one in the middle will have to take one extra step to reach
+  <i>solutionRow</i>,
+  and, in the best scenario, all the players that were initially above as the one in the
+  middle will have to take one less step to reach <i>solutionRow</i>.
+  Therefore, the total number of steps would equal
+  (<i>totalStepsBelow</i> + &lfloor;<b>N</b>/2&rfloor; + 1)
+  + (<i>totalStepsAbove</i> - &lfloor;<b>N</b>/2&rfloor;), which equals
+  <i>totalStepsBelow</i> + <i>totalStepsAbove</i> + 1, which is worse than our first guess.
+  The same applies for moving <i>solutionRow</i> one position down.
+
+  A similar logic can be used for when <b>N</b> is even.
+</p>
+<p>
+  Now we can use a similar approach for finding the value for <i>solutionFirstX</i>.
+  Taking into account the fact that we want
+  to preserve the players initial X-ordering, we can observe that for each player i, who has
+  <i>k<sub>i</sub></i> players to his left, the optimal value for <i>solutionFirstX</i> would be
+  <b>X</b><sub>i</sub> - <i>k<sub>i</sub></i>, because this way he would not have to move
+  horizontally at all.
+
+  Using the same logic described for finding <i>solutionRow</i>, we can find the optimal
+  value for <i>solutionFirstX</i> by picking the median of all players optimal values
+  for <i>solutionFirstX</i>.
+</p>
+<p>
+  Using these strategies we can find the value for <i>solutionRow</i> in
+  O(<b>N</b> &times; log <b>N</b>) time by sorting the players by their initial
+  Y-coordinate and picking the median value.
+  Similarly, we can find the value for <i>solutionFirstX</i> in
+  O(<b>N</b> &times; log <b>N</b>) time by sorting the players by their initial
+  X-coordinate and picking the median optimal value.
+  Finally we can calculate the total number of steps in O(<b>N</b>) time,
+  by using the strategy mentioned on Test Set 1 analysis. Therefore, the
+  time complexity of the solution is O(<b>N</b> &times; log <b>N</b>).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

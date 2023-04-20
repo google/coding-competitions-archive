@@ -1,0 +1,634 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round D</h3><h1>Touchbar Typing</h1><h3>Problem</h3>
+<p>
+  Glide Typing task in  <a
+    href="https://goo.gle/cs-kick-start-2022" target="_blank"
+  >
+    Crowdsource app
+  </a> uses a new Google keyboard to type a word by sliding
+  a finger across keys without lifting the finger, as shown in the animation
+  below.
+</p>
+
+<img
+  src="images/demo.gif"
+  alt="Demostration of Glide Typing on a mobile device."
+/>
+
+<p>
+  To make the Glide Typing task more challenging, instead of a normal keyboard,
+  we have a special linear keyboard $$$\mathbf{K}$$$ that has all the keys in one row.
+</p>
+
+<p>
+  Imagine that you want to type a word $$$\mathbf{S}$$$ that is $$$\mathbf{N}$$$ characters long. The
+  linear keyboard $$$\mathbf{K}$$$ has $$$\mathbf{M}$$$ keys. It is guaranteed that the keys cover all characters in $$$\mathbf{S}$$$. However, some
+  of the keys may be duplicates. In other words, for each character in $$$\mathbf{S}$$$,
+  there is one or more keys in $$$\mathbf{K}$$$ mapped to the character. Note that, all characters and keys are
+  represented as integers.
+</p>
+
+<p>
+  You may start with your finger on any key. It takes $$$1$$$ second to move your finger from a key to an adjacent key. Due
+  to Glide Typing, there is no <i>pressing</i> a key. If the finger is currently at the key $$$i$$$ which
+  has character $$$\mathbf{K_i}$$$, and we want to type the character $$$\mathbf{K_j}$$$ at index $$$j$$$, we will glide the finger from the key $$$i$$$
+  to the key $$$j$$$, which takes $$$\lvert j-i \rvert$$$ seconds.
+  If your finger is at key $$$x$$$, you can type character $$$\mathbf{K_x}$$$ any number of times
+  instantly. You need to type string $$$\mathbf{S}$$$ character by character. Formally, you need to type
+  $$$\mathbf{S_i}$$$ before $$$\mathbf{S_{i+1}}$$$ for each $$$ 1 \le i \le \mathbf{N}-1 $$$.
+</p>
+
+<p>
+    For example, suppose the word $$$\mathbf{S}$$$ has characters: <code>1</code>, <code>2</code>, <code>2</code>,
+    <code>3</code>, <code>4</code>. You can start by keeping your finger
+    on key with character <code>1</code> on the keyboard which is at index $$$i$$$. Then you glide
+    your finger to key which has character <code>2</code>
+    which is at index $$$j$$$. It would take $$$\lvert j-i \rvert$$$ seconds. In order
+    to type character <code>2</code> two times in string $$$\mathbf{S}$$$, you can do that in no additional time
+    as $$$\lvert j-j \rvert = 0$$$ seconds. Then you can continue to glide your finger to type the other characters
+    in the word $$$\mathbf{S}$$$ sequentially.
+  </p>
+
+<p>
+  Can you calculate the minimal time needed to type the word?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test
+  cases follow.
+</p>
+<p>
+  The first line of each test case contains one integer $$$\mathbf{N}$$$: the length of the
+  word $$$\mathbf{S}$$$.<br />
+  The second line of each test case contains $$$\mathbf{N}$$$ integers: each $$$\mathbf{S_i}$$$ is the
+  character at the $$$i$$$-th index.<br />
+  The third line of each test case contains one integer $$$\mathbf{M}$$$: the length of the
+  keyboard $$$\mathbf{K}$$$.<br />
+  The fourth line of each test case contains $$$\mathbf{M}$$$ integers: each $$$\mathbf{K_i}$$$ is the
+ character at the $$$i$$$-th key.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing the minimal time needed to type the
+  word.
+  <code>Case #$$$x$$$: $$$y$$$</code>, where $$$x$$$ is the test case number
+  (starting from 1) and $$$y$$$ is the minimal time needed to type $$$\mathbf{S}$$$ on the keyboard
+  $$$\mathbf{K}$$$.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 100$$$.<br />
+  All characters in $$$\mathbf{S}$$$ appears at least once in $$$\mathbf{K}$$$.<br />
+  $$$1 \le \mathbf{K_i} \le 2500$$$.<br />
+  $$$1 \le \mathbf{S_i} \le 2500$$$.
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+Time limit: 20 seconds.<br/>
+
+  $$$1 \le \mathbf{N} \le 100$$$.<br />
+  $$$1 \le \mathbf{M} \le 100$$$.<br />
+  It is guaranteed that there are no duplicated keys in keyboard $$$\mathbf{K}$$$.
+</p>
+
+<h4>Test Set 2</h4>
+<p>
+Time limit: 20 seconds.<br/>
+
+  $$$1 \le \mathbf{N} \le 100$$$.<br />
+  $$$1 \le \mathbf{M} \le 100$$$.<br />
+</p>
+
+<h4>Test Set 3</h4>
+<p>
+Time limit: 40 seconds.<br/>
+
+  $$$1 \le \mathbf{N} \le 2500$$$.<br />
+  $$$1 \le \mathbf{M} \le 2500$$$.<br />
+</p>
+
+
+  <h3>Sample</h3>
+  <i>
+    Note: there are additional samples that are not run on submissions down below.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="touchbar_typing_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+5
+1 2 3 2 1
+3
+1 2 3
+3
+1 1 1
+2
+2 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="touchbar_typing_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 4
+Case #2: 0
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    In Sample Case #1, we can take the following steps to type string $$$\mathbf{S}$$$ in minimum time.
+    <ul>
+      <li>
+        Start by keeping your finger on key $$$\mathbf{K_1}$$$ which has character <code>1</code>. We have now
+        typed the first character of the string $$$\mathbf{S}$$$.
+      </li>
+      <li>
+        In order to type the second character <code>2</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_2}$$$.
+        it takes $$$\lvert 2 - 1 \rvert = 1$$$ additional second to glide the finger from index $$$1$$$ to index $$$2$$$.
+      </li>
+      <li>
+        In order to type the third character <code>3</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_3}$$$.
+        it takes $$$\lvert 3 - 2 \rvert = 1$$$ additional second to glide the finger from index $$$2$$$ to index $$$3$$$.
+      </li>
+      <li>
+        In order to type the fourth character <code>2</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_2}$$$.
+        it takes $$$\lvert 2 - 3 \rvert = 1$$$ additional second to glide the finger from index $$$3$$$ to index $$$2$$$.
+      </li>
+      <li>
+        In order to type the fifth character <code>1</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_1}$$$.
+        it takes $$$\lvert 1 - 2 \rvert = 1$$$ additional second to glide the finger from index $$$2$$$ to index $$$1$$$.
+      </li>
+      <li>
+        We have typed all characters of the string $$$\mathbf{S}$$$ in a total of $$$4$$$ seconds.
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    In Sample Case #2, we can take the following steps to type string $$$\mathbf{S}$$$ in minimum time.
+    <ul>
+      <li>
+        Start by keeping your finger on key $$$\mathbf{K_2}$$$ which has character <code>1</code>. We have now
+        typed the first character of the string $$$\mathbf{S}$$$.
+      </li>
+      <li>
+        As our finger is on key $$$\mathbf{K_2}$$$, we can type the character <code>1</code> any number of times, without
+        any additional time. Hence, we can type the second and third characters of the string $$$\mathbf{S}$$$.
+      </li>
+      <li>
+        We have typed all characters of the string $$$\mathbf{S}$$$ in a total of $$$0$$$ seconds.
+      </li>
+    </ul>
+  </p>
+
+
+  <br/>
+  <h3>Additional Sample - Test Set 2</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 2. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="touchbar_typing_sample_ts2_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_1">2
+4
+2 1 4 1
+8
+4 1 5 2 1 3 5 4
+3
+1 2 3
+8
+2 3 5 1 4 6 7 2
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="touchbar_typing_sample_ts2_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_1">Case #1: 4
+Case #2: 4
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    In Additional Sample Case #1, we can take the following steps to type string $$$\mathbf{S}$$$ in minimum time.
+    <ul>
+      <li>
+        Start by keeping your finger on key $$$\mathbf{K_4}$$$ which has character <code>2</code>. We have now
+        typed the first character of the string $$$\mathbf{S}$$$.
+      </li>
+      <li>
+        In order to type the second character <code>1</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_2}$$$.
+        it takes $$$\lvert 2 - 4 \rvert = 2$$$ additional seconds to glide the finger from index $$$4$$$ to index $$$2$$$.
+      </li>
+      <li>
+        In order to type the third character <code>4</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_1}$$$.
+        it takes $$$\lvert 1 - 2 \rvert = 1$$$ additional second to glide the finger from index $$$2$$$ to index $$$1$$$.
+      </li>
+      <li>
+        In order to type the fourth character <code>1</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_2}$$$.
+        it takes $$$\lvert 2 - 1 \rvert = 1$$$ additional second to glide the finger from index $$$1$$$ to index $$$2$$$.
+      </li>
+      <li>
+        We have typed all characters of the string $$$\mathbf{S}$$$ in a total of $$$4$$$ seconds.
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    In Additional Sample Case #2, we can take the following steps to type string $$$\mathbf{S}$$$ in minimum time.
+    <ul>
+      <li>
+        Start by keeping your finger on key $$$\mathbf{K_4}$$$ which has character <code>1</code>. We have now
+        typed the first character of the string $$$\mathbf{S}$$$.
+      </li>
+      <li>
+        In order to type the second character <code>2</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_1}$$$.
+        it takes $$$\lvert 1 - 4 \rvert = 3$$$ additional seconds to glide the finger from index $$$4$$$ to index $$$1$$$.
+      </li>
+      <li>
+        In order to type the third character <code>3</code> of the string $$$\mathbf{S}$$$, glide your finger to key $$$\mathbf{K_2}$$$.
+        it takes $$$\lvert 2 - 1 \rvert = 1$$$ additional second to glide the finger from index $$$1$$$ to index $$$2$$$.
+      </li>
+      <li>
+        We have typed all characters of the string $$$\mathbf{S}$$$ in a total of $$$4$$$ seconds.
+      </li>
+    </ul>
+  </p>
+
+    </div>
+  </body>
+</html>

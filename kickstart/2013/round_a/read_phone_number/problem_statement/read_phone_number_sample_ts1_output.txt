@@ -1,0 +1,3 @@
+Case #1: one five zero one double two three three triple four
+Case #2: one five zero one double two double three triple four
+Case #3: one two double two three

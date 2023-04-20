@@ -1,0 +1,462 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2017 - Round F</h3><h1>Catch Them All</h1><h2>Problem</h2>
+
+<p>
+  After the release of <i><b>Codejamon Go</b></i>, you, like many of your friends,
+  took to the streets of your city to catch as many of the furry little creatures
+  as you could. The objective of the game is to catch <i>Codejamon</i> that appear
+  around your city by going to their locations. You are wondering how long it would
+  take for you to catch them all!
+</p>
+
+<p>
+  Your city consists of <b>N</b> locations numbered from 1 to <b>N</b>. You start at
+  location 1. There are <b>M</b> bidirectional roads (numbered from 1 to <b>M</b>).
+  The i-th road connects a pair of distinct locations (U<sub>i</sub>, V<sub>i</sub>),
+  and it takes <b>D<sub>i</sub></b> minutes to travel on it in either direction.
+  It is guaranteed that it is possible to reach any other location from location
+  1 by travelling on one or more roads.
+</p>
+
+<p>
+  At time 0, a <i>Codejamon</i> will appear at a uniformly random location other
+  than your current location (which is location 1 at time 0). Uniformly random means
+  that the probability that it will appear at each of the <b>N</b> - 1 locations
+  other than your current location is exactly 1 / (<b>N</b> - 1). The instant that
+  a <i>Codejamon</i> appears, you can immediately start moving towards it.
+  When you arrive at a location containing a <i>Codejamon</i>, you instantly catch
+  it, and then a new <i>Codejamon</i> will instantly appear at a uniformly random
+  location other than your current location, and so on. Notice that only one
+  Codejamon is present at any given time, and you must catch the existing one before
+  the next will appear.
+</p>
+
+<p>
+  Given the layout of your city, calculate the expected time to catch <b>P</b>
+  <i>Codejamon</i>, assuming that you always take the fastest possible route between
+  any two locations.
+</p>
+
+<h3>Input</h3>
+
+<p>
+  The input starts with one line containing one integer <b>T</b>: the number of
+  test cases. <b>T</b> test cases follow.
+</p>
+
+<p>
+  Each test case begins with one line containing 3 integers <b>N</b>, <b>M</b> and
+  <b>P</b>, indicating the number of locations, roads, and <i>Codejamon</i> to catch,
+  respectively.
+</p>
+
+<p>
+  Then, each test case continues with <b>M</b> lines; the i-th of these lines
+  contains three integers <b>U<sub>i</sub></b>, <b>V<sub>i</sub></b> and
+  <b>D<sub>i</sub></b>, indicating that the i-th road is between locations
+  <b>U<sub>i</sub></b> and <b>V<sub>i</sub></b>, and it takes <b>D<sub>i</sub></b>
+  minutes to travel on it in either direction.
+</p>
+
+<h3>Output</h3>
+
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where <code>x</code> is
+  the test case number (starting from 1) and <code>y</code> is the expected time in
+  minutes to catch <b>P</b> <i>Codejamon</i>. Your answer will be considered
+  correct if it is within an absolute or relative error of 10<sup>-4</sup> of the
+  correct answer.
+  See the <a href="https://codingcompetitions.withgoogle.com/kickstart/faq" target="_blank">FAQ</a>
+  for an explanation of what that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+1 &le; <b>T</b> &le; 100.<br>
+Time limit: 40 seconds per test set.<br/>
+Memory limit: 1GB.<br/>
+<b>N</b> - 1 &le; <b>M</b> &le; (<b>N</b> * (<b>N</b> - 1)) / 2.<br>
+1 &le; <b>D<sub>i</sub></b> &le; 10, for all i.<br>
+1 &le; <b>U<sub>i</sub></b> &lt; <b>V<sub>i</sub></b> &le; <b>N</b>, for all i.<br>
+For all i and j with i &ne; j, <b>U<sub>i</sub></b> &ne; <b>U<sub>j</sub></b> and/or
+  <b>V<sub>i</sub></b> &ne; <b>V<sub>j</sub></b>. (There is at most one road between
+  any two locations.)<br/>
+It is guaranteed that it is possible to reach any other location from location 1
+  by travelling on one or more roads.<br/>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+2 &le; <b>N</b> &le; 50.<br>
+1 &le; <b>P</b> &le; 200.<br>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+2 &le; <b>N</b> &le; 100.<br>
+1 &le; <b>P</b> &le; 10<sup>9</sup>.<br>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="catch_them_all_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+5 4 1
+1 2 1
+2 3 2
+1 4 2
+4 5 1
+2 1 200
+1 2 5
+5 4 2
+1 2 1
+2 3 2
+1 4 2
+4 5 1
+3 3 1
+1 2 3
+1 3 1
+2 3 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="catch_them_all_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2.250000
+Case #2: 1000.000000
+Case #3: 5.437500
+Case #4: 1.500000
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, there is only one Codejamon for us to catch. With equal
+  probability, it will appear at locations 2, 3, 4, and 5, which are at distances of
+  1, 3, 2, and 3, respectively, from our starting location 1. So the expected time it
+  will take is (1 + 3 + 2 + 3) / 4 = 2.25 minutes.
+</p><p>
+  In Sample Case #2, there are only two locations connected by one road. Every time
+  a Codejamon appears, it will be in the location other than our current one, and we
+  will have to take the road to get there. So we take the road 200 times, taking 5
+  minutes each time, for a total of 1000 minutes.
+</p><p>
+  Sample Case #3 uses the same map as Sample Case #1. There are 16 ordered-pair
+  possibilities for where the two Codejamon will appear, and doing the math yields
+  an expected 87/16 = 5.4375 minutes.
+</p><p>
+  In Sample Case #4, the one Codejamon we need to catch will appear at location 2 or
+  location 3. If it appears at location 2, it is better for us to get there in two
+  minutes via the 1-to-3 and 3-to-2 roads, instead of taking the more time-consuming
+  1-to-2 road. So the expected time taken is (2 + 1) / 2 = 1.5 minutes.
+</p>
+
+    </div>
+  </body>
+</html>

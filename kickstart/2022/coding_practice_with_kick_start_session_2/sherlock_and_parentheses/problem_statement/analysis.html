@@ -1,0 +1,404 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Coding Practice with Kick Start Session #2</h3><h1>Analysis: Sherlock and Parentheses</h1><p
+  style="
+    display: inline-block;
+    padding: 5px;
+    background-color: #f1f3f4;
+    border: 2px solid #34a853;
+  "
+>
+  <a href="https://youtu.be/PThnKCZ1ZDI?t=55" target="_blank"
+    >View problem and solution walkthrough video
+  </a>
+</p>
+<p>
+  The problem translates to finding the maximum number of balanced non-empty
+  substrings possible in a string, generated from the given number of left and
+  right parentheses. A string $$$S$$$ consisting only of characters
+  <code>(</code> and/or <code>)</code> is <i>balanced</i> if:
+</p>
+
+<ul>
+  <li>It is an empty string, or:</li>
+  <li>
+    It has the form <code>(</code>$$$S$$$<code>)</code>, where $$$S$$$ is a
+    balanced string, or:
+  </li>
+  <li>
+    It has the form $$$S_1S_2$$$, where $$$S_1$$$ is a balanced string and
+    $$$S_2$$$ is a balanced string.
+  </li>
+</ul>
+
+<h3>Test Set 1</h3>
+
+<p>
+  Naively, we can generate all the permutations of strings possible from $$$\mathbf{L}$$$
+  left parentheses <code>(</code> and $$$\mathbf{R}$$$ right parentheses <code>)</code>. The
+  time complexity of generating all the permutations will be in order of
+  possible permutations i.e. $$$O(\frac{(\mathbf{L}+\mathbf{R})!}{\mathbf{L}! \times \mathbf{R}!})$$$.
+</p>
+<p>
+  For counting the number of balanced non-empty substrings in a string, we can
+  use a basic counter which increases by $$$1$$$ for a left parenthesis
+  <code>(</code> and decreases by $$$1$$$ for a right parenthesis
+  <code>)</code>. While iterating a given string, if the value of the counter
+  becomes negative before reaching the end, then this string cannot be a
+  balanced string because it denotes the occurrence of right
+  <code>)</code> parenthesis before it's matching left <code>(</code>
+  paranthesis. If the counter is $$$0$$$ at the end of the string, avoiding
+  being negative throughout the string then it denotes a balanced string. We can
+  do this check for all the substrings in a efficient way using a nested for
+  loop, which results in a Time complexity of $$$O(N^{2})$$$ where N is the
+  length of the string:
+</p>
+<pre><code class="language-cpp">
+<var>int</var> CountBalancedSubstrings(<var>String</var> S) {
+  <var>int</var> N = S.length();
+  <var>int</var> balanced_substrings = 0;
+  for (<var>int</var> i = 0; i < N; i++) {
+    <var>int</var> counter = 0;
+    for (<var>int</var> j = i; j < N; j++) {
+      if (S[j] == '(')
+        counter++;
+      else
+        counter--;
+      if (counter < 0) break;
+      if (counter == 0) balanced_substrings++;
+    }
+  }
+  return balanced_substrings;
+}
+</code></pre>
+
+<p>
+  So overall, we can generate all the permutations of the string, count the
+  balanced substrings and return the maximum possible number of balanced
+  non-empty substrings in $$$O(\frac{(\mathbf{L}+\mathbf{R})!}{\mathbf{L}! \times \mathbf{R}!} \times
+  (\mathbf{L}+\mathbf{R})^{2})$$$ Time complexity.
+</p>
+
+<h3>Test Set 2</h3>
+
+<p>
+  We cannot generate all the possible permutations of strings as the solution
+  would timeout. We cannot even count the number of balanced substrings in a
+  string using our earlier $$$O(N^{2})$$$ algorithm as N can go upto
+  $$$10^{5}$$$.
+</p>
+
+<p>
+  We need to identify the optimal strategy to get the maximum number of balanced
+  substrings. We can observe few things from our CountBalancedSubstrings
+  algorithm:
+</p>
+<ul>
+  <li>
+    The counter should not become <i>negative</i> while iterating throughout the
+    string.
+  </li>
+  <li>
+    The number of balanced substrings we get is directly proportional to the
+    number of times the counter becomes $$$0$$$.
+  </li>
+</ul>
+<p>
+  So this translates to the optimal strategy of arranging left parentheses
+  <code>(</code> and right parentheses <code>)</code> like this
+  <code>()()()()()....</code>.
+  <br />
+  Now every left parenthesis requires a right parenthesis and vice versa for
+  forming a balanced string. So we can say this pattern will follow till $$$2
+  \times N$$$ length where $$$N = min(\mathbf{L}, \mathbf{R})$$$, and the rest of the string
+  would not be a part of any balanced substring as it would either include all
+  left <code>(</code> parantheses or all right <code>)</code> parantheses.
+
+  <br />
+  Now in this pattern we can see that the first left parenthesis
+  <code>(</code> forms a balanced substring with all the N right parentheses
+  <code>)</code> ahead of it. Similarly, every left parenthesis
+  <code>(</code> forms a balanced substring with all the right parentheses
+  <code>)</code> ahead of it till $$$2 \times N$$$ length. So the total number
+  of balanced non-empty substrings will be $$$1 + 2 + 3 + 4 + \cdots + N =
+  \frac{N \times (N+1)}{2}$$$
+</p>
+<p>
+  So for each test case, we can calculate $$$N$$$ and then the maximum possible
+  number of balanced non-empty substrings in $$$O(1)$$$ Time and Space
+  complexity.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>
