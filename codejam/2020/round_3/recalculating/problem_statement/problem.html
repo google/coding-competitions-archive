@@ -1,0 +1,515 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 3</h3><h1>Recalculating</h1><h3>Problem</h3>
+<p>
+You are working for the Driverless Direct Delivery Drone Directions Design Division of
+Apricot Rules LLC. The company is about to take its first drone "Principia" to market.
+You are tasked with designing backup systems for Principia, in case it
+loses access to its primary geolocation systems (like GPS), but it still needs a way to get
+directions. Principia is designed for use on a flat region; formally, the region is a Cartesian
+plane in which the coordinates are in meters. One or more points on this plane are
+<i>drone repair centers</i>. No two drone repair centers are at the same location.
+</p><p>
+Principia has a system that can retrieve the relative locations of drone repair centers
+that are within an L<sub>1</sub> distance (which is also known as
+<a href="https://en.wikipedia.org/wiki/Taxicab_geometry" target="_blank">Manhattan distance</a>)
+of at most <b>D</b> meters of its location. The information retrieved is a set of repair center
+locations relative to Principia's current location. For example: "there is a repair center 4 meters
+north and 3.5 meters west, and another one 2.5 meters east". Notice that the information does
+not identify repair centers; it gives their locations relative to Principia.
+</p><p>
+You quickly realized that there may be points on the
+map where this information may not be enough for Principia to uniquely determine its current
+location. This is because there might be two (or more) different points from which the
+information looks the same. Points with this property are called <i>non-distinguishable</i>, while
+all other points are called <i>distinguishable</i>.
+</p><p>
+Formally, the information retrieved by Principia when located at point (x, y)
+is Info(x, y) := the set of all points (z - x, w - y), where (z, w) is the location
+of a repair center and |z - x| + |w - y| &le; <b>D</b>. Here
+|z - x| and |w - y| denote the absolute values of z - x and w - y, respectively.
+A point (x<sub>1</sub>, y<sub>1</sub>) is non-distinguishable if and only if
+there exists another point (x<sub>2</sub>, y<sub>2</sub>) such that
+Info(x<sub>1</sub>, y<sub>1</sub>) = Info(x<sub>2</sub>, y<sub>2</sub>).
+</p><p>
+For example, suppose <b>D</b>=4 and there are repair centers at points (0, 0) and (5, 0).
+The point (0, 0) is non-distinguishable because Info(0, 0)={(0, 0)}=Info(5, 0).
+This means that point (5, 0) is also non-distinguishable. On the other hand,
+Info(3.5, 0.1)={(-3.5, -0.1), (1.5, -0.1)} is not equal to the information from any other point,
+which means that point (3.5, 0.1) is distinguishable. The following picture illustrates the
+regions of distinguishable points (in red) and non-distinguishable points (in blue):
+</p><p align="center">
+  <img src="sample_1.png" style="width: 500px; height: auto;" />
+</p><p>
+Principia is deployed to a point that is chosen uniformly at random from the set of all points
+that are within <b>D</b> meters (using L<sub>1</sub> distance) of at least one repair center
+&mdash; that is, the set of all points (x, y) such that Info(x, y) is non-empty.
+The probability of that choice belonging to a given continuous set of points S is
+proportional to the number of square meters of S's area.
+In the example above, each red square has an area of 4.5 square meters, while each blue section
+has an area of 23 square meters. Therefore, the probability of Principia being deployed within
+each red square is 4.5/(3&times;4.5 + 2&times;23) and the probability of it being deployed
+within each blue section is 23/(3&times;4.5 + 2&times;23). Since the border between adjacent
+differently-colored sections has area equal to 0, the probability of Principia being
+deployed exactly on the border is exactly 0.
+</p><p>
+Given the locations of all repair centers, what is the probability that the point to which
+Principia is deployed is distinguishable?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>. <b>T</b> test cases follow.
+Each test case starts with a line containing two integers <b>N</b> and <b>D</b> representing
+(respectively) the number of repair centers and the maximum L<sub>1</sub> distance from which
+Principia can retrieve information from a repair center, as described above. Then, <b>N</b> lines
+follow. The i-th of these contains two integers <b>X<sub>i</sub></b> and <b>Y<sub>i</sub></b>
+representing the coordinates of the i-th repair center. The unit of measurement for
+all coordinates and <b>D</b> is meters.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #x: y z</code>, where <code>x</code> is
+the test case number (starting from 1) and <code>y</code> and <code>z</code> are non-negative
+integers. The fraction <code>y</code>/<code>z</code> must represent
+the probability of Principia being at a distinguishable location,
+if one is chosen uniformly at random from all locations that are
+within <b>D</b> meters of at least one repair center (using L<sub>1</sub> distance).
+If there are multiple acceptable values for <code>y</code> and <code>z</code>, choose
+the one such that <code>z</code> is minimized.
+</p><p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1GB.<br/>
+1 &le; <b>T</b> &le; 100.<br/>
+1 &le; <b>D</b> &le; 10<sup>7</sup>.<br/>
+-10<sup>9</sup> &le; <b>X<sub>i</sub></b> &le; 10<sup>9</sup>, for all i.<br/>
+-10<sup>9</sup> &le; <b>Y<sub>i</sub></b> &le; 10<sup>9</sup>, for all i.<br/>
+(X<sub>i</sub>, Y<sub>i</sub>) &ne; (X<sub>j</sub>, Y<sub>j</sub>) for all i &ne; j.
+  (No two repair centers share the same location.)<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+Time limit: 20 seconds.<br/>
+<b>N</b> = 2.<br/>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+Time limit: 60 seconds.<br/>
+2 &le; <b>N</b> &le; 10.<br/>
+</p>
+
+<h4>Test Set 3 (Visible Verdict)</h4>
+<p>
+Time limit: 120 seconds.<br/>
+For 6 cases, <b>N</b> = 1687.<br/>
+For <b>T</b>-6 cases, 2 &le; <b>N</b> &le; 100.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="recalculating_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+2 4
+0 0
+5 0
+2 1
+0 0
+5 0
+2 4
+0 0
+4 4
+2 4
+0 0
+5 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="recalculating_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 27 119
+Case #2: 0 1
+Case #3: 0 1
+Case #4: 1 5
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  The above cases meet the limits for Test Set 1. Another sample case that does not meet those
+  limits appears at the end of this section.
+</p><p>
+  Sample Case #1 is described and depicted in the statement.
+</p><p>
+  The points in the middle red region are all distinguishable points because they are the only
+  points that retrieve information from both repair centers, and each point in that region
+  retrieves a distinct set of information.
+</p><p>
+  The points in the left and right red region each receive information from only one repair center,
+  but that information is always unique, so these are all distinguishable points. For example, if
+  Principia knows it is 3 meters east of a repair center, it can be sure it is not 3 meters east of
+  the repair center at (0, 0), because then it would have retrieved information from both repair
+  centers. So it must be 3 meters east of the repair center at (5, 0).
+</p><p>
+  The points in the blue regions are all non-distinguishable points. Choose any point in one of
+  those regions, and consider the information that Principia would get from that point.
+  It contains only the one repair center in range. But, there is a corresponding point in
+  the other blue region from which Principia would get exactly the same information.
+</p><p>
+  As explained above, the probability of Principia being deployed to one of the red sections
+  is 4.5/59.5, so the total probability of it being deployed to any of them is 3&times;4.5/59.5 = 27/119.
+</p><p>
+  The following picture illustrates Sample Case #2. There is no way to retrieve information from
+  more than one repair center, so every point close enough to one of them is non-distinguishable;
+  the same information is retrieved from an equivalent point near the other one.
+  Remember that <code>z</code> (the denominator) must be minimal, so <code>0 1</code> is
+  the only acceptable answer.
+</p><p align="center">
+  <img src="sample_2.png" style="width: 500px; height: auto;" />
+</p><p>
+  The following picture illustrates Sample Case #3. Notice that the border between the two blue
+  squares consists of distinguishable points. However, since its area is 0, the probability
+  of Principia being deployed there is 0. All other points where Principia can be deployed
+  are non-distinguishable.
+</p><p align="center">
+  <img src="sample_3.png" style="width: 300px; height: auto;" />
+</p><p>
+  The following picture illustrates Sample Case #4.
+</p><p align="center">
+  <img src="sample_4.png" style="width: 300px; height: auto;" />
+</p><p>
+  The following picture illustrates the additional case.
+</p><p align="center">
+  <img src="sample_5.png" style="width: 300px; height: auto;" />
+</p><p>
+  The following additional case could not appear in Test Set 1, but could appear in any of the
+  other test sets.
+</p>
+<pre>
+1
+3 4
+0 0
+1 1
+2 3
+</pre>
+<p>
+  The correct output is <code>Case #1: 101 109</code>.
+</p>
+
+    </div>
+  </body>
+</html>

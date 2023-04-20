@@ -1,0 +1,425 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1C</h3><h1>Power Arrangers</h1><h3>Problem</h3>
+<p>
+  Go, go, Power Arrangers! Everyone loves this team of five superhero high
+  school students who wear the letters A, B, C, D, and E. When they stand side
+  by side to confront evil monsters, they arrange their team in one of 120
+  possible different left-to-right orders, giving them various different
+  tactical superpowers. They are even more popular than the Teenage Permutant
+  Ninja Turtles!
+</p><p>
+  Some critics of the show claim that the team only has its arrangment gimmick
+  so that the owners of the show can sell 120 separate sets of 5 action figures,
+  each of which features the team in a different left-to-right order, glued to
+  a base so that the set cannot be rearranged. As an avid Power Arrangers fan,
+  you have collected 119 of these sets, but you do not remember which set you
+  are missing. Your 119 sets are lined up horizontally along a shelf, such that
+  there are a total of 119 &times; 5 = 595 action figures in left-to-right
+  order. You do not remember how the sets are arranged, but you know that
+  the permutation of the sets is selected uniformly at random from all possible
+  permutations, and independently for each case.
+</p><p>
+  You do not want to waste any time figuring out which set you are missing, so
+  you plan to look at the letters on at most <b>F</b> figures on the shelf. For
+  instance, you might choose to look at the letter on the eighth figure from
+  the left, which would be the third figure from the left in the second set
+  from the left. When looking at a figure, you only get the letter from that
+  one figure; the letters are hard to see, and the different team members look
+  very similar otherwise!
+</p><p>
+  After checking at most <b>F</b> figures, you must figure out which of the
+  sets is missing, so you can complete your collection and be ready to face any
+  possible evil threat!
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems">Interactive Problems section</a>
+  of our FAQ.
+</p><p>
+  Initially, your program should read a single line containing two integers
+  <b>T</b>, the number of test cases, and <b>F</b>, the number of figures you
+  are allowed to inspect per test case. Then, you need to process <b>T</b> test
+  cases.
+</p><p>
+  Within each test case, the missing set of figures is chosen uniformly at
+  random from all possible sets, and the order of the remaining sets is chosen
+  uniformly at random from all possible orders as well. Every choice is made
+  independently of all other choices and of your inputs.
+</p><p>
+  In each test case, your program will process up to <b>F</b> + 1 exchanges
+  with our judge. You may make up to <b>F</b> exchanges of the following form:
+</p>
+<ul>
+  <li>Your program outputs one line containing a single integer between 1 and
+    595, inclusive, indicating which figure (in left-to-right order along the
+    shelf) you wish to look at. As a further example, 589 would represent the
+    fourth figure from the left in the second set from the right.
+  </li>
+  <li>The judge responds with one line containing a single uppercase letter
+    <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>, or
+    <code>E</code>, indicating the letter on that figure. If you sent invalid
+    data (e.g., a number out of range, or a malformed line), the judge will
+    instead respond with one line containing the single uppercase letter
+    <code>N</code>.
+  </li>
+</ul>
+<p>
+  Then, after you have made as many of the <b>F</b> exchanges above as you
+  want, you must make one more exchange of the following form:
+</p>
+<ul>
+  <li>Your program outputs one line containing a single string of five
+    uppercase letters: the permutation corresponding to the missing set
+    (e.g., <code>CADBE</code>).
+  </li>
+  <li>
+    The judge responds with one line containing a single uppercase letter:
+    <code>Y</code> if your answer was correct, and <code>N</code> if it was not
+    (or you provided a malformed line). If you receive <code>Y</code>, you
+    should begin the next test case, or stop sending input if there are no
+    more test cases.
+  </li>
+</ul>
+<p>
+  After the judge sends <code>N</code> to your input stream (because of either
+  invalid data or an incorrect answer), it will not send any other output.
+  If your program continues to wait for the judge after receiving
+  <code>N</code>, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 50.<br/>
+  Time limit: 40 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  The missing set, and the order of the remaining sets, are chosen uniformly
+  and independently at random.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>F</b> = 475.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  <b>F</b> = 150.<br/>
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+<h3>Sample Interaction</h3>
+<p>
+  This interaction corresponds to Test set 1.
+</p>
+<pre>
+  t, f = readline_int_list()   // Reads 50 into t and 475 into f
+  printline 10 to stdout       // Looks at the last figure in the second set
+                               // from the left
+  flush stdout
+  n = readline_string()        // Reads B into n. Ooh, team member B! They may
+                               // not have the leadership ability of A, or the
+                               // technical skill of C, but they entertain the
+                               // team with clever quips!
+  printline 11 to stdout       // Looks at the first figure in the third set
+                               // from the left
+  flush stdout
+  n = readline_string()        // Reads B into n. Notice that B is at the start
+                               // of the third set, whereas they were at the
+                               // end of the second set.
+  printline 14 to stdout       // Looks at the fourth figure in the third set
+                               // from the left
+  flush stdout
+  n = readline_string()        // Reads D into n. Silent and brooding, team
+                               // member D nonetheless fights fiercely to
+                               // protect their friends... and the world!
+  printline ABCDE to stdout    // We foolishly make a wild guess even though we
+                               // could have looked at up to 472 more figures.
+  flush stdout
+  verdict = readline_string()  // Reads N into verdict (judge has decided our
+                               //   solution is incorrect)
+  exit                         // Exits to avoid an ambiguous TLE error
+</pre>
+
+    </div>
+  </body>
+</html>

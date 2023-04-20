@@ -1,0 +1,470 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - World Finals</h3><h1>Analysis: Juggle Struggle: Part 2</h1><p>
+We can represent each pair of jugglers from the input as the endpoints of a segment.
+The problem then asks us to find two of those segments that do not intersect, or report that there
+is no such pair.
+</p>
+<h3>Test Set 1 (Visible)</h3>
+<p>
+Test Set 1 can be solved by checking every possible pair of segments to see if they intersect.
+Let pq be the segment between points p and q, and rs be the segment between points r and s;
+then these segments intersect if and only if
+<ul>
+<li>(r - p) &times; (q - p) has the same sign as (s - p) &times; (q - p), and</li>
+<li>(p - r) &times; (s - r) has the same sign as (q - r) &times; (s - r),</li>
+</ul>
+where &times; stands for the
+<a href="https://en.wikipedia.org/wiki/Cross_product">cross product</a>.
+This works only when no three of the points are collinear, but that is the case in this problem.
+Since each check takes constant time, this algorithm runs in O(<b>N</b><sup>2</sup>) time.
+</p>
+<h3>Test Set 2 (Hidden)</h3>
+<p>
+Let L<sub>i</sub> be the line that fully contains segment S<sub>i</sub>. Let S<sub>i</sub> and
+S<sub>j</sub> be two segments that do not intersect. If L<sub>i</sub> and L<sub>j</sub> are not
+parallel, at least one of S<sub>i</sub> and S<sub>j</sub>
+does not contain the intersection between L<sub>i</sub> and L<sub>j</sub>. We can find for every
+input segment S<sub>i</sub>, we can find whether its line L<sub>i</sub> intersects
+some other line at a point outside of S<sub>i</sub> (or not at all). Let F be the set of all such
+segments. Then, every non-intersecting pair contains at least one segment in F and the size of F
+is at most 25. We can do a linear pass over all other segments to see whether or not they intersect
+each segment in F to find the segments not in F that also participate in non-intersecting pairs.
+We focus now on finding all segments to put in F.
+</p><p>
+We now present three algorithms. The first two are ultimately similar: the first one uses less
+advanced theory, but requires more problem-specific proofs because of it. They both
+require somewhat large integers. For C++, <code>__int128</code> is enough to represent all values,
+but since we need to compare fractions that are the ratio of two <code>__int128</code>s, we'll
+need special comparison code. For Java, <code>BigInteger</code> will do. The third algorithm is
+a separate approach that uses a more advanced data structure, and requires only 64-bit integer
+arithmetic.
+</p>
+<h4>A solution using less advanced previous knowledge</h4>
+<p>
+First, assume there is a purely vertical segment (that is, its two endpoints have the same x
+coordinate). If we find more than one of those, we add all of them to F, since they don't
+overlap. If we find a single one, we can check it against all others like in the previous solution
+in linear time. In what follows, we assume no vertical segment is present.
+</p><p>
+Consider the extension of each segment S<sub>i</sub> to a full line L<sub>i</sub>.
+We will find the x coordinates of the leftmost and rightmost intersection of L<sub>i</sub> with all
+other L<sub>j</sub>s and check that they are inside the range of x coordinates where S<sub>i</sub>
+exists. If one of those intersections is not inside that range, then we found one or two segments
+to put in F. Notice that finding all
+rightmost intersections is equivalent to finding all leftmost intersections in the input symmetric
+to the y axis, so if we have an algorithm that finds the leftmost ones, we can just run it twice
+(and reflecting the input takes linear time). Moreover, suppose we restrict ourselves to the
+leftmost intersection of L<sub>i</sub> such that L<sub>i</sub> is above the other intersecting line
+to the left of the found intersection. Let us call these "leftmost above intersections".
+We can use an algorithm that finds those intersections once on the unchanged input and once on the
+input reflected across the x axis to find the analogous "leftmost below intersections". In summary,
+we develop an algorithm that finds "leftmost above intersections" and then run it 4 times (using
+all combinations of reflecting / not reflecting the input across each axis), to find
+all combinations of "leftmost/rightmost below/above intersections".
+</p><p>
+To find all "leftmost above intersections", the key observation is that if two lines L<sub>1</sub>
+and L<sub>2</sub> intersect at x coordinate X, and L<sub>2</sub> is below to the left of the
+intersection, then L<sub>2</sub> cannot participate in any leftmost below intersection at
+coordinates X' &gt; X. L<sub>2</sub>'s own intersections at coordinates X' &gt; X are not leftmost.
+If L<sub>2</sub> intersects an L<sub>3</sub> that is below L<sub>2</sub> to the left of their
+intersection at X' &gt; X, then L<sub>3</sub> intersects L<sub>1</sub> to the left of X' because
+of continuity: L<sub>1</sub> is below L<sub>2</sub> to the right of X.
+</p><p>
+This leads to the following algorithm: let X<sub>0</sub> be the minimum x coordinate among all
+endpoints. Sort the lines by y coordinate at X<sub>0</sub>. Let L<sub>i</sub> be the line
+with the i-th highest y coordinate. We iterate over the
+lines in that order, while keeping a list or ranges of x coordinates and which previously seen
+line is below all others there, since that is the only one that can produce leftmost below
+intersections in that range. We keep that list as a
+<a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">stack</a>.
+</p><p>
+At the beginning, we push (X<sub>1</sub>, 1) onto the stack, where X<sub>1</sub> is the maximum
+x coordinate among all input points. This signifies that L<sub>1</sub> is currently below in the
+entire range of x coordinates.
+Then, we iterate through L<sub>2</sub>, L<sub>3</sub>, ... L<sub><b>N</b></sub>.
+When processing L<sub>i</sub>, we
+<a href="https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection#Given_two_points_on_each_line">
+find the x coordinate of its intersection</a> with L<sub>j</sub> and call it X, where (j, X') is
+the top of the stack. We check the intersection to see if it is within the x coordinate range
+of the two corresponding segments. Then, if X &lt; X', we simply push (i, X) onto the stack.
+Otherwise, we pop (j, X') from the stack and repeat, since j was not the line below all others at
+X. Notice that this keeps the stack sorted increasingly by line index and decreasingly by
+intersection coordinate at all times.
+</p><p>
+Since every line is processed, pushed onto the stack and popped from the stack at most once, and
+everything else can be done in constant time, this iteration takes linear time. Other than that,
+the sorting by y coordinate takes time O(<b>N</b> log <b>N</b>), which is also the overall time
+complexity of the entire algorithm, since it dominates all other linear steps.
+</p><p>
+Notice that the way we use the stack in the above algorithm is quite similar to how a stack is used
+in the most widely known <a href="https://en.wikipedia.org/wiki/Graham_scan">algorithm to compute
+the convex hull</a> of a set of points. As we show in the next section, that is no coincidence.
+</p>
+<h4>Using point-line duality to shortcut to the solution</h4>
+<p>
+In this solution we change how we find leftmost intersections. Treating vertical lines
+and reflecting to find rightmost intersections, and the way to use leftmost/rightmost
+intersections to find the solution to the problem, are the same as in the solution above.
+</p><p>
+To find the leftmost intersections, we can apply the point-line duality to the input.
+With duality between points and lines, a line y=mx+b in the original space can be represented
+as the point (m, -b) in the dual space. Similarly, a point (a, b) in the original space
+can be represented as a line of the form y=ax-b in the dual space. Notice that the dual space
+of the dual space is the original space. Vertical lines have no corresponding point.
+This duality has the property that when two lines L<sub>1</sub> and L<sub>2</sub> intersect in the
+original, their intersection point P corresponds to the line dual(P) in the dual space goes through
+the points dual(L<sub>1</sub>) and dual(L<sub>2</sub>).
+</p><p>
+Thus, if we take all lines that are extensions of input segments and consider the points that
+correspond to them in the dual space, the leftmost intersection for a given line L<sub>1</sub>
+occurs when intersecting L<sub>2</sub> such that the slope of the segment between
+dual(L<sub>1</sub>) and dual(L<sub>2</sub>) is minimal.
+</p><p>
+We now work on the dual space with an input set of points, and for each point P we want to find
+another point Q such that the slope of PQ is minimal.
+For each point in the convex hull of the set, the minimal slope occurs between that point and the
+next point in the convex hull. For points not in
+the convex hull, however, the appropriate choice is the temporary "next" point of the convex hull
+as calculated by the <a href="https://en.wikipedia.org/wiki/Graham_scan">Graham scan</a>.
+This leads to similar code as for the solution above, but using the duality saves
+us quite a few hand-made proofs. Just as for the algorithm above, all of the steps of this
+algorithm take linear time, with the exception of the sorting step needed for the Graham scan,
+yielding an overall O(<b>N</b> log <b>N</b>) algorithm.
+</p>
+<h4>A solution using incremental convex hull</h4>
+<p>
+Another solution requires more code overall, but some of that code might be present in a
+contestant's comprehensive library. It uses an incremental convex hull, which is a data structure
+that maintains a convex hull of a set of points and allows us to efficiently (in logarithmic time)
+add points to the set while updating the convex hull if necessary.
+</p><p>
+The algorithm checks for a condition that we mentioned in the analysis for Part 1: each
+segment has the two endpoints of all other segments on different sides.
+The algorithm uses a rotating sweep line. Assume the endpoints of all input segments are swapped
+as necessary such that the segments point right (the first endpoint has an x coordinate no greater
+than the x coordinate of the second endpoint). Then, we sort the segments by slope and consider a
+rotating line that stops at all those slopes &mdash; that is, we iterate through the slopes in
+order. If we number the segments S<sub>1</sub>, S<sub>2</sub>, ..., S<sub><b>N</b></sub> in that
+order, S<sub>1</sub> must have
+all left endpoints on one side, and all right endpoints on the other. S<sub>2</sub> is the same,
+except the left endpoint of S<sub>1</sub> goes with the right endpoints of all others, and vice
+versa. In general, for S<sub>i</sub> we need to check for the left endpoint of all segments
+S<sub>1</sub>, S<sub>2</sub>, ..., S<sub>i-1</sub> to be on one side together with the right
+endpoints of all segments S<sub>i+1</sub>, S<sub>i+2</sub>, ..., S<sub><b>N</b></sub>, and
+all other endpoints are on the other side. If we find an endpoint of S<sub>j</sub>
+on the wrong side of S<sub>i</sub>, then S<sub>i</sub> and S<sub>j</sub> do not intersect. If we
+find no such example, the answer is <code>MAGNIFICENT</code>.
+</p><p>
+If we knew the convex hull of all the points that are supposed to be on each side, we could use
+<a href="https://en.wikipedia.org/wiki/Ternary_search">ternary search</a> on the signed
+distance between the convex hull and the line to efficiently find
+the point from that set whose signed distance perpendicular to the current S<sub>i</sub> is smallest
+(for the side where the distances are supposed to be positive) or largest (for the other side).
+If one of those finds us a point on the wrong side, we are done; otherwise, we know all other
+points are also on the correct side. Unfortunately, to keep those two convex hulls as we rotate
+would require us to both add and remove a point from each set. Removing is a lot harder to do,
+but we can avoid it.
+</p><p>
+When considering the slope of S<sub>i</sub>, instead of using the convex hull of the full set
+on one side, we can use the convex hull of the left endpoints that are on that side, and separately,
+the convex hull of the right endpoints on that side. That leaves us one additional candidate to
+check for that side, but one of those is the optimal candidate. Since we are calculating
+left and right endpoints separately, the 4 &times; <b>N - 1</b> convex hulls we need are the ones
+of the set of left endpoints of the segments in a prefix of the list of segments,
+the left endpoints of the segments in a suffix of the list of segments, and similarly,
+the right endpoints of the segments in a suffix or prefix of the list of segments.
+We can calculate all of those convex hulls with a data structure that only provides addition of
+a point by calculating the convex hulls for prefixes in increasing order of segment index, and
+the ones for suffixes in decreasing order of segment index. Notice that this means we will
+calculate the convex hulls in an order different from the order in the original form of the
+algorithm.
+</p><p>
+We are doing O(<b>N</b>) insertions into the convex hull data structure and O(<b>N</b>) ternary
+searches, and each of these operations takes O(log <b>N</b>) time, making the time complexity
+of this algorithm also O(<b>N</b> log <b>N</b>).
+</p><p>
+For this particular use, we only need one half of the convex hull: the half that is closer to
+the line being inspected. In this half convex hull, the points in the hull are sorted by
+y coordinate, so a tree search can yield us the tentative insertion point,
+and we can maintain the convex hull by searching and inserting in a sorted tree. This is simple
+enough that it does not necessarily require prewritten code.
+Additionally, we can further simplify by using
+<a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a> on the angle
+between the convex hull and the line instead of the ternary search mentioned above.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

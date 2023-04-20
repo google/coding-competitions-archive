@@ -1,0 +1,494 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2022 - Code Jam to I/O for Women</h3><h1>Analysis: Inventor Outlasting</h1><p>
+  Since the available actions of any game state don't depend on whose turn it is, we can classify
+  each game state into two outcomes: The next player (the one whose turn it is) wins
+  (denoted as an $$$N$$$-position), or the previous player wins (denoted as a $$$P$$$-position).
+
+  For example:
+  <li>
+    $$$N$$$-position means: If it's Izabella's turn, then Izabella is going to win; if it's Olga's
+    turn, then Olga is going to win.
+  </li>
+  <li>
+    $$$P$$$-position means: If it's Izabella's turn, then Izabella is going to lose; if it's Olga's
+    turn, then Olga is going to lose.
+  </li>
+  This kind of game is called an <a href="https://en.wikipedia.org/wiki/Impartial_game" target="_blank">impartial game</a>.
+</p>
+
+<p>
+  With the game rules from the problem statement, to decide if a given game state $$$s$$$ is an $$$N$$$-position
+  or a $$$P$$$-position, we have the following recursion rules:
+  <li>
+    If there exists a spot where building an attraction on it can turn the current game
+    state $$$s$$$ into a $$$P$$$-position. In other words, forcing the opponent to lose. Then $$$s$$$ is
+    classified as an $$$N$$$-position.
+  </li>
+  <li>
+    Otherwise, $$$s$$$ is classified as a $$$P$$$-position because $$$s$$$ doesn't have any
+    available spots to build an attraction, or building an
+    attraction on any spot will always turn the current game state into an $$$N$$$-position. In
+    other words, letting the opponent win.
+  </li>
+</p>
+
+<p>
+  The goal of this problem is to find out how many spots there are on the given initial game state that the
+  player can build an attraction on it and turn the game state into a $$$P$$$-position state.
+</p>
+
+<p>
+  Take Sample Case #1 as example, the seven different next states and their position types are
+</p>
+
+<p align="center">
+<img src="img/p_n_state_example_diagonal.png" style="max-width:800px;" alt="Seven boards representing all next states after building one attraction.">
+</p>
+
+<p>
+  Since only one of those states is a P-position, the answer to Case #1 is 1.
+</p>
+
+<h3>
+  Test Set 1
+</h3>
+
+<p>
+  For this test set, since we only have at most $$$10$$$ spots available for new attractions, we can
+  simply use brute force search with the above recursion rules to decide whether a given game state
+  is $$$N$$$-position or $$$P$$$-position.
+</p>
+
+<p>
+  The game tree size and the state-space complexity of this game both have size $$$O(S!)$$$, where $$$S$$$
+  represents the number of spots available to build an attraction on the initial game state. For
+  each state, in addition to the recursion for next states, we also need $$$O(\min(\mathbf{R},\mathbf{C}))$$$ time to mark
+  the new advertisement signs on the board. Therefore, the brute force search solution to this problem has time
+  complexity $$$O(S! \times \min(\mathbf{R},\mathbf{C}))$$$.
+</p>
+
+<p>
+  In this brute force search, using
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>
+  to store every seen state won't help decrease the time complexity because the
+  size of the dynamic programming table we will end up with is still up to $$$O(S!)$$$.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  Since the sign builders always extend in the diagonal direction like
+  <a href="https://en.wikipedia.org/wiki/Bishop_(chess)" target="_blank">chess bishops</a>, the cells on the game board can actually
+  be seen as two independent parts: the black cells and the white cells in a chessboard shown below.
+</p>
+
+<p align="center">
+<img src="img/black_white_parts_example.png" style="max-width:800px;" alt="Two independent parts of a board.">
+</p>
+
+<p>
+  Formally, from each attraction, only cells that have the same <code>row_idx+col_idx</code>
+  parity can be affected. See the chess board above, the black cells have even
+  <code>row_idx+col_idx</code>, while the white cells have odd <code>row_idx+col_idx</code>.
+</p>
+
+<p>
+  Furthermore, since the sign builders only extend until they reach an occupied cell, the areas
+  that were previously divided by other extending signs are also independent. And the
+  independent areas with no available spot to build can simply be ignored.
+</p>
+
+<p align="center">
+<img src="img/diagonal_independence_example.png" style="max-width:800px;" alt="Six independent parts of a board.">
+</p>
+
+<p>
+  For example, the top left is a board with $$$2$$$ attractions built on $$$(2,4)$$$ and $$$(3,6)$$$.
+  This board is equal to $$$6$$$ independent "sub-games" shown above. And from observation, we can see
+  only $$$3$$$ of them have available spots, and each of them will be completely occupied
+  in one move. Therefore, there are exactly $$$3$$$ moves remaining to finish the game no matter how
+  the players play. So we can easily figure out that this example is an $$$N$$$-position (the next player wins).
+</p>
+
+<p>
+  To formalize the calculation steps we demonstrated, we need the
+  <a href="https://en.wikipedia.org/wiki/Sprague-Grundy_theorem" target="_blank">Sprague-Grundy theorem</a>.
+  According to the Sprague-Grundy theorem, if we have an impartial game in which the players take
+  turns to play exactly one move and the player
+  who cannot move loses, we can assign each game state a value (called the $$$SG$$$-value).
+  Each game-state's $$$SG$$$-value only depends on the $$$SG$$$-value
+  of the game-states we can reach with exactly one move.
+</p>
+
+<p>
+  Specifically, for any game state $$$s$$$, we have:
+  <li>
+    $$$SG(s)=0$$$ if $$$s$$$ doesn't have any available spots to build an attraction.
+  </li>
+  <li>
+    Otherwise, let $$$\{p_1, p_2, \dots, p_n\}$$$ be all possible game states
+    after building exactly one attraction at each of the available spots on $$$s$$$. Then we have that
+    $$$SG(s)=\text{mex}(\{SG(p_1), SG(p_2), \dots, SG(p_n)\})$$$, where $$$\text{mex}(X)$$$ means
+    the minimum non-negative integer that doesn't exist in the set $$$X$$$.
+  </li>
+</p>
+
+<p>
+  If a state $$$s$$$ is split into several independent sub-games $$$\{q_1, q_2, \dots, q_k\}$$$,
+  the $$$SG$$$-value of $$$s$$$ can be calculated as
+    $$$$SG(s)=SG(\{q_1, q_2, \dots, q_k\})=SG(q_1) \oplus SG(q_2) \oplus \cdots \oplus SG(q_k),$$$$
+  where $$$\oplus$$$ is the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#XOR" target="_blank">binary xor function</a>.
+</p>
+
+<p>
+  Finally, if $$$SG(s)=0$$$, then $$$s$$$ is a $$$P$$$-position; otherwise $$$s$$$ is an $$$N$$$-position.
+  So the goal of this problem is to find out how many spots on the given initial game state the
+  player can build an attraction on and turn the game state into $$$SG$$$-value = 0.
+</p>
+
+<p>
+  The recursive function to calculate the $$$SG$$$-value of a given sub-game can be implemented as:
+</p>
+
+<p align="center">
+<img src="img/sub_game_representation_diagonal.png" style="max-width:700px;" alt="A demonstration about how to represent a sub-game.">
+</p>
+
+<ul>
+  <li>
+    a sub-game can be represented by a tuple
+    <code>[row_idx_plus_col_idx_begin, row_idx_plus_col_idx_end, row_idx_minus_col_idx_begin, row_idx_minus_col_idx_end]</code>,
+    like the example shown above,
+  </li>
+  <li>
+    for each available spots in this range, put an attraction on it and calculate the new
+    $$$SG$$$-value. Then the $$$SG$$$-value of this sub-game is calculated by applying
+    $$$\text{mex}$$$ to them. And
+  </li>
+</ul>
+
+<p align="center">
+<img src="img/sub_game_divided_example_diagonal.png" style="max-width:700px;" alt="A demonstration about how to represent the divided sub-games.">
+</p>
+
+<ul>
+  <li>
+    when an attraction is put on a spot <code>[row_idx, col_idx]</code>,
+    the current sub-game
+    <code>[row_idx_plus_col_idx_begin, row_idx_plus_col_idx_end, row_idx_minus_col_idx_begin, row_idx_minus_col_idx_end]</code>
+    is divided into four new sub-games
+    <ul>
+      <li><code>[row_idx_plus_col_idx_begin, row_idx + col_idx - 2&nbsp;&nbsp;&nbsp;, row_idx_minus_col_idx_begin, row_idx - col_idx - 2&nbsp;&nbsp;&nbsp;&nbsp;]</code>,</li>
+      <li><code>[row_idx_plus_col_idx_begin, row_idx + col_idx - 2&nbsp;&nbsp;&nbsp;, row_idx - col_idx + 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, row_idx_minus_col_idx_end]</code>,</li>
+      <li><code>[row_idx + col_idx + 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, row_idx_plus_col_idx_end, row_idx_minus_col_idx_begin, row_idx - col_idx - 2&nbsp;&nbsp;&nbsp;&nbsp;]</code>,</li>
+      <li><code>[row_idx + col_idx + 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, row_idx_plus_col_idx_end, row_idx - col_idx + 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, row_idx_minus_col_idx_end]</code>,</li>
+    </ul>
+    as the example above, and the $$$SG$$$-value of the original sub-game with the new attraction on
+    it is calculated as XOR of the $$$SG$$$-values of those four new sub-games
+  </li>
+</ul>
+
+<p>
+  Now we know how to use the Sprague-Grundy theorem. Take Sample Case #1 as an example, what will happen
+  if Izabella puts her attraction at third row and sixth column?
+</p>
+
+<p align="center">
+<img src="img/search_tree_example_diagonal_simplified.png" style="max-width:800px;" alt="A search that lists all possible next states after building an attraction on 3, 6.">
+</p>
+
+<p>
+  We can see that putting the first attraction on this cell will give an
+  $$$SG$$$-value of 3. This means that Olga will having a winning move from this position, which is
+  not good for Izabella!
+</p>
+
+<p>
+  Note that we can use
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>
+  to store the $$$SG$$$-value of each seen sub-game.
+  In this way, the state-space complexity of this search is $$$O(\mathbf{R}^2 \times \mathbf{C}^2)$$$.
+  And when calculating the $$$SG$$$-value of each sub-game,
+  we need to visit all $$$O(S)$$$ available spots in it to enumerate the next states. When adding an
+  attraction, we don't need to actually mark those $$$O(\min(\mathbf{R},\mathbf{C}))$$$ advertisement signs, we only need to use
+  constant time to split the sub-games and calculate XOR from their results. Therefore, the total
+  time complexity of this solution is $$$O(S \times \mathbf{R}^2 \times \mathbf{C}^2)$$$.
+  And since $$$S$$$ is $$$O(\mathbf{R}\times\mathbf{C})$$$, the time complexity can also be written as $$$O(\mathbf{R}^3\times \mathbf{C}^3)$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

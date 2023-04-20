@@ -1,0 +1,439 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 2</h3><h1>Analysis: Beaming With Joy</h1><h2>Beaming With Joy: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+There are a lot of ways to solve the Small dataset. The most straightforward way is to use
+dynamic programming. Since the input contains no mirrors, each laser beam covers a set of non-wall
+cells that are either horizontally or vertically consecutive. Let us process the columns from left
+to right. For each row, we will keep track of its current status, which must be one of the
+following:
+</p><ol>
+<li>It has an incoming beam, which originated in this row in a previously processed column and
+  was not yet blocked by a wall.</li>
+<li>It needs a beam &mdash; that is, there is at least one cell in this row from a previously
+  processed column that has not yet been covered by a beam, but could be (i.e. there is not a wall
+  in the way).</li>
+<li>It does not have nor it can receive a beam, because this would destroy a beam shooter pointing
+  vertically that we saw in this row in a previously processed column.</li>
+<li>None of the above. This means that all previous consecutive non-wall cells, if any, are
+  covered with vertical beams, so we can shoot horizontally on this row, but there is no obligation
+  yet to do so.</li>
+</ol><p>
+There are some ways to refine this to fewer combinations, but it's not necessary. Then, we
+can try all combinations of orientations for the beam shooters in the current column
+and see if that produces a valid status for the next column (there are more efficient
+ways to do this part, but this will do). This requires a bit of casework: for each row, we have to
+combine its incoming status with the current cell. The current cell can be one of five things: a
+covered or uncovered empty cell, a vertical or horizontal beam shooter, or a wall.
+Then, since there are 4 possible states for each row,
+the domain of our recursive function is of size 4<sup><b>R</b></sup> &times; <b>C</b> and
+the calculation of each value in that domain requires checking up to 2<sup><b>R</b></sup>
+combinations of beam shooters' orientations. Each such check requires a linear pass over the
+<b>R</b> cells, making the overall time complexity bounded by
+O(8<sup><b>R</b></sup> &times; <b>C</b> &times; <b>R</b>). It's not hard to come up with even
+smaller bounds, given that many combinations of statuses are actually impossible.
+</p><p>
+There is also a greedy Small solution that relies only on the absence of mirrors:
+</p><ol>
+<li>If a beam shooter can possibly destroy another, then point it the other way. If both
+  directions would destroy another beam shooter, then the case is impossible.</li>
+<li>If there are uncovered cells that can only be covered by a single non-yet-fixed shooter,
+  then point that shooter in its direction. If any remaining cells are impossible to cover
+  (because any beam shooters that may have pointed at it had to be fixed in the other direction),
+  then the case is impossible.</li>
+<li>Make all beam shooters that are not fixed yet shoot horizontally
+  (or all vertically, which also works).</li>
+</ol><p>
+This works because if any cell remains uncovered after the first two steps, it can only be
+because there are exactly two remaining non-fixed beam shooters potentially pointing at it: one
+horizontally, and one vertically. If there had been two or more beam shooters pointing at it in
+the same direction, we would have already fixed all of them in step 1; if there had been only one
+beam shooter in total, we would have fixed it in step 2. Then, choosing the same direction for all
+beam shooters ensures that for all those cells, (exactly) one of the beam shooters is pointed in
+the correct direction to cover that cell.
+</p>
+<h3>Large dataset</h3>
+<p>
+The second solution presented above for the Small dataset hints at a possible generalization
+that solves the Large dataset.
+</p><p>
+In the Small, each cell is at an intersection of a horizontal line of consecutive non-wall cells,
+and a vertical line of consecutive non-wall cells. These lines of cells run between walls,
+between opposite grid boundaries, or between one wall and one grid boundary.
+Each of these lines of cells is characterized by having either
+no beam shooter (which forces each cell to be covered from the other direction in step 2),
+one beam shooter (which leaves the cell on hold until step 3), or more than one (which forces
+all beam shooters on the line to point in the direction opposite to the line of cells in step 1).
+In the Large, something similar happens, but instead of simple lines of cells, we have the more
+complicated notion of <i>paths</i>. A path is a set of pairs (c, d) where c is any
+cell that is empty or contains a beam shooter and d is either horizontal or vertical. A pair (c, d)
+and a different pair (c', d') are part of the same path if and only if a beam shooter placed
+on cell c and pointing in direction d would produce a beam that, ignoring all other beam shooters,
+would pass through cell c' in direction d'. As an example, the following picture illustrates
+a grid with 9 paths.
+</p>
+<img src="paths.png"/>
+<p>
+Notice that the red and blue paths pass through the same set of empty cells,
+although the (cell, direction) pairs that make up those paths are different.
+Also notice there is an orange path that passes
+through the same cell twice; that is, the path contains the pair (c, horizontal) and
+the pair (c, vertical) where c is the rightmost empty cell in the bottom row.
+Also notice how some paths may contain a single pair, like the turquoise, purple, and brown paths
+in the picture. Finally, some paths loop onto themselves, like the pink path in the picture,
+while other paths start and end at a wall or grid boundary. We call the former <i>loop paths</i>.
+</p><p>
+Paths that go through a number of beam shooters other than one have similar immediate consequences
+to lines of consecutive non-wall cells in the Small dataset. For convenience, let us
+define the opposite function o given by o(horizontal) = vertical and o(vertical) = horizontal.
+</p><ol>
+<li>If a path contains two pairs (c, d) and (c, o(d)) where c is a cell that contains a beam
+  shooter, the case is impossible, because that means that beam shooter will destroy itself when
+  pointed in either direction.</li>
+<li>If a loop path contains a pair (c, d) where c is a cell that contains a beam
+  shooter, the beam shooter must be fixed in direction o(d).</li>
+<li>If a path contains two or more pairs (c<sub>i</sub>, d<sub>i</sub>) where c<sub>i</sub>
+  contains a beam shooter, then beam shooter c<sub>i</sub> must be fixed in direction
+  o(d<sub>i</sub>).</li>
+<li>If there is no beam shooter on a path that contains
+  two pairs (c, d) and (c, o(d)) where c is an empty cell, the case is impossible
+  (as c cannot be covered).</li>
+<li>If there is no beam shooter on a path, then for each pair
+  (c<sub>i</sub>, d<sub>i</sub>) it contains: let p be the path containing
+  (c<sub>i</sub>, o(d<sub>i</sub>)). If p contains a single
+  pair (c, d) where c contains a beam shooter, then fix that beam shooter in direction d. If
+  p contains a number of beam shooters other than one, the case is impossible.
+</li>
+</ol><p>
+If a beam shooter is required to be fixed in two different directions, by the same or different
+steps, the case is impossible.
+This is the generalization of steps 1 and 2 in the Small greedy solution. After applying
+these, some cells may be left uncovered. As before, those cells are always in the intersection of
+two different paths, and those paths contain a single pair where the cell contains a beam shooter
+each. Unfortunately, the way to set the remaining beam shooters so that every cell is covered
+is not as simple as step 3 for the Small. This might start to look like a (non-bipartite) matching
+problem, but it is not one!
+</p><p>
+In the Small, after all the cases that directly fixed the direction of some beam shooter, each
+empty cell that remained uncovered could possibly be covered by two beam shooters, one on each
+direction. The same is true in this case: for each empty cell c that remains uncovered
+there are two different paths that contain the pairs (c, horizontal) and (c, vertical), and each
+of them passes through exactly one pair that contains a non-yet fixed beam shooter. Say those
+two pairs containing shooters are (s<sub>1</sub>, d<sub>1</sub>) and
+(s<sub>2</sub>, d<sub>2</sub>). Then, covering cell c requires us to either set s<sub>1</sub>
+in direction d<sub>1</sub> or s<sub>2</sub> in direction d<sub>2</sub>, or both. If it happens
+to be s<sub>1</sub> = s<sub>2</sub>, then it must be d<sub>1</sub> &ne; d<sub>2</sub>, and the
+requirement is fullfilled by any assignment.
+</p><p>
+If we assign logical variables to the shooters with the logical values true and false corresponding
+to the two directions, each of these restrictions is a
+<a href="https://en.wikipedia.org/wiki/Logical_disjunction">disjunction</a> of two
+<a href="https://en.wikipedia.org/wiki/Literal_(mathematical_logic)">literals</a>. Making all
+such disjunctions simulatenously true is, then, making their
+<a href="https://en.wikipedia.org/wiki/Logical_conjunction">conjunction</a> true.
+Finding a truth assignment to variables to make a conjunction of disjunctions of up to two literals
+each true is a problem known as the
+<a href="https://en.wikipedia.org/wiki/2-satisfiability">2-satisfiability problem</a> or 2SAT. We
+can use known 2SAT algorithms to solve that problem and get an assignment for the variables, and
+then translate that assignment back into an assignment of directions for the beam shooters.
+</p><p>
+The greedy Small-only solution we presented is even simpler to prove correct under this
+logic model: without mirrors, every disjunction has exactly one literal negated (because the
+cell requirement is for one beam shooter to be horizontal and/or some other beam shooter to be
+vertical), so assigning all variables a true value makes all disjunctions true thanks to the
+non-negated literal, and also assigning them all a false value makes all disjunctions true
+thanks to the negated literal.
+</p><p>
+This analysis is written in the order in which one might reason this problem step by step, without
+any huge leap at any single step. However, for some people it might be faster to have an aha
+moment and notice that each cell yields a requirement on up to two beam shooters directly: cells
+without shooters imply a requirement on up to two shooters, one of each direction, to be true. If
+there is only one of those, that can be encoded as a single-literal disjunction, or made it a
+two-literal disjunction by simply taking literal L and writing (L &or; L). Then, beam shooters
+that possibly point at another beam shooter yield another single-literal disjunction forcing them
+to point the other way. This makes the first pass unnecessary and encodes all requirements
+into the 2SAT instance, making the solution more concise.
+</p><p>
+This problem lends itself to many greedy heuristics plus some kind of bruteforce or
+backtracking. Notice that 2SAT itself can be solved in polynomial time by some
+backtrackings and by a graph-theoretical algorithm that has many greedy decisions underneath (both
+approaches are mentioned in the Wikipedia article). So, many algorithms that don't explicitly use
+an algorithm for the 2SAT problem are actually correct because they are basically doing
+the same thing without going through the modeling.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

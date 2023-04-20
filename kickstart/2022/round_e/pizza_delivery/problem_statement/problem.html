@@ -1,0 +1,651 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round E</h3><h1>Pizza Delivery</h1><h3>Problem</h3>
+<p>
+    Ada delivers pizzas in a city consisting of a grid of $$$\mathbf{N}$$$ horizontal and $$$\mathbf{N}$$$ vertical
+    streets, heading from North to South and from West to East, respectively, and numbered from $$$1$$$ to $$$\mathbf{N}$$$. The top left street crossing of the grid is $$$(1,1)$$$.
+</p>
+<p>
+    Today, Ada has to
+    deliver $$$\mathbf{P}$$$ pizzas, one for each of $$$\mathbf{P}$$$ customers. Each customer lives at a different street
+    crossing; the $$$k$$$-th customer lives at street crossing $$$(\mathbf{X_k}, \mathbf{Y_k})$$$
+    and will pay Ada $$$\mathbf{C_k}$$$ coins after the pizza is delivered to their location.
+</p>
+<p>
+    Ada starts at her pizza restaurant at $$$(\mathbf{A_r}, \mathbf{A_c})$$$ with $$$0$$$ coins and carrying $$$\mathbf{P}$$$ pizzas.
+    Her goal is to deliver all of the pizzas within $$$\mathbf{M}$$$ minutes.
+    She is free to take any path she likes around the city and finish deliveries anywhere, as long as
+    she manages to drop off all $$$\mathbf{P}$$$ pizzas to their respective customers within $$$\mathbf{M}$$$ minutes.
+    It takes one minute to walk between two adjacent street crossings, and takes no additional time to drop off a pizza at a customer's location.
+    There are some additional rules and constraints to note:
+  <ul>
+   <li> Ada is not allowed to go outside the grid.</li>
+   <li> No customer lives at the same street
+    crossing as the pizza restaurant Ada starts her trip.</li>
+   <li> At any point in time Ada can choose to stay in her current location
+    and not move. </li>
+     <li>Ada can also choose not to deliver a pizza when at a customer's location.</li>
+   </ul>
+</p>
+
+<p>
+  Formally, if Ada is currently at street crossing $$$(i,j)$$$, where $$$i$$$ is $$$i$$$-th row from the top,
+  and $$$j$$$ is $$$j$$$-th column from the left, she can decide to do any of the following as long as she
+  does not go outside the grid:
+  <ul>
+    <li>Go north, she reaches street crossing $$$(i-1, j)$$$.</li>
+    <li>Go east, she reaches street crossing $$$(i, j+1)$$$.</li>
+    <li>Go west, she reaches street crossing $$$(i, j-1)$$$.</li>
+    <li>Go south, she reaches street crossing $$$(i+1, j)$$$.</li>
+    <li>Stay at street crossing $$$(i, j)$$$.</li>
+  </ul>
+</p>
+
+<p align="center">
+  <img src="images/statement_description.png" width="60%" alt="City with 3 horizontal and vertical streets"/>
+</p>
+
+<p>
+    The city has a unique toll system in place for using the streets. There is a toll for using each street
+    and the toll depends on Ada's current number of coins and the direction in which she is travelling to.
+    The toll function is defined for every cardinal direction (North, East, West, South) separately.
+    The toll function $$$F_d$$$ for $$$d \in \{ North, East, West, South \}$$$ returns the amount of coins
+    Ada will have after moving in the direction $$$d$$$ and is defined as follows:
+</p>
+<p align="center">
+    <code>$$$F_d$$$ = $$$c$$$ $$$\mathbf{OP_d}$$$ $$$\mathbf{K_d}$$$</code>
+</p>
+<p>
+    where $$$c$$$ is the current number of coins that Ada has and $$$\mathbf{OP_d}$$$ is an
+    operator and $$$\mathbf{K_d}$$$ is a fixed positive integer. The allowed operators are:
+  <ul>
+    <li><code>+</code> (addition),</li>
+    <li><code>-</code> (subtraction),</li>
+    <li><code>*</code> (multiplication),</li>
+    <li><code>/</code> (<a href="https://mathworld.wolfram.com/IntegerDivision.html" target="_blank">integer division</a>).</li>
+  </ul>
+</p>
+<p>
+  For example, we can have <code>$$$F_{North}$$$ = $$$c$$$ + $$$3$$$</code>,
+    <code>$$$F_{East}$$$ = $$$c$$$ * $$$4$$$</code>, <code>$$$F_{West}$$$ = $$$c$$$ - $$$4$$$</code>, <code>$$$F_{South}$$$ = $$$c$$$ / $$$2$$$</code>. That means that if Ada
+    moves North one street then she will have $$$3$$$ more coins; if Ada
+    moves East then Ada's coins will quadruple; if Ada moves West then she loses
+    $$$4$$$ coins; and if Ada moves South then her coins are halved.
+</p>
+
+<p>
+    All divisions are <a href="https://mathworld.wolfram.com/IntegerDivision.html" target="_blank">integer divisions</a>
+    and are computed by using <a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions" target="_blank"> floor function</a>.
+    For example, $$$\frac{-1}{4} = \lfloor\frac{-1}{4}\rfloor = -1$$$. Notice that Ada is allowed to have a negative
+    number of coins. Note that the tolls might actually give Ada
+    coins.
+</p>
+<p>
+    Find out if Ada can deliver all the $$$\mathbf{P}$$$ pizzas in $$$\mathbf{M}$$$ minutes
+    and, if so, the maximum number of coins Ada could have after $$$\mathbf{M}$$$ minutes.
+</p>
+
+<h3>Input</h3>
+<p>
+    The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.
+</p>
+<p>
+    The first line of each test case contains $$$\mathbf{N}$$$, $$$\mathbf{P}$$$, $$$\mathbf{M}$$$, $$$\mathbf{A_r}$$$, $$$\mathbf{A_c}$$$ denoting the
+    grid size, the number of pizzas to deliver, the minutes in which
+    all pizzas should be delivered, and the coordinates of the street crossing at which Ada starts respectively.
+</p>
+<p>
+    The next four lines denote the toll functions for North, East, West, South respectively.
+    Each of these lines contains $$$\mathbf{OP_d}$$$, denoting the operator (one of <code>+</code>,
+    <code>-</code>, <code>*</code>, <code>/</code>),  and $$$\mathbf{K_d}$$$, the positive integer used in toll
+    function.
+</p>
+<p>
+    The following $$$\mathbf{P}$$$ lines describe the customers. Each of these lines consists
+    of three integers $$$\mathbf{X_k}$$$, $$$\mathbf{Y_k}$$$, $$$\mathbf{C_k}$$$ denoting the row number
+    of the $$$k$$$-th customer from the top of the grid, the column number of the $$$k$$$-th customer from the left of the grid,
+    and the amount of coins they pay on delivery, respectively.
+</p>
+
+<h3>Output</h3>
+<p>
+    For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+    where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is <code>IMPOSSIBLE</code>
+    if all pizzas cannot be delivered within $$$\mathbf{M}$$$ minutes; otherwise, the output should be the
+    maximum number of coins Ada can have after $$$\mathbf{M}$$$ minutes (which could be negative).
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$1 \le \mathbf{N} \le 10$$$.<br/>
+$$$1 \le \mathbf{M} \le 20$$$.<br/>
+$$$1 \le \mathbf{A_r}, \mathbf{A_c} \le \mathbf{N}$$$.<br/>
+$$$1 \le \mathbf{X_k}, \mathbf{Y_k} \le \mathbf{N}$$$, for all $$$k$$$.<br/>
+$$$1 \le \mathbf{C_k} \le 4$$$, for all $$$k$$$.<br/>
+$$$1 \le \mathbf{K_d} \le 4$$$, for all $$$d$$$.<br/>
+$$$\mathbf{OP_d}$$$ is one of (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), for all $$$d$$$.<br/>
+It is guaranteed that no customer lives at the same street crossing
+as the pizza restaurant Ada starts her trip, i.e. $$$(\mathbf{X_k}, \mathbf{Y_k}) \neq (\mathbf{A_r}, \mathbf{A_c})$$$, for all $$$1 \le k \le \mathbf{P}$$$.<br/>
+It is guaranteed that every customer lives at a different street crossing, i.e. $$$(`X_k, \mathbf{Y_k}) \neq (\mathbf{X_l}, \mathbf{Y_l})$$$, for all $$$1 \le k, l \le \mathbf{P}$$$ and $$$k \neq l$$$.
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+
+$$$\mathbf{P} = 0$$$.<br/>
+</p>
+
+<h4>Test Set 2</h4>
+<p>
+
+$$$0 \le \mathbf{P} \le 10$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <i>
+    Note: there are additional samples that are not run on submissions down below.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="pizza_delivery_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+3 0 1 1 2
++ 1
+- 2
++ 3
+/ 4
+3 0 1 2 3
+- 2
+- 2
+- 2
+- 2
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="pizza_delivery_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 3
+Case #2: 0
+
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+    In Sample Case #1, Ada does not deliver any pizzas. Ada is located at street crossing
+    $$$(1,2)$$$. In $$$1$$$ minute she can decide to move west and go to $$$(1,1)$$$, so that the toll at $$$(1,2)$$$
+    calculates Ada's coins using the toll function <code>F_{West} = $$$c$$$ + $$$3$$$</code>, which results in $$$3$$$
+    coins. Therefore Ada can have maximum of $$$3$$$ coins with her after $$$1$$$ minute.
+</p>
+
+<p>
+  In Sample Case #2, Ada does not deliver any pizzas. Ada is located at street crossing
+    $$$(2, 3)$$$. All directions have a similar toll function, <code>$$$F_d$$$ = $$$c$$$ - $$$2$$$</code> for all $$$d$$$. If she decides
+  to go in any direction, she will end up with $$$-2$$$ coins. It is optimal for Ada to stay at the same location
+  and have $$$0$$$ coins at the end.
+  </p>
+
+
+  <br/>
+  <h3>Additional Sample - Test Set 2</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 2. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="pizza_delivery_sample_ts2_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_1">3
+3 1 3 1 3
++ 4
+- 2
+* 1
+/ 4
+1 2 4
+2 2 1 1 2
++ 2
++ 3
+* 2
+* 1
+1 1 4
+2 2 1
+3 1 2 1 3
++ 1
+* 1
+- 3
+/ 4
+2 2 2
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="pizza_delivery_sample_ts2_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_1">Case #1: 8
+Case #2: IMPOSSIBLE
+Case #3: 1
+
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  <p align="center">
+    <img src="images/sample_case_explanation.png" width="80%" alt="Additional Sample case 1 explanation"/>
+</p>
+    In Additional Sample Case #1, Ada started at street crossing $$$(1,3)$$$ with $$$0$$$ coins.
+  Ada can receive maximum coins by following the steps below:
+  <ul>
+    <li>
+        Go west to $$$(1,2)$$$. Using the toll function for moving west <code>$$$F_{west}$$$ = $$$c$$$ * $$$1$$$</code>, Ada now has
+      $$$0 * 1 = 0$$$ coins.
+    </li>
+    <li>
+      Do not deliver the pizza at $$$(1,2)$$$ yet, and go south to $$$(2,2)$$$. Using the toll function for moving south <code>$$$F_{South}$$$ = $$$c$$$ / $$$4$$$</code>, Ada
+      now has $$$0 / 4 = 0$$$ coins.
+    </li>
+    <li>
+      Go north to $$$(1,2)$$$. Using the toll function for moving north <code>$$$F_{North}$$$ = $$$c$$$ + $$$4$$$</code>, Ada now
+      has $$$0 + 4 = 4$$$ coins.
+    </li>
+    <li>
+      Deliver the pizza at $$$(1,2)$$$. Ada receives $$$4$$$ additional coins for delivering the pizza. Ada has a total of $$$8$$$ coins in the end.
+    </li>
+  </ul>
+</p>
+<p>
+    In Additional Sample Case #2, Ada cannot deliver two pizzas in one minute, so the output is
+    <code>IMPOSSIBLE</code>.
+</p>
+<p>
+  In Additional Sample Case #3, Ada started at street crossing $$$(1,3)$$$ with $$$0$$$ coins.
+  Ada can receive maximum coins by following the steps below:
+  <ul>
+    <li>
+        Go west to $$$(1,2)$$$. Using the toll function for moving west <code>$$$F_{West}$$$ = $$$c$$$ - $$$3$$$</code>, Ada now has
+      $$$0 - 3 = -3$$$ coins.
+    </li>
+    <li>
+      Go south to $$$(2,2)$$$. Using the toll function for moving south <code>$$$F_{South}$$$ = $$$c$$$ / $$$4$$$</code>, Ada now
+    has $$$-3 / 4 = \lfloor\frac{-3}{4}\rfloor = -1$$$ coins.
+  </li>
+  <li>
+    Deliver the pizza at $$$(2,2)$$$. Ada receives $$$2$$$ additional coins for delivering the pizza.
+    Ada has a total of $$$1$$$ coins in the end.
+  </li>
+  </ul>
+</p>
+
+    </div>
+  </body>
+</html>

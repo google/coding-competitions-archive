@@ -1,0 +1,501 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2015 - Round 1B</h3><h1>Analysis: Noisy Neighbors</h1><h2>Small number of tenants, N &lt;= ceil(R * C / 2)</h2>
+
+<p>
+For N &lt;= ceil(R * C / 2), we can put the tenants in a checkerboard pattern inside the R x C apartment complex and get the minimum possible unhappiness score of zero. See the following examples:
+</p>
+
+<pre>
+ .X.X     .X.X.     X.X.X
+ X.X.     X.X.X     .X.X.
+ .X.X     .X.X.     X.X.X
+ X.X.     X.X.X     .X.X.
+                    X.X.X
+
+4 x 4     4 x 5     5 x 5
+</pre>
+
+<p>
+The left figure shows a 4 x 4 complex where we can place up to 8 tenants to apartments marked by ‘X’ and get zero unhappiness score (an empty apartment is marked by ‘.’). Observe that no two occupied apartments share a wall. Similarly for the middle figure, we can place up to 10 tenants and get zero unhappiness score.
+</p>
+
+<p>
+With either R or C even (the left and middle figures), exactly half of the apartments can be rented. However, when both R and C are odd, two checkerboard patterns are possible. We should pick the checkerboard pattern with larger size. So for the right figure, we pick the checkerboard that has 13 ‘X’ marks, instead of the other checkerboard with only 12 ‘X’ marks.
+</p>
+
+<h2>Large number of tenants, N &gt; ceil(R * C / 2)</h2>
+
+<p>
+For N &gt; ceil(R * C / 2), some level of unhappiness will be present, since we must place at least one pair of tenants next to each other.
+Instead of starting with an empty building and adding tenants, it is easier to solve this case by starting with a building completely filled with tenants, and then removing K = R*C - N of them.
+We now need to determine which K tenants to remove in order to decrease the unhappiness score by as much as possible.
+</p>
+
+<p>
+Let’s first solve the smaller cases where R = 1 or C = 1. For those cases, we can always remove up to K tenants in such a way that each removal decreases the unhappiness score by 2, which is the maximum possible, and thus is optimal. To show this, look at the two possible examples below where C is even and C is odd:
+</p>
+
+<pre>
+  .X.X..     .X.X.X.
+even C=6     odd C=7
+</pre>
+
+<p>
+For even C, K is at most C / 2 - 1 since N &gt; ceil(R * C / 2). Thus for even C, it is always possible to remove tenants using the pattern shown on the left figure (marked by ‘X’) to guarantee that each removal decreases the unhappiness score by 2 (i.e., the maximum possible decrease).
+</p>
+
+<p>
+For odd C, K is at most (C - 1) / 2. In this case, it is always possible to remove tenants using the pattern shown on the right figure (marked by ‘X’) to guarantee that each removal decreases the unhappiness score by 2 (i.e., the maximum possible decrease).
+</p>
+
+<p>
+To get some idea for solving a general case where R and C are at least 2, let’s observe the four buildings below with the checkerboard pattern. The cells marked by a number represent the apartments where the tenants may be removed. The numbers represent the amount of unhappiness each tenant is contributing to the building, or equivalently, the decrease in unhappiness that will occur if those tenants were removed:
+</p>
+
+<pre>
+ .3.2     .3.3.     2.3.2     .3.3.
+ 3.4.     3.4.3     .4.4.     3.4.3
+ .4.3     .4.4.     3.4.3     .4.4.
+ 2.3.     2.3.2     .4.4.     3.4.3
+                    2.3.2     .3.3.
+
+4 x 4     4 x 5     5 x 5     5 x 5
+</pre>
+
+<p>
+We can devise an optimal K-tenant-removal strategy (i.e., remove K tenants such that the total unhappiness score is minimal) as follows:
+</p>
+
+<ul>
+<li>
+For K &lt;= (R - 2) * (C - 2) / 2, we can always remove K tenants from the inner building (at the positions marked by ‘4’ in the figures) where each tenant removal decreases the unhappiness score by 4, which is the maximum decrease we can get, and thus it is optimal.
+</li>
+
+<li>
+For K &gt; (R - 2) * (C - 2) / 2, after removing all the tenants at positions marked by ‘4’, we start removing more tenants at the sides of the building marked by ‘3’ (each tenant removal at these positions decreases the unhappiness score by 3). If all tenants at the sides of the building have been removed but we still need to remove more tenants (i.e., the total number of removed tenants has not reached K yet), remove more tenants at the corners of the building marked by ‘2’ (each tenant removal at these positions decreases the unhappiness score by 2). It is guaranteed that K tenants can be removed by now, since K is at most R * C / 2.
+</li>
+</ul>
+
+<p>
+Note that for odd R and odd C, there are two possible checkerboard patterns. Both of them must be considered, and we pick the one that yields the minimum unhappiness score.
+</p>
+
+<h3>Why does this strategy work?</h3>
+
+<p>
+Each removal can reduce unhappiness by at most 4. Below is a 5 x 5 building where the number in each apartment cell is the amount of unhappiness score reduction if the tenant at that cell location is removed:
+<pre>
+23332
+34443
+34443
+34443
+23332
+</pre>
+
+<p>
+We can place at most ceil((R-2) * (C-2) / 2) 4s, so we cannot do better than to place this many 4s, and for the remainder place 3s.  So we can put an upper bound U on the amount of unhappiness reduction we can achieve &mdash; U &lt;= 4 * K for K &lt;= ceil((R-2) * (C-2) / 2), and U &lt;= 3 * K + ceil((R-2) * (C-2) / 2) otherwise.
+</p>
+
+<p>
+Consider the removal strategy using this checkerboard pattern (let's call this <i>pattern1</i>):
+</p>
+
+<pre>
+2.3.2
+.4.4.
+3.4.3
+.4.4.
+2.3.2
+</pre>
+
+<p>
+This achieves U exactly when K &lt;= floor(R * C / 2) - 3 for R and C odd, and K &lt;= floor(R * C / 2) - 2 when one of R and C are even, so this strategy is optimal for these cases.
+</p>
+
+<p>
+For the remaining cases, this strategy achieves either U-1 and U-2, because we need to place some 2s.  Since this strategy uses the maximal number of 4s, and the maximal number of 3s possible when using the maximal number of 4s, the only possible way to improve upon it would be to use 1 fewer 4 in order to use more 3s.
+</p>
+
+<p>
+It is indeed possible to do this to improve the case K = floor(R * C / 2) - 1 from 4 total unhappiness to 3 total unhappiness, using the other checkerboard pattern (let’s call this <i>pattern2</i>):
+</p>
+
+<pre>
+.3.3.
+3.4.3
+.4.4.
+3.4.3
+.3.3.
+</pre>
+
+<p>
+That is, if we were to use the checkerboard <i>pattern1</i>, removing K = 11 tenants reduces the unhappiness score by 5*4 + 4*3 + 2*2 = 36. On the other hand, <i>pattern2</i> reduces the unhappiness score by 4*4 + 7*3 = 37, by using 1 fewer 4s and more 3s.
+</p>
+
+<p>
+On the other hand, <i>pattern1</i> is optimal is when K = 5, for example. In this case, <i>pattern1</i> reduces the unhappiness score more than <i>pattern2</i> since <i>pattern1</i> has 5 of 4s while <i>pattern2</i> only has 4 of 4s and would need to remove another 1 of 3s.
+</p>
+
+<p>
+Sample implementation in C++:
+</p>
+
+<pre>
+#include &lt;cassert&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int T, R, C, N;
+
+int remove_tenants(int &amp;K, int max_remove, int remove_cost) {
+  int removed = min(K, max_remove);
+  K -= removed;
+  return removed * remove_cost;
+}
+
+int get_score(int all, int corners, int inners) {
+  int sides = all - corners - inners;
+  int K = R * C - N;
+  int unhappiness = R * C * 2 - R - C;
+  unhappiness -= remove_tenants(K,  inners, 4);
+  unhappiness -= remove_tenants(K,   sides, 3);
+  unhappiness -= remove_tenants(K, corners, 2);
+  assert(K == 0);
+  return unhappiness;
+}
+
+int min_unhappines() {
+  // Guaranteed zero unhappiness.
+  if (N &lt;= (R * C + 1) / 2) return 0;
+
+  if (R == 1) {
+    int K = R * C - N;
+    int unhappiness = C - 1;
+    int remove_cost = 2;
+    return unhappiness - K * remove_cost;
+  }
+
+  if (R % 2 == 1 &amp;&amp; C % 2 == 1) {
+    // 2.3.2
+    // .4.4.
+    // 3.4.3
+    // .4.4.
+    // 2.3.2
+    int pattern1 = get_score(
+      (R * C + 1) / 2,  // Max #tenants that can be removed.
+      4,  // #tenants at the corners of the building.
+      ((R-2) * (C-2) + 1) / 2  // #tenants at inner building.
+    );
+
+    // .3.3.
+    // 3.4.3
+    // .4.4.
+    // 3.4.3
+    // .3.3.
+    int pattern2 = get_score(
+      (R * C) / 2,  // Max #tenants that can be removed.
+      0,  // #tenants at the corners of the building.
+      ((R-2) * (C-2)) / 2  // #tenants at inner building.
+    );
+
+    return min(pattern1, pattern2);
+  }
+
+  // .3.2      2.3.      2.3.2
+  // 3.4.  or  .4.3  or  .4.4.
+  // .4.3      3.4.      3.4.3
+  // 2.3.      .3.2      .3.3.
+  return get_score(
+    (R * C + 1) / 2,  // Max #tenants that can be removed.
+    2,  // #tenants at the corners of the building.
+    ((R-2) * (C-2) + 1) / 2  // #tenants at inner building.
+  );
+}
+
+int main() {
+  scanf("%d", &amp;T);
+  for (int TC = 1; TC &lt;= T; TC++) {
+    scanf("%d %d %d", &amp;R, &amp;C, &amp;N);
+    if (R &gt; C) swap(R, C);
+    printf("Case #%d: %d\n", TC, min_unhappines());
+  }
+}
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

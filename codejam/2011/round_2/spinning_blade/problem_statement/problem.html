@@ -1,0 +1,399 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2011 - Round 2</h3><h1>Spinning Blade</h1><h3>Problem</h3>
+<p>
+Being bored with the traps in your secret hideout design, you decided to go for something classical, but always enjoyable - the <i>spinning blade</i>. You ordered a really heavy metal sheet out of which you will cut the blade; a uniform square <b>C</b>-by-<b>R</b> grid will be painted on the sheet. You have determined the best shape for the blade -- you will first cut a large square consisting of <b>K</b>-by-<b>K</b> grid cells, where <b>K</b> &ge; 3. Then, you will cut out the four 1-by-1 corner cells out of the square to end up with a <i>blade</i>. After determining all this, you started waiting for the sheet to arrive.
+</p>
+
+<p>
+When the sheet arrived, you were shocked to find out that the sheet had imperfections in it! You expected each cell to have mass <b>D</b>, but it turned out that the mass can vary a bit because of differences in thickness. This is bad because you want to insert a shaft exactly in the center of the blade and spin it very fast, so the center of mass of the blade must be exactly in its center as well. The definition of the center of mass of a flat body can be found below.
+</p>
+
+<p>
+Given the grid and the mass of each cell, what is the largest possible size of the blade you can make so that the center of mass is exactly in its center?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>.  <b>T</b> test cases follow.  Each one starts with a line containing 3 integers: <b>R</b>, <b>C</b> and <b>D</b> &mdash; the dimensions of the grid and the mass you expected each cell to have. The next <b>R</b> lines each contain <b>C</b> digits <b>w<sub>ij</sub></b> each, giving the differences between the actual and the expected mass of the grid cells. Each cell has a uniform density, but could have an integer mass between <nobr><b>D + 0</b></nobr> and <nobr><b>D + 9</b></nobr>, inclusive.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing "Case #x: <b>K</b>", where x is the case number (starting from 1) and <b>K</b> is the largest possible size of the blade you can cut out. If no acceptable blade of size at least 3 can be found, print "IMPOSSIBLE" instead.
+</p>
+
+<h3>Limits</h3>
+<p>
+1 &le; <b>T</b> &le; 20.<br/>
+0 &le; <b>w<sub>ij</sub></b> &le; 9.<br/>
+The size of the input file will not exceed 625KB.<br/>
+Memory limit: 1GB.
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+3 &le; <b>R</b> &le; 10.<br/>
+3 &le; <b>C</b> &le; 10.<br/>
+1 &le; <b>D</b> &le; 100.<br/>
+Time limit: 30 seconds.
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+3 &le; <b>R</b> &le; 500.<br/>
+3 &le; <b>C</b> &le; 500.<br/>
+1 &le; <b>D</b> &le; 10<sup>6</sup>.<br/>
+Time limit: 60 seconds.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="spinning_blade_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+6 7 2
+1111111
+1122271
+1211521
+1329131
+1242121
+1122211
+3 3 7
+123
+234
+345
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="spinning_blade_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 5
+Case #2: IMPOSSIBLE
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</sampleio>
+
+<h3>Note</h3>
+<p>
+The <i>center of mass</i> of a 2D object is formally defined as a point <b>c</b>. If you compute the sum of <nobr>(<b>p</b> - <b>c</b>) * mass(<b>p</b>)</nobr> for all points <b>p</b> in the object, you must get <b>0</b>. Here, <b>p</b>, <b>c</b> and <b>0</b> are two-dimensional vectors. This definition also works if you treat each grid cell as a "point", with all of its mass at its center.
+</p>
+<p>
+In real life, you could place your finger under a flat object's center of mass, and balance that object on your finger.  It would not fall.
+</p>
+<p>
+To illustrate with an example, the only blade that is possible to cut out in the second sample test case, the 3x3 blade created by cutting away the corners, has its center of mass at the point (1.54, 1.46), where we assume the bottom-left corner of the sheet has coordinates (0, 0), and the coordinates grow right and up, respectively. This is verified by checking the following equality: <nobr>(-1.04, 0.04) * 9 + (-0.04, 1.04) * 9 + (-0.04, 0.04) * 10 + (-0.04, -0.96) * 11 + (0.96, 0.04) * 11 = (0, 0)</nobr>.
+
+    </div>
+  </body>
+</html>

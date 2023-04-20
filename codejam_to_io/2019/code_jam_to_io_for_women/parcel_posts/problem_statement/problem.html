@@ -1,0 +1,397 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2019 - Code Jam to I/O for Women</h3><h1>Parcel Posts</h1><h3>Problem</h3>
+<p>
+  You just bought a parcel of land that is <b>K</b> kilometers long; it is so
+  narrow that, for the purposes of this problem, we will consider it to be
+  a polyline that runs from west to east, varying in elevation. You know
+  the elevations of the land (in meters) at <b>K</b> + 1 regularly spaced
+  <i>measurement marks</i> <b>M<sub>0</sub></b>, <b>M<sub>1</sub></b>, ...,
+  <b>M<sub>K</sub></b>. These marks are 0, 1, ..., <b>K</b> km, respectively,
+  from the western end.
+</p><p>
+  In this region, a wooden post denotes the boundary between two adjacent
+  parcels of land. Wooden posts can only be placed at measurement marks, and
+  there can be at most one post at each mark. Right now, there are two posts:
+  one at the 0 km mark, and one at the <b>K</b> km mark. A measurement mark
+  with a post is considered to be part of both of the parcels it demarcates, so
+  your parcel of land includes all measurement marks between 0 and <b>K</b> km,
+  inclusive.
+</p><p>
+  A parcel is considered <i>desirable</i> if it contains three measurement
+  marks such that the west-most and east-most of those three marks are both
+  strictly higher than the remaining one of the three marks, or both strictly
+  lower than the remaining one of the three marks. People like some variation
+  in their landscapes! Notice that these three marks are not necessarily
+  consecutive, and the west-most and east-most of the three marks are not
+  necessarily the west-most and east-most marks of the parcel.
+</p><p>
+  Consider an example with <b>K</b> = 5 and <b>M<sub>0</sub></b>,
+  <b>M<sub>1</sub></b>, ..., <b>M<sub>K</sub></b> = 5, 6, 6, 1, 2, 4. The
+  measurement marks with elevations 5, 2, and 4 satisfy the condition, as do
+  the measurement marks with elevations 6, 1, and 2. However, the measurement
+  marks with elevations 6, 6, and 1 do not satisfy the condition, nor do the
+  measurement marks with elevations 1, 2, and 4. Any three measurement marks
+  that satisfy the condition make the whole parcel desirable; for example, a
+  parcel containing the measurement marks 4 7 6 7 is desirable because of the
+  first three values.
+</p><p>
+  Your parcel is desirable, but you think it may be possible to extract even
+  more value from it! You want to add additional posts to this parcel to divide
+  it up into multiple parcels, all of which must be desirable, since you do not
+  want to waste any land. What is the largest number of posts you can add?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each case begins with one line containing an
+  integer <b>K</b>: the length, in kilometers, of your parcel of land. Then,
+  there is one more line with <b>K</b> + 1 integers <b>M<sub>0</sub></b>,
+  <b>M<sub>1</sub></b>, ..., <b>M<sub>k</sub></b>; where <b>M<sub>i</sub></b>
+  is the elevation (in meters) at the measurement mark that is i km from the
+  western end of your land.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the largest possible number of posts you can add, as described above.
+</p>
+
+
+<h3>Limits</h3>
+<p>
+  Time limit: 20 seconds per test set. (10 seconds per test run.)<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  0 &le; <b>M<sub>i</sub></b> &le; 1000, for all i.<br/>
+  (<b>M<sub>i</sub></b> - <b>M<sub>j</sub></b>) &times;
+  (<b>M<sub>k</sub></b> - <b>M<sub>j</sub></b>) &gt; 0,
+  for some i &lt; j &lt; k. (Your starting parcel is desirable.)<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  4 &le; <b>K</b> &le; 10.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  4 &le; <b>K</b> &le; 1000.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">4
+4
+4 8 7 3 5
+4
+4 8 7 7 5
+7
+1 2 2 1 2 1 2 1
+6
+2 1 3 10 9 12 20
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: 1
+Case #2: 0
+Case #3: 2
+Case #4: 1
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+<p>
+  In Sample Case #1, you can add one post at 2 km to get a total of two
+  desirable parcels. The parcel from 0 to 2 km is desirable because
+  4 &lt; 8 and 8 &gt; 7. The parcel from 2 to 4 km is desirable because
+  7 &gt; 3 and 3 &lt; 5.
+</p><p>
+  In Sample Case #2, there is no way to add another post. If you added one
+  at 1 km or 3 km, one of the parcels would include only two measurement marks
+  and could not be desirable. If you added one at 2 km, the parcel between
+  0 and 2 km would be desirable, but the parcel between 2 and 4 km would not.
+</p><p>
+  In Sample Case #3, posts can be added at 3 km and 5 km.
+</p><p>
+  In Sample Case #4, a post can be added at 2 km. Notice that the parcel from
+  2 km to 6 km is desirable because 10 &gt; 9 and 9 &lt; 12. However, there is
+  no way to add a second post.
+</p>
+
+    </div>
+  </body>
+</html>

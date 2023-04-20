@@ -1,0 +1,459 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 1B</h3><h1>ASeDatAb</h1><h3>Problem</h3>
+<p>
+  A research consortium has been looking for the best possible database for three years, but
+  they are still having problems. The database stores values as records that hold $$$8$$$-bit
+  binary strings. Unfortunately, their implementation of the function to set
+  the value of a record is flawed.
+</p><p>
+  Each record of the database is an $$$8$$$&NoBreak;-bit binary string. The bits of the binary string
+  are indexed from $$$0$$$ to $$$7$$$ from left to right. When an instruction to set a specific
+  record to a new value $$$V$$$ is received, instead of setting the value to $$$V$$$ the database
+  does the following:
+</p>
+<ol>
+  <li>Choose an integer $$$r$$$ between $$$0$$$ and $$$7$$$, inclusive, and let $$$W$$$
+  be like $$$V$$$ but rotated by $$$r$$$ to the right. That is, the $$$((i + r) \bmod 8)$$$&NoBreak;-th bit of $$$W$$$
+  is the $$$i$$$&NoBreak;-th bit of $$$V$$$.</li>
+  <li>Replace the current value $$$X$$$ of the record with $$$X$$$ XOR $$$W$$$. That is,
+  the new value of the record has a $$$1$$$ as its $$$i$$$&NoBreak;-th bit if and only if
+  the $$$i$$$&NoBreak;-th bits of $$$X$$$ and $$$W$$$ are different.</li>
+  <li>Finally, return the number of bits that are $$$1$$$ in the new value to the user.</li>
+</ol>
+<p>
+  Luckily, it turns out that no matter what the initial value is or what rotation values the database
+  chooses, it is always possible to reset the value of a record to have all bits be $$$0$$$
+  with no more than $$$300$$$ uses of this operation. Implement a program to interact
+  with the database that does this.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing an integer
+  $$$\mathbf{T}$$$, the number of test cases. Then, $$$\mathbf{T}$$$ test cases must be processed.
+</p>
+<p>
+  At the beginning
+  of each test case, the record in the database is set to a value that is not
+  <code>00000000</code>. In each test case, your program must process up to $$$300$$$ exchanges.
+</p>
+<p>
+  The $$$i$$$&NoBreak;-th exchange starts with you outputting a single line containing a single
+  $$$8$$$&NoBreak;-bit binary string to be used as the value $$$V$$$ for the operation above.
+  Then, the judge program performs the operation as described and sends you a single
+  line containing a single integer $$$\mathbf{N_i}$$$ representing the number of bits that are
+  equal to $$$1$$$ in the updated value of the record.
+</p>
+<ul>
+  <li>If $$$\mathbf{N_i} = 0$$$, it means that
+  you have succeeded and you must start the next test case, or finish the
+  program if it was the last one.</li>
+  <li>If $$$\mathbf{N_i} = -1$$$ it means that this was the $$$300$$$-th
+  exchange of the test case but the record never got to a value of all zeroes, so the test is
+  failed. No further test cases will be processed.</li>
+  <li>If $$$1 \le \mathbf{N_i} \le 8$$$, it means that the updated value of the record has $$$\mathbf{N_i}$$$ ones
+    and you may proceed to the next exchange to keep trying to make it contain only zeroes.</li>
+</ul>
+<p>
+  Your solution is considered correct if and only if you succeed in setting the value of the record
+  to <code>00000000</code> for all test cases.
+<p>
+  If the judge receives an invalidly formatted or invalid line from your program at any moment,
+  the judge will print a single number $$$-1$$$ and will not print any further output.
+  If you receive a $$$-1$$$, you must finish correctly and without exceeding the time
+  or memory limits to receive a Wrong Answer judgement. Otherwise, you will receive a judgement
+  informing the exceeded resource or the incorrect termination condition.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 10 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 100$$$.<br/>
+  $$$-1 \le \mathbf{N_i} \le 8$$$ for all $$$i$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+<p>
+  The initial value of the record is chosen uniformly at random from all $$$8$$$-bit binary strings
+  that are not <code>00000000</code>.
+</p>
+<p>
+  Each rotation value is chosen uniformly at random, and independently of all previous choices and
+  interactions.
+</p>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+
+<p>
+  The judge is <i>adversarial</i>. This means, among other things, that the judge can change the
+  initial value or rotation values as long as it is consistent with all interactions. The initial
+  value is guaranteed to never be <code>00000000</code>.
+</p>
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py3" download="testing_tool.py">Download testing tool</a>
+</p>
+
+
+  <div class="sample-interaction-wrapper">
+    <div class="sample-interaction-header">
+      <div class="sample-interaction-header-text">Sample Interaction</div>
+    </div>
+    <div class="sample-interaction-content">
+      <div class="sample-interaction-judge-solution-labels">
+        <div class="sample-interaction-judge-label">Judge</div>
+        <div class="sample-interaction-solution-label">Solution</div>
+      </div>
+      
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Number of cases<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 1. Record starts at the hidden value <code>10000000</code>.<br>
+</div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">00110011
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Judge picks $$$r = 5$$$ and rotates your given value to get <code>10011001</code> then does <code>10011001</code> XOR <code>10000000</code> obtaining <code>00011001</code>, which is the new value of the record.<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note"><code>00011001</code> has $$$3$$$ ones.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">00011001
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Judge picks $$$r = 0$$$ which leaves your input unrotated. Since it coincides with the current value of the record, this results in the record being <code>00000000</code>.<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">0
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge informs you that there are no ones in the record, so this case is complete.<br>
+</div>
+
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,404 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2013 - Round 1A</h3><h1>Good Luck</h1><h3>Problem</h3>
+<p>
+Maryam and Peiling have recently been practicing a new number trick, and they need your help to get it right. The trick goes as follows: Maryam starts by picking <b>N</b> independent random integer numbers, each between 2 and <b>M</b>, inclusive, appearing with equal probability, and writes them down on <b>N</b> cards, one number per card. Note that some numbers might be equal. Then, she repeats the following <b>K</b> times: take a random subset of cards (each card is taken with probability 0.5), and write down the product of the numbers on those cards. Having done all that, she shows all <b>K</b> products to Peiling, and Peiling's goal is to guess what the original <b>N</b> numbers were, knowing just <b>N</b>, <b>M</b>, and the products.
+</p>
+<p>
+An example game with <b>N</b>=3, <b>M</b>=4, <b>K</b>=4 might go like this: first, Maryam picks 3 random numbers between 2 and 4, inclusive - let's say she randomly chose <b>A</b><sub>1</sub>=3, <b>A</b><sub>2</sub>=3 and <b>A</b><sub>3</sub>=4. Then, she calculates four products of random subsets of 
+those three numbers. For example, let's say those products are <b>A</b><sub>1</sub>*<b>A</b><sub>2</sub>=9, <b>A</b><sub>3</sub>=4, <b>A</b><sub>1</sub>*<b>A</b><sub>2</sub>*<b>A</b><sub>3</sub>=36, and 1=1 (the last product has no numbers in it, so it's equal to 1). Peiling receives numbers 9,4,36,1 from her, and she's also told that <b>N</b>=3 and <b>M</b>=4. In this case, just seeing the number 36 is enough to find what the original numbers were, since the only way to represent that as a product of up to 3 numbers, each up to 4, is 3*3*4. So Peiling says that the original numbers were 3, 3 and 4, and the audience is impressed.
+</p>
+<p>
+In some other cases, guessing the original numbers is not as simple. For example, it might happen that all products are equal to 1.  In that case there is no way to know anything about the hidden numbers, so Peiling cannot always be right. However, Peiling knows that Maryam follows the procedure exactly as described above: she selects the first <b>N</b> numbers as independent uniform integers between 2 and <b>M</b>, and then selects <b>K</b> independent random subsets, picking each number into each subset independently with probability 0.5. Help Peiling use that knowledge to make better guesses!
+</p>
+
+<h3>Solving this problem</h3>
+<p>
+This problem is a bit unusual for Code Jam. You will be given <b>R</b> independent sets of <b>K</b> numbers each, and should print an answer for each set &mdash; this part is as usual. However, you don't need to get all of your answers right! Your solution will be considered correct if answers for at least <b>X</b> sets are correct, with the value of <b>X</b> given in the Limits for the given input, below. However, you must follow the output format, even for sets in which your answer doesn't turn out to be correct. The <i>only</i> thing that can be wrong on any sets, yet still allow you to be judged correct, is the digits you output; but there should still be exactly <b>N</b> digits printed for each case, and each digit must be between <b>2</b> and <b>M</b>.
+</p>
+<p>
+This problem involves randomness, and thus it might happen that even the best possible solution doesn't make <b>X</b> correct guesses (remember the situation when all products are equal to 1?) for a certain input.  Because of that, this problem doesn't have a Large input, but instead has two Small inputs.  That means you can try again if you think you got unlucky.  You may only attempt to solve the second Small input once you have solved the first one.  Otherwise, both Small inputs work in the same way as Small inputs for any other problem: you may try multiple times, and there is a 4-minute penalty for incorrect submissions if you later solve that input, even if the only reason you got it wrong was chance.
+</p>
+<p>
+Good luck!
+</p>
+
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>, which is always equal to 1.  The second line of the input file contains four space-separated integers <b>R</b>, <b>N</b>, <b>M</b> and <b>K</b>, in that order. The next <b>R</b> lines describe one set of <b>K</b> products each. Each of those lines contains <b>K</b> space-separated integers &mdash; the products that Maryam passes to Peiling. It is guaranteed that all sets in the input are generated independently randomly according to the procedure from the problem statement.
+</p>
+
+<h3>Output</h3>
+<p>
+On the first line, output "Case #1:". On each of the next <b>R</b> lines output <b>N</b> digits &mdash; your guess for Maryam's hidden numbers for the corresponding set of products. You can print the numbers for each set in any order, but there must be exactly <b>N</b> digits, each between 2 and <b>M</b>, inclusive (note that M&lt;10, so none of the numbers will be more than one digit). Do not put spaces between the digits.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 60 seconds per test set.<br/>
+Memory limit: 1GB.<br/>
+</p>
+
+<h4>First Small dataset (Test set 1 - Visible)</h4>
+<p>
+<b>T</b> = 1.<br/>
+<b>R</b> = 100.<br/>
+<b>N</b> = 3.<br/>
+<b>M</b> = 5.<br/>
+<b>K</b> = 7.<br/>
+You need to get at least <b>X</b>=50 sets right.
+</p>
+
+<h4>Second Small dataset (Test set 2 - Visible)</h4>
+<p>
+<b>T</b> = 1.<br/>
+<b>R</b> = 8000.<br/>
+<b>N</b> = 12.<br/>
+<b>M</b> = 8.<br/>
+<b>K</b> = 12.<br/>
+You need to get at least <b>X</b>=1120 sets right.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="good_luck_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">1
+2 3 4 4
+9 4 36 1
+1 1 1 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="good_luck_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1:
+343
+222
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<h3>Note</h3>
+
+<p>
+The sample input doesn't follow the limitations for either input.  In the sample input, you need to get at least <b>X</b>=1 sets right.
+</p>
+<p>
+In the sample input, Maryam picked the numbers 3, 3, 4 the first time, and the numbers 2, 4, 4 the second time.  In the sample output, Peiling guessed correctly the first time, but not the second time.
+</p>
+
+    </div>
+  </body>
+</html>

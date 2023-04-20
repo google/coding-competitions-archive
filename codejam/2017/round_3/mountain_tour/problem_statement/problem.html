@@ -1,0 +1,452 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 3</h3><h1>Mountain Tour</h1><h3>Problem</h3>
+<p>
+  You are on top of Mount Everest, and you want to enjoy all the nice hiking
+  trails that are up there. However, you know from past experience that
+  climbing around on Mount Everest alone is bad &mdash; you might get lost in
+  the dark! So you want to go on hikes at pre-arranged times with tour guides.
+</p><p>
+  There are <b>C</b> camps on the mountain (numbered 1 through <b>C</b>), and
+  there are 2 &times; <b>C</b> one-way hiking tours (numbered 1 through 2
+  &times; <b>C</b>). Each hiking tour starts at one camp and finishes at a
+  different camp, and passes through no other camps in between. Mount Everest
+  is sparsely populated, and business is slow; there are exactly 2 hiking tours
+  departing from each camp, and exactly 2 hiking tours arriving at each camp.
+</p><p>
+  Each hiking tour runs daily. Tours 1 and 2 start at camp 1, tours 3 and 4
+  start at camp 2, and so on: in general, tour 2 &times; i - 1 and tour 2
+  &times; i start at camp i. The i-th hiking tour ends at camp number
+  <b>E<sub>i</sub></b>, leaves at hour <b>L<sub>i</sub></b>, and has a duration
+  of exactly <b>D<sub>i</sub></b> hours.
+</p><p>
+  It is currently hour 0; the hours in a day are numbered 0 through 23. You are
+  at camp number 1, and you want to do each of the hiking tours
+  <i>exactly once</i> and end up back at camp number 1. You cannot travel
+  between camps except via hiking tours. While you are in a camp, you may wait
+  for any number of hours (including zero) before going on a hiking tour, but
+  you can only start a hiking tour at the instant that it departs.
+</p><p>
+  After looking at the tour schedules, you have determined that it is
+  definitely possible to achieve your goal, but you want to do it as fast as
+  possible. If you plan your route optimally, how many hours will it take you
+  to finish all of the tours?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each begins with one line with an integer
+  <b>C</b>: the number of camps. Then, 2 &times; <b>C</b> more lines follow.
+  The i-th of these lines (counting starting from 1) represents one hiking tour
+  starting at camp number floor((i + 1) / 2), and contains three integers
+  <b>E<sub>i</sub></b>, <b>L<sub>i</sub></b>, and <b>D<sub>i</sub></b>, as
+  described above. Note that this format guarantees that exactly two tours
+  start at each camp.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the minimum number of hours that it will take you to achieve your goal,
+  as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  1 &le; <b>E<sub>i</sub></b> &le; <b>C</b>.<br/>
+  <b>E<sub>i</sub></b> &ne; ceiling(i / 2), for all i. (No hiking tour
+    starts and ends at the same camp.)<br/>
+  size of {j : <b>E<sub>j</sub></b> = i} = 2, for all j. (Exactly two tours
+    end at each camp.)<br/>
+  0 &le; <b>L<sub>i</sub></b> &le; 23.<br/>
+  1 &le; <b>D<sub>i</sub></b> &le; 1000.<br/>
+  There is at least one route that starts and ends at camp 1 and includes each
+    hiking tour exactly once.<br/>
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+  2 &le; <b>C</b> &le; 15.<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+  2 &le; <b>C</b> &le; 1000.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="mountain_tour_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+2
+2 1 5
+2 0 3
+1 4 4
+1 6 3
+4
+3 0 24
+2 0 24
+4 0 24
+4 0 24
+2 0 24
+1 0 24
+3 0 24
+1 0 24
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="mountain_tour_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 32
+Case #2: 192
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In sample case #1, the optimal plan is as follows:
+</p>
+<ul>
+  <li>Wait at camp 1 for an hour, until it becomes hour 1.
+  <li>Leave camp 1 at hour 1 to take the 5 hour hiking tour; arrive at camp 2
+    at hour 6.
+  </li>
+  <li>Immediately leave camp 2 at hour 6 to take the 3 hour hiking tour;
+    arrive at camp 1 at hour 9.</li>
+  <li>Wait at camp 1 for 15 hours, until it becomes hour 0 of the next day.
+  </li>
+  <li>Leave camp 1 at hour 0 to take the 3 hour hiking tour; arrive at camp 2
+    at hour 3.</li>
+  <li>Wait at camp 2 for 1 hour, until it becomes hour 4.</li>
+  <li>Leave camp 2 at hour 4 to take the 4 hour hiking tour; arrive at camp 1
+    at hour 8.</li>
+</ul>
+<p>
+  This achieves the goal in 1 day and 8 hours, or 32 hours. Any other plan
+  takes longer.
+</p><p>
+  In sample case #2, all of the tours leave at the same time and are the
+  same duration. After finishing any tour, you can immediately take another
+  tour. If we number the tours from 1 to 8 in the order in which they appear in
+  the test case, one optimal plan is: 1, 5, 4, 7, 6, 2, 3, 8.
+</p>
+
+    </div>
+  </body>
+</html>

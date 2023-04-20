@@ -1,0 +1,439 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Practice Session</h3><h1>Number Guessing</h1><h3>Welcome to the Practice Session!</h3>
+<p>
+  If you experience any technical issues interfering with your ability to
+  participate in the Practice Session, please email us immediately at
+  <a href="mailto:codejam@google.com">codejam@google.com</a>. We will have limited support
+  during the session, but will get back to you as soon as possible. For all
+  other feedback, we invite you to submit your thoughts and suggestions via this
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfE09X8Zdotkf8FYe-YczYs2eUBZtOC1yoxObpJrQiMAo0Qqg/viewform">feedback form</a>
+  after the Practice Session.
+
+<h3>Problem</h3>
+<p>
+  This problem is a well-known classic; we present it primarily as an opportunity
+  for you to try out the interactive judging system.
+</p><p>
+  We are thinking of an integer P within the range (<b>A</b>,<b>B</b>] &mdash;
+  that is, <b>A</b> &lt; P &le; <b>B</b>. You have <b>N</b> tries to guess our
+  number. After each guess that is not correct, we will tell you whether P is
+  higher or lower than your guess.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This problem is
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems">
+  interactive</a>, which means that the concepts of input and output are different
+  than in standard Code Jam problems. You will interact with a separate process
+  that both provides you with information and evaluates your responses.
+  All information comes into your program via standard input; anything that you
+  need to communicate should be sent via standard output.
+  Remember that many programming languages buffer the output by default, so
+  make sure your output actually goes out (for instance, by flushing the
+  buffer) before blocking to wait for a response. See the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>
+  for an explanation of what it means to flush the buffer.
+  Anything your program sends through standard error is ignored, but it might
+  consume some memory and be counted against your memory limit, so do not
+  overflow it. To help you debug, a local testing tool script (in Python) is
+  provided at the very end of the problem statement.
+</p><p>
+  Initially, your program should read a single line containing a single integer
+  <b>T</b> indicating the number of test cases. Then, you need to process
+  <b>T</b> test cases.
+</p><p>
+  For each test case, your program will read a single line with two integers
+  <b>A</b> and <b>B</b>, representing the exclusive lower bound and inclusive
+  upper bound, as described above. In the next line, you will read a single
+  integer <b>N</b>, representing the maximum number of guesses you can make.
+  Your program will process up to <b>N</b> exchanges with our judge.
+</p><p>
+  For each exchange, your program needs to use standard output to send a single
+  line with one integer Q: your guess. In response to your guess, the judge
+  will print a single line with one word to your input stream, which your
+  program must read through standard input. The word will be
+  <code>CORRECT</code> if your guess is correct, <code>TOO_SMALL</code> if your
+  guess is less than the correct answer, and <code>TOO_BIG</code> if your guess
+  is greater than the correct answer. Then, you can start another exchange.
+</p><p>
+  If your program gets something wrong (e.g., wrong output format, or
+  out-of-bounds values), the judge will send <code>WRONG_ANSWER</code> to your input
+  stream and it will not send any other output after that. If your program
+  continues to wait for the judge after receiving <code>WRONG_ANSWER</code>,
+  your program will time out, resulting in a Time Limit Exceeded error. Notice
+  that it is your responsibility to have your program exit in time to receive
+  the appropriate verdict (Wrong Answer, Runtime Error, etc.) instead of a Time
+  Limit Exceeded error. As usual, if the total time or memory is exceeded, or
+  your program gets a runtime error, you will receive the appropriate verdict.
+</p><p>
+  If your test case is solved within <b>N</b> tries, you will receive the
+  <code>CORRECT</code> message from the judge, as mentioned above, and then
+  continue to get input (a new line with two integers <b>A</b> and <b>B</b>,
+  etc.) for the next test case. After <b>N</b> tries, if the test case is not
+  solved, the judge will print <code>WRONG_ANSWER</code> and then stop sending output
+  to your input stream.
+</p><p>
+  You should not send additional information to the judge after solving all test
+  cases. In other words, if your program keeps printing to standard output after
+  receiving <code>CORRECT</code> for the last test case, you will get a Wrong Answer judgment.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 20.<br/>
+  <b>A</b> = 0.
+  <b>N</b> = 30.<br/>
+  Time limit: 10 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>B</b> = 30.
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  <b>B</b> = 10<sup>9</sup>.
+</p>
+
+<h3>Sample interaction</h3>
+<p>
+  Here is a piece of pseudocode that demonstrates an interaction for one test set.
+  Suppose there are three test cases in this test set. The pseudocode first reads an
+  integer t, representing the number of test cases. Then the first test case begins.
+  Suppose the correct answer P is 9 for the first test case. The pseudocode first
+  reads three integers a, b, and n, representing the guessing range and maximum
+  number of tries, respectively, and then outputs a guess 30. Since 30 is greater
+  than 9, the string <code>TOO_BIG</code> is received through stdin from the judge.
+  Then the pseudocode guesses 5 and receives <code>TOO_SMALL</code> in response.
+  The guess 10 is subsequently printed to stdout which is again too big. Finally
+  the pseudocode guesses 9, and receives <code>CORRECT</code> because 9 is the
+  correct answer.
+</p>
+<pre>
+  t = readline_int()         // reads 3 into t
+  a, b = readline_two_int()  // reads 0 into a and 30 into b; note that 0 30 is one line
+  n = readline_int()         // reads 30 into n
+  printline 30 to stdout     // guesses 30
+  flush stdout
+  string s = readline()      // because 30 &gt; 9, reads TOO_BIG into s
+  printline 5 to stdout      // guesses 5
+  flush stdout
+  s = readline()             // reads TOO_SMALL into s since 5 &lt; 9
+  printline 10 to stdout     // guesses 10
+  flush stdout
+  s = readline()             // reads TOO_BIG into s since 10 &gt; 9
+  printline 9 to stdout      // guesses 9
+  flush stdout
+  s = readline()             // reads CORRECT into s
+</pre>
+<p>
+  The second test case shows what happens if the code continues to read from stdin
+  after the judge stops sending info. In this example, the contestant guesses 31,
+  which is outside the range (0, 30]. As a result, the judging system sends <code>WRONG_ANSWER</code>
+  to the input stream of the pseudocode and stops sending anything after that.
+  However, after reading <code>WRONG_ANSWER</code> into string s, the code continues to read for
+  the next test case. Since there is nothing in the input stream (judge has stopped
+  sending info), the code hangs and will eventually receive a Time Limit Exceeded Error.
+</p>
+<pre>
+  a, b = readline_two_int()  // reads 0 into a and 30 into b; note that 0 30 is one line
+  n = readline_int()         // reads 30 into n
+  printline 31 to stdout     // guesses 31
+  flush stdout
+  string s = readline()      // reads WRONG_ANSWER
+  a, b = readline_two_int()  // tries to read for the third test case but hangs since
+                             // judge has stopped sending info to stdin
+</pre>
+<p>
+  If the code in the example above exits immediately after reading <code>WRONG_ANSWER</code>,
+  it will receive a Wrong Answer judgment instead.
+</p>
+<pre>
+  a, b = readline_two_int()  // reads 0 into a and 30 into b; note that 0 30 is one line
+  n = readline_int()         // reads 30 into n
+  printline 31 to stdout     // guesses 31
+  flush stdout
+  string s = readline()      // reads WRONG_ANSWER
+  exit                       // receives a Wrong Answer judgment
+</pre>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+    </div>
+  </body>
+</html>

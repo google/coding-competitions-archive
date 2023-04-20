@@ -1,0 +1,494 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 1C</h3><h1>Parenting Partnering</h1><h3>Problem</h3>
+<p>
+  Cameron and Jamie are longtime life partners and have recently become parents!
+  Being in charge of a baby, exciting as it is, is not without challenges.
+  Given that both parents have a scientific mind, they have decided to take a
+  scientific approach to baby care.
+</p><p>
+  Cameron and Jamie are establishing a daily routine and need to decide who
+  will be the main person in charge of the baby at each given time. They have
+  been equal partners their whole relationship, and they do not want to stop
+  now, so they decided that each of them will be in charge for exactly 12
+  hours (720 minutes) per day.
+</p><p>
+  Cameron and Jamie have other activities that they either need or want to
+  do on their own. Cameron has <b>A<sub>C</sub></b> of these and Jamie has
+  <b>A<sub>J</sub></b>. These activities always take place at the same times
+  each day. None of Cameron's activities overlap with Jamie's activities, so at
+  least one of the parents will always be free to take care of the baby.
+</p><p>
+  Cameron and Jamie want to come up with a daily baby care schedule such that:
+</p>
+<ul>
+  <li>Scheduled baby time must not interfere with a scheduled activity.
+    That is, during Cameron's activities, Jamie has to be in charge of the
+    baby, and vice versa.</li>
+  <li>Each of Cameron and Jamie must have exactly 720 minutes assigned to
+    them.</li>
+  <li>The number of exchanges &mdash; that is, the number of times the person
+    in charge of the baby changes from one partner to the other &mdash; must be
+    as small as possible.</li>
+</ul>
+<p>
+  For example, suppose that Jamie and Cameron have a single activity each:
+  Jamie has a morning activity from 9 am to 10 am, and Cameron has an afternoon
+  activity from 2 pm to 3 pm. One possible but suboptimal schedule would be for
+  Jamie to take care of the baby from midnight to 6 am and from noon to 6 pm,
+  and for Cameron to take care of the baby from 6 am to noon and 6 pm to
+  midnight. That fulfills the first two conditions, and requires a total of 4
+  exchanges, which happen at midnight, 6 am, noon and 6 pm. If there is an
+  exchange happening at midnight, it is counted exactly once, not zero or two
+  times.
+</p><p>
+  A better option would be for Cameron to take care of the baby from midnight
+  to noon, and Jamie to take care of the baby from noon to midnight. This
+  schedule also fulfills the first two conditions, but it uses only 2
+  exchanges, which is the minimum possible.
+</p><p>
+  Given Cameron's and Jamie's lists of activities, and the restrictions above,
+  what is the minimum possible number of exchanges in a daily schedule?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case starts with a line containing two
+  integers <b>A<sub>C</sub></b> and <b>A<sub>J</sub></b>, the number of
+  activities that Cameron and Jamie have, respectively. Then,
+  <b>A<sub>C</sub></b> + <b>A<sub>J</sub></b> lines follow. The first
+  <b>A<sub>C</sub></b> of these lines contain two integers <b>C<sub>i</sub></b>
+  and <b>D<sub>i</sub></b> each. The i-th of Cameron's activities starts
+  exactly <b>C<sub>i</sub></b> minutes after the start of the day at midnight
+  and ends exactly <b>D<sub>i</sub></b> minutes after the start of the day at
+  midnight (taking exactly <b>D<sub>i</sub></b> - <b>C<sub>i</sub></b> minutes).
+  The last <b>A<sub>J</sub></b> of these lines contain two integers
+  <b>J<sub>i</sub></b> and <b>K<sub>i</sub></b> each, representing the starting
+  and ending time of one of Jamie's activities, in minutes counting from the
+  start of the day at midnight (same format as Cameron's). No activity spans two
+  days, and no two activities overlap (except that one might end exactly as another
+  starts, but an exchange can still occur at that time).
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>,
+  where <code>x</code> is the test case number (starting from 1) and
+  <code>y</code> the minimum possible number of exchanges, as described in the
+  statement.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  0 &le; <b>C<sub>i</sub></b> &lt; <b>D<sub>i</sub></b> &le; 24 &times; 60,
+    for all i.<br/>
+  0 &le; <b>J<sub>i</sub></b> &lt; <b>K<sub>i</sub></b> &le; 24 &times; 60,
+    for all i.<br/>
+  Any two of the intervals of {[<b>C<sub>i</sub></b>, <b>D<sub>i</sub></b>)
+    for all i} union {[<b>J<sub>i</sub></b>, <b>K<sub>i</sub></b>) for all i}
+  have an empty intersection. (The intervals are closed on the left and open
+  on the right, which ensures that two exactly consecutive intervals have
+  nothing in between but do not overlap.)<br/>
+  sum of {<b>D<sub>i</sub></b> - <b>C<sub>i</sub></b> for all i} &le; 720.<br/>
+  sum of {<b>K<sub>i</sub></b> - <b>J<sub>i</sub></b> for all i} &le; 720.<br/>
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+  0 &le; <b>A<sub>C</sub></b> &le; 2.<br/>
+  0 &le; <b>A<sub>J</sub></b> &le; 2.<br/>
+  1 &le; <b>A<sub>C</sub></b> + <b>A<sub>J</sub></b> &le; 2.<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+  0 &le; <b>A<sub>C</sub></b> &le; 100.<br/>
+  0 &le; <b>A<sub>J</sub></b> &le; 100.<br/>
+  1 &le; <b>A<sub>C</sub></b> + <b>A<sub>J</sub></b> &le; 200.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="parenting_partnering_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">5
+1 1
+540 600
+840 900
+2 0
+900 1260
+180 540
+1 1
+1439 1440
+0 1
+2 2
+0 1
+1439 1440
+1438 1439
+1 2
+3 4
+0 10
+1420 1440
+90 100
+550 600
+900 950
+100 150
+1050 1400
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="parenting_partnering_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2
+Case #2: 4
+Case #3: 2
+Case #4: 4
+Case #5: 6
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Note that Cases #4 and #5 would not appear in the Small dataset.
+</p><p>
+  Case #1 is the one described in the problem statement.
+</p><p>
+  In Case #2, Jamie must cover for all of Cameron's activity time, and then
+  Cameron must cover all the remaining time. This schedule entails four
+  exchanges.
+</p><p>
+  In Case #3, there is an exchange at midnight, from Cameron to Jamie. No
+  matter how the parents divide up the remaining 1438 non-activity minutes of
+  the day, there must be at least one exchange from Jamie to Cameron, and there
+  is no reason to add more exchanges than that.
+</p><p>
+  In Case #4, note that back-to-back activities can exist for the same partner
+  or different partners. There is no exchange at midnight because Cameron has
+  activities both right before and right after that time. However, the schedule
+  needs to add some time for Cameron in between Jamie's activities, requiring a
+  total of 4 exchanges. Notice that it is optimal to add a single interval
+  for Cameron of length 718 somewhere between minutes 2 and 1438, but the
+  exact position of that added interval does not impact the number of
+  exchanges, so there are multiple optimal schedules.
+</p><p>
+  In Case #5, a possible optimal schedule is to assign Cameron to the intervals
+  (in minutes) 100-200, 500-620, and 900-1400.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,515 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - Round 1A</h3><h1>Analysis: Numbers</h1><p>
+  This problem with a simple statement was in fact one of the hardest in Round
+  1. The input restrictions for the small input were chosen so that
+  straightforward solutions in Java or Python, which have arbitrary-precision
+  numbers, would fail.
+  The trick was calculating &radic;5 to a large enough precision and not using
+  the default double value. It turned out that using the Windows calculator or
+  the UNIX <code>bc</code> tool was enough to solve the small tests as well.
+</p><p>
+  Solving the large tests was a very different problem. The difficulty comes
+  from the fact that &radic;5 is irrational and for n close to 2000000000 you
+  would need a lot of precision and a lot of time if you wanted to use the
+  naive solution.
+</p><p>
+  The key in solving the problem is a mathematical concept called
+  <a href="http://en.wikipedia.org/wiki/Conjugate_%28algebra%29" target="_blank">conjugation</a>.
+  In our problem, we simply note that <nobr>(3 - &radic;5)</nobr> is a nice
+  conjugate for <nobr>(3 + &radic;5)</nobr>.
+  Let us define
+</p>
+<blockquote>
+  (1) &nbsp;&nbsp;&nbsp; &alpha; := 3 + &radic;5,  &nbsp; &beta; := 3 -
+  &radic;5, &nbsp; and X<sub>n</sub> := &alpha;<sup>n</sup> +
+  &beta;<sup>n</sup>.
+</blockquote>
+<p>
+  We first note that X<sub>n</sub> is an integer. This can be proved by using the
+  <a href="http://en.wikipedia.org/wiki/Binomial_theorem" target="_blank">binomial expansion</a>.
+  If you write everything down you'll notice that the irrational terms of the
+  sums cancel each other out.
+</p>
+<blockquote>
+  (2) &nbsp;&nbsp;&nbsp; <img src="numbers2.png"/>
+</blockquote>
+<p>
+  Another observation is that &beta;<sup>n</sup> &lt; 1, so X<sub>n</sub> is
+  actually the first integer greater than &alpha;<sup>n</sup>. Thus we may just
+  focus on computing the last three digits of X<sub></sub>.
+</p><p>
+  <i>A side note.</i> In fact, &beta;<sup>n</sup> tends to 0 so quickly that
+  that our problem would be trivial if we asked for the three digits
+  <i>after</i> the decimal point. For all large values of n they are always
+  999.
+</p><p>
+  Based on (1) and (2), there are many different solutions for finding the last
+  three digits of X<sub>n</sub>.
+</p>
+
+<h3>Solution A. [the interleave of rational and irrational]</h3>
+<p>
+  One solution goes like this: &alpha;<sup>n</sup> can be written as
+  <nobr>(a<sub>n</sub> + b<sub>n</sub>&radic;5)</nobr>, where a<sub>n</sub> and
+  b<sub>n</sub> are integers. At the same time, &beta;<sup>n</sup> is exactly
+  <nobr>(a<sub>n</sub> - b<sub>n</sub>&radic;5)</nobr> and <nobr>X<sub>n</sub>
+  = 2a<sub>n</sub></nobr>. Observe that
+</p>
+<blockquote>
+  (3) &nbsp;&nbsp;&nbsp; &alpha;<sup>(n + 1)</sup> = (3 +
+  &radic;5)(a<sub>n</sub> + b<sub>n</sub>&radic;5) = (3a<sub>n</sub> +
+  5b<sub>n</sub>) + (3b<sub>n</sub> + a<sub>n</sub>)&radic;5.
+</blockquote> 
+<p>
+  So a<sub>n + 1</sub> = 3a<sub>n</sub> + 5b<sub>n</sub> and b<sub>n + 1</sub>
+  = 3b<sub>n</sub> + a<sub>n</sub>. This can be written in matrix form as
+</p>
+<blockquote>
+  (4) &nbsp;&nbsp;&nbsp; <img src="numbers4.png"/>
+</blockquote>
+<p>
+  Since &alpha;<sup>0</sup> = 1, we have (a<sub>0</sub>, b<sub>0</sub>) = (1, 0).
+</p><p>
+  Now we use the standard
+  <a href="http://en.wikipedia.org/wiki/Exponentiation_by_squaring" target="_blank">fast exponentiation</a>
+  to get A<sup>n</sup> in O(log n) time. Note that we do all operations modulo
+  1000 because we just need to return the last three digits of a<sub>n</sub>.
+</p><p>
+  Here's some Python code that implements this solution:
+</p>
+<pre>
+def matrix_mult(A, B):
+  C = [[0, 0], [0, 0]]
+  for i in range(2):
+    for j in range(2):
+      for k in range(2):
+        C[i][k] = (C[i][k] + A[i][j] * B[j][k]) % 1000
+  return C
+
+def fast_exponentiation(A, n):
+  if n == 1:
+    return A
+  else:
+    if n % 2 == 0:
+      A1 = fast_exponentiation(A, n/2)
+      return matrix_mult(A1, A1)
+    else:
+      return matrix_mult(A, fast_exponentiation(A, n - 1))
+
+def solve(n):
+  A = [[3, 5], [1, 3]]
+  A_n = fast_exponentiation(A, n)
+  return (2 * M_n[0][0] + 999) % 1000
+</pre>
+
+<h3>Solution B. [the quadratic equation and linear recurrence]</h3>
+<p>
+  Experienced contestants may notice there is a linear recurrence on the
+  X<sub>i</sub>'s. Indeed, this is not hard to find -- the conjugation enters
+  the picture again.
+</p><p>
+  Notice that
+</p>
+<blockquote>
+  (5) &nbsp;&nbsp;&nbsp; &alpha; + &beta; = 6, and &alpha; &beta; = 4.
+</blockquote>
+<p>
+  So &alpha; and &beta; are the two roots of the quadratic equation
+  x<sup>2</sup> - 6x + 4 = 0. i.e.,
+</p>
+<blockquote>
+  (6) &nbsp;&nbsp;&nbsp; &alpha;<sup>2</sup> = 6&alpha; - 4,  and
+  &beta;<sup>2</sup> = 6&beta; - 4.
+</blockquote>
+<p>
+  Looking at (1) and (6) together, we happily get
+</p>
+<blockquote>
+  (7) &nbsp;&nbsp;&nbsp; X<sub>n+2</sub> = 6X<sub>n+1</sub> - 4X<sub>n</sub>.
+</blockquote>
+<p>
+  Such recurrence can always be written in matrix form. It is somewhat
+  redundant, but it is useful:
+</p>
+<blockquote>
+  <img src="numbers8.png"/>
+</blockquote>
+<p>
+  From here it is another fast matrix exponentiation. Let us see
+  <b>radeye</b>'s perl code that implements this approach here:
+</p>
+<pre>
+sub mul {
+    my $a = shift ;
+    my $b = shift ;
+    my @a = @{$a} ;
+    my @b = @{$b} ;
+    my @c = ($a[0]*$b[0] + $a[1]*$b[2],
+             $a[0]*$b[1] + $a[1]*$b[3],
+             $a[2]*$b[0] + $a[3]*$b[2],
+             $a[2]*$b[1] + $a[3]*$b[3]) ;
+    @c = map { $_ % 1000 } @c ;
+    return @c ;
+}
+sub f {
+    my $n = shift ;
+    return 2 if $n == 0 ;
+    return 6 if $n == 1 ;
+    return 28 if $n == 2 ;
+    $n -= 2 ;
+    my @mat = (0, 1, 996, 6) ;
+    my @smat = @mat ;
+    while ($n &gt; 0) {
+        if ($n &amp; 1) {
+            @mat = mul([@mat], [@smat]) ;
+        }
+        @smat = mul([@smat], [@smat]) ;
+        $n &gt;&gt;= 1 ;
+    }
+    return ($mat[0] * 6 + $mat[1] * 28) % 1000 ;
+}
+sub ff {
+   my $r = shift ;
+   $r = ($r + 999) % 1000 ;
+   $r = "0" . $r while length($r) &lt; 3 ;
+   return $r ;
+}
+for $c (1..&lt;&gt;) {
+    $n = &lt;&gt; ;
+    print "Case #$c: ", ff(f($n)), "\n" ;
+}
+</pre>
+
+<h3>Solution C. [the periodicity of 3 digits]</h3>
+<p>
+  For this problem, we have another approach based on the recurrence (7).
+  Notice that we only need to focus on the last 3 digits of X<sub>n</sub>,
+  which only depends on the last 3 digits of the previous two terms. The
+  numbers eventually become periodic as soon as we have (X<sub>i</sub>,
+  X<sub>i+1</sub>) and (X<sub>j</sub>, X<sub>j+1</sub>) with the same last 3
+  digits, where i &lt; j. It is clear that we will enter a cycle no later than
+  10<sup>6</sup> steps.
+  In fact, for this problem, you can write some code and find out that the
+  cycle has the size 100 and starts at the 3rd element in the sequence.
+  So to solve the problem we can just brute force the results for the first 103
+  numbers and if n is bigger than 103 return the result computed for the number
+  (n - 3) % 100 + 3.
+</p>
+
+<h3>Solution D. [the pure quest of numbers and combinatorics]</h3>
+<p>
+  Let us see one more solution of different flavor.
+  Here is a solution not as general as the others, but tailored to this
+  problem, and makes one feel we are almost solving this problem by hand.
+</p><p>
+  Let us look again at (2). We want to know X<sub>n</sub> mod 1000.
+  We know from the
+  <a href="http://en.wikipedia.org/wiki/Chinese_remainder_theorem" target="_blank">chinese remander theorem</a>
+  that if we can find X<sub>n</sub> mod 8 and X<sub>n</sub> mod 125, then
+  X<sub>n</sub> mod 1000 is uniquely determined.<br>
+  <b>(a)</b> For n &gt; 2, X<sub>n</sub> mod 8 is always 0. Since 5<sup>i</sup>
+  &equiv; 1 (mod 4), 3<sup>n-2i</sup> &equiv; 1 or -1 (mod 4) depending on n,
+  so, for n &gt; 2, 
+</p>
+<blockquote>
+  <img src="numbersa.png"/>
+</blockquote>
+<p>
+  <b>(b)</b> To compute X<sub>n</sub> mod 125, we only need to worry about
+  i=0,1,2. All the rest are 0 mod 125. In other words, all we need to compute
+  is
+</p>
+<blockquote>
+  <img src="numbersb.png"/>
+</blockquote> 
+<p>
+  There are various ways to compute the elements in the above quantity. The
+  exponents can be computed by fast exponentiation, or using the fact that
+  3<sup>n</sup> mod 125 is periodic with cycle length at most 124. The binomial
+  numbers can be computed using arbitrary precision integers in languages like
+  Java and Python, or with a bit careful programming in languages like C++.
+</p>
+
+<h3>More information:</h3>
+<p>
+  <a href="http://www.google.com/search?q=binomial+numbers" target="_blank">Binomial numbers</a> - 
+  <a href="http://www.google.com/search?q=linear+recurrence" target="_blank">Linear recurrence</a> - 
+  <a href="http://www.google.com/search?q=exponentiation" target="_blank">Exponentiation</a> - 
+  <a href="http://www.google.com/search?q=chinese+remainder+theorem" target="_blank">Chinese remainder theorem</a>
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

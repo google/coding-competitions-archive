@@ -1,0 +1,374 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2009 - Round 3</h3><h1>Analysis: Football Team</h1><h3>0. Drawing the graph</h3>
+<p>
+It is clear from the statement that this is a graph coloring problem -- on 1000 vertices. But certainly this is not the end of the story. There must be something special that makes this famous NP-complete problem solvable in this contest.
+</p>
+<p>
+Represent each player with a vertex, and draw an edge between two players if they cannot use the same color. Obviously we can just draw the graph with each player in his position (x, y).<br/>
+So there are at most 30 rows of players. Can this help? Observing this fact leads to solutions that are good enough for the small dataset, but not for the large tests.<br/>
+On each row, the edges form a horizontal line segment from the leftmost point to the rightmost. All the other edges are between two adjacent rows. And more importantly, it is not hard to observe and prove the following:
+<ol>
+<li>If there are at least two edges between two adjacent rows, then all these edges together with the horizontal row edges form triangles.</li>
+<li>If you draw all the edges using straight line segments, none of the edges cross each other in the middle.</li>
+</ol>
+So, surprising or not, the graph is planar! There are special cases where we can handle easily:
+<ul>
+<li>One color is enough if and only if there are no edges.</li>
+<li>In a general graph, it is well known that the graph is 2-colorable if and only if there are no odd cycles. In our problem, it is even simpler than that. One can prove that whenever there is a cycle, there must also exist a triangle. So, the graph is 2-colorable if and only if it is a tree, as well as if and only if there is no triangles.</li>
+</ul>
+Otherwise, the answer is at least 3. But you may also know very well about one of the famous theorems of the past century, the Four Color Theorem: 4 colors is enough to color any planar graph.<br/>
+So this is a good news: besides the simple special cases, all we need to decide is whether the answer is 3 or 4. Unfortunately it is also known that even this problem is NP-complete in general.
+</p>
+<p>
+As we mentioned earlier, we are dealing with a special case of even planar graphs. It is mostly triangulated, and nicely positioned in rows with all edges only from adjacent rows. It turns out that there are many solutions to this problem. Let us describe a few in the rest of this writing. In all the solutions, we try to color the graph with just 3 colors A, B,and C, and if this fails, the answer is 4. Also, to simplify our writing, we assume every point has degree at least 3 -- otherwise we can simply remove it without changing the 3-colorability.
+</p>
+<br/>
+<h3>1. The colors are pretty much forced</h3>
+<p>
+Pick any triangle. Its vertices must be colored with different colors. We color them with A, B,and C. Now, there might be another triangle <i>next to it</i>. i.e., sharing an edge <i>e</i> with it. In that triangle, two vertices of <i>e</i> are already colored; if the third one is not, its color is decided now!
+</p>
+<p>
+From another point of view, this is simply the following: Whenever there is a vertex with two <i>adjacent</i> neighbors colored, we color it with the third color.
+</p>
+<p>
+Because every color is forced, the answer is 4 as soon as we see a conflict.
+</p>
+<p>
+We can do this forced coloring almost all the way. It is easy to see we only need to pause a little when there is a cut point. But this is not hard either: the point separates the graph into an upper part and a lower part, as long as we can color both parts with 3 colors, we can paste them together.
+</p>
+<br/>
+<h3>2. The dual graph</h3>
+<p>
+There is a deeper concept revealed in the solution above. We were actually considering the dual graph of a planar graph, which itself is also planar. Each face (in our problem, each triangle) in the original graph becomes a point, and two points are connected if the two faces share an edge.
+</p>
+<p>
+If you are familiar with the algorithm that 2-colors a graph and detects odd cycles, you may find it very similar to our solution above. We are going to argue that our original graph is 3-colorable if and only if the dual graph is 2-colorable (with one color for all the clockwise triangles).
+</p>
+<p>
+Observe that if the original graph is 3-colorable, and one triangle gets its three vertices colored A, B, C in clockwise order, then any triangle adjacent to it <i>must</i> have its vertices colored  A, B, C in counter-clockwise order. Thus, the original graph being 3-colorable implies its dual is 2-colorable.
+</p>
+<p>
+The proof of the reversed direction is also not hard to envisage, but it involves more details and requires some additional conditions on our graph. One easy way to prove it is with induction on rows.
+</p>
+<br/>
+<h3>3. The local property</h3>
+<p>
+The solution above does not allow a much simpler implementation. But it leads to an even nicer observation. We call a vertex in the original graph an <i>inner vertex</i> if it is surrounded by triangles in all the directions. The following fact gives the simplest solution to our problem:
+<blockquote>
+The graph is 3-colorable if and only if there is no inner vertex with odd degree.
+</blockquote>
+The rest of this section is devoted to the proof of this fact. If you feel that some of the claims about the planar graph and its dual are not obvious, try to draw some and convince yourself.
+</p>
+<p>
+Any inner vertex <i>v</i> with degree <i>d</i> is surrounded by <i>d</i> triangles sharing the same vertex. In the dual, they give a cycle of length <i>d</i> that enclose <i>v</i> in the middle.  
+</p>
+<p>
+One direction of the proof is easier. If <i>v</i> has odd degree, then we see an odd cycle in the dual, therefore the original graph is not 3-colorable.
+</p>
+<p>
+Now assume there is any odd cycle, let us pick <i>C</i> -- the one with the <i>smallest enclosing area</i>. We claim that <i>C</i> must enclose only one inner vertex, and therefore we find an inner point with odd degree. This can be proved in several ways with some details. Basically, if there are two inner vertices enclosed, one can find a path that separates them and hit <i>C</i> in two places. This divides the enclosing area of <i>C</i> into two smaller areas, and it is not hard to see one of the areas must be enclosed by an odd cycle. This contradicts the assumption that <i>C</i> is the odd cycle with smallest area, and completes the sketched proof of our short solution.
+</p>
+<p>
+In the picture below, there is a big cycle with length 9, and <i>v</i> is an inner vertex surrounded by a cycle with length 5.
+<br/><br/>
+<img src="football.png"/>
+<br/><br/>
+</p>
+<br/>
+<h3>4. Other solutions</h3>
+We mention two brute-force solutions that are good enough for the small dataset. In order to use them for the large dataset, one needs to optimize a great deal, and possibly just discover one of keys for the polynomial solutions as mentioned above.
+<p>
+Again, we look at the original graph. We assume the graph is connected, and every vertex has degree at least 3.
+</p>
+<p>
+Notice that there are at most 30 rows. One can fix the color of the first vertex in each row. There are 2<sup>rows</sup> ways of doing this (as opposed to 3<sup>rows</sup>). Once this is fixed, all the rest of the coloring is determined, for a reason similar to the one explained in Section 1.
+</p>
+<p>
+Another solution is dynamic programming: do a sweep from the right to the left, and remember the color of the first vertex to the right on each row. Notice that you cannot do this from left to right, since knowing the color of only one vertex on a row is not enough in that direction. 
+</p>
+<br/>
+<h3>More information</h3>
+<p>
+<a href="http://www.google.com/search?q=graph+coloring" target="_blank">Graph coloring</a> - 
+<a href="http://www.google.com/search?q=four+color+theorem" target="_blank">Four color theorem</a> - 
+<a href="http://www.google.com/search?q=dual+graph" target="_blank">Dual graph</a>
+</p>
+<p> The solution with the local property resembles very much a theorem of Heawood from 1898: that a maximal planar graph is 3-colorable if and only if every degree is even. A more general theorem, which implies our solution, can be found in the paper <i>A new 3-color criterion for planar graphs</i> by Krzysztof Diks, Lukasz Kowalik, and Maciej Kurowski.
+</p>
+
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

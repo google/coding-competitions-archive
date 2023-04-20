@@ -1,0 +1,410 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2015 - Round 1B</h3><h1>Analysis: Counter Culture</h1><p>
+For the small dataset, it suffices to use a breadth-first search to find the minimum number of moves required to generate all numbers from 1 to 10<sup>6</sup>.  You will never want to construct a number larger than 10<sup>6</sup> and later flip it to get a smaller number, so you only need to consider 10<sup>6</sup> states.
+</p>
+
+<p>
+For the large dataset, the following solution works. The key ideas are:
+<ul>
+<li>You should first build the numbers 10, 100, 1000, ... until you get a power of 10 with the same number of digits as N, and then build N.</li>
+<li>You should make at most one flip while the number is at a given number of digits.</li>
+</ul>
+</p>
+
+<p>
+Our algorithm works in two parts.
+</p>
+
+<h3>
+Part 1: Get to the right number of digits as fast as possible.
+</h3>
+
+<p>
+To get from a 1 followed by X 0s to a 1 followed by X+1 0s: first count until the right half of the number is filled with 9s. (When the length is odd, make the left half shorter than the right half.) Then flip, then count until the number is all 9s. Then add 1.  (To get from 1 to 10, obviously we don't need to flip.)
+</p>
+
+<h3>
+Part 2: Either count directly to the answer, or do some counting, flip, and then do some more counting, whichever is faster.
+</h3>
+
+<p>
+Once we're at the right number of digits, we use a similar algorithm to produce N: count until the right half looks like the left half of N in reverse, then flip, then count up to the target. For example, to get from 100000 to 123456:
+<ul>
+<li>count to 100321</li>
+<li>flip to get 123001</li>
+<li>count to 123456.</li>
+</ul>
+</p>
+
+<p>
+If the left half is just a 1 followed by 0s, we can skip the first two steps and just count to N.
+</p>
+
+<p>
+When the right half of N is all zeroes the above method doesn't work, because after we flip, the right half ends with 1.  Instead, we make the right half look like the left half of N-1, flip, then count up to N.  For example, to get from 100000 to 300000:
+<ul>
+<li>count to 100992</li>
+<li>flip to get 299001</li>
+<li>count to 300000.</li>
+</ul>
+</p>
+
+<p>
+However, as before, if the left half of N-1 is a 1 followed by 0s, we can skip the first two steps.  For example, to get from 100000 to 101000, it's best to count up directly.
+</p>
+
+<p>Why do we need to do at most one flip? The goal of the flip is to allow us to reach the left half of the number as quickly as possible. Raising the right half to the desired value is better done by directly counting the number up. In other words, there is no added value in doing multiple flips.</p>
+
+<p>
+Sample implementation in C++:
+</p>
+
+<pre>
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+long long p10[10];  // p10[i] == 10^i
+
+bool is_1_followed_by_0s(string S) {
+  reverse(S.begin(), S.end());
+  return atoi(S.c_str()) == 1;
+}
+
+int solve(long long N) {
+  if (N &lt; 10) return N;  // Trivial case.
+
+  char X[20]; sprintf(X, "%lld", N);
+  string S = X;
+  int M = S.length();  // Number of digits of N.
+
+  // Starts from 1.
+  int ans = 1;
+
+  // Part 1: from 1, get to the M digits as fast as possible.
+  for (int d = 1; d &lt; M; d++) {
+    // For digits = 7, it starts from 7 digits:    1000000
+    ans += p10[(d + 1) / 2] - 1; // Count up 9999: 1009999
+    if (d &gt; 1) ans++;            // Flip once:     9999001
+    ans += p10[d / 2] - 1;       // Count up 999: 10000000
+  }
+
+
+  // Part 2:
+
+  // Split N into two halves. For example N = "1234567"
+  string L = S.substr(0, M / 2);  // L = "123"
+  string R = S.substr(M / 2);     // R = "4567"
+
+  // Handles the case where the right half is all zeroes.
+  if (atoi(R.c_str()) == 0) return solve(N - 1) + 1;
+
+  // Special case: Count directly to the answer.
+  if (is_1_followed_by_0s(L))
+    return ans + atoi(R.c_str());
+
+  // Count until the right half looks like the left half of N
+  // in reverse. In this case, count from 1000000 to 1000321.
+  reverse(L.begin(), L.end());
+  ans += atoi(L.c_str());
+
+  // Flip 1000321 to 1230001.
+  ans++;
+
+  // Count up 4566 to the target from 1230001 to 1234567.
+  ans += atoi(R.c_str()) - 1;
+  return ans;
+}
+
+int main() {
+  p10[0] = 1;
+  for (int i = 1; i &lt; 10; i++)
+    p10[i] = p10[i - 1] * 10;
+
+  long long T, N;
+  scanf("%lld", &amp;T);
+  for (int TC = 1; TC &lt;= T; TC++) {
+    scanf("%lld", &amp;N);
+    printf("Case #%d: %d\n", TC, solve(N));
+  }
+}
+</pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

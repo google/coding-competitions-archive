@@ -1,0 +1,380 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2011 - World Finals</h3><h1>Analysis: Ace in the Hole</h1><p>This is a rather unconventional problem that requires a lot of thought up-front and relatively little implementation.</p>
+
+<p>Let's think about the problem as a competitive game. Ben chooses a card position, and then Amy chooses the value of that card. Amy is not allowed (a) to re-use values, (b) to create a decreasing subsequence of length 3, or (c) to place the 1 before the final turn. Our task it to understand what decisions Amy could have made during the game. We will present the answer first, and then prove it is correct. Define an "adversarial strategy" for Amy as follows:
+</p>
+
+<ul>
+<li>At any point, consider the cards that Ben has not yet looked at. Suppose they are in positions p<sub>1</sub> &lt; p<sub>2</sub> &lt; ... &lt; p<sub>m</sub>, and have values v<sub>1</sub> &lt; v<sub>2</sub> &lt; ... &lt; v<sub>m</sub>.
+<ul>
+<li>If Ben looks at the card in position p<sub>k</sub> with k &lt; m, then Amy assigns it value v<sub>k+1</sub>.
+<li>If Ben looks at the card in position p<sub>m</sub> and either (a) m &le; 2, or (b) there is a previously revealed card in position less than p<sub>m</sub> with value between v<sub>m-1</sub> and v<sub>m</sub>, then Amy assigns it value v<sub>m</sub>. Otherwise, she assigns it value <i>either</i> v<sub>m-1</sub> or v<sub>m</sub>.
+</ul>
+</ul>
+
+<p>We claim that the problem conditions are equivalent to saying that Amy chooses the deck values according to an adversarial strategy. Once that is established, it will be pretty straightforward to find the lexicographically largest solution.</p>
+<br/>
+
+<h3><b>Adversarial Strategies Cannot Be Exploited</b></h3>
+
+<p>
+The main technical challenge is to prove that adversarial strategies really do require Ben to look at every card. On a contest of course, you would not need to make this argument quite so rigorously.
+</p>
+<br/>
+
+<p><b>Lemma:</b> If the deck values are assigned according to an adversarial strategy, then the deck contains no decreasing subsequence of length 3.
+</p>
+
+<p><b>Proof:</b> We follow along as Ben looks at the cards one at a time. At each step, we will say a card is "safe" if Ben has looked at it, and either (a) all cards with a higher position have also been looked at, or (b) all cards with a higher value have also been looked at. Let's suppose the remaining cards are in positions p<sub>1</sub> &lt; p<sub>2</sub> &lt; ... &lt; p<sub>m</sub>, and have values v<sub>1</sub> &lt; v<sub>2</sub> &lt; ... &lt; v<sub>m</sub>. These are the "unsafe" cards.</p>
+
+<p>We claim the following is true:
+<ul>
+<li>There is no way of assigning values to the remaining cards that will make a decreasing subsequence of length 3 with a safe card.
+<li>If an unsafe card in position p<sub>i</sub> has been looked at, then it has value v<sub>i+1</sub>.
+</ul>
+We prove this claim by induction on the number of cards that Ben has looked at. Initially, all cards are unsafe and the claim obvious.
+</p>
+
+<p>Now let's suppose Ben looks at a card <i>C</i> in some position p<sub>k</sub>.
+<ul>
+
+<li> <i>Case 1:</i> k &lt; m - 1. Since Ben has not looked at the card in position p<sub>m</sub> (or else it would be safe), the value of card <i>C</i> will be set according to the first adversarial strategy rule. Specifically, if there are q cards in positions less than p<sub>k</sub> that have not been looked at, then <i>C</i> will be assigned the (q+1)<sup>th</sup> smallest unrevealed value. As all safe cards have been revealed, we can restrict our attention to unsafe cards, from which the inductive hypothesis makes it clear that the (q+1)<sup>th</sup> smallest unrevealed value is v<sub>k+1</sub>. Since k + 1 &lt; m, the set of safe cards will not change because of this step, and the inductive hypothesis will still be satisfied afterwards.<br/><br/>
+
+<li> <i>Case 2:</i> k = m - 1. By the same reasoning as in Case 1, <i>C</i> will be assigned value v<sub>m</sub>. However, the set of safe cards will change in this case. Suppose Ben has already looked at the cards in positions p<sub>u</sub>, p<sub>u+1</sub>, ..., p<sub>m-2</sub>, but he has not looked at the card in position p<sub>u-1</sub>. These cards will all be labeled as safe set because they have high values, while all other cards will remain unsafe. We need to show that they cannot be part of a decreasing subsequence of length 3. By the inductive hypothesis, we can ignore cards that had been previously marked as safe for this purpose. Now, the newly labeled safe cards are arranged in increasing order, there is only one unsafe card positioned after them, and no preceding unsafe card can have higher value, so indeed, they cannot be part of a decreasing subsequence of length 3. Therefore, the inductive hypothesis is once again satisfied.<br/><br/>
+
+<li> <i>Case 3:</i> k = m. Suppose <i>C</i> is assigned value v<sub>t</sub>. We know Ben has not looked at the card with value v<sub>m</sub>, or else that card would already be safe. If Ben has also looked at the card with value v<sub>m-1</sub>, then the adversarial condition forbids <i>C</i> from having value less than v<sub>m-1</sub>. Otherwise, v<sub>m-1</sub> and v<sub>m</sub> are both still unrevealed, and the adversarial condition demands that <i>C</i> have value v<sub>m-1</sub> or v<sub>m</sub>.<br/>
+
+<ul>
+<li>
+If t = m-1, then <i>C</i> will be marked as safe but no other cards will. (Ben cannot have looked at the card in position p<sub>m-1</sub> because it would have value v<sub>m</sub>, and would therefore be safe already.) Furthermore, it cannot be part of a length-3 decreasing subsequence because no unsafe card has a larger position and at most one unsafe card can have higher value.<br/>
+<li>
+If t = m, then some additional cards p<sub>u</sub>, p<sub>u+1</sub>, ..., p<sub>m-2</sub> might also get marked safe. The newly labeled safe cards are arranged in increasing order, there is only one unsafe card positioned after any of them, and no preceding unsafe card can have higher value, so no decreasing subsequence of length 3 can include these cards. Therefore, the inductive hypothesis is once again satisfied.
+</ul>
+</ul>
+
+<p>In any case, the inductive hypothesis holds at each step, and therefore the lemma is proven.</p>
+<br/>
+
+<p>It now follows immediately that Ben requires all N guesses if the cards are assigned according to an adversarial strategy. No matter what cards Ben looks at, Amy can continue her adversarial strategy and avoid revealing either a decreasing subsequence of length 3 or the card with value 1. In particular, Ben can never finish early.</p>
+<br/>
+
+<h3><b>Non-Adversarial Orders Can Be Exploited</b></h3>
+
+<p>The previous argument is important from a technical perspective, but in practice, you would begin solving this problem from the other side: first showing how Ben can exploit poor strategies. Towards that end, we show that if Amy ever deviates from an adversarial strategy, then Ben can find the 1-card without requiring all N turns.</p>
+
+<p>Let's begin by focusing on the first card Ben looks at.</p><br/>
+
+<p><b>Observation 1:</b> Suppose Ben looks at card i &lt; N. Then Amy must assign it value i + 1.</p>
+
+<p><b>Reason:</b> Suppose he sees value j &ne; i + 1. We claim that the value-1 card cannot be in position N. Indeed, if it was in that position, then the condition that the deck has no decreasing subsequence of length 3 implies that (a) all cards with position less than i have value in the range [2, j-1], and (b) all cards with position between i + 1 and N - 1 have value in the range [j+1, N]. If j &lt; i + 1, then there are not enough cards in the range [2, j-1] for this to be possible, and if j &gt; i + 1, then there are not enough cards in the range [j+1, N] to be possible.</p>
+
+<p>Therefore, if Amy assigns this card a value other than i + 1, then Ben need never look at card N. But we know he did indeed have to look at all the cards, so it must be that Amy assigned value i + 1.
+</p>
+<br/>
+
+<p><b>Observation 2:</b> Suppose Ben looks at card N. Then Amy must assign it value N - 1 or N.</p>
+
+<p><b>Reason:</b> Suppose he sees value j &lt; N - 1. If N = 3, then Ben just found the value-1 card, which is an immediate contradiction. Otherwise, N &ge; 4, and we show that Ben can find the 1-value card in less than N - 1 further card checks, which is another contradiction.</p>
+
+<p>Forgetting the information Ben has already obtained, we know the remaining N - 1 card values are placed in the N - 1 preceding positions. By Observation 1, if Ben checks the card in position i, then it must have the (i+1)<sup>th</sup> smallest value of the remaining cards. (Otherwise, we already know he can find the 1-value card without checking everything.) So if Ben checks the cards in all positions except N - 3 and N - 1, he must see the following values:</p>
+
+<p>2, 3, ..., j-1, j+1, j+2, ..., N-2, ???, N, ???, j.</p>
+
+<p>The two unknown cards have value 1 and N - 1 in some order. However, we know the second-last card cannot have value N - 1, or we would have a decreasing subsequence: N, N - 1, j. Therefore, the 1 must be in that position, and so Ben never needs to check the fourth-last card, and the proof is complete.</p><br/>
+
+<p>There is only one tricky case left. At a given point, let the remaining unrevealed cards be in positions p<sub>1</sub> &lt; p<sub>2</sub> &lt; ... &lt; p<sub>m</sub>, and have values v<sub>1</sub> &lt; v<sub>2</sub> &lt; ... &lt; v<sub>m</sub>. Suppose that there is a previously revealed card in position less than p<sub>m</sub> with value between v<sub>m-1</sub> and v<sub>m</sub>. We need to show that if Ben looks at the card in position p<sub>m</sub>, then Amy must assign it value v<sub>m</sub>.
+
+<p><b>Reason:</b> Suppose Amy does not do this. Consider the first time where she does not. Let <i>C</i> be the card in position p<sub>m</sub>, and let <i>C'</i> be the revealed card that is positioned before <i>C</i> and that has value between v<sub>m-1</sub> and v<sub>m</sub>.</p>
+
+<p>Up until this point, Amy has followed an adversarial strategy, so we can use the inductive statement proven in our first lemma to divide the deck into safe and unsafe cards. We know there is an unrevealed card positioned after <i>C'</i> (namely <i>C</i>) and there is an unrevealed card value that is higher than the value of <i>C'</i> (namely v<sub>m</sub>), so <i>C'</i> must be an unsafe card.</p>
+
+<p>Let the unsafe cards have positions q<sub>1</sub>, q<sub>2</sub>, ..., q<sub>r</sub> and values w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>r</sub>. Since
+v<sub>m-1</sub> is an unrevealed value, it belongs to an unsafe card and we have v<sub>m-1</sub> = w<sub>u</sub> for some u. Also <i>C'</i> has value w<sub>t</sub> for some t &gt; u and position p<sub>t-1</sub>.</p>
+
+<p>Now suppose Amy assigns <i>C</i> a value of v<sub>m-1</sub> = w<sub>u</sub>. Then the card in position q<sub>u-1</sub> must be unrevealed, or it would have had the same value. Also, as argued earlier, the card in position q<sub>r-1</sub> must be unrevealed or it would have value w<sub>r</sub> and therefore be safe already. Ben can now exploit Amy's strategy by looking at every card other than q<sub>u-1</sub> and q<sub>r-1</sub>. It is easy to check this will leave only the values 1 and w<sub>u+1</sub>. But the card in position q<sub>r-1</sub> cannot have value w<sub>u+1</sub> or we would get a decreasing subsequence: w<sub>t</sub>, w<sub>u+1</sub>, w<sub>u</sub>. Therefore, this card must have value 1, and Ben can avoid checking the card with position q<sub>u-1</sub>. This proves the final part!</p><br/>
+
+
+<h3><b>Finding The Lexicographically Largest Solution</b></h3>
+
+<p>
+We are now finally ready to discuss the solution. At each step, Amy's strategy is almost completely determined. The only question is whether she should assign v<sub>m</sub> or v<sub>m-1</sub> to the card in position p<sub>m</sub> when she has the choice. In fact, the two choices lead to identical deck orderings except with v<sub>m</sub> and v<sub>m-1</sub> swapped. In order to make the ordering as large lexicographically as possible, we want v<sub>m</sub> early on, and so we should always prefer using v<sub>m-1</sub>.
+</p>
+
+<p>
+That's it! We just need to implement the adversarial strategy, always preferring v<sub>m-1</sub> over v<sub>m</sub>. But of course it took a lot of reasoning to get to this stage!
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

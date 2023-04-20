@@ -1,0 +1,510 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Qualification Round</h3><h1>Twisty Little Passages</h1><h3>Problem</h3>
+
+<p>
+You are investigating a cave. The cave has $$$\mathbf{N}$$$ rooms.
+There are underground passages that bidirectionally connect some pairs of rooms.
+Each room has at least one passage connected to it.
+No passage goes from a room to itself, and no two rooms are connected by more than one
+passage.
+</p><p>
+When in a room, you can identify what room you are in and see how many passages it connects to,
+but you cannot distinguish the passages. You want to estimate the number of passages that exist in the cave.
+You are allowed to do up to $$$\mathbf{K}$$$ operations. An operation is either:
+</p>
+<ul>
+<li>be magically teleported to a room of your choice, or</li>
+<li>walk through a random passage connected to the room you are in, taking you to the room at the other end of that passage.</li>
+</ul>
+<p>
+When you decide to walk through a passage, you are unable to choose which one, because they are all alike.
+A passage is chosen for you uniformly at random.
+</p><p>
+You begin the investigation in an arbitrary room. Estimate the number of passages between rooms
+in the cave with at most $$$\mathbf{K}$$$ operations.
+</p><p>
+If $$$E$$$ is your estimate and $$$P$$$ is the
+actual number of passages, your solution is considered correct for a test case if and only if
+$$$P \cdot 2/3 \le E \le P \cdot 4/3$$$.
+</p><p>
+To pass a test set, your solution must be correct for at least 90% of the test cases in that set.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing an integer,
+  $$$\mathbf{T}$$$, the number of test cases. Then, $$$\mathbf{T}$$$ test cases must be processed.
+</p>
+<p>
+  For each test case, your program must first read a line containing two integers $$$\mathbf{N}$$$ and $$$\mathbf{K}$$$:
+  the number of rooms in the cave, and the maximum number of room operations you are allowed.
+  Rooms are numbered between $$$1$$$ and $$$\mathbf{N}$$$.
+  The cave is determined at the beginning of the test case &ndash; it won't be changed while you explore it.
+  Then, your program must process up to $$$\mathbf{K} + 1$$$ exchanges.
+</p>
+<p>
+  The $$$i$$$-th exchange starts with you reading a line containing two integers $$$\mathbf{R_i}$$$ and
+  $$$\mathbf{P_i}$$$, representing the number of the room you are currently in and the number of passages
+  it connects to. Then, you must output a single line containing one of the following:
+</p>
+<ul>
+<li>A single uppercase <code>W</code>: this means you want to walk through a random passage.</li>
+<li>A single uppercase <code>T</code> and an integer $$$S$$$: this means you want to teleport to room
+  $$$S$$$.</li>
+<li>A single uppercase <code>E</code> and an integer $$$E$$$: this means you want to finish
+  exploring and estimate that the cave contains $$$E$$$ passages.</li>
+</ul>
+<p>
+After an estimation operation, the judge will immediately start the next test case if there is one,
+regardless of the correctness of your estimation.
+If there is no next test case, the judge will wait for you to finish without any further output.
+</p><p>
+  If the judge receives an invalidly formatted line from your program at any moment,
+  or if your $$$(\mathbf{K}+1)$$$-th exchange for a test case is not an estimation operation,
+  the judge will print a single number $$$-1$$$ and will not print any further output.
+  If your program continues to wait for the judge after
+  receiving a $$$-1$$$, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 120 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$2 \le \mathbf{N} \le 10^5$$$.<br/>
+$$$K = 8000$$$.<br/>
+Each room has at least one passage connected to it.
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py3" download="testing_tool.py">Download testing tool</a>
+</p>
+
+
+  <div class="sample-interaction-wrapper">
+    <div class="sample-interaction-header">
+      <div class="sample-interaction-header-text">Sample Interaction</div>
+    </div>
+    <div class="sample-interaction-content">
+      <div class="sample-interaction-judge-solution-labels">
+        <div class="sample-interaction-judge-label">Judge</div>
+        <div class="sample-interaction-solution-label">Solution</div>
+      </div>
+      
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Number of cases<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 1<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">5 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge gives $$$\mathbf{N}=5, \mathbf{K}=3$$$.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4 1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">We start at room $$$4$$$ which has $$$1$$$ passage.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">T 5
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Teleport to room 5.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">5 2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">It has two passages.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">W
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Walk through a passage.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4 1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">We arrived at room 4 again.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">T 1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Teleport to room 1.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">It has three passages.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">E 5
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Guess 5 passages.<br>
+(It can be shown that the actual number of passages is either 4 or 5. The two possible graphs for this test case are shown below.)<br>
+</div>
+
+    </div>
+  </div>
+
+<p><img src="img/twisty_little_passages.png" alt="Twisty Little Passages sample case example."/></p>
+
+    </div>
+  </body>
+</html>

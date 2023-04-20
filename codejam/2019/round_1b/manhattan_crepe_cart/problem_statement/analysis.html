@@ -1,0 +1,374 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1B</h3><h1>Analysis: Manhattan Crepe Cart</h1><h3>Test set 1</h3>
+<p>
+  Test sets 1 and 2 differ only in how large the available grid area is. In the
+  first test set, people can only be standing in cells with coordinates
+  between 0 and 10, inclusive, in either dimension. Moreover, we can notice
+  that the cart can only be in a cell within this area. The cart's horizontal
+  and vertical coordinates must both be nonnegative per the rules of a problem.
+  Moreover, it cannot have a coordinate larger than 10 (in either dimension).
+  Suppose, for example, that the cart had a horizontal coordinate greater than
+  10; then that would imply that there must be at least one person standing at
+  horizontal coordinate 10 and facing east. Otherwise, placing the cart at
+  horizontal coordinate 10 would be even better, per the tiebreaker rules.
+  But the rules of the problem do not allow people at (horizontal/vertical)
+  coordinate 10 to face (east/north).
+</p><p>
+  Therefore, to solve test set 1, we can create an array to represent all of
+  the blocks in the allowed area, and initialize each cell's value to 0. Then,
+  for each person, we increment all of the cells of the array that they are
+  walking toward. Finally, we find the cell of the array with the maximum
+  value, using the tiebreaker rules as needed. This solution takes
+  O(<b>P</b> &times; <b>Q</b><sup>2</sup>) time.
+</p>
+<h3>Test set 2: a quadratic solution</h3>
+<p>
+  In problems that involve multiple dimensions, it is often worth checking
+  whether those dimensions are independent. In this case, they are! A person
+  heading west, for example, gives us a "vote" for the crepe cart being to the
+  west of them, but tells us nothing at all about the north-south location of
+  the cart. So we can solve the two dimensions as separate one-dimensional
+  problems; the horizontal problem includes only the people heading west or
+  east (and their horizontal positions), and the vertical problem includes only
+  the people heading south or north (and their vertical positions). Let us
+  consider the horizontal dimension for now; our arguments also apply to the
+  vertical dimension.
+</p><p>
+  Even if our people are widely spread out along the horizontal axis, the crepe
+  cart can only possibly be in a limited number of horizontal positions. In
+  fact, it must be either at position 0, or at a cell that is one cell to the
+  east of some person. To see why, suppose that the cart is in some other cell
+  1 &leq; C &leq; <b>Q</b>. Let W denote the cell one unit to the west of C. We
+  know by assumption that W does not contain a person. But then if we move the
+  cart from C to W, we will not be losing any votes (i.e. any person voting for
+  C is also voting for W), and we many even gain votes (if there were people in
+  C who were heading west). (Notice that a person does not vote for the cell
+  they are in.) Even if we do not gain votes, our tiebreaker gets better. So we
+  should always make this move, and, therefore, we should always move the cart
+  west until it is at 0 or immediately to the east of someone. Observe that
+  this might find only a locally optimal solution, but if we check all such
+  cells, we will surely find the globally optimal solution.
+</p><p>
+  These observations reduce the number of cells we need to check to
+  O(<b>P</b>) rather than O(<b>Q</b>). To check a cell, we can make a linear
+  pass over all of the people, and count whether each one is voting for that
+  cell. One such check takes O(<b>P</b>) time. Then we choose the cell that
+  got the most votes, breaking a tie if needed by choosing the westernmost of
+  the tied cells. The overall time complexity is O(<b>P</b><sup>2</sup>) for
+  the one-dimensional problem, and solving it twice (for two dimensions) is
+  still O(<b>P</b><sup>2</sup>).
+</p>
+<h3>Test set 2: a (nearly) linear solution</h3>
+<p>
+  Although the above solution is fast enough to solve test set 2, we can do
+  even better by avoiding making a linear pass over the data for each person.
+</p><p>
+  We can first process our data into a set of tuples like the following:
+  (coordinate, number of people at that coordinate facing west, number of
+  people at that coordinate facing east). Let us denote these as
+  (C<sub>i</sub>, W<sub>i</sub>, E<sub>i</sub>). (Remember that for the
+  purposes of the horizontal subproblem, we are ignoring people facing north or
+  south.) Using a hash-based dictionary, this processing takes time linear in
+  <b>P</b>. As we do this, we should also determine the total numbers W and E
+  of people facing west and east.
+</p><p>
+  Then, we sort these tuples in ascending order of their first values. It
+  is probably most convenient to use a common sorting algorithm (or one built
+  into your language), making this step nonlinear. (We will leave a spirited
+  discussion of which sorting algorithms are truly linear for another day.)
+</p><p>
+  Once we have sorted the tuples, we start by considering cell 0 as a
+  candidate location, and we determine the votes for that cell. We know that
+  quantity is equal to W minus the number of people in cell 0, if any. We make
+  a note of this number of votes and set 0 as our best candidate so far.
+  Then, we look at the first tuple in our sorted list, which represents the
+  people at some cell C (which might be cell 0). The number of votes for cell
+  C + 1 (the cell one unit to the east of C) should be the same as the number
+  of votes we found for cell 0, plus the number of people in cell C facing east
+  (which is all of them in this case), minus the number of people in cell C
+  facing west. If cell C is a better candidate, we store it and its number of
+  votes.
+</p><p>
+  We can do this for every tuple in our list to get our final answer. If we
+  have one or more people on the eastern border, we do not need to check the
+  cell one unit to the east of them, since (as explained at the start of the
+  analysis) the cart can never have a coordinate larger than <b>Q</b>. Since
+  the check for each entry of the tuple takes constant time, the full pass
+  takes O(<b>P</b>) time.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

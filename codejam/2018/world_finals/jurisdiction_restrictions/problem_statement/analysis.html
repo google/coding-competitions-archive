@@ -1,0 +1,385 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - World Finals</h3><h1>Analysis: Jurisdiction Restrictions</h1><h3>Test set 1</h3>
+<p>
+We begin modeling the problem as a
+<a href="https://en.wikipedia.org/wiki/Flow_network">flow network</a>.
+We construct a directed graph G
+where the set of nodes is {source, sink} &cup; S &cup; B where S is the set of blocks that
+contain a station and B is the set of blocks that do not contain a station and are within
+reach of some station. The edges of the graph are
+{source &rarr; s : s &in; S} &cup; {s &rarr; b : s &in; S, b &in; B} &cup;
+{b &rarr; sink : b &in; B}.
+Notice that each path from source to sink links a specific station with a specific block.
+If we refine G by assign capacity |B| to each edge source &rarr; s, and capacity 1 to each other
+edge, a valid flow of the network is a union of paths from source to sink, and due to the
+capacities, each station will belong to at most one of those paths. Moreover, a maximum flow will
+cover all stations, so there is a bijection between maximum flows and station assignments. In this
+way, we can reframe the problem as minimizing the difference between maximum and minimum flows
+going through edges that come out of the source in a maximum flow of G.
+</p><p>
+If we want to set an upper bound U for the flow going through edges coming out of the source,
+we can adjust the capacities of those edges to U. If we want to set a lower bound L on those
+quantities, we can add a second copy of each of those edges with capacity L and have a cost of
+0 in the new edges and 1 in the max-capacity version (plus, cost 0 for all other types of edges).
+Using <a href="https://en.wikipedia.org/wiki/Minimum-cost_flow_problem">min-cost max-flow</a>
+instead of max flow will give preference to flows that use at least L capacity through each
+station, and if the retrieved flow doesn't use the full capacity, it means that one doesn't exist.
+</p><p>
+With the above, we can just try every possibility for L and U, discarding the combinations that
+don't achieve a max flow of |B| that saturates all the cost 0 edges coming out of the source.
+The non-discarded combination with minimum U-L is the answer.
+Both U and L are bounded by |B|, which is bounded by <b>R</b> &times; <b>C</b>. The size of
+G is O(<b>S</b> &times; <b>R</b> &times; <b>C</b>), and min-cost max-flow on a graph with only
+0 and 1 costs takes only linear time per augmenting path, so quadratic time overall. This means
+the described algorithm takes time
+O(<b>S</b><sup>2</sup> &times; <b>R</b><sup>4</sup> &times; <b>C</b><sup>4</sup>). This can be too
+slow even for test set 1, but there are some optimizations that will shed some of that time,
+and you only need one of them to pass test set 1.
+</p><ul>
+<li>Instead of trying all combinations of L and U, you can try only the ones that have a chance
+to improve: if a combination (L, U) doesn't work, then we know (L+1,U), (L+2,U), etc will also
+not work, so we can move on to (L, U+1). If a combination (L, U) works, we know that
+(L, U+1), (L, U+2), etc will also work but will yield a larger difference, so we can skip them and
+move directly to (L+1, U). This requires us to test a linear (instead of quadratic) number of
+combinations of L and U.</li>
+<li>An even simpler version of the optimization above is to try all possibilities for only one
+of L or U, and then use binary search to find the optimal choice for the other. This doesn't
+take the number of combinations down to linear in |B|,
+but it does make it
+<a href="https://en.wikipedia.org/wiki/Time_complexity#Quasilinear_time">quasilinear</a>.</li>
+<li>A flow for the combination (L, U) is also a valid flow for the combination (L, U+1), so instead
+of starting the flow from scratch, we can use it, dramatically reducing the number of augmenting
+paths we need to find overall.</li>
+</ul>
+<h3>Test set 2</h3>
+<p>
+For test set 2, the values of <b>R</b> and <b>C</b> are too high to appear linearly in the
+running time of the algorithm. That means we have to improve upon the solution above in at least
+two fronts: the size of G, which is linear on <b>R</b> and <b>C</b> and ultimately impacts any
+algorithm we want to run on G, and the number of combinations
+of L and U we try, which is also linear or more.
+</p><p>
+We start by defining G for test set 2 a little differently, using a technique commonly known as
+coordinate compression. We define B' as a set of sets of blocks that form a partition of B above.
+The way to partition is by taking the full grid and cutting through up to 2<b>S</b> horizontal
+and 2<b>S</b> vertical lines at the boundaries of the jurisdiction of each station. The resulting
+rectangles have the property that the set of stations that can reach any block of the rectangle
+is the same. Rectangles only represent the blocks within them that do not contain a station.
+We can now define G as having nodes {source, sink} &cup; S &cup; B' and edges
+{source &rarr; s : s &in; S} &cup; {s &rarr; b' : s &in; S, b' &in; B'} &cup;
+{b' &rarr; sink : b' &in; B'}.
+Note that each node in B' now represents a set of blocks, so we also have to fiddle with
+capacities. Edges source &rarr; s have capacity |B| (effectively infinity) as before, and so do
+edges s &rarr; b'. Edges b' &rarr; sink, however, have capacity |b'|. In this way, each node b' is
+the union of many nodes b from the previous version of G, so its outgoing edge has the sum of the
+capacities of the outgoing edges from those nodes b. The size of this G is O(<b>S</b><sup>3</sup>)
+with O(<b>S</b><sup>2</sup>) nodes.
+</p><p>
+Now, in G, each path source &rarr; s &rarr; b' &rarr; sink that carries flow X represents that X
+blocks from set b' are assigned to station s. Notice that there is no longer a bijection between
+flows and station assignments, but there is a bijection if we consider permutations of blocks
+within a rectangle to be equivalent. Since all those blocks are equivalent for the purpose of
+this problem, this bijection is enough. As before, we now have to find a maximum flow in G such
+that the difference between the maximum and minimum flow in edges going out of the sink is
+minimized.
+</p><p>
+Since we cannot try all possibilities for L and U, we will use a little theory. Let G<sub>C</sub>
+be a copy of G, but with the capacities of all edges source &rarr; s changed to C.
+G = G<sub>|B|</sub>. Notice that a valid flow in G<sub>C</sub> is also a valid flow in any
+G<sub>C'</sub> with C' &ge; C.
+</p><p>
+Now, let U be minimum such that G<sub>U</sub> allows a flow of total size |B|. Let L be
+maximum such that there exists a maximum flow of size |S| &times; L in G<sub>L</sub>, that is,
+there is a flow that saturates all edges of type source &rarr; s. Any maximum
+flow in G has at least one edge of type source &rarr; sink carrying flow at least U (otherwise,
+such maximum flow is a valid flow in G<sub>U-1</sub>, contradicting the definition of U). Also,
+any maximum flow in G has at least one edge of type source &rarr; sink carrying at most L
+(otherwise, we can subtract flow from any path sink to source that carries more than L+1 to obtain
+a flow that carries exactly L+1 through all nodes, and thus it would be a valid flow in
+G<sub>L+1</sub> of size |S| &times; (L+1), contradicting the definition of L). Finally, if we start
+with the flow in G<sub>L</sub> that justifies the definition of L and use it as a valid flow in
+G<sub>U</sub>, we know that it can be extended to a maximum flow F in G<sub>U</sub> via augmenting
+paths. Since the augmenting paths don't contain cycles, they don't decrease flow in edges of type
+source &rarr; s. Therefore, F is a maximum flow in G<sub>U</sub> such that the difference between
+the maximum and minimum flow going through edges coming out of the source is exactly U - L. And by
+definition, a maximum flow of G<sub>U</sub> is a maximum flow of G. The previous observations show
+that there is no flow in G with such a difference less than U - L, so U - L is the answer to the
+problem. We can binary search for L and U independently using their original definitions, which
+yields an algorithm that takes time O(<b>S</b><sup>5</sup> &times; log (<b>R</b> &times; <b>C</b>)).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

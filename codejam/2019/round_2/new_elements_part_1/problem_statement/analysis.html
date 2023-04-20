@@ -1,0 +1,368 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 2</h3><h1>Analysis: New Elements: Part 1</h1><h3>Test set 1</h3>
+<p>
+  In the first test set, there can be at most six molecules, so we can easily
+  check all 6! = 720 possible orderings of them. The nontrivial part is
+  figuring out how to check an ordering. We cannot check all possible atomic
+  weights, since they can be arbitrary integers, and those integers might need
+  to be quite large (since the <b>C<sub>i</sub></b> and <b>J<sub>i</sub></b>
+  values can be as large as 10<sup>9</sup>).
+</p><p>
+  For each ordering of molecules, we must determine whether there is at least
+  one valid pair of atomic weights w<sub>C</sub> and w<sub>J</sub> for Codium
+  and Jamarium, respectively, such that the molecules are in strictly
+  increasing order of molecular weight. We do not need to find particular
+  values; we only need to show existence or non-existence.
+</p><p>
+  Let k = w<sub>J</sub> / w<sub>C</sub>. Then, if w<sub>C</sub> and
+  w<sub>J</sub> are valid for our ordering, we can substitute
+  w<sub>J</sub> = k &times; w<sub>C</sub> in the requirement
+  for any pair of molecules (<b>C<sub>a</sub></b>, <b>J<sub>a</sub></b>),
+  (<b>C<sub>b</sub></b>, <b>J<sub>b</sub></b>) such that a &lt; b:
+</p><p>
+  <b>C<sub>a</sub></b> &times; w<sub>C</sub> + <b>J<sub>a</sub></b> &times; kw<sub>C</sub>
+  &lt;
+  <b>C<sub>b</sub></b> &times; w<sub>C</sub> + <b>J<sub>b</sub></b> &times; kw<sub>C</sub>
+</p><p>
+  If <b>J<sub>a</sub></b> = <b>J<sub>b</sub></b>, then this reduces to
+  <b>C<sub>a</sub></b> &lt; <b>C<sub>b</sub></b>, which is a simple check; if it is false,
+  then no set of atomic weights is valid, and we can stop checking this
+  ordering. Otherwise, rearranging some terms and dividing, our expression
+  becomes:
+</p><p>
+  (<b>C<sub>a</sub></b> - <b>C<sub>b</sub></b>) / (<b>J<sub>b</sub></b> - <b>J<sub>a</sub></b>) &lt; k,
+  if <b>J<sub>a</sub></b> &lt; <b>J<sub>b</sub></b>, or<br/>
+  k &lt; (<b>C<sub>a</sub></b> - <b>C<sub>b</sub></b>) / (<b>J<sub>b</sub></b> - <b>J<sub>a</sub></b>),
+  if <b>J<sub>a</sub></b> &gt; <b>J<sub>b</sub></b>.
+</p><p>
+  So, we can start by assuming that k can take on any value in an infinite
+  range. Then, whenever we check a pair of molecules, we get a new
+  (non-inclusive) upper or lower bound on the value of k, and we can update one
+  end of the range accordingly. If we find that constraints force the range to
+  be empty (e.g., because the upper end is forced to be smaller than the lower
+  end), then no valid set of atomic weights exists. Otherwise, at least one
+  does. Notice that even though the atomic weights of Codium and Jamarium must
+  both be integers, any rational value of k corresponds to some pair of
+  integers.
+</p><p>
+  This is a quick set of checks, and it is even quicker if we realize that we
+  only need to check consecutive pairs of molecules. However, as in any problem
+  involving comparisons of fractional quantities, we must be careful to compute
+  exact values instead of using floating-point approximations.
+</p>
+<h3>Test set 2</h3>
+<p>
+Considering the solution of Test set 1 in reverse can lead us to a solution for
+Test set 2. If we consider two arbitrary molecules with indices a and b, they can
+appear in two possible orderings. If one of them is impossible according to the
+math above, it means that the other is the ordering of the molecules for every possible
+assignment of atomic weights. If that's the case, we can ignore the pair of
+molecules (a, b). However, if both orderings are possible, we obtain
+a range of valid values for the ratio k of the form
+(0, R<sub>a,b</sub>) for one ordering and a range of the form
+(R<sub>a,b</sub>, +&infin;) for the other, where
+R<sub>a,b</sub> = |(<b>C<sub>a</sub></b> - <b>C<sub>b</sub></b>) / (<b>J<sub>a</sub></b> - <b>J<sub>b</sub></b>)|.
+That means, for all orderings
+that correspond to atomic weights that yield a ratio strictly less than
+R<sub>a,b</sub>, the molecules a and b appear in a specific relative
+order, and for all orderings that correspond to values yielding a ratio strictly
+greater than R<sub>a,b</sub>, the molecules a and b appear in the other
+relative order. If the ratio is exactly R<sub>a,b</sub>, the two molecules
+weigh exactly the same, so no ordering is valid.
+</p><p>
+By the previous paragraph, if we consider a function f from ratios into
+orderings, f is a piecewise constant function that is undefined at ratios
+R<sub>a,b</sub> for any pair a, b and is constant in any interval that
+doesn't contain any such ratio. Moreover, the image of f over
+(0, R<sub>a,b</sub>) consists of orderings with molecules a and b in one
+relative order and the image of f over (R<sub>a,b</sub>, +&infin;) consists
+of orderings with molecules a and b in the other relative order. Therefore,
+no two elements in f's image are the same. The number of elements in f's
+image, which is the answer to the problem, is the number of different non-zero
+R<sub>a,b</sub> values, plus 1. Notice that it is possible that
+R<sub>a,b</sub> = R<sub>c,d</sub> for different molecules a, b, c, d, and
+we need to count the number of unique values.
+</p><p>
+The algorithm to count the number of different values that are equal to
+R<sub>a,b</sub> for some a, b is immediate: try every
+pair of molecules, calculate the ratio as explained for the Test set 1 solution
+(if there is one), and add it to a set of fractions to discard non-uniques. This algorithm
+takes a quadratic number of insertions into a set, which makes it quadratic or barely
+above quadratic overall depending on the set implementation that is used.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

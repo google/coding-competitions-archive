@@ -1,0 +1,356 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1A</h3><h1>Analysis: Golf Gophers</h1><h3>Test set 1</h3>
+<p>
+  The difficulty of this problem stems from the fact that the windmills can
+  loop around. If we have a windmill with 5 blades, and we find it with blade
+  number 2 pointing downward in the morning, does that mean that 2 gophers
+  rotated it? or that 7 did? or 12? In general, if a windmill has B blades, and
+  we find it in position P, all that we can say for sure is that some number
+  (P + K &times; B) of gophers (for some integer K) tampered with it during the
+  night.
+</p><p>
+  Because of this, we might reason that we should put as many blades as
+  possible (that is, 18) on each windmill, and then hope that none of those
+  windmills is visited by more than 17 gophers, in which case the total number
+  of rotations of all blades equals the total number of gophers. This turns out
+  to be a reasonable hope! It is hard to directly calculate the probability
+  that none of the 18 blades will be turned more than 17 times on a given
+  night, but a quick simulation can tell us that even in the worst case of 100
+  gophers, the probability of this happening is about 0.00017. Since we can
+  run this same experiment 365 times and take the maximum result that we
+  find, the chances of a wrong answer (due to getting a misleading result all
+  365 times) are infinitesimally small.
+</p>
+
+<h3>Test set 2</h3>
+<p>
+  In test set 2, we only have 7 nights to work with, and the number of gophers
+  can be quite large, so we cannot reasonably hope that the windmills will
+  not loop. Now what? We might consider using different numbers of blades on
+  each windmill during a given night, but it's hard to see how that buys us
+  anything.
+</p><p>
+  Suppose that, on one night, we try putting two blades on every windmill.
+  At first this doesn't seem to help &mdash; shouldn't the resulting data
+  should be almost pure noise? However, we can observe that if the number of
+  gophers is odd, the total number of turns (across all windmills) will be odd,
+  and if the number of gophers is even, that total number will be even. So
+  we have a way of determining the parity of the number of gophers, no matter
+  how they happen to turn the blades!
+</p><p>
+  We can extend this idea to find out how many gophers there are modulo any
+  number of our choice between 2 and 18. Since we only get 7 nights, though,
+  we should choose our numbers carefully. One promising idea is to make them
+  all prime, and there are seven primes in the range we can use: 2, 3, 5, 7,
+  11, 13, and 17. Then we can try to use the construction suggested by the
+  <a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">Chinese remainder theorem</a>
+  to uniquely determine the number of gophers. However, this method would only
+  work for any number of gophers up to 2 &times; 3 &times ... &times; 17 =
+  510510; it cannot distinguish 510511 gophers from 1 gopher! We are in
+  trouble, since we might have up to 10<sup>6</sup> gophers.
+</p><p>
+  The final insight that we need is that the Chinese remainder theorem only
+  requires its moduli to all be <i>relatively</i> prime, not necessarily prime.
+  So we can use 16 in place of 2, and 9 in place of 3. This lets us identify any
+  number of gophers up to 5 &times; 7 &times; 9 &times; 11 &times; 13 &times;
+  16 &times; 17 = 12252240, which easily covers what we need. (We can also
+  get away with using the numbers 12 through 18, for example; we leave the
+  details to the reader.)
+</p><p>
+  Notice that we do not really need to do any calculations based on the Chinese
+  remainder theorem; since the number of possible answers is relatively small,
+  we can check all of them until we find the one that has the appropriate
+  residue for each of our chosen moduli.
+</p>
+
+<h4>Test set 1 appendix</h4>
+<p>
+  To prove that the probability of at least one blade rotating more than 17 times
+  is about 0.00017, we can solve a related problem:
+</p><p>
+  "Count the number of integer arrays of length <b>L</b> such that each array
+  element is one of 1, 2, ..., <b>U</b> and each number appears at most
+  <b>B</b> times in the array."
+</p><p>
+  This related problem is equivalent to counting
+  <a href="https://en.wikipedia.org/wiki/Partition_(number_theory)">integer partitions</a>
+  with constraints on the size of each partition.
+</p><p>
+  We can solve this related problem using
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming">Dynamic Programming</a>.
+  First, we choose how many times <b>U</b> appears in the array; say it
+  appears K times, with 0 &le; K &le; min(<b>B</b>,<b>L</b>). Once we know K,
+  we have to choose where those K values go. Using
+  <a href="https://en.wikipedia.org/wiki/Combination">combinations</a>,
+  we can see that there are <code>C(<b>L</b>, K)</code> possible options. For
+  each option, we can treat the <b>L</b>-K other spaces as an array that must
+  contain the numbers 1, 2, ..., <b>U</b>-1 such that no number appears more
+  than <b>B</b> times, which is a subproblem of our original problem, so we may
+  recurse. If we sum over all possible values for K, we have the total number
+  of valid arrays.
+</p>
+<p>
+  If we solve the above problem with <b>L</b> = 100, <b>U</b> = 18, <b>B</b> = 17,
+  we see that there are
+  336647783248234011860927063629187654598455062446560501834487820535956663161762533555609870639313859125191714928476256971520000
+  (or approximately 3.366 &times; 10<sup>125</sup>) arrays such that no number
+  appears more than 17 times. These arrays can represent which windmill the
+  gophers select in a <i>good</i> configuration out of the 18<sup>100</sup>
+  possible configurations. This gives us the probability quoted above.
+</p>
+
+    </div>
+  </body>
+</html>

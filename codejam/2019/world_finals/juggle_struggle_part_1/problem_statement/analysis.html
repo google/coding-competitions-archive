@@ -1,0 +1,580 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - World Finals</h3><h1>Analysis: Juggle Struggle: Part 1</h1><h3>Test Set 1 (Visible)</h3>
+<p>
+We are given a set of 2<b>N</b> points that we are to pair into <b>N</b> line segments
+such that they all intersect each other. That makes the set of line segments magnificent.
+</p><p>
+We can extend any line segment S into a full line L that divides the plane in two.
+In a magnificent set of line segments, since S intersects all other segments, all those other
+segments have one endpoint on each side of L (no other point can be on L or it would be collinear
+with the endpoints of S). This means that if we pick a point P in the input, it
+must be paired with another point Q such that the line that goes through both leaves exactly the
+same number of other points on each side. This hints at an algorithm: choose a point P, find a Q
+according to the definition above, pair P and Q, and repeat. However, what if there is more than
+one such Q?
+</p><p>
+One way to deal with the problem is by choosing P intelligently. For example, if we choose a
+leftmost point as P, all candidates for Q end up in the right half of the plane cut by a vertical
+line through P (with at most one other point possibly on the line). Consider a line rotating
+clockwise centered on P, going from vertical to vertical again (rotating 180 degrees).
+At the starting point, there are no points on the left side of the line, because P is leftmost.
+As it rotates, it will pass over all points, repeatedly adding one point to one side and removing
+one from the other.
+Since there are no collinear triples of points, this shift is always by 1. This means there is
+exactly one such line that has P and one more point on it, with <b>N</b>-1 points on each side.
+Moreover, if we sort all non-P points by the angle they form with P (choosing 0 to coincide
+with the vertical line), the point that ends up on the line is exactly the median of the sorted
+list.
+</p><p>
+Choosing P as a leftmost point gives a unique choice of another point Q to pair P with.
+We can then remove both and continue. The algorithm requires <b>N</b> iterations, and in each of
+them we must find a leftmost point, and sort
+  O(<b>N</b>) points by angle. Calculating the
+<a href="https://en.wikipedia.org/wiki/Angle#Dot_product_and_generalisations">cosine</a> of the
+angles to compare without loss precision takes constant time.
+Picking the median and removing the pair of points all can be done in O(<b>N</b>) time or better.
+Therefore, the overall algorithm
+requires O(<b>N</b><sup>2</sup> log <b>N</b>) time, and it is enough to solve Test Set 1.
+If one uses a <a href="https://en.wikipedia.org/wiki/Median_of_medians">linear algorithm to find
+the median</a> instead of sorting, it would improve the time complexity to O(<b>N</b><sup>2</sup>).
+However, sorting to find the median is likely to be faster in practice due to constant factors.
+</p><p>
+A consequence of the reasoning above is that the solution is actually unique. Another observation
+is that any point in the convex hull of the points has the same property as a leftmost point,
+because the definition is invariant through rotations and any point in the convex hull can be made
+a leftmost point through a rotation. But a leftmost is one of the easiest to find.
+</p>
+<h3>Test Set 2 (Hidden)</h3>
+<p>
+There is another approach requiring an additional proof but leading to a slightly simpler
+algorithm for Test Set 1. Most importantly, it leads us one step closer to solving Test Set 2.
+</p><p>
+The additional key observation for this approach is
+that if a set of 2<b>N</b> points admits a magnificent pairing, then for <i>every</i>
+point P in the set (not just those in the convex hull) there is exactly one Q such that the line
+through P and Q leaves half the points on each side. The fact that there is at least one is
+immediate from the existence of a magnificent arrangement. The argument that there cannot be more
+than one requires more thought.
+</p><p>
+Assume there is a point P and two other points Q<sub>1</sub> and Q<sub>2</sub> such that both of
+the lines that go through P and each Q<sub>i</sub> have half of all the other points on each
+side. Moreover, without loss of generality, assume Q<sub>1</sub> is the one that actually pairs
+with P in the magnificent pairing (we know it is unique). The following picture illustrates the
+situation.
+</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="124.85555mm"
+   height="70.53508mm"
+   viewBox="0 0 124.85555 70.53508"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="drawing.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="183.12353"
+     inkscape:cy="125.66119"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-text-baseline="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1119"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2.2061551,-8.8651215)">
+    <circle
+       id="path3713"
+       cx="58.208351"
+       cy="45.267849"
+       r="3.4017856"
+       style="stroke-width:0.26458332" />
+    <circle
+       id="path3713-3"
+       cx="86.178566"
+       cy="60.31131"
+       r="3.4017856"
+       style="stroke-width:0.26458332" />
+    <circle
+       id="path3713-6"
+       cx="86.556557"
+       cy="30.602375"
+       r="3.4017856"
+       style="stroke-width:0.26458332" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 2.2678571,74.75 C 127,8.9821426 127,8.9821426 127,8.9821426"
+       id="path3738"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 3.7797618,12.761904 C 118.68453,79.285714 118.68453,79.285714 118.68453,79.285714"
+       id="path3740"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.74502754px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16862568"
+       x="90.208954"
+       y="78.284111"
+       id="text3760"
+       transform="scale(1.0297602,0.97109987)"><tspan
+         sodipodi:role="line"
+         id="tspan3758"
+         x="90.208954"
+         y="78.284111"
+         style="stroke-width:0.16862568">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.74502754px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.16862568"
+       x="94.168503"
+       y="42.896397"
+       id="text3760-9"
+       transform="scale(1.0297602,0.97109987)"><tspan
+         sodipodi:role="line"
+         id="tspan3758-2"
+         x="94.168503"
+         y="42.896397"
+         style="stroke-width:0.16862568">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.759003"
+       y="22.353834"
+       id="text3810"><tspan
+         sodipodi:role="line"
+         id="tspan3808"
+         x="52.759003"
+         y="22.353834"
+         style="stroke-width:0.26458332">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="12.160764"
+       y="46.48827"
+       id="text3814"><tspan
+         sodipodi:role="line"
+         id="tspan3812"
+         x="12.160764"
+         y="46.48827"
+         style="stroke-width:0.26458332">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="110.28877"
+       y="52.942833"
+       id="text3818"><tspan
+         sodipodi:role="line"
+         id="tspan3816"
+         x="110.28877"
+         y="52.942833"
+         style="stroke-width:0.26458332">C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="53.787991"
+       y="78.106255"
+       id="text3822"><tspan
+         sodipodi:role="line"
+         id="tspan3820"
+         x="53.787991"
+         y="78.106255"
+         style="stroke-width:0.26458332">D</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 59.307107,45.178651 C 86.060787,31.053457 86.15433,31.147 86.15433,31.147"
+       id="path3843"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="89.989647"
+       y="38.349915"
+       id="text4654"><tspan
+         sodipodi:role="line"
+         id="tspan4652"
+         x="89.989647"
+         y="38.349915"
+         style="stroke-width:0.26458332">Q</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="85.356812"
+       y="72.090652"
+       id="text4654-3"><tspan
+         sodipodi:role="line"
+         id="tspan4652-3"
+         x="85.356812"
+         y="72.090652"
+         style="stroke-width:0.26458332">Q</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="58.297821"
+       y="56.64603"
+       id="text4695"><tspan
+         sodipodi:role="line"
+         id="tspan4693"
+         x="58.297821"
+         y="56.64603"
+         style="stroke-width:0.26458332">P</tspan></text>
+  </g>
+</svg>
+<p>
+In the picture, we have labeled the four areas into which the two lines divide the plane. Let
+A, B, C and D be the sets of input points contained in each area (not including
+P, Q<sub>1</sub> or Q<sub>2</sub>). Notice that any point in A must be paired with a point in C in
+order for the produced segment to intersect PQ<sub>1</sub>. Similarly, any point in D must be
+paired with a point in B. All points below the line that goes through P and Q<sub>2</sub>
+are in either A or D, which means there are |A| + |D| of them. The number of points
+above, on the other hand, is |B| + |C| + 1. Since we showed |A| &le; |C| and |B| &le; |D|,
+|B| + |C| + 1 &ge; |A| + |D| + 1 &gt; |A| + |D|.
+This contradicts the assumption that the line that goes through P and Q<sub>2</sub>
+has the same number of input points on each side.
+</p><p>
+This observation by itself only allows us to avoid the "find a leftmost point" step of the previous
+algorithm, which does not change its overall time complexity. The definite improvement is to more
+quickly shrink the set of points that we must consider, so that all steps within the iteration
+take less time. To do that, consider that after we have paired M pairs of points, the lines through
+each pair divide the plane into 2<sup>M</sup> areas, with only the outside areas (the ones with
+unbounded area) possibly containing leftover points. Moreover, each point is to be paired with
+one in the area that is opposite in order to cross all the lines, which is a necessary condition
+to intersect all line segments. When we create a new pair, exactly two of the areas are split in
+half. The idea is then: instead of removing the new pair and continuing with the full set, continue
+recursively with two separate sets. If we consider sets X and Y coming from opposite areas,
+split after pairing into X<sub>1</sub> and X<sub>2</sub> and Y<sub>1</sub> and Y<sub>2</sub>,
+respectively, then we need to solve recursively for X<sub>1</sub> and Y<sub>1</sub> separately
+from solving for X<sub>2</sub> and Y<sub>2</sub> (assuming
+the areas are labeled such that X<sub>1</sub>, X<sub>2</sub>, Y<sub>1</sub>, Y<sub>2</sub>
+appear in that order when going through them in clockwise order).
+</p><p>
+The last thing to do is to make sure we split X and Y more or less evenly with the new line. Notice
+that if we restrict ourselves to start with a point P that is part of the convex hull of X or Y
+or X &cup; Y, this might be impossible (i.e., all those pairs may split X and Y, leaving most
+remaining points on one side). Hence the need for the property with which we started this
+section. However, notice that
+if we sort all pairs to be made between points in X and points in Y by the slope of their produced
+segments, the first and last will split X and Y into an empty set and a set with |X| - 1 points
+(notice that |X| = |Y|). The second and next-to-last will split them into a set with 1 point and a
+set with |X| - 2 points. The i-th will split them into a set with i - 1 points and a set with
+|X| - i points. Therefore, if we choose randomly, we end up with a recursion similar to
+<a href="https://en.wikipedia.org/wiki/Quicksort">quicksort</a>'s, in which
+the reduction on the size of the sets is expected to be close enough to always partitioning
+evenly. Since the time it takes for the non-recursive part of a set of size M is O(M log M) &mdash;
+notice that calculating the partitions is only an additional linear time step &mdash;
+the overall expected time complexity of this recursive algorithm is
+(<b>N</b> log<sup>2</sup> <b>N</b>).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

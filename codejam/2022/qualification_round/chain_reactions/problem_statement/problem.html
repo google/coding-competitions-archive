@@ -1,0 +1,444 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Qualification Round</h3><h1>Chain Reactions</h1><h3>Problem</h3>
+
+<p>
+Wile lives alone in the desert, so he entertains himself by building complicated machines
+that run on chain reactions. Each machine consists of $$$\mathbf{N}$$$ modules indexed $$$1, 2, \dots, \mathbf{N}$$$.
+Each module may point at one other module with a lower index. If not, it points at the abyss.
+</p><p>
+Modules that are not pointed at by any others are called <i>initiators</i>. Wile can manually trigger
+initiators. When a module is triggered, it triggers the module it is pointing at (if any) which in turn may trigger
+a third module (if it points at one), and so on, until the chain would hit the abyss or an already
+triggered module. This is called a <i>chain reaction</i>.
+</p><p>
+Each of the $$$\mathbf{N}$$$ modules has a fun factor $$$\mathbf{F_i}$$$. The fun Wile gets from a chain reaction is the largest
+fun factor of all modules that triggered in that chain reaction. Wile is going to trigger each initiator
+module once, in some order. The overall fun Wile gets from the session is the sum of
+the fun he gets from each chain reaction.
+</p><p>
+For example, suppose Wile has $$$4$$$ modules with fun factors $$$\mathbf{F_1}=60, \mathbf{F_2}=20, \mathbf{F_3}=40,$$$
+and $$$\mathbf{F_4}=50$$$ and module $$$1$$$ points at the abyss, modules $$$2$$$ and $$$3$$$ at module
+$$$1$$$, and module $$$4$$$ at module $$$2$$$. There are two initiators ($$$3$$$ and $$$4$$$) that
+Wile must trigger, in some order.
+</p>
+<p align="center"><img src="img/example_1.gif" alt="Example in statement when activating 4 then 3."/></p>
+<p>
+As seen above, if Wile manually triggers module
+$$$4$$$ first, modules $$$4$$$, $$$2$$$, and $$$1$$$ will get triggered in the same chain reaction, for a fun of
+$$$\max(50, 20, 60) = 60$$$. Then, when Wile triggers module $$$3$$$, module $$$3$$$
+will get triggered alone (module $$$1$$$ cannot get triggered again), for a fun of
+$$$40$$$, and an overall fun for the session of $$$60+40=100$$$.
+</p>
+<p align="center"><img src="img/example_2.gif" alt="Example in statement when activating 3 then 4."/></p>
+<p>
+However, if Wile manually triggers module $$$3$$$ first,
+modules $$$3$$$ and $$$1$$$ will get triggered in the same chain reaction, for a fun of $$$\max(40, 60) = 60$$$.
+Then, when Wile triggers module $$$4$$$, modules $$$4$$$ and $$$2$$$
+will get triggered in the same chain reaction, for a fun of $$$\max(50, 20) = 50$$$,
+and an overall fun for the session of $$$60+50=110$$$.
+</p><p>
+Given the fun factors and the setup of the modules, compute the maximum fun Wile can get if he
+triggers the initiators in the best possible order.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow,
+each described using 3 lines.
+Each test case starts with a line with a single integer $$$\mathbf{N}$$$, the number of modules
+Wile has. The second line contains $$$\mathbf{N}$$$ integers $$$\mathbf{F_1}, \mathbf{F_2}, \dots, \mathbf{F_N}$$$ where
+$$$\mathbf{F_i}$$$ is the fun factor of the $$$i$$$-th module.
+The third line contains $$$\mathbf{N}$$$ integers $$$\mathbf{P_1}, \mathbf{P_2}, \dots \mathbf{P_N}$$$.
+If $$$\mathbf{P_i}=0$$$, that means module $$$i$$$ points at the abyss. Otherwise, module $$$i$$$
+points at module $$$\mathbf{P_i}$$$.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is the maximum fun
+Wile can have by manually triggering the initiators in the best possible order.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$1 \le \mathbf{F_i} \le 10^9$$$.<br/>
+$$$0 \le \mathbf{P_i} \le i - 1$$$, for all $$$i$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+Time limit: 5 seconds.<br/>
+
+$$$1 \le \mathbf{N} \le 10$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+Time limit: 5 seconds.<br/>
+
+$$$1 \le \mathbf{N} \le 1000$$$.<br/>
+</p>
+
+<h4>Test Set 3 (Hidden Verdict)</h4>
+<p>
+Time limit: 10 seconds.<br/>
+
+$$$1 \le \mathbf{N} \le 100000$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="chain_reactions_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+4
+60 20 40 50
+0 1 1 2
+5
+3 2 1 4 5
+0 1 1 1 0
+8
+100 100 100 90 80 100 90 100
+0 1 2 1 2 3 1 3
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="chain_reactions_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 110
+Case #2: 14
+Case #3: 490
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Sample Case #1 is the one explained in the problem statement.
+</p><p>
+  In Sample Case #2, there are $$$4$$$ initiators (modules $$$2$$$ through $$$5$$$),
+  so there are $$$4$$$ chain reactions. Activating them in order
+  $$$3, 5, 4, 2$$$ yields chains of fun $$$3, 5, 4, 2$$$ for an overall fun of $$$14$$$. Notice that
+  we are summing the four highest fun numbers in the input, so there is no way to get more
+  than that.
+</p><p>
+  In Sample Case #3, an optimal activation order of the $$$5$$$ initiators is $$$4, 5, 7, 6, 8$$$.
+</p>
+
+    </div>
+  </body>
+</html>

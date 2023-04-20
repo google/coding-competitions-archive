@@ -1,0 +1,434 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round A</h3><h1>Illumination Optimization</h1><h3>Problem</h3>
+<p>
+Onyaomale is leading a project to exchange the lightbulbs from street lights along a freeway
+from incandescent ones to LED lightbulbs that are both more energy-efficient and powerful.
+She started by taking all the old incandescent lightbulbs out, and is now focused on installing
+the new LED ones.
+Because the new lightbulbs are more powerful, Onyaomale thinks it is possible that some street
+lights are not necessary and she can save even more energy by not using them.
+</p><p>
+We model the freeway as a straight line measuring $$$\mathbf{M}$$$ meters that goes from west to east.
+The $$$x$$$-th meter is a point that is $$$x$$$ meters to the east of the
+western end of the freeway. If a street light is located at the $$$x$$$-th meter, and a lightbulb
+with an illumination radius of $$$\mathbf{R}$$$ meters is installed on it, then the street light illuminates
+the segment of freeway starting at the $$$\max(0, x - \mathbf{R})$$$-th meter and ending at the
+$$$\min(\mathbf{M}, x + \mathbf{R})$$$-th meter, inclusive. Onyaomale needs to
+install lightbulbs in such a way that every point of the freeway is illuminated by at least one of
+them. Notice that this includes illuminating points that are not an integer number of meters away
+from the freeway endpoints. Street lights that are left without a lightbulb do not illuminate
+anything.
+</p><p>
+Given the length of the freeway in meters $$$\mathbf{M}$$$, the illumination radius of the new
+lightbulbs $$$\mathbf{R}$$$ and the locations of all street lights, find the minimum number of lightbulbs
+Onyaomale needs to install to illuminate the whole freeway, or report that it is impossible
+to do so.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.
+Each test case consists of two lines. The first line contains three integers $$$\mathbf{M}$$$, $$$\mathbf{R}$$$, and
+$$$\mathbf{N}$$$: the length, in meters, of the freeway, the illumination radius, in meters, of the
+lightbulbs and the number of street lights, respectively. The second line of a test case
+contains $$$\mathbf{N}$$$ sorted integers $$$\mathbf{X_1}, \mathbf{X_2}, \dots, \mathbf{X_N}$$$ representing the meters of the
+freeway where street lights are located.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is the minimum number
+of lightbulbs Onyaomale needs to install to illuminate the whole freeway, if it is possible.
+If there is no way to illuminate the entire freeway using the current street lights, $$$y$$$
+should be <code>IMPOSSIBLE</code> instead.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 10 seconds.<br/>
+Memory limit: 2 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$1 \le \mathbf{M} \le 10^9$$$.<br/>
+$$$1 \le \mathbf{R} \le 10^9$$$.<br/>
+$$$0 \le \mathbf{X_1}$$$.<br/>
+$$$\mathbf{X_i} \lt \mathbf{X_{i+1}}$$$, for all $$$i$$$.<br/>
+$$$\mathbf{X_N} \le \mathbf{M}$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{N} \le 10$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{N} \le 10^5$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="illumination_optimization_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+10 3 3
+2 7 9
+10 2 3
+2 7 9
+10 2 4
+2 3 7 9
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="illumination_optimization_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2
+Case #2: IMPOSSIBLE
+Case #3: 4
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, Onyaomale can illuminate the entire freeway by placing bulbs in the
+  western-most and middle street lights only, leaving the eastern-most one unused. With these two
+  lights covering $$$[0, 5]$$$ and $$$[4, 10]$$$, the entire freeway ($$$[0, 10]$$$) is illuminated.
+</p>
+<figure align="left">
+  <img src="img/illumination_optimization_sample1.png" width="100%" alt="Illustration of sample case 1"/>
+</figure>
+<p>
+  In Sample Case #2, Onyaomale has the same configuration as in Sample Case #1, but with
+  weaker lightbulbs. In this case, there is no way for her to illuminate the entire freeway.
+  In particular, even if all the street lights are lit, the middle point between the $$$4$$$-th and
+  $$$5$$$-th meters would still not be illuminated.
+</p>
+<figure align="left">
+  <img src="img/illumination_optimization_sample2.png" width="100%" alt="Illustration of sample case 2"/>
+</figure>
+<p>
+  For Sample Case #3 Onyaomale has an additional street light at the $$$3$$$-th meter,
+  compared to Sample Case #2, while all other conditions are the same. In this case, installing
+  a lightbulb in every street light is the only way to have the entire freeway illuminated.
+</p>
+<figure align="left">
+  <img src="img/illumination_optimization_sample3.png" width="100%" alt="Illustration of sample case 3"/>
+</figure>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,554 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - World Finals</h3><h1>Swordmaster</h1><h3>Problem</h3>
+<p>
+  You are a duelist aspiring to become the next Swordmaster. You will work
+  toward this title by dueling with opponents until you win
+  against every opponent. Every opponent is always available for dueling, and
+  opponents do not duel each other.
+</p><p>
+  Each duelist (including you) knows at least one attack, and at least one
+  defense. There are at most <b>P</b> pairs of attacks and defenses in the
+  world; the i-th defense only counters the i-th attack, and the i-th attack is
+  only countered by the i-th defense. It is possible that there are attacks
+  and/or defenses that no duelist knows. You can use any attack or defense that
+  you know as many times as you like; they do not get "used up".
+</p><p>
+  Here are the rules for each individual duel with an opponent:
+</p>
+<ul>
+  <li>As the aspiring Swordmaster, you always get to attack first. You select an
+    attack that you know. If the opponent knows the corresponding defense, they
+    may choose to use it. If they do not know that defense, or they choose not
+    to use it, then they do not defend.</li>
+  <li>Then, the opponent selects an attack that they know. If you know the
+    corresponding defense, you may choose to use it. If you do not know that
+    defense, or you choose not to use it, then you do not defend.</li>
+  <li>If you successfully defended and the opponent did not, you win the
+    duel! Otherwise, you do not win, but your quest to become the Swordmaster
+    can continue.</li>
+</ul>
+<p>
+  You can fight as many duels as you want, including multiple duels with the
+  same opponent, regardless of the outcomes of any previous duels. You do not
+  need to determine a complete schedule of duels in advance; you can base your
+  next decision on what has already happened. Once you have won at least once
+  against every opponent, you become the Swordmaster!
+</p><p>
+  You are an especially quick learner. After each duel, regardless of the
+  outcome of the duel, you can add the attack and the defense (if any) used by
+  the opponent to your own set of known attacks/defenses. (Note that if an
+  opponent uses an unfamiliar defense against you, you do not learn it during
+  the duel itself, so you cannot use it against the opponent's attack in the
+  same duel.) Only you have this advantage; the attacks and defenses known by
+  your opponents never change.
+</p><p>
+  Moreover, after you win against an opponent, and before your next duel,
+  that opponent will teach you all of the attacks and defenses that they know
+  and that you do not already know. (Once they have lost to you, it looks
+  better for them if you eventually do become the Swordmaster!)
+</p><p>
+  You know which attacks and defenses each opponent knows. If you make optimal
+  choices, is it possible to guarantee that you will become the Swordmaster,
+  regardless of what choices your opponents make?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow.
+</p><ul>
+  <li>Each case begins with one line with two integers <b>N</b> and <b>P</b>:
+    the number of duelists (including you), and the maximum number of
+    attack/defense pairs in the world.</li>
+  <li>Then, there are <b>N</b> groups of three lines each. The i-th of
+    these groups represents one of the duelists; in particular, the first of
+    them represents you. Each group has the following structure:
+    <ol>
+      <li>One line with two integers <b>Attacks<sub>i</sub></b> and
+        <b>Defenses<sub>i</sub></b>: the numbers of different attacks and
+        defenses, respectively, known by the i-th duelist.</li>
+      <li>One line with <b>Attacks<sub>i</sub></b> different integers
+        <b>A<sub>ij</sub></b>, sorted in increasing order: the identities of
+        the attacks known by the i-th duelist.</li>
+      <li>One line with <b>Defenses<sub>i</sub></b> different integers
+        <b>D<sub>ij</sub></b>, sorted in increasing order: the identities of
+        the defenses known by the i-th duelist.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is <code>YES</code> if you can guarantee that you will become the Swordmaster
+  (as described in the problem statement), or <code>NO</code> otherwise.
+</p>
+
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  2 &le; <b>N</b> &le; 1000.<br/>
+  1 &le; <b>P</b> &le; 1000.<br/>
+  1 &le; <b>Attacks<sub>i</sub></b> &le; <b>P</b>, for all i.<br/>
+  1 &le; <b>Defenses<sub>i</sub></b> &le; <b>P</b>, for all i.<br/>
+  1 &le; <b>A<sub>ij</sub></b> &lt; <b>A<sub>i(j+1)</sub></b> &le; <b>P</b>,
+    for all i and j.<br/>
+  1 &le; <b>D<sub>ij</sub></b> &lt; <b>D<sub>i(j+1)</sub></b> &le; <b>P</b>,
+    for all i and j.<br/>
+  The sum of all <b>Attacks<sub>i</sub></b> + the sum of all <b>Defenses<sub>i</sub></b>,
+  over all i, does not exceed 50000.<br/>
+  Time limit: 10 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>A<sub>i1</sub></b> = 1, for all i. (Attack 1 is known by all the duelists,
+    including you.)<br/>
+  <b>D<sub>i1</sub></b> = 1, for all i. (Defense 1 is known by all the
+    duelists, including you.)<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  No extra restrictions.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="swordmaster_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">5
+2 2
+1 2
+1
+1 2
+2 1
+1 2
+1
+2 2
+1 1
+1
+2
+1 1
+2
+1
+2 5
+1 1
+2
+3
+2 1
+2 4
+2
+3 5
+3 2
+1 2 3
+3 4
+2 4
+3 4
+2 3 4 5
+2 5
+4 5
+1 2 3 4 5
+4 4
+1 1
+1
+4
+2 3
+2 3
+2 3 4
+1 3
+4
+1 2 4
+1 3
+4
+1 3 4
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="swordmaster_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: NO
+Case #2: YES
+Case #3: NO
+Case #4: NO
+Case #5: YES
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Note that the last four sample cases would not appear in Test set 1.
+</p>
+<p>
+  In Sample Case #1, as long as your opponent keeps choosing defense 1 and
+  attack 1, you cannot win the duel. There is no guarantee that your opponent
+  will ever choose attack 2 or choose not to use defense 1, so it is not
+  possible to guarantee that you will become the Swordmaster.
+</p>
+<p>
+  In Sample Case #2, you know attack 1 and defense 2, and your (only) opponent
+  knows attack 2 and defense 1. The following strategy is guaranteed to make
+  you the Swordmaster:
+</p>
+<ul>
+  <li>In your first duel, you must choose attack 1; the opponent may defend
+    with defense 1. Then, the opponent must choose attack 2; you should choose
+    defense 2.
+    <ul>
+      <li>If the opponent did not defend, then you won and you are now the
+        Swordmaster.</li>
+      <li>Otherwise, you do not win, but you learn attack 2 and defense 1
+        afterward. Then, start a second duel with that opponent. This time,
+        choose attack 2; the opponent cannot defend against it. Once again, the
+        opponent must choose attack 2; you should choose defense 2. You have
+        won and you are now the Swordmaster.</li>
+    </ul>
+  </li>
+</ul>
+<p>
+  In Sample Case #3, in your first duel, if your opponent always chooses attack
+  4, you will never be able to defend, since nobody knows the defense to that
+  attack. So, there is no way for you to ever become the swordmaster. Note that
+  there can be attacks and/or defenses that exist in the world, but are not
+  known by any of the duelists in this problem.
+</p><p>
+  In Sample Case #4, there is an opponent that knows every defense, so you
+  cannot guarantee that you will ever win against them (they would have to
+  be nice and not defend!)
+</p><p>
+  Here is one guaranteed winning strategy for Sample Case #5:
+</p>
+<ol>
+  <li>Duel the first opponent. You must choose attack 1, and they cannot defend.
+    We will proceed assuming that they choose attack 2. (If they choose attack
+    3, an isomorphic strategy will work.) You cannot defend, and you do not
+    win the duel, but you learn attack 2.</li>
+  <li>Duel the third opponent, and use attack 2 and defense 4 for a guaranteed
+    win. You learn attack 4 (which you will never use) and defenses 1 and
+    3.</li>
+  <li>Duel the second opponent, and use attack 2. You are guaranteed to learn
+    defense 2: either the opponent will use it against you, or they will not
+    use it and you will win (and learn all of their attacks and defenses).</li>
+  <li>Duel the first opponent again, and choose attack 1. Now, whichever attack
+    they use, you can defend, and you win. You learn attack 3.</li>
+  <li>Duel the second opponent again, using attack 3, if you did not already win
+    against them before.</li>
+</ol>
+
+    </div>
+  </body>
+</html>

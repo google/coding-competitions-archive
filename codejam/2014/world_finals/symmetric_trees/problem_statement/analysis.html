@@ -1,0 +1,402 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - World Finals</h3><h1>Analysis: Symmetric Trees</h1><p>
+<a href="https://www.youtube.com/watch?v=GYX3sn3Q_DQ&t=319m50s" target="_blank">Video of Igor Naverniouk’s explanation.</a>
+</p>
+
+<p>
+Given a vertex-colored tree, we want to know whether it is possible to draw the tree in a 2D plane with a line of symmetry (as defined in the problem statement).
+</p>
+
+<p>
+An important question to ask is: how many vertices in the tree are located on the symmetry line? We can categorize the answer into two cases. The first is where there is no vertex on the symmetry line, and the second is where there are one or more vertices on the symmetry line. We will discuss each category in the following sections.
+</p>
+
+<h3>
+No vertex on the symmetry line
+</h3>
+
+<p>
+This is the easier case. Since the tree has at least one vertex, there must be a vertex <b>A</b> on the left of the symmetry line connected to another vertex <b>A’</b> on the right of the symmetry line. The rest of the vertices must belong to the subtree of A or to the subtree of A’. The only edge that crosses the line of symmetry is the edge connecting vertex A and A’. There cannot be any other edges that cross the line of symmetry (otherwise there would be a cycle). The last requirement is that subtree A and subtree A’ are isomorphic. We will elaborate later on how to check whether two subtrees are <a href="http://en.wikipedia.org/wiki/Graph_isomorphism" target="_blank">isomorphic</a>. The following figure illustrates this case:
+</p>
+
+<img src="no_vertex.png">
+
+<h3>
+One or more vertices on the symmetry line
+</h3>
+
+<p>
+In this case, we can pick a vertex <b>A</b> and put it on the symmetry line. Next, we look at the children of A. Each child represents a subtree. For each child (or subtree) of A we find another (different) child of A that is isomorphic to it. If found, we can put one child on the left side of the symmetry line and the other on the right side of the symmetry line. The root nodes of the subtrees that cannot be paired must be put on the symmetry line. Since there are only two available positions on the line (one is above A and the other is below A), the number of children that <b>cannot</b> be paired must be at most two. These (at most) two children are put on the symmetry line using the same technique described above, except that they can only have one unpaired child (since they have only one available position on the symmetry line). See the following illustration:
+</p>
+
+<img src="one_or_more_vertices.png">
+
+<p>
+We pair up all children of A that are isomorphic to each other (e.g., B and B’, C and C’ and so on) and put one of them on the left and the other on the right of the symmetry line. There can only be at most two remaining unpaired children (subtree X and subtree Y). We can recursively put X and Y on the symmetry line just above and below vertex A respectively. The subtree of X can only have at most one unpaired child since there is only one available position to put the unpaired child on the symmetry line (i.e., above X). Similarly with the subtree of Y.
+</p>
+
+<h3>
+How to check whether two subtrees are isomorphic?
+</h3>
+
+<p>
+The above placing strategies require a quick way of checking whether two subtrees are isomorphic. One way to do this is by encoding each subtree into a unique string representation and then checking whether the strings are equal. One way to encode a subtree into a string is by using a nested-parentheses encoding: starting from the root node of the subtree, construct a string that begins with “(“ followed by the color of the node, then a comma, followed by a sorted, comma-separated list of the encodings of its children (which are computed recursively in the same way), and finally followed by a “)”. For example if node X is the parent of node Y and node Y is the parent of node Z, then the encoding of the subtree X is “(X,(Y,(Z)))”. If node X is the parent of node Z and node Y, then the encoding of the subtree X is “(X,(Y),(Z))”. Note that the children encodings are sorted because we want two subtrees with identical children to produce the same string.
+</p>
+
+<p>
+Here is a sample implementation in Python 3:
+</p>
+<pre>
+import sys
+
+def encode_subtree(a, parent):
+  children = []
+  for b in con[a]:
+    if b != parent:
+      if con[a][b] == -1:
+        con[a][b] = encode_subtree(b, a)
+      children.append(con[a][b])
+
+  m = '(' + colors[a]
+  for c in sorted(children):
+    m += ',' + c
+  return m + ')'
+
+
+def rec_symmetric(a, parent):
+  first_pair = {}
+  for b in con[a]:
+    if b != parent:
+      if con[a][b] in first_pair:
+        del first_pair[con[a][b]]
+      else:
+        first_pair[con[a][b]] = b
+
+  keys = list(first_pair.values())
+  if len(keys) == 0: return True
+
+  ok = rec_symmetric(keys[0], a)
+  if len(keys) == 1 or not ok: return ok
+
+  # Non-root is only allowed one unpaired branch.
+  if len(keys) &gt; 2 or parent != -1: return False
+
+  return rec_symmetric(keys[1], a)
+
+
+def symmetric():
+  # No vertex in the middle line.
+  for a in range(N):
+    for b in con[a]:
+      if con[a][b] == con[b][a]:
+        return True
+
+  # Pick a vertex in the middle line.
+  for a in range(N):
+    if rec_symmetric(a, -1):
+      return True
+
+  return False
+
+
+sys.setrecursionlimit(100000)
+for tc in range(int(input())):
+  colors = []
+  con = []
+
+  N = int(input())
+  for i in range(N):
+    colors.append(input())
+    con.append({})
+
+  for i in range(N - 1):
+    e = input().split()
+    a = int(e[0]) - 1
+    b = int(e[1]) - 1
+    con[a][b] = -1
+    con[b][a] = -1
+
+  for a in range(N):
+    encode_subtree(a, -1)
+
+  if symmetric():
+    print("Case #%d: SYMMETRIC" % (tc + 1))
+  else:
+    print("Case #%d: NOT SYMMETRIC" % (tc + 1))
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

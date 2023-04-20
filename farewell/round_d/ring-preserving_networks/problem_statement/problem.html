@@ -1,0 +1,551 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Ring-Preserving Networks</h1><h3>Problem</h3>
+
+<p>
+  A research consortium is building a new datacenter. In the datacenter,
+  a set of computers is set up to work together and communicate via a network.
+  The network works only with direct bidirectional links between computers.
+  After the success of their
+  <a href="https://codingcompetitions.withgoogle.com/codejam/round/0000000000007707/000000000004ba29" target="_blank">
+  name-preserving networks</a>, they decided to do other designs with guaranteed properties.
+</p><p>
+  The consortium has asked you to submit a design of a ring-preserving network. We define
+  a <i>ring</i> of a network as an ordering of all the computers of the network such
+  that any two computers that are consecutive in the ordering have a direct link between them,
+  and the same is true for the first and last computers in the ordering.
+</p><p>
+  A ring-preserving network is a network design that can efficiently find a ring of itself
+  even after losing the original computer identifications. You need to submit several
+  network designs that are ring-preserving.
+</p><p>
+  To evaluate your network designs, the research consortium has set up an
+  automated program. 
+  You will be asked for network designs specifying the exact number of computers $$$\mathbf{C}$$$
+  and the exact number of bidirectional links $$$\mathbf{L}$$$ it must contain.
+  You must assign each computer a unique ID between $$$1$$$ and $$$\mathbf{C}$$$ and list
+  the $$$\mathbf{L}$$$ links using the IDs to refer to the links' endpoints.
+  The evaluating program will receive that design
+  and send back a copy of the network design with the following changes:
+</p><ul>
+  <li>the unique IDs have been permuted uniformly at random (that is, each ID is now
+    equally likely to be on any of the computers),</li>
+  <li>every link is listed with the smallest ID first (using the new IDs),
+    and</li>
+  <li>the set of links is listed in increasing order of the first endpoint
+    (using the new IDs), breaking ties by smallest second endpoint (i.e.,
+    lexicographical order).</li>
+</ul><p>
+  You need to be able to find a ring of the modified network. It does not need to be
+  the original ring.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing an integer,
+  $$$\mathbf{T}$$$, the number of test cases. Then, $$$\mathbf{T}$$$ test cases must be processed.
+</p>
+<p>
+  For each test case, your program must first read a line containing two integers
+  $$$\mathbf{C}$$$ and $$$\mathbf{L}$$$: the number of computers and links to include in the network design.
+</p><p>
+  Then, you need to create a network design with $$$\mathbf{C}$$$ computers and $$$\mathbf{L}$$$ links
+  and print exactly $$$\mathbf{L}$$$ lines representing that design. Each of these lines must
+  contain two integers A and B each,
+  representing a different link between computers A and B, where $$$A \ne B$$$. Notice
+  that if you list link A B, you may not list A B nor B A again.
+</p><p>
+  Upon reading your network design, the judge will send you $$$\mathbf{L}$$$ lines back
+  representing the permuted design. The $$$i$$$-th of these lines contains two integers
+  $$$\mathbf{U_i}$$$ and $$$\mathbf{V_i}$$$ representing a bidirectional link between the computers with new ids
+  $$$\mathbf{U_i}$$$ and $$$\mathbf{V_i}$$$. The copy is generated using a permutation chosen uniformly at
+  random from all possible permutations, and independently of any other choices.
+</p><p>
+  To finish a test case, you need to send the judge a single line with $$$\mathbf{C}$$$
+  integers $$$x_1, x_2, \dots, x_\mathbf{C}$$$, representing a ring of the permuted
+  design. That is, the set of lines the judge sent back must include
+  either $$$x_1\ x_\mathbf{C}$$$ or $$$x_\mathbf{C}\ x_1$$$, and,
+  for all $$$i$$$, it must include either $$$x_i\ x_{i+1}$$$ or $$$x_{i+1}\ x_i$$$.
+</p><p>
+  You should not send additional information to the judge after solving all
+  test cases. In other words, if your program keeps printing to standard output
+  after printing the list of $$$x$$$s for the last test case, you will receive a
+  Wrong Answer judgment.
+</p><p>
+  If at any point the judge reads from your program malformed input (wrong
+  number of tokens, non-integer tokens or out of range numbers) it will immediately
+  stop and assume Wrong Answer. However, if your program happens to remain
+  waiting for input from the judge, it may end up exceeding the time limit and
+  receiving a Time Limit Exceeded judgement. On the other hand, if you commit
+  a recoverable error (sending over a network with a repeated connection, or
+  a connection from a computer to itself, or sending a ring that repeats a
+  computer or that uses an edge that does not exist in the permuted version)
+  the judge will continue to communicate with your program trying to finish,
+  but the overall judgement will be Wrong Answer.
+</p><p>
+  Notice that you are allowed to submit the same network design for different
+  test cases, as long as that design complies with all restrictions for both
+  cases. Additionally, the seed for random generation in the judge is fixed,
+  so sending the same set of original network designs in the same order will
+  get back the same set of copies.
+</p>
+
+
+<h3>Limits</h3>
+<p>
+Time limit: 30 seconds.<br/>
+Memory limit: 2 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$3 \le \mathbf{C} \le 10000$$$.<br/>
+$$$\mathbf{C} \le \mathbf{L} \le \mathbf{C} \times (\mathbf{C} - 1) / 2$$$.<br/>
+$$$1 \le \mathbf{U_i} \lt \mathbf{V_i} \le \mathbf{C}$$$, for all $$$i$$$.<br/>
+$$$\mathbf{U_i} \le \mathbf{U_{i+1}}$$$, for all $$$i$$$.<br/>
+If $$$\mathbf{U_i} = \mathbf{U_{i+1}}$$$ then  $$$\mathbf{V_i} \le \mathbf{V_{i+1}}$$$, for all $$$i$$$.<br/>
+There exist permutations $$$f$$$ of length $$$\mathbf{C}$$$ and $$$g$$$ of length $$$\mathbf{L}$$$ such that, for each $$$i$$$,
+  if $$$A\ B$$$ is the $$$g(i)$$$-th line in your original design, then
+  $$$\{\mathbf{U_i}, \mathbf{V_i}\} = \{f(A), f(B)\}$$$. (The given links result from applying a permutation
+  of computer IDs to the ones you gave, and then sorting the links lexicographically).<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{L} \le \mathbf{C} + 10$$$.
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+$$$\mathbf{L} \le 20000$$$.
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py3" download="testing_tool.py">Download testing tool</a>
+</p>
+
+
+  <div class="sample-interaction-wrapper">
+    <div class="sample-interaction-header">
+      <div class="sample-interaction-header-text">Sample Interaction</div>
+    </div>
+    <div class="sample-interaction-content">
+      <div class="sample-interaction-judge-solution-labels">
+        <div class="sample-interaction-judge-label">Judge</div>
+        <div class="sample-interaction-solution-label">Solution</div>
+      </div>
+      
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Number of cases $$$\mathbf{T}=2$$$.<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 1<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4 5
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">$$$\mathbf{C}=4, \mathbf{L}=5$$$.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 2
+1 3
+4 2
+4 3
+1 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">User gives 5 connections.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1 2
+1 3
+1 4
+2 4
+3 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge happens to apply the permutation that sends each number to itself, but it still gives the connections back sorted.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 2 4 2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">User gives a list of the right size, but not a ring. Because this is a recoverable error, the judging continues.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 2.<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">New case with $$$\mathbf{C}=\mathbf{L}=4$$$.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 2
+1 4
+3 2
+3 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">User gives a cycle.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1 2
+1 3
+2 4
+3 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">The judge maintains the cycle, but changes the ids.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">2 1 3 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">The user correctly returns a ring using the changed ids.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 2 is correct, but Case 1 is not, so the final judgement is Wrong Answer.<br>
+</div>
+
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

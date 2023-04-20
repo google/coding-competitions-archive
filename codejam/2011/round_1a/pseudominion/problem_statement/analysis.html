@@ -1,0 +1,439 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2011 - Round 1A</h3><h1>Analysis: Pseudominion</h1><p>
+Let's denote the bonus numbers of a card c by c.card_draw, c.score and c.turns. Let c.index be the (zero based) index of the card in the ordering from the input file.
+</p>
+
+<p>
+After looking at the problem constraints, we can classify a card c as:
+</p>
+<ul>
+  <li>
+    a T card, if c.turns &gt; 0.
+  </li>
+  <li>
+    a C<sub>0</sub> card, if c.turns = 0 and c.card_draw = 0
+  </li>
+  <li>
+    a C<sub>1</sub> card, if c.turns = 0 and c.card_draw = 1
+  </li>
+  <li>
+    a C<sub>2</sub> card, if c.turns = 0 and c.card_draw = 2
+  </li>
+</ul>
+<p>
+Let T[i] denote the i-th T card in the sequence of all T cards sorted by the index. We define C<sub>0</sub>[i],  C<sub>1</sub>[i] and C<sub>2</sub>[i] analogously.
+</p>
+
+<p>
+The first key observation is that it never hurts to play a T card whenever we have one in our hand. We never lose turns or score and we may draw new cards by doing so.
+</p>
+
+<p>
+Let's think about some arbitrary sequence of played cards. There are two observations we need to make before we can proceed.
+</p>
+<ol>
+<li>
+Because C<sub>0</sub> cards do not add turns or cards to our hand, we can postpone playing them until we have no other cards we want to play. So we can transform any valid sequence of played cards into another sequence that has all C<sub>0</sub> cards at the very end. The total score, being the sum of individual scores of all played cards, will obviously remain the same.
+</li>
+<li>
+Let's say there are two C<sub>1</sub> cards a and b such that we played a before b, but b.index &lt; a.index. Because b.index &lt; a.index, we already had both cards in our hand when we played card a. So we can instead play card b first and card a second. The resulting sequence with a and b swapped will remain valid because a and b both have the same card bonus (1 card) and the same turn bonus (0 turns). Furthermore, the score will remain the same. We can do the same for two C<sub>2</sub> cards.
+</li>
+</ol>
+
+<p>
+The first observation shows us that we don't care about C<sub>0</sub> cards until the very end when we can use our remaining turns on whatever C<sub>0</sub> cards we have already drawn. Obviously, we should sort the C<sub>0</sub> cards in our hand by decreasing score bonus and then play as many as we can.
+</p>
+
+<p>
+The second observation shows us that we can transform any optimal sequence of played cards into another one that has cards of the same type ordered by index. This means that we can play C<sub>1</sub> (and C<sub>2</sub>) cards in increasing order by index.
+</p>
+
+<p>
+So, whenever we have more than one C<sub>1</sub> (or C<sub>2</sub>) cards in our hand we can always look at the one with the smallest index and choose whether we will play it right now or never at all.
+</p>
+
+<p>
+These observations lead us to construct a directed acyclic weighted graph. A node represents a state of the game and is defined by these properties:
+</p>
+<ul>
+  <li>
+    hand - the number of drawn cards.
+  </li>
+  <li>
+    turns - the number of turns left.
+  </li>
+  <li>
+    t - T[t] is the first T card that we haven't played yet.
+  </li>
+  <li>
+    c1 - C<sub>1</sub>[c1] is the first C<sub>1</sub> card which we are not yet sure if we are going to play.
+  </li>
+  <li>
+    c2 - C<sub>2</sub>[c2] is the first C<sub>2</sub> card which we are not yet sure if we are going to play.
+  </li>
+</ul>
+<p>
+An edge represents a valid transition from one game state to another and is usually associated with playing a card or deciding not to play a certain card at all. The weight of an edge indicates how much your score goes up when you switch between the two game states. For each node (hand, turns, t, c1, c2), we add edges according to these rules:
+</p>
+<ol>
+  <li>
+    If we have a T card in our hand, we can play it.
+    <ul>
+      <li>
+        Condition: T[t].index &lt; hand
+      </li>
+      <li>
+        Weight: T[t].score
+      </li>
+      <li>
+        Target node: (min(N, hand + T[t].card_draw), min(N, turns + T[t].turns - 1), t + 1, c1, c2)
+      </li> 
+    </ul>
+  </li>
+  <li>
+    If we have a C<sub>1</sub> card in our hand, we can play the first one.
+    <ul>
+      <li>
+        Condition: C<sub>1</sub>[c1].index &lt; hand
+      </li>
+      <li>
+        Weight: C<sub>1</sub>[c1].score
+      </li>
+      <li>
+        Target node: (min(N, hand + 1), turns - 1, t, c1 + 1, c2)
+      </li> 
+    </ul>
+  </li>
+  <li>
+    If we have a C<sub>1</sub> card in our hand, we can throw away the first one.
+    <ul>
+      <li>
+        Condition: C<sub>1</sub>[c1].index &lt; hand
+      </li>
+      <li>
+        Weight: 0
+      </li>
+      <li>
+        Target node: (hand, turns, t, c1 + 1, c2)
+      </li> 
+    </ul>
+  </li>
+  <li>
+    If we have a C<sub>2</sub> card in our hand, we can play the first one.
+    <ul>
+      <li>
+        Condition: C<sub>2</sub>[c2].index &lt; hand
+      </li>
+      <li>
+        Weight: C<sub>2</sub>[c2].score
+      </li>
+      <li>
+        Target node: (min(N, hand + 2), turns - 1, t, c1, c2 + 1)
+      </li> 
+    </ul>
+  </li>
+  <li>
+    If we have a C<sub>2</sub> card in our hand, we can throw away the first one.
+    <ul>
+      <li>
+        Condition: C<sub>2</sub>[c2].index &lt; hand
+      </li>
+      <li>
+        Weight: 0
+      </li>
+      <li>
+        Target node: (hand, turns, t, c1, c2 + 1)
+      </li> 
+    </ul>
+  </li>
+  <li>
+    We can always decide to finish the game by spending the remaining turns on C<sub>0</sub> cards. This edge leads to the special final node and the weight of the edge is defined by the greedy algorithm that spends all remaining turns picking the best C<sub>0</sub> cards.
+  </li>
+</ol>
+
+<p>
+The answer to our problem is the length of the longest path in the graph described above. The graph is acyclic, so we can use dynamic programming or recursion with memoization to find the length of the longest path.
+</p>
+
+<p>
+The number of nodes in the graph is O(n<sup>5</sup>), so the asymptotic time complexity of the algorithm is O(n<sup>5</sup>) too. In practice, the runtime of the program is really small because the vast majority of these states are unreachable. You can speed things up even more if you use the preceding observations to their full power. For example, if there is an edge corresponding to a T card, you should always follow it first.
+</p>
+<br/>
+<br/>
+<i>Remark</i>: This problem is inspired by the game Dominion, published by Rio Grande Games.
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

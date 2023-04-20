@@ -1,0 +1,406 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2017 - Code Jam to I/O for Women</h3><h1>Where Ya Gonna Call?</h1><h3>Problem</h3>
+<p>
+  Gooli is a huge company that owns <b>B</b> buildings in a hilly area. The
+  buildings are numbered from 1 to <b>B</b>.
+</p><p>
+  Last year, they built a set of slides between buildings that are now the
+  favorite form of transportation between buildings. Slides have been upgraded
+  with suction technology to make them two-way, so a slide between two
+  buildings can be used to travel between those buildings in either direction.
+  Some slides were built with turns, so their lengths do not necessarily follow
+  common sense; for instance, they do not necessarily comply with the triangle
+  inequality. Also, there is at most one slide between any pair of buildings.
+</p><p>
+  Gooli is going to choose a location to install a special super secure phone
+  for the CEO to talk to other important people. They want to minimize the
+  distance by slide from any building to the meeting location, so as to
+  minimize the time that it would take the CEO to reach it from any building.
+  Gooli does not have any more carbon kilotubes to build more slides, and the
+  CEO refuses any other type of transportation, so Gooli's communication
+  security team needs to find the best location that is reachable using only
+  already existing slides. The location could be in a building or a point
+  somewhere within a slide.
+</p><p>
+  When traveling using the slides, the CEO may use a slide, arrive at a
+  building, then use a slide that starts there, arrive at another building, and
+  so on, until she arrives at the desired location.
+  Slides used from
+  end to end contribute their full length to the total distance. If the CEO enters
+  a slide and stops inside it because she found the phone, on the other hand, only
+  the used part of the slide contributes to the total distance.
+  When measuring distance, only the slide distance is important.
+  Distance traveled within buildings to
+  connect to a new slide or reach the phone is considered to be zero.
+</p><p>
+  Given the buildings and slides in existence, can you find any optimal
+  location for the super secure phone and return the distance from a farthest
+  building to it? Note that the distance is the same for any optimal location.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> lines follow. Each test case starts with one line with a single
+  integer <b>B</b>, the number of buildings on Gooli's campus. Then, <b>B</b> -
+  1 lines follow. For i = 2, 3, ..., <b>B</b>, the (i-1)-th of these lines
+  contains (i-1) integers <b>D</b><sub>i1</sub>, <b>D</b><sub>i2</sub>, ...,
+  <b>D</b><sub>i(i-1)</sub>. <b>D</b><sub>ij</sub> is -1 if there is no slide
+  between the i-th building and the j-th building, or the length of that slide
+  otherwise. All buildings are reachable from any other building using only
+  slides, possibly passing through intermediate buildings.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the distance from an optimal location for the phone to a building farthest
+  from it. <code>y</code> will be considered correct if it is within an
+  absolute or relative error of 10<sup>-6</sup> of the correct answer. See the
+  <a href="/codejam/faq.html#floating_point">FAQ</a> for an explanation of what
+  that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 100 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  2 &le; <b>B</b> &le; 50.<br/>
+  All buildings are reachable from any other building using only slides,
+  possibly passing through intermediate buildings.<br/>
+  <b>D</b><sub>ij</sub> &ne; 0, for all i, j.<br/>
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+  -1 &le; <b>D</b><sub>ij</sub> &le; 2, for all i, j.<br/>
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+  -1 &le; <b>D</b><sub>ij</sub> &le; 10<sup>9</sup>, for all i, j.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">4
+3
+-1
+1 2
+3
+1
+1 1
+3
+4
+2 3
+4
+9
+10 7
+7 -1 5
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: 1.500000
+Case #2: 1.000000
+Case #3: 2.500000
+Case #4: 8.500000
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+<p>
+  Note that the last two cases would not appear in the Small dataset.
+</p><p>
+  In Case #1, all buildings are in a line. The only optimal location is of
+  course the middle point of the line, as any other location would make one of
+  the buildings at the end of the line be farther away.
+</p><p>
+  Case #2 depicts an equilateral triangle. Any of the three buildings would be
+  an optimal location for the phone.
+</p><p>
+  Case #3 is also a triangle, but with sides of different lengths. If we pick
+  any building, the farthest building would be at distance at least 3 from it.
+  On the other hand, if we choose a location inside the slide of size 3, at distance
+  0.5 from building 3, the distance to a farthest building is improved to 2.5.
+</p><p>
+  In Case #4, the optimal location is inside the slide of length 10 between
+  buildings 1 and 3, at distance 1.5 from building 3 and distance 8.5 from
+  building 1.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,445 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2017 - Round D</h3><h1>Trash</h1><h2>Problem</h2>
+
+<p>
+  Bob is an outstanding Googler. He loves efficiency, so he does everything
+  well and quickly. Today, Bob has discovered that the trash can near his desk has disappeared!
+  Sadly, this means that he has to use another nearby trash can instead. Since
+  getting out of his seat to use the trash can would lower his productivity,
+  Bob has decided to <i>throw</i> his trash into that trash can!
+</p>
+<p>
+  But there are many obstacles in the Google office. For example, it is rude if
+  the thrown trash hits somebody, or the wall, or anything else. Bob hopes to
+  throw the trash without touching any existing obstacles.
+</p>
+<p>
+  To simplify this problem, we will only consider the vertical plane that includes
+  Bob and the trash can. Bob is at point (0, 0); the trash can is at point
+  (<b>P</b>, 0). Moreover, there are <b>N</b> obstacles in the office; each of them
+  is a single point, and the i-th one has coordinates
+  (<b>X<sub>i</sub></b>, <b>Y<sub>i</sub></b>).
+
+  The ceiling of the office is a line with the expression
+  <b>y</b>=<b>H</b> in the plane. Since Bob is in one of the new high-tech
+  floating offices, we do not consider the office floor in this problem; you
+  do not need to worry about collisions with it.
+
+  Bob will throw a piece of trash that is a circle with radius <i>R</i>.
+  The center of the piece of trash starts off at (0, 0). When
+  the piece of trash is thrown, the center of the piece of trash must follow
+  the path of a parabola with the expression f(x)=<i>a</i>x(x-<b>P</b>),
+  where 0 &le; x &le; <b>P</b>, and <i>a</i> can be any real number less than
+  or equal to 0. The piece of trash is only considered thrown away when its
+  center reaches the trash can's point, and it is not enough for some part of
+  the piece of trash to just touch that point.
+</p>
+<p>
+  Bob is wondering: what is the largest piece of trash he can throw without
+  hitting the ceiling or any obstacles? That is, we must find the maximum value
+  of <i>R</i> for which there is at least one value <i>a</i> that satisfies the
+  following: for any 0 &le; x &le; <b>P</b>, the Euclidean distance between
+  (x, f(x)) and (x, H) is greater than <i>R</i>, and for each i, the
+  Euclidean distance between the point (x, f(x)) and
+  (<b>X<sub>i</sub></b>, <b>Y<sub>i</sub></b>) is greater than or equal to <i>R</i>.
+</p>
+
+<h3>Input</h3>
+<p>
+  The input starts with one line containing one integer <b>T</b>, the
+  number of test cases. <b>T</b> test cases follow. The first line of each
+  test case contains three integers <b>N</b>, <b>P</b>, and <b>H</b>: the
+  number of obstacles, the x-coordinate of the trash can, and the height of
+  the ceiling. Then, there are <b>N</b> more lines; the i-th of those lines
+  represents the i-th obstacle, and has two integers <b>X<sub>i</sub></b> and
+  <b>Y<sub>i</sub></b>, representing that obstacle's coordinates.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code> is
+  a double representing the maximum radius <b>R</b>. Your answer will be
+  considered correct if it is within an absolute or relative error of
+  10<sup>-4</sup> of the correct answer. See the
+  <a href="https://codingcompetitions.withgoogle.com/kickstart/faq" target="_blank">FAQ</a> for an explanation
+  of what that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+
+1 &le; <b>T</b> &le; 50.<br>
+Time limit: 120 seconds per test set.<br/>
+Memory limit: 1GB.<br/>
+2 &le; <b>P</b> &le; 1000.<br>
+2 &le; <b>H</b> &le; 1000.<br>
+0 &lt; <b>X<sub>i</sub></b> &lt; <b>P</b>.<br>
+0 &lt; <b>Y<sub>i</sub></b> &lt; <b>H</b>.<br>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<b>N</b> = 1.<br>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+1 &le; <b>N</b> &le; 10.<br>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="trash_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+1 10 10
+5 3
+1 10 10
+5 4
+1 100 10
+50 3
+2 10 10
+4 2
+6 7
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="trash_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 3.23874149472
+Case #2: 4.0
+Case #3: 3.5
+Case #4: 2.23145912401
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    Note that the last sample case would not appear in the Small dataset.
+  </p>
+  <p>
+    The following picture illustrates Sample Case #1. Bob is at (0, 0), and
+    the trash can is at (10, 0). There is a obstacle at point (5, 3), marked
+    with a star. If Bob throws trash over the top of the obstacle, the maximal
+    <i>R</i> is 3.2387, which requires an <i>a</i> of about -0.2705. If Bob
+    throws trash under the obstacle, the maximal <i>R</i> is 3, which requires
+    an <i>a</i> of 0. So the maximum <i>R</i> for this case is about 3.2387.
+  </p>
+  <img src="figure_1.png"/>
+  <p>
+    Sample Case #2 is like Sample Case #1, but the obstacle is one unit higher.
+    Now, if Bob throws the trash under the obstacle, the maximal <i>R</i> is 4
+    (for <i>a</i> = 0). If he throws the trash over the obstacle, he can only
+    use trash with a radius up to about 2.8306 (with <i>a</i> = -0.4). So the
+    maximum <i>R</i> for this case is 4.
+  </p>
+</sampleio>
+
+    </div>
+  </body>
+</html>

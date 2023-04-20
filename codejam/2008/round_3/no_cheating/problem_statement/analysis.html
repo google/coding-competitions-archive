@@ -1,0 +1,448 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - Round 3</h3><h1>Analysis: No Cheating</h1><p>
+  Programming contests have certainly changed over the years. Nowadays, dynamic
+  programming is a trivial matter to many, and bipartite matching is no longer a
+  secret idea. More than half of the contestants solved the small datasets of
+  this problem, and 77 passed the large tests.
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+  The small tests can be solved using dynamic programming. The main idea is to
+  do this row by row.
+</p><p>
+  The naive dynamic programming has states (R1, r), where r is the row number
+  and R1 is the possible configurations of the current row. In order to compute
+  the value of (R1, r), (the maximum number of students who can be put in the
+  first r rows, with the r-th row identical to R1), one can loop through all of
+  the possible values of R2 and use the value of (R2, r-1).
+</p><p>
+  A more sophisticated approach also goes row by row, but in each row, we do it
+  by squares. The states are (S, r, c), where (r, c) is the current position,
+  and S is the bitmap for up to n positions before (r, c). These are all the
+  squares to the left on the same row, and all the squares from the
+  <nobr>(c-1)-st</nobr> to the last on the last row. In this way, each value of
+  (S, r, c) can be computed in constant time.
+</p><p>
+  One may estimate the number of states to be <nobr>O(M N 2<sup>N</sup>)</nobr>.
+  But actually the number of states is much smaller. It is not hard to see, with
+  the restriction that no two horizontally adjacent seats can be both occupied,
+  that the number of states S is <nobr>O(F<sub>N</sub>)</nobr>, the N-th
+  Fibonacci number. This means that the dynamic programming solution can even
+  handle a classroom of size about 35 by 35.
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+  Well, but universities do have very large classrooms. The large dataset has
+  tests with 80 rows and 80 columns.
+</p><p>
+  The key idea is to see through the puzzle and notice that this is a standard
+  graph problem. Let each square be a node. What the problem requires is to pick
+  a set of nodes, such that some pairs of nodes cannot be picked together. Let
+  us draw an edge between each such pair of nodes. This is the well-known
+  problem of finding a maximum independent set of the graph. While the general
+  independent set problem is NP-hard, we do know that the problem is tractable
+  on bipartite graphs. A-ha! The graph is indeed bipartite, because all of the
+  edges are between a square in odd-numbered columns and squares in
+  even-numbered columns.
+</p><p>
+  We can easily find the
+  <a href="http://www.google.com/search?hl=en&q=maximum+matching&btnG=Google+Search" target="_blank">maximum matching</a>
+  on bipartite graphs. Let's see how a maximum matching can help us solve the
+  problem. Let's assume that the size of the matching is <i>X</i>, and the
+  number of nodes in the graph is <i>N</i>. Notice that the the maximum
+  independent set cannot contain more than
+  <nobr><i>N</i> - <i>X</i></nobr> nodes, because that would mean you will have
+  two nodes that share an edge of the maximum matching in this set.
+</p><p>
+  In general, we have the following relations between the important graph
+  parameters. For a graph <nobr>G = (V, E)</nobr>, let &alpha;(G) be the size of
+  the maximum independent set, m(G) be the size of a maximum matching, &mu;(G)
+  be the size of a minimum vertex cover,
+</p>
+<ul>
+  <li>
+    The complement of an independent set is a vertex cover, and vice versa. So
+    <nobr>&alpha;(G) + &mu;(G) = |V|.</nobr>
+  </li>
+  <li>
+    To cover all the edges, we need one vertex from any edge of a matching. So
+    <nobr>&mu;(G) &ge; m(G)</nobr>.
+  </li>
+  <li>
+    If G is bipartite, then <nobr>&mu;(G) = m(G)</nobr>. Equivalently,
+    <nobr>&alpha;(G) + m(G) = |V|</nobr>.
+  </li>
+</ul>
+<p>
+  The last fact can be proved directly, or as a consequence of Hall's theorem,
+  or as an application of the powerful max-flow-min-cut theorem. Below we
+  provide a constructive proof that suits to our problem.
+</p>
+
+<h3>Proof</h3>
+<p>
+  We will prove that <nobr><i>N</i> - <i>X</i></nobr> is smaller than or equal
+  to the size of the maximum independent set. Let's have a maximum matching
+  <i>M</i> and a set <i>S</i> which contains all the nodes that are not in
+  <i>M</i>. Now let's add to <i>S</i> all the nodes from <i>M</i> which are on
+  the left side of the bipartite graph. <i>S</i> is of size
+  <nobr><i>N</i> - <i>X</i></nobr
+  >. If <i>S</i> is not an independent set, then it has a node <i>u</i> from
+  <i>M</i> and another one <i>v</i> that doesn't belong to <i>M</i>, such that
+  <nobr>(<i>u</i>, <i>v</i>)</nobr> is an edge. To fix this problem we remove
+  <i>u</i> from <i>S</i> and add node <i>u'</i> to <i>S</i> where
+  <nobr>(<i>u</i>, <i>u'</i>)</nobr> is an edge from the matching. If this
+  operation caused a problem with another node in the matching, then we can
+  remove that node and add it's match, and so on. This repeated procedure is
+  guaranteed to finish since we only delete nodes from the left side of the
+  graph and add nodes from the right side. There will be no problem caused by
+  the nodes on the right side of the graph and nodes outside the matching
+  because that would mean that we can find an alternating path, and the maximum
+  matching is not the largest possible.
+</p><p>
+  We have proved that in any bipartite graph, the size of the maximum
+  independent set equals the size of the graph minus the size of the maximum
+  matching.
+</p>
+
+<h3>Code</h3>
+<p>
+  We believe that many contestants have the standard bipartite matching
+  algorithm prepared. You may download many nice samples from the scoreboard.
+  Below we show a sample solution which keeps the bipartite graph only in mind,
+  and actually runs the matching algorithm on the board itself. From the judges:
+</p>
+<pre>
+int C, N, M;
+string bd[100];
+
+int nbx[100][100], nby[100][100], v[100][100];
+int T=0;
+
+bool dfs(int a, int b) {
+  if (a&lt;0) return true;
+  if(v[a][b]==T) return false;
+  v[a][b]=T;
+  for (int i=a-1;i&lt;=a+1;i++)
+    for (int j=b-1;j&lt;=b+1;j+=2)
+      if (i&gt;=0 &amp;&amp; i&lt;M &amp;&amp; j&gt;=0 &amp;&amp; j&lt;N &amp;&amp; bd[i][j]=='.') {
+        if (dfs(nbx[i][j], nby[i][j])) {
+          nbx[i][j]=a; nby[i][j]=b;
+          nbx[a][b]=i; nby[a][b]=j;
+          return true;
+        }
+      }
+  return false;
+}
+
+int play() {
+  memset(nbx,-1,sizeof(nbx));
+  memset(nby,-1,sizeof(nby));
+  memset(v, -1, sizeof(v)); T=-1;
+  int rst=0;
+  for(int i=0;i&lt;M;i++) for(int j=0;j&lt;N;j++) {
+    if (bd[i][j]=='.') {
+      rst++;
+      if (j%2) {
+        T++;
+        if (dfs(i,j)) rst--;
+      }
+    }
+  }
+  return rst;
+}
+
+int main() {
+  cin&gt;&gt;C;
+  for (int i=1; i&lt;=C; i++) {
+    cin&gt;&gt;M&gt;&gt;N;
+    for (int r=0;r&lt;M;r++) cin&gt;&gt;bd[r];
+    cout&lt;&lt;"Case #"&lt;&lt;i&lt;&lt;": "&lt;&lt;play()&lt;&lt;endl;
+  }
+  return 0;
+}
+</pre>
+
+<h3>More Information</h3>
+<p>
+  <a href="http://www.google.com/search?hl=en&q=maximum+independent+set&btnG=Search" target="_blank">Maximum independent set</a> -
+  <a href="http://www.google.com/search?hl=en&q=Bipartite+Matching&btnG=Search" target="_blank">Bipartite Matching</a>
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

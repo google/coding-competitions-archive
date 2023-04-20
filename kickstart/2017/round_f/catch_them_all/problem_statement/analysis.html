@@ -1,0 +1,391 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2017 - Round F</h3><h1>Analysis: Catch Them All</h1><h2>Catch Them All: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  We can start by computing the shortest distance between each pair of
+  locations using the
+  <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd-Warshall</a> algorithm. We will use dis[i, j] to represent the shortest
+  distance between locations i and j.
+</p>
+<p>
+  Let dp[K, L] be the expected time needed to catch K Codejamons when starting
+  from location L. Then we can use a dynamic programming algorithm with the
+  following state transition equation:
+</p>
+<pre>
+  if (K == 0):
+    dp[K, L] = 0;
+  else:
+    dp[K, L] = &Sigma;<sub>i!=L</sub>(dp[K-1, i] + dis[L, i]) / (<b>N</b>-1).
+</pre>
+<p>
+  The algorithm above takes O(<b>N</b><sup>2</sup><b>P</b>) time, which is fast
+  enough to solve the Small dataset.
+</p>
+<h3>Large dataset</h3>
+<p>
+  We can find that for each dp[K, L], the answer is a linear expression of
+  dp[K-1, i] when K != 0. So, we can rewrite the state transition equation as
+  the product of a matrix and a column vector, as shown below.
+</p>
+<p>
+Let S[i] = &Sigma;<sub>j!=i</sub>(dis[i, j]).
+</p>
+<pre>
+  +----------+   +---------------------------------------------+   +------------+
+  | dp[K, 1] |   |    0   , 1/(N-1), ... , 1/(N-1), S[1]/(N-1) |   | dp[K-1, 1] |
+  | dp[K, 2] |   | 1/(N-1),    0   , ... , 1/(N-1), S[2]/(N-1) |   | dp[K-1, 2] |
+  |   ...    | = |   ...  ,   ...  , ... ,   ...  ,     ...    | * |    ...     |
+  | dp[K, N] |   | 1/(N-1), 1/(N-1), ... ,    0   , S[N]/(N-1) |   | dp[K-1, N] |
+  |    1     |   |    0   ,    0   , ... ,    0   ,     1      |   |     1      |
+  +----------+   +---------------------------------------------+   +------------+
+</pre>
+<p>
+  Let F<sub>K</sub> denote the column vector of dp[K, i], and let A denote the
+  transition matrix. Then we have F<sub>K</sub> = A * F<sub>K-1</sub> =
+  A<sup>K</sup> * F<sub>0</sub>.
+</p>
+<p>
+  With the approach above, we can use
+  <a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring">exponentiation by squaring</a>
+  to accelerate the computation of A<sup>K</sup>. This gives us an
+  O(<b>N</b><sup>3</sup>log<b>P</b>) algorithm which can solve the Large
+  dataset.
+</p>
+
+<h3>Other solutions</h3>
+<p>
+  Let Pr<sub>t</sub> be the probability of being at location 1 after catching t
+  Codejamons. Initially, Pr<sub>0</sub> = 1. Since at any time, the
+  probabilities of being at locations 2, 3, ..., <b>N</b> (let's call them the
+  "other locations") are the same, we can calculate the probability of the next
+  Codejamon appearing at location 1 by multiplying the probability of being at
+  any of the other locations by the probability of location 1 being chosen.
+  Therefore, we have Pr<sub>t</sub> = (1 - Pr<sub>t-1</sub>) / (<b>N</b>-1).
+</p>
+<p>
+  After computing the values of Pr<sub>i</sub> for i = 1, 2,..., <b>P</b>-1,
+  the answer to the problem is:
+</p>
+<p>
+  &Sigma;(Pr<sub>i</sub> * (expected distance from location 1) + &Sigma;(1 - Pr<sub>i</sub>) / (N-1) * (expected distance from location j) for j = 2, 3, ..., N) for i = 0, 1, ..., <b>P</b>-1.
+</p>
+<p>
+  Note: the expected distance from location i equals &Sigma;dis[i, j] /
+  (<b>N</b>-1) for j = 1, 2, ..., <b>N</b>.
+</p>
+<p>
+  We might not have enough time to compute all <b>P</b> values of the sequence
+  Pr<sub>i</sub>, but one may notice that this sequence converges quickly
+  (except for <b>N</b>=2, which we can handle separately). Intuitively, as the
+  game progresses, the probabilities of you being at each of the <b>N</b>
+  locations become more equal. For example, if <b>N</b>=4, the first few values
+  for Pr<sub>t</sub> are 1, 0, 0.333, 0.222, 0.259, 0.247, 0.251, 0.250, ...
+  Once this value gets very close to 1 / <b>N</b>, after some threshold like
+  i = 100 (depending on the numerical error allowed), we can simply approximate
+  Pr<sub>i</sub> = 1/<b>N</b> for all i larger than the threshold. Then
+  i = 100, 101, ..., <b>P</b>-1 in the previous summation can be replaced by a
+  multiplication: (<b>P</b>-100) * &Sigma;(expected distance from location j) /
+  <b>N</b> for j = 1, 2, ..., <b>N</b>.
+</p>
+<p>
+  The time complexity for the above algorithm is O(<b>N</b><sup>3</sup> + C),
+  where C depends on the numerical error allowed.
+</p>
+<p>
+  Using the sequence of Pr<sub>t</sub> values, it is also possible to calculate
+  the exact answer. Let's make another sequence A<sub>i</sub> =
+  Pr<sub>i</sub> - 1/<b>N</b>. This sequence converges to 0 and is a geometric
+  progression because:
+</p>
+<ul>
+  <li>Pr<sub>i</sub> = (1 - Pr<sub>i-1</sub>) / (<b>N</b>-1)</li>
+  <li>A<sub>i</sub> + 1/<b>N</b> = (1 - A<sub>i-1</sub> - 1/<b>N</b>) /
+    (<b>N</b>-1)</li>
+  <li>A<sub>i</sub> + 1/<b>N</b> = -A<sub>i-1</sub> / (<b>N</b>-1) +
+    1/<b>N</b></li>
+  <li>A<sub>i</sub> = -A<sub>i-1</sub> / (<b>N</b>-1).</li>
+</ul>
+<p>
+  &Sigma;A<sub>i</sub> for i = 0, 1, ..., <b>P</b>-1 can be calculated using
+  the formula for the sum of a
+  <a href="https://en.wikipedia.org/wiki/Geometric_progression#Geometric_series">geometric series</a>.
+  With &Sigma;A<sub>i</sub>, we can obtain &Sigma;Pr<sub>i</sub>
+  = 1/<b>N</b> * <b>P</b> + &Sigma;A<sub>i</sub>, and ultimately the answer.
+  The time complexity for the above algorithm is O(<b>N</b><sup>3</sup>).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

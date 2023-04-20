@@ -1,0 +1,366 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1B</h3><h1>Analysis: Draupnir</h1><p>
+  In this problem, we need to determine the number of each type of
+  X-day ring by querying the total number of rings in existence at the
+  end of a certain day.
+</p><p>
+  Let R<sub>1</sub> be the number of 1-day rings, R<sub>2</sub> be the number
+  of 2-day rings, ... etc. at the end of day 0. The
+  number of X-day rings doubles at the end of every day that is a
+  multiple of X. Thus, the total number of rings on day i is
+  <pre>
+    R<sub>1</sub>*2<sup>i</sup> + R<sub>2</sub>*2<sup>floor(i/2)</sup> + R<sub>3</sub>*2<sup>floor(i/3)</sup> + R<sub>4</sub>*2<sup>floor(i/4)</sup> + R<sub>5</sub>*2<sup>floor(i/5)</sup> + R<sub>6</sub>*2<sup>floor(i/6)</sup>.
+  </pre>
+</p>
+<h3>Test set 1</h3>
+<p>
+  In the first test set, we are allowed six queries to determine the
+  six unknown variables.  Note that if we query any day number larger
+  than 63, then the number of 1-day rings on that day will be a
+  multiple of 2<sup>63</sup> (equivalently, it is 0 modulo
+  2<sup>63</sup>). Similarly, if we query any day number larger than
+  X*63, then the number of X-day rings will be 0 modulo 2<sup>63</sup>
+  on that day.
+</p><p>
+  Thus, on day 315 (=5*63), the total number of rings, modulo
+  2<sup>63</sup>, is R<sub>6</sub>*2<sup>52</sup> (since the number
+  of 1-day, 2-day, ..., 5-day rings are all 0 modulo
+  2<sup>63</sup>). Since R<sub>6</sub> &le; 100, we know that
+  R<sub>6</sub>*2<sup>52</sup> does not exceed 2<sup>63</sup>, so we
+  can directly determine R<sub>6</sub>. Then, on day 252 (=4*63), the
+  total number of rings, modulo 2<sup>63</sup>, is
+  R<sub>6</sub>*2<sup>42</sup> + R<sub>5</sub>*2<sup>50</sup>. Since
+  we already know R<sub>6</sub> and we know this sum cannot be more
+  than 2<sup>63</sup>, we can solve for R<sub>5</sub>. We may continue
+  this process by querying days 189 (=3*63), 126 (=2*63), 63 (=1*63)
+  and 1 to determine R<sub>4</sub>, R<sub>3</sub>, R<sub>2</sub> and
+  R<sub>1</sub>, respectively.
+</p>
+<h4>Alternative</h4>
+<p>
+  Note that since we are querying six days and attempting to solve for
+  six variables, we may choose to query (for example) days 1,2, ... , 6.
+  This gives us a system of equations with six equations and six variables.
+  Since these equations are linearly independent, we can solve this system,
+  via <a href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a>
+  for example, to get the solution.
+</p>
+<h3>Test set 2</h3>
+<p>
+  The second test set requires another insight. We are only given two
+  queries, so we must be able to solve for multiple R<sub>i</sub> at
+  once.
+</p><p>
+  Let's think about what information we get by querying day 189
+  (=3*63). This gives R<sub>6</sub>*2<sup>31</sup> +
+  R<sub>5</sub>*2<sup>37</sup> + R<sub>4</sub>*2<sup>47</sup>, modulo
+  2<sup>63</sup>.  However, it is possible that there is some
+  overlap between R<sub>6</sub>*2<sup>31</sup> and
+  R<sub>5</sub>*2<sup>37</sup>. For example, all other things being equal, we
+  would not be able to differentiate between the case where R<sub>6</sub>=64 and
+  R<sub>5</sub>=0 and the case where R<sub>6</sub>=0 and
+  R<sub>5</sub>=1. Both of these would have 2<sup>37</sup> total rings.
+</p><p>
+  We must use the fact that R<sub>i</sub> &le; 100. In order for the
+  number of i-day rings to not interfere with the number of (i-1)-day
+  rings on day d, we need 2<sup>floor(d/(i-1))</sup> > 100 *
+  2<sup>floor(d/i)</sup> (note that this is equivalent to
+  floor(d/(i-1)) &ge; floor(d/i)+7 since 2<sup>7</sup> > 100). If we
+  ignore the modulo 2<sup>63</sup> restriction, then we could solve
+  the question in a single query of (for example) 1000. This would
+  give us
+  <pre>
+    R<sub>1</sub>*2<sup>1000</sup> + R<sub>2</sub>*2<sup>500</sup> + R<sub>3</sub>*2<sup>333</sup> + R<sub>4</sub>*2<sup>250</sup> + R<sub>5</sub>*2<sup>200</sup> + R<sub>6</sub>*2<sup>166</sup>.
+  </pre>
+  Since R<sub>i</sub> &le; 100, we coud determine R<sub>6</sub> by
+  taking this value modulo 2<sup>200</sup> to get
+  R<sub>6</sub>*2<sup>166</sup>, then by dividing by 2<sup>166</sup>.
+  We then could iteratively determine R<sub>5</sub>, R<sub>4</sub>, ...,
+  R<sub>1</sub>. However, this idea does not work since the problem is
+  modulo 2<sup>63</sup>. There is no single query that can
+  give us all of the information we need, modulo 2<sup>63</sup>.
+</p><p>
+  We will use one query to determine the values of
+  R<sub>4</sub>, R<sub>5</sub>, and R<sub>6</sub>, followed by a
+  second query to determine the values of R<sub>1</sub>,
+  R<sub>2</sub>, and R<sub>3</sub>. We saw above that a query of 189
+  (=3*63) will not work. However, a query of (for example) 200 will
+  work:
+  <pre>
+    R<sub>4</sub>*2<sup>50</sup> + R<sub>5</sub>*2<sup>40</sup> + R<sub>6</sub>*2<sup>33</sup>,
+  </pre>
+  and then solve for each in the same way as for the 1000 case. We can
+  then make a second query of (for example) 56:
+  <pre>
+    R<sub>1</sub>*2<sup>56</sup> + R<sub>2</sub>*2<sup>28</sup> + R<sub>3</sub>*2<sup>18</sup> + R<sub>4</sub>*2<sup>14</sup> + R<sub>5</sub>*2<sup>11</sup> + R<sub>6</sub>*2<sup>9</sup>.
+  </pre>
+  We know the value of R<sub>4</sub>, R<sub>5</sub>, and R<sub>6</sub>
+  from the first step, so we may substitute those in and then solve
+  for R<sub>1</sub>, R<sub>2</sub>, and R<sub>3</sub> one-by-one.
+</p><p>
+  Note that the choice of 200 and 56 above were not the only possible
+  options. In this problem, we could either guess-and-check for these
+  values offline or (preferably) write a loop in the program to find
+  two values that satisfy the criteria. We also need to ensure that
+  the term with the largest exponent is not too large. For example,
+  we cannot use a query of 250 in the first step since this gives
+  R<sub>4</sub>*2<sup>62</sup> + R<sub>5</sub>*2<sup>50</sup> +
+  R<sub>6</sub>*2<sup>41</sup>, because the first term
+  (R<sub>4</sub>*2<sup>62</sup>) may be at least 2<sup>63</sup>.
+</p>
+
+    </div>
+  </body>
+</html>

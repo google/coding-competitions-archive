@@ -1,0 +1,383 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round E</h3><h1>Analysis: Birthday Cake</h1><p>
+  In what follows, let us suppose that the delicious part of the cake has $$$n$$$ rows and $$$m$$$
+  columns.
+</p>
+
+<h3>
+Test Set 1
+</h3>
+<p>
+  When $$$\mathbf{K}=1$$$, we must consider two cases. If the delicious part is fully inside the cake,
+  meaning that the outer cells are not delicious, then all grid lines around the delicious cells
+  must be cut. Specifically, there are $$$n+1$$$ grid lines of length $$$m$$$ and $$$m+1$$$ grid
+  lines of length $$$n$$$, so the answer is $$$n(m+1)+m(n+1)=2nm+n+m$$$ plus the minimum distance
+  to cut from the border to the delicious part. On the other hand, if the delicious
+  part shares some border with the whole cake, then the answer is $$$2nm+n+m$$$ minus the length of
+  the shared border. The time complexity is $$$O(1)$$$.
+</p>
+
+<h3>
+Test Set 2
+</h3>
+
+<p>
+  Let us start out simple. Suppose a cake of size $$$n \times m$$$ is entirely delicious and needs to
+  be cut into $$$1 \times 1$$$ squares. This means that we need to cut the cake along all internal
+  grid lines, which are marked bold in the following picture. Moreover, suppose for the moment that
+  our knife is infinitely long. One way to cut the cake would be to make $$$n-1$$$ horizontal
+  cuts and then make $$$m-1$$$ vertical cuts for each of the resulting $$$n$$$ horizontal strips.
+  This strategy amounts to $$$n-1+n(m-1)=nm-1$$$ cuts. If we start with $$$m-1$$$ long vertical cuts
+  first, then we would need $$$n-1$$$ horizontal cuts for each of the $$$m$$$ vertical strips,
+  which again results in $$$m-1+m(n-1)=nm-1$$$ cuts.
+</p>
+<img src="images/grid.png" width="30%" alt="An example grid with 7 rows and 11 columns."/>
+<p>
+  Can we do any better? No. In order to
+  prove this claim, let us consider the worst case scenario where we make cuts of length $$$1$$$
+  only, which means $$$n(m-1)+m(n-1)=2nm-n-m$$$ cuts in total. Since we have a very long knife,
+  we can try to combine or merge some of those unit cuts into longer cuts. Now, at each internal
+  grid point, we
+  can merge the two vertical cuts meeting at that point or the two horizontal cuts, but not both.
+  Thus, we can save at most one cut at each internal grid point. There are $$$(n-1)(m-1)=nm-n-m+1$$$
+  internal grid points, which is how many cuts we can possibly save. It follows that we need at
+  least $$$2nm-n-m-(nm-n-m+1)=nm-1$$$ cuts to divide the cake into unit squares.
+</p>
+<p>
+  Now that we know how to cut a fully delicious cake with a sufficiently long knife (i.e.
+  $$$\mathbf{K} \ge n$$$ or $$$\mathbf{K} \ge m$$$), let us turn our
+  attention to the case where the length of the knife is $$$\mathbf{K} \lt \min(n,m)$$$. With a cake this
+  large, some cuts will necessarily terminate at a previously unexposed internal grid point. For
+  convenience, we will call them <i>red</i> points. And if we continue the reasoning from the
+  previous paragraph, the red points will not save a cut for us. In other words, as soon as we stop
+  at a previously unexposed grid point, the three other grid lines meeting at that point will
+  belong to different cuts with no chance of merging any two of them.
+  Conversely, if a cut exposes an
+  internal grid point without terminating at it, then that grid point belongs to just three
+  different cuts and so one cut is saved.
+  Consequently, we want to minimize the number of red points.
+</p>
+<p>
+  To prove a lower bound on the number
+  of red points, let us consider $$$\lfloor \frac{n-1}{\mathbf{K}} \rfloor$$$ rows of $$$\mathbf{K} \times \mathbf{K}$$$
+  blocks,
+  $$$\lfloor \frac{m-1}{\mathbf{K}} \rfloor$$$ blocks in each row as shown in the following picture for
+  $$$\mathbf{K}=3$$$. If we consider the blocks open at the left and bottom sides and closed at the right
+  and top sides, then each of the blocks contains $$$\mathbf{K} \times \mathbf{K}$$$ internal grid points and any
+  two blocks are disjoint. One can easily verify that the very first cut that has a point common
+  with a particular block will create a red point in that block. Since the blocks are disjoint,
+  there will be at least $$$\lfloor \frac{n-1}{\mathbf{K}} \rfloor \times \lfloor \frac{m-1}{\mathbf{K}} \rfloor$$$
+  red points for any cutting strategy.
+</p>
+<img src="images/grid_with_blocks.png" width="30%" alt="A 7x11 grid with six 3x3 blocks of cells in a compact arrangement starting from the bottom-left corner."/>
+<p>
+  It turns out that for an optimal cutting strategy this is also the upper bound on the number of
+  red points. One
+  way of achieving this bound is to select the top-right corner of each block as the red point, cut
+  out the blocks with $$$2\lfloor \frac{n-1}{\mathbf{K}} \rfloor \times \lfloor \frac{m-1}{\mathbf{K}} \rfloor$$$ full
+  cuts, and finally cut all the blocks and the L-shaped remaining part into unit squares without
+  ever terminating at a previously unexposed grid point (i.e. without introducing new red points).
+  Recall that every internal grid point that is not red saves us one cut. It follows that the
+  minimum number of cuts to partition a fully delicious cake is
+  $$$nm-1+\lfloor \frac{n-1}{\mathbf{K}} \rfloor \times \lfloor \frac{m-1}{\mathbf{K}} \rfloor$$$. Note that the case
+  with a sufficiently long knife is a special case of this formula, as
+  $$$\lfloor \frac{n-1}{\mathbf{K}} \rfloor \times \lfloor \frac{m-1}{\mathbf{K}} \rfloor=0$$$.
+</p>
+<img src="images/grid_with_red_points.png" width="30%" alt="The same grid containing 3x3 blocks with the top-right grid point of each block marked as red."/>
+<p>
+  It remains to solve the problem for a cake that is partially not delicious. Intuitively, it
+  seems reasonable to cut out the delicious rectangle first and then proceed with the above
+  strategy to partition the delicious part into unit squares. To cut out the delicious rectangle, we
+  should start cutting from the outer border of the cake towards one of the corners of the delicious
+  rectangle and then cut around the rectangle as shown in the following picture for $$$\mathbf{K}=3$$$.
+  There are eight symmetric variants to try and we take the minimum number of cuts obtained this
+  way. We should be careful, though, not to include any sides of the delicious rectangle that are
+  touching the border of the whole cake.
+</p>
+<img src="images/outer_border.png" width="30%" alt="A 7x11 cake with the delicious part between rows 3 and 6 and columns 3 and 8. One way of cutting out the delicious part is shown as follows: Start at the left side between rows 2 and 3, cut 3 cells to the right, cut another 3 cells to the right, cut 2 cells to the right, cut 3 cells down, cut 1 cell down, cut 3 cells to the left, cut another 3 cells to the left, cut 4 cells up, cut 1 cell up."/>
+<p>
+  A skeptical reader might ask whether it could be worth considering a cutting strategy where we
+  start from the outer border and cut towards somewhere in the middle of the delicious rectangle.
+  If the distance from the border to the delicious rectangle is not divisible by $$$\mathbf{K}$$$, then the
+  last step would cut right into the delicious part and perhaps save one cut for the internal
+  grid lines of the delicious rectangle. It can be shown, however, that we would need one extra
+  cut for the outline in this case, so overall we would not gain anything. The proof of this
+  claim is technical yet not very interesting, so it is left for the reader as an exercise.
+</p>
+<p>
+  The time complexity of the solution for Test Set 2 is still $$$O(1)$$$.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

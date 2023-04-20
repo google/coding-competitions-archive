@@ -1,0 +1,472 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2019 - Code Jam to I/O for Women</h3><h1>Analysis: Sheepwalking</h1><h3>Herding strategy</h3>
+<p>
+  What is the most efficient way to herd Bleatrix from cell
+  (<b>X</b>, <b>Y</b>) back to the "origin" cell (0, 0)? We will simplify our
+  discussion by assuming that <b>X</b> and <b>Y</b> are both nonnegative;
+  because Bleatrix's two-dimensional field is symmetric across both axes, our
+  solutions can safely work with the absolute values of <b>X</b> and <b>Y</b>.
+</p><p>
+  If Bleatrix is ever at a cell (x, y) such that x &ne; 0, and y &ne; 0
+  &mdash; that is, she is not along one of the two "axes" of cells &mdash; then
+  two of her possible moves will take her toward the origin cell (reducing
+  either her horizontal or vertical distance from it), and the other two will
+  take her away from the origin. In this case, we should use the two sheepdogs
+  to block the two "away" moves. Any move away from the goal in some direction
+  would need to be reversed later on, costing us two moves. Moreover, we do not
+  want to spend both sheepdogs to block opposite directions of movement (e.g.,
+  placing them to Bleatrix's left and right to force her to move either up or
+  down), because then she would make a purely random horizontal or vertical
+  walk, with no tendency toward the goal.
+</p><p>
+  The only remaining case &mdash; apart from being at the origin and thus being
+  done &mdash; is that Bleatrix is at a cell of the form (x, 0) or (0, y).
+  That is, she is along one of the two main "axes" of unit cells; without loss
+  of generality, we will suppose she is at a cell of the form (0, y).
+</p><p>
+  We know from the argument above that we do not want to use both sheepdogs to
+  force her to randomly walk along the y-axis, so we should use one sheepdog to
+  block her movement along the y-axis away from the origin. But should we
+  deploy the other sheepdog to block one of her moves perpendicular to the
+  axis? If we do not, she will move toward the goal with probability &frac13;
+  and perpendicular to it with probability &frac23;; if we do, she will move
+  toward or perpendicular to the goal with equal probability. Since moving
+  toward the goal is better (again, any lateral move needs to be undone
+  eventually), we should use the additional sheepdog. For convenience, we will
+  always deploy it in a way that keeps both of her coordinates nonnegative
+  &mdash; that is, below her if she is along the x-axis, and to the left of her
+  if she is on the y-axis.
+</p><p>
+  A more rigorous proof of the optimality of our strategy follows at the end of
+  this analysis.
+</p>
+<h3>Simulation can only get us so far!</h3>
+<p>
+  Now that we have a strategy, a natural approach is to simulate it and take
+  the average of, say, a million runs. Test set 1 only includes nine distinct
+  cases; the others are symmetric, differing only in signs and/or in which
+  values are X and Y. How hard can it be to get those nine answers?
+</p><p>
+  As it turns out: pretty hard! The problem is that the length of our random
+  walk has very high variance, so it is hard to get a confident estimate of the
+  true expected length. A straightforward simulation solution will either take
+  too long or not meet the strict tolerance requirements of the problem.
+  However, we can run simulations offline and inspect the results, and we might
+  notice that the answers are always close to a value of the form A / 9, where
+  A is some integer. This pattern will not hold up for X and Y values outside
+  of the [-3, 3] range, but it can serve us well here &mdash; an offline
+  simulation can get us close enough to the true answers that we can
+  confidently guess the value of A for each case, and then submit a solution
+  that packages up those answers.
+</p><p>
+  It is also possible to solve Test set 1 by hand, using the same method that
+  also leads to a solution for Test set 2...
+</p>
+<h3>Expected herding time</h3>
+<p>
+  Notice that the problem is "memoryless"; if Bleatrix moves to cell (x, y),
+  the expected number of additional moves to reach the origin from there is the
+  same as if she had begun at (x, y). So, to calculate the expected number of
+  moves needed from a given starting point, we can use a series of
+  <i>recurrences</i>. Let T(x, y) be the expected number of moves when starting
+  from cell (x, y); trivially, T(0, 0) = 0. Let us consider our cases from
+  above:
+</p>
+<ul>
+  <li>Some cell (x, y) not on an axis: Bleatrix will move either left or down
+    with equal probability; either way, this uses one move. So we have T(x, y)
+    = &frac12; T(x-1, y) + &frac12; T(x, y-1) + 1.</li>
+  <li>Some cell (0, y) on the y-axis: Bleatrix will move either down or right
+    with equal probability; either way, this uses one move. So we have T(0, y)
+    = &frac12; T(0, y-1) + &frac12; T(1, y) + 1. (The expression for a cell on
+    the x-axis is similar.)</li>
+</ul>
+<p>
+  We can simplify the second recurrence by replacing T(1, y) with its
+  representation from the first recurrence: &frac12; T(0, y) +
+  &frac12; T(1, y-1) + 1.
+  Then, after some algebra, the second recurrence simplifies to T(0, y) =
+  &frac23; T(0, y-1) + &frac13; T(1, y-1) + 2. Now we are expressing T(0, y)
+  only in terms of recurrences for smaller values of y. So, all told, for any
+  starting cell, we have T(x, y)=
+</p><p>
+<ul>
+  <li>0 if x = y = 0.</li>
+  <li>&frac23; T(0, y-1) + &frac13; T(1, y-1) + 2, if x = 0 but y &ne; 0.</li>
+  <li>&frac23; T(x-1, 0) + &frac13; T(x-1, 1) + 2, if y = 0 but x &ne; 0.</li>
+  <li>&frac12; T(x-1, y) + &frac12; T(x, y-1) + 1, if x &ne; 0 and
+    y &ne; 0.</li>
+</ul>
+<p>
+  At this point, we can use recursion plus
+  <a href="https://en.wikipedia.org/wiki/Memoization">memoization</a>
+  &mdash; or some other form of
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>
+  &mdash; to quickly compute any answer we want. We will never need to evaluate
+  T() for any particular cell more than once, so we have tamed the infiniteness
+  and randomness inherent in the problem.
+</p><p>
+  If we use, e.g., C++ <code>double</code>s, might our solution fail due to
+  accumulated floating-point errors? This phenomenon is often worth worrying
+  about, but in this problem, it is not even close to posing a threat. The total
+  number of calculations needed is not very large &mdash; only a few per
+  recurrence. Even if our solution for e.g. the case <code>500 500</code>
+  involves calculating the answer for every possible distinct test case
+  along the way, we will have at most a few million chances to introduce a
+  tiny amount of error. A standard double precision floating point number has
+  15 decimal digits of precision, but we only need the first 6 to be correct,
+  so even if our errors pathologically did not cancel each other out at all,
+  we would be fine.
+</p>
+<h3>A (perhaps) surprising property of the solution</h3>
+<p>
+  Check out the answers for the cases <code>100 0</code>, <code>100 1</code>,
+  ..., all the way up to <code>100 30</code>. They are all (to nine decimal
+  places) the same: 201.500000000. The answer for <code>100 100</code> is
+  212.727275769. Why are these values so close? That is, if we compare starting
+  200 moves away from the goal at (100, 100) versus starting only 100 moves
+  away from the goal at (100, 0), why does the latter not help us very much?
+</p><p>
+  Observe that, in our strategy, once Bleatrix has made enough left moves to
+  reach the y-axis, her horizontal moves will alternate between right and left;
+  once she has made enough down moves to reach the x-axis, her vertical moves
+  will alternate between up and down. But regardless of where we are in the
+  strategy, she has an equal probability of moving horizontally or vertically.
+  Given that Bleatrix starts at (<b>X</b>, <b>Y</b>), we can be sure that she
+  will reach the goal only after she has made at least <b>X</b> horizontal
+  moves <i>and</i> at least <b>Y</b> vertical moves.
+</p><p>
+  How many moves will it take until the first time at which both of those
+  conditions are satisfied? Without loss of generality, let us assume that
+  <b>X</b> &ge; <b>Y</b>. If <b>X</b> is much larger than <b>Y</b>, then by the
+  time we get our <b>X</b>-th horizontal move, we will almost certainly have
+  gotten <b>Y</b> vertical moves, so we can ignore <b>Y</b>. Then the expected
+  number of moves needed to get <b>X</b> horizontal moves is 2<b>X</b>, since
+  the probability of a horizontal move is &frac12;. However, if <b>X</b> is not
+  much larger than <b>Y</b>, or equal to <b>Y</b>, we cannot ignore <b>Y</b>,
+  and it may take more than 2<b>X</b> moves in expectation for <i>both</i>
+  conditions to be satisfied.
+</p><p>
+  The above explains why the (100, 100) answer is larger than the (100, 0)
+  answer. It also explains why it is not <i>too</i> much larger, since a large
+  discrepancy would imply that it is very likely to get 100 moves in one
+  direction <i>long</i> before getting 100 moves in the other direction.
+</p><p>
+  However, why is the (100, 0) answer 201.5 rather than 2<b>X</b> = 200?
+  Consider the first time at which we have at least <b>X</b> horizontal moves
+  and at least <b>Y</b> vertical moves; call the number of moves M. We have
+  just hit one of the axes for the first time, and we will be on the other
+  axis (and thus done) if M matches the parity of <b>X</b> + <b>Y</b>, or one
+  cell away otherwise. We know that T(0, 1) = T(1, 0) = 3; for large
+  <b>X</b> + <b>Y</b>, we would expect parity effects to even out, so this
+  final herding process should add &frac12;(3) = 1.5 more moves to the
+  expected total.
+</p><p>
+  Also note that even though our chosen precision level obscures it, the
+  (100, 0) answer is in fact slightly smaller than the (100, 1) answer, and
+  so on.
+</p>
+<h3>Appendix: optimality proof</h3>
+<p>
+  T(0, 0) = 0, and for any other (x<sub>0</sub>, y<sub>0</sub>),
+  T(x<sub>0</sub>, y<sub>0</sub>) is the minimum of 1/k &times; the sum of the
+  T values of any k neighbors of (x<sub>0</sub>, y<sub>0</sub>), where
+  k &ge; 2. Observe that k can always be 2 &mdash; it is never suboptimal to
+  place 2 dogs adjacent to the current cell, since they block the neighbors
+  with the larger values of T, and decrease our average T over all remaining
+  neighbors. Therefore, to compute T(x<sub>0</sub>, y<sub>0</sub>), we will
+  pick any smallest two among T(x<sub>0</sub> - 1, y<sub>0</sub>),
+  T(x<sub>0</sub> + 1, y<sub>0</sub>), T(x<sub>0</sub>, y<sub>0</sub> - 1), and
+  T(x<sub>0</sub>, y<sub>0</sub> + 1), and take their average.
+</p><p>
+  <i>Lemma 1</i>: T(x<sub>0</sub> - 1, y<sub>0</sub>) &le;
+  T(x<sub>0</sub> + 1, y<sub>0</sub>) for all x<sub>0</sub> &gt; 0,
+  y<sub>0</sub> &ge; 0.
+</p><p>
+  <i>Lemma 2</i>: T(x<sub>0</sub> - 1, y<sub>0</sub>) &le;
+  T(x<sub>0</sub>, y<sub>0</sub> + 1) for all x<sub>0</sub> &gt; 0,
+  y<sub>0</sub> &ge; 0.
+</p><p>
+  By Lemmas 1 and 2, T(x<sub>0</sub> - 1, y<sub>0</sub>) (and, by symmetry,
+  T(x<sub>0</sub>, y<sub>0</sub> - 1)) are better than the other two neighbors,
+  so we place the sheepdogs to block the other two neighbors.
+</p><p>
+  <i>Proof of Lemma 1</i>: Let <i>S</i> be an optimal strategy starting
+  from (x<sub>0</sub> + 1, y<sub>0</sub>). From
+  (x<sub>0</sub> - 1, y<sub>0</sub>), we could use a strategy <i>S</i>' that,
+  as long as we don't get to the column of cells x = x<sub>0</sub>, always
+  places the dogs in a way that "mirrors" their placements in <i>S</i> with
+  respect to the column x = x<sub>0</sub>. Call this stage 1. When we first
+  touch that column, we switch to using strategy <i>S</i>; call this stage 2.
+</p><p>
+  During stage 1, if strategy <i>S</i> is in cell (x<sub>0</sub> + a, b) after
+  k moves, then <i>S</i>' is in cell (x<sub>0</sub> - a, b). During stage 2,
+  after k moves, they are always in the same cell. Since the path from
+  (x<sub>0</sub> + 1, y<sub>0</sub>) to (0, 0) must cross column
+  x = x<sub>0</sub>, using this strategy means that for any random choices,
+  either our modified strategy reaches (0, 0) before crossing column
+  x = x<sub>0</sub>, and therefore before strategy <i>S</i>... or the two
+  strategies reach (0, 0) during stage 2, that is, both at the same time.
+</p><p>
+  <i>Sketch of proof of Lemma 2</i>: This is similar to our proof of Lemma 1,
+  but we mirror across the diagonal y = x<sub>0</sub> + y<sub>0</sub> - x.
+  From (x<sub>0</sub>, y<sub>0</sub> + 1), the path must cross that diagonal,
+  so we can define <i>S</i>' with similar stages, and a similar argument
+  demonstrates the inequality.
+</p>
+
+    </div>
+  </body>
+</html>

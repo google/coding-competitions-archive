@@ -1,0 +1,400 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 1A</h3><h1>Analysis: Edgy Baking</h1><h3>Cookie-cutting</h3>
+<p>
+  A cookie with width W and height H has a perimeter of 2 &times; (W + H). If
+  we make a straight cut of length C that divides the cookie in half, each
+  piece will have one side of length C, and the remaining sides of the pieces
+  will represent the perimeter of the original cookie. So, after cutting, we
+  will have a combined perimeter X = 2 &times; (W + H + C).
+</p><p>
+  Clearly X is smallest when we leave the cookie alone. However, if we want to
+  minimize X given that we are making a cut, we must minimize C; no cut can be
+  smaller than the smallest of W and H, so we should cut through the midpoints
+  of the two larger sides, which gives the cut a size of the smaller of the two
+  sides. Then X = 2 &times; (W + H + min(W, H)). On the other hand, if we want
+  to make a cut that maximizes X, we must maximize C by cutting through two
+  opposite corners of the cookie. Then C = sqrt(W<sup>2</sup> + H<sup>2</sup>),
+  so X = 2 &times; (W + H + sqrt(W<sup>2</sup> + H<sup>2</sup>)). If we start
+  our cut somewhere between one of those larger-side midpoints and a corner, we
+  will get a value of X somewhere between these two extremes; since we can cut
+  anywhere we want in that interval, we can get any intermediate value of X
+  that we want.
+</p><p>
+  So, depending on what we do with our cookie, its contribution to our overall
+  perimeter sum will either be 2 &times; (W + H), or a value in the range
+  2 &times; (W + H) + [2 &times; min(W, H), 2 &times; sqrt(W<sup>2</sup> +
+  H<sup>2</sup>)]. From now on, we will abbreviate the extremes of that range
+  as [L, R]. (We could divide all values in the problem by 2 as well, removing
+  that factor, but we will retain it in this analysis for clarity.)
+</p>
+<h3>Test set 1</h3>
+<p>
+  In test set 1, all of the cookies have the same dimensions; we will call them
+  W and H. Let us define P' as <b>P</b> - 2 &times; (W + H) &mdash; that is, the
+  amount of extra perimeter that we need to add to reach the target <b>P</b>.
+  So, we can reformulate the problem as starting with a total perimeter of 0,
+  and trying to reach P'. For each cookie, we can choose to either not cut it,
+  which leaves our total perimeter unchanged, or cut it, which increases our
+  total perimeter by some value of our choice in the range [L, R]. If we cut K
+  cookies, then our total perimeter can be anywhere in the range [K &times; L,
+  K &times; R], depending on how we make our cuts. We will think in terms of
+  this range and not in terms of the individual cuts.
+</p><p>
+  How many cookies should we cut? Of course, we should never cut so many that
+  K &times; L exceeds P'. However, we might as well keep cutting cookies up
+  until that point, since doing so both moves our range closer to the target and
+  makes the range wider. So, we can solve for X in the equation X &times; L =
+  P', and then choose K to be the floor of X &mdash; that is, floor(P' / L).
+  (Since L is an integer representing one of the original side lengths, and P'
+  is also guaranteed to be an integer, we should use integer-based division
+  here to avoid the usual problems with flooring floating-point numbers!)
+</p><p>
+  Then, we can check whether the range [K &times; L, K &times; R] includes P'.
+  If it does, the answer is 0; otherwise, it is P' minus the right end of the
+  range, i.e., P' - K &times; R. Even though R is generally not an integer, we
+  do not need to worry about floating-point issues; even if P' is very close to
+  K &times; R and we mistakenly conclude that it is not in the range, we will
+  still get an answer that is sufficiently close to 0 under our floating point
+  rules.
+</p>
+<h3>Test set 2</h3>
+<p>
+  In test set 2, different cookies might have different dimensions, so we get
+  different total ranges depending on which ones we cut. We have no a priori
+  basis for deciding which cookies to cut, and we cannot directly check all
+  2<sup>100</sup> possibilities, but we can use
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>
+  to ensure that we find the best possibility without explicitly checking them
+  all; the problem is very similar to the
+  <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a>.
+  For each cookie, we are deciding whether to leave it as is, or cut it, which
+  adds L to our total perimeter and gives us up to R - L units of additional
+  "slack". Once we have finished deciding which cookies to cut, we can include
+  as much or as little of this "slack" as we want. All other things being
+  equal, having more slack is always better for us. The large limit on <b>P</b>
+  may seem daunting, but you can convince yourself that the problem space is
+  actually small enough for methods like this to work.
+</p><p>
+  However, the problem can also be solved in a different way. As in the previous
+  solution, each cookie corresponds to a range [L, R] by which we can increase
+  the total perimeter if we decide to cut that cookie. Let S(K) be the list of
+  intervals we can reach after processing the first K cookies.  We start with
+  S(0) = {[0, 0]}.
+</p><p>
+  When we consider the K'th cookie, we can choose to cut it or not. Suppose
+  that this cookie corresponds to the interval [L, R]. If we do not cut it, we
+  can obtain any perimeter that is already in an interval in S(K - 1). If we do
+  cut it, we can reach any interval in the set S' given by S' =
+  {[l + L, r + R] : [l, r] is an interval in S(K - 1)}.
+</p><p>
+  To get S(K), we first take the union of S(K - 1) and S', followed by merging
+  overlapping intervals. For example, if S(K - 1) = {[0, 0], [3, 6]}, and we
+  add the interval [L, R] = [1, 2], we obtain S' = {[1, 2], [4, 8]} and S(K) =
+  {[0, 0], [1, 2], [3, 8]}. Note that the intervals [3, 6] from S(K - 1) and
+  [4, 8] from S' merge into a single interval [3, 8] here.
+</p><p>
+  We can drop any intervals that start after P', so that after processing all N
+  cookies, the answer to the question will be the distance from P' to the last
+  interval.
+</p><p>
+  Without any further analysis, we might expect the size of S(<b>N</b>) to be
+  2<sup><b>N</b></sup>, as it could double in each step. It turns out that we
+  can provide a much stronger bound of (log(P') / log(sqrt(2))) + 1.
+</p><p>
+  We first need the observation that any interval [L, R] corresponding to a
+  cookie will satisfy R &ge; sqrt(2) &times; L, where equality holds for a
+  square. Using induction, we can infer that every interval [l, r] in each S(K)
+  also satisfies r &ge; sqrt(2) &times; l.
+</p><p>
+  The second observation is that all intervals in S(N) are disjoint. Let us now
+  sort intervals in S(N) and enumerate them starting from [l<sub>0</sub>,
+  r<sub>0</sub>]=[0, 0]. Then the observations together imply that
+  l<sub>{i+1}</sub> &gt; r<sub>i</sub> &ge; sqrt(2) &times; l<sub>i</sub>.
+  Since the lower bound of each interval is an integer, we also have
+  l<sub>1</sub> &ge; 1. Hence we have l<sub>i</sub> &ge; sqrt(2)<sup>i-1</sup>.
+  Since we can discard any intervals starting after P', we may assume that
+  l<sub>i</sub> &le; P'. We conclude that there are at most (log(P') /
+  log(sqrt(2))) + 1 intervals in S(<b>N</b>).
+</p><p>
+  This solution takes O(<b>N</b> log(P')) time: for each of the <b>N</b>
+  cookies, we have to perform one merging step that takes O(|S(K)|) time.
+</p><p>
+  It can also be shown that |S(K)| &le; 2K + 1. We leave this as an exercise to
+  the reader!
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

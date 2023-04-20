@@ -1,0 +1,442 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 2</h3><h1>Analysis: I, O Bot</h1><p>
+  There is no value in carrying balls across the origin without depositing them into the warehouse, therefore,
+  collecting the balls with positive coordinates $$$\mathbf{X_i}$$$ and those with negative coordinates
+  are two similar but independent tasks. Hence, in what follows, we assume that $$$\mathbf{X_i}>0$$$ for
+  all $$$i$$$. Moreover, let us assume that the balls are sorted in ascending order by $$$\mathbf{X_i}$$$.
+</p>
+
+<p>
+  A solution to the problem consists of a number of passes or round-trips from the origin and back
+  with one or two balls collected in each pass. The time required to collect a single ball $$$i$$$
+  in a pass is $$$2\mathbf{X_i}$$$. The time required to collect two balls $$$i$$$ and $$$j$$$ is
+  $$$2\times\max(\mathbf{X_i},\mathbf{X_j})$$$ if the balls are of different shapes and
+  $$$2\times\max(\mathbf{X_i},\mathbf{X_j})+\mathbf{C}$$$ otherwise. We say that two balls $$$i$$$ and $$$j$$$ are
+  <i>matched</i> (and write $$$(i,j)$$$) if they are
+  collected in the same pass. Since the order of passes is not affecting the overall time for
+  collecting all balls, we can equivalently think of the problem as one of finding an optimal
+  matching of balls.
+</p>
+<p>
+  The following observation will be useful throughout the analysis.
+</p>
+
+<p>
+  <i>Observation 1:</i> Suppose we want to collect the first $$$i$$$ balls ($$$i \ge 2$$$) and
+  $$$\mathbf{S_i} \neq \mathbf{S_{i-1}}$$$. In an optimal matching, the $$$i$$$-th ball is matched with the
+  $$$(i-1)$$$-th ball.
+</p>
+
+<p>
+  <i>Proof:</i> Consider any matching of balls, where $$$i$$$-th ball is <i>not</i> matched with
+  $$$(i-1)$$$-th ball, and assume that $$$i$$$-th ball is a $$$0$$$.<br/>
+  1. If none of the two balls is matched, we can match the balls and save $$$2\mathbf{X_{i-1}}$$$ seconds.<br/>
+  2. If there is a matching $$$(i-1,j)$$$, $$$j \lt i-1$$$, and $$$i$$$-th ball
+  is not matched, then we can match $$$(i-1)$$$-th ball with $$$i$$$-th ball instead and save at least
+  $$$2\times(\mathbf{X_{i-1}}-\mathbf{X_j})$$$ seconds ($$$2\times(\mathbf{X_{i-1}}-\mathbf{X_j})+\mathbf{C}$$$, if $$$j$$$-th ball is
+  $$$1$$$&NoBreak;-shaped).<br/>
+  3. Similarly, if there is a matching $$$(i,j)$$$, $$$j \lt i-1$$$, and
+  $$$(i-1)$$$-th ball is not matched, we can match $$$i$$$-th ball with $$$(i-1)$$$-th ball instead
+  and, again, save at least $$$2\times(\mathbf{X_{i-1}}-\mathbf{X_j})$$$ seconds.<br/>
+  4. Lastly, if there are matchings $$$(i,j)$$$ and $$$(i-1,k)$$$, $$$j \lt i-1$$$ and
+  $$$k \lt i-1$$$, then we can rearrange the matchings as $$$(i,i-1)$$$ and $$$(j,k)$$$ saving
+  at least $$$2\times(\mathbf{X_{i-1}}-\max(\mathbf{X_j},\mathbf{X_k}))$$$ seconds.
+</p>
+
+<h3>
+  Test Set 1
+</h3>
+
+<p>
+  Observation 1 helps us match the balls if the last two balls have different shapes. But what if
+  they have the same shape, say a $$$0$$$?
+</p>
+
+<p>
+  <i>Observation 2:</i> Suppose we want to collect the first $$$i$$$ balls ($$$i \ge 2$$$) and
+  $$$\mathbf{S_i}=\mathbf{S_{i-1}}=0$$$. There is an optimal matching of balls such that one of the
+  following conditions holds:<br/>
+  1. The last two $$$0$$$&NoBreak;-shaped balls $$$i$$$ and $$$i-1$$$ are matched.<br/>
+  2. There is a matching $$$(i,j)$$$ with $$$\mathbf{S_j}=1$$$ and, for all $$$k \in [j+1,i]$$$&NoBreak;, $$$\mathbf{S_k}=0$$$.
+  In other words, $$$i$$$-th ball is matched with the nearest $$$1$$$&NoBreak;-shaped ball on its left.<br/>
+  3. There are no $$$1$$$&NoBreak;-shaped balls and $$$i$$$-th ball remains unmatched.
+</p>
+
+<p>
+  <i>Proof:</i> The full proof is a lengthy case analysis, which we omit here. The idea is
+  that matching $$$i$$$-th ball with the rightmost ball of a particular shape is generally at least
+  as good as matching with another ball of that shape. For example, suppose that $$$i$$$-th ball
+  is matched with a $$$1$$$&NoBreak;-shaped ball $$$l$$$ such that there is another $$$1$$$&NoBreak;-shaped ball $$$j$$$ with
+  $$$l \lt j \lt i$$$. If the ball $$$j$$$ is unmatched, we can match the ball $$$i$$$ with $$$j$$$
+  instead and save $$$2\times(\mathbf{X_j}-\mathbf{X_l})$$$ seconds. Otherwise, if the ball $$$j$$$ is matched
+  with some other ball $$$k$$$, we can swap the roles of balls $$$l$$$ and $$$j$$$ and create
+  the matchings $$$(i,j)$$$ and $$$(k,l)$$$ obtaining the same overall time (if $$$k \gt j$$$) or
+  better.
+</p>
+
+<p>
+  This means that we can try matching the last $$$0$$$&NoBreak;-shaped ball with the $$$0$$$&NoBreak;-shaped ball before or the rightmost
+  $$$1$$$&NoBreak;-shaped ball (if any), and at least one of these moves will be optimal.
+</p>
+<p align="center">
+  <img src="img/i_o_bot_analysis_1.png"
+      alt="The image shows the last five of i balls. The last three are 0-shaped, the remaining two are
+            1-shaped. The i-th ball is connected to (i-1)-th and (i-3)-th balls with lines."/>
+</p>
+<p>
+  The two observations lead to a dynamic programming solution. Let $$$dp[i][j]$$$ be the optimum
+  time to collect the first $$$i$$$ $$$0$$$&NoBreak;-shaped balls and the first $$$j$$$ $$$1$$$&NoBreak;-shaped balls. The base case is
+  $$$dp[0][0]=0$$$. For $$$i+j>0$$$, suppose again that the rightmost of these $$$i+j$$$ balls is
+  $$$0$$$&NoBreak;-shaped and it has the coordinate $$$x$$$. The case when the rightmost ball is $$$1$$$&NoBreak;-shaped is symmetric.
+  To eliminate some other corner cases, $$$dp[1][0]=2x$$$,
+  $$$dp[i][0]=\min(dp[i-1][0],dp[i-2][0]+\mathbf{C})+2x$$$ for $$$i \ge 2$$$, and $$$dp[1][j]=dp[0][j-1]+2x$$$
+  for $$$j \ge 1$$$. For the general case with $$$i \ge 2$$$ and $$$j \ge 1$$$, if the penultimate
+  ball is $$$1$$$&NoBreak;-shaped, then $$$dp[i][j]=dp[i-1][j-1]+2x$$$ (Observation 1). Otherwise, we can choose to
+  match the last $$$0$$$&NoBreak;-shaped ball with the previous $$$0$$$&NoBreak;-shaped ball or the rightmost $$$1$$$&NoBreak;-shaped ball (Observation 2),
+  namely, $$$dp[i][j]=\min(dp[i-2][j]+\mathbf{C},dp[i-1][j-1])+2x$$$.
+</p>
+<p>
+  The final answer is $$$dp[N_0][N_1]$$$, where $$$N_0$$$ and $$$N_1$$$ denote the total number of $$$0$$$&NoBreak;-shaped and $$$1$$$&NoBreak;-shaped
+  balls, respectively. The time complexity of this algorithm is $$$O(\mathbf{N}^2)$$$.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  Using dynamic programming from a different angle, we can solve the problem in linear time, apart from
+  the initial sorting. Let $$$dp[i]$$$ be the optimum time to collect the first $$$i$$$ balls. As
+  the base cases, $$$dp[0]=0$$$ and $$$dp[1]=2\mathbf{X_1}$$$. To calculate $$$dp[i]$$$ for $$$i \ge 2$$$,
+  suppose once more that the $$$i$$$-th ball is $$$0$$$&NoBreak;-shaped. If the $$$(i-1)$$$-th ball is $$$1$$$&NoBreak;-shaped, we can
+  match the last two balls and $$$dp[i]=dp[i-2]+2\mathbf{X_i}$$$ (Observation 1). Otherwise, using
+  Observation 2, we have the options to match the last two $$$0$$$&NoBreak;-shaped balls and collect all balls in
+  $$$dp[i-2]+\mathbf{C}+2\mathbf{X_i}$$$ seconds, or to match $$$i$$$-th ball with the rightmost $$$1$$$&NoBreak;-shaped ball
+  $$$j$$$. The dynamic programing recurrence is not obvious in the latter case, though, as we do
+  not know the optimum matching for the first $$$i-1$$$ balls except for ball $$$j$$$. What happens
+  to the $$$0$$$&NoBreak;-shaped balls in-between $$$j$$$ and $$$i$$$? We are missing another key observation here.
+</p>
+<p>
+  <i>Observation 3:</i> If there is an optimal matching of the first $$$i$$$ balls such that
+  the $$$0$$$&NoBreak;-shaped ball $$$i$$$ is matched with the rightmost $$$1$$$&NoBreak;-shaped ball $$$j$$$ and $$$i-1 \neq j$$$, then
+  the $$$0$$$&NoBreak;-shaped ball $$$i-1$$$ is <i>not</i> matched with another $$$0$$$&NoBreak;-shaped ball.
+</p>
+<p>
+  <i>Proof:</i> Assume on the contrary that we have two pairs of matched balls $$$(i,j)$$$ and
+  $$$(i-1,k)$$$, $$$k \lt i-1$$$, such that ball $$$k$$$ is $$$0$$$&NoBreak;-shaped. These two matched pairs contribute
+  $$$2\mathbf{X_i}+2\mathbf{X_{i-1}}+\mathbf{C}$$$ seconds to the overall matching cost. But then we can rearrange the
+  matchings as $$$(i,i-1)$$$ and $$$(j,k)$$$ costing us only
+  $$$2\mathbf{X_i}+\mathbf{C}+2\times\max(\mathbf{X_j},\mathbf{X_k})$$$ seconds, which is $$$2(\mathbf{X_{i-1}}-\max(\mathbf{X_j},\mathbf{X_k}))$$$
+  seconds less. This contradicts the optimality assumption of the given matching.
+</p>
+<p>
+  It follows from Observation 3 that the $$$0$$$&NoBreak;-shaped ball $$$i-1$$$ must be matched with another $$$1$$$&NoBreak;-shaped ball,
+  specifically the rightmost unmatched $$$1$$$&NoBreak;-shaped ball. And we can extend this argument and repeatedly
+  match $$$0$$$&NoBreak;-shaped balls with $$$1$$$&NoBreak;-shaped balls sweeping leftward for as long as there is another $$$0$$$&NoBreak;-shaped ball to
+  the right of a matched $$$1$$$&NoBreak;-shaped ball. This process is ilustrated in the drawing below.
+</p>
+<p align="center">
+  <img src="img/i_o_bot_analysis_2.png"
+      alt="The image shows the last 12 of the first i balls with the following shapes:
+            ??1111001000. ? stands for Undefined. The last 0-shaped ball is labeled i. The
+            last 1-shaped ball is labeled j. The second ball with unspecified shape is labeled k.
+            Lines between balls indicate matchings (i,i-3),(i-1,i-6),(i-2,i-7),(i-4,i-8), and
+            (i-5,i-9)."/>
+</p>
+<p>
+  Let $$$k$$$ be the rightmost unmatched ball after the above $$$0$$$&NoBreak;-&NoBreak;$$$1$$$ matching process. There
+  are no shape changes in the set of balls $$$\{k+1,k+2,\ldots,i\}$$$ and the cost of collecting
+  those balls is twice the sum $$$X_\mathrm{0-shaped}(k+1,i)$$$ of $$$x$$$-coordinates of $$$0$$$&NoBreak;-shaped balls in
+  $$$\{k+1,k+2,\ldots,i\}$$$. Therefore, the cost of collecting all $$$i$$$ balls in this way is
+  $$$dp[k]+2\times X_\mathrm{0-shaped}(k+1,i)$$$.
+</p>
+<p>
+  $$$X_\mathrm{0-shaped}(k+1,i)$$$ can be calculated in $$$O(1)$$$ time using prefix sums. But how do we
+  get the index $$$k$$$ efficiently without actually carrying out the matching process? Note that
+  $$$k$$$ is the largest index such that $$$k \lt i$$$ and the set $$$\{k+1,k+2,\ldots,i\}$$$
+  contains equal number of $$$0$$$&NoBreak;-shaped and $$$1$$$&NoBreak;-shaped balls. Consider the balance $$$b_i$$$ of 0/1 balls at
+  each index $$$i$$$, namely, $$$b_i=z_i-o_i$$$, where $$$z_i$$$ and $$$o_i$$$ is the number of
+  $$$0$$$&NoBreak;-shaped and $$$1$$$&NoBreak;-shaped balls in the set $$$\{1,2,\ldots,i\}$$$. The set $$$\{k+1,k+2,\ldots,i\}$$$ has
+  equal number of $$$0$$$&NoBreak;-shaped and $$$1$$$&NoBreak;-shaped balls if and only if $$$b_k=b_i$$$. The index $$$k$$$ can be looked
+  up in $$$O(1)$$$ time if we maintain a hash-table of indices, when each balance was last
+  registered. If the current balance $$$b_i$$$ is seen for the first time, it means that there are
+  not enough $$$1$$$&NoBreak;-shaped balls to match all $$$0$$$&NoBreak;-shaped balls with, and we can choose $$$k=0$$$.
+</p>
+<p>
+  We are performing a constant number of operations at each index in this approach, so the overall
+  time complexity is dominated by the sorting, thus $$$O(\mathbf{N} \log \mathbf{N})$$$.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

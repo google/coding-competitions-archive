@@ -1,0 +1,388 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2017 - Round C</h3><h1>Analysis: X Squared</h1><h2>X Squared: Analysis</h2>
+
+<h3>Small dataset</h3>
+<p>
+  One straightforward brute-force approach to this problem is to perform a
+  <a href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth-first search</a>
+  of all grids that can be reached using the allowed swap operations, and see
+  whether the target grid is reachable. However, this can take a while to code.
+  Moreover, depending on the language used and the implementation details
+  &mdash; e.g., how we choose to store previously seen states and avoid
+  revisiting them &mdash; the search may run too slowly on the <b>N</b> = 5
+  cases. Perhaps a breadth-first search is overkill here; can we identify all
+  of the reachable states in advance, without exploring?
+</p><p>
+  Let's think about what swap operations <i>cannot</i> change. The set of tiles
+  in a particular row in the initial grid will always remain together, in some
+  order, in some row (not necessarily the row they started in). This is because
+  a column swap only changes the relative order of those tiles, and a row swap
+  only moves that whole set of tiles around together. So, our operations on the
+  board cannot exchange individual tiles among different rows; they can only
+  change the internal and relative orders of existing rows.
+</p><p>
+  Because column swaps are the only way to change the internal order within a
+  row, changing one row to have a certain order will give all of the rows that
+  same internal order. However, we can choose whichever internal order we want:
+  we pick the column with the tile we want to be first, and swap that column
+  into the first column position, and so on.
+</p><p>
+  All of the above logic holds for columns as well, and we can operate on the
+  columns independently enough for our purposes: if we reorder the rows, and
+  then reorder the columns, the latter operations do not change the chosen
+  order of the rows. So, we can choose any of the <b>N</b>! possible orders for
+  our <b>N</b> rows, and any of the <b>N</b>! possible orders for our <b>N</b>
+  columns, for a total of (<b>N</b>!)<sup>2</sup> different states that we can
+  reach. (Some of these states might have the same pattern of <code>X</code>es
+  and blank tiles, even if they represent different rearrangements of the
+  original tiles.) Unlike in our breadth-first search method, we don't need to
+  worry about exactly how to reach each of these states, even though the end of
+  the previous paragraph explains how to do so. We know that it is possible to
+  reach all of them, so if one of them matches the target, the answer is
+  <code>POSSIBLE</code>. Moreover, we know that these are all of the states
+  that we can reach, so if none of them matches the target, the answer must be
+  <code>IMPOSSIBLE</code>.
+</p><p>
+  Now, all we have to do is write some code to permute the rows and columns of
+  a grid into whatever orders we want. To avoid doing too much duplicate work,
+  we can pick one row permutation, then apply all possible column permutations
+  to copies of that, then pick another row permutation, and so on. This method
+  is essentially a well-targeted
+  <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>,
+  and its running time is O((<b>N</b>!)<sup>2</sup>). This is easily fast
+  enough for the Small dataset, in which <b>N</b> maxes out at 5. But a
+  squared-factorial order of growth won't work for the Large dataset! Let's
+  look for a better method.
+</p>
+<h3>Large dataset</h3>
+<p>
+  Let's think about the target grid state. We can observe that it has one
+  <code>X</code> tile that is the only <code>X</code> in its row and in its
+  column; let's call this collection of <code>X</code>, row, and column the
+  <i>singleton cross</i>. The rest of the grid contains a nested set of
+  <b>N</b>/2 of what we will call <i>rectangles</i>. Each rectangle is defined
+  by two rows and two columns, and has an <code>X</code> tile at each of the
+  four intersections of those rows/columns, and no other <code>X</code> tiles
+  anywhere else.
+</p><p>
+  Suppose that we start at the target and perform some swap operations. What
+  happens to our singleton cross and our rectangles? Per our earlier
+  observation while solving the Small dataset, if two of the corners of a
+  rectangle are together in the same row, or in the same column, they always
+  will be; no row or column swaps can possibly split them apart. So swap
+  operations cannot create or destroy rectangles, although they can change the
+  relative positions of the four corners. Similarly, no operation can move
+  additional <code>X</code> tiles into the singleton cross, or take away its
+  one <code>X</code> tile.
+</p><p>
+  These observations simplify the problem dramatically. We only need to ask:
+  does the starting grid have exactly <b>N</b>/2 rectangles and exactly one
+  singleton cross? If not, there is no series of swaps that can turn it into
+  the target, which does have those properties, so the case is
+  <code>IMPOSSIBLE</code> and we are done. Otherwise, we can transform the
+  starting grid into the target grid as follows. Choose a rectangle, and
+  perform row and column swaps such that its corners end up as the outermost
+  corners of the larger X shape. Then recursively solve the rest of the grid as
+  a subproblem, and so on. At the end of all this, the singleton cross will
+  necessarily be in the correct place, since every other place will have been
+  taken.
+</p><p>
+  With this reframing of the problem in mind, we no longer need to actually
+  perform or even think about any swaps! We only need to check the starting
+  grid for rectangles and a singleton row/column. It is possible to do this
+  with a single pass through the grid, looking at each row in turn. If a row
+  has zero or more than two <code>X</code> tiles, it cannot be part of a
+  rectangle or a singleton cross, and so the case is <code>IMPOSSIBLE</code>.
+  If a row has one <code>X</code> tile, we need it to be part of the singleton
+  cross; we store the column location of that <code>X</code>, and if we see
+  another would-be singleton cross row later, the case must be
+  <code>IMPOSSIBLE</code>. If a row has two <code>X</code> tiles, we note the
+  columns of those two tiles. Once we have checked all rows, we check to see
+  that every two-<code>X</code> row's set of <code>X</code> columns pairs up
+  with exactly one other two-<code>X</code> row's set of <code>X</code>
+  columns, and that no such pair shares any position with any other pair.
+  Moreover, the position of the <code>X</code> in the singleton cross must be
+  the sole column unused by any other pair. If all of these things are true,
+  then the case is <code>POSSIBLE</code>.
+</p><p>
+  This strategy is linear in the size of the input, and it runs fast
+  enough to easily handle the Large dataset, as well as grids much larger than
+  we provide in that dataset! It is also possible to run across greedy methods
+  that carry out the swapping method we described earlier, or something that
+  essentially boils down to it.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

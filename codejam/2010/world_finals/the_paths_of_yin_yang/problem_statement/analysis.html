@@ -1,0 +1,391 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2010 - World Finals</h3><h1>Analysis: The Paths of Yin Yang</h1><p>
+<blockquote>
+<i>
+Plenty and void grow from each other;<br/>
+hard and easy foster each other;<br/>
+long and short shadow each other;<br/>
+elegance and mudanity prosper together;<br/>
+music and voice complement each other;<br/>
+back and front stay together;<br/>
+they last forever.<br/>
+</i>
+This version, translated by our colleague Yifan Shi, is certainly closer to the original meaning of the text.
+</blockquote>
+</p>
+
+<h3>Impressions</h3>
+
+<p>
+One may discover a series of observations in attacking this problem.
+Some are obvious, while	others need some hard work and inspiration.
+Our algorithm searches all the possible	solutions and counts them. Imagine
+yourself to be a detective facing such an empty	rectangular board.
+Your job is to reveal all the possible solutions, quickly.
+</p>
+
+<p>
+For any solution, as the problem stated, almost all the points have
+degree (number of neighboring squares with the same color as itself)
+2; and there are exactly 4 points having degree	1. Let us call the
+points with degree 1 <i>end points</i>;
+</p>
+<p>
+Once we have decided all the degrees, we can try to reconstruct	the
+color of each square by brute force search. Suppose in a general case,
+we have	colored a square <code>A</code>, and we also colored all but only
+one of its neighbor <code>B</code>, then we do not need	to try both
+black and white	for <code>B</code>, it is decided by the color of the
+other squares, and the degree of <code>A</code>.
+</p>
+<p>
+This gives us a	much faster way	to recover all the solutions than searching
+blindly. One can see that if all the colors of the first row are decided,
+and we proceed from top	down, then in each step	we always have a square	
+(in fact close to <code>M</code> squares) who is in the	same situation as
+<code>A</code> above. So, once we decided the combination
+<code>(color of the first row, the position of the 4 end points)</code>,
+all we have to do is to	check in <code>O(NM)</code> time if a solution arises.
+</p>
+<p>
+There are 2<sup>M</sup>	ways to	color the first	row, and
+<code>&Theta;((NM)<sup>4</sup>)</code> ways to pick the	end points.
+Both numbers are too big. One may easily see most of the 2<sup>M</sup>
+colorings of the first row will	obviously fail to give a solution,
+as we will discuss in the next section.	After that, we will work on
+how to reduce the number of positions for the end points.
+</p>
+
+<h3>A bit of Topology</h3>
+<p>
+Rather than looking at the first row, let us consider the <i>outer loop</i> of the
+board. That is, the positions on the boundary. It is easy to see that they cannot be
+of the same color -- the outer loop must contain both black and white squares.
+</p>
+<p>
+We can say much more about the outer loop. It must be exactly one segment of black
+squares, and the rest is exactly one segment of white squares! The reason can be seen
+from the picture on the left below. If there are at least two black segments (and hence at 
+least two white segments), there is no way one can connected both the black pieces
+and white pieces from the inside of the board.
+</p>
+<p>
+<br/><br/>
+<img src="yysol01.png">
+<br/><br/>
+</p>
+<p>
+The second picture shows a forbidden configuration for a 2 by 2 square. If we have a chessboard-like situation, there is no way to connect both black squares and white squares.
+</p>
+
+<h3>Position for end points</h3>
+<p>
+Suppose <code>A</code> is a white end point, and <code>B</code> is its sole white neighbor, as in the picture below.
+</p>
+<p>
+<br/><br/>
+<img src="yysol02.png">
+<br/><br/>
+</p>
+<p>
+<ul>
+<li>Because <code>A</code> has no other white neighbors, so the positions labeled with <code>1</code> must be black.</li>
+<li>To avoid 2 by 2 chessboard, the positions labeled with <code>2</code> must be black as well.</li>
+<li>Because the first row labeled with 1 and 2 has no other black neighbors, so the positions labeled with <code>3</code> must be white.</li>
+<li>To avoid 2 by 2 chessboard, the positions labeled with <code>4</code> must be white as well.</li>
+</ul>
+This deduction can go on until we hit the boundary of the board. In our picture <code>X</code> is a point on the boundary, and it is also the place where black and white squares meet on the boundary. Yet we can continue the deduction along the other direction, until we get a point <code>Y</code> on the boundary as well.
+</p>
+<p>
+This gives a nice connection between the end points and the outer loop. From an end point, we draw two diagonal rays (both with 135 degrees to its neighbor with the same color), both rays hit the boundary either at a corner, or at a point where the black and white squares meet on the outer loop.
+</p>
+<p>
+Let us summarize our algorithm. We start by fixing the outer loop as a segment of black squares and the rest white. Then from each corner we draw a diagonal line; also from each point on the outer loop that is next to a different color on the loop, we draw one diagonal line going away from the neighbor with the different color. Thus we have 8 diagonals. These diagonals will produce no more than 16 intersections. Those are all the possible positions for the end points.
+</p>
+<p>
+There are <code>O((N+M)<sup>2</sup>)</code> ways to fix the outer loop, and thus <code>O((N+M)<sup>2</sup>)</code> ways to fix the outer loop and the end points. For each of these, one can check if a solution arises in <code>O(MN)</code> time. So the running time is O(MN(N+M)<sup>2</sup>). The constant is not very small, but tolerable. And one can reduce it using symmetry.
+</p>
+<p>
+Below is one of a good solution. We may see how the end points and outer loop are connected by the diagonals.
+</p>
+<p>
+<br/><br/>
+<img src="pathyysol03.png">
+<br/><br/>
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

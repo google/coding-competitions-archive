@@ -1,0 +1,584 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 3</h3><h1>Napkin Folding</h1><h3>Problem</h3>
+<p>
+  Chalk has been actively traveling the world with his friends taking pictures
+  in all the coolest places. Most recently, he made his way to Europe, where he
+  studied the history of
+  <a href="https://en.wikipedia.org/wiki/Napkin_folding">napkin folding</a>.
+  Ever since, Chalk has been collecting a wide variety of napkins to
+  practice the art of napkin folding.
+</p><p>
+  Chalk's napkins can be defined as
+  <a href="https://en.wikipedia.org/wiki/Simple_polygon">simple polygons</a>.
+  A simple polygon is a polygon in which no edges intersect except for adjacent
+  edges which meet at their shared vertex. Each vertex of the polygon is on
+  exactly two edges.
+</p><p>
+  Chalk folds his napkins by first drawing a <i>folding pattern</i> on them. A
+  folding pattern is a set of <b>K</b>-1 line segments
+  which are drawn on the napkin. Each line segment connects two points with rational
+  coordinates on the border of the polygon defining the napkin and is fully contained
+  in the polygon. No two line segments in a folding pattern may touch or overlap, except possibly at
+  common endpoints. A folding pattern of <b>K</b>-1 line segments
+  splits the napkin into <b>K</b> polygonal regions. Two points
+  are in the same region if there exists some continuous line (not necessarily
+  straight) between them which does not intersect any edge of the polygon or any line segment in
+  the folding pattern &mdash; even at endpoints.
+</p><p>
+  Chalk is only interested in <i>neat folding patterns</i>. A
+  folding pattern is <i>neat</i> if any two regions that
+  are adjacent to the same folding line segment <i>F</i> are
+  <a href="https://en.wikipedia.org/wiki/Reflection_symmetry">symmetric</a> with
+  respect to <i>F</i>. This means that folding the napkin along
+  that line segment would result in the two regions lining up perfectly.
+</p><p>
+  The following picture illustrates a neat folding pattern with <b>K</b>=8 regions.
+</p>
+<p style="text-align:center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290pt" height="290pt" viewBox="0 0 290 290" version="1.1">
+<g id="surface1">
+<path style="fill-rule:nonzero;fill:rgb(73.631287%,83.984375%,100%);fill-opacity:1;stroke-width:7.9701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 1925.3125 1918.789062 L 1925.3125 973.867188 L 2870.195312 973.867188 L 2870.195312 28.984375 L 1925.3125 28.984375 L 980.390625 973.867188 L 980.390625 1918.789062 L 35.507812 1918.789062 L 35.507812 2863.671875 L 980.390625 2863.671875 L 1925.3125 1918.789062 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 1918.789062 L 980.390625 2863.671875 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 973.867188 L 1925.3125 973.867188 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 973.867188 L 1925.3125 1918.789062 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 1918.789062 L 980.390625 2863.671875 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 1918.789062 L 1925.3125 1918.789062 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 1925.3125 28.984375 L 1925.3125 973.867188 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 1925.3125 28.984375 L 2870.195312 973.867188 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 192.613281 C 195.363281 191.046875 194.097656 189.777344 192.53125 189.777344 C 190.964844 189.777344 189.695312 191.046875 189.695312 192.613281 C 189.695312 194.179688 190.964844 195.449219 192.53125 195.449219 C 194.097656 195.449219 195.363281 194.179688 195.363281 192.613281 Z M 195.363281 192.613281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 192.613281 C 289.855469 191.046875 288.585938 189.777344 287.019531 189.777344 C 285.453125 189.777344 284.183594 191.046875 284.183594 192.613281 C 284.183594 194.179688 285.453125 195.449219 287.019531 195.449219 C 288.585938 195.449219 289.855469 194.179688 289.855469 192.613281 Z M 289.855469 192.613281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 287.101562 C 289.855469 285.535156 288.585938 284.265625 287.019531 284.265625 C 285.453125 284.265625 284.183594 285.535156 284.183594 287.101562 C 284.183594 288.667969 285.453125 289.9375 287.019531 289.9375 C 288.585938 289.9375 289.855469 288.667969 289.855469 287.101562 Z M 289.855469 287.101562 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 287.101562 C 195.363281 285.535156 194.097656 284.265625 192.53125 284.265625 C 190.964844 284.265625 189.695312 285.535156 189.695312 287.101562 C 189.695312 288.667969 190.964844 289.9375 192.53125 289.9375 C 194.097656 289.9375 195.363281 288.667969 195.363281 287.101562 Z M 195.363281 287.101562 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 192.613281 C 100.875 191.046875 99.605469 189.777344 98.039062 189.777344 C 96.472656 189.777344 95.207031 191.046875 95.207031 192.613281 C 95.207031 194.179688 96.472656 195.449219 98.039062 195.449219 C 99.605469 195.449219 100.875 194.179688 100.875 192.613281 Z M 100.875 192.613281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 98.121094 C 100.875 96.558594 99.605469 95.289062 98.039062 95.289062 C 96.472656 95.289062 95.207031 96.558594 95.207031 98.121094 C 95.207031 99.6875 96.472656 100.957031 98.039062 100.957031 C 99.605469 100.957031 100.875 99.6875 100.875 98.121094 Z M 100.875 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 98.121094 C 6.386719 96.558594 5.117188 95.289062 3.550781 95.289062 C 1.984375 95.289062 0.714844 96.558594 0.714844 98.121094 C 0.714844 99.6875 1.984375 100.957031 3.550781 100.957031 C 5.117188 100.957031 6.386719 99.6875 6.386719 98.121094 Z M 6.386719 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 3.632812 C 6.386719 2.066406 5.117188 0.800781 3.550781 0.800781 C 1.984375 0.800781 0.714844 2.066406 0.714844 3.632812 C 0.714844 5.199219 1.984375 6.46875 3.550781 6.46875 C 5.117188 6.46875 6.386719 5.199219 6.386719 3.632812 Z M 6.386719 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 3.632812 C 100.875 2.066406 99.605469 0.800781 98.039062 0.800781 C 96.472656 0.800781 95.207031 2.066406 95.207031 3.632812 C 95.207031 5.199219 96.472656 6.46875 98.039062 6.46875 C 99.605469 6.46875 100.875 5.199219 100.875 3.632812 Z M 100.875 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 98.121094 C 195.363281 96.558594 194.097656 95.289062 192.53125 95.289062 C 190.964844 95.289062 189.695312 96.558594 189.695312 98.121094 C 189.695312 99.6875 190.964844 100.957031 192.53125 100.957031 C 194.097656 100.957031 195.363281 99.6875 195.363281 98.121094 Z M 195.363281 98.121094 "/>
+</g>
+</svg></p>
+<p>
+  Chalk has been successfully folding his collection of napkins using
+  neat folding patterns. But he has some napkins in his collection that
+  he has not been able to find a neat folding pattern for. For each
+  of those napkins, Chalk needs your help to find a neat folding pattern
+  with <b>K</b> regions or determine that no such neat folding pattern exists.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case starts with a line containing two
+  integers <b>N</b> and <b>K</b>: the number of points in the polygon defining
+  Chalk's napkin and the number of regions to split the napkin into with a
+  neat folding pattern containing <b>K</b>-1 line segments.
+</p><p>
+  The polygon defining the napkin is represented as a list of the <b>N</b>
+  vertices, as encountered when traveling along the perimeter of the polygon
+  in the clockwise direction, with the first vertex being chosen arbitrarily.
+  The next <b>N</b> lines represent that list. The i-th of these
+  contains two integers <b>X<sub>i</sub></b> and <b>Y<sub>i</sub></b>,
+  indicating that the i-th point is located at
+  (<b>X<sub>i</sub></b>, <b>Y<sub>i</sub></b>) in two-dimensional space.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code> is
+  <code>POSSIBLE</code> if it is possible to make a neat folding pattern
+  with <b>K</b> regions and <code>IMPOSSIBLE</code> otherwise.
+</p><p>
+  If it is possible to make a neat folding pattern with <b>K</b> regions, output <b>K</b>-1
+  more lines listing the segments of a neat folding pattern with <b>K</b> regions, in any order.
+  Each line should represent a different segment as
+  <code>A<sub>x</sub> A<sub>y</sub> B<sub>x</sub> B<sub>y</sub></code>, where
+  (<code>A<sub>x</sub></code>, <code>A<sub>y</sub></code>) and
+  (<code>B<sub>x</sub></code>, <code>B<sub>y</sub></code>) are the two endpoints
+  of the segment, in any order. Each of <code>A<sub>x</sub></code>, <code>A<sub>y</sub></code>,
+  <code>B<sub>x</sub></code>, and <code>B<sub>y</sub></code> should be in the
+  form <code>N/D</code> where <code>N</code> and <code>D</code> are positive
+  integers (written with no leading zeroes) sharing no common prime factors,
+  and representing the rational number <code>N</code>/<code>D</code>. There
+  must be no whitespace between <code>N</code> and <code>/</code>, or between
+  <code>/</code> and <code>D</code>.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 60 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  3 &le; <b>N</b> &le; 200.<br/>
+  1 &le; <b>X<sub>i</sub></b> &le; 1000, for all i.<br/>
+  1 &le; <b>Y<sub>i</sub></b> &le; 1000, for all i.<br/>
+  The <b>N</b> points are given in clockwise order.<br/>
+  No two adjacent edges of the polygon are collinear.<br/>
+  The polygon is a simple polygon with strictly positive area.<br/>
+  No two edges intersect except for adjacent edges at their shared endpoint.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>K</b> = 2.
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  2 &le; <b>K</b> &le; 10.
+</p>
+
+<h3>Sample</h3>
+
+<div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input 1</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output 1</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">
+4
+4 2
+1 1
+1 2
+2 2
+2 1
+3 2
+1 1
+1 2
+2 1
+8 2
+1 3
+3 5
+5 5
+4 4
+7 3
+5 1
+4 2
+3 1
+8 2
+1 3
+3 5
+4 4
+5 5
+7 3
+5 1
+4 2
+3 1
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: POSSIBLE
+1/1 2/1 2/1 1/1
+Case #2: POSSIBLE
+1/1 1/1 3/2 3/2
+Case #3: IMPOSSIBLE
+Case #4: POSSIBLE
+1/1 3/1 7/1 3/1
+  </pre>
+  </td></tr></table>
+</div>
+<br/>
+<div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input 2</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output 2</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">
+1
+10 8
+4 1
+3 1
+2 2
+2 3
+1 3
+1 4
+2 4
+3 3
+3 2
+4 2
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: POSSIBLE
+3/1 1/1 4/1 2/1
+3/1 1/1 3/1 2/1
+2/1 2/1 3/1 2/1
+2/1 2/1 3/1 3/1
+2/1 3/1 3/1 3/1
+2/1 3/1 2/1 4/1
+1/1 3/1 2/1 4/1
+  </pre>
+  </td></tr></table>
+</div>
+<p>
+  Note: Sample 2 is not valid for Test set 1. Only Sample 1 will be tested prior to
+  running Test set 1 (the same way samples normally are). Moreover, Sample 2
+  will <u>not</u> be tested prior to running Test set 2.
+</p>
+<br/>
+<p>
+  For Sample Case #1, a neat folding pattern with <b>K</b>=2 can be drawn using any of
+  the 4 dashed lines:
+<br/>
+</p><p style="text-align:center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290pt" height="290pt" viewBox="0 0 290 290" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(73.631287%,83.984375%,100%);fill-opacity:1;" d="M 3.550781 287.101562 L 287.019531 287.101562 L 287.019531 3.632812 L 3.550781 3.632812 Z M 3.550781 287.101562 "/>
+<path style="fill:none;stroke-width:7.9701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 2870.195312 28.984375 L 35.507812 28.984375 L 35.507812 2863.671875 L 2870.195312 2863.671875 L 2870.195312 28.984375 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 28.984375 L 2870.195312 2863.671875 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,100%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 1446.328125 L 2870.195312 1446.328125 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,100%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 2863.671875 L 2870.195312 28.984375 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,100%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 1452.851562 28.984375 L 1452.851562 2863.671875 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 287.101562 C 6.386719 285.535156 5.117188 284.265625 3.550781 284.265625 C 1.984375 284.265625 0.714844 285.535156 0.714844 287.101562 C 0.714844 288.667969 1.984375 289.9375 3.550781 289.9375 C 5.117188 289.9375 6.386719 288.667969 6.386719 287.101562 Z M 6.386719 287.101562 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 3.632812 C 6.386719 2.066406 5.117188 0.800781 3.550781 0.800781 C 1.984375 0.800781 0.714844 2.066406 0.714844 3.632812 C 0.714844 5.199219 1.984375 6.46875 3.550781 6.46875 C 5.117188 6.46875 6.386719 5.199219 6.386719 3.632812 Z M 6.386719 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 3.632812 C 289.855469 2.066406 288.585938 0.800781 287.019531 0.800781 C 285.453125 0.800781 284.183594 2.066406 284.183594 3.632812 C 284.183594 5.199219 285.453125 6.46875 287.019531 6.46875 C 288.585938 6.46875 289.855469 5.199219 289.855469 3.632812 Z M 289.855469 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 287.101562 C 289.855469 285.535156 288.585938 284.265625 287.019531 284.265625 C 285.453125 284.265625 284.183594 285.535156 284.183594 287.101562 C 284.183594 288.667969 285.453125 289.9375 287.019531 289.9375 C 288.585938 289.9375 289.855469 288.667969 289.855469 287.101562 Z M 289.855469 287.101562 "/>
+</g>
+</svg>
+</p><p>
+  For Sample Case #2, a neat folding pattern with <b>K</b>=2 can be drawn as follows:
+<br/>
+</p><p style="text-align:center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290pt" height="290pt" viewBox="0 0 290 290" version="1.1">
+<g id="surface1">
+<path style="fill-rule:nonzero;fill:rgb(73.631287%,83.984375%,100%);fill-opacity:1;stroke-width:7.9701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 2870.195312 28.984375 L 35.507812 28.984375 L 35.507812 2863.671875 L 2870.195312 28.984375 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 28.984375 L 1452.851562 1446.328125 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 287.101562 C 6.386719 285.535156 5.117188 284.265625 3.550781 284.265625 C 1.984375 284.265625 0.714844 285.535156 0.714844 287.101562 C 0.714844 288.667969 1.984375 289.9375 3.550781 289.9375 C 5.117188 289.9375 6.386719 288.667969 6.386719 287.101562 Z M 6.386719 287.101562 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 3.632812 C 6.386719 2.066406 5.117188 0.800781 3.550781 0.800781 C 1.984375 0.800781 0.714844 2.066406 0.714844 3.632812 C 0.714844 5.199219 1.984375 6.46875 3.550781 6.46875 C 5.117188 6.46875 6.386719 5.199219 6.386719 3.632812 Z M 6.386719 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 287.101562 C 289.855469 285.535156 288.585938 284.265625 287.019531 284.265625 C 285.453125 284.265625 284.183594 285.535156 284.183594 287.101562 C 284.183594 288.667969 285.453125 289.9375 287.019531 289.9375 C 288.585938 289.9375 289.855469 288.667969 289.855469 287.101562 Z M 289.855469 287.101562 "/>
+</g>
+</svg>
+</p><p>
+  For Sample Case #3, there are no neat folding patterns:
+<br/>
+</p><p style="text-align:center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290pt" height="196pt" viewBox="0 0 290 196" version="1.1">
+<g id="surface1">
+<path style="fill-rule:nonzero;fill:rgb(73.631287%,83.984375%,100%);fill-opacity:1;stroke-width:7.9701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 980.390625 33.90625 L 35.507812 978.789062 L 980.390625 1923.671875 L 1925.3125 1923.671875 L 1452.851562 1451.210938 L 2870.195312 978.789062 L 1925.3125 33.90625 L 1452.851562 506.328125 L 980.390625 33.90625 " transform="matrix(0.1,0,0,-0.1,0,196)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 98.121094 C 6.386719 96.554688 5.117188 95.285156 3.550781 95.285156 C 1.984375 95.285156 0.714844 96.554688 0.714844 98.121094 C 0.714844 99.6875 1.984375 100.957031 3.550781 100.957031 C 5.117188 100.957031 6.386719 99.6875 6.386719 98.121094 Z M 6.386719 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 3.632812 C 100.875 2.066406 99.605469 0.796875 98.039062 0.796875 C 96.472656 0.796875 95.207031 2.066406 95.207031 3.632812 C 95.207031 5.199219 96.472656 6.46875 98.039062 6.46875 C 99.605469 6.46875 100.875 5.199219 100.875 3.632812 Z M 100.875 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 3.632812 C 195.363281 2.066406 194.097656 0.796875 192.53125 0.796875 C 190.964844 0.796875 189.695312 2.066406 189.695312 3.632812 C 189.695312 5.199219 190.964844 6.46875 192.53125 6.46875 C 194.097656 6.46875 195.363281 5.199219 195.363281 3.632812 Z M 195.363281 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 148.121094 50.878906 C 148.121094 49.3125 146.851562 48.042969 145.285156 48.042969 C 143.71875 48.042969 142.449219 49.3125 142.449219 50.878906 C 142.449219 52.441406 143.71875 53.710938 145.285156 53.710938 C 146.851562 53.710938 148.121094 52.441406 148.121094 50.878906 Z M 148.121094 50.878906 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 98.121094 C 289.855469 96.554688 288.585938 95.285156 287.019531 95.285156 C 285.453125 95.285156 284.183594 96.554688 284.183594 98.121094 C 284.183594 99.6875 285.453125 100.957031 287.019531 100.957031 C 288.585938 100.957031 289.855469 99.6875 289.855469 98.121094 Z M 289.855469 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 192.609375 C 195.363281 191.046875 194.097656 189.777344 192.53125 189.777344 C 190.964844 189.777344 189.695312 191.046875 189.695312 192.609375 C 189.695312 194.175781 190.964844 195.445312 192.53125 195.445312 C 194.097656 195.445312 195.363281 194.175781 195.363281 192.609375 Z M 195.363281 192.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 148.121094 145.367188 C 148.121094 143.800781 146.851562 142.53125 145.285156 142.53125 C 143.71875 142.53125 142.449219 143.800781 142.449219 145.367188 C 142.449219 146.929688 143.71875 148.203125 145.285156 148.203125 C 146.851562 148.203125 148.121094 146.929688 148.121094 145.367188 Z M 148.121094 145.367188 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 192.609375 C 100.875 191.046875 99.605469 189.777344 98.039062 189.777344 C 96.472656 189.777344 95.207031 191.046875 95.207031 192.609375 C 95.207031 194.175781 96.472656 195.445312 98.039062 195.445312 C 99.605469 195.445312 100.875 194.175781 100.875 192.609375 Z M 100.875 192.609375 "/>
+</g>
+</svg>
+</p><p>
+  For Sample Case #4, there are two possible neat folding patterns with <b>K</b>=2:
+<br/>
+</p><p style="text-align:center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290pt" height="196pt" viewBox="0 0 290 196" version="1.1">
+<g id="surface1">
+<path style="fill-rule:nonzero;fill:rgb(73.631287%,83.984375%,100%);fill-opacity:1;stroke-width:7.9701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 980.390625 33.90625 L 35.507812 978.789062 L 980.390625 1923.671875 L 1452.851562 1451.210938 L 1925.3125 1923.671875 L 2870.195312 978.789062 L 1925.3125 33.90625 L 1452.851562 506.328125 L 980.390625 33.90625 " transform="matrix(0.1,0,0,-0.1,0,196)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 978.789062 L 2870.195312 978.789062 " transform="matrix(0.1,0,0,-0.1,0,196)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,100%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 1452.851562 506.328125 L 1452.851562 1451.210938 " transform="matrix(0.1,0,0,-0.1,0,196)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 98.121094 C 6.386719 96.554688 5.117188 95.285156 3.550781 95.285156 C 1.984375 95.285156 0.714844 96.554688 0.714844 98.121094 C 0.714844 99.6875 1.984375 100.957031 3.550781 100.957031 C 5.117188 100.957031 6.386719 99.6875 6.386719 98.121094 Z M 6.386719 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 3.632812 C 100.875 2.066406 99.605469 0.796875 98.039062 0.796875 C 96.472656 0.796875 95.207031 2.066406 95.207031 3.632812 C 95.207031 5.199219 96.472656 6.46875 98.039062 6.46875 C 99.605469 6.46875 100.875 5.199219 100.875 3.632812 Z M 100.875 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 148.121094 50.878906 C 148.121094 49.3125 146.851562 48.042969 145.285156 48.042969 C 143.71875 48.042969 142.449219 49.3125 142.449219 50.878906 C 142.449219 52.441406 143.71875 53.710938 145.285156 53.710938 C 146.851562 53.710938 148.121094 52.441406 148.121094 50.878906 Z M 148.121094 50.878906 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 3.632812 C 195.363281 2.066406 194.097656 0.796875 192.53125 0.796875 C 190.964844 0.796875 189.695312 2.066406 189.695312 3.632812 C 189.695312 5.199219 190.964844 6.46875 192.53125 6.46875 C 194.097656 6.46875 195.363281 5.199219 195.363281 3.632812 Z M 195.363281 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 98.121094 C 289.855469 96.554688 288.585938 95.285156 287.019531 95.285156 C 285.453125 95.285156 284.183594 96.554688 284.183594 98.121094 C 284.183594 99.6875 285.453125 100.957031 287.019531 100.957031 C 288.585938 100.957031 289.855469 99.6875 289.855469 98.121094 Z M 289.855469 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 192.609375 C 195.363281 191.046875 194.097656 189.777344 192.53125 189.777344 C 190.964844 189.777344 189.695312 191.046875 189.695312 192.609375 C 189.695312 194.175781 190.964844 195.445312 192.53125 195.445312 C 194.097656 195.445312 195.363281 194.175781 195.363281 192.609375 Z M 195.363281 192.609375 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 148.121094 145.367188 C 148.121094 143.800781 146.851562 142.53125 145.285156 142.53125 C 143.71875 142.53125 142.449219 143.800781 142.449219 145.367188 C 142.449219 146.929688 143.71875 148.203125 145.285156 148.203125 C 146.851562 148.203125 148.121094 146.929688 148.121094 145.367188 Z M 148.121094 145.367188 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 192.609375 C 100.875 191.046875 99.605469 189.777344 98.039062 189.777344 C 96.472656 189.777344 95.207031 191.046875 95.207031 192.609375 C 95.207031 194.175781 96.472656 195.445312 98.039062 195.445312 C 99.605469 195.445312 100.875 194.175781 100.875 192.609375 Z M 100.875 192.609375 "/>
+</g>
+</svg>
+</p><p>
+  For the test set 2 sample case, a neat folding pattern with <b>K</b>=8 can be drawn as follows:
+<br/>
+</p><p style="text-align:center"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290pt" height="290pt" viewBox="0 0 290 290" version="1.1">
+<g id="surface1">
+<path style="fill-rule:nonzero;fill:rgb(73.631287%,83.984375%,100%);fill-opacity:1;stroke-width:7.9701;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 1925.3125 1918.789062 L 1925.3125 973.867188 L 2870.195312 973.867188 L 2870.195312 28.984375 L 1925.3125 28.984375 L 980.390625 973.867188 L 980.390625 1918.789062 L 35.507812 1918.789062 L 35.507812 2863.671875 L 980.390625 2863.671875 L 1925.3125 1918.789062 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 35.507812 1918.789062 L 980.390625 2863.671875 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 973.867188 L 1925.3125 973.867188 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 973.867188 L 1925.3125 1918.789062 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 1918.789062 L 980.390625 2863.671875 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 980.390625 1918.789062 L 1925.3125 1918.789062 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 1925.3125 28.984375 L 1925.3125 973.867188 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style="fill:none;stroke-width:11.9553;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(100%,0%,0%);stroke-opacity:1;stroke-dasharray:29.8883,29.8883;stroke-miterlimit:10;" d="M 1925.3125 28.984375 L 2870.195312 973.867188 " transform="matrix(0.1,0,0,-0.1,0,290)"/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 192.613281 C 195.363281 191.046875 194.097656 189.777344 192.53125 189.777344 C 190.964844 189.777344 189.695312 191.046875 189.695312 192.613281 C 189.695312 194.179688 190.964844 195.449219 192.53125 195.449219 C 194.097656 195.449219 195.363281 194.179688 195.363281 192.613281 Z M 195.363281 192.613281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 192.613281 C 289.855469 191.046875 288.585938 189.777344 287.019531 189.777344 C 285.453125 189.777344 284.183594 191.046875 284.183594 192.613281 C 284.183594 194.179688 285.453125 195.449219 287.019531 195.449219 C 288.585938 195.449219 289.855469 194.179688 289.855469 192.613281 Z M 289.855469 192.613281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 289.855469 287.101562 C 289.855469 285.535156 288.585938 284.265625 287.019531 284.265625 C 285.453125 284.265625 284.183594 285.535156 284.183594 287.101562 C 284.183594 288.667969 285.453125 289.9375 287.019531 289.9375 C 288.585938 289.9375 289.855469 288.667969 289.855469 287.101562 Z M 289.855469 287.101562 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 287.101562 C 195.363281 285.535156 194.097656 284.265625 192.53125 284.265625 C 190.964844 284.265625 189.695312 285.535156 189.695312 287.101562 C 189.695312 288.667969 190.964844 289.9375 192.53125 289.9375 C 194.097656 289.9375 195.363281 288.667969 195.363281 287.101562 Z M 195.363281 287.101562 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 192.613281 C 100.875 191.046875 99.605469 189.777344 98.039062 189.777344 C 96.472656 189.777344 95.207031 191.046875 95.207031 192.613281 C 95.207031 194.179688 96.472656 195.449219 98.039062 195.449219 C 99.605469 195.449219 100.875 194.179688 100.875 192.613281 Z M 100.875 192.613281 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 98.121094 C 100.875 96.558594 99.605469 95.289062 98.039062 95.289062 C 96.472656 95.289062 95.207031 96.558594 95.207031 98.121094 C 95.207031 99.6875 96.472656 100.957031 98.039062 100.957031 C 99.605469 100.957031 100.875 99.6875 100.875 98.121094 Z M 100.875 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 98.121094 C 6.386719 96.558594 5.117188 95.289062 3.550781 95.289062 C 1.984375 95.289062 0.714844 96.558594 0.714844 98.121094 C 0.714844 99.6875 1.984375 100.957031 3.550781 100.957031 C 5.117188 100.957031 6.386719 99.6875 6.386719 98.121094 Z M 6.386719 98.121094 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 6.386719 3.632812 C 6.386719 2.066406 5.117188 0.800781 3.550781 0.800781 C 1.984375 0.800781 0.714844 2.066406 0.714844 3.632812 C 0.714844 5.199219 1.984375 6.46875 3.550781 6.46875 C 5.117188 6.46875 6.386719 5.199219 6.386719 3.632812 Z M 6.386719 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 100.875 3.632812 C 100.875 2.066406 99.605469 0.800781 98.039062 0.800781 C 96.472656 0.800781 95.207031 2.066406 95.207031 3.632812 C 95.207031 5.199219 96.472656 6.46875 98.039062 6.46875 C 99.605469 6.46875 100.875 5.199219 100.875 3.632812 Z M 100.875 3.632812 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 195.363281 98.121094 C 195.363281 96.558594 194.097656 95.289062 192.53125 95.289062 C 190.964844 95.289062 189.695312 96.558594 189.695312 98.121094 C 189.695312 99.6875 190.964844 100.957031 192.53125 100.957031 C 194.097656 100.957031 195.363281 99.6875 195.363281 98.121094 Z M 195.363281 98.121094 "/>
+</g>
+</svg></p>
+
+    </div>
+  </body>
+</html>

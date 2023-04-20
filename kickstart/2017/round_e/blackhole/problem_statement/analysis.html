@@ -1,0 +1,358 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2017 - Round E</h3><h1>Analysis: Blackhole</h1><h2>Black Hole: Analysis</h2>
+<p>
+</p>
+<h3>Small Dataset</h3>
+<p>
+In the Small dataset, all three black holes are along the x-axis, so the solution is simple: the three spheres should be placed in a row (touching only at single points) to cover the distance spanned by the leftmost and rightmost of the black holes. So the answer is just the distance between leftmost and rightmost black holes, divided by 6.
+</p>
+<img src="small_1.jpg"/>
+<h3>Large Dataset</h3>
+<p>
+To solve the Large dataset, it is helpful to notice that although this is a 3-D problem, it only has three points (black holes), and there is at least one plane that contains all three of the points. It is therefore possible to simplify the problem into a 2-D problem: how can we use three connected circles of equal radius to cover three points on a plane?
+</p>
+<p>
+Suppose that we have Circles A, B, and C, with circle A connected to circle B, circle B connected to circle C, and circles A and C possibly (but not necessarily) connected. Then these are the only two potentially optimal ways to cover the points:
+</p>
+<p>
+Type I: Each point is in a different circle.
+<img src="large_1.jpg"/>
+</p>
+<p>
+Type II: Two points are in circle A, and a third point is in circle C.
+<img src="large_2.jpg"/>
+</p>
+<p>
+If we call the points X, Y, and Z, then there are three Type I possibilities and three Type II possibilities. For example, one possibility for Type I is to have Point X in Circle A, Point Y in Circle B, and Point Z in Circle C. One possibility for Type II is to have Points Y and Z in Circle A, and Point X in Circle C.
+</p>
+<p>
+Any other arrangement cannot be optimal. For instance, if all three points are in one circle, we are wasting the other two circles. If two points are in one circle and one point is in another circle, and the third circle does not connect the first two, then we could make the circles smaller and use the third to connect the first two.
+</p>
+<p>
+To find the minimum valid radius for a possible configuration, we can use binary search. But we still need a way to determine whether a radius is valid.
+</p>
+<p>
+For Type I possibilities, how can we determine whether a radius R is valid? Let K be the center of circle B. Then:
+</p>
+<ol>
+<li>The distance between K and the point in circle B must be no greater than R, or else the point would not be in B.</li>
+<li>The distance between K and the point in circle A must be no greater than 3R, or else circles A and B would not be connected.</li>
+<li>The distance between K and the point in circle C must be no greater than 3R, or else circles B and C would not be connected.</li>
+</ol>
+<p>
+It is equivalent to check that point K is in all three of these circles:
+</p>
+<ol>
+<li>A circle of radius R centered at the point in circle B</li>
+<li>A circle of radius 3R centered at the point in circle A</li>
+<li>A circle of radius 3R centered at the point in circle C</li>
+</ol>
+<p>
+So, if those three circles have any common intersection, then we know that radius R is valid, without having to choose a specific point K.
+</p>
+<p>
+We can use a similar strategy for Type II possibilities. Let K be the center of circle A. Then:
+</p>
+<ol>
+<li>The distance between K and the point in circle C must be no greater than 5R, or else circles A and C would not be connected.</li>
+<li>The distance between K and the first point in circle A must be no greater than R, or else the point would not be in circle A.</li>
+<li>The same is true of the second point in circle A.</li>
+</ol>
+<p>
+and so we only need to look for a common intersection of these three circles:
+</p>
+<ol>
+<li>A circle of radius 5R centered at the point in circle C</li>
+<li>A circle of radius R centered at the first point in circle A</li>
+<li>A circle of radius R centered at the second point in circle A</li>
+</ol>
+<p>
+To determine whether the three circles have at least one point in common, we can start by finding the intersections of the perimeters of each pair of circles. If two circles' perimeters intersect at...
+</p>
+<ul>
+<li>...two points, we can check whether either of those points is in the third circle.</li>
+<li>...one point, we can check whether that point is in the third circle.</li>
+<li>...infinitely many points (that is, the two circles are the same), it suffices to check whether either of those circles intersects the third circle.</li>
+<li>...zero points, then either one circle is completely within the other, or the circles are disjoint. If the circles are disjoint, there can be no common point. Otherwise, we can disregard the outermost circle and check whether the innermost circle intersects the third circle.</li>
+</ul>
+<p>
+If none of these checks succeed, then the three circles have no point in common. Otherwise, they have at least one.
+</p>
+<p>
+Once we have found the minimum radius for each cover method, the minimum of those is our final answer.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

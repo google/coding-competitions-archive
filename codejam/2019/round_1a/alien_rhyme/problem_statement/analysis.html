@@ -1,0 +1,557 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1A</h3><h1>Analysis: Alien Rhyme</h1><h3>Test set 1</h3>
+<p>
+  In the first test set there are only up to <b>N</b> = 6 words with up to
+  50 characters in each of them. We can simply use brute force to try all ways of grouping
+  words into pairs (allowing some words not to be in any pair &ndash; we will effectively
+  discard these words), try all choices of an accent-suffix for every pair, and check that
+  none of the pairs have the same accent-suffix. Finally, we choose the maximum
+  size across all valid groupings.
+</p>
+<h3>Test set 2</h3>
+<p>
+  Let's notice how the size of an accent-suffix affects the chance of multiple words
+  sharing it. In case we have words <code>CODEJAM</code>, <code>JAM</code>, <code>HUM</code>
+  and <code>HAM</code>, accent-suffix <code>JAM</code> can be part of only two words,
+  whereas a shorter accent-suffix <code>M</code> fits all four words. This leads
+  to the following observation: for two words that we want to pair, it is never
+  suboptimal to choose their longest available common suffix as the accent-suffix
+  &ndash; this way we are still making sure that they rhyme, and we are allowing shorter
+  accent-suffixes to be used by other pairs. Notice that any other pair that could
+  use the longer suffix can also use any shorter suffix. For example, if we want
+  words <code>CODEJAM</code> and <code>JAM</code> rhyme, we should choose
+  <code>JAM</code> as their accent-suffix, and allow
+  suffix <code>M</code> to be potentially used by <code>HUM</code>
+  and <code>HAM</code>.
+</p>
+<p>
+  In this problem it is all about common suffixes of the words. In order to
+  better operate with word suffixes, let's actually reverse the words first (so now
+  original word suffixes are prefixes of reversed words), and build a
+  <a href="https://en.wikipedia.org/wiki/Trie">trie</a> (also often called prefix tree)
+  on the reversed words. This is how a trie containing the words <code>CODEJAM</code>,
+  <code>JAM</code>, <code>HUM</code> and <code>HAM</code> looks:
+</p>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="calc(1*470px)" height="calc(1*557px)" viewBox="0 0 470 557" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="249" cy="33" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="249" cy="103" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="349" cy="243" r="20"></circle>
+            <circle id="Hum" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="349" cy="243" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="189" cy="173" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="309" cy="173" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="229" cy="243" r="20"></circle>
+            <circle id="Ham" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="229" cy="243" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="139" cy="243" r="20"></circle>
+            <circle id="Jam" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="139" cy="243" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="119" cy="313" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="109" cy="383" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="99" cy="453" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="91" cy="523" r="20"></circle>
+            <circle id="Codejam" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="91" cy="523" r="20"></circle>
+            <text id="M" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="239.025909" y="110">M</tspan>
+            </text>
+            <text id="U" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="301.143096" y="181">U</tspan>
+            </text>
+            <text id="H" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="341.10794" y="251">H</tspan>
+            </text>
+            <text id="H" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="221.10794" y="251">H</tspan>
+            </text>
+            <text id="A" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="181.428253" y="181">A</tspan>
+            </text>
+            <text id="J" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="133.057159" y="251">J</tspan>
+            </text>
+            <text id="E" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="112.371612" y="322">E</tspan>
+            </text>
+            <text id="D" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="101.359893" y="391">D</tspan>
+            </text>
+            <text id="O" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="90.7212213" y="462">O</tspan>
+            </text>
+            <text id="C" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="82.2661432" y="532">C</tspan>
+            </text>
+            <path d="M249.5,53.5 L249.5,81.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M249.5,81.5 L252.5,70.7 L246.5,70.7 L249.5,81.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M236.5,119.5 L204.5,157.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M204.5,157.5 L213.7514,151.171366 L209.161932,147.306552 L204.5,157.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M177.5,190.5 L152.5,225.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M152.5,225.5 L161.218573,218.455393 L156.336172,214.967964 L152.5,225.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M133.5,262.5 L123.5,291.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M123.5,291.5 L129.856818,282.267944 L124.18458,280.312 L123.5,291.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M116.5,333.5 L111.5,361.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M111.5,361.5 L116.351822,351.395554 L110.445256,350.34081 L111.5,361.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M105.5,403.5 L101.5,431.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M101.5,431.5 L105.997199,421.23281 L100.057502,420.384281 L101.5,431.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M98.5,473.5 L94.5,501.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M94.5,501.5 L98.9971991,491.23281 L93.0575022,490.384281 L94.5,501.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M262.5,118.5 L294.5,156.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M294.5,156.5 L289.838068,146.306552 L285.2486,150.171366 L294.5,156.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M198.5,191.5 L218.5,223.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M218.5,223.5 L215.320006,212.751621 L210.232017,215.931615 L218.5,223.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M318.5,191.5 L338.5,223.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M338.5,223.5 L335.320006,212.751621 L330.232017,215.931615 L338.5,223.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>
+
+<p>
+  Let's also mark the trie nodes where some of the input words end. Since
+  we are guaranteed that all the words are unique, we can use a simple
+  boolean flag. In the picture above, trie nodes where a word ends are marked in red.
+</p>
+<p>
+  Now we can solve the problem as follows: for a trie node <i>v</i>, let <code>f(v)</code> be
+  the minimum possible number of unpaired words that use accent-suffixes whose reverses
+  end in the node <i>v</i> or the subtree under it.
+  The answer to the problem is then <code>N - f(root)</code>, since <code>f(root)</code> represents
+  all usable accent-suffixes.
+</p>
+<p>
+  How do we calculate the values of <code>f(v)</code>? If <i>v</i> does not have
+  any children nodes, we set <code>f(v)</code> to be 1, since we know that in our trie all
+  leaf nodes are the end of a word. If node <i>v</i> has children, we can calculate
+  <code>f(v)</code> with the following algorithm assigning the result to <code>r</code>:
+</p>
+<pre>
+  r = sum(f(c) for all c where c is a child node of v)
+  if node v is marked (there is a word that ends at v): r = r + 1
+  if v is not the root and f(v) &ge; 2: r = r - 2
+</pre>
+<p>
+  First, we simply count the number of unpaired words recursively.
+  Finally, we let two of those words be paired using the prefix that ends in the node
+  <i>v</i>, which represents suffixes of original words, as the accent-suffix.
+</p>
+<p>
+  In our example trie we would get the following values of <code>f(v)</code>:
+</p>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="calc(1*470px)" height="calc(1*557px)" viewBox="0 0 470 557" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="249" cy="33" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="249" cy="103" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="349" cy="243" r="20"></circle>
+            <circle id="Hum" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="349" cy="243" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="189" cy="173" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="309" cy="173" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="229" cy="243" r="20"></circle>
+            <circle id="Ham" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="229" cy="243" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="139" cy="243" r="20"></circle>
+            <circle id="Jam" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="139" cy="243" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="119" cy="313" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="109" cy="383" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="99" cy="453" r="20"></circle>
+            <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="91" cy="523" r="20"></circle>
+            <circle id="Codejam" stroke="#FF0000" stroke-width="3" fill="#D8D8D8" cx="91" cy="523" r="20"></circle>
+            <text id="M" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="239.025909" y="110">M</tspan>
+            </text>
+            <text id="U" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="301.143096" y="181">U</tspan>
+            </text>
+            <text id="H" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="341.10794" y="251">H</tspan>
+            </text>
+            <text id="H" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="221.10794" y="251">H</tspan>
+            </text>
+            <text id="A" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="181.428253" y="181">A</tspan>
+            </text>
+            <text id="J" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="133.057159" y="251">J</tspan>
+            </text>
+            <text id="E" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="112.371612" y="322">E</tspan>
+            </text>
+            <text id="D" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="101.359893" y="391">D</tspan>
+            </text>
+            <text id="O" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="90.7212213" y="462">O</tspan>
+            </text>
+            <text id="C" font-family="SFUIDisplay-Regular, SF UI Display" font-size="24" font-weight="normal" letter-spacing="0.00286989589" fill="#000000">
+                <tspan x="82.2661432" y="532">C</tspan>
+            </text>
+            <path d="M249.5,53.5 L249.5,81.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M249.5,81.5 L252.5,70.7 L246.5,70.7 L249.5,81.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M236.5,119.5 L204.5,157.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M204.5,157.5 L213.7514,151.171366 L209.161932,147.306552 L204.5,157.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M177.5,190.5 L152.5,225.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M152.5,225.5 L161.218573,218.455393 L156.336172,214.967964 L152.5,225.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M133.5,262.5 L123.5,291.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M123.5,291.5 L129.856818,282.267944 L124.18458,280.312 L123.5,291.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M116.5,333.5 L111.5,361.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M111.5,361.5 L116.351822,351.395554 L110.445256,350.34081 L111.5,361.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M105.5,403.5 L101.5,431.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M101.5,431.5 L105.997199,421.23281 L100.057502,420.384281 L101.5,431.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M98.5,473.5 L94.5,501.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M94.5,501.5 L98.9971991,491.23281 L93.0575022,490.384281 L94.5,501.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M262.5,118.5 L294.5,156.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M294.5,156.5 L289.838068,146.306552 L285.2486,150.171366 L294.5,156.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M198.5,191.5 L218.5,223.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M218.5,223.5 L215.320006,212.751621 L210.232017,215.931615 L218.5,223.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path d="M318.5,191.5 L338.5,223.5" id="Line" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M338.5,223.5 L335.320006,212.751621 L330.232017,215.931615 L338.5,223.5 Z" stroke="#000000" fill="#000000" stroke-linecap="square"></path>
+            <g id="Group" transform="translate(30.000000, 27.000000)" font-size="14" font-family="Courier" letter-spacing="0.00334821199" fill="#000000" font-weight="normal">
+                <text id="f(v)-=-1">
+                    <tspan x="91.8472377" y="500">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="98.8472377" y="430">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="109.847238" y="360">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="119.847238" y="292">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-0">
+                    <tspan x="3.84723773" y="219">f(v) = 0</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="195.847238" y="261">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="53.8472377" y="149">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-0">
+                    <tspan x="111.847238" y="80">f(v) = 0</tspan>
+                </text>
+                <text id="f(v)-=-0">
+                    <tspan x="112.847238" y="10">f(v) = 0</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="352.847238" y="219">f(v) = 1</tspan>
+                </text>
+                <text id="f(v)-=-1">
+                    <tspan x="312.847238" y="149">f(v) = 1</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
+
+<p>
+  Proving the algorithm above correctly calculates f(v) is straightforward. First notice that only
+  words that are represented in the trie at or below v are pairable with the set of accent-suffixes
+  represented by v or its subtree. Then we can proceed by induction: f is pretty clearly correct
+  for a single node tree, as there is no pairing possible. Assume by the inductive hypotheses
+  f works correctly on all proper subtrees under v. The pairing implied by the construction of f(v)
+  &mdash; adding any remaining pair of words to the recursive result &mdash;
+  is valid: we are only pairing two words with the accent-suffix
+  represented by v, and the rest is valid by the inductive hypotheses.
+  To show that the pairing it is also of maximum size, notice that,
+  by inductive hypothesis, there is no way to pair more than
+  <code>sum(f(c) for all c where c is a child node of v)</code> words with accent-suffixes
+  that are represented by the subtree but not by v directly. This is because words in different
+  subtrees of v cannot be matched with a longer accent-suffix than the one represented by v, and
+  the accent-suffix represented by v can add at most a single pair to the total.
+</p>
+<p>
+  Note how we calculate the values of <code>f(v)</code> in a recursive manner,
+  and <code>f(v)</code> is calculated exactly once for each possible <code>v</code>.
+  Since the algorithm itself takes constant time in addition to the time of the recursion,
+  we can calculate all <code>f(v)</code> values in O(T) time,
+  where T is a total number of nodes in the trie. We can bound T
+  by the total length of all words, or by <b>N</b> &times; m where m is the maximum word length.
+</p><p>
+  Finally, there are less efficient but simpler implementations that also work. For example, sort
+  the reversed words alphabetically and take any two adjacent words with a longest common prefix,
+  pair them, remove them from the list, and repeat. This simple-to-implement algorithm basically
+  constructs the same pairing our recursive formulation does. This shifts some
+  implementation complexity onto the correctness proof. If you are faster with proofs than with
+  code, it might be an overall gain in solving speed.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

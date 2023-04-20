@@ -1,0 +1,400 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 2</h3><h1>Analysis: Fresh Chocolate</h1><h2>Fresh Chocolate: Analysis</h2>
+
+<p>
+The main initial observation to have is that the group sizes are only important
+<a href="https://en.wikipedia.org/wiki/Modular_arithmetic">modulo</a> <b>P</b>.
+Then, we can just take the smallest possible equivalent size for each group, and further assume
+that all of them are within the range [1,<b>P</b>]. Moreover, you may find it easier to map them
+all to the range [0,<b>P</b>-1], using the modulo operation, as long as you don't mind working with
+0, which is not a real group size.
+</p><p>
+We can see now that a test case with <b>P</b>=2 can be described
+by 2 integers: the number of groups with odd size, and the number of groups with even size.
+Similarly, each test case can be described by a tuple of exactly <b>P</b> integers
+a<sub>0</sub>, a<sub>1</sub>, ..., a<sub><b>P</b>-1</sub>, where a<sub>i</sub> is the
+number of groups of size equal to i modulo <b>P</b>.
+</p><p>
+The groups counted in a<sub>0</sub>, i.e., those with a group size multiple of <b>P</b>, are the
+simplest. No matter when they are brought in for the tour, the number of leftovers after they
+are given chocolate is the same as before. Therefore, their position won't change how many of the
+other groups get all fresh chocolate. This implies that it's always optimal to greedily choose a
+position for them where they get all fresh chocolate, and that we can accomplish that by putting
+them all at the beginning. Since the starting group gets fresh chocolate, a stream of groups with
+sizes that are multiples of <b>P</b> will all get fresh chocolate and will leave no leftovers for
+the next group. That is, we can solve the problem disregarding a<sub>0</sub>, and then add
+a<sub>0</sub> to the result. After this simplification, there are only <b>P</b>-1 numbers left to
+consider.
+</p>
+<h3>Small dataset</h3>
+<p>
+For the Small dataset, there are only two possible values for <b>P</b>, so we can consider them
+separately.
+</p><p>
+For <b>P</b>=2, there is only one number to consider: a<sub>1</sub>. Since all groups are
+equivalent, there are no decisions to be made.
+All odd-sized groups will alternate between getting all fresh chocolate and getting a leftover
+piece. Since the last group will get fresh chocolate if there is an odd number of such groups,
+the number of groups that get fresh chocolate is ceiling(a<sub>1</sub> / 2).
+</p><p>
+For <b>P</b>=3, there are two numbers to consider: a<sub>1</sub> and a<sub>2</sub>. Intuitively,
+we should pair each 1-person group with a 2-person group to go back to having no leftovers as
+soon as possible, and that's indeed optimal: start with an alternation of
+min(a<sub>1</sub>, a<sub>2</sub>) pairs, where we get min(a<sub>1</sub>, a<sub>2</sub>) added
+to our result, and then add pairs, of which min(a<sub>1</sub>, a<sub>2</sub>) will get all fresh
+chocolate. Then add all the remaining M = |a<sub>1</sub> - a<sub>2</sub>| groups (all
+of size 1 or 2 modulo <b>P</b>, depending on which type had more to begin with). Of those,
+ceiling(M / 3) will get all fresh chocolate. This last calculation is similar to what we saw for
+odd-sized groups for <b>P</b> = 2. We will prove the optimality of this strategy below.
+</p>
+<h3>Large dataset</h3>
+<p>
+The remaining <b>P</b>=4 case is a bit more complicated than just combining our insights from the
+<b>P</b>=2 and <b>P</b>=3 cases. To formalize our discussion, and to prove the correctness of our
+Small algorithm, we will introduce some names. Let us
+call a group fresh if it is given all fresh chocolate, and not fresh if it gets at least one
+leftover piece.
+Also, we will call a group with a number of people equal to k modulo <b>P</b> a "k-group".
+</p><p>
+Given some fixed arrival order, let us partition it into blocks, where each block is an interval of
+consecutive groups that starts with a fresh group and doesn't contain any other fresh groups.
+That is, we start a new block right before each fresh group. The problem is now equivalent to
+finding the order that maximizes the number of blocks. A group is fresh if and only if the sum
+of all people in the groups that preceded it is a multiple of <b>P</b>. This implies that
+reordering within a block won't make any other blocks invalid, so it won't make a solution worse
+(although it could improve it by partitioning a block into more than one block). Also notice that,
+with the possible exception of the last block, reordering blocks also doesn't alter the optimality
+of a solution.
+</p><p>
+Suppose we have an optimal ordering of the groups, disregarding 0-groups as we mentioned above.
+First, we can see that if a block contains a k-group and a different (<b>P</b>-k)-group, then
+it only contains those two: otherwise, we can reorder the block putting the two named groups
+first, and since the sum of people of the two groups is a multiple of <b>P</b>, that partitions
+the block further, which means the original solution is not optimal. Second, let us show that it
+is always optimal to pair a k-group with a (<b>P</b>-k)-group into a block. Assume an
+optimal order with a maximal number of blocks consisting of a k-group and a (<b>P</b>-k)-group.
+Then, suppose there is
+a k-group in a block A with no (<b>P</b>-k)-group and a (<b>P</b>-k)-group in a block B with no
+k-group. We can build another solution by making a new block C consisting of the k-group from
+block A and the (<b>P</b>-k)-group from block B, and another block D consisting of the union of the
+remaining elements of blocks A and B.
+If D doesn't sum up to a multiple of <b>P</b>, that implies that either A or B didn't to begin with,
+so we can just place D at the end in place of the one that didn't.
+C can be placed anywhere in the solution. This
+makes a solution with an additional pair that is also optimal, which contradicts the assumption
+that a k-group and a (<b>P</b>-k)-group existed in separate blocks.
+This proves that, for <b>P</b>=3, it
+is always optimal to pair 1-groups and 2-groups as we explained above.
+</p><p>
+For <b>P</b>=4, the consequence of the above theorem is that we should pair 2-groups with
+themselves as much as possible and 1-groups with 3-groups as much as possible. This leaves at
+most one 2-group left, and possibly some 1-groups or 3-groups left over, but not both. Since we need
+four 1-groups or four 3-groups to form a non-ending block, and we can use a 2-group to form a
+non-ending block with only two additional groups of either type, it is always optimal to place
+the 2-group first, and then whatever 1-groups or 3-groups may be left.
+Overall, the solution for <b>P</b>=4 is a<sub>0</sub> as usual (singleton blocks of 0-groups),
+plus floor(a<sub>2</sub> / 2) (blocks of two 2-groups),
+plus min(a<sub>1</sub>, a<sub>3</sub>) (blocks of a 1-group and a 3-group), plus
+ceiling((2 &times; (a<sub>2</sub> mod 2) + |a<sub>1</sub> - a<sub>3</sub>|) / 4) (the leftover
+blocks at the end).
+</p><p>
+Notice that even though the formality of this analysis may be daunting, it is reasonable to arrive
+at the solution by intuition, and the code is really short. If you have a candidate solution but
+you find it hard to prove, you can always compare it against a brute force solution for small
+values of N to get a little extra assurance. Or there is also ...
+</p>
+<h3>A dynamic programming solution</h3>
+<p>
+The insight that a case is represented by a <b>P</b>-uple is enough to enable a standard dynamic
+programming solution for this problem. Use <b>P</b>-uples and an additional integer
+with the number of leftovers as current state, and recursively try which type of group to place
+next (there are only <b>P</b> alternatives). Memoizing this recursion is fast enough, as the domain
+is just the product of all integers in the initial tuple, times <b>P</b>.
+When the group types' sizes are as close to one another as possible, we get the largest possible
+domain size, which is (<b>N</b>/<b>P</b>)<sup><b>P</b></sup> &times; <b>P</b>.
+Considering the additional iteration over
+<b>P</b> possibilities to compute each value, the overall time complexity of this approach is
+O((<b>N</b>/<b>P</b>)<sup><b>P</b></sup> &times; <b>P</b><sup>2</sup>). Even for the largest case,
+this is almost instant in a fast language, and gives plenty of wiggle room to memoize with
+dictionaries and use slower languages. A purposefully non-optimized implementation in Python takes
+at most half a second to solve a case in a modern machine, so it finishes 100
+cases with a lot of time to spare. Moreover, just noticing that groups of size multiple of <b>P</b>
+can optimally be placed first makes the effective value of <b>P</b> be one less, which greatly
+improves speed and makes the solution solve every test case instantly.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

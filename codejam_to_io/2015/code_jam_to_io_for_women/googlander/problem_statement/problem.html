@@ -1,0 +1,476 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2015 - Code Jam to I/O for Women</h3><h1>Googlander</h1><h3>Problem</h3>
+<p>
+Eric Googlander is a fashion model who performs by walking around on a stage made of squares that form a grid with <b>R</b> rows and <b>C</b> columns. He begins at the leftmost bottom square, facing toward the top edge of the stage, and he will perform by making a series of moves. Googlander knows only the following two moves:<br>
+<br>
+1. Take one step forward in the direction he is currently facing<br>
+<br>
+2. Make a single 90 degree turn to the right, then take one step forward in the new direction he is facing following the turn<br>
+<br>
+(Note that Googlander does not know how to make a 90 degree <i>left</i> turn.)<br>
+<br>
+If a move would take Googlander off of the stage or onto a square he has already visited, that move is <i>unfashionable</i>. Whenever Googlander is in a position for which neither of the two possible moves is unfashionable, he is free to choose either move (independently of any other choices he has made in the past), but he must choose one of them. Whenever one of the possible moves he can make is unfashionable, he must make the other move. If at any point both of the possible moves are unfashionable, the show immediately ends without Googlander making another move. Note that Googlander cannot stop the show early -- he must keep moving until both possible moves become unfashionable.<br>
+<br>
+How many different paths is it possible for Googlander to walk? (Two paths are the same if and only if they visit the same squares in the same order.)
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>. <b>T</b> lines follow; each consists of two space-separated integers <b>R</b> and <b>C</b>.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing "Case #x: y", where x is the test case number (starting from 1) and y is the number of different paths that Googlander can walk.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 20 seconds per test set.<br/>
+  Memory limit: 1 GB.<br/>
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+1 &le; <b>R, C</b> &le; 10.<br/>
+The limits ensure that the answer will always fit in a 32-bit signed integer.
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+1 &le; <b>R, C</b> &le; 25.<br/>
+The limits ensure that the answer will always fit in a 64-bit signed integer.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">3
+1 1
+1 3
+3 3
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: 1
+Case #2: 1
+Case #3: 6
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+In Case #1, Googlander cannot make any moves. The only possible path is the trivial one consisting of the only square.<br>
+<br>
+In Case #2, Googlander cannot take a step straight ahead, because it would take him off the stage, but he can turn right and then take a step. Once he has done so, he cannot turn right and then take a step, but he can take a step straight ahead. At that point, there are no more moves he can make and the show is over. This is the only possible path he can take.<br>
+<br>
+In Case #3, these are the possible paths:<br>
+<br>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="117.73959mm"
+   height="77.258331mm"
+   viewBox="0 0 117.73959 77.258331"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="drawing.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="388.21432"
+     inkscape:cy="77.428575"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="751"
+     inkscape:window-height="1172"
+     inkscape:window-x="740"
+     inkscape:window-y="519"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-3.1182947,-1.3470268)">
+    <image
+       y="1.3470268"
+       x="3.1182947"
+       id="image3721"
+       xlink:href="data:image/png;base64,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
+"
+       preserveAspectRatio="none"
+       height="77.258331"
+       width="117.73959" />
+  </g>
+</svg>
+<br>
+
+    </div>
+  </body>
+</html>

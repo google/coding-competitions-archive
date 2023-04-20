@@ -1,0 +1,398 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2018 - Code Jam to I/O for Women</h3><h1>Tricky Trios</h1><h3>Problem</h3>
+<p>
+  The game of Tricky Trios is played using a deck of 3<b>N</b> cards consisting
+  of three identical cards labeled 1, three identical cards labeled 2, and so
+  on, up to three identical cards labeled <b>N</b>. The cards are shuffled
+  (such that all possible card orderings have an equal probability of
+  appearing), and then dealt out onto a table, face down, so that all the
+  numbers are hidden.
+</p><p>
+  Each round of the game proceeds as follows:
+</p>
+<ul>
+  <li>Choose one of the cards and flip it over to reveal its number.</li>
+  <li>Choose a second card and flip it over to reveal its number. If that
+    number is not equal to the revealed number on the first card, the round is
+    over and you <u>may not flip a third card</u>. Otherwise:
+    <ul>
+      <li>Choose a third card and flip it over to reveal its number. If that
+        number is not equal to the revealed number on the second card, the
+        round is over. Otherwise, you have found a trio, and you can remove all
+        three cards from the game; then the round is over.</li>
+    </ul>
+  </li>
+  <li>Once the round is over, if there are no more cards remaining, you have
+    won the game. Otherwise, before beginning the next round, you must flip all
+    revealed cards back over to hide their numbers, but you have an amazing
+    memory and you can remember where they are for the rest of the game.
+  </li>
+</ul>
+<p>
+  Note that you may choose to flip a card even if you already know its number.
+  Also, even if you know the locations of all of the cards in a trio, you must
+  actually flip all three cards in the trio on the same round in order to
+  remove it.
+</p><p>
+  You would like to win as quickly as possible, so you will use a strategy that
+  minimizes the expected number of rounds needed to end the game. What is that
+  expected number of rounds?
+</p>
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>;
+  <b>T</b> test cases follow. Each consists of one line with an integer
+  <b>N</b>, as described above.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is a rational: the minimal expected number of rounds needed to end the game,
+  as described above. <code>y</code> will be considered correct if it is within
+  an absolute or relative error of 10<sup>-6</sup> of the correct answer. See
+  the
+  <a href="/codejam/faq.html#floating_point">FAQ</a> for an explanation of what
+  that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 20 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+  1 &le; <b>T</b> &le; 5.<br/>
+  1 &le; <b>N</b> &le; 5.<br/>
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  1 &le; <b>N</b> &le; 100.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">3
+1
+2
+5
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: 1.000000
+Case #2: 3.400000
+Case #3: 9.842024
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+<p>
+  In Sample Case #1, all three cards have the same number, so flipping them
+  over in any order will end the game in one round.
+</p><p>
+  In Sample Case #2:
+</p>
+<ul>
+  <li>If the first two cards we flip over are different, our round ends and we
+    cannot flip over a third card. Then, we can use the next round to flip over
+    two more of the unknown cards.
+    <ul>
+      <li>If they match, then we already know where the remaining third
+        card is, and then we can use one more round to flip over the
+        remaining trio, taking three rounds total. The chances of this
+        scenario are 3/5 &times; 1/3 = 1/5.
+      </li>
+      <li>
+        Otherwise, our second round ends, but once we have flipped over
+        another unknown card on the third round, we know how to finish
+        building both trios, taking four rounds total. The chances of this
+        scenario are 3/5 &times; 2/3 = 2/5.
+      </li>
+    </ul>
+  </li>
+  <li>If the first two cards we flip over are the same, we leave the
+    details as an exercise for the solver.</li>
+</ul>
+</p><p>
+  The answer is 3 &times; 1/5 + 4 &times; 2/5 + ... = 17/5.
+</p>
+
+    </div>
+  </body>
+</html>

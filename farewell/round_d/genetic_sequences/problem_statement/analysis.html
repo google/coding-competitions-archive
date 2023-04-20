@@ -1,0 +1,366 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Analysis: Genetic Sequences</h1><h3>Test Set 1</h3>
+
+<p>
+  The problem asks us to answer queries on two strings $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$. In each query, we are given an
+  $$$\mathbf{A}$$$-prefix and a $$$\mathbf{B}$$$-suffix. We are asked to find the longest prefix of the $$$\mathbf{B}$$$-suffix that is a
+  substring of the $$$\mathbf{A}$$$-prefix.
+  </p>
+
+<p>
+  A naive algorithm might try every single prefix of the $$$\mathbf{B}$$$-suffix and do a substring search
+  in the $$$\mathbf{A}$$$-prefix. Assuming a fast
+  <a href="https://en.wikipedia.org/wiki/String-searching_algorithm" target="_blank">string-searching algorithm</a>,
+  this gives us an $$$O(\mathbf{Q}M(N+M))$$$ algorithm where $$$\mathbf{Q}$$$ is the number of queries, $$$N$$$ is the
+  length of $$$\mathbf{A}$$$, and $$$M$$$ is the length of $$$\mathbf{B}$$$. This is too slow to pass the first test set.
+</p>
+
+<p>
+  This approach can be sped up. One approach is to use the
+  <a href="https://cp-algorithms.com/string/z-function.html" target="_blank">Z-function</a>.
+  The $$$i$$$-th entry of the Z-function is denoted by $$$Z_i$$$ is the longest match between a string
+  and the suffix of that string starting at index $$$i$$$. We can precompute the Z-function for the
+  concatenation of $$$\mathbf{A}$$$ onto the end of each $$$\mathbf{B}$$$-suffix. This requires $$$O(NM)$$$ time. When answering
+  a query, we find the Z-function table corresponding to the $$$\mathbf{B}$$$-suffix in that query. Then, we can
+  iterate through each index corresponding to the $$$\mathbf{A}$$$-prefix to find the longest match. Overall,
+  this gives an $$$O(\mathbf{Q}N + NM)$$$ algorithm, which is fast enough for Test Set 1. Other techniques
+  including Knuth-Morris-Pratt or suffix trees/arrays can be used too.
+</p>
+
+<h3>Test Set 2</h3>
+
+<p>
+  A faster approach is needed for the larger second test set. We can start with some observations.
+  Consider a single query. The longest match in the $$$\mathbf{A}$$$-prefix must be fully contained in the 
+  prefix. Imagine we had an algorithm that could quickly find the longest match but that match
+  is allowed to go outside the $$$\mathbf{A}$$$-prefix. Specifically, the match only needs to start in the
+  $$$\mathbf{A}$$$-prefix, but might go outside of the prefix later on. Call this a <i>relaxed query</i>.
+  This may seem arbitrary, but we will see later that relaxed queries can be answered efficiently
+  using well-known techniques.
+</p>
+
+<p>
+  Assume we have a fast algorithm for answering relaxed queries. Can we now solve the problem
+  efficiently? Assume we want to check if the longest
+  match is at least $$$k$$$ characters long. We know that any match must start in the $$$\mathbf{A}$$$-prefix
+  with the last $$$k-1$$$ characters removed, so we can solve it using a relaxed query. Also, observe
+  that if there is a match that is at least $$$k$$$ characters, it implies there is a match of at least
+  $$$k-1$$$ characters. This means we can
+  <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank">binary search</a>
+  on $$$k$$$. This allows us to answer a query in
+  $$$O(R \log M)$$$ time, where $$$R$$$ is the time required to answer a relaxed query.
+</p>
+
+<p>
+  Now we need to find an efficient algorithm for anwering relaxed queries. One way to do this
+  involves two data structures. A
+  <a href="https://cp-algorithms.com/string/suffix-array.html" target="_blank">suffix array</a>
+  with its longest common prefix table, and a
+  <a href="https://en.wikipedia.org/wiki/Persistent_data_structure" target="_blank">persistent binary search tree</a>.
+</p>
+
+<p>
+  Consider the suffix array of $$$\mathbf{A}$$$ concated with $$$\mathbf{B}$$$. We will need some properties of the suffix
+  array and the longest common prefixes between pairs of suffixes. We can find the suffix array
+  position of any $$$\mathbf{B}$$$-suffix by keeping a lookup table into the suffix array.
+  Let us say that that position is $$$b$$$. The longest common prefix between suffix
+  $$$b$$$ and suffixes $$$b+1, b+2, \dots$$$ will decrease monotonically. The same is true
+  for $$$b-1, b-2, \dots$$$. To answer a relaxed query, we need to find the longest common
+  prefix between $$$b$$$ and any suffix beginning in the $$$\mathbf{A}$$$-prefix. Using the previously mentioned
+  property, we will therefore need to find the first index less than $$$b$$$ that corresponds to a
+  suffix starting in the $$$\mathbf{A}$$$-prefix, as well as the first index greater than $$$b$$$ also
+  corresponding to a suffix starting in the $$$\mathbf{A}$$$-prefix.
+<p>
+
+<p>
+  We can find these two entries by sweeping over the suffixes of $$$\mathbf{A}$$$ and
+  constructing a persistent binary search tree $$$T$$$. We can sweep over $$$\mathbf{A}$$$ in increasing order of
+  indexes. The corresponding suffix array location can be found and added to $$$T$$$. The end result
+  will be N different versions of $$$T$$$, each corresponding to the set of suffixes for each 
+  $$$\mathbf{A}$$$-prefix. When answering a relaxed query, we can look up the version of $$$T$$$ corresponding
+  to the $$$\mathbf{A}$$$-prefix, and do a tree traversal to find the first elements immediately before and after
+  the $$$\mathbf{B}$$$-suffix. Note that the query value will be the suffix array location of the $$$\mathbf{B}$$$-suffix.
+</p>
+
+<p>
+  This leads to an algorithm whose complexity is $$$O((N+M) \log (N+M))$$$ to build the suffix array
+  and persistent binary search trees. Then, we require $$$O(\mathbf{Q} \log(M) \log(N))$$$ to answer all of the
+  queries. This is sufficient to pass Test Set 2.
+</p>
+
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

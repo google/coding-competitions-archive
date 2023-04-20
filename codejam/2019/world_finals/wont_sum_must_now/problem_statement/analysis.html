@@ -1,0 +1,425 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - World Finals</h3><h1>Analysis: Won't sum? Must now</h1><p>
+  The fact that we never need more than 3 palindromes is not obvious,
+  and it was proved in
+  <a href="https://arxiv.org/abs/1602.06208">a long, complicated paper</a>.
+  Numberphile made a
+  <a href="https://www.youtube.com/watch?v=OKhacWQ2fCs">video</a>
+  that explains the basics of the paper's argument. Knowing this upper bound
+  is useful, but is not necessary to solve the problem.
+</p><p>
+  Even if we haven't read every paper on arXiv for fun, we might also
+  reasonably guess that the number of palindromes required is unlikely to be
+  large because there are approximately sqrt(<b>S</b>) palindromes smaller
+  than <b>S</b>, which means that there are approximately <b>S</b> palindrome
+  pairs, which should result in &Theta;(<b>S</b>) numbers smaller than
+  <b>S</b> that should be representable as sums of palindrome pairs. The number
+  of triples is larger by another factor of sqrt(<b>S</b>), and their sums are
+  all smaller than 3<b>S</b>, which does not leave much space to hide a number
+  that could not be represented by a triple of palindromes, unless many triples
+  add up to the same number.
+</p><p>
+  The first step is to check if <b>S</b> is itself a palindrome. If it is a
+  palindrome, then we are done. In the remaining explanation, we will assume
+  that <b>S</b> is not a palindrome. Checking if a number is a palindrome takes
+  O(log <b>S</b>) steps, one step per digit.
+</p>
+
+<h2>Test set 1</h2>
+<p>
+  Key insight: There are only roughly 2 &times; 10<sup>5</sup> palindromic
+  terms up to 10<sup>10</sup>. In the analysis below, we will call this
+  number P.
+</p><h3>
+  Sum of 2 palindromes?
+</h3><p>
+  To check if <b>S</b> is the sum of 2 palindromes, we simply loop through all
+  palindromes, p, less than <b>S</b> and check if <b>S</b>-p is a palindrome.
+  This takes O(P &times; log <b>S</b>) steps.
+</p><h3>
+  Sum of 3 palindromes!
+</h3><p>
+  We were told that every number is the sum of 3 palindromes, so we must find
+  such a sum! On first glance, it seems that doing the same as above for 3
+  palindromes
+  is too slow since there are O(P<sup>2</sup>) pairs of palindromes to check.
+  However, for all numbers up to 10<sup>10</sup>, one of the 3 palindromic
+  terms is always at most 404 (which is needed for 1086412253, for example).
+  Thus, as long as we search the pairs of palindromes in a way that searches
+  triples containing a small value first, we will be fine.
+</p>
+
+<h2>Test set 2</h2>
+<p>
+  Unfortunately, there are as many as 2 &times; 10<sup>20</sup> palindromes
+  less than 10<sup>40</sup>, so it is hopeless to even iterate through the
+  palindromes. Something quicker will be needed.
+</p><h3>
+  <b>S</b> = X + Y?
+</h3><p>
+  We will assume X &ge; Y. The first step is to fix the numbers of digits
+  in X and Y. Note that the number of digits in X must be either (1) the
+  number of digits in <b>S</b> or (2) one less than the number of digits in
+  <b>S</b> (otherwise, X + Y &lt; <b>S</b>).
+</p><p>
+  Let's assume that X and Y have a different number of digits (we will deal
+  with the same-number-of-digits case below). The trickiest part about this
+  problem is dealing with the pesky carries that occur while adding. For
+  example, if we want to find 2 palindromes that add up to 2718281828 with
+  lengths 10 and 8, then the first digit of X can be either 1 or 2 (depending
+  whether there is a carry on the most significant digit). Because we don't
+  know, let's try both! First, let's assume that we do not need a carry (so
+  the first digit of X is 2). This also means that we can determine the least
+  significant digit of Y by considering the sum modulo 10 (which also fills in
+  the most significant digit of Y since it is a palindrome).
+</p>
+<pre>
+  ..........        2........2        2........2
++   ........  ->  +   ........  ->  +   6......6
+============      ============      ============
+  2718281828        2718281828        2718281828
+</pre>
+<p>
+  At this point, to fill in the remaining unknown digits, we need a 9 digit
+  palindrome and a 7 digit palindrome that sum to
+  2718281828 - (2000000002 + 60000006) = 658281820. This is a subproblem and
+  we may recurse (with leading zeroes now allowed). The other option is that
+  there is a carry on the most significant digit. In this case, the first digit
+  of X must be 1.
+</p><p>
+  When the numbers of digits in X and Y are different, there is always at least
+  one unknown digit that we can determine. However, if X and Y have the same
+  number of digits, this is not necessarily true. However, we can combine two
+  simple observations to determine viable options for the first (and last)
+  digits of both numbers. First, we consider the sums modulo 10. This narrows
+  the possible values we may choose. Second, the number of digits in <b>S</b>
+  compared to the number of digits in X (and Y) tells us if we want the sum of
+  the most significant digits to be at least 10 (causing a carry). For example,
+  if <b>S</b> has 5 digits, while X and Y only have 4 digits, then we must
+  provide a carry in order for this sum to work. Similarly, if the number of
+  digits in <b>S</b> and X are equal, then we cannot have a carry, so the sum
+  must be at most 9. Even after these constraints, we still have some options
+  (for example, if we need a sum of 8, we can use 0+8, 1+7, ... , 7+1, 8+0).
+  Note that it doesn't matter<sup>*</sup> which of these options we take, since
+  the only way they interact with other digits is with the carry.
+</p><p>
+  <sup>*</sup> - There is one case where it matters: we must avoid creating a
+  leading zero in a number.
+</p><p>
+  Let D be the number of digits in <b>S</b>. There are O(D) possible lengths
+  for X and Y. For each pair of lengths, we must decide if there is a carry on
+  each digit on the left-hand side of <b>S</b>. Depending on implementation,
+  this is O(2<sup>D/2</sup> &times; D) operations. This leads to a total of
+  O(2<sup>D/2</sup> &times; D<sup>2</sup>) operations. Note that instead of
+  just computing one digit at a time, we can determine the whole "overhang"
+  values. In the example above, we can determine that the first two digits are
+  either 26 or 27:
+</p>
+<pre>
+  ..........        27......72        27......72
++   ........  ->  +   ........  ->  +   65....56
+============      ============      ============
+  2718281828        2718281828        2718281828
+</pre>
+<p>
+  This means that we only need to make D/overhang choices for the carries
+  instead of D/2 choices. Thus, when the overhang is large, those computations
+  do not contribute heavily to the complexity. This reduces the total
+  complexity to O(2<sup>D/2</sup> &times; D) operations.
+</p><h3>
+  Sum of 3 palindromes
+</h3><p>
+  In the paper listed above, the authors describe an algorithm to write any
+  number as the sum of 3 palindromes is described. This was obviously not
+  needed to solve this problem, but it does require an algorithm to find the
+  sum of three palindromes.
+</p><p>
+  To solve this problem, we will use the fact that there are
+  O(<b>S</b> sqrt(<b>S</b>)) triples of palindromes less than <b>S</b>, which
+  means that each number can be written with an average of O(sqrt(<b>S</b>))
+  different triples. This allows us to randomly select palindromes as one of
+  our three values, then use the algorithm above to check whether the remaining
+  value can be wrritten as the sum of 2 palindromes.
+</p><p>
+  It is possible that there is a number that can only be represented in one
+  different way as a sum of three palindromes, but we were unable to find any
+  case that was not the sum of triples in many different ways. In fact, we were
+  unable to find an input number such that one of the three numbers was more
+  than 10801 (though, we expect that many such cases exist).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

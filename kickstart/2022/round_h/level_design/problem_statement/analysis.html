@@ -1,0 +1,412 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round H</h3><h1>Analysis: Level Design</h1><p>
+We have been given a permutation $$$\mathbf{P}$$$ of length $$$\mathbf{N}$$$ and are asked to find minimum swaps required to form at least
+one permutation cycle of length $$$K$$$, for all $$$1 \leq K \leq \mathbf{N}$$$. Here are a few steps required to solve this problem.
+
+<ul>
+  <li>Step 1: Find the existing permutation cycles.</li>
+  <p>
+  Considering <a href="https://mathworld.wolfram.com/PermutationCycle.html" target="_blank">permutation
+  cycle</a> as a graph, perform DFS from each unvisited node and keep traversing till we get a visited node. Maintain the cycle length for each DFS.
+  At the end of this we have an array representing cycle lengths of the permutation cycles. Alternative approach is to use <a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure" target="_blank">DSU</a> to find all cycles and respective lengths.
+  <br>
+  Let us name the cycle size array as $$$\text{cycle_sizes}$$$.
+  </p>
+  <br>
+  <li>Step 2: Analyze the effect of a swap in the permutation.</li>
+  <p>
+    Two types of swaps are possible:
+    <ul>
+      <li>Type 1: Swap within the same cycle, the cycle will be broken into two smaller cycles.</li>
+      <li>Type 2: Swap two elements from different cycles, both the cycles will end up merging. The length of the new cycle will be the sum of lengths of two cycles merged.</li>
+    </ul>
+  </p>
+
+  <li>Step 3: Optimal merging for each cycle length.</li>
+  <p>
+  Now we know the existing cycle lengths and the effect of a swap, we need to find the optimal strategy to form a cycle of length $$$K$$$ in the minimum number of swaps.
+  <br>
+  Now the problem essentially boils down to optimally selecting the cycles to merge/break to form a cycle of length $$$K$$$.
+  There are two potential strategies:<br>
+  1) We can sort the cycle lengths in descending order by length and then merge the cycles starting from the maximum one till we get a final cycle of length
+  $$$ > K$$$ and then use one more swap to turn that into exactly $$$K$$$. The number of steps required here is an upper bound on the optimal number of swaps and the lower bound will be at least one less than the
+  upper bound (forming cycle of exact length $$$K$$$). Time complexity of greedy approach is $$$O(\mathbf{N})$$$ since sorting the permutation cycles itself will take $$$O(\mathbf{N})$$$ using <a href="https://en.wikipedia.org/wiki/Counting_sort" target="_blank">Counting sort</a>.
+  <br>
+  2) We can apply <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a> to optimally find minimum number of cycles required to form a cycle of size exactly $$$K$$$.
+  <br>
+  The optimal strategy is to choose the minimum of the two strategies.
+  </p>
+</ul>
+</p>
+<h3>
+Test Set 1
+</h3>
+<p>
+  For each of the cycles we do have the option either to include it in the optimal set of cycles to be merged or leave it. This problem is now very similar to the
+  <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">knapsack problem</a>.
+  <br>
+  Let $$$dp(i, j) $$$ be the minimum number of swaps required to form a cycle of length j using cycles from indices $$$(1, i)$$$.<br>
+  $$$dp(i, j) = \min(dp(i - 1, j), 1 + dp(i - 1, j - \text{cycle_sizes(i)})) $$$<br>
+  $$$ S = \text{cycle_sizes.size()}$$$. <br>
+  We need to populate the $$$dp$$$ table with the above mentioned recurrence relation. $$$dp(S, K)$$$ is the answer from the knapsack approach and
+  $$$\min(1 + dp(S, t)) $$$ for all $$$K+ 1 \leq t \leq \mathbf{N}$$$ is the answer from greedy approach. Final answer will be minimum of both the
+  values.
+  <br>
+
+  Time complexity will be $$$O(\mathbf{N}^2)$$$ to populate the $$$dp$$$ table.
+</p>
+
+
+<h3>
+Test Set 2
+</h3>
+
+<p>
+  Let $$$X$$$ be the number of length wise distinct cycles, minimum number of nodes required to form all the $$$X$$$ cycles
+  is $$$\sum_{i = 1}^{X}i$$$. As per the constraints, $$$\sum_{i = 1}^{X}i \leq \mathbf{N}$$$.
+  <br>
+  Hence there will be $$$O(\sqrt{\mathbf{N}})$$$ number of length wise distinct cycles. Using this fact we can speed up our knapsack-based solution from test set 1.
+  <br>
+  Let us name the distinct cycle size array as $$$\text{distinct_cycle_sizes}$$$ and corresponding occurrences as $$$\text{cnt}$$$.
+  Let $$$dp(i, j) $$$ be the minimum number of swaps required to form a cycle of length j using cycles from indices $$$ (1, i)$$$ where $$$1 \leq i \leq \text{distinct_cycle_sizes.size()}$$$.<br>
+  <br>
+  Hence, in order to calculate $$$dp(i, j)$$$ (where i is the index of the current value $$$x$$$ being processed and $$$j$$$ is the cost), we only need these states
+  $$$dp(i - 1, j - x), dp(i - 1, j - 2 \times x), \dots, dp(i - 1, j - cnt(i) \times x)$$$.
+
+  For each distinct cycle size, store its number of occurrences and then the idea to process
+  $$$v$$$(occurrences of each cycle) items of value $$$x$$$ is to treat the problem as a
+  <a href="https://wcipeg.com/wiki/Sliding_range_minimum_query" target="_blank">sliding window minimum</a> problem. <br>
+</p>
+<p>
+  Hence, the recurrence becomes $$$ dp(i, j) = \min(v + dp(i - 1, j - v \times \text{distinct_cycle_sizes}[i]), v \in [0, cnt(i)]$$$
+</p>
+<p>
+  Then, if we consider the values $$$j \mod k$$$, you will notice that for a fixed remainder it just becomes a range min query on a 'sliding window' interval (namely, the left bound of the interval may only move to the right each query), which can be computed in amortized constant time using a monotonic deque.
+</p>
+<p>
+So, now for each $$$i \in [1, \mathbf{N}]$$$, the optimal answer $$$= \min(dp(\text{items_count}, i), dp(\text{items_count}, j) + 1)$$$ where $$$j > i$$$.
+</p>
+<p>
+Complexity will be $$$O(\mathbf{N}\sqrt{\mathbf{N}})$$$ to populate the $$$dp$$$ table.
+</p>
+<h4>Sample Code (C++)</h4>
+<pre><code class="language-cpp">
+const <var>int</var> inf = 1e9;
+void knapsack(vector<<var>int</var>> distinct_cycle_sizes, <var>vector</var><<var>vector</var><<var>int</var>>> dp, vector<<var>int</var>> cnt, int n) {
+  dp[0][0] = 0;
+  for(<var>int</var> i = 1; i <= (int)distinct_cycle_sizes.size(); ++i) {
+    <var>int</var> cs = distinct_cycle_sizes[i - 1];
+    dp[i][0] = 0;
+    // Using standard sliding window approach.
+    for(<var>int</var> j = 0; j < cs; ++j) {
+      deque<<var>int</var>> dq;
+      for(<var>int</var> l = j; l <= n; l += cs) {
+        dp[i][l] = min(dp[i][l], dp[i - 1][l]);
+        <var>int</var> opt = inf, x = -1;
+        if(l and !dq.empty()) {
+          opt = dp[i - 1][dq.front()] + (l - dq.front()) / cs;
+          x = dq.front();
+        } else if(!l) {
+          opt = 0;
+        }
+        dp[i][l] = min(dp[i][l], opt);
+        while(!dq.empty() and dq.front() <= l - cnt[cs] * cs) {
+          dq.pop_front();
+        }
+        while(!dq.empty() and dp[i - 1][l] <= dp[i - 1][dq.back()]) {
+          dq.pop_back();
+        }
+        dq.push_back(l);
+      }
+    }
+  }
+  vector<<var>int</var>> fans(n + 1);
+  <var>int</var> best_right = inf, items_count = distinct_cycle_sizes.size();
+  for(<var>int</var> i = n; i >= 1; --i) {
+    // best_right + 1 accounts for greedy.
+    fans[i] = min(dp[items_count][i], best_right + 1);
+    best_right = min(best_right, fans[i]);
+  }
+  for(<var>int</var> i = 1; i <= n; ++i) {
+    cout << fans[i] - 1 << " ";
+  }
+  return;
+}
+</code></pre>
+
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

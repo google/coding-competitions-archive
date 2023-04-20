@@ -1,0 +1,479 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Virtual World Finals</h3><h1>Musical Cords</h1><h3>Problem</h3>
+<p>
+  Lauren is trying to play the most beautiful notes possible using a harp. The
+  harp is a circle with a radius of <b>R</b> centimeters.
+  To play a note, a cord must be attached to the harp
+  in a way that connects two different <i>attachment points</i> on the
+  perimeter of the circle. Lauren then plucks this cord to play a note.
+</p>
+<p>
+  There are <b>N</b> attachment points on the perimeter of the circular harp at
+  which a cord can be attached. The i-th such attachment point
+  is at a location that is <b>D<sub>i</sub></b> nanodegrees (a nanodegree is 10<sup>-9</sup>
+  degrees) clockwise around the perimeter of the circular harp, starting from the rightmost
+  point on the perimeter.
+</p>
+<p>
+  Not all attachment points use the same technology to properly fix the cords onto them.
+  The i-th attachment point requires L<sub>i</sub> centimeters of cord to be used for attaching.
+  A cord fixed between two different attachment points i and j needs to be exactly
+  L<sub>i</sub> + L<sub>j</sub> + distance(i, j) centimeters long. By
+  distance(i, j) we mean the length of the geometric
+  <a href="https://en.wikipedia.org/wiki/Chord_(geometry)" target="_blank">chord</a>
+  connecting the i-th and j-th attachment points, that is, the Euclidean distance between
+  the two points.
+</p>
+<p>
+  Lauren thinks that notes sound better when they come from longer cords. What are the
+  <b>K</b> longest cords that can be used with Lauren's harp?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. The first line of a test case contains three integers: <b>N</b>,
+  <b>R</b> and <b>K</b>: the number of attachment points,
+  the radius of the circular harp in centimeters, and
+  the number of lengths of cords that Lauren is interested in knowing.
+</p>
+<p>
+  The next <b>N</b> lines describe the attachment points. The i-th of these lines contains
+  two integers,
+  <b>D<sub>i</sub></b> and <b>L<sub>i</sub></b>, which describe the position (in number of
+  nanodegrees clockwise from the rightmost point of the harp) and length of cord in
+  centimeters needed at the i-th attachment point.
+</p>
+
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y<sub>1</sub> y<sub>2</sub>
+  ... y<sub><b>K</b></sub></code>, where
+  <code>x</code> is the test case number (starting from 1), and <code>y<sub>n</sub></code> is the
+  n-th value in the list of lengths of all <b>N</b>&times;(<b>N</b>-1)/2 cords
+  that can be used in Lauren's harp, sorted in non-increasing order.
+</p>
+<p>
+Each <code>y<sub>n</sub></code> will be considered correct if it is within an absolute or
+relative error of 10<sup>-9</sup> of the correct answer. See the
+<a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a> for an
+explanation of what that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 120 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  <b>N</b> = 150000 in at most 10 cases.<br/>
+  5 &le; <b>N</b> &le; 10<sup>4</sup> in all cases with <b>N</b> &ne; 150000.<br/>
+  1 &le; <b>R</b> &le; 10<sup>9</sup>.<br/>
+  0 &le; <b>D<sub>1</sub></b>.<br/>
+  <b>D<sub>i</sub></b> &lt; <b>D<sub>i+1</sub></b>, for all i.<br/>
+  <b>D<sub>N</sub></b> &lt; 360 &times; 10<sup>9</sup>.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+  <b>L<sub>i</sub></b> is chosen independently and uniformly at random between 1 and
+  10<sup>9</sup>, inclusive, for each i.<br>
+  <b>K</b> = 1.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+  1 &le; <b>L<sub>i</sub></b> &le; 10<sup>9</sup>, for all i.<br/>
+  (There is no guarantee as to how each L<sub>i</sub> is generated.)
+  <br/>
+  <b>K</b> = 10.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="musical_cords_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+5 2 1
+0 3
+1234567890 3
+3154510113 3
+180000000000 3
+359999999999 3
+5 10 1
+90000000000 8
+180000000000 7
+260000000000 9
+260000000001 1
+260000000002 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="musical_cords_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 10.0000000000
+Case #2: 36.9238939618
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  The above cases meet the limits for Test Set 1. Another sample case that does not meet those
+  limits appears at the end of this section.
+</p><p>
+  Note: the <b>L<sub>i</sub></b> values in these sample cases for Test Set 1 were chosen
+  for ease of understanding and were not randomly generated. Your solution will be run against
+  these sample cases and must pass them.
+</p><p>
+  In Sample Case #1, all of the attachment points have the same value, so we should
+  pick the pair connected by the longest chord, which in this case is a horizontal
+  diameter of the circle that has a length of 4 centimeters. So the total length needed is
+  4 + 3 + 3 = 10 centimeters.
+</p><p>
+  In Sample Case #2, the fourth and fifth points are extremely close to the third
+  point, but have much smaller <b>L</b> values. We can effectively rule them
+  out and focus on the possible connections among the first three points,
+  as follows:
+  <ul>
+    <li>first and second points: length 10&radic;2 + 8 + 7: &asymp;29.142136.</li>
+    <li>first and third points: length &asymp;19.923894 + 8 + 9: &asymp;36.923894.</li>
+    <li>second and third points: length &asymp;12.855726 + 7 + 9: &asymp;28.855726.</li>
+  </ul>
+<p>
+  Using the first and third points gives us the greatest total length.
+</p><p>
+  The following additional case could not appear in Test Set 1, but could appear in Test
+  Set 2.
+</p>
+<pre>
+1
+6 1 10
+0 10
+15000000000 1
+30000000000 1
+45000000000 1
+60000000000 1
+75000000000 1
+</pre>
+<p>
+  The correct output is <code>Case #1: 12.2175228580 12.0000000000 11.7653668647 11.5176380902 11.2610523844 3.0000000000 2.7653668647 2.7653668647 2.5176380902 2.5176380902</code>
+</p>
+<p>
+  Notice that there are three possible pairs of points tied for producing the 9th longest cord. Also, it is
+  fine if lines connecting different pairs of points intersect, since Lauren will only be playing one note
+  at a time.
+</p>
+
+    </div>
+  </body>
+</html>

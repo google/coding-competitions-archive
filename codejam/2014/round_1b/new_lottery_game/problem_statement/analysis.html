@@ -1,0 +1,532 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - Round 1B</h3><h1>Analysis: New Lottery Game</h1><p>
+In this problem, we are given three positive integers <b>A</b>, <b>B</b> and <b>K</b>. We are asked to calculate the number of pairs of integers (<b>a</b>, <b>b</b>) such that:
+<ol>
+<li>
+0 ≤ a &lt; A
+</li>
+<li>
+0 ≤ b &lt; B
+</li>
+<li>
+(a AND b) &lt; K (denote AND means bitwise-AND of a and b).
+</li>
+</ol>
+We will refer to the set of valid pairs as <b>S(A, B, K)</b>, and the number of valid pairs as <b>f(A, B, K)</b>.
+</p>
+
+<h3>
+<b>
+Solving the small dataset
+</b>
+</h3>
+<p>
+For the small dataset, we can simply enumerate all pairs (a, b) that meet the first two constraints and count how many match the third constraint. Most programming languages have the  built-in bitwise-AND operation, usually as the character “&amp;”. This procedure will have a time complexity of O(<b>AB</b>), which is sufficient for the small dataset. Following is a sample implementation in Python 3:
+</p>
+<code><pre>
+def f(A, B, K):
+  return len([(a, b) for a in range(A) for b in range(B) if (a &amp; b) &lt; K])
+</pre></code>
+
+<h3>
+<b>
+Solving the large dataset
+</b>
+</h3>
+<p>
+We present two approaches for solving the large dataset in this problem. The first one is a standard Dynamic Programming solution (DP on digits/bits) that can be applied to different problems which are of a similar flavor. The second approach divides the search space into different sets, and computes the size of each set recursively.
+</p>
+
+<h3>
+<b>
+First approach
+</b>
+</h3>
+<p>
+Before delving into the actual solution, let us start thinking about a simpler problem: given an integer <b>M</b>, write a recursive function to count all non-negative integers <b>m</b> where 0 ≤ m &lt; M. The answer is trivially M, but bear with us as our intent for this simpler problem is to build an intuition for the Dynamic Programming (DP) function which will be similar to the DP function we will write for the actual problem.
+</p>
+
+<p>
+The core idea is based on counting the number of ways to generate the bits for the number m, such that they are always less than or equal to M but then we only count those that are strictly less than m. We can start by generating the bits of m from the most significant bit to the least significant bit, and for each bit position, generating only the feasible values. Note that the feasible values for the i-th bit can sometimes be both 0 and 1, or only 0.
+</p>
+
+<p>
+Let’s say M is 29 (which is 11101<sub>2</sub> in binary). The most significant bit is the bit at the fourth position and the least significant bit is at the zeroth position as shown here:
+</p>
+
+<code><pre>
+11101 (M = 29)
+^^^^^
+|||||
+43210 (bit positions 4, 3, 2, 1, 0)
+</pre></code>
+
+<p>
+We will refer to the i-th bit as m<sub>i</sub>. Let’s say we have generated value 1 for m<sub>4</sub>, value 0 for m<sub>3</sub>, and we want to generate the feasible values for the bit at position i = 2. We can represent our current state as: 10cyy, where 1 and 0 are the values we have chosen, ‘c’ is the current (i-th) bit we want to generate and ‘y’ denotes the bits we will try to generate in the future. We call the bits to the left of position i as prefix. The prefix for the partially generated m<sub>i</sub> = 10cyy is 10 (where i = 2). Now we explain the rules which help us decide the feasible values to use for the i-th bit c:
+<ul>
+<li>
+Rule 1: we can always use value 0 for bit at position i.
+</li>
+<li>
+We can use value 1 for bit at position i if either:
+<ul>
+<li>
+Rule 2a: The prefix of the bits before position i in m (which is already generated) is less than the prefix of the bits before position i in M, or
+</li>
+<li>
+Rule 2b: The i-th bit of M is 1.
+</li>
+</ul>
+</li>
+</ul>
+Using the above rules, we can ensure that the prefix generated for m before position i will never be greater than the prefix of M before position i. Let’s explore two scenarios which touch the above rules:
+<ol>
+<li>
+Let’s say our current state is m = 10cyy as before. We want to determine candidate values for ‘c’. In this case, the prefix is 10, and M’s prefix is 11 therefore both values 0 and 1 are feasible. Value 0 is always feasible (Rule 1) while from Rule 2a, value 1 is feasible.
+</li>
+<li>
+If our current state is m = 11cyy, then both values 0 and 1 are feasible since value 0 is always feasible (Rule 1) while from Rule 2b, value 1 is feasible.
+</li>
+<li>
+If our current state is m = 111cy, then only value 0 is feasible (Rule 1) but value 1 is not feasible since neither Rule 2a nor Rule 2b can be satisfied.
+</li>
+</ol>
+
+<p>
+Note that as soon as the current prefix of m before position i is less than the prefix of M before position i, we can use both values 0 and 1 for the rest of the bit positions from i down to 0. Remember that we generate the bits from the most significant bit to the lowest (i.e., decreasing i).
+</p>
+
+<p>
+We now proceed with describing the implementation. We define a recursive function count(i, lessM, M), where i is the i-th bit being generated and lessM is a boolean which denotes whether the prefix of m before position i is less than the prefix of M before position i.
+</p>
+
+<p>
+As noted earlier, we start generating the number from the most significant bit (the leftmost bit) to the least significant bit (the rightmost bit). Therefore, the base case is when i is -1 which implies we have successfully constructed a whole number m. For the base case we return 1 if the generated number m is less than M otherwise we return 0 (since we only want to count such m that is strictly less than M).
+</p>
+
+<p>
+We can do Dynamic Programming by caching (memoizing) on the parameters i and lessM and the result. Here is a sample implementation in Python 3 (note that lru_cache provides the required memoization):
+</p>
+
+<code><pre>
+from functools import lru_cache
+
+def getBit(num, i):
+  return (num &gt;&gt; i) &amp; 1  # Returns the i-th bit value of num.
+
+@lru_cache(maxsize = None)
+def count(i, lessM, M):
+  if i == -1:  # The base case.
+    return lessM  # only count if it is strictly less than M.
+
+  maxM = lessM or getBit(M, i) == 1
+
+  res = count(i - 1, maxM, M)  # Value 0 is always feasible. See (1) below.
+
+  if maxM: # Value 1 is feasible if maxM is true. See (2) below.
+    res += count(i - 1, lessM, M)  # See (3) below.
+
+  return res
+
+# Prints how many non-negative numbers that are less than 123456789
+print(count(31, False, 123456789))
+</pre></code>
+
+<p>
+Notes:
+<br>
+(1): To compute the boolean value of lessM for the next bit of m in the recurrence, we look at the value of the current lessM. If the current lessM is already true, then lessM for the next bit in the recurrence will also be true. Another case when lessM for the next bit is true is when the i-th bit of M is equal to 1. Since we pick value 0 for the current (i-th) bit in m and it is less than the i-th bit of M (which is 1), it means that lessM is true for the next bit. maxM captures what we described just now, therefore the next value for lessM for the next bit in the recursion is set to maxM.
+<br>
+(2): Value 1 is feasible if lessM is true (which means we are free to use both values 0 and 1) or the i-th bit of M is 1 (which means we are still generating feasible partial number m that is less than or equal to M).
+<br>
+(3): The value for lessM in the next bit can only be true if lessM is previously true. If the current lessM is false, then we know that the i-th bit of M is 1. Since we picked value 1 for the current bit, the next value for lessM will not change (since 1 is not less than 1).
+</p>
+
+<p>
+Now, with the above intuition for generating non-negative numbers that are less than M, we can generalize it to count all possible pairs (a,b) that are less than A and B respectively and where the bitwise ANDing of the pair (a,b) is less than K. We enumerate all possible values for current bit in a and b (i.e. the 4 possible values (0, 0), (0, 1), (1, 0), (1, 1)) and add new constraints to ensure that the bitwise ANDing of the pair (a,b) &lt; K.
+</p>
+
+<p>
+The code for the original problem is of a similar style as in the simpler problem. The code is presented below. The purpose of the variable lessA is equivalent to lessM, similar for lessB and lessK. We try to generate all feasible values for a and b and keep k in check (see the following notes).
+</p>
+<code><pre>
+@lru_cache(maxsize = None)
+def countPairs(i, lessA, lessB, lessK, A, B, K):
+  if i == -1:  # The base case.
+    return lessA and lessB and lessK  # Count those that are strictly less.
+
+  maxA = lessA or getBit(A, i) == 1
+  maxB = lessB or getBit(B, i) == 1
+  maxK = lessK or getBit(K, i) == 1
+
+  # Use value 0 for a, b, and k which is always possible. See (1).
+  count = countPairs(i - 1, maxA, maxB, maxK, A, B, K)
+
+  if maxA:  # Use value 1 for a, and 0 for b and k. See (2).
+    count += countPairs(i - 1, lessA, maxB, maxK, A, B, K)
+
+  if maxB:  # Use value 1 for b, and 0 for a and k. See (3)
+    count += countPairs(i - 1, maxA, lessB, maxK, A, B, K)
+
+  if maxA and maxB and maxK:  # Use value 1 for a, b, and k. See (4)
+    count += countPairs(i - 1, lessA, lessB, lessK, A, B, K)
+
+  return count
+</pre></code>
+
+<p>
+Notes:
+<br>
+(1): If we choose 0 for a and 0 for b, the value for k should be 0 since 0 &amp; 0 = 0
+<br>
+(2): If we choose 1 for a and 0 for b, the value for k should be 0 since 0 &amp; 1 = 0
+<br>
+(3): If we choose 0 for a and 1 for b, the value for k should be 0 since 1 &amp; 0 = 0
+<br>
+(4): If we choose 1 for a and 1 for b, the value for k should be 1 since 1 &amp; 1 = 1
+</p>
+
+<p>
+To avoid overflows, you should take care to use 64-bit integers. Also, this solution pattern is a standard way to solve these kinds of problems and can be generalized to any number system (and not just base 2 as was the case in our problem).
+</p>
+
+<p>
+The complexity of this solution is based on the size of the DP table which here is 31 * 2 * 2 * 2.
+</p>
+
+<h3>
+<b>
+Second approach
+</b>
+</h3>
+<p>
+We can group the pairs (a, b) in <b>S(A, B, K)</b> based on whether a and b are odd or even, i.e. have the least significant bit set. Each such pair will be accounted for in one of the four sets below (written using set-builder notation), so summing up the sizes of the four sets will give us the value <b>f(A, B, K)</b>.
+</p>
+<ol>
+<li>
+{(a/2, b/2) | (a, b) ∈ S(A, B, K) &amp;&amp; a even &amp;&amp; b even}<br>
+= S(ceil(A/2), ceil(B/2), ceil(K/2))
+</li>
+<li>
+{(a/2, (b-1)/2) | (a, b) ∈ S(A, B, K) &amp;&amp; a even &amp;&amp; b odd}<br>
+= S(ceil(A/2), floor(B/2), ceil(K/2))
+</li>
+<li>
+{((a-1)/2, b/2) | (a, b) ∈ S(A, B, K) &amp;&amp; a odd &amp;&amp; b even}<br>
+= S(floor(A/2), ceil(B/2), ceil(K/2))
+</li>
+<li>
+{((a-1)/2, (b-1)/2) | (a, b) ∈ S(A, B, K) &amp;&amp; a odd &amp;&amp; b odd}<br>
+= S(floor(A/2), floor(B/2), floor(K/2))
+</li>
+</ol>
+
+<p>
+Note that in the 4 sets, the values for ‘k’ are forced. If ‘a’ or ‘b’ is even, ‘k’ will also be even while if both ‘a’ and ‘b’ are odd, then ‘k’ is also odd (because of the bitwise ANDing).
+</p>
+
+<p>
+Let us provide more intuition on the 4 sets. We show it with an example where we list even numbers. If A is odd, e.g. 7 then the possible ‘a’ values that are even are 0, 2, 4, 6. If A is even, e.g. 8 then the possible ‘a’ values that are even are also 0, 2, 4, 6. The numbers in their binary representation are 000, 010, 100, 110. The 4 sets is akin to fixing (or eliminating) the least significant bit (i.e. by shifting right by 1, i.e. a&gt;&gt;1) which results in the set: 00,01,10,11 i.e. values 0, 1, 2, 3. The new value for A here is 4 (i.e. first integer greater than 0, 1, 2, 3). We generalize and say the following: If we are considering even values for ‘a’, then the new A is given by (A+1)&gt;&gt;1 (which is also ceil(A/2)). By going through a similar exercise for when ‘a’ is odd and A is odd or even (which we leave to the reader), we find the new A is given by A&gt;&gt;1 (which is also floor(A/2)).
+</p>
+
+<p>
+The 4 sets give us a simple recursive procedure to compute <b>f(A, B, K)</b>, as the sizes of the sets on the right hand side of the equations are simply calls to f. The appropriate base cases here are <b>f(1, 1, K)</b> = 1 and <b>f(A, B, K)</b> = 0 if any of A, B, K are equal to zero.  To turn this recursive procedure into an efficient algorithm, we can memoize computed values. This means that after computing some <b>f(A, B, K)</b>, we cache the result so future computations with the same values will take constant time.
+</p>
+<p>
+Sample implementation in Python 3:
+</p>
+<code><pre>
+@lru_cache(maxsize = None)
+def f(A, B, K):
+    if A == 0 or B == 0 or K == 0:
+        return 0
+    if A == B == 1:
+        return 1
+    return f((A+1)&gt;&gt;1, (B+1)&gt;&gt;1, (K+1)&gt;&gt;1) + \
+           f((A+1)&gt;&gt;1, B&gt;&gt;1, (K+1)&gt;&gt;1) + \
+           f(A&gt;&gt;1, (B+1)&gt;&gt;1, (K+1)&gt;&gt;1) + \
+           f(A&gt;&gt;1, B&gt;&gt;1, K&gt;&gt;1)
+</pre></code>
+<h3>
+<b>
+Complexity Analysis
+</b>
+</h3>
+<p>
+It can be shown by induction that a recursive call <b>f(A’, B’, K’)</b> of recursive depth <b>n</b> has <b></b>A’ equal to either floor(A / 2<sup>n</sup>) or 1+floor(A / 2<sup>n</sup>), and that B’ and K’ satisfy similar relations. From this, we can see that at a given recursive depth there are at most 8 different calls to f. Due to our chosen base cases, we can also see that the maximum recursion depth is O(<b>log(max(A, B))</b>). We conclude that the algorithm is O(<b>log(max(A, B))</b>).
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

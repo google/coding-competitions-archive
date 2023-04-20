@@ -1,0 +1,410 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2022 - Code Jam to I/O for Women</h3><h1>Analysis: Interesting Outing</h1><p>
+  There is exactly one way to get from one interesting sight to another using these transportation
+  methods without using any transportation method more than once. So the set of interesting places
+  and modes of transportation is an unrooted <a target="_blank" href="https://en.wikipedia.org/wiki/Tree_(graph_theory)">tree</a>.
+</p>
+ <h4>Test Set 1</h4>
+<p>
+  For Test Set 1, the limits are small enough to calculate visit time for every order in which we can
+  visit the sights. Each of the order corresponds to one
+  <a target="_blank" href="https://en.wikipedia.org/wiki/Permutation">permutation</a> of the numbers $$$1$$$ to
+  $$$\mathbf{N}$$$, and there are $$$\mathbf{N}!$$$ such permutations.
+</p>
+<p>
+  Once we have fixed the order we will visit the sights, we simply need to compute the distance
+  from the first sight to the second, the second to the third, and so on until we reach the end
+  point. The distance between two sights can be computed in many different ways.
+  For example, with
+  <a target="_blank" href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd-Warshal algorithm</a>
+  or
+  running <a target="_blank" href="https://en.wikipedia.org/wiki/Breadth-first_search">BFS</a>
+  or <a target="_blank" href="https://en.wikipedia.org/wiki/Depth-first_search">DFS</a> $$$\mathbf{N}$$$ times.
+  Note that you can precompute all of these distances beforehand rather
+  than re-computing them every time. Each of the mentioned algorithm has a polynomial runtime.
+  So, time to precompute is $$$O(\mathbf{N}^2)$$$ or $$$O(\mathbf{N}^3)$$$ for each permutation.
+  Thus, the total time complexity is $$$O(\mathbf{N} \times \mathbf{N}!)$$$, which is sufficient for Test Set 1.
+</p>
+ <h4>Test Set 2</h4>
+<p>
+  For Test Set 2, we need a more efficient approach. From this point onwards, we will call the set of
+  sights and the transportation methods in the input <i>tree</i>,
+  where the sights are its
+  <a target="_blank" href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)">nodes</a>
+  and the transportation methods are its <a target="_blank" href="https://en.wikipedia.org/wiki/Edge_(graph_theory)">edges</a>.
+</p>
+<p>
+  Let us consider a fixed starting node $$$S$$$ and the tree as rooted with $$$S$$$ as its root.
+  There are $$$\mathbf{N}$$$ choices for $$$S$$$ and we will try them all.
+  Our solution traverses the rooted tree top-down, while trying to minimise the total cost.
+  While traversing, the path will go only once into each subtree. Going back to any subtree after
+  visiting it once will never be optimal. The upper bound of the cost of visiting a rooted tree is
+  $$$2 \times \sum(\mathbf{C_i})$$$ (think about traversing in DFS fashion, starting from and ending at the root).
+  If any path goes more than once into any subtree, it will result
+  additional cost.
+</p>
+<p>
+  One interesting observation is that the cost of visiting a subtree rooted at any node
+  depends on which of the child subtrees will be visited last.
+  For example, if we have four child subtrees of the root, and we have decided which subtree to visit last,
+  the total cost will be the same, regardless of which order we decide to visit the first three subtrees.
+  In order to visit all of the nodes, we must return to the
+  root every time we finish traversing each subtree, except the last one, to be able to move to the next one.
+</p>
+<p>
+  However, this observation is not true for all subtrees. When we are at a subtree that doesn't have
+  the starting point as the root, the cost of visiting the subtree depends on another factor, that
+  is, <i>whether this subtree was chosen as the last one to be visited from its parent or not</i>.
+</p>
+<p>
+  If it was not
+  the last one, then we need to go back to the parent, so the cost will be constant in the rooted tree,
+  no matter what order we visit the subtrees.
+</p>
+<p>
+  If it was the last one, then the traversal can end at any node, it doesn't need to go back to the
+  parent. In that case, the ordering of visiting subtrees will matter.
+</p>
+<p align=center>
+<img src="img/image.png" style="max-width:300px;" alt="Illustration of an example case">
+</p>
+<p>
+  In the example picture of a graph above, the cost of visting all the places if we start from node
+  $$$1$$$ will depend on which of the four child subtrees we are visiting last. Then, when we visit
+  any child subtree, we also need to consider whether that subtree is the last one visited from
+  its parent $$$1$$$, or not.
+</p>
+<p>
+  From the above observations, we can formulate a recurrence to find the optimal cost. Let's denote the
+  cost function as $$$F(x)$$$ for a subtree rooted at $$$x$$$, and it has been selected as the last
+  child subtree during the traversal from its parent, and $$$F_1 (x)$$$, when it has not been selected as the last
+  one. Then we can have,
+</p>
+<p>
+  $$$$F(x) = \min_{y \in Ch(x)}\left(F(y) + E(x, y) + \sum_{z \in Ch(x) \setminus \{y\}} (2 \times E(x, z) + F_1 (z))\right)$$$$
+  Here,
+</p>
+<ul>
+  <li>$$$Ch(x)$$$ are the set of nodes that are children of $$$x$$$,</li>
+  <li>$$$y$$$ is the selected last one to be visited from its parent $$$x$$$, and</li>
+  <li>$$$E(x,y)$$$ is the cost of travelling between $$$x$$$ and $$$y$$$.</li>
+</ul>
+<p>
+  $$$F_1 (x)$$$ is a constant function for a given weighted tree and fixed root. Since the starting
+  and ending nodes are the same, all the edge costs in the subtree rooted at $$$x$$$ will be included
+  in the total cost twice. We can precompute these values for a fixed root.
+</p>
+<p>
+  We can try all the nodes as a starting point. For each of them, we can calculate the cost using
+  the recurrence. At each node $$$x$$$, we will have at most $$$O(degree(x))$$$ options
+  to chose the last child subtree. However, the total number of choices are $$$\sum(degree(\mathbf{N}))$$$, which
+  is $$$O(\mathbf{N})$$$ for a tree.
+</p>
+<p>
+  By using memorisation, we can make sure the function $$$F(x)$$$ and $$$F_1(x)$$$ is being
+  calculated only once per node.
+</p>
+<p>
+  We can avoid running the inner loop to calculate the sum
+  $$$\sum_{z \in Ch(x) \setminus \{y\}} (2 \times E(x, z) + F_1 (z))$$$ for every choice of $$$y$$$ by
+  calculating the sum $$$\sum_{z \in Ch(x)} (2 \times E(x, z) + F_1 (z))$$$ at the beginning of the
+  loop, and for every $$$y$$$, subtracting $$$2 \times E(x, y) + F_1 (y)$$$ from it.
+</p>
+<p>
+  These techniques enable us to execute the calculations for each choice in constant time.
+  We have $$$O(\mathbf{N})$$$ options for starting points.
+  Hence, the total time complexity becomes $$$O(\mathbf{N}^2)$$$, which is sufficient for Test Set 2.
+</p>
+<h5>
+  Alternate solution
+</h5>
+<p>
+  There's another approach to solve this problem. Let's think about any walk that
+  that visits all the places, has starting place $$$\mathbf{S}$$$, and ending place $$$\mathbf{T}$$$.
+  Let's consider extending this path to also walk back from $$$\mathbf{T}$$$ to $$$\mathbf{S}$$$ at the end. The length of such
+  enclosed path is exactly distance($$$\mathbf{S}$$$, $$$\mathbf{T}$$$) longer than the length of the walk.
+  But note that all enclosed paths that touch every node require a cost of at least
+  $$$2 \times \sum(\mathbf{C_i})$$$ since we have to go "down" and "up" every edge. Thus, the optimal
+  enclosed path is to use  $$$2 \times \sum(\mathbf{C_i})$$$. Then to find the cheapest walk,
+  we want to subtract off the largest distance($$$\mathbf{S}$$$, $$$\mathbf{T}$$$), which is exactly the longest path in the tree.
+</p>
+<p>
+  The longest path in a tree can be found in $$$O(\mathbf{N})$$$ time using two cleverly selected DFSs.
+  Alternatively, we can simply run $$$\mathbf{N}$$$ DFSs, one from each node, to find the distance between
+  every pair of nodes, then take the maximum, giving us an $$$O(\mathbf{N}^2)$$$ algorithm.
+  Hence, the total time complexity becomes $$$O(\mathbf{N})$$$ or $$$O(\mathbf{N}^2)$$$, which is sufficient for Test Set 2.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

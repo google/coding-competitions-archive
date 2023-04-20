@@ -1,0 +1,366 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round H</h3><h1>Analysis: Magical Well Of Lilies</h1><h3>
+  Test Set 1
+</h3>
+
+<p>
+  For the small test set, a simple backtracking algorithm is sufficiently fast. In each recursive
+  call, we need to keep track of the number of lilies remaining in the well, the current state
+  of well's memory, and the number of coins we have tossed so far. In each recursive step, we have at
+  most three choices:
+</p>
+<ul>
+  <li>Toss one coin for another lily;</li>
+  <li>Toss two coins for as many lilies as last noted by the well;</li>
+  <li>Toss six coins ($$$4+2$$$) for the well to remember the current state of the basket and then
+  toss as many lilies.</li>
+</ul>
+<p>
+  Of course, we would consider an operation only if the well has that many lilies,
+  for it would be a waste of coins otherwise. If the number of lilies left in the well becomes $$$0$$$ at
+  any time of the recursion, we update the minimum number of coins, if necessary, and return
+  immediately from the recursion.
+</p>
+
+<p>
+  Since we have at most three choices at each recursion level, the time complexity of this
+  exhaustive search might seem like a prohibitive $$$O(3^\mathbf{L})$$$, however, the algorithm is much
+  faster in practice for two reasons. First, not all three choices are available at each
+  recursion level. And second, the maximal recursion depth of $$$\mathbf{L}$$$ is possible only if we pick up
+  the lilies one by one. In other words, the average recursion depth is much smaller than $$$\mathbf{L}$$$.
+  For example, the algorithm needs just $$$5060$$$ recursive calls for $$$\mathbf{L}=20$$$.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  For the large test set, the exhaustive search is obviously too slow as the number of recursive
+  calls for $$$\mathbf{L}=50$$$ is already $$$7,821,316,841$$$. Fortunately, dynamic programming comes to
+  rescue here.
+</p>
+
+<p>
+  But first, let us make one useful observation. Namely, we can always rearrange some operations
+  such that a two coin operation never follows a one coin operation. If it does, we can always swap
+  the two operations without affecting the net effect of the whole sequence of operations.
+</p>
+
+<p>
+  Now let us turn to our dynamic programming recurrence. Let $$$DP[i]$$$ be the minimum number of
+  coins needed to fetch $$$i$$$ lilies from the well. We have $$$DP[0]=0$$$ and $$$DP[1]=1$$$. For
+  $$$i > 1$$$, there are two possible ways of arriving at $$$i$$$ lilies &mdash; we either collect
+  $$$i - 1$$$ lilies first and then use a one coin operation to get another lily, or the last
+  operation must have been a two coin operation. The latter means that we had asked the well to
+  remember the state of our basket at $$$k$$$ lilies (where $$$k$$$ is a divisor of $$$i$$$) and
+  then applied $$$\frac{i}{k}-1$$$ two coin operations. Formally,
+  $$$DP[i]=\min(DP[i - 1] + 1, \min\limits_{k|i}\{DP[k]+4+2(\frac{i}{k}-1)\})$$$.
+</p>
+
+<p>
+  In practice, instead of calculating each $$$DP[i]$$$ directly using the formula above and
+  iterating over the divisors of $$$i$$$, we inverse the process as follows:
+</p>
+
+<p>
+  At the beginning we can say that all values of $$$DP$$$
+  except for $$$0$$$ and $$$1$$$ are equal to infinity.
+  Now let us iterate through all $$$i$$$ from $$$2$$$ to $$$\mathbf{N}$$$.
+  One option to use one coin and get from $$$i-1$$$ lilies to $$$i$$$ lilies,
+  so we can say that $$$DP[i] = min(DP[i], DP[i-1]+1)$$$.
+  Now when we already have $$$i$$$ lilies, we can also use four coins to remember the state of our basket
+  and then later get $$$j \cdot i$$$ lilies from the well.
+  So we should update $$$DP$$$ for all multiples of $$$i$$$:
+  $$$ DP[j \cdot i] = min(DP[j \cdot i], DP[i] + 4 + 2 \cdot (j-1)) $$$ for $$$i < j \cdot i \leq \mathbf{N}$$$.
+</p>
+
+<p>
+  As for the time complexity of the algorithm, for each index $$$k$$$, there are
+  $$$O(\frac{\mathbf{L}}{k})$$$ multiples to be updated, which leads to
+  $$$O(\mathbf{L}(1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{\mathbf{L}}))$$$ updates. The factor
+  $$$1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{\mathbf{L}}$$$ is the $$$\mathbf{L}$$$-th
+  <a href="https://en.wikipedia.org/wiki/Harmonic_number" target="_blank">harmonic number</a>, which is
+  $$$O(\log \mathbf{L})$$$, therefore, the overall time complexity of the algorithm is
+  $$$O(\mathbf{L} \log \mathbf{L})$$$.
+</p>
+
+<p>
+  As a final note, we can precompute the $$$DP$$$ table in advance, and then answer each test case
+  in constant time.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

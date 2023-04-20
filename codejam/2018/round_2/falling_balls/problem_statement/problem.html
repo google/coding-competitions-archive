@@ -1,0 +1,631 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 2</h3><h1>Falling Balls</h1><h3>Problem</h3>
+
+<p>
+  A certain toy consists of a grid of 2 or more columns and 1 or more rows,
+  where each cell of the grid contains either a <code>\</code> ramp or a
+  <code>/</code> ramp, or is empty. The leftmost and rightmost columns are
+  empty and the bottom row is also empty. Balls are dropped into the top row
+  and fall vertically, sliding on ramps. To prevent balls from getting stuck,
+  a cell with a <code>\</code> ramp is never immediately to the left of a cell
+  with a <code>/</code> ramp.
+</p><p>
+  When a ball is dropped into the top row, it moves deterministically as
+  follows:
+</p>
+<ul>
+  <li>A ball in an empty cell moves to the cell immediately below its current
+    cell, unless it is in the bottom row, in which case it does not move any
+    more.</li>
+  <li>A ball in a cell containing a <code>\</code> ramp moves to the cell
+    immediately below and to the right of its current cell.</li>
+  <li>A ball in a cell containing a <code>/</code> ramp moves to the cell
+    immediately below and to the left of its current cell.</li>
+</ul>
+<p>
+  To see the mechanism to its full extent, the user drops exactly one ball into
+  each column. Balls do not interfere with each other, and it is possible for a
+  cell to contain multiple balls.
+</p><p>
+  Your friend has a toy with <b>C</b> columns and an unknown number of rows.
+  They just dropped one ball into the top row of each column, and waited for
+  all balls to stop moving. Then, they counted how many balls ended up in each
+  of the cells of the bottom row, and gave you those results... but you think
+  it is possible that they made a mistake. Can you create a layout that is
+  consistent with the results and uses as few rows as possible, or determine
+  that no such layout exists?
+</p><p>
+  For example, if your friend reported the values <code>3 0 0 2 0 1</code>,
+  one possible solution would be the following. (Note that it is not necessary
+  to use a minimal number of ramps, or for every ramp to affect the balls.)
+</p>
+<p><code>
+    .//\..<br/>
+    ./\./.<br/>
+    ......<br/>
+</code></p>
+<p>
+  Here are the paths that the balls would take when falling through that grid:
+</p>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="500px" width="500px"
+	 viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve">
+<g>
+	<rect x="8" y="45.3" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M29.4,66.7H7.9V45.2h21.5V66.7z M8.1,66.5h21.2V45.3H8.1V66.5z"/>
+</g>
+<g>
+	<rect x="29.3" y="45.3" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M50.7,66.7H29.3V45.2h21.5V66.7z M29.4,66.5h21.2V45.3H29.4V66.5z"/>
+</g>
+<g>
+	<rect x="50.7" y="45.3" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M72.1,66.7H50.6V45.2h21.5V66.7z M50.7,66.5h21.2V45.3H50.7V66.5z"/>
+</g>
+<g>
+	<rect x="72" y="45.3" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M93.4,66.7H71.9V45.2h21.5V66.7z M72.1,66.5h21.2V45.3H72.1V66.5z"/>
+</g>
+<g>
+	<rect x="93.3" y="45.3" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M114.7,66.7H93.3V45.2h21.5V66.7z M93.4,66.5h21.2V45.3H93.4V66.5z"/>
+</g>
+<g>
+	<rect x="114.7" y="45.3" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M136.1,66.7h-21.5V45.2h21.5V66.7z M114.7,66.5h21.2V45.3h-21.2V66.5z"/>
+</g>
+<g>
+	<rect x="8" y="66.6" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M29.4,88H7.9V66.5h21.5V88z M8.1,87.9h21.2V66.7H8.1V87.9z"/>
+</g>
+<g>
+	<rect x="29.3" y="66.6" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M50.7,88H29.3V66.5h21.5V88z M29.4,87.9h21.2V66.7H29.4V87.9z"/>
+</g>
+<g>
+	<rect x="50.7" y="66.6" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M72.1,88H50.6V66.5h21.5V88z M50.7,87.9h21.2V66.7H50.7V87.9z"/>
+</g>
+<g>
+	<rect x="72" y="66.6" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M93.4,88H71.9V66.5h21.5V88z M72.1,87.9h21.2V66.7H72.1V87.9z"/>
+</g>
+<g>
+	<rect x="93.3" y="66.6" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M114.7,88H93.3V66.5h21.5V88z M93.4,87.9h21.2V66.7H93.4V87.9z"/>
+</g>
+<g>
+	<rect x="114.7" y="66.6" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M136.1,88h-21.5V66.5h21.5V88z M114.7,87.9h21.2V66.7h-21.2V87.9z"/>
+</g>
+<g>
+	<rect x="8" y="87.9" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M29.4,109.3H7.9V87.9h21.5V109.3z M8.1,109.2h21.2V88H8.1V109.2z"/>
+</g>
+<g>
+	<rect x="29.3" y="87.9" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M50.7,109.3H29.3V87.9h21.5V109.3z M29.4,109.2h21.2V88H29.4V109.2z"/>
+</g>
+<g>
+	<rect x="50.7" y="87.9" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M72.1,109.3H50.6V87.9h21.5V109.3z M50.7,109.2h21.2V88H50.7V109.2z"/>
+</g>
+<g>
+	<rect x="72" y="87.9" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M93.4,109.3H71.9V87.9h21.5V109.3z M72.1,109.2h21.2V88H72.1V109.2z"/>
+</g>
+<g>
+	<rect x="93.3" y="87.9" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M114.7,109.3H93.3V87.9h21.5V109.3z M93.4,109.2h21.2V88H93.4V109.2z"/>
+</g>
+<g>
+	<rect x="114.7" y="87.9" fill="#FFFFFF" width="21.3" height="21.3"/>
+	<path fill="#D1D3D4" d="M136.1,109.3h-21.5V87.9h21.5V109.3z M114.7,109.2h21.2V88h-21.2V109.2z"/>
+</g>
+<g>
+	<rect x="18.1" y="36.2" fill="#2196F3" width="1.2" height="1.2"/>
+	<path fill="#2196F3" d="M19.2,105.8h-1.2v-2.3h1.2V105.8z M19.2,101.3h-1.2V99h1.2V101.3z M19.2,96.7h-1.2v-2.3h1.2V96.7z
+		 M19.2,92.1h-1.2v-2.3h1.2V92.1z M19.2,87.6h-1.2v-2.3h1.2V87.6z M19.2,83h-1.2v-2.3h1.2V83z M19.2,78.5h-1.2v-2.3h1.2V78.5z
+		 M19.2,73.9h-1.2v-2.3h1.2V73.9z M19.2,69.3h-1.2V67h1.2V69.3z M19.2,64.8h-1.2v-2.3h1.2V64.8z M19.2,60.2h-1.2v-2.3h1.2V60.2z
+		 M19.2,55.6h-1.2v-2.3h1.2V55.6z M19.2,51.1h-1.2v-2.3h1.2V51.1z M19.2,46.5h-1.2v-2.3h1.2V46.5z M19.2,41.9h-1.2v-2.3h1.2V41.9z"
+		/>
+	<rect x="18.1" y="108.1" fill="#2196F3" width="1.2" height="1.2"/>
+</g>
+<g>
+	<rect x="124.8" y="40.9" fill="#4CAF50" width="1.2" height="1.2"/>
+	<path fill="#4CAF50" d="M125.9,105.8h-1.2v-2.3h1.2V105.8z M125.9,101.3h-1.2V99h1.2V101.3z M125.9,96.7h-1.2v-2.3h1.2V96.7z
+		 M125.9,92.2h-1.2v-2.3h1.2V92.2z M125.9,87.6h-1.2v-2.3h1.2V87.6z M125.9,83h-1.2v-2.3h1.2V83z M125.9,78.5h-1.2v-2.3h1.2V78.5z
+		 M125.9,73.9h-1.2v-2.3h1.2V73.9z M125.9,69.4h-1.2v-2.3h1.2V69.4z M125.9,64.8h-1.2v-2.3h1.2V64.8z M125.9,60.2h-1.2V58h1.2V60.2z
+		 M125.9,55.7h-1.2v-2.3h1.2V55.7z M125.9,51.1h-1.2v-2.3h1.2V51.1z M125.9,46.6h-1.2v-2.3h1.2V46.6z"/>
+	<rect x="124.8" y="108.1" fill="#4CAF50" width="1.2" height="1.2"/>
+</g>
+<g>
+	<rect x="39.5" y="36.2" fill="#F44336" width="1.2" height="1.2"/>
+	<path fill="#F44336" d="M23.2,105.8h-1.2v-2.4h1.2V105.8z M23.2,101h-1.2v-2.4h1.2V101z M23.2,96.3h-1.2V94h1.2V96.3z M23.2,91.6
+		h-1.2v-2.4h1.2V91.6z M23.2,86.9h-1.2v-2.4h1.2V86.9z M23.2,82.2h-1.2v-2.4h1.2V82.2z M23.2,77.4h-1.2v-2.4h1.2V77.4z M23.2,72.7
+		h-1.2v-2.4h1.2V72.7z M23.2,68h-1.2v-1.7c0-0.2,0.1-0.3,0.2-0.4l0.5-0.5l0.8,0.8l-0.3,0.3V68z M25.2,64.6l-0.8-0.8l1.7-1.7l0.8,0.8
+		L25.2,64.6z M28.5,61.2l-0.8-0.8l1.7-1.7l0.8,0.8L28.5,61.2z M31.8,57.8L31,57l1.7-1.7l0.8,0.8L31.8,57.8z M35.1,54.4l-0.8-0.8
+		l1.7-1.7l0.8,0.8L35.1,54.4z M38.4,51.1l-0.8-0.8l1.7-1.7l0.8,0.8L38.4,51.1z M40.6,46.8h-1.2v-2.4h1.2V46.8z M40.6,42.1h-1.2v-2.4
+		h1.2V42.1z"/>
+	<rect x="22.1" y="108.1" fill="#F44336" width="1.2" height="1.2"/>
+</g>
+<g>
+	<rect x="60.8" y="36.2" width="1.2" height="1.2"/>
+	<path d="M26.7,105.8h-1.2v-2.3h1.2V105.8z M26.7,101.2h-1.2v-2.3h1.2V101.2z M26.7,96.6h-1.2v-2.3h1.2V96.6z M26.7,92h-1.2v-2.3
+		h1.2V92z M26.7,87.4h-1.2v-2.3h1.2V87.4z M27.7,83.6l-0.8-0.8l1.6-1.6l0.8,0.8L27.7,83.6z M30.9,80.4l-0.8-0.8l1.6-1.6l0.8,0.8
+		L30.9,80.4z M34.2,77.1l-0.8-0.8l1.6-1.6l0.8,0.8L34.2,77.1z M37.5,73.8L36.6,73l1.6-1.6l0.8,0.8L37.5,73.8z M40.7,70.6l-0.8-0.8
+		l1.6-1.6l0.8,0.8L40.7,70.6z M44,67.3l-0.8-0.8l1.6-1.6l0.8,0.8L44,67.3z M47.2,64.1l-0.8-0.8l1.6-1.6l0.8,0.8L47.2,64.1z
+		 M50.5,60.8L49.7,60l1.6-1.6l0.8,0.8L50.5,60.8z M53.8,57.5l-0.8-0.8l1.6-1.6l0.8,0.8L53.8,57.5z M57,54.3l-0.8-0.8l1.6-1.6
+		l0.8,0.8L57,54.3z M60.3,51l-0.8-0.8l1.5-1.5l0.2,0.2h0.8v0.2c0,0.2-0.1,0.3-0.2,0.4L60.3,51z M61.9,46.6h-1.2v-2.3h1.2V46.6z
+		 M61.9,42h-1.2v-2.3h1.2V42z"/>
+	<rect x="25.6" y="108.1" width="1.2" height="1.2"/>
+</g>
+<circle fill="#1976D2" cx="18.7" cy="38" r="4.6"/>
+<path fill="#2196F3" d="M18.7,33.3v9.2c-2.6,0-4.6-2.1-4.6-4.6C14,35.4,16.1,33.3,18.7,33.3z"/>
+<circle fill="#D32F2F" cx="40" cy="37.9" r="4.6"/>
+<circle cx="61.3" cy="38" r="4.6"/>
+<circle fill="#388E3C" cx="125.3" cy="38" r="4.6"/>
+<g>
+	<rect x="82.1" y="36.2" fill="#FFC107" width="1.2" height="1.2"/>
+	<path fill="#FFC107" d="M83.2,46h-1.2v-2.1h1.2V46z M83.2,41.7h-1.2v-2.1h1.2V41.7z"/>
+	<path fill="#FFC107" d="M83.1,50.5l-0.8-0.8c-0.1-0.1-0.2-0.3-0.2-0.4v-1.2h1.2V49l0.6,0.6L83.1,50.5z"/>
+	<path fill="#FFC107" d="M96.7,64.2L95,62.5l0.8-0.8l1.7,1.7L96.7,64.2z M93.3,60.8l-1.7-1.7l0.8-0.8l1.7,1.7L93.3,60.8z M89.9,57.3
+		l-1.7-1.7l0.8-0.8l1.7,1.7L89.9,57.3z M86.5,53.9l-1.7-1.7l0.8-0.8l1.7,1.7L86.5,53.9z"/>
+	<path fill="#FFC107" d="M99.3,67.5l-0.8-0.8l0.4-0.4l-0.4-0.4l0.8-0.8l0.8,0.8c0.2,0.2,0.2,0.6,0,0.8L99.3,67.5z"/>
+	<path fill="#FFC107" d="M79.9,105.8h-1.2v-2.3h1.2V105.8z M79.9,101.1h-1.2v-2.3h1.2V101.1z M79.9,96.5h-1.2v-2.3h1.2V96.5z
+		 M79.9,91.8h-1.2v-2.3h1.2V91.8z M80.1,87.7l-0.8-0.8l1.6-1.7l0.8,0.8L80.1,87.7z M83.3,84.4l-0.8-0.8l1.6-1.7l0.8,0.8L83.3,84.4z
+		 M86.5,81l-0.8-0.8l1.6-1.7l0.8,0.8L86.5,81z M89.7,77.6l-0.8-0.8l1.6-1.7l0.8,0.8L89.7,77.6z M92.9,74.3l-0.8-0.8l1.6-1.7l0.8,0.8
+		L92.9,74.3z M96.1,70.9l-0.8-0.8l1.6-1.7l0.8,0.8L96.1,70.9z"/>
+	<rect x="78.7" y="108.1" fill="#FFC107" width="1.2" height="1.2"/>
+</g>
+<g>
+	<rect x="103.4" y="36.2" fill="#673AB7" width="1.2" height="1.2"/>
+	<path fill="#673AB7" d="M87.3,105.8h-1.2v-2.4h1.2V105.8z M87.3,101h-1.2v-2.4h1.2V101z M87.3,96.3h-1.2V94h1.2V96.3z M87.3,91.6
+		h-1.2v-2.4h1.2V91.6z M88,87.6l-0.8-0.8l1.7-1.7l0.8,0.8L88,87.6z M91.3,84.3l-0.8-0.8l1.7-1.7l0.8,0.8L91.3,84.3z M94.7,81
+		l-0.8-0.8l1.7-1.7l0.8,0.8L94.7,81z M98,77.6l-0.8-0.8l1.7-1.7l0.8,0.8L98,77.6z M101.4,74.3l-0.8-0.8l1.7-1.7l0.8,0.8L101.4,74.3z
+		 M104.6,70.4h-1.2v-2.4h1.2V70.4z M104.6,65.7h-1.2v-2.4h1.2V65.7z M104.6,61h-1.2v-2.4h1.2V61z M104.6,56.3h-1.2v-2.4h1.2V56.3z
+		 M104.6,51.5h-1.2v-2.4h1.2V51.5z M104.6,46.8h-1.2v-2.4h1.2V46.8z M104.6,42.1h-1.2v-2.4h1.2V42.1z"/>
+	<rect x="86.2" y="108.1" fill="#673AB7" width="1.2" height="1.2"/>
+</g>
+<path fill="#58595B" d="M136,110.7H8c-0.8,0-1.4-0.6-1.4-1.4v-64c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4v62.6h125.1V45.3
+	c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4v64C137.5,110.1,136.8,110.7,136,110.7z"/>
+<polygon fill="#2196F3" points="20.7,105.8 18.7,107.8 16.7,105.8 "/>
+<polygon fill="#FFC107" points="81.3,105.8 79.3,107.8 77.3,105.8 "/>
+<polygon fill="#673AB7" points="88.8,105.8 86.8,107.8 84.8,105.8 "/>
+<polygon fill="#4CAF50" points="127.3,105.8 125.3,107.8 123.3,105.8 "/>
+<polygon fill="#F44336" points="24.6,105.8 22.6,107.8 20.6,105.8 "/>
+<polygon points="28.2,105.8 26.2,107.8 24.2,105.8 "/>
+<path fill="#939598" d="M93.3,89.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.6-1.5,0-2l21.3-21.3c0.6-0.6,1.5-0.6,2,0c0.6,0.6,0.6,1.5,0,2
+	L94.4,89C94.1,89.2,93.7,89.4,93.3,89.4z"/>
+<path fill="#939598" d="M72,89.4c-0.4,0-0.7-0.1-1-0.4L49.6,67.6c-0.6-0.6-0.6-1.5,0-2c0.6-0.6,1.5-0.6,2,0L73,86.9
+	c0.6,0.6,0.6,1.5,0,2C72.7,89.2,72.4,89.4,72,89.4z"/>
+<path fill="#939598" d="M29.3,89.4c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.6-1.5,0-2L71,44.2c0.5-0.5,1.5-0.5,2,0l21.3,21.3
+	c0.6,0.6,0.6,1.5,0,2c-0.6,0.6-1.5,0.6-2,0L72,47.3L30.3,89C30.1,89.2,29.7,89.4,29.3,89.4z"/>
+<path fill="#939598" d="M29.3,68c-0.4,0-0.7-0.1-1-0.4c-0.6-0.6-0.6-1.5,0-2l21.3-21.3c0.6-0.6,1.5-0.6,2,0c0.6,0.6,0.6,1.5,0,2
+	L30.3,67.6C30.1,67.9,29.7,68,29.3,68z"/>
+<path fill="#F44336" d="M40.1,33.3v9.2c-2.6,0-4.6-2.1-4.6-4.6C35.4,35.4,37.5,33.3,40.1,33.3z"/>
+<path fill="#616161" d="M61.3,33.3v9.2c-2.6,0-4.6-2.1-4.6-4.6C56.7,35.4,58.8,33.3,61.3,33.3z"/>
+<circle fill="#FFA000" cx="82.7" cy="38" r="4.6"/>
+<path fill="#FFC107" d="M82.7,33.3v9.2c-2.6,0-4.6-2.1-4.6-4.6C78,35.4,80.1,33.3,82.7,33.3z"/>
+<circle fill="#512DA8" cx="104" cy="38" r="4.6"/>
+<path fill="#673AB7" d="M104,33.3v9.2c-2.6,0-4.6-2.1-4.6-4.6C99.4,35.4,101.4,33.3,104,33.3z"/>
+<path fill="#4CAF50" d="M125.3,33.3v9.2c-2.6,0-4.6-2.1-4.6-4.6C120.7,35.4,122.8,33.3,125.3,33.3z"/>
+</svg>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each begins with one line containing an integer
+  <b>C</b>: the number of columns in your friend's falling ball toy. Then,
+  there is one more line containing <b>C</b> integers <b>B<sub>i</sub></b>. The
+  i-th of these integers represents the number of balls that ended up in the
+  i-th cell from the left of the bottom row of your friend's falling ball toy,
+  according to the data they gave you.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>,
+  where <code>x</code> is the test case number (starting from 1) and
+  <code>y</code> is either <code>IMPOSSIBLE</code>, or the number of rows in
+  your layout, as described above. If <code>y</code> is not
+  <code>IMPOSSIBLE</code>, output <code>y</code> more rows, representing the
+  rows of your proposed falling ball toy layout, in order from top to bottom.
+  Use <code>.</code> to represent a cell with no ramp, and <code>\</code> or
+  <code>/</code> to represent the ramps. The layout must obey all of the rules
+  in the problem statement.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  0 &le; <b>B<sub>i</sub></b> &le; <b>C</b>, for all i.<br/>
+  The sum (over all i from 1 to <b>C</b>, inclusive) of all
+  <b>B<sub>i</sub></b> values = <b>C</b>.<br/>
+  Time limit: 10 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  2 &le; <b>C</b> &le; 5.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  2 &le; <b>C</b> &le; 100.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="falling_balls_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+4
+1 1 1 1
+3
+0 2 1
+6
+3 0 0 2 0 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="falling_balls_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 1
+....
+Case #2: IMPOSSIBLE
+Case #3: 3
+.//\..
+./\./.
+......
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Note that the last sample case would not appear in Test set 1.
+</p>
+<p>
+  The following layout is the only valid solution for Sample Case #1. (There
+  must be at least one row, and including any more rows would make the solution
+  use more rows than needed. It is not legal to include any ramps in the
+  bottom row.)
+</p>
+<p><code>
+    ....<br/>
+</code></p>
+<p>
+  In Sample Case #2, there is no way to prevent the leftmost ball from falling
+  to the bottom of its column without adding a ramp, but ramps cannot be added
+  to that column.
+</p>
+<p>
+  Sample Case #3 is the one described at the end of the problem statement. Note
+  that the following <u>invalid</u> layout for Sample Case #3 breaks several
+  rules: it has more rows than needed, it has ramps in the three illegal zones
+  (left column, right column, bottom row), and it contains a <code>\</code>
+  ramp immediately to the left of a <code>/</code> ramp.
+</p>
+<p><code>
+    \\..\/<br/>
+    ../.\/<br/>
+    ./../.<br/>
+    ..../.<br/>
+</code></p>
+
+    </div>
+  </body>
+</html>

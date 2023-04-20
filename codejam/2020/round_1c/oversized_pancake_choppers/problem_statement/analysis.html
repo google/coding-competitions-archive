@@ -1,0 +1,406 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 1C</h3><h1>Analysis: Oversized Pancake Choppers</h1><h3>
+  Test set 1
+</h3>
+<p>
+  In the first test set, we are only asked to produce 2 or 3 equal slices. Let us consider these
+  cases separately.
+</p>
+<p>
+  For <b>D</b>=2, if we already have two equal slices, then we don't need any cuts. If no two
+  slices are equal, then we can cut any slice into two equal halves with one cut.
+</p>
+<p>
+  Similarly, for <b>D</b>=3, if we already have three equal slices, then we don't need any cuts.
+  We can also cut any slice into three equal slices with two cuts. The extra case to consider is
+  whether we can do it with a single cut.
+</p>
+<p>
+  If we do only 1 cut we end up with <b>N</b>+1 slices: <b>N</b>-1 original slices and two
+  new slices. Three of them need to be of the same size, so this size has to be equal to the size
+  of at least one uncut slice. We can try all possibilities (up to <b>N</b>) for the target size
+  and all possibilities (up to <b>N</b>) for which slice we cut. If the slice p to be cut is not
+  larger than the target size s, we disregard the case. Otherwise, we cut p into a part of size s
+  and another part of size <b>A<sub>p</sub></b>-s. Then, if there are 3 slices of size s in the set
+  of <b>N</b>+1 slices, it is possible to do it with one cut. If that doesn't happen for any of
+  the considered possibilities, then we definitely need two.
+</p>
+<h3>
+  Test Set 2
+</h3>
+<p>
+  Let's define a <i>fully-usable slice</i> as a slice which we can use fully to produce the slices
+  we need, either by cutting it into 2 to <b>D</b> equal sized slices, or just using it in its
+  entirety as it is. That is, a fully-usable slice is a slice that will leave no further leftovers.
+</p>
+<p>
+  Here is a key observation: for every slice we will produce, we will need to use one cut, except
+  possibly for one slice cut from each fully-usable slice we use. That is, we will need
+  <b>D</b>-K cuts to produce <b>D</b> equal slices, where K is the number of
+  slices used fully.
+</p>
+<p>
+  For example:
+</p>
+<ul>
+  <li>
+    It is always possible to produce <b>D</b> equal slices by cutting any original slice with
+    <b>D</b>-1 cuts (K=1).
+  </li>
+  <li>
+    The best possible case is when we already have <b>D</b> equal original slices, because we make 0
+    cuts (K=<b>D</b>).
+  </li>
+</ul>
+<p>
+  Also notice that we never have to consider K=0, since K=1 is always possible by cutting
+  one original slice into equal pieces, and we want the maximum possible K.
+</p>
+<p>
+  By the observation above, the final size of our produced slices (hereafter the <i>target size</i>)
+  is going to be one of the original sizes (from one of the slices we fully use) divided by an
+  integer between 1 and <b>D</b>. Therefore, we have to check at most <b>N</b>&times;<b>D</b>
+  possible target sizes. With any other size, we would have 0 fully-usable slices.
+</p>
+<p>
+  For each such target slice size, we should do the following:
+</p>
+<ul>
+  <li>
+    First, we ensure that we can actually use it: if the total number of slices of this size
+    that can be produced by cutting all original slices is less than <b>D</b>, then, obviously,
+    this size is not useful for us. A slice of size <b>A<sub>i</sub></b> can be used to produce
+    up to floor(<b>A<sub>i</sub></b>/s) slices of target size s.
+  </li>
+  <li>
+    Then, we need to find all the fully-usable slices: their size is evenly divided by the target
+    slice size, with no remainder.
+  </li>
+  <li>
+    Now, since we need to maximize the number of original slices that are fully-usable, we can
+    use a greedy approach and take those slices one by one in non-decreasing order of size,
+    until we have as many fully-usable original slices as possible (that is, taking the next one
+    would cause us to produce more than <b>D</b> target slices). If we use up all fully-usable
+    original slices, we could use the other non-fully-usable original slices in any order.
+  </li>
+  <li>
+    As per our prior observation, each fully-usable original slice gives us one "free"
+    target slice; all other target slices will need a cut each to be produced. That is, the
+    total number of cuts for the current target slice size is <b>D</b> minus K, the number of
+    fully-usable original slices we use.
+  </li>
+</ul>
+<p>
+  The part above can be done in O(<b>N</b>) time if we sort the <b>A<sub>i</sub></b>s once
+  (in non-decreasing order) at the beginning, resulting in an
+  O(<b>D</b>&times;<b>N</b><sup>2</sup>) time complexity for the overall algorithm.
+</p>
+<h3>
+  Test Set 3
+</h3>
+<p>
+  First of all, notice that we can precompute the largest possible target slice size in
+  O(log(max(<b>A<sub>i</sub></b>))&times;<b>N</b>) time with a
+  <a href="https://en.wikipedia.org/wiki/Bisection_method" target="_blank">binary search</a>
+  on the target size. Then, we can save some time by not considering any target slice sizes
+  that are greater than the calculated limit.
+</p>
+<p>
+  Now, as in the solution for Test Set 2, we iterate through the <b>A<sub>i</sub></b>s
+  (in non-decreasing order) and all numbers of cuts c (1 to <b>D</b>). Instead of doing an
+  additional pass through <b>N</b> original slices as in the solution for Test Set 2, we can
+  just mark this original slice as a fully-usable slice for target size <b>A<sub>i</sub></b>/c.
+  To do that efficiently, we use a dictionary (ideally implemented as a hash table)
+  where the keys are valid target sizes, and the values are tuples containing
+  the number of fully-usable slices found so far for that target size, and the number of target
+  slices produced from them. Notice that the keys are fractions; to ensure that we do not
+  represent the same fraction in multiple ways, we can use an algorithm to find
+  <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" target="_blank">greatest common divisors</a>
+  and ensure that all fractions are reduced.
+</p><p>
+  For each target size <b>A<sub>i</sub></b>/c we add 1 and c to the corresponding dictionary values
+  for key <b>A<sub>i</sub></b>/c (assuming the default value for an unset key is zero). If after
+  this operation the number of produced target slices of size <b>A<sub>i</sub></b>/c would exceed
+  <b>D</b>, we should just not consider that slice as fully-usable for this case.
+</p>
+<p>
+  Then we can choose the maximum possible number M of fully-used slices across all valid target
+  slices, and the result is <b>D</b>-M. This improves the time complexity of the algorithm to
+  O(<b>D</b>&times;<b>N</b>).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

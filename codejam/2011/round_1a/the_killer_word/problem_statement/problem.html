@@ -1,0 +1,477 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2011 - Round 1A</h3><h1>The Killer Word</h1><h3>Problem</h3>
+
+<p>
+You are playing Hangman with your friend Sean. And while you have
+heard that Sean is very good at taking candy from a baby, he is not as
+good at this game. Can you take advantage of Sean's imperfect
+strategy, and make him lose as badly as possible?
+</p>
+
+<pre>
+ +--+
+ |  O
+ | /|\       Mystery word: _ a _ a _ a _
+ | / \
+ |
++-+---+
+</pre>
+
+<p>
+Hangman is played as follows:
+<ul>
+<li> There is a dictionary <b>D</b> of all valid words, which both you
+and Sean know. A word consists only of the characters <code>a</code> -
+<code>z</code>. In particular, there are no spaces.</li>
+<li> You begin by choosing any word from <b>D</b>, and writing it down
+on a blackboard with each letter replaced by a blank:
+<code>_</code>.</li>
+<li> On his turn, Sean can choose any letter and ask you if it is in
+the word. If it is, you reveal <i>all</i> locations of that letter.
+Otherwise, Sean loses a point.</li>
+<li> Once all letters in the word have been revealed, the round ends.</li>
+<li> The round never ends early, no matter how many points Sean loses.</li>
+</ul>
+</p>
+
+<p>
+Sean uses a very simple strategy. He makes a list <b>L</b> of the 26
+letters in some order, and goes through the list one letter at a time.
+If there is at least one word in <b>D</b> that (a) has the letter he
+is thinking of, and (b) is consistent with what you have written down
+so far <i>and the result of all of Sean's previous guesses</i>, then Sean guesses that letter. Otherwise, he skips it. No
+matter what, Sean then moves on to the next letter in his list.
+</p>
+
+<p>
+Given Sean's list, what word should you choose to make Sean lose as
+many as points as possible? If several choices are equally good, you
+should choose the one that appears first in <b>D</b>.
+</p>
+
+<h3>Example</h3>
+
+<p>
+Suppose Sean decides to guess the letters in alphabetical order (i.e.,
+<b>L</b> = "abcdefghijklmnopqrstuvwxyz"), and <b>D</b> contains the
+words <code>banana</code>, <code>caravan</code>, and
+<code>pajamas</code>. If you choose <code>pajamas</code>, the game
+would play out as follows:
+</p>
+<ul>
+<li> You begin by writing 7 blanks <code>_ _ _ _ _ _ _</code> on the
+blackboard. Based on the number of blanks, Sean knows immediately that
+the word is either <code>caravan</code> or <code>pajamas</code>.</li>
+<li> Sean begins by guessing <code>a</code> since it is first in
+<b>L</b>, and you reveal all locations of the letter <code>a</code> on
+the blackboard: <code>_ a _ a _ a _</code>.</li>
+<li> Sean skips <code>b</code> even though it is used in
+<code>banana</code>. Sean already knows that is not your word. </li>
+<li> He then guesses <code>c</code> because it appears in
+<code>caravan</code>. It does not appear in the word you actually
+chose though, so Sean loses a point and nothing more is revealed.
+</li>
+<li> By process of elimination, Sean now knows your word has to be
+<code>pajamas</code>, so he proceeds to guess <code>j</code>,
+<code>m</code>, <code>p</code>, and <code>s</code> in order, without
+losing any more points.
+</ul>
+<p>
+So Sean loses one point if you choose <code>pajamas</code>. He would
+have gotten either of the other words without losing any points.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>.
+<b>T</b> test cases follow. Each test case begins with a line
+containing integers <b>N</b> and <b>M</b>, representing the number of
+words in the dictionary and the number of lists to consider.
+</p>
+
+<p>
+The next <b>N</b> lines contain the words in the dictionary, one per
+line: <b>D</b><sub>1</sub>, <b>D</b><sub>2</sub>, ...,
+<b>D<sub>N</sub></b>. Each word is an arbitrary sequence of characters
+<code>a</code> - <code>z</code>.</p>
+
+<p>
+The final <b>M</b> lines contain all of the lists Sean will use, one per line: <b>L</b><sub>1</sub>, <b>L</b><sub>2</sub>, ..., <b>L<sub>M</sub></b>. Each list is exactly 26 letters long, containing each letter exactly once. Sean will use these lists to guess letters as described above.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing "Case #x:
+<b>w</b><sub>1</sub> <b>w</b><sub>2</sub> ...
+<b>w</b><sub><b>M</b></sub>", where x is the case number (starting
+from 1) and <b>w</b><sub>i</sub> is the word you should choose if Sean
+guesses the letters in order <b>L</b><sub>i</sub>. If multiple words
+cause Sean to lose the same number of points, you should choose the
+option that appears first in the dictionary.
+</p>
+
+<h3>Limits</h3>
+<p>
+1 &le; <b>T</b> &le; 10.<br/>
+Each word in <b>D</b> will have between 1 and 10 characters inclusive.<br/>
+No two words in <b>D</b> will be the same within a single test case.<br/>
+Memory limit: 1GB.
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+1 &le; <b>N</b> &le; 100.<br/>
+1 &le; <b>M</b> &le; 10.<br/>
+Time limit: 30 seconds.
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+1 &le; <b>N</b> &le; 10000.<br/>
+1 &le; <b>M</b> &le; 100.<br/>
+Time limit: 60 seconds.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="the_killer_word_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+3 2
+banana
+caravan
+pajamas
+abcdefghijklmnopqrstuvwxyz
+etaoisnhrdlcumwfgypbvkjxqz
+4 1
+potato
+tomato
+garlic
+pepper
+zyxwvutsrqponmlkjihgfedcba
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="the_killer_word_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: pajamas caravan
+Case #2: garlic
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</sampleio>
+
+
+    </div>
+  </body>
+</html>

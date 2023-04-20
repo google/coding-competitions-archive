@@ -1,0 +1,454 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Qualification Round</h3><h1>Analysis: Cubic UFO</h1><p>
+  This is an ad hoc geometry problem with many different solutions.
+</p>
+
+<h3>Test Set 1 (Visible)</h3>
+
+<p>
+  Suppose the cube is initially axis-aligned. Let us rotate it about the z-axis
+  by angle t, from +x towards +y, and study the shadow:
+</p>
+<p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 870 290" preserveAspectRatio="xMinYMin meet" stroke-width="1" stroke="transparent" fill="transparent" data-size="870 290" font-family="arial" font-size="14" style="overflow: visible; width: 870px; height: 290px;"><path fill="#F88" d="M94 193.4L227.5 211.6L227.1 215.2L239.5 212.8L228.1 207.2L227.7 210.8L94.1 192.6L94 193.4"></path><text x="250.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M94.5 193L90.2 58.2L93.8 58.1L89.5 46.2L85.8 58.3L89.4 58.2L93.7 193L94.5 193"></path><text x="89.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M93.8 192.7L21.8 255.4L19.4 252.6L13 263.5L24.7 258.7L22.3 256L94.3 193.3L93.8 192.7"></path><text x="5.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#00F" stroke-width="1.5" d="M159.5 141.7L158 138.2L155.8 135.2L153 132.6L149.7 130.8L146.2 129.8L142.6 129.6L139.2 130.3L136.1 131.7L133.5 134L131.6 136.8L130.4 140L130.1 143.5L130.5 147.1L131.7 150.5L133.7 153.6L136.3 156.3L139.3 158.3L142.7 159.7L146.2 160.2L149.6 159.9L138.6 161.7L149.6 159.9L142.4 158.3L149.6 159.9"></path><path stroke="#00F" stroke-width="1.5" d="M128 159.5L159.4 132.8"></path><path stroke="#000" fill="#aaa" d="M127.7 230.8L105.6 257.4L165 267.9L181.8 239.3L127.7 230.8"></path><line x1="126.9" y1="162" x2="127.7" y2="230.8" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="103.7" y1="182" x2="105.6" y2="257.4" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="166" y1="190" x2="165" y2="267.9" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="183.4" y1="168.4" x2="181.8" y2="239.3" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="126.9" y1="162" x2="126.3" y2="104.9" stroke="rgba(0,0,0,0.22)" stroke-width="2"></line><line x1="126.9" y1="162" x2="183.4" y2="168.4" stroke="rgba(0,0,0,0.23)" stroke-width="2"></line><line x1="126.3" y1="104.9" x2="184.8" y2="109.4" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="126.9" y1="162" x2="103.7" y2="182" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="183.4" y1="168.4" x2="184.8" y2="109.4" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="126.3" y1="104.9" x2="102.1" y2="118.8" stroke="rgba(0,0,0,0.64)" stroke-width="2"></line><line x1="183.4" y1="168.4" x2="166" y2="190" stroke="rgba(0,0,0,0.66)" stroke-width="2"></line><line x1="103.7" y1="182" x2="102.1" y2="118.8" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="184.8" y1="109.4" x2="166.8" y2="124.4" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="103.7" y1="182" x2="166" y2="190" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="102.1" y1="118.8" x2="166.8" y2="124.4" stroke="rgba(0,0,0,1.07)" stroke-width="2"></line><line x1="166" y1="190" x2="166.8" y2="124.4" stroke="rgba(0,0,0,1.08)" stroke-width="2"></line><ellipse cx="172.8" cy="202.5" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="172.8" y="204.5" fill="#F0F" text-anchor="middle" alignment-baseline="middle">V</text><ellipse cx="88.2" cy="108.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="88.2" y="110.4" fill="#F0F" text-anchor="middle" alignment-baseline="middle">W</text><path fill="#F88" d="M384 193.4L517.5 211.6L517.1 215.2L529.5 212.8L518.1 207.2L517.7 210.8L384.1 192.6L384 193.4"></path><text x="540.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M384.5 193L380.2 58.2L383.8 58.1L379.5 46.2L375.8 58.3L379.4 58.2L383.7 193L384.5 193"></path><text x="379.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M383.8 192.7L311.8 255.4L309.4 252.6L303 263.5L314.7 258.7L312.3 256L384.3 193.3L383.8 192.7"></path><text x="295.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#00F" stroke-width="1.5" d="M449.5 141.7L448 138.2L445.8 135.2L443 132.6L439.7 130.8L436.2 129.8L432.6 129.6L429.2 130.3L426.1 131.7L423.5 134L421.6 136.8L420.4 140L420.1 143.5L420.5 147.1L421.7 150.5L423.7 153.6L426.3 156.3L429.3 158.3L432.7 159.7L436.2 160.2L439.6 159.9L428.6 161.7L439.6 159.9L432.4 158.3L439.6 159.9"></path><path stroke="#00F" stroke-width="1.5" d="M418 159.5L449.4 132.8"></path><path stroke="#000" fill="#aaa" d="M409.7 229.5L386.9 255.8L464.5 269.6L480.4 240.7L409.7 229.5"></path><line x1="407.9" y1="117.7" x2="409.7" y2="229.5" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="383.1" y1="132.8" x2="386.9" y2="255.8" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="466.3" y1="176.6" x2="464.5" y2="269.6" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="482.8" y1="156.2" x2="480.4" y2="240.7" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="429.6" y1="171.9" x2="407.9" y2="117.7" stroke="rgba(0,0,0,0.19)" stroke-width="2"></line><line x1="429.6" y1="171.9" x2="482.8" y2="156.2" stroke="rgba(0,0,0,0.28)" stroke-width="2"></line><line x1="407.9" y1="117.7" x2="461.1" y2="99" stroke="rgba(0,0,0,0.39)" stroke-width="2"></line><line x1="429.6" y1="171.9" x2="407.7" y2="193.1" stroke="rgba(0,0,0,0.46)" stroke-width="2"></line><line x1="482.8" y1="156.2" x2="461.1" y2="99" stroke="rgba(0,0,0,0.47)" stroke-width="2"></line><line x1="407.9" y1="117.7" x2="383.1" y2="132.8" stroke="rgba(0,0,0,0.56)" stroke-width="2"></line><line x1="482.8" y1="156.2" x2="466.3" y2="176.6" stroke="rgba(0,0,0,0.74)" stroke-width="2"></line><line x1="407.7" y1="193.1" x2="383.1" y2="132.8" stroke="rgba(0,0,0,0.83)" stroke-width="2"></line><line x1="461.1" y1="99" x2="441.5" y2="112.7" stroke="rgba(0,0,0,0.84)" stroke-width="2"></line><line x1="407.7" y1="193.1" x2="466.3" y2="176.6" stroke="rgba(0,0,0,0.91)" stroke-width="2"></line><line x1="383.1" y1="132.8" x2="441.5" y2="112.7" stroke="rgba(0,0,0,1.02)" stroke-width="2"></line><line x1="466.3" y1="176.6" x2="441.5" y2="112.7" stroke="rgba(0,0,0,1.11)" stroke-width="2"></line><ellipse cx="476.6" cy="185" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="476.6" y="187" fill="#F0F" text-anchor="middle" alignment-baseline="middle">V</text><ellipse cx="366.6" cy="127" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="366.6" y="129" fill="#F0F" text-anchor="middle" alignment-baseline="middle">W</text><path fill="#F88" d="M674 193.4L807.5 211.6L807.1 215.2L819.5 212.8L808.1 207.2L807.7 210.8L674.1 192.6L674 193.4"></path><text x="830.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M674.5 193L670.2 58.2L673.8 58.1L669.5 46.2L665.8 58.3L669.4 58.2L673.7 193L674.5 193"></path><text x="669.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M673.8 192.7L601.8 255.4L599.4 252.6L593 263.5L604.7 258.7L602.3 256L674.3 193.3L673.8 192.7"></path><text x="585.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#000" fill="#aaa" d="M696.9 229.1L673.8 255.3L757.9 270.2L773.4 241.2L696.9 229.1"></path><line x1="695.2" y1="132.9" x2="696.9" y2="229.1" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="670.4" y1="149.7" x2="673.8" y2="255.3" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="760.2" y1="159.3" x2="757.9" y2="270.2" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="776.5" y1="140.6" x2="773.4" y2="241.2" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="734.6" y1="176.7" x2="695.2" y2="132.9" stroke="rgba(0,0,0,0.18)" stroke-width="2"></line><line x1="695.2" y1="132.9" x2="735.1" y2="94.6" stroke="rgba(0,0,0,0.33)" stroke-width="2"></line><line x1="734.6" y1="176.7" x2="776.5" y2="140.6" stroke="rgba(0,0,0,0.34)" stroke-width="2"></line><line x1="776.5" y1="140.6" x2="735.1" y2="94.6" stroke="rgba(0,0,0,0.48)" stroke-width="2"></line><line x1="695.2" y1="132.9" x2="670.4" y2="149.7" stroke="rgba(0,0,0,0.5)" stroke-width="2"></line><line x1="734.6" y1="176.7" x2="714.3" y2="198.6" stroke="rgba(0,0,0,0.51)" stroke-width="2"></line><line x1="735.1" y1="94.6" x2="713.7" y2="107.6" stroke="rgba(0,0,0,0.79)" stroke-width="2"></line><line x1="776.5" y1="140.6" x2="760.2" y2="159.3" stroke="rgba(0,0,0,0.8)" stroke-width="2"></line><line x1="714.3" y1="198.6" x2="670.4" y2="149.7" stroke="rgba(0,0,0,0.82)" stroke-width="2"></line><line x1="670.4" y1="149.7" x2="713.7" y2="107.6" stroke="rgba(0,0,0,0.96)" stroke-width="2"></line><line x1="714.3" y1="198.6" x2="760.2" y2="159.3" stroke="rgba(0,0,0,0.97)" stroke-width="2"></line><line x1="760.2" y1="159.3" x2="713.7" y2="107.6" stroke="rgba(0,0,0,1.12)" stroke-width="2"></line><ellipse cx="772.1" cy="162.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="772.1" y="164.1" fill="#F0F" text-anchor="middle" alignment-baseline="middle">V</text><ellipse cx="653.3" cy="149.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="653.3" y="151.1" fill="#F0F" text-anchor="middle" alignment-baseline="middle">W</text><path fill="#000" d="M261 145.6L301 145.6L301 151L319 145L301 139L301 144.4L261 144.4L261 145.6"></path><path fill="#000" d="M551 145.6L591 145.6L591 151L609 145L591 139L591 144.4L551 144.4L551 145.6"></path></svg>
+</p>
+<p>Key observations:</p>
+<ul>
+  <li>The shadow is a rectangle aligned to x- and z-axes, starting out as a
+    square for t = 0.</li>
+  <li>For 0 &le; t &le; &pi;/4 (45 degrees): z-length = 1 always, and
+    x-length = V<sub>x</sub> &minus; W<sub>x</sub>, where V<sub>x</sub> and
+    W<sub>x</sub> are x-components of vertices V and W in the figure. Therefore
+    this is really a 2-D problem; we can ignore z!</li>
+  <li>The shadow area is <b>A</b> =
+    1 &times (V<sub>x</sub> &minus; W<sub>x</sub>) = 2 V<sub>x</sub>,
+    since W<sub>x</sub> = &minus;V<sub>x</sub>.</li>
+</ul>
+<p>
+  For this setup, maximal area is attached when t = &pi;/4, which corresponds to
+  V<sub>x</sub> = &radic;(&half;), resulting in <b>A</b> = &radic;2 &approx;
+  1.414214. This exceeds all Test Set 1 inputs, so the setup is sound.
+</p>
+<p>
+  Next, we find the shadow area <b>A</b> as a function of angle t. From basic
+  geometry, V<sub>x</sub> = &radic;(&half;) &times; cos(t &minus; &pi;/4).
+  Therefore
+  <b>A</b> = 2V<sub>x</sub> = &radic;2 &times; cos(t &minus; &pi;/4),
+  for 0 &le; t &le; &pi;/4.
+</p>
+<p>
+  Given <b>A</b>, naively we'd invert the formula and get t as sum of &pi;/4
+  and cos<sup>&minus;1</sup>(<b>A</b> / &radic;2).
+  However, to satisfy 0 &le; t &le; &pi;/4, we need the negative branch of
+  cos<sup>&minus;1</sup>! Therefore the inverse is:
+</p>
+<p>
+  t = &pi;/4 &minus; |cos<sup>&minus;1</sup>(<b>A</b> / &radic;2)|.
+</p>
+<p>Once t is obtained, the final outputs are the centers of three non-parallel
+  faces. One such face (invariant for all t) is (0, 0, &half;). The other
+  two can be obtained from rotating (&half;, 0), and (0, &half;) by angle t,
+  and assigning z to 0. Using the
+  <a href="https://en.wikipedia.org/wiki/Rotation_matrix#In_two_dimensions" target="_blank">rotation formula</a>
+  yields (&half; cos(t), &half; sin(t), 0) and
+  (&minus;&half; sin(t), &half; cos(t), 0).
+</p>
+
+<h3>Test Set 2 (Hidden)</h3>
+
+<p>Our solution hinges on the following two crucial observations:</p>
+<ul>
+  <li>The cube will cast the smallest possible shadow, which has a square
+    shape, when one of its faces is parallel to the xz-plane.</li>
+  <li>The cube will cast the largest possible shadow, which has the shape of a
+    regular hexagon, when one of its vertices is on the y-axis.</li>
+</ul>
+<p>
+  To simplify the computations, let's rotate the cube about the y-axis by 45
+  degrees. (The direction of the rotation does not matter, since the cube would
+  end up in the same orientation either way.) After that, the cube will look
+  like this:
+</p>
+<p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 290" preserveAspectRatio="xMinYMin meet" stroke-width="1" stroke="transparent" fill="transparent" data-size="580 290" font-family="arial" font-size="14" style="overflow: visible; width: 580px; height: 290px;"><path fill="#F88" d="M94 193.4L227.5 211.6L227.1 215.2L239.5 212.8L228.1 207.2L227.7 210.8L94.1 192.6L94 193.4"></path><text x="250.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M94.5 193L90.2 58.2L93.8 58.1L89.5 46.2L85.8 58.3L89.4 58.2L93.7 193L94.5 193"></path><text x="89.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M93.8 192.7L21.8 255.4L19.4 252.6L13 263.5L24.7 258.7L22.3 256L94.3 193.3L93.8 192.7"></path><text x="5.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#080" stroke-width="1.5" d="M135.2 148.8L138.5 149.4L142.1 149.7L146 149.8L149.8 149.6L153.3 149.1L156.3 148.4L158.7 147.5L160.2 146.5L160.9 145.4L160.7 144.4L159.7 143.3L157.8 142.4L155.3 141.6L152.3 141L148.9 140.6L145.3 140.5L141.6 140.6L138.2 140.9L135.1 141.5L132.5 142.2L139.7 135.1L132.5 142.2L139.7 145.8L132.5 142.2"></path><path stroke="#080" stroke-width="1.5" d="M145 98L145 189.5"></path><path stroke="#000" fill="#aaa" d="M127.7 230.8L105.6 257.4L165 267.9L181.8 239.3L127.7 230.8"></path><line x1="126.9" y1="162" x2="127.7" y2="230.8" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="103.7" y1="182" x2="105.6" y2="257.4" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="166" y1="190" x2="165" y2="267.9" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="183.4" y1="168.4" x2="181.8" y2="239.3" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="126.9" y1="162" x2="126.3" y2="104.9" stroke="rgba(0,0,0,0.22)" stroke-width="2"></line><line x1="126.9" y1="162" x2="183.4" y2="168.4" stroke="rgba(0,0,0,0.23)" stroke-width="2"></line><line x1="126.3" y1="104.9" x2="184.8" y2="109.4" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="126.9" y1="162" x2="103.7" y2="182" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="183.4" y1="168.4" x2="184.8" y2="109.4" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="126.3" y1="104.9" x2="102.1" y2="118.8" stroke="rgba(0,0,0,0.64)" stroke-width="2"></line><line x1="183.4" y1="168.4" x2="166" y2="190" stroke="rgba(0,0,0,0.66)" stroke-width="2"></line><line x1="103.7" y1="182" x2="102.1" y2="118.8" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="184.8" y1="109.4" x2="166.8" y2="124.4" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="103.7" y1="182" x2="166" y2="190" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="102.1" y1="118.8" x2="166.8" y2="124.4" stroke="rgba(0,0,0,1.07)" stroke-width="2"></line><line x1="166" y1="190" x2="166.8" y2="124.4" stroke="rgba(0,0,0,1.08)" stroke-width="2"></line><ellipse cx="122.1" cy="164.6" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="122.1" y="166.6" fill="#F0F" text-anchor="middle" alignment-baseline="middle">A</text><ellipse cx="194.2" cy="173" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="194.2" y="175" fill="#000" text-anchor="middle" alignment-baseline="middle">B</text><ellipse cx="121.1" cy="91.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="121.1" y="93.8" fill="#F0F" text-anchor="middle" alignment-baseline="middle">E</text><ellipse cx="196.5" cy="96.9" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="196.5" y="98.9" fill="#F0F" text-anchor="middle" alignment-baseline="middle">F</text><ellipse cx="91" cy="191.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="91" y="193.4" fill="#F0F" text-anchor="middle" alignment-baseline="middle">D</text><ellipse cx="172.8" cy="202.5" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="172.8" y="204.5" fill="#F0F" text-anchor="middle" alignment-baseline="middle">C</text><ellipse cx="88.2" cy="108.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="88.2" y="110.4" fill="#000" text-anchor="middle" alignment-baseline="middle">H</text><ellipse cx="174.3" cy="115.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="174.3" y="117.4" fill="#F0F" text-anchor="middle" alignment-baseline="middle">G</text><path fill="#F88" d="M384 193.4L517.5 211.6L517.1 215.2L529.5 212.8L518.1 207.2L517.7 210.8L384.1 192.6L384 193.4"></path><text x="540.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M384.5 193L380.2 58.2L383.8 58.1L379.5 46.2L375.8 58.3L379.4 58.2L383.7 193L384.5 193"></path><text x="379.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M383.8 192.7L311.8 255.4L309.4 252.6L303 263.5L314.7 258.7L312.3 256L384.3 193.3L383.8 192.7"></path><text x="295.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#000" fill="#aaa" d="M396 241.5L420.1 269L476.1 254.9L447.8 230L396 241.5"></path><line x1="394.2" y1="170.1" x2="396" y2="241.5" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="419.3" y1="190.8" x2="420.1" y2="269" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="478.1" y1="180.1" x2="476.1" y2="254.9" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="448.4" y1="161.4" x2="447.8" y2="230" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="448.4" y1="161.4" x2="448.8" y2="104.5" stroke="rgba(0,0,0,0.2)" stroke-width="2"></line><line x1="394.2" y1="170.1" x2="448.4" y2="161.4" stroke="rgba(0,0,0,0.25)" stroke-width="2"></line><line x1="448.4" y1="161.4" x2="478.1" y2="180.1" stroke="rgba(0,0,0,0.4)" stroke-width="2"></line><line x1="392.7" y1="110.5" x2="448.8" y2="104.5" stroke="rgba(0,0,0,0.45)" stroke-width="2"></line><line x1="394.2" y1="170.1" x2="392.7" y2="110.5" stroke="rgba(0,0,0,0.5)" stroke-width="2"></line><line x1="448.8" y1="104.5" x2="479.7" y2="117.5" stroke="rgba(0,0,0,0.61)" stroke-width="2"></line><line x1="394.2" y1="170.1" x2="419.3" y2="190.8" stroke="rgba(0,0,0,0.69)" stroke-width="2"></line><line x1="478.1" y1="180.1" x2="479.7" y2="117.5" stroke="rgba(0,0,0,0.8)" stroke-width="2"></line><line x1="419.3" y1="190.8" x2="478.1" y2="180.1" stroke="rgba(0,0,0,0.85)" stroke-width="2"></line><line x1="392.7" y1="110.5" x2="418.7" y2="125" stroke="rgba(0,0,0,0.9)" stroke-width="2"></line><line x1="418.7" y1="125" x2="479.7" y2="117.5" stroke="rgba(0,0,0,1.05)" stroke-width="2"></line><line x1="419.3" y1="190.8" x2="418.7" y2="125" stroke="rgba(0,0,0,1.1)" stroke-width="2"></line><ellipse cx="382.7" cy="175.2" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="382.7" y="177.2" fill="#F0F" text-anchor="middle" alignment-baseline="middle">A</text><ellipse cx="451.9" cy="163.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="451.9" y="165.8" fill="#000" text-anchor="middle" alignment-baseline="middle">B</text><ellipse cx="380.2" cy="98.3" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="380.2" y="100.3" fill="#F0F" text-anchor="middle" alignment-baseline="middle">E</text><ellipse cx="452.7" cy="91.3" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="452.7" y="93.3" fill="#F0F" text-anchor="middle" alignment-baseline="middle">F</text><ellipse cx="414.2" cy="203.7" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="414.2" y="205.7" fill="#F0F" text-anchor="middle" alignment-baseline="middle">D</text><ellipse cx="491.1" cy="188.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="491.1" y="190.8" fill="#F0F" text-anchor="middle" alignment-baseline="middle">C</text><ellipse cx="413.1" cy="116.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="413.1" y="118.1" fill="#000" text-anchor="middle" alignment-baseline="middle">H</text><ellipse cx="494" cy="106.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="494" y="108.8" fill="#F0F" text-anchor="middle" alignment-baseline="middle">G</text><path fill="#000" d="M261 145.6L301 145.6L301 151L319 145L301 139L301 144.4L261 144.4L261 145.6"></path></svg>
+</p>
+<p>
+  It might not be immediately clear why this simplifies our life, but it will
+  make sense soon!
+</p>
+<p>
+  According to the above observations, the cube currently has the smallest
+  possible shadow. To maximize that shadow, we can rotate the cube about the
+  x-axis from +z towards +y, and bring the vertex H (from our diagram
+  above) onto the y-axis. A useful property of this rotation is that the area
+  of the shadow consistently increases throughout this rotation. Since we start
+  with the smallest possible shadow and continuously rotate until we get the
+  largest possible shadow, we achieve every possible shadow area at some point
+  during this rotation. So, we can use
+  <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank">binary search</a>
+  to figure out the exact angle by which we need to rotate the cube about the
+  x-axis to achieve the desired area.
+</p>
+<p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 870 290" preserveAspectRatio="xMinYMin meet" stroke-width="1" stroke="transparent" fill="transparent" data-size="870 290" font-family="arial" font-size="14" style="overflow: visible; width: 870px; height: 290px;"><path fill="#F88" d="M94 193.4L227.5 211.6L227.1 215.2L239.5 212.8L228.1 207.2L227.7 210.8L94.1 192.6L94 193.4"></path><text x="250.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M94.5 193L90.2 58.2L93.8 58.1L89.5 46.2L85.8 58.3L89.4 58.2L93.7 193L94.5 193"></path><text x="89.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M93.8 192.7L21.8 255.4L19.4 252.6L13 263.5L24.7 258.7L22.3 256L94.3 193.3L93.8 192.7"></path><text x="5.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#F00" stroke-width="1.5" d="M146.6 129.1L147.7 129.8L148.6 131.3L149.3 133.5L149.8 136.3L150 139.6L150 143.1L149.7 146.7L149.1 150.3L148.3 153.5L147.3 156.4L146.2 158.6L145 160.1L143.8 160.8L142.6 160.7L141.6 159.6L140.7 157.8L140.1 155.1L139.7 151.9L139.7 148.3L139.9 144.5L134 153.7L139.9 144.5L145.1 154.9L139.9 144.5"></path><path stroke="#F00" stroke-width="1.5" d="M101 140.6L191.6 149.7"></path><path stroke="#000" fill="#aaa" d="M106 241.5L130.1 269L186.1 254.9L157.8 230L106 241.5"></path><line x1="104.2" y1="170.1" x2="106" y2="241.5" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="129.3" y1="190.8" x2="130.1" y2="269" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="188.1" y1="180.1" x2="186.1" y2="254.9" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="158.4" y1="161.4" x2="157.8" y2="230" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="158.4" y1="161.4" x2="158.8" y2="104.5" stroke="rgba(0,0,0,0.2)" stroke-width="2"></line><line x1="104.2" y1="170.1" x2="158.4" y2="161.4" stroke="rgba(0,0,0,0.25)" stroke-width="2"></line><line x1="158.4" y1="161.4" x2="188.1" y2="180.1" stroke="rgba(0,0,0,0.4)" stroke-width="2"></line><line x1="102.7" y1="110.5" x2="158.8" y2="104.5" stroke="rgba(0,0,0,0.45)" stroke-width="2"></line><line x1="104.2" y1="170.1" x2="102.7" y2="110.5" stroke="rgba(0,0,0,0.5)" stroke-width="2"></line><line x1="158.8" y1="104.5" x2="189.7" y2="117.5" stroke="rgba(0,0,0,0.61)" stroke-width="2"></line><line x1="104.2" y1="170.1" x2="129.3" y2="190.8" stroke="rgba(0,0,0,0.69)" stroke-width="2"></line><line x1="188.1" y1="180.1" x2="189.7" y2="117.5" stroke="rgba(0,0,0,0.8)" stroke-width="2"></line><line x1="129.3" y1="190.8" x2="188.1" y2="180.1" stroke="rgba(0,0,0,0.85)" stroke-width="2"></line><line x1="102.7" y1="110.5" x2="128.7" y2="125" stroke="rgba(0,0,0,0.9)" stroke-width="2"></line><line x1="128.7" y1="125" x2="189.7" y2="117.5" stroke="rgba(0,0,0,1.05)" stroke-width="2"></line><line x1="129.3" y1="190.8" x2="128.7" y2="125" stroke="rgba(0,0,0,1.1)" stroke-width="2"></line><ellipse cx="92.7" cy="175.2" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="92.7" y="177.2" fill="#F0F" text-anchor="middle" alignment-baseline="middle">A</text><ellipse cx="161.9" cy="163.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="161.9" y="165.8" fill="#000" text-anchor="middle" alignment-baseline="middle">B</text><ellipse cx="90.2" cy="98.3" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="90.2" y="100.3" fill="#F0F" text-anchor="middle" alignment-baseline="middle">E</text><ellipse cx="162.7" cy="91.3" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="162.7" y="93.3" fill="#F0F" text-anchor="middle" alignment-baseline="middle">F</text><ellipse cx="124.2" cy="203.7" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="124.2" y="205.7" fill="#F0F" text-anchor="middle" alignment-baseline="middle">D</text><ellipse cx="201.1" cy="188.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="201.1" y="190.8" fill="#F0F" text-anchor="middle" alignment-baseline="middle">C</text><ellipse cx="123.1" cy="116.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="123.1" y="118.1" fill="#000" text-anchor="middle" alignment-baseline="middle">H</text><ellipse cx="204" cy="106.8" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="204" y="108.8" fill="#F0F" text-anchor="middle" alignment-baseline="middle">G</text><path fill="#F88" d="M384 193.4L517.5 211.6L517.1 215.2L529.5 212.8L518.1 207.2L517.7 210.8L384.1 192.6L384 193.4"></path><text x="540.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M384.5 193L380.2 58.2L383.8 58.1L379.5 46.2L375.8 58.3L379.4 58.2L383.7 193L384.5 193"></path><text x="379.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M383.8 192.7L311.8 255.4L309.4 252.6L303 263.5L314.7 258.7L312.3 256L384.3 193.3L383.8 192.7"></path><text x="295.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#F00" stroke-width="1.5" d="M436.6 129.1L437.7 129.8L438.6 131.3L439.3 133.5L439.8 136.3L440 139.6L440 143.1L439.7 146.7L439.1 150.3L438.3 153.5L437.3 156.4L436.2 158.6L435 160.1L433.8 160.8L432.6 160.7L431.6 159.6L430.7 157.8L430.1 155.1L429.7 151.9L429.7 148.3L429.9 144.5L424 153.7L429.9 144.5L435.1 154.9L429.9 144.5"></path><path stroke="#F00" stroke-width="1.5" d="M391 140.6L481.6 149.7"></path><path stroke="#000" fill="#aaa" d="M401.2 235.7L390.6 247.7L416.6 274L472.4 261.7L479.6 248.4L450.3 226.4L401.2 235.7"></path><line x1="398.5" y1="110.8" x2="401.2" y2="235.7" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="388.4" y1="171.4" x2="390.6" y2="247.7" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="415.4" y1="169.7" x2="416.6" y2="274" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="474.3" y1="181.8" x2="472.4" y2="261.7" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="483.3" y1="117.7" x2="479.6" y2="248.4" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="451.3" y1="124.5" x2="450.3" y2="226.4" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="442.7" y1="182.2" x2="451.3" y2="124.5" stroke="rgba(0,0,0,0.19)" stroke-width="2"></line><line x1="398.5" y1="110.8" x2="451.3" y2="124.5" stroke="rgba(0,0,0,0.29)" stroke-width="2"></line><line x1="388.4" y1="171.4" x2="442.7" y2="182.2" stroke="rgba(0,0,0,0.4)" stroke-width="2"></line><line x1="451.3" y1="124.5" x2="483.3" y2="117.7" stroke="rgba(0,0,0,0.44)" stroke-width="2"></line><line x1="388.4" y1="171.4" x2="398.5" y2="110.8" stroke="rgba(0,0,0,0.5)" stroke-width="2"></line><line x1="442.7" y1="182.2" x2="474.3" y2="181.8" stroke="rgba(0,0,0,0.55)" stroke-width="2"></line><line x1="398.5" y1="110.8" x2="426.1" y2="102" stroke="rgba(0,0,0,0.75)" stroke-width="2"></line><line x1="474.3" y1="181.8" x2="483.3" y2="117.7" stroke="rgba(0,0,0,0.8)" stroke-width="2"></line><line x1="388.4" y1="171.4" x2="415.4" y2="169.7" stroke="rgba(0,0,0,0.86)" stroke-width="2"></line><line x1="426.1" y1="102" x2="483.3" y2="117.7" stroke="rgba(0,0,0,0.9)" stroke-width="2"></line><line x1="415.4" y1="169.7" x2="474.3" y2="181.8" stroke="rgba(0,0,0,1.01)" stroke-width="2"></line><line x1="415.4" y1="169.7" x2="426.1" y2="102" stroke="rgba(0,0,0,1.11)" stroke-width="2"></line><ellipse cx="374.7" cy="177.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="374.7" y="179.1" fill="#F0F" text-anchor="middle" alignment-baseline="middle">A</text><ellipse cx="444.8" cy="190.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="444.8" y="192.4" fill="#000" text-anchor="middle" alignment-baseline="middle">B</text><ellipse cx="388" cy="99.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="388" y="101.1" fill="#F0F" text-anchor="middle" alignment-baseline="middle">E</text><ellipse cx="455.7" cy="117" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="455.7" y="119" fill="#F0F" text-anchor="middle" alignment-baseline="middle">F</text><ellipse cx="408.7" cy="176.1" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="408.7" y="178.1" fill="#F0F" text-anchor="middle" alignment-baseline="middle">D</text><ellipse cx="486.8" cy="191.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="486.8" y="193.4" fill="#F0F" text-anchor="middle" alignment-baseline="middle">C</text><ellipse cx="423.1" cy="85.7" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="423.1" y="87.7" fill="#000" text-anchor="middle" alignment-baseline="middle">H</text><ellipse cx="498.1" cy="107.3" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="498.1" y="109.3" fill="#F0F" text-anchor="middle" alignment-baseline="middle">G</text><path fill="#F88" d="M674 193.4L807.5 211.6L807.1 215.2L819.5 212.8L808.1 207.2L807.7 210.8L674.1 192.6L674 193.4"></path><text x="830.2" y="214.3" fill="#F88" text-anchor="middle" alignment-baseline="middle">x</text><path fill="#5A5" d="M674.5 193L670.2 58.2L673.8 58.1L669.5 46.2L665.8 58.3L669.4 58.2L673.7 193L674.5 193"></path><text x="669.1" y="35.5" fill="#5A5" text-anchor="middle" alignment-baseline="middle">y</text><path fill="#88F" d="M673.8 192.7L601.8 255.4L599.4 252.6L593 263.5L604.7 258.7L602.3 256L674.3 193.3L673.8 192.7"></path><text x="585.5" y="270" fill="#88F" text-anchor="middle" alignment-baseline="middle">z</text><path stroke="#000" fill="#aaa" d="M695 231.3L676.2 252.7L707.6 272.6L759.4 267.3L772.2 243.6L739.6 227.4L695 231.3"></path><line x1="692.9" y1="117.6" x2="695" y2="231.3" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="673.4" y1="165.7" x2="676.2" y2="252.7" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="706.1" y1="141.4" x2="707.6" y2="272.6" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="761.5" y1="176.1" x2="759.4" y2="267.3" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="775.7" y1="124.6" x2="772.2" y2="243.6" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="740.4" y1="147.9" x2="739.6" y2="227.4" stroke="rgba(0,0,0,0.4)" stroke-dasharray="5,5"></line><line x1="692.9" y1="117.6" x2="740.4" y2="147.9" stroke="rgba(0,0,0,0.19)" stroke-width="2"></line><line x1="725" y1="196.2" x2="740.4" y2="147.9" stroke="rgba(0,0,0,0.27)" stroke-width="2"></line><line x1="740.4" y1="147.9" x2="775.7" y2="124.6" stroke="rgba(0,0,0,0.34)" stroke-width="2"></line><line x1="673.4" y1="165.7" x2="692.9" y2="117.6" stroke="rgba(0,0,0,0.5)" stroke-width="2"></line><line x1="692.9" y1="117.6" x2="725" y2="90.4" stroke="rgba(0,0,0,0.56)" stroke-width="2"></line><line x1="673.4" y1="165.7" x2="725" y2="196.2" stroke="rgba(0,0,0,0.58)" stroke-width="2"></line><line x1="725" y1="90.4" x2="775.7" y2="124.6" stroke="rgba(0,0,0,0.72)" stroke-width="2"></line><line x1="725" y1="196.2" x2="761.5" y2="176.1" stroke="rgba(0,0,0,0.74)" stroke-width="2"></line><line x1="761.5" y1="176.1" x2="775.7" y2="124.6" stroke="rgba(0,0,0,0.8)" stroke-width="2"></line><line x1="673.4" y1="165.7" x2="706.1" y2="141.4" stroke="rgba(0,0,0,0.96)" stroke-width="2"></line><line x1="706.1" y1="141.4" x2="725" y2="90.4" stroke="rgba(0,0,0,1.03)" stroke-width="2"></line><line x1="706.1" y1="141.4" x2="761.5" y2="176.1" stroke="rgba(0,0,0,1.11)" stroke-width="2"></line><ellipse cx="657.8" cy="170" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="657.8" y="172" fill="#F0F" text-anchor="middle" alignment-baseline="middle">A</text><ellipse cx="725" cy="209" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="725" y="211" fill="#000" text-anchor="middle" alignment-baseline="middle">B</text><ellipse cx="683.9" cy="108" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="683.9" y="110" fill="#F0F" text-anchor="middle" alignment-baseline="middle">E</text><ellipse cx="744.4" cy="146.7" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="744.4" y="148.7" fill="#F0F" text-anchor="middle" alignment-baseline="middle">F</text><ellipse cx="699.6" cy="138.2" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="699.6" y="140.2" fill="#F0F" text-anchor="middle" alignment-baseline="middle">D</text><ellipse cx="773.4" cy="184.2" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="773.4" y="186.2" fill="#F0F" text-anchor="middle" alignment-baseline="middle">C</text><ellipse cx="725" cy="71.4" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="725" y="73.4" fill="#000" text-anchor="middle" alignment-baseline="middle">H</text><ellipse cx="790.8" cy="116.6" rx="9" ry="9" fill="rgba(255,255,255,0.5)"></ellipse><text x="790.8" y="118.6" fill="#F0F" text-anchor="middle" alignment-baseline="middle">G</text><path fill="#000" d="M261 145.6L301 145.6L301 151L319 145L301 139L301 144.4L261 144.4L261 145.6"></path><path fill="#000" d="M551 145.6L591 145.6L591 151L609 145L591 139L591 144.4L551 144.4L551 145.6"></path></svg>
+</p>
+<p>
+  However, two questions remain:
+</p>
+<ul>
+  <li>If we rotate the cube about the x-axis by a certain angle, what will be
+    the coordinates of the vertices of the cube?</li>
+  <li>Given the coordinates of the vertices, how can we calculate the area of
+    the shadow?</li>
+</ul>
+<h4>Rotating a cube about the x-axis</h4>
+<p>
+  Notice that, since we are rotating the cube about the x-axis, the
+  x-coordinates of the points will remain the same; only the y- and z-
+  coordinates will change. So, instead of performing rotations in 3-D, we will
+  project the point onto the yz-plane (the x = 0 plane) and perform the
+  rotations in 2-D.
+</p>
+<p>
+  For example, suppose that we want to rotate point P = (P<sub>x</sub>,
+  P<sub>y</sub>, P<sub>z</sub>) about the x-axis from +z towards +x by
+  angle t. First, we project the point onto the yz-plane, where it will have
+  coordinates (0, P<sub>y</sub>, P<sub>z</sub>). We will ignore the x component
+  and treat the point as (P<sub>y</sub>, P<sub>z</sub>) on a 2-D plane.
+</p>
+<p>
+  Now, rotation about the x-axis by angle t in the indicated direction is
+  equivalent to rotating (P<sub>y</sub>, P<sub>z</sub>) about (0, 0) by angle
+  t in a clockwise direction. The resulting 2-D point will be
+</p>
+<p>
+  (P<sub>y</sub>', P<sub>z</sub>') =
+  (P<sub>y</sub> &times; cos(t) + P<sub>z</sub> &times; sin(t),
+  &minus;P<sub>y</sub> &times; sin(t) + P<sub>z</sub> &times; cos(t)),
+</p>
+<p>
+  which in 3-D becomes (P<sub>x</sub>, P<sub>y</sub>', P<sub>z</sub>'). We can
+  get this from the rotation formula, or the complex expression
+  (P<sub>y</sub> + <i>i</i>P<sub>z</sub>) &times; e<sup>&minus;<i>i</i>t</sup>.
+</p>
+<h4>Shadow area</h4>
+<p>
+  As H approaches the y-axis, the shadow on the y = &minus;3 plane takes the
+  shape of a convex hexagon. More specifically, the vertices of the hexagon are
+  the projection of points D, C, G, F, E, and A onto the y = &minus;3 plane.
+  For a point P with coordinates (P<sub>x</sub>, P<sub>y</sub>, P<sub>z</sub>),
+  the coordinates of its projection onto the y = &minus;3 plane are
+  (P<sub>x</sub>, &minus;3, P<sub>z</sub>).
+</p>
+<p>
+  Now, to find the area of the shadow, we can treat the six projected vertices
+  as if they were on a 2-D plane, with only their x- and z-coordinates. By
+  construction, these already form a
+  <a href="https://en.wikipedia.org/wiki/Convex_hull">convex hull</a> with
+  vertices properly oriented (otherwise one would need to explicitly compute
+  the convex hull, although shortcuts exist for the special case). This enables
+  us to apply the
+  <a href="https://en.wikipedia.org/wiki/Shoelace_formula" target="_blank">standard formula</a>
+  to compute area of a convex polygon. Note that area computation can also be
+  simplified by using symmetry with respect to the z-axis, and apply the
+  trapezoid area formula instead of the general convex polygon.
+</p>
+<p>
+  Once we have a set of coordinates that produces the desired area, we can
+  compute the coordinates of the face-centers of any three
+  non-pairwise-parallel faces, and we have solved the problem. With the setup
+  above, these are simply &half;(A + C), &half;(C + F), and
+  &half;(F + A).
+</p>
+<h4>Other approaches</h4>
+<p>
+  There are many other ways to solve this problem:
+</p>
+<ul>
+  <li>Instead of binary searching, the angle of rotation can be solved directly.
+    In fact, final coordinates can be computed using a closed form without
+    using trig functions!</li>
+  <li>We could avoid computing the area of the shadow by using
+    <a href="https://www.youtube.com/watch?v=rAHcZGjKVvg" target="_blank">this amazing cube shadow theorem.</a></li>
+  <li>Instead of doing two rotations (one about the y-axis and another about
+    the x-axis), we could rotate the cube about line connecting points
+    (0, 0, 0) and (1, 0, 1), or some other similar axis, to bring a vertex onto
+    the y-axis. The general rotation formula can be found
+    <a href="https://en.wikipedia.org/wiki/Rotation_matrix#Rotation_matrix_from_axis_and_angle" target="_blank">here</a>.</li>
+</ul>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

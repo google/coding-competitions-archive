@@ -1,0 +1,395 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 1A</h3><h1>Analysis: BFFs</h1><h2>BFFs: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+The Small dataset has a pretty low limit of 10 kids. That allows us to try every possible
+arrangement and check which ones would make valid circles (circles in which every kid is next to
+their BFF).
+For every possible subset of kids and every possible circular ordering of them,
+check that for every kid at least one of their neighbors
+is a BFF, and if that is the case, update a running global maximum if it is greater than the size
+of the circle we just checked.
+</p><p>
+There are a number of small but powerful optimizations to this approach. Notice that the
+permutations of a subset of kids <i>S</i> always appear as a prefix of the permutations of any
+other subset of kids that includes <i>S</i>. Moreover, the only difference in BFF checking is what
+we do for the first and last kid. So, we can just check all the permutations of <b>N</b> kids and
+consider whether each
+prefix forms a valid circle, and that accounts for all permutations of all subsets while reducing
+the number of total checks substantially. Note that some subsets are checked multiple
+times, but that is unimportant, as long as the procedure runs in the allotted time.
+</p><p>
+There are other possible optimizations, but this is more than enough. The following Python code
+implements the approach outlined above:
+</p><code><pre>
+import itertools
+# The F parameter is the list of BFF identifiers, but 0-based (subtracting 1 from the input).
+def cc(F):
+  n = len(F)
+  r = 0
+  # Iterate over all possible orderings of the n kids.
+  for O in itertools.permutations(xrange(n)):
+    first = O[0]
+    second = O[1]
+    for i in xrange(1, n):  # Iterate over the permutation, skipping the first.
+      # Check if i can be the last one by checking it and the first.
+      prev = O[i - 1]
+      cur = O[i]
+      if ((F[cur] == first or F[cur] == prev) and
+          (F[first] == cur or F[first] == second)):
+        r = max(r, i + 1)
+      # Check if i can be in the middle, and stop if it can't.
+      if F[cur] != prev and (i == n - 1 or F[cur] != O[i + 1]):
+        break
+  return r
+</pre></code>
+<h3>Large dataset</h3>
+<p>
+Of course, a simple brute force approach, even with many additional optimizations, will not be fast
+enough for the Large dataset. Let's examine the input more closely. It is actually a function BFF
+that maps each kid to another kid. We can represent this function with a
+<a href="https://en.wikipedia.org/wiki/Pseudoforest#Graphs_of_functions">graph</a>
+where the nodes are kids and the edges go from each kid to that kid's BFF.
+As you can see from the linked article, this type of graph has a
+particular property: each connected component is made up of a directed cycle and branches of nodes
+with the edges directed towards the cycle. To visualize it better, if we compressed the cycle into
+a single node, we would obtain a tree with all the edges pointing towards the root.
+Here's an important fact that will come up a lot: <i>each connected component contains exactly one
+cycle.</i>
+</p><p>
+Now that we have examined the input a bit, let's examine the output, or, better yet, let's examine
+the form of a valid circle. It must contain at least one kid <i>k</i><sub>1</sub>. It must also
+contain <i>k</i><sub>1</sub>'s BFF, <i>k</i><sub>2</sub>, who must be sitting next to
+<i>k</i><sub>1</sub>.
+And <i>k</i><sub>2</sub>'s BFF <i>k</i><sub>3</sub> (who might or might not be
+<i>k</i><sub>1</sub>), and so on. The BFF of the BFF of the BFF ... of <i>k</i><sub>1</sub> must be
+in the circle. In terms of the graph we mentioned above, we are starting on the node representing
+the first kid <i>k</i><sub>1</sub>, and moving through the edges. Therefore, we will eventually end
+up cycling through the cycle in <i>k</i><sub>1</sub>'s connected component.
+(That cycle may or may not include <i>k</i><sub>1</sub>.) This a second important property:
+<i>for any connected component containing at least one kid who is in the circle, all of the kids
+in that component's cycle must be in the circle.</i>.
+</p><p>
+Consider a connected component with a cycle of more than 2 kids. If we put that cycle in
+the circle, there is no room for anyone else, as the cycle already forces the two neighbors of
+each kid. So, one possibility is that the final circle consists entirely of a single cycle from the
+graph.
+</p><p>
+Since nobody is their own BFF, there are no cycles with just 1 kid.
+If we consider a connected component with a cycle of exactly 2 kids <i>l</i> and <i>r</i>,
+the situation is different. We can
+sit <i>l</i> and <i>r</i> together, and we already know they are both happy, and we have room on
+<i>l</i>'s left and <i>r</i>'s right (or vice versa, but it is equivalent)
+to seat more kids. We could choose anybody, even from another
+component. However, we want the maximum number of kids, so we might as well choose an
+<i>l</i><sub>1</sub> whose BFF is <i>l</i> to sit next to <i>l</i> (if there exists such an
+<i>l</i><sub>1</sub>). <i>l</i><sub>1</sub> is already
+happy, so can choose an <i>l</i><sub>2</sub> whose BFF is <i>l</i><sub>1</sub> and sit it next to
+<i>l</i><sub>1</sub>. And we can continue this process. We can build a chain of kids to
+<i>l</i>'s left following the edges of the graph in reverse, and similarly, we can build a chain of
+kids on <i>r</i>'s right. When we are done, having added zero or more kids to each side,
+we have a line of kids from the same component that are all happy, so we can continue to add kids
+from other components right next to them!
+</p><p>
+To summarize the previous paragraph, we can build a chain of kids from each component with a cycle
+of length 2 (we already showed that cycles longer than that do not allow chains to be added). Since
+we want to construct the largest possible chain, we take the longest chain from each component
+with a cycle of length 2, and put them all together. That is, we sum their lengths as a possible
+final result to be compared with the largest cycle from the first case.
+</p><p>
+The following image illustrates the previous paragraph. On the left, a graph with three
+separate connected
+components is displayed. Red nodes are nodes in the cycles of each component. From the component
+with a cycle of length 4, we can build a circle (which we've shown on the right side of the image)
+but not add anything else. However,
+we can build a chain from each component with a cycle of length 2. Marked in green and orange are
+optimal choices for a chain on each side, and on the right you can see the circle of kids with the
+arrows indicating their BFFs at their side. You can see here how the cycles of length 2 allow us
+to add more kids, even including different connected components of the graph in the same circle,
+whereas longer cycles don't leave room for anyone
+else.
+</p><p>
+<img src="bffs_analysis_expl.png"/>
+</p><p>
+It is easy to find the connected components and their cycles using
+<a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS</a> or a number of other ways that
+we leave up to the reader to find and choose. There are also a number of ways to find the longest
+chains on each side of each cycle of length 2, that we also leave up to the reader. Notice that
+the process on each side is really similar to finding the height of a tree.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

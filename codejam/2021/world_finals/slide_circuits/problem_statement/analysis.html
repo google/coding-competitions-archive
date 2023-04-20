@@ -1,0 +1,384 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - World Finals</h3><h1>Analysis: Slide Circuits</h1><a href="https://youtu.be/MPKKu6SDA24" target="_blank">View problem and solution walkthrough video</a>
+<p>
+To simplify the notation, we can reframe this problem in terms of
+<a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" target="_blank">graphs</a>. We represent the
+input with a graph $$$G$$$ that has one node per building and one directed edge per slide.
+The enabled/disabled states we can represent by subgraphs $$$G_1, G_2, ..., G_\mathbf{N}$$$ where
+$$$G_i$$$ is a
+<a href="https://en.wikipedia.org/wiki/Glossary_of_graph_theory#subgraph" target="_blank">subgraph</a> of $$$G$$$
+containing only the edges representing slides that are enabled after the first $$$i$$$ operations.
+</p><p>
+A graph is fun if every node belongs to exactly one
+<a href="https://en.wikipedia.org/wiki/Glossary_of_graph_theory#cycle" target="_blank">cycle</a>.
+The question is, for each $$$i$$$, to identify an edge $$$(v, w) \in G - G_i$$$ such that
+$$$G_i \cup \{(v, w)\}$$$ is fun.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+The first step to solve the problem is to describe fun graphs more directly:
+A graph is fun if the
+<a href="https://en.wikipedia.org/wiki/Glossary_of_graph_theory#in-degree" target="_blank">in-degree</a> and
+<a href="https://en.wikipedia.org/wiki/Glossary_of_graph_theory#out-degree" target="_blank">out-degree</a> of
+every node is $$$1$$$. Therefore, the edge $$$(v, w)$$$ that we need in step $$$i$$$
+must be such that the out-degree of $$$v$$$ in $$$G_i$$$ is $$$0$$$, the in-degree of $$$w$$$
+in $$$G_i$$$ is $$$0$$$ and all other in-degrees and out-degrees in $$$G_i$$$ are $$$1$$$.
+This implies that, given $$$G_i$$$, we can simply check the degrees and find the only possible
+candidate for $$$v$$$ and $$$w$$$, if any. If $$$(v, w) \in G$$$, we found a answer. If there
+is no candidate for either, or $$$(v, w) \not\in G$$$, then there is no answer for step $$$i$$$.
+</p><p>
+In Test Set 1, we can maintain the in-degree and out-degree of each node in the current $$$G_i$$$.
+When there is an enable operation, for each affected edge $$$(v, w)$$$ we need to increase
+the out-degree of $$$v$$$ and the in-degree of $$$w$$$ by $$$1$$$. For disable operations, we do
+the same but decreasing by $$$1$$$. Then, we can do a linear pass to find candidates $$$v$$$
+and $$$w$$$. If there are unique candidates for both, we check if $$$(v, w)$$$ is in $$$G$$$
+and give the appropriate output. This can be done in linear time in the size of the graph per step,
+which is $$$O(\mathbf{B} + \mathbf{S})$$$ time, or $$$O(\mathbf{N} (\mathbf{B} + \mathbf{S}))$$$ time overall, which is fast enough
+to pass Test Set 1.
+</p>
+<h3>Test Set 2</h3>
+<p>
+Our solution for Test Set 2 is an optimized version of the solution presented for Test Set 1.
+Consider multisets of nodes $$$I_i$$$ and $$$O_i$$$. The number of occurrences of $$$v$$$ in
+$$$I_i$$$ is equal to the out-degree of $$$v$$$ in $$$G_i$$$, and the number of occurrences of
+$$$v$$$ in $$$O_i$$$ is equal to the out-degree of $$$v$$$ in $$$G_i$$$. Let $$${I'}_e$$$
+and $$${O'}_e$$$ be the way the multisets $$$I_i$$$ and $$$O_i$$$ should look for $$$e$$$ to be
+the answer after step $$$i$$$.
+</p><p>
+If we keep <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank">hashes</a>
+of the $$$I_i$$$ and $$$O_i$$$ that are efficient to update and check a
+dictionary from the pairs of hashes of $$$({I'}_e, {O'}_e) \to e$$$, we can solve the problem.
+There are many options that work with different trade-offs in reliability, ease of implementation
+and ease of proof.
+</p>
+<h4>Sum of random values</h4>
+<p>
+Let us start by assigning a random integer $$$x_v$$$ to each vertex $$$v$$$, that we keep
+throughout a test case. The hash of a multiset in this case is the sum of the values over all the
+vertices it contains (if it contains a vertex multiple times, its value is summed that many times),
+modulo some large number.
+For extra randomness we could use separate values for the $$$I$$$ and $$$O$$$ hashes.
+</p><p>
+Let $$$t = \sum_v x_v$$$ be the sum of all those random values. Then, the hash of
+$$${I'}_{(v, w)}$$$ is simply $$$t - x_w$$$ and the hash of $$${O'}_{(v, w)}$$$ is $$$t - x_w$$$.
+To get the hashes of $$${I'}_{i+1}$$$ and $$${O'}_{i+1}$$$ we can add or subtract to the hashes
+of $$${I'}_i$$$ and $$${O'}_i$$$ (for simplicity, $$${I'}_0 = {O'}_0 = 0$$$). The amount to add or
+subtract is the sum of the values of the starting/ending points of all edges that the operation
+is changing. We can find that efficiently by building two arrays (one for starting points and
+one for ending points) of sums over the first $$$i$$$ multiples of $$$M$$$ for each $$$i$$$ and
+each $$$M$$$. Then, the sum between the $$$i$$$-th and $$$j$$$-th multiples of $$$M$$$ is just
+the difference between the values for $$$M,j$$$ and $$$M,i-1$$$. The array for a specific
+value of $$$M$$$ contains $$$\lfloor \mathbf{S} / M \rfloor$$$ values, and
+$$$\sum_{M \le \mathbf{S}} \lfloor \mathbf{S} / M \rfloor \le \sum_{M \le \mathbf{S}} \mathbf{S} / M =
+\mathbf{S} \sum_{M \le \mathbf{S}} 1 / M = O(\mathbf{S} \log \mathbf{S})$$$, so this is efficient enough.
+</p><p>
+It has hard to prove formally that the sums work well as hashes. We present next a closely
+related variant for which is much easier to be convinced that the probability of collisions is
+really small.
+</p>
+<h4>XOR of random values</h4>
+<p>
+The idea in this case is to use XOR instead of sum. The whole implementation can be done in the
+same way as in the previous case. However, because XOR is its own inverse, two multisets with the
+same parity in the number of occurrences for all vertices have the same hash. We can solve this by
+adding a count of the number of edges in $$$G_i$$$. This can still cause collisions, but since
+all numbers of occurrences in $$$I'$$$ and $$$O'$$$ are either $$$0$$$ or $$$1$$$, having both
+the correct parities and the correct total guarantees we are looking at the same multiset.
+This does require maintaining that total number of edges update, but that can be done in
+constant time per step.
+</p><p>
+In the case of XORs, each bit in the result is independent from all other bits. Since the values
+$$$x_v$$$ are randomized, the probability of the bit being equal in two multisets with different
+parities is $$$1/2$$$. Therefore, the probability of $$$64$$$ bits coinciding by chance is
+$$$2^{-64}$$$, which is vanishingly small.
+</p>
+<h4>Polynomial hashes</h4>
+<p>
+Finally, in the XOR version above, we are actually hashing sets of nodes depending on the parity
+of their in- or out-degree, in a way. We know
+<a href="https://en.wikipedia.org/wiki/Rolling_hash#Cyclic_polynomial" target="_blank">polynomial hashes</a>
+are good for hashing sets, so we
+can simply use one of them. This is a third way of solving the problem.
+</p><p>
+Notice that a polynomial hash is actually equivalent to the sum version
+except the $$$x_v$$$ values are powers of a prime instead of randomly chosen. Random choices
+are more resilient to adversary data and provide similar properties of uniformity of distribution.
+This is an informal argument that justifies the sum of random values being a good hashing for
+this problem.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

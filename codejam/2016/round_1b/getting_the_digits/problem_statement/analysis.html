@@ -1,0 +1,364 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 1B</h3><h1>Analysis: Getting the Digits</h1><h2>Getting the Digits: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+Since the string can be no longer than 20 letters in the Small dataset, the
+phone number can be no longer than six digits (since the digits with the
+shortest spelled-out length, <code>ONE</code> and <code>TWO</code>, have three
+letters, and 7 * 3 > 20). A key observation is that this means there are no
+more than a million possible answers; in fact, there are far fewer than that,
+since only phone numbers with digits in nondecreasing order are valid.
+</p><p>
+So, you can look at all possible phone numbers from <code>0</code> to
+<code>9</code>, <code>00</code> to <code>99</code> (note that <code>00</code>
+is different from <code>0</code>), and so on, up to <code>000000</code> through
+<code>999999</code>, and save the numbers that have their digits in
+nondecreasing order. (In fact, for that last range, you only need to go up to
+<code>222222</code>.) Then, turn each of those into letters. There are
+multiple possible orderings for those letters &mdash; <code>1</code> could be
+given as <code>EON</code>, <code>ENO</code>, or <code>NEO</code>, among others
+&mdash; but you can just take the alphabetically ordered version. <code>0</code>
+becomes <code>EORZ</code>, <code>1</code> becomes <code>ENO</code>, ...,
+<code>01</code> becomes <code>EENOORZ</code>, and so on.
+</p><p>
+Then you can make a dictionary (hash table) with these strings as keys
+and the phone numbers as values. (It turns out that each of those keys maps to
+only one phone number &mdash; more on that later.) To solve a test case, take
+the string your friend gave you, sort it alphabetically, and then look that up
+in the dictionary. (Your friend could have given you the same string in any
+order, so you can permute it however you want without changing the identity of
+the underlying phone number.)
+</p><p>
+There's no need to generate this dictionary every time you solve a test case;
+you can do it just once, before your program starts processing test cases. You
+can even produce the entire dictionary before you download an input file and
+store it in your source code or in a separate file that your source code reads,
+as long as this does not cause your source code to exceed the standard limit of
+100kB.
+</p>
+<h3>Large dataset</h3>
+<p>
+The dictionary for all 1000-digit phone numbers would be too huge to generate
+and store beforehand, let alone produce on the fly.
+</p><p>
+One tempting approach is to greedily remove spelled-out digits: for instance,
+keep taking the letter set <code>NINE</code> (one <code>E</code>, one
+<code>I</code>, and two <code>N</code>s) away until you no longer can, then
+keep taking the letter set <code>EIGHT</code> away, and so on. But this won't
+necessarily work &mdash; what if there are no <code>9</code>s in the actual
+phone number, and the first <code>NINE</code> you try to take away is really
+the <code>N</code> from a <code>SEVEN</code>, the <code>I</code> from a
+<code>SIX</code>, and the <code>NE</code> from a <code>ONE</code>? This will
+eventually leave you with a mess of letters from which no digit's letters can
+be removed!
+</p><p>
+It turns out that you can make this method work... as long as you pick the
+right order in which to remove the digits! For instance, <code>FOUR</code> is
+the only digit out of the ten that contains a <code>U</code>. So, if you see
+three <code>U</code>s in the string, there must be three instances of
+<code>FOUR</code>. You can safely remove three <code>F</code>s, three
+<code>O</code>s, three <code>U</code>s, and three <code>R</code>s, and record
+that the phone number has three <code>4</code>s. Once all the
+<code>FOUR</code>s are gone, <code>FIVE</code> is the only remaining digit with
+an <code>F</code>, so you can remove as many <code>FIVE</code>s as there are
+<code>F</code>s, and so on. If you had tried to do this in the other order,
+starting by removing as many <code>FIVE</code>s as there were <code>F</code>s,
+it might not have worked, depending on how many <code>FOUR</code>s,
+<code>SIX</code>es, <code>SEVEN</code>s, etc. were in the number!
+</p><p>
+Here is one safe order in which to remove digits, based on their letters that
+are unique at the time of removal: <code><b>Z</b>ERO</code>,
+<code>SI<b>X</b></code>, <code>EI<b>G</b>HT</code>, <code>T<b>W</b>O</code>,
+<code>FO<b>U</b>R</code>, <code><b>F</b>IVE</code>, <code>SE<b>V</b>EN</code>,
+<code><b>T</b>HREE</code>, <code>N<b>I</b>NE</code>, <code><b>O</b>NE</code>.
+Note, for example, that even though all of the letters in <code>ONE</code>
+appear in other digits besides <code>ONE</code>, by the time we get to removing
+<code>ONE</code>s, there are only <code>ONE</code>s left.
+</p><p>
+The existence of an ordering like this also explains why we didn't have to
+worry about two different phone numbers having the same alphabetized string in
+our dictionary for the Small solution. Two different phone numbers cannot
+produce the same string because no subset of digit words is a linear
+combination of other digit words. This would <i>not</i> necessarily hold for
+arbitrary sets of words, though. For example, in a language in which the digit
+words are <code>AB</code>, <code>AC</code>, <code>BD</code>, and
+<code>CD</code>, given the string <code>ABCD</code>, it is impossible to know
+whether it was formed from one <code>AB</code> and one <code>CD</code>, or from
+one <code>AC</code> and one <code>BD</code>.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

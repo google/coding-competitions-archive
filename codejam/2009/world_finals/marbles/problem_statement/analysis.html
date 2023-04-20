@@ -1,0 +1,428 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2009 - World Finals</h3><h1>Analysis: Marbles</h1><p>
+Last year we were trying to solve different instances of this problem. It took a long time to converge to this particular shape, and even after we settled on the current requirements, we were still tweaking the input limits at 2am the night before the contest to make the problem a bit more interesting. The problem nicely combines together dynamic programming, greedy and graph related notions like biconnected components and trees.
+</p>
+<p>
+The first step is deciding if a particular configuration is or isn't solvable. If for two colors their corresponding marbles alternate it means that the two pairs of marbles need to be joined by curves on opposite sides of the horizontal line <i>Y=0</i>. We can build a graph where the nodes represent pairs of same-color marbles and form a graph with edges between pairs of marbles that alternate. We can draw the paths with no intersection if and only if this graph is bipartite.
+</p>
+<p>
+Next, for solvable configurations we compute the minimum height. The pairs graph can have many connected components, and for each such component we can choose two ways of drawing the lines (with the first pair of marbles above the <i>Y=0</i> line or below it), so in total we would have <i>O(2<sup>components</sup>)</i> configurations. This idea can solve the small case but is too time consuming for the large case.
+</p>
+<p>
+Solving the large case requires us to use dynamic programming. Our state will be defined by <i>left, right, height_up</i> and <i>height_down</i>. For each state we compute a boolean value which tells us if the subproblem which uses the set of marbles with indexes from <i>left</i> to <i>right</i> can be solved in the vertical range <i>[-height_down .. height_up]</i>. Computing this value is a bit tricky, what we need to notice is that we can try each of the two ways of drawing the component that starts at index <i>left</i>. Then an important observation is that  we can draw each path with the maximum height possible if the line is above the X axis or maximum depth possible if the line is below the X axis as long as our drawing is within the <i>[-height_down .. height_up]</i> vertical range. Using these ideas we can come up with an <i>O(n<sup>5</sup>)</i> algorithm.
+</p>
+<p>
+We can improve on this solution by using the state <i>(left, right, height_up)</i> and for each state finding the smallest height_down for which the subproblem <i>[left .. right]</i> is solvable. Now we notice that we should use dynamic programming on pairs of <i>left</i> and <i>right</i> where connected components of marbles start and finish.  This will make <i>right</i> uniquely defined by <i>left</i>. Thus we have reduced the state space to <i>O(n<sup>2</sup>)</i> states. We also notice that the connected components form a tree-like structure where we need to solve the innermost components first and then solve outer components, much like visiting the leaves of a tree first and getting closer and closer to the root. Now each connected component will be analyzed just once at an upper component level so the overall algorithm will take <i>O(n<sup>2</sup>)</i> time. 
+</p>
+Here's Tomek Czajka's solution:
+<pre>
+#include &lt;algorithm&gt;
+#include &lt;cassert&gt;
+#include &lt;cstdio&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+#define REP(i,n) for(int i=0;i&lt;(n);++i)
+template&lt;class T&gt; inline int size(const T&amp;c) { return c.size();}
+const int INF = 1000000000;
+
+int n; // number of types of marbles
+vector&lt;vector&lt;int&gt; &gt; where; // [n][2]
+vector&lt;int&gt; marbles; // [2*n]
+
+void readInput() {
+  char buf[30];
+  map&lt;string,int&gt; dict;
+  scanf("%d", &amp;n);
+  marbles.clear(); marbles.reserve(2*n);
+  where.clear(); where.resize(n);
+  for(int i=0;i&lt;2*n;++i) {
+    scanf("%s",buf);
+    string s = buf;
+    map&lt;string,int&gt;::iterator it = dict.find(s);
+    int m;
+    if(it==dict.end()) {
+      m = size(dict);
+      dict[s] = m;
+    } else {
+      m = it-&gt;second;
+    }
+    marbles.push_back(m);
+    where[m].push_back(i);
+  }
+}
+
+struct Event {
+  int x,t;
+  // t=0 start top, 1 end top
+  // t=2 start bot, 3 end bot
+};
+
+vector&lt;int&gt; vis;
+
+bool cross(int m1,int m2) {
+  return
+      where[m1][0] &lt; where[m2][0] &amp;&amp;
+      where[m2][0] &lt; where[m1][1] &amp;&amp;
+      where[m1][1] &lt; where[m2][1] ||
+      where[m2][0] &lt; where[m1][0] &amp;&amp;
+      where[m1][0] &lt; where[m2][1] &amp;&amp;
+      where[m2][1] &lt; where[m1][1];
+}
+
+void dfs(int m,int sign) {
+  if(vis[m]==sign) return;
+  if(vis[m]==-sign) throw 0;
+  vis[m]=sign;
+  REP(i,n) if(i!=m &amp;&amp; cross(m,i)) dfs(i,-sign);
+}
+
+vector&lt;vector&lt;Event&gt; &gt; cacheCalcEvents;
+
+const vector&lt;Event&gt; &amp;calcEvents(int startx) {
+  vector&lt;Event&gt; &amp;res = cacheCalcEvents[startx];
+  if(!res.empty()) return res;
+  vis.assign(n,0);
+  dfs(marbles[startx],1);
+  REP(x,2*n) {
+    int m = marbles[x];
+    if(vis[m]==0) continue;
+    int nr=0;
+    if(where[m][nr] != x) ++nr;
+    assert(where[m][nr]==x);
+    Event e; e.x=x;
+    e.t = (1-vis[m]) + nr;
+    res.push_back(e);
+  }
+  return res;
+}
+
+vector&lt;vector&lt;int&gt; &gt; cacheCalcH2;
+
+int calcH2(int a,int b,int h1) {
+  if(h1&lt;0) return INF;
+  if(a==b) return 0;
+  int &amp;res = cacheCalcH2[a][h1];
+  if(res!=-1) return res;
+  const vector&lt;Event&gt; &amp;events = calcEvents(a);
+  res = INF;
+  for(int mask = 0; mask&lt;=2; mask+=2) {
+    int top=0, bot=0;
+    int h2 = 0;
+    REP(i,size(events)+1) {
+      int alpha = i==0 ? a : events[i-1].x + 1;
+      int beta = i==size(events) ? b : events[i].x;
+      h2 = max(h2, calcH2(alpha, beta, h1 - top) + bot);
+      if(i!=size(events)) {
+        switch(events[i].t ^ mask) {
+          case 0: ++top; break;
+          case 1: --top; break;
+          case 2: ++bot; break;
+          case 3: --bot; break;
+        }
+      }
+    }
+    res = min(res, h2);
+  }
+  return res;
+}
+
+int solve() {
+  int res = INF;
+  cacheCalcH2.assign(2*n, vector&lt;int&gt;(n+1,-1));
+  cacheCalcEvents.clear(); cacheCalcEvents.resize(2*n);
+  try {
+    REP(h1,n+1) {
+      res = min(res, h1 + calcH2(0,2*n,h1));
+    }
+    return res;
+  } catch(int) { return INF; }
+}
+
+int main() {
+  int ntc; scanf("%d", &amp;ntc);
+  REP(tc,ntc) {
+    readInput();
+    int res = solve();
+    if(res==INF) res = -1;
+    printf("Case #%d: %d\n", tc+1, res);
+  }
+}
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

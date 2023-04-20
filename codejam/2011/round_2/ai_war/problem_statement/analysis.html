@@ -1,0 +1,429 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2011 - Round 2</h3><h1>Analysis: A.I. War</h1><p>
+The computer game A.I. War hides at least a few good algorithmic problems.  The
+author is anything but an expert, but musing about the game brought both this
+problem and Space Emergency (which originally took place on a graph
+like this one) to life.  The game presents a trickier version of this problem:
+there are two A.I. homeworlds, multiple other planets that you might want to
+visit, and you don't know where to find any of them at the start of the game.
+Fortunately, here we're dealing with a simplified version of the problem and
+you didn't have to know anything about the game.
+</p>
+<p>
+Let's first state the problem in graph theory terms. We are given an
+undirected graph with <b>P</b> vertices and <b>W</b> edges. We are looking
+for a sequence of vertices, starting with vertex 0 (our home planet) and ending
+with a neighbor of 1 (A.I.'s home planet), such that:
+</p>
+<ul>
+  <li>every vertex in the sequence is adjacent to one of the previous vertices
+  <li>the sequence is as short as possible
+  <li>given the above, the number of distinct neighbors of the vertices in the
+  sequence, but outside the sequence, must be as large as possible
+</ul>
+<p>
+Let <b>D</b> be the distance from vertex 0 to vertex 1. It's clear that every such sequence
+must have at least <b>D</b> elements. We also note that we will achieve
+exactly <b>D</b> elements if and only if the sequence forms a shortest path
+from vertex 0 to vertex 1. Hence we're looking for a shortest path. Unfortunately, there may
+be many shortest paths and we have to pick the one that optimizes the last
+requirement.
+</p>
+<p>
+It simplifies things to include among the "threatened" planets those planets
+that we do conquer. Given that we already know that we have to conquer exactly
+<b>D</b> planets, we just have to subtract <b>D</b> at the end.
+</p>
+
+<h3>Crucial observation</h3>
+
+<p>The crucial observation for solving the problem is the following: if a
+vertex is at distance <b>d</b> from 0, it can only be threatened by a vertex at
+distance <b>d</b> - 1, <b>d</b> or <b>d</b> + 1. This is true because the distances of two adjacent vertices differ by at most 1.
+Therefore every vertex in the graph is only threatened (or conquered) within at
+most three consecutive vertices in the path. As we will see, this observation allows us to use dynamic programming to compute best paths of larger and larger lengths.
+</p>
+<h3>The algorithm</h3>
+
+<p>The first step in our algorithm is to run
+<a href="http://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">breadth-first search</a>
+to compute for every vertex <b>v</b> its distance from 0: dist[<b>v</b>].
+dist[0] = 0 and dist[1] = <b>D</b>. Every shortest path will start with vertex 0, then continue with vertices at
+distance 1, distance 2, ..., distance <b>D</b>-1.
+</p>
+
+<p>For any two adjacent
+vertices <b>a</b>, <b>b</b> such that dist[<b>b</b>] = dist[<b>a</b>] + 1,
+define <b>F</b>(<b>a</b>, <b>b</b>) = the maximum number of planets threatened
+or conquered by a shortest path 0&rarr;...&rarr;<b>a</b>&rarr;<b>b</b>. We will compute this
+using dynamic programming for increasing distances from 0.
+The answer to
+the problem is the maximum value of <b>F</b>(<b>a</b>, <b>b</b>) - <b>D</b>,
+where <b>a</b>, <b>b</b> are adjacent, dist[<b>a</b>] = <b>D</b>-2,
+dist[<b>b</b>] = <b>D</b>-1, and <b>b</b> is adjacent to 1.
+</p>
+<p>
+<b>F</b>(0, <b>a</b>) can be computed directly (there is only one path possible).
+It remains to compute the values of <b>F</b> for a given distance, given
+the values of <b>F</b> at a previous distance. To compute <b>F</b>(<b>b</b>,
+<b>c</b>), dist[<b>b</b>]=<b>d</b>, dist[<b>c</b>]=<b>d</b> + 1, try all
+vertices <b>a</b> adjacent to <b>b</b> such that dist[<b>a</b>] = <b>d</b> - 1.
+In other words, we are looking for paths ending with <b>a</b>&rarr;<b>b</b>&rarr;<b>c</b>.
+We have already computed the value of <b>F</b>(<b>a</b>, <b>b</b>) in the
+previous iteration, the question is: how many new unique threatened vertices
+does extending the path to <b>c</b> add?
+</p>
+
+<p>This is where our "crucial observation" becomes useful. If a neighbor of
+<b>c</b> was already threatened (or conquered) before, it must have been a
+neighbor of either <b>a</b> or <b>b</b>. Therefore we must add the number of
+neighbors of <b>c</b> that are not neighbors of either <b>a</b> or <b>b</b>.
+Let's call this value <b>G</b>(<b>a</b>, <b>b</b>, <b>c</b>). So we have the
+recursive formula that we can use for dynamic programming:<br>
+<b>F</b>(<b>b</b>, <b>c</b>) = max<sub><b>a</b></sub> <b>F</b>(<b>a</b>, <b>b</b>) +
+<b>G</b>(<b>a</b>, <b>b</b>, <b>c</b>).
+</p>
+
+<h3>Computing G: four algorithms</h3>
+
+<p>We are almost done, but how do we compute the values of
+<b>G</b>, and what is the total run-time of the algorithm? There are O(<b>W</b>) values of <b>F</b> to compute (at most one for each
+edge), and for each one we look at O(<b>P</b>) other values of <b>F</b> (one for
+each <b>a</b>). So if we already knew all the values of <b>G</b>, it would take
+O(<b>PW</b>) time to compute all the values of <b>F</b> and solve the problem.
+Computing the values of <b>G</b> turns out to be the most
+time-consuming part though.
+</p>
+
+<p>We may have to compute <b>G</b>(<b>a</b>, <b>b</b>, <b>c</b>) for every sub-path
+<b>a</b>&rarr;<b>b</b>&rarr;<b>c</b> of increasing dist. How do we compute these values?
+We have thought of at least 4 ways. In the actual contest it didn't really
+matter which you chose, all would easily run in time, but we will mention them
+just for fun.</p>
+
+<p>
+<ul>
+<li><b>Approach 1.</b> We need to compute the number of vertices <b>v</b> such
+that <b>v</b> is a neighbor of <b>c</b>, but not of <b>a</b> or <b>b</b>. The
+simplest approach here is to just check this condition for every <b>v</b>. This
+computation takes O(<b>P</b>) time. How many values do we need to compute? At
+most O(<b>P</b><sup>3</sup>), which gives a total run-time of
+O(<b>P</b><sup>4</sup>) for the whole algorithm. We can give a better estimate.
+Since <b>a</b> and <b>b</b> are neighbors, there are at most <b>W</b> such
+pairs. This gives the total run-time of O(<b>P</b><sup>2</sup>&nbsp;<b>W</b>).
+<li><b>Approach 2.</b> Modify approach 1 slightly. Instead of checking every
+vertex <b>v</b>, we only need to check every neighbor of <b>c</b>. This way
+there are O(<b>W</b>) pairs <b>a</b>, <b>b</b> and O(<b>W</b>) pairs <b>c</b>,
+<b>v</b>, which gives the total run-time of O(<b>W</b><sup>2</sup>).
+<li><b>Approach 3.</b> Modify approach 1 in another way. Precompute the
+set of neighbors of each vertex as a bitmask neighbors[<b>v</b>]. Now
+we are simply interested in the number of bits set in (neighbors[<b>c</b>] <b>and
+  not</b> (neighbors[<b>a</b>] <b>or</b> neighbors[<b>b</b>]). This is a speedy
+computation due to
+<a href="http://en.wikipedia.org/wiki/Bit-level_parallelism" target="_blank">bit-level
+  parallelism</a>. If our computer has machine words of size <b>w</b> (this is
+typically 32 or 64),
+we cut our work by a factor of <b>w</b>. This assumes that we can count the
+number of bits set in a word in a single step, which modern processors support
+in a single machine instruction. The final runtime:
+O(<b>P</b><sup>2</sup>&nbsp;<b>W</b>&nbsp;/&nbsp;<b>w</b>).
+<li><b>Approach 4.</b> Finally, we come to a theoretically interesting, but rather
+complex to implement aproach. Define two matrices, <b>A</b> of size <b>W</b> x
+    <b>P</b>, and <b>B</b> of size <b>P</b> x <b>P</b>, as follows.
+    <b>A</b><sub><b>ij</b></sub> = 1 if vertex number <b>j</b> does
+    not neighbor any of the two endpoints of the edge number <b>i</b>, 0
+    otherwise. <b>B</b><sub><b>ij</b></sub> = 1 if vertices number <b>i</b>,
+    <b>j</b> are adjacent (or equal), 0 otherwise. Now compute the matrix
+    product <b>C</b> = <b>A</b> * <b>B</b>. If we apply the definition of
+    matrix product and do the math, we will see that <b>C</b> is a <b>W</b> x
+    <b>P</b> matrix and that the entries are exactly the values of <b>G</b>.
+    Specifically, <b>C</b><sub><b>ij</b></sub> = <b>G</b>(<b>a</b>, <b>b</b>,
+    <b>j</b>) if the <b>i</b>-th edge is <b>a</b>&harr;<b>b</b>.
+
+    <br>
+    If we evaluate the matrix product in the natural way, we get the same
+    complexity as in approach 1: O(<b>P</b><sup>2</sup>&nbsp;<b>W</b>). We have basically expressed approach 1 in matrix
+    notation.<br>
+    The trick is that there are faster matrix multiplication algorithms. The
+    fastest currently known is the <a href="http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm" target="_blank">Coppersmith-Winograd algorithm</a>. To make a long story short, it gives us a theoretical asymptotic run-time of O(<b>P</b><sup>1.376</sup>&nbsp;<b>W</b>).
+</ul>
+<p>We do not recommend the last approach in the contest. Not only is this
+unnecessarily complicated, it also wouldn't actually run any faster for the graph sizes we are
+considering. The asymptotic advantage would only materialize for impractically
+enormous, dense graphs.</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

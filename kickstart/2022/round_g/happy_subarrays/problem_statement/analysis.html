@@ -1,0 +1,434 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round G</h3><h1>Analysis: Happy Subarrays</h1><p>
+  For simplicity, let us denote subarray of array $$$\mathbf{A}$$$ starting from index
+  $$$i$$$ and ending at index $$$j$$$, $$$(j \ge i)$$$ as $$$A(i, j)$$$.
+</p>
+<h3> Test Set 1 </h3>
+
+<p>
+  $$$A(i, j)$$$ is a happy subarray iff all of its prefix sums are non-negative,
+  <i>i.e.</i>
+
+  \begin{align*}
+    \mathbf{A_{i}} &\ge 0 \\
+    \mathbf{A_{i}} + \mathbf{A_{i + 1}} &\ge 0 \\
+    \mathbf{A_{i}} + \mathbf{A_{i + 1}} + \mathbf{A_{i + 2}} &\ge 0 \\
+    &\vdots\\
+    \mathbf{A_{i}} + \mathbf{A_{i + 1}} + \mathbf{A_{i + 2}} + \cdots + \mathbf{A_{j}} &\ge 0
+  \end{align*}
+
+  We can observe that:
+<ul>
+  <li>
+    Observation 1: If $$$A(i, j)$$$ is a happy subarray then all its prefix
+    arrays $$$A(i, k)$$$, such that $$$i \le k \le j$$$ are also happy subarray.
+  </li>
+  <li>
+    Observation 2: If $$$A(i, j)$$$ is <i>not</i> a happy subarray then
+    all subarrays $$$A(i, k)$$$, such that $$$k \ge j$$$ are also
+    <i>not</i> happy subarray.
+  </li>
+</ul>
+</p>
+<p>
+  We can iterate over all subarrays with a left index $$$i$$$. For a fixed left
+  index $$$i$$$, we can iterate over the right index $$$j$$$ such that the
+  subarray sum is non-negative. As soon as we find an index $$$j$$$ such that
+  subarray sum of $$$A(i, j)$$$ is less than $$$0$$$, we can stop and increase
+  the left index.
+</p>
+
+<p>
+  Here is a sample code in C++.
+</p>
+
+<pre>
+  <code class="language-cpp">
+  int ans = 0;
+  for(int i = 1; i <= N; i++) {
+    int cur_sum = 0;
+    for(int j = i; j <= N; j++) {
+      cur_sum += A[j];
+      if(cur_sum < 0)
+        break;
+      ans += cur_sum;
+    }
+  }
+  </code>
+</pre>
+
+The overall time complexity of the above solution would be
+$$$O(\mathbf{N}^2)$$$, which is fast enough for test set $$$1$$$.
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  Let us denote subarray sum of $$$A(i, j)$$$ as $$$S(i, j)$$$ and prefix sum of array $$$\mathbf{A}$$$ till
+  $$$i^{th}$$$ index as $$$P(i)$$$,
+
+  \begin{align*}
+    S(i, j) &= \mathbf{A_{i}} + \mathbf{A_{i + 1}} + \mathbf{A_{i + 2}} + \cdots +\mathbf{A_{j}} \\
+  P(i) &= \mathbf{A_{1}} + \mathbf{A_{2}} + \mathbf{A_{3}} + \cdots + \mathbf{A_{i}}
+  \end{align*}
+
+  The prefix sum array $$$P$$$ of array $$$\mathbf{A}$$$ can be computed in
+  $$$O(\mathbf{N})$$$ by iterating over the array from left to right:
+
+  \begin{align*}
+      P(i) =
+      \begin{cases}
+        0 & i = 0\\
+        P(i -1) + \mathbf{A_i} & i > 0
+      \end{cases}
+  \end{align*}
+
+</p>
+
+By the definition of a prefix array, we can easily note that $$$S(i, j) = P(j) -
+P(i - 1)$$$
+
+<p>
+  For every index $$$i$$$, let us compute $$$nsv(i)$$$ (nearest smaller value),
+  the smallest index $$$j$$$ such that
+  $$$j \ge i$$$ and subarray sum of $$$A(i, j)$$$ is less than 0.
+  If there is no such index we can simply set $$$nsv(i) = \mathbf{N} + 1$$$.
+  Finding smallest index $$$j$$$ on right of $$$i$$$, such that
+  the subarray sum $$$A(i, j)$$$ is less than $$$0$$$
+</p>
+\begin{align*}
+  \mathbf{A_{i}} + \mathbf{A_{i + 1}} + \mathbf{A_{i + 2}} + \cdots + \mathbf{A_{j}} &\lt 0 \\
+  S(i, j) &\lt 0 \\
+  P(j) - P(i - 1) &\lt 0 \\
+  P(j) &\lt P(i - 1) \\
+\end{align*}
+
+is same as finding the smallest index $$$j$$$, $$$j
+\ge i$$$ and $$$P(j) \lt P(i - 1)$$$. This can be done using small modification
+in
+<a
+  target="_blank"
+  href="https://en.wikipedia.org/wiki/All_nearest_smaller_values"
+  >All nearest smaller values algorithm</a
+>
+in $$$O(\mathbf{N})$$$.
+
+<p>
+  All subarrays which starts at index $$$l$$$ and end at index $$$j$$$,
+  such that $$$l \le j \lt nsv(l)$$$ would have non-negative sum.
+  Sum of all such subarrays starting at index $$$l$$$ and extending at max to index
+  $$$r$$$, $$$ r = nsv(l) - 1$$$ is same as the sum of below expressions:
+</p>
+\begin{align*}
+  \mathbf{A_{l}} &= P(l) - P(l - 1) \\
+  \mathbf{A_{l}} + \mathbf{A_{l + 1}} &= P(l + 1) - P(l - 1) \\
+  \mathbf{A_{l}} + \mathbf{A_{l + 1}} + \mathbf{A_{l + 2}} &= P(l + 2) - P(l - 1) \\
+  &\vdots\\
+  \mathbf{A_{l}} + \mathbf{A_{l + 1}} + \mathbf{A_{l + 2}} + \cdots + \mathbf{A_{r}} &= P(r) - P(l -1)
+\end{align*}
+
+On simplification, sum of all subarray $$$A(i, j)$$$ such that
+$$$i = l$$$ and $$$i \le j \le r$$$
+
+\begin{align*}
+  sum(l) = (P(l) + P(l + 1) + P(l + 2) + \cdots + P(r)) - (r - l + 1) \times P(l - 1)
+\end{align*}
+
+The first term $$$P(l) + P(l + 1) + P(l + 2) + \cdots + P(r)$$$ can be computed
+by pre-calculating the prefix sum array of $$$P$$$.
+
+<p>
+  Let us denote prefix sum of $$$P$$$ as $$$PP$$$, <i>i.e.</i>
+  $$$ PP(i) = P(1) + P(2) + \cdots + P(i)$$$. The above sum can be simplified as:
+</p>
+
+\begin{align*}
+  sum(l) &= PP(r) - PP(l - 1) - (r - l + 1) \times P(l - 1) \\
+  ans &= \sum\limits_{l=1}^{N} sum(l) \\
+  ans &= \sum\limits_{l=1}^{N} PP(r) - PP(l - 1) - (r - l + 1) \times P(l - 1)
+\end{align*}
+
+<p>
+  Nearest smaller value on right for each index in prefix array $$$nsv(i)$$$ can be computed
+  in $$$O(\mathbf{N})$$$. Sum of all subarrays with fixed left index and moving
+  right index can be computed in $$$O(1)$$$, if we have pre computed
+  prefix sum array of $$$\mathbf{A}$$$ <i>i.e.</i> $$$P$$$ and prefix sum array of $$$P$$$ <i>i.e.</i> $$$PP$$$.
+  Precomputation of prefix sum arrays can be done in $$$O(\mathbf{N})$$$.
+  The overall time complexity of the above solution would be $$$O(\mathbf{N})$$$
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

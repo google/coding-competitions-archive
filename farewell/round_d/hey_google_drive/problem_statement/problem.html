@@ -1,0 +1,465 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Hey Google, Drive!</h1><h3>Problem</h3>
+<p>
+The Google Assistant and Android Auto teams are collaborating on a new prototype car that can be
+driven via voice commands. The early prototype works through a phone connected to a car simulator.
+Unfortunately, one of the early testers dropped their phone in the toilet, damaging the
+microphone and making it harder to use the new feature. Since they do not want to miss out on the
+opportunity, they want your help to use it anyway.
+</p><p>
+The early prototype moves on a simple grid of $$$\mathbf{R}$$$ rows and $$$\mathbf{C}$$$ columns and
+only understands $$$4$$$ very simple voice commands: north, south, east, and
+west. Each command makes the car try to move exactly one cell in the corresponding direction.
+Because of the
+microphone issues, however, the system may mishear and interchange north and south, and separately,
+east and west. That means that a command of north may make the car move north or south,
+a command of south may make the car move south or north, and similarly both commands east
+and west may make the car move east or west when issued. In all cases, both movement options
+can happen with equal probability ($$$1/2$$$).
+</p><p>
+The tester set up a driving grid such that each cell can contain either a wall, a hazard, or be
+empty. If a command would make the car move into a wall, or outside the grid, it does nothing
+instead. If a command makes the car move into a hazard, the car cannot execute any more commands.
+</p><p>
+The tester has marked some empty cells of the grid as interesting starts and others as interesting
+finishes. A pair of an interesting start and an interesting finish is <i>drivable</i> if there is
+a strategy to drive the car through voice commands from the start that makes it end at the finish
+with probability at least $$$1 - 10^{-{10^{100}}}$$$. A strategy can choose which command to issue
+and when to stop depending on the outcome of the previous commands.
+Notice that if the car moves into a hazard it stops moving, so it cannot make it to the finish.
+The tester wants your help finding the list of all drivable pairs.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.
+Each test case starts with a line containing two integers $$$\mathbf{R}$$$ and $$$\mathbf{C}$$$, the number of rows
+and columns of the grid. Then, $$$\mathbf{R}$$$ lines follow containing a string of $$$\mathbf{C}$$$ characters each.
+The $$$j$$$-th character on the $$$i$$$-th of these lines $$$\mathbf{G_{i,j}}$$$ represents the grid in the
+$$$i$$$-th row and $$$j$$$-th column as follows:
+<ul>
+<li>A period (<code>.</code>) represents an uninteresting empty cell.</li>
+<li>A hash symbol (<code>#</code>) represents a cell containing a wall.</li>
+<li>An asterisk (<code>*</code>) represents a cell containing a hazard.</li>
+<li>An English lowercase letter (<code>a</code> through <code>z</code>) represents an empty cell
+    that is an interesting start.</li>
+<li>An English uppercase letter (<code>A</code> through <code>Z</code>) represents an empty cell
+    that is an interesting finish.</li>
+</ul>
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing
+<code>Case #$$$x$$$: $$$y$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is <code>NONE</code> if there
+are no drivable pairs. Otherwise, $$$y$$$ must be a series of $$$2$$$ character strings separated
+by spaces, representing all drivable pairs with the start letter first and the finish letter
+second, in alphabetical order.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 60 seconds.<br/>
+Memory limit: 2 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$\mathbf{G_{i,j}}$$$ is either a period (<code>.</code>), a hash symbol (<code>#</code>), an asterisk
+  (<code>*</code>) or a lowercase or uppercase English letter, for all $$$i, j$$$.<br/>
+The set $$$\{\mathbf{G_{i,j}}$$$ for all $$$i, j\}$$$ contains at least $$$1$$$ lowercase
+  and at least $$$1$$$ uppercase English letter.<br/>
+Each lowercase and uppercase letter appears at most once among all $$$\mathbf{G_{i,j}}$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{R} \le 20$$$.<br/>
+$$$1 \le \mathbf{C} \le 20$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{R} \le 100$$$.<br/>
+$$$1 \le \mathbf{C} \le 100$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="hey_google_drive_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+1 2
+aZ
+4 4
+a..c
+**.*
+.Y.#
+bX#Z
+2 2
+a*
+*Z
+2 7
+a*bcd*.
+...*F#.
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="hey_google_drive_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: aZ
+Case #2: aY bX bY cY
+Case #3: NONE
+Case #4: dF
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, simply repeating the west command until reaching the finish
+  is a viable strategy. Each time there is a $$$1/2$$$ probability of reaching the finish
+  and a $$$1/2$$$ probability of staying in the same place. Thus, the probability of
+  not reaching the finish in $$$10^{101}$$$ or fewer steps is 
+  $$$2^{-10^{101}} \lt 10^{-10^{100}}$$$.
+</p><p>
+  In Sample Case #2 a similar strategy as in Sample Case #1 can be used to get the car
+  from any position in the top row (1) to any other with probability as high as desired,
+  and similarly for all non-wall positions in the third row from the top (2). Analogously,
+  but using the south command, the car can move between non-wall positions on the third column
+  from the left (3).<br/>
+  From both <code>a</code> and <code>c</code> we can use (1) to get to the third column from the
+  left, then (3) to get right next to <code>Y</code> and then (2) to get to <code>Y</code> making
+  both <code>aY</code> and <code>cY</code> drivable. Notice, however, that safely using the north
+  or south commands from the third row can only be done in the third column, or otherwise the car
+  may go into a hazard. Therefore, there is no safe way to move the car from the third to the
+  fourth row, making <code>aX</code> and <code>cX</code> not drivable.<br/>
+  From <code>b</code>, however, the car can use a similar strategy to get to <code>X</code>, and
+  from <code>X</code> the car can get to <code>Y</code> by using the north or south command
+  repeatedly (and stop when reaching <code>Y</code>, never risking going into the hazard
+  above).<br/>
+  Finally, the finish <code>Z</code> is completely isolated, so it cannot be part of a drivable
+  pair.
+</p><p>
+  In Sample Case #3, every path from the interesting start to the interesting finish goes 
+  through a hazard, which makes the pair not drivable.
+</p><p>
+  In Sample Case #4, only the interesting start <code>d</code> has a viable strategy to get to the
+  finish <code>F</code>.
+</p>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,438 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Virtual World Finals</h3><h1>Analysis: Adjacent and Consecutive</h1><p>
+As is the case in many problems about games, this problem revolves around evaluating
+a given state of the game and deciding whether it is winning or losing.
+The problem defines mistakes as transitions from winning to losing states, so once
+we have determined the type of each state, we can easily count up the mistakes.
+</p>
+<h3>Test Set 1</h3>
+<p>
+In all <a href="https://en.wikipedia.org/wiki/Zero-sum_game" target="_blank">zero-sum</a>
+finite two person games
+with no ties, the basic framework to decide whether a state is winning is the same. Let us call
+a state <i>A-winning</i> (or equivalently, <i>B-losing</i>) if player A can ensure a win from it,
+or <i>B-winning</i>/<i>A-losing</i> otherwise.
+For a given state, if the game is over, check the winning condition. Otherwise, if it is
+player X's turn, try every possible play. If any of them leads to an X-winning state,
+then the current state is also X-winning. Otherwise, the current state is X-losing.
+We can implement this as a recursive function, but given that there can be
+O(<b>N</b><sup>2</sup>) possible plays on any given turn, this will only work
+quickly enough for small values of <b>N</b>.
+</p><p>
+We can see immediately that there can be a lot of repeated work in that recursive evaluation.
+For example, consider a state S and another state S' such that S' is the result of making
+P plays on S. Since there are P! ways to make those plays, state S' potentially
+needs to be evaluated P! times to evaluate S once. Memoizing the function or turning it into a
+<a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>
+implementation would thus save a lot of recursive calls.
+</p><p>
+In addition, there are many states that can be evaluated without the need for a recursive call.
+Some simple cases include states in which there already are two adjacent and consecutive tiles
+placed (the "already won" condition for player A).
+We can prune the recursive calls tree by simply returning those states as A-winning.
+We can prune it further: if there is a play that creates such a pair during A's turn
+(the "can win immediately" condition), we just do that instead of trying all possible plays
+for A. We can also restrict B to only try plays that do not leave a known A-winning condition.
+There are ways to prune the tree further, some of which we explore in the Test Set 2
+section below.
+</p><p>
+We can pass Test Set 1 either with a combination of simple pruning and memoization/dynamic
+programming, or a lot of pruning.
+</p>
+<h3>Test Set 2</h3>
+<p>
+The number of possible states in Test Set 2 is just too big to even fit in memory, even after
+careful pruning. However, pruning enough can help us find sets of equivalent states, that is,
+groups of states that we can prove have the same winner. By doing that, we can dramatically
+reduce the number of memoized states.
+</p><p>
+Consider only A's turns first. We have already mentioned the "already won" and
+"can win immediately" conditions above. On top of those, we can notice that if
+there is some set of three unplayed tiles available with three consecutive numbers,
+and there is some block of three consecutive cells available, A
+can win by playing the middle number in the middle cell (we call this the "can win in 2 moves"
+condition). Whatever B plays next, A's following turn will fulfill either the
+"already won" condition or the "can win immediately" condition.
+</p><p>
+The conditions above allow us to find some states which are
+definitely A-winning. Notice that in any other state where it is A's turn, it's impossible for any
+of the already-placed tiles to end the game as part of an adjacent and consecutive pair.
+Therefore, they could be replaced by "unavailable" cells without a specific number on them.
+So, the remaining cells can be represented as
+the multiset of sizes of the groups of consecutive cells that are left; call it L<sub>C</sub>.
+The exact locations of those groups on the board are not relevant to the final outcome.
+Since each tile can only form
+adjacent and consecutive pairs with other leftover tiles, we can similarly represent the remaining
+tiles with a multiset of lengths of consecutive runs of tiles; call it L<sub>T</sub>. For example,
+the state
+<pre>
+7 2 6 _ _ 3 _ 4 _ _ 5
+</pre>
+<p>
+has the leftover tiles 1, 8, 9, 10, 11, so its leftover cells can be represented by
+the multiset L<sub>C</sub> = {1, 2, 2} and its leftover tiles by the multiset L<sub>T</sub> = {1, 4}.
+</p><p>
+In addition, since the "can win in 2 moves" condition has already been checked, we know that at
+least one of L<sub>C</sub> and L<sub>T</sub> does not contain any integer greater than or equal to 3.
+To simplify the algorithm, notice that the game in which we swap tile numbers and cell
+numbers is equivalent (because the winning condition is symmetric). Therefore, states with
+L<sub>C</sub> and L<sub>T</sub> swapped are equivalent. We can therefore assume it is always
+L<sub>C</sub> that has only integers 1 and 2.
+</p><p>
+After this compression, the number of states is dramatically reduced. Notice that because
+we know that there are no three consecutive leftover numbers, at least <b>N</b>/3 numbers have been
+played already. That means that the sum of the integers in both L<sub>C</sub> and L<sub>T</sub>
+(which is the same for both multisets) is at most 2&times;<b>N</b>/3. Therefore, the total number of
+possible multisets L<sub>T</sub> under those conditions is bounded by the sum of partitions(K)
+for every K between 0 and 2&times;<b>N</b>/3, which is partitions(2&times;<b>N</b>/3+1).
+Given such an L<sub>T</sub>
+multiset, the number of possible multisets L<sub>C</sub> of only 1s and 2s such that the
+sum of L<sub>C</sub> and L<sub>T</sub> is the same is bounded by
+<b>N</b>/3 (which is the maximum number of 2s). So, the number of states is no greater than
+(<b>N</b>/3)&times;partitions(2&times;<b>N</b>/3+1), which is a fairly small number for the given
+limits for <b>N</b>. Moreover, we need only one memoization or dynamic programming table for all
+test cases.
+</p><p>
+There are multiple sufficiently fast ways to implement the second player's turns
+(which are the slowest ones), and there are further restrictions that can be placed on
+plays to optimize our strategy even more. Some of those options result in an algorithm
+whose complexity makes it clear that it runs within the time limit. Some other options have a
+theoretical complexity that is either too large or hard to estimate tightly enough to be
+convinced it's fast enough. Fortunately, it's possible to compute the recursive function
+for all possible states without reading any data,
+and be sure that it runs in time before submitting.
+</p>
+<h3>The Test Set 3 that wasn't</h3>
+<p>
+We considered having a third test set for this problem requiring a polynomial solution.
+We progressively found solutions taking O(<b>N</b><sup>3</sup>) time, O(<b>N</b><sup>2</sup>)
+time and even one requiring only O(<b>N</b> log <b>N</b>) time. We ultimately decided against
+adding the test set because the possibility of solving it by guessing the right theorem without
+proof was a significant concern. The benefit of the extra challenge without making
+contestants have to read a full extra statement is of course a significant benefit, but
+it was dampened by our estimation that the likelihood of it being solved legitimately was small.
+If we had made it worth a small number of points, it would not have been worth the relative
+effort to solve it. If we had made it worth a lot, though, that would have diminished the
+value of the work needed for our favorite part of the problem, which is solving Test Set 2.
+</p><p>
+If you are up to try an extra challenge without spoilers, stop here. If you want
+some hints on how those solutions go, read ahead!
+</p><p>
+The first theorem further compresses the states considered in the Test Set 2 solution
+on A's turns. Consider a state that is not under the "already won", "can win immediately" or
+"can win in 2 moves" conditions represented by some multisets L<sub>C</sub> and L<sub>T</sub>,
+where only L<sub>T</sub> can contain integers greater than 2. That state
+is A-winning if and only if the state represented by multisets L<sub>C</sub> and L'<sub>T</sub>
+is A-winning, where L'<sub>T</sub> is obtained from L<sub>T</sub> by replacing each integer X in
+L<sub>T</sub> with floor(X / 2) copies of a 2 and a 1 if X is odd.
+This reduces the number of states of the
+dynamic programming to O(<b>N</b><sup>3</sup>), and we can process each of those states in
+constant time because there is only a bounded number of effectively different plays to make.
+</p><p>
+If we pursue that line of reasoning further, we can find that we can check A-winningness with
+a small number of cases. Let
+L<sub>Ci</sub> be the number of times i is in L<sub>C</sub>, and L<sub>Ti</sub> be the number of
+times i is in L<sub>T</sub>. Because we already assumed that L<sub>C</sub> had no integers greater
+than 2, L<sub>Ci</sub> = 0 for all i &ge; 3. Let
+K = L<sub>C1</sub>+2&times;L<sub>C2</sub> = sum of i&times;L<sub>Ti</sub> over all i
+be the number of turns left and
+Z = (L<sub>T2</sub>+L<sub>T3</sub>) + 2&times;(L<sub>T4</sub>+L<sub>T5</sub>) +
+    3&times;(L<sub>T6</sub>+L<sub>T7</sub>) + ...
+be the number of times 2 appears in L'<sub>T</sub> as described in the previous paragraph. Then, the
+second theorem we can prove is that:
+<ul>
+  <li>If K = 2, then the state is A-winning if and only if L<sub>C2</sub> = L<sub>T2</sub> = 1.</li>
+  <li>If K &gt; 2, then the state is A-winning if and only if K is odd and
+      2&times;(L<sub>C2</sub>+Z) &gt; K.</li>
+</ul>
+<p>
+From the need to avoid the "already won", "can win immediately" and "can win in 2 moves"
+conditions, it is possible to reduce the number of plays on B's turn to a set of a bounded number of
+options that always contains a winning move if there is one. This, together with the fact that
+the conditions above can be checked in constant time, yields an algorithm that decides for
+any state whether it is winning or losing in O(<b>N</b>) time, making the overall process
+of a test case take O(<b>N</b><sup>2</sup>) time. With some technical effort, we can
+represent the board in a way that we can update and use in O(log <b>N</b>) time to check
+all the necessary conditions, yielding an algorithm that requires only O(<b>N</b> log <b>N</b>)
+time to process a full test case.
+</p><p>
+The proofs for the theorems on the paragraphs above are left as an exercise to the reader. As a
+hint, it is easier to prove the second more general theorem, which is already nicely framed,
+and then obtain the first theorem as a corollary.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

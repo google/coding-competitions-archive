@@ -1,0 +1,454 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2019 - Practice Round</h3><h1>Kickstart Alarm</h1><h3>Problem</h3>
+<p>
+  Shil has a very hard time waking up in the morning each day, so he decides to buy a powerful alarm
+  clock to Kickstart his day. This Alarm is called a Kickstart Alarm. It comes pre-configured with
+  <b>K</b> powerful wakeup calls. Before going to bed, the user programs the clock with a Parameter
+  Array consisting of the values <b>A<sub>1</sub></b>, <b>A<sub>2</sub></b>, ..., <b>A<sub>N</sub></b>.
+  In the morning, the clock will ring <b>K</b> times, with the i-th wakeup call having power POWER<sub>i</sub>.
+</p>
+<p>
+  To calculate POWER<sub>i</sub>, the alarm generates all the contiguous subarrays of the Parameter
+  Array and calculates the summation of the i-th exponential-power of all contiguous subarrays.
+  The i-th exponential-power of subarray <b>A<sub>j</sub></b>, <b>A<sub>j+1</sub></b>, ..., <b>A<sub>k</sub></b>
+  is defined as <b>A<sub>j</sub></b>  &times; 1<sup>i</sup> + <b>A<sub>j+1</sub></b> &times;
+  2<sup>i</sup> + <b>A<sub>j+2</sub></b> &times; 3<sup>i</sup> + ... + <b>A<sub>k</sub></b> &times; (k-j+1)<sup>i</sup>.
+  So POWER<sub>i</sub> is just the summation of the i-th exponential-power of all the contiguous subarrays of the Parameter Array.
+</p>
+<p>
+  For example, if i = 2, and <b>A</b> = [1, 4, 2], then the i-th exponential-power of <b>A</b> would be calculated as follows:<br/>
+  <ul>
+  <li>2-nd exponential-power of [1] = 1 &times; 1<sup>2</sup> = 1</li>
+  <li>2-nd exponential-power of [4] = 4 &times; 1<sup>2</sup> = 4</li>
+  <li>2-nd exponential-power of [2] = 2 &times; 1<sup>2</sup> = 2</li>
+  <li>2-nd exponential-power of [1, 4] = 1 &times; 1<sup>2</sup> + 4 &times; 2<sup>2</sup> = 17</li>
+  <li>2-nd exponential-power of [4, 2] = 4 &times; 1<sup>2</sup> + 2 &times; 2<sup>2</sup> = 12</li>
+  <li>2-nd exponential-power of [1, 4, 2] = 1 &times; 1<sup>2</sup> + 4 &times; 2<sup>2</sup> + 2 &times; 3<sup>2</sup> = 35</li>
+  </ul>
+  so the total is 71.
+</p>
+
+<p>
+  Tonight, Shil is using his Kickstart Alarm for the first time. Therefore, he is quite worried about
+  the sound the alarm might make in the morning. It may wake up the neighbors, or, worse yet, it may wake up the whole planet!
+  However, calculating the power of each wakeup call is quite difficult for him.
+  Given <b>K</b> and the Parameter Array <b>A<sub>1</sub></b>, <b>A<sub>2</sub></b>, ..., <b>A<sub><b>N</b></sub></b>,
+  can you help him by calculating the summation of power of each wakeup call:
+  POWER<sub>1</sub> + POWER<sub>2</sub> + ... + POWER<sub>K</sub>?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>. <b>T</b>
+  test cases follow. Each test case consists of one line with nine integers
+  <b>N, K, x<sub>1</sub>, y<sub>1</sub>, C, D, E<sub>1</sub>, E<sub>2</sub></b> and <b>F</b>.
+  <b>N</b> is the length of array <b>A</b>, <b>K</b> is the number of wakeup calls.
+  Rest of the values are parameters that you should use to generate the elements of the array <b>A</b>, as follows.
+</p>
+<p>
+   Use the recurrences below to generate x<sub>i</sub> and y<sub>i</sub> for i = 2 to <b>N</b>:
+   <ul>
+     <li>x<sub>i</sub> = ( <b>C</b> &times; x<sub>i-1</sub> + <b>D</b> &times; y<sub>i-1</sub> + <b>E<sub>1</sub></b> ) modulo <b>F</b>.</li>
+   <li>y<sub>i</sub> = ( <b>D</b> &times; x<sub>i-1</sub> + <b>C</b> &times; y<sub>i-1</sub> + <b>E<sub>2</sub></b> ) modulo <b>F</b>.</li>
+   </ul>
+We define <b>A<sub>i</sub></b> = ( x<sub>i</sub> + y<sub>i</sub> ) modulo <b>F</b>, for all i = 1 to <b>N</b>.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: POWER</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>POWER</code> is the summation of POWER<sub>i</sub>, for i = 1 to <b>K</b>.
+  Since <code>POWER</code> could be huge, print it modulo 1000000007 (10<sup>9</sup> + 7).
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 90 seconds per test set.<br/>
+  Memory limit: 1 GB.<br/>
+  1 &le; <b>x<sub>1</sub></b> &le; 10<sup>5</sup>.<br/>
+  1 &le; <b>y<sub>1</sub></b> &le; 10<sup>5</sup><br/>
+  1 &le; <b>C</b> &le; 10<sup>5</sup>.<br/>
+  1 &le; <b>D</b> &le; 10<sup>5</sup>.<br/>
+  1 &le; <b>E<sub>1</sub></b> &le; 10<sup>5</sup>.<br/>
+  1 &le; <b>E<sub>2</sub></b> &le; 10<sup>5</sup>.<br/>
+  1 &le; <b>F</b> &le; 10<sup>5</sup>.<br/>
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+  1 &le; <b>N</b> &le; 100.<br/>
+  1 &le; <b>K</b> &le; 20.<br/>
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+  1 &le; <b>N</b> &le; 10<sup>6</sup>.<br/>
+  1 &le; <b>K</b> &le; 10<sup>4</sup>.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="kickstart_alarm_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+2 3 1 2 1 2 1 1 9
+10 10 10001 10002 10003 10004 10005 10006 89273
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="kickstart_alarm_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 52
+Case #2: 739786670
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In Sample Case #1, the Parameter Array is [3, 2].
+  All the contiguous subarrays are [3], [2], [3, 2].
+</p>
+<p>
+  For i = 1:
+  <ul>
+  <li>1-st Exponential-power of [3] = 3 &times; 1<sup>1</sup> = 3</li>
+  <li>1-st Exponential-power of [2] = 2 &times; 1<sup>1</sup> = 2</li>
+  <li>1-st Exponential-power of [3, 2] = 3 + 2 &times; 2<sup>1</sup> = 7</li>
+  </ul>
+  So POWER<sub>1</sub> is 12.<br/>
+</p>
+
+<p>
+  For i = 2:
+  <ul>
+  <li>2-nd Exponential-power of [3] = 3 &times; 1<sup>2</sup> = 3</li>
+  <li>2-nd Exponential-power of [2] = 2 &times; 1<sup>2</sup> = 2</li>
+  <li>2-nd Exponential-power of [3, 2] = 3 + 2 &times; 2<sup>2</sup> = 11</li>
+  </ul>
+  So POWER<sub>2</sub> is 16.<br/>
+</p>
+
+<p>
+  For i = 3:
+  <ul>
+  <li>3-rd Exponential-power of [3] = 3 &times; 1<sup>3</sup> = 3</li>
+  <li>3-rd Exponential-power of [2] = 2 &times; 1<sup>3</sup> = 2</li>
+  <li>3-rd Exponential-power of [3, 2] = 3 + 2 &times; 2<sup>3</sup> = 19</li>
+  </ul>
+  So POWER<sub>3</sub> is 24.<br/>
+</p>
+
+    </div>
+  </body>
+</html>

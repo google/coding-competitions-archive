@@ -1,0 +1,392 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2010 - World Finals</h3><h1>Analysis: Ninjutsu</h1><h3>Getting something discrete</h3>
+<p>A fact that jumps out immediately is that this problem is not discrete.
+The rope length that gives an optimal solution might be a real number, and
+there does not seem to be a way to ensure that this number is rational or
+discrete in any other way.</p>
+
+<p>Given any real-valued rope length, we can simulate and count the bends, but
+this number is not a convex function of the rope length, so ternary search is
+out.</p>
+
+<p>What we really wish we could do is dynamic programming, where the state is a
+triple -- the point we are currently swinging around, the direction the end of
+the rope is pointing in, and the length of the rope. Two of these values are
+real numbers. However, let's see how many different real values we actually
+need to care about.</p>
+
+<p>As we are swinging the end of the rope around some point <b>P</b>, nothing
+interesting happens until the moving segment of the rope touches another point,
+<b>Q</b>. At that... point, we need to make a decision -- we could either bend
+the rope and switch to swinging around point <b>Q</b>, or cut the rope at
+exactly point <b>Q</b> and continue swinging around <b>P</b>. There are at most
+<b>N</b><sup>2</sup> pairs of points, so we only need to consider at most
+<b>N</b><sup>2</sup> different directions. That takes care of the second DP
+parameter.</p>
+
+<p>What about the rope length? Using the same reasoning as above, we can show
+that there is only a finite number of rope lengths that are interesting.
+Firstly, note that bending the rope does not change its length. Whenever we
+swing around point <b>P</b> and hit point <b>Q</b>, there is a binary decision
+-- is the rotating rope segment longer than the distance from <b>P</b> to
+<b>Q</b>, or shorter?</p>
+
+<p>In other words, the interval of real numbers between 0 and <b>R</b> can be
+split into a finite number of of sub-intervals, such that the number-of-bends
+function has a constant value on each sub-interval. This observation suggests
+the following, naive dynamic programming (DP) solution. The DP state is a pair
+of points (<b>P</b>, <b>Q</b>) and a real-valued rope length, <b>r</b>. The
+answer is the maximum number of bends we can achieve by continuing to spin
+around point <b>P</b>, if we are currently poining in the direction of point
+<b>Q</b> and have a swinging segment of the rope of length <b>r</b>. To be a
+bit more precise, we will actually need to have twice as many states -- one for
+poining in the direction of <b>Q</b>, and one for poining 180 degrees away from
+<b>Q</b>. We need the second kind of state for the situation when we decide to
+bend the rope and continue swinging around <b>Q</b>. At that point, we will
+start pointing in the direction 180 degrees away from <b>Q</b>. One way to
+implement this solution is simply to use a point, a 2D vector and a length as
+the state, instead of two points and a length.</p>
+
+<p>Next, let's get rid of the real-valued length as a DP parameter. Because
+rope length only changes when we decide to cut it, we can replace the
+real-valued length parameter with an integer -- the number of bends since the
+last time we have cut the rope. Let's also replace the first two parameters
+with the pair of points that caused the cut. We are now interested in all
+situations of the following sort -- we were swinging around point <b>P</b>,
+with the end of the rope poining in the direction
+<nobr>(<b>dx</b>, <b>dy</b>)</nobr>, at which point we cut the rope, and since
+then, we have made <b>K</b> bends. This information is enough to identify a
+state uniquely, and it implies a particular remaining rope length. Our DP state
+now becomes a triple of <b>P</b>, <nobr>(<b>dx</b>, <b>dy</b>)</nobr> and
+<b>K</b>.</p>
+
+<h3>Floating point issues</h3>
+<p>We now have an almost completely discrete problem. The only place where
+floating point numbers are necessary is in the testing of whether the current
+rope length is long enough to hit some given point, or does the rope's end pass
+underneath that point? Given the guarantee that the optimal solution works for a long range of rope lengths (0.999999), we can avoid floating point rounding trouble by being conservative: only assume that the rope can hit a point if its length is longer by at least, say, 0.5 than the distance to the point. If it is shorter than that, then certainly such a solution doesn't work for a long enough range of rope lengths, so it's not the optimal solution by the guarantee.
+</p>
+
+<h3>Dealing with loops</h3>
+<p>The naive solution is too slow. Consider, for example, the case where we
+have a rope of length 10<sup>9</sup> and two points: <nobr>(0, 0)</nobr> and
+<nobr>(0, 1)</nobr>. The optimal solution uses the full length of the rope to
+create <nobr>10<sup>9</sup>-1</nobr> bends. Of course, we are just going around
+in loops, so we need a way to detect and handle such loops to have a chance at
+a polynomial-time solution.</p>
+
+<p>First, let's reorganize the naive DP solution a bit to make loop detection
+easier. We will have a simpler, three-parameter state and use a memoized
+recursive function. Each call of the function will correspond to a situation of
+the following kind -- we are spinning around a point <b>P</b>, with the end of
+the rope pointing in the direction <nobr>(<b>dx</b>, <b>dy</b>)</nobr>, and we
+have just cut the rope because it has touched another point, <b>Q</b>. The total
+number of such states is O(<b>N</b>^3), but many of them are not possible and
+will never be visited.</p>
+
+<p>Inside the function, we will simulate the wrapping of the rope and make
+recursive calls in situations when we decide to cut the rope further. If we
+simulate the wrapping process naively, we may need to make a huge number of
+recursive calls. Instead, imagine that we find ourselves in a situation
+where we have just bent the rope around some point <b>A</b>, and we are about
+to bend it again around some point <b>B</b>. If this is not the first time we
+have seen the pair <nobr>(<b>A</b>, <b>B</b>)</nobr>, then we are looping
+around the same set of points. The second time we hit this pair, we will have a
+shorter remaining rope length, <b>r</b>, and we can figure out how much rope
+one revolution consumes by subtracting the new value of <b>r</b> from the value
+we had when we first encountered the pair.</p>
+
+<p>Once we detect a loop, we can choose the number of full revolutions we want
+to make before we cut the rope and enter inside the convex hull of the points
+we are looping around. Clearly, it never makes sense to cut off more than one
+whole loop perimeter. We would be throwing away free rope bends. The optimal
+number of revolutions is, thus, the total remaining rope length, divided by the
+perimeter of the loop, floored, minus one.</p>
+
+<h3>Putting together a complete solution</h3>
+<p>We now have a DP solution with O(<b>N</b>^3) states and O(<b>N</b>^2) work
+per state (linear number of recursive calls; linear amount of work to find the
+next point for each call). We can speed this up by precomputing next points for
+each state, but this is not necessary. It turns out that the number of
+reachable states is small enough for this solution to pass.
+</p>
+
+<p>Remaining difficulty is in dealing with collinear points. Since all
+coordinates are integers, this should be done exactly, without using floating
+point computations.</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

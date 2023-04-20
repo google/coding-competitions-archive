@@ -1,0 +1,453 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1B</h3><h1>Manhattan Crepe Cart</h1><h3>Problem</h3>
+<p>
+  There are a lot of great streetside food vendors in Manhattan, but without a
+  doubt, the one with the tastiest food is the Code Jam Crepe Cart!
+</p><p>
+  You want to find the cart, but you do not know where it is, except that it is
+  at some street intersection. You believe that people from across Manhattan
+  are currently walking toward that intersection, so you will try to identify
+  the intersection toward which the most people are traveling.
+</p><p>
+  For the purposes of this problem, Manhattan is a regular grid with its axes
+  aligned to compass lines and bounded between 0 and <b>Q</b>, inclusive, on
+  each axis. There are west-east streets corresponding to gridlines
+  y&nbsp;=&nbsp;0, y&nbsp;=&nbsp;1, y&nbsp;=&nbsp;2, &hellip;,
+  y&nbsp;=&nbsp;<b>Q</b> and south-north streets corresponding to gridlines
+  x&nbsp;=&nbsp;0, x&nbsp;=&nbsp;1, x&nbsp;=&nbsp;2, &hellip;,
+  x&nbsp;=&nbsp;<b>Q</b>, and people move only along these streets.
+  The points where the lines meet &mdash; e.g., (0, 0) and (1, 2) &mdash; are
+  intersections. The shortest distance between two intersections is measured via the
+  <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">Manhattan distance</a>
+  &mdash; that is, by the sum of the absolute horizontal difference and the
+  absolute vertical difference between the two sets of coordinates.
+</p><p>
+  You know the locations of <b>P</b> people, all of whom are standing at
+  intersections, and the compass direction each person is headed: north
+  (increasing y direction), south (decreasing y direction), east (increasing x
+  direction), or west (decreasing x direction). A person is moving toward a
+  street intersection if their current movement is on a shortest path to that
+  street intersection within the Manhattan grid. For
+  example, if a person located at (x<sub>0</sub>, y<sub>0</sub>) is moving
+  north, then they are moving toward all street intersections that have
+  coordinates (x, y) with y &gt; y<sub>0</sub>.
+</p><p>
+  You think the crepe cart is at the intersection toward which the most people
+  are traveling. Moreover, you believe that more southern and western parts of
+  the island are most likely to have a crepe cart, so if there are multiple
+  such intersections, you will choose the one with the smallest non-negative
+  <code>x</code> coordinate, and if there are multiple such intersections with
+  that same <code>x</code> coordinate, the one among those with the smallest
+  non-negative <code>y</code> coordinate. Which intersection will you choose?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case starts with one line containing
+  two integers <b>P</b> and <b>Q</b>: the number of people, and the maximum
+  possible value of an x or y coordinate in Manhattan, as described above.
+  Then, there are <b>P</b> more lines. The i-th of those lines contains two
+  integers <b>X<sub>i</sub></b> and <b>Y<sub>i</sub></b>, the current location
+  (street corner) of a person, and a character <b>D<sub>i</sub></b>, the
+  direction that person is headed. <b>D<sub>i</sub></b> is one of the uppercase
+  letters <code>N</code>, <code>S</code>, <code>E</code>, or <code>W</code>,
+  which stand for north, south, east, and west, respectively.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #t: x y</code>,
+  where <code>t</code> is the test case number (starting from 1) and
+  <code>x</code> and <code>y</code> are the horizontal and vertical coordinates
+  of the intersection where you believe the crepe cart is located.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 20 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>P</b> &le; 500.<br/>
+  0 &le; <b>X<sub>i</sub></b> &le; <b>Q</b>, for all i.<br/>
+  0 &le; <b>Y<sub>i</sub></b> &le; <b>Q</b>, for all i.<br/>
+  For all i, if <b>X<sub>i</sub></b> = 0,
+    <b>D<sub>i</sub></b> &ne; <code>W</code>.<br/>
+  For all i, if <b>Y<sub>i</sub></b> = 0,
+    <b>D<sub>i</sub></b> &ne; <code>S</code>.<br/>
+  For all i, if <b>X<sub>i</sub></b> = <b>Q</b>,
+    <b>D<sub>i</sub></b> &ne; <code>E</code>.<br/>
+  For all i, if <b>Y<sub>i</sub></b> = <b>Q</b>,
+    <b>D<sub>i</sub></b> &ne; <code>N</code>.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>Q</b> = 10.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  <b>Q</b> = 10<sup>5</sup>.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="manhattan_crepe_cart_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+1 10
+5 5 N
+4 10
+2 4 N
+2 6 S
+1 5 E
+3 5 W
+8 10
+0 2 S
+0 3 N
+0 3 N
+0 4 N
+0 5 S
+0 5 S
+0 8 S
+1 5 W
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="manhattan_crepe_cart_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 0 6
+Case #2: 2 5
+Case #3: 0 4
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</sampleio>
+
+<p>
+  In Sample Case #1, there is only one person, and they are moving north from
+  (5, 5). This means that all street corners with y &ge; 6 are possible
+  locations for the crepe cart. Of those possibilities, we choose the one with
+  lowest x &ge; 0 and then lowest y &ge; 6.
+</p><p>
+  In Sample Case #2, there are four people, all moving toward location (2, 5).
+  There is no other location that has as many people moving toward it.
+</p><p>
+  In Sample Case #3, six of the eight people are moving toward location (0, 4).
+  There is no other location that has as many people moving toward it.
+</p>
+
+    </div>
+  </body>
+</html>

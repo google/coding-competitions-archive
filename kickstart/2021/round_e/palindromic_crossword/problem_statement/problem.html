@@ -1,0 +1,468 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round E</h3><h1>Palindromic Crossword</h1><h3>Problem</h3>
+
+<p>
+  A <a href="https://en.wikipedia.org/wiki/Crossword" target="_blank">crossword puzzle</a> is a
+  rectangular grid of black cells and letters
+  <code>A-Z</code> like the one shown below.
+</p>
+  <p align="center">
+    <img src="images/crossword1.png" alt="Example crossword"/>
+  </p>
+<p>
+  Words in the crossword are defined as maximal vertical or horizontal segments
+  of characters.
+  In the crossword
+  below, <code>DO</code> and <code>ON</code> are examples of words.
+
+</p>
+  <p align="center">
+    <img src="images/crossword2.png" alt="Example crossword with highlighted words"/>
+  </p>
+
+<p> A palindromic crossword is one where every word is a
+  <a href="https://en.wikipedia.org/wiki/Palindrome" target="_blank">palindrome</a>.
+  Let $$$\mathbf{R_{i,j}}$$$ represent the character on the $$$i$$$-th row
+  and $$$j$$$-th column, where $$$i$$$ and $$$j$$$ are $$$1$$$-indexed. The top left corner
+  is $$$\mathbf{R_{1,1}}$$$.
+  In the example palindromic crossword below, the <code>B</code> in $$$\mathbf{R_{3,2}}$$$
+    is part of both the horizontal word starting at $$$\mathbf{R_{3,1}}$$$ and the vertical word ending at
+    $$$\mathbf{R_{4,2}}$$$, and both are palindromes.
+</p>
+
+ <p align="center">
+    <img src="images/fullPalindromicCrossword.png" alt="Full palindromic crossword"/>
+  </p>
+
+
+
+<p>
+You have been gifted a palindromic crossword puzzle with $$$\mathbf{N}$$$ rows and $$$\mathbf{M}$$$ columns.
+  You finished the crossword and throw away the clues,
+  preparing to hang it on your wall. However, you accidentally erase some of the letters! You want to recover as much of the crossword as possible,
+  but you do not have the clues anymore. Using only the knowledge that the crossword is palindromic,
+  restore the maximum possible number of missing characters in the given crossword.
+</p>
+  <p>
+  Missing letters are represented as empty white cells in the below diagram. The crossword on
+  the left is the crossword you are given and the crossword on the right
+  is the result after you recover as many letters
+  as possible. The remaining cells cannot be filled because we do not have sufficient information
+  to recover them.
+</p>
+
+ <p align="center">
+    <img src="images/fillInCrossword.png" alt="Example palindromic crossword"/>
+  </p>
+
+
+
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.<br/>
+The first line of each test case contains two
+  integers, $$$\mathbf{N}$$$ and $$$\mathbf{M}$$$, representing the number of rows and columns in the crossword,
+  respectively.<br/>
+The next $$$\mathbf{N}$$$ lines represent the $$$\mathbf{N}$$$ rows of the grid. The $$$i$$$-th row consists of $$$\mathbf{M}$$$ characters
+  representing $$$\mathbf{R_{i,1}}$$$, $$$\mathbf{R_{i,2}}$$$, $$$\dots$$$, $$$\mathbf{R_{i,M}}$$$. Each character is one of the
+  following:<br/>
+<ul>
+ <li>A capital letter of the alphabet (<code>A-Z</code>)</li>
+ <li>A period (<code>.</code>) for a missing letter (empty white cell in the example crossword)</li>
+ <li>A hash (<code>#</code>) for black cell</li>
+</ul>
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>
+where $$$x$$$ is the test case number (starting from $$$1$$$) and $$$y$$$ is the number of empty white
+  cells that were filled. Then, output $$$\mathbf{N}$$$ more lines representing the final grid, with
+  the missing characters (<code>.</code>) replaced by capital letters (<code>A-Z</code>)
+  where possible.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 60 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+  There exists at least one way to fill in the given input grid such
+  that it is a palindromic crossword. <br/>
+All characters in the grid are in the set $$$\{$$$<code>A-Z</code>, <code>#</code>, <code>.</code>$$$\}$$$<br/>
+
+</p>
+
+<h4>Test Set 1</h4>
+<p>
+
+$$$1 \le \mathbf{N},\mathbf{M} \le 50$$$.<br/>
+</p>
+
+<h4>Test Set 2</h4>
+<p>
+
+For at most 10 cases:<br/>
+$$$1 \le \mathbf{N},\mathbf{M} \le 1000$$$.<br/>
+  <br/>
+  For the remaining cases:<br/>
+  $$$1 \le \mathbf{N},\mathbf{M} \le 50$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="palindromic_crossword_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+2 2
+A.
+.#
+4 6
+A...#.
+B##...
+B.###.
+A...#.
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="palindromic_crossword_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2
+AA
+A#
+Case #2: 8
+A..A#.
+B##A.A
+BB###A
+ABBA#.</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+In Sample Case #2, we are able to fill in $$$8$$$ of the blanks. We can fill in the missing letters as follows:
+  <li>row $$$1$$$, column $$$4$$$: We know this is <code>A</code> from character at row $$$1$$$, column $$$1$$$.</li>
+  <li>row $$$2$$$, column $$$4 =$$$ <code>A</code> from row $$$1$$$, column $$$4$$$.</li>
+  <li>row $$$2$$$, column $$$6 =$$$ <code>A</code> from row $$$2$$$, column $$$4$$$.</li>
+  <li>row $$$3$$$, column $$$6 =$$$ <code>A</code> from row $$$2$$$, column $$$6$$$.</li>
+  <li>row $$$3$$$, column $$$2 =$$$ <code>B</code> from row $$$3$$$, column $$$1$$$.</li>
+  <li>row $$$4$$$, column $$$2 =$$$ <code>B</code> from row $$$3$$$, column $$$2$$$.</li>
+  <li>row $$$4$$$, column $$$3 =$$$ <code>B</code> from row $$$4$$$, column $$$2$$$.</li>
+  <li>row $$$4$$$, column $$$4 =$$$ <code>A</code> from row $$$4$$$, column $$$1$$$.</li>
+
+</p>
+
+    </div>
+  </body>
+</html>

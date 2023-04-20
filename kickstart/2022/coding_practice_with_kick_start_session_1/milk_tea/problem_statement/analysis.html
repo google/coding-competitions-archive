@@ -1,0 +1,431 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Coding Practice with Kick Start Session #1</h3><h1>Analysis: Milk Tea</h1><p
+  style="
+    display: inline-block;
+    padding: 5px;
+    background-color: #f1f3f4;
+    border: 2px solid #34a853;
+  "
+>
+  <a href="https://youtu.be/wZIQycr0F4c?t=1354" target="_blank"
+    >View problem and solution walkthrough video
+  </a>
+</p>
+<p>We are given two sets of binary strings:</p>
+<ol>
+  <li>Set of preferences of size $$$\mathbf{N}$$$</li>
+  <li>Set of forbidden milk teas of size $$$\mathbf{M}$$$</li>
+</ol>
+<p>Each binary string in these sets is of length $$$\mathbf{P}$$$.</p>
+
+<h3>Test Set 1</h3>
+<p>
+  There are only $$$2^\mathbf{P}$$$ different combinations of milk tea available. Since
+  $$$\mathbf{P}$$$ is at most $$$10$$$ for this set, the maximum number of possible
+  combinations for a milk tea is $$$2^{10}$$$ or $$$1024$$$. This is a small
+  enough number to check each combination and calculate how many complaints you
+  will get. Take the combination that gives the fewest complaints and that is
+  not forbidden and output the number of complaints.
+</p>
+<h3>Test Set 2</h3>
+<p>
+  For the this test set, the above approach will take too long to compute, so we
+  need a different strategy.
+</p>
+<p>Notice the following:</p>
+<ul>
+  <li>
+    Each option is represented by a bit. We select the best string of bits that
+    fits the requirements.
+  </li>
+  <li>
+    Disregarding forbidden combinations, a decision for which bit to choose for
+    an option is independent of other bit decisions. This is because the options
+    are independent from each other - every option will have a complaint or not
+    for each friend, regardless of other options picked.
+  </li>
+  <li>
+    Disregarding forbidden combinations again, we can get the best milk tea
+    combination by selecting the most occurring bit in the set of preferences
+    for each position in the string of bits. For example, given the set of
+    preferences:
+    <br />
+    &nbsp;<code>{ 1100 </code>
+    <br />
+    &emsp;&ensp;<code>1010</code>
+    <br />
+    &emsp;&ensp;<code>0000 }</code>
+    the best milk tea would be:
+    <br />
+    &emsp;&ensp;<code>1000</code>
+  </li>
+</ul>
+<p>
+  So how do we deal with forbidden combinations? First notice that there are at
+  most $$$100$$$ forbidden combinations. The size of the forbidden set is $$$\mathbf{M}$$$;
+  if we make $$$\mathbf{M} + 1$$$ milk tea combinations, at least one of these
+  combinations is not in the set of forbidden combinations. Since $$$\mathbf{M}$$$ is at most
+  $$$100$$$, it is feasible to create the best $$$\mathbf{M} + 1$$$ combinations and
+  take the best one that is not forbidden.
+</p>
+<p>
+  To generate these combinations, we can preprocess how many complaints we would
+  get for each option. Then, we build up the best combinations one option at a
+  time. We iterate through the options, at each option adding both possibilities
+  ($$$0$$$ and $$$1$$$) to the previous set of binary strings we created and
+  select the best $$$\mathbf{M} + 1$$$ results. We can tiebreak the results
+  arbitrarily.
+</p>
+<p>
+  Let's consider why this works. Let $$$S_k$$$ denote the best $$$\mathbf{M} + 1$$$
+  combinations when we consider only the first $$$k$$$ options. The key idea is
+  to note that each combination in $$$S_{k+1}$$$ has a combination from
+  $$$S_k$$$ as a prefix.
+</p>
+<p>
+  This is easy to show by contradiction. Take any binary string $$$X$$$ from
+  $$$S_{k+1}$$$ and remove the last bit to get the prefix $$$X'$$$. Suppose, for
+  contradiction, that $$$X'$$$ is not $$$S_k$$$, thus all strings in $$$S_k$$$
+  must have fewer complaints than $$$X'$$$. Take any of these strings in
+  $$$S_k$$$ and append the removed bit. This gives a combination which will have
+  strictly fewer (when considering the tiebreak) complaints than $$$X$$$. This
+  results in $$$\mathbf{M} + 1$$$ binary strings with fewer complaints than $$$X$$$,
+  which contradicts $$$S$$$ being in $$$S_{k+1}$$$.
+</p>
+
+<p>The final algorithm is as follows:</p>
+<ol>
+  <li>
+    Precompute the scores (i.e. the number of complaints) for setting each bit
+    in $$$\mathbf{P}$$$ to $$$0$$$. The scores for setting a bit to $$$1$$$ can then be
+    computed by subtracting the score for $$$0$$$ from $$$\mathbf{N}$$$, so we do not have to
+    store these. To do this, iterate through $$$0$$$ to $$$\mathbf{P}-1$$$, and at each
+    iteration, iterate through the set of preferences, summing the number of
+    $$$1$$$s at that position.
+  </li>
+  <li>Start with an empty set $$$S_0$$$: $$$S_0 =$$$ <code>{""}</code></li>
+  <li>
+    Iterate from $$$1$$$ to $$$\mathbf{P}$$$, generating $$$S_{k}$$$. To generate $$$S_{k}$$$
+    (for $$$k > 0$$$):
+    <ol>
+      <li type="i">
+        Take each binary string in $$$S_{k-1}$$$ and append both a $$$0$$$ and a
+        $$$1$$$. Since the set $$$S_{k-1}$$$ has at most $$$\mathbf{M}+1$$$ strings,
+        this will give at most $$$(\mathbf{M} + 1)\cdot2$$$ potential answers.
+      </li>
+      <li type="i">
+        Remove extra strings so that the set has (at most) the best $$$\mathbf{M} +
+        1$$$. To do this, you can maintain a dictionary of precomputed scores
+        for each binary string in $$$S_{k-1}$$$ and add the score for the
+        appended bit to it. Then you can sort these scores and remove the
+        largest ones.
+      </li>
+    </ol>
+  </li>
+  <li>Take the best combination from $$$S_{\mathbf{P}}$$$ that is not forbidden.</li>
+</ol>
+<h3>Time complexity</h3>
+<ol>
+  <li>Precomputing the scores for each bit: $$$O(\mathbf{P}\mathbf{N})$$$</li>
+  <li>Generating the empty set: $$$O(1)$$$</li>
+  <li>
+    Iterating from $$$1$$$ to $$$\mathbf{P}$$$: $$$O(\mathbf{P})$$$; in total for generating
+    $$$S_{k}$$$: $$$O(\mathbf{M}\log\mathbf{M})$$$. So the total for generating all sets:
+    $$$O(\mathbf{P}\mathbf{M}\log\mathbf{M})$$$
+  </li>
+  <ol>
+    <li type="i">For each string in $$$S_{k-1}$$$: $$$O(\mathbf{M})$$$</li>
+    <ol>
+      <li type="a">Appending $$$0$$$ and $$$1$$$: $$$O(1)$$$</li>
+      <li type="a">
+        Computing the score for these two binary strings (remember, these are
+        precomputed, you just need to add the score for the last bit to the
+        score from the dictionary) and storing them in a dictionary takes:
+        $$$O(1)$$$
+      </li>
+    </ol>
+    <li type="i">
+      Sorting the set and removing extra strings: $$$O(\mathbf{M}\log\mathbf{M})$$$
+    </li>
+  </ol>
+  <li>
+    Finding the best combination from $$$S_{\mathbf{P}}$$$ that is not forbidden:
+    $$$O(\mathbf{M})$$$
+  </li>
+</ol>
+<p>Thus, the total time complexity is $$$O(\mathbf{P}\mathbf{N} + \mathbf{P}\mathbf{M}\log\mathbf{M} + \mathbf{M})$$$.</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

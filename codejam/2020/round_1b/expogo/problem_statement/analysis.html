@@ -1,0 +1,386 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 1B</h3><h1>Analysis: Expogo</h1><h3>Test Set 1</h3>
+<p>
+  Test Set 1 is small enough to solve by hand. We can speed this up with a
+  couple of observations:
+</p>
+<ul>
+  <li>We can notice that every position with an even (X + Y) (apart from the
+    origin) &mdash; hereafter an "even" position &mdash; seems to be
+    unreachable. We can prove to ourselves that this is true: our initial X and
+    Y coordinates of (0, 0) are both even, but only the first of our possible
+    jumps (the 1-unit one) is of an odd length, and all jumps after that are of
+    even lengths. So there is no way to reach any other "even" position
+    starting from the origin, no matter how much jumping we do.</li>
+  <li>We can find that all "odd" positions, on the other hand, can be reached
+    using no more than 3 moves.</li>
+  <li>To speed up solving the "odd" positions, we can take advantage of
+    symmetry, as suggested in the explanation for Sample Case #2. For example,
+    if we learn that <code>EEN</code> is a solution for (3, 4), then we also
+    know that <code>WWS</code> is a solution for (-3, -4), and <code>EES</code>
+    is a solution for (3, -4), and so on. Because of all the horizontal,
+    vertical, and diagonal symmetry, there are really only six fundamentally
+    different cases!</li>
+  <li>We can check that our solutions are optimally short by using an argument
+    like the one in the explanation for Sample Case #1. Any position with a
+    Manhattan distance (that is, |<b>X</b>| + |<b>Y</b>|) of 1 cannot be reached
+    in fewer than one jump; positions with Manhattan distances up to 3 and 7
+    require at least two or three jumps, respectively. If our solution lengths
+    match these lower bounds &mdash; and they probably do unless we have jumped
+    in an unusually indirect way &mdash; then they are valid.</li>
+</ul>
+<h3>Test Set 2</h3>
+<p>
+  Based on the observations above, we may think to try a
+  <a href="http://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">breadth-first search</a>
+  of all possible jumping paths, and continue until every "odd" (X, Y) position
+  (with -100 &le; X &le; 100 and -100 &le; Y &le; 100) has been reached. It
+  turns out that each such position is reachable in no more than 8 moves. We
+  know that these solutions are optimally short because of the breadth-first
+  nature of the search.
+</p>
+<h3>Test Set 3</h3>
+<p>
+  Suppose that (<b>X</b>, <b>Y</b>) = (7, 10). In what direction should we
+  make our initial 1-unit jump? As we saw above, we need our final X coordinate
+  to be odd, but it is currently even, and we have only one chance to go from
+  even to odd. Moving north or south will make our Y coordinate odd, but then
+  we will never have another chance to make that even and the X coordinate odd.
+  So we should either move west or east. For now, let's guess that we will go
+  west; we will revisit the other possibility later.
+</p><p>
+  That jump will take us to (-1, 0), and we will next need to make a 2-unit
+  jump. Notice that we can make this look identical to the original problem setup,
+  if we make two changes:
+</p>
+<ol>
+  <li>Shift (-1, 0) to be the new (0, 0). Then the goal becomes (8, 10)
+    rather than (7, 10).</li>
+  <li>Transform the scale of the problem such that a 2-unit jump (to a
+    "neighboring" cell) becomes the new 1-unit jump. Then the goal becomes
+    (4, 5) instead of (8, 10).</li>
+</ol>
+<p>
+  With this in mind, let's revisit our original decision to jump to the west.
+  If we had jumped east instead, we would have ended up at (1, 0), and if we
+  had changed the problem in the same way we did above, our new goal would have
+  been (3, 5). But that would be an "even" position (after rescaling), which
+  cannot be reached! So we had no choice after all; we had to move west to be
+  able to eventually reach the goal. It's a good thing we were so lucky!
+</p><p>
+  So now the problem has "reset", and we are at (0, 0) and trying to get to
+  (4, 5). In what direction should we make our "first" jump? Now we know we
+  must move vertically, since 5 is odd and we will only have "one chance" to
+  go from even to odd. If we jump north, the next rescaling will have a target
+  of (2, 2), but if we jump south, the target will be (2, 3), which is the
+  "odd" position that we want. From there, we should jump south to change the
+  target to (1, 2), then east to change the target to (0, 1). At that point,
+  we have a choice between jumping north and reaching the goal, and jumping
+  south (which could still allow us to reach the goal after some further moves,
+  e.g. one more to the south and then one more to the north). But the problem
+  requires that we choose the shortest solution, so we should jump right to
+  the goal! Therefore, the answer in this case is <code>WSSEN</code>.
+</p><p>
+  Notice that this method is deterministic: we always have only one choice out
+  of the four possible directions. We can rule out two of them because they
+  will not make the correct coordinate odd. Of the other two, the new goal
+  states they would leave us with must differ only in one of the coordinates
+  and only by exactly 1 unit, and therefore one must be an "odd" position and
+  the other must be an "even" position. It is possible that that "even"
+  position is the goal, in which case we should jump there, but otherwise, we
+  must choose the "odd" position.
+</p><p>
+  The above analysis also shows that the only time we have a choice is when
+  one of those options is to jump directly to the goal, in which case we
+  obviously should. So we can be confident that our method produces the
+  shortest possible solution. (We also know that that solution is unique,
+  since if we were to choose to not jump directly to the goal when we had that
+  option, we would only end up with a longer solution.)
+</p><p>
+  Our method has a running time which is logarithmic in the magnitudes of the
+  coordinates, so it will solve this test set blazingly fast!
+</p>
+
+<h3>A Code Jam callback!</h3>
+<p>
+  This problem is a riff on the Pogo problem from Round 1C in 2013. If you were
+  familiar with that problem, the analysis might have helped a bit with this
+  one... but, like a well-designed pogo stick, Expogo is not <i>too</i>
+  difficult to get a handle on anyway.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+6
+1 CS
+2 CS
+1 SS
+6 SCCSSC
+2 CC
+3 CSCSS

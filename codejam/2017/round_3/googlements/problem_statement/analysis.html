@@ -1,0 +1,399 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 3</h3><h1>Analysis: Googlements</h1><h2>Googlements: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  In the Small dataset, the googlements can have a maximum length of 5. We will
+  discuss googlements of that length; the procedure for shorter ones is the
+  same.
+</p><p>
+  Any string of length 5 that uses digits only in the range [0, 5] and is not
+  <code>00000</code> is a googlement; there are 6<sup>5</sup> - 1 = 7775 of
+  these. One workable solution is to iterate through all of these possible
+  googlements and simulate the decay process for each one until it reaches the
+  sole possible looping end state of <code>10000</code>. As we do this, for
+  each googlement, we maintain a count of how many decay chains it appears in.
+  When we are finished, we will know how many possible ancestors each
+  googlement has, and so we will have the answer to every possible Small test
+  case!
+</p><p>
+  Later in this analysis, we will show why <code>10000</code> is the only
+  googlement of length 5 that is its own descendant, and we will look into how
+  long a decay chain can go on. Even if each chain were somehow as long as the
+  number of googlements, though, with only 7775 googlements, this method would
+  still easily run fast enough to solve the Small.
+</p><p>
+  That approach is "top-down"; a "bottom-up" approach to this tree problem also
+  works. For a given googlement, we can figure out what digits must have been
+  in the googlement that created it (its "direct ancestor"). For example, if we
+  are given <code>12000</code>, we know that any direct ancestor must have one
+  <code>1</code>, two <code>2</code>s, and two <code>0</code>s to bring the
+  total number of digits to five. Then we can create all such googlements
+  (e.g., <code>12020</code>) and recursively count <i>their</i> direct
+  ancestors (e.g., <code>42412</code>) in the same way. This process does not
+  go on forever, because (as we noted above) there are at most 7775 googlements
+  in the tree. The worst-case scenario is <code>10000</code>, which is a
+  descendant of every googlement.
+</p><p>
+  After thinking through the bottom-up approach, only implementation details
+  remain. The toughest part is generating direct ancestors with particular
+  counts of particular digits. A permutation library can help, or we can write
+  code to generate permutations in a way that avoids repeatedly considering
+  duplicates. We can save some time across test cases by memoizing results for
+  particular nodes of the tree, since the decay behavior of a given googlement
+  is always exactly the same, and some of the same googlements could (and
+  probably will) show up many times in different cases.
+</p>
+<h3>Large dataset</h3>
+<p>
+  In the bottom-up Small approach outlined above, we spent a lot of time
+  generating new direct ancestors to check. For ancestors such as
+  <code>12020</code> that themselves had direct ancestors, this was necessary.
+  However, it was a waste of time to construct and enumerate ancestors
+  such as <code>42412</code>, which have no ancestors of their own. More
+  generally, a googlement of length L with a digit sum of more than L cannot
+  have any ancestors, since it is impossible to fit more than L digits into a
+  length of L.
+</p><p>
+  It turns out that avoiding enumerating these ancestor-less ancestors saves
+  enough time to turn that bottom-up Small solution into a Large solution. We
+  can do that with some help from combinatorics and the
+  <a href="https://en.wikipedia.org/wiki/Multinomial_theorem#Interpretations">multinomial theorem</a>.
+</p><p>
+  Let's think again about the direct ancestors of <code>12020</code>. Each must
+  have one <code>1</code>, two <code>2</code>s, and two <code>4</code>s. How
+  many ways are there to construct such a string? Starting with a blank set of
+  5 digits, there are (5 choose 2) = 10 ways to place the <code>2</code>s, then
+  (3 choose 2) = 3 ways to place the <code>4</code>s into two of the three
+  remaining slots, then (1 choose 1) = 1 ways to place the leftover
+  <code>1</code>. These terms multiply to give us a total of 30 ways, so
+  <code>12020</code> has 30 direct ancestors. Since each has a digit sum of 13,
+  which is greater than 5, none of them have their own ancestors. So we do not
+  care what they are; we can just add 30 to our total.
+</p><p>
+  At this point, we can either test this improvement on the worst-case
+  googlement <code>100000000</code> before downloading the Large dataset, or
+  we can reassure ourselves via more combinatorics. The googlements of length 9
+  with ancestors are the ones with a digit sum less than or equal to 9; we can
+  use a
+  <a href="https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)">balls-in-boxes argument</a>
+  to find that that number is (10 + 9 - 1)! / (10! * (9-1)!), which is 92377.
+  This is a tiny fraction of the 999999999 possible googlements of length 9; we
+  have avoided enumerating the other 999900000 or so! As long as our method for
+  generating ancestors doesn't impose too much overhead, this is easily fast
+  enough to solve 100 Large test cases in time, even if most or all of them
+  explore most or all of the tree.
+</p>
+<h3>Appendix: Some justifications</h3>
+<p>
+  Let's prove that there is only one looping state for a given googlement
+  length, and that there are no other loops in the graph. We will start with
+  some observations.
+</p>
+<ul>
+  <li>When a googlement decays, the number of non-<code>0</code> digits in
+    the googlement equals the sum of the digits in the googlement it decays
+    into.</li>
+  <li>Because of this, any googlement that has a digit other than
+    <code>0</code>s or <code>1</code>s will decay into a googlement with a
+    smaller digit sum.</li>
+  <li>Any googlement consisting only of <code>0</code>s and <code>1</code>s
+    will decay into a googlement with the same digit sum. If the googlement
+    is <code>1</code> followed by zero or more <code>0</code>s, it will decay
+    into itself. If the googlement has a single <code>1</code> at another position,
+    it will decay into a <code>1</code> followed by <code>0</code>s. Otherwise, it
+    must have at least two <code>1</code>s, so it will decay into a googlement with
+    the same digit sum but with at least one digit other than <code>0</code> or
+    <code>1</code>.</li>
+</ul>
+<p>
+  We can draw some useful conclusions from the above observations:
+</p>
+<ul>
+  <li>The <i>only</i> googlement of length L that can decay into itself is a
+    <code>1</code> followed by L-1 <code>0</code>s. For any other googlement,
+    decay would either reduce its digit sum or create a new googlement with
+    a digit other than <code>0</code> or <code>1</code>, which would itself
+    decay into a googlement with a smaller digit sum.</li>
+  <li>It can take at most two steps for a chain of googlements to lose at least
+    one point of digit sum. This puts a bound on the height of the decay tree;
+    it can be at most 2 times the maximum possible digit sum. (Moreover, it is
+    even less than this; for example, a googlement of <code>999999999</code>
+    will immediately decay into <code>000000009</code>, losing a large amount
+    of its digit sum.</li>
+</ul>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

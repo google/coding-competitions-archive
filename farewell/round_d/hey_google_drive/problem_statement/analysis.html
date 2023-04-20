@@ -1,0 +1,401 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round D</h3><h1>Analysis: Hey Google, Drive!</h1><p>
+  Since there are at most 26 interesting finishes, we can find a list of interesting starts that
+  are drivable to each of the interesting finishes separately. We can solve this in a more generic
+  way: For a given interesting finish cell location, determine whether each of the other cells in the grid
+  is drivable to the interesting finish cell or not.
+</p>
+
+<p>
+  Our goal is to build a graph from the given grid, where each cell is seen as a node, and for each pair of
+  adjacent cells $$$(c_a, c_b)$$$, add a directed edge from $$$c_a$$$ to $$$c_b$$$ if there exist a
+  strategy to force the car move from $$$c_a$$$ to $$$c_b$$$ safely. Note that the edges between two
+  cells are not necessary to be bidirectional.
+</p>
+
+<p align="center">
+  <img src="img/hey_g_drive_sample_1b.png" alt="Illustration of Sample Case #1b."/>
+</p>
+
+<p>
+  Take Sample Case #1's interesting finish $$$B$$$ as example, the blue arrow edges are added for each pair
+  of cells if there exist a strategy to force the car go along the direction safely. From observation, we can
+  see that $$$a, b, c$$$ are all drivable to the interesting finish $$$B$$$. Also note that there
+  is not an edge from $$$B$$$ to its south side neighbor. This is because there is a hazard in its
+  north side so it is not safe to make the "north/south" command when the car is on the cell $$$B$$$.
+</p>
+
+<p>
+  Determining an edge between two cells is not as simple as avoiding hazards, because in
+  addition to the hazards, there will also be some empty cells that are not
+  drivable to the interesting finish, which we will need to avoid.
+  Below we show how to build a graph for a fixed interesting finish, and once the graph is built,
+  how to determine which nodes (cell) are drivable to the interesting finish.
+</p>
+
+<p>
+  We can first temporarily put edges between each pair of adjacent cells, as the car has possibilities
+  to move between them. Then whenever we identify a move is unsafe, i.e., some edges are found as we
+  are unable to force the car to go along their directions safely, then we remove those edges.
+</p>
+
+<p>
+  Specifically the steps are, we first build an edge from each of the empty cells to its four
+  neighboring cells if it is not a wall. Then after running a BFS/DFS from the interesting finish with edges
+  reversed, we can discover the nodes that are never drivable to the interesting finish (i.e., there does not exist
+  a path from that node to the interesting finish). These nodes are now seen as "non-winning" nodes.
+</p>
+
+<p align="left">
+  <img src="img/hey_g_drive_quadratic_explain_1.png" alt="Illustration of edge initialization."/>
+</p>
+
+<li>
+  Take Sample Case #4 for example. The red cells are hazards and the gray cells are walls. Let us
+  build an edge from each of the empty cells to its four neighboring cells if it is not a wall.
+</li>
+
+<p align="left">
+  <img src="img/hey_g_drive_quadratic_explain_2.png" alt="Illustration of non-winning node finding."/>
+</p>
+
+<li>
+  For simplicity, let us use $$$(r, c)$$$ to refer the cell at the $$$r$$$-th row and the
+  $$$c$$$-column in 0 index. Running a BFS or a DFS from the interesting finish $$$F$$$, we can see
+  that cells $$$(0, 1)$$$, $$$(0, 5)$$$, $$$(0, 6)$$$, $$$(1, 3)$$$,
+  $$$(1, 6)$$$ cannot reach the interesting finish $$$F$$$, thus they are non-winning cells.
+  Non-winning cells are as bad as hazards, thus we mark them red.
+</li>
+
+<p>
+  Having these non-winning nodes identified, we must remove some edges from the graph. Precisely,
+  if a node has a non-winning node at its west side, then we must remove the edges to its west
+  neighbor and also the edge to its east neighbor. Likewise for the north and south edges.
+</p>
+
+<p align="left">
+  <img src="img/hey_g_drive_quadratic_explain_3.png" alt="Illustration of edge removing."/>
+</p>
+
+<li>
+  Remove all the edges according to the non-winning nodes we found in the last step.
+</li>
+
+<p>
+  Since some edges are removed, it will result in getting more non-winning nodes. We can run a
+  BFS/DFS again on the current graph to find out those non-winning nodes. We iteratively repeat these
+  two steps to identify non-winning nodes and remove edges, until there is no more non-winning
+  nodes to be identified. Then this final graph is what we wanted to build, and all the cells
+  on the final winning positions are the cells drivable to the interesting finish.
+</p>
+
+<p align="left">
+  <img src="img/hey_g_drive_quadratic_explain_4.png" alt="Illustration of finding more non-winning nodes."/>
+</p>
+
+<li>
+  After removing the edges, $$$(0, 0)$$$, $$$(0, 2)$$$, $$$(1, 0)$$$, $$$(1, 1)$$$ and $$$(1, 2)$$$
+  become non-winning nodes.
+</li>
+
+<p align="left">
+  <img src="img/hey_g_drive_quadratic_explain_5.png" alt="Illustration of removing more edges."/>
+</p>
+
+<li>
+  Remove all the edges that are possible to lead to non-winning nodes
+</li>
+
+<p align="left">
+  <img src="img/hey_g_drive_quadratic_explain_6.png" alt="Illustration of the final state."/>
+</p>
+
+<li>
+  Finally, cell $$$(0, 3)$$$ is found as non-winning too. After this step, there is no more edge to be
+  removed, and no more node to be marked as non-winning. Thus this is the final graph we are
+  looking for, and $$$(0, 4)$$$ is the cell drivable to the interesting finish $$$F$$$.
+</li>
+
+<p>
+  Since in each iteration, there are at least one new non-winning node identified, and there are
+  at most $$$O(\mathbf{R}\times\mathbf{C})$$$ nodes in the graph, thus we have at most $$$O(\mathbf{R}\times\mathbf{C})$$$
+  iterations. And in each iteration, a $$$O(\mathbf{R}\times\mathbf{C})$$$ BFS/DFS is run. Thus the time
+  complexity of this solution is $$$O((\mathbf{R}\times\mathbf{C})^2)$$$. This must be done separately
+  for each interesting finish, hence the total time complexity for finding all the drivable pairs is
+  $$$O((\mathbf{R}\times\mathbf{C})^2\times num\_of\_finishes)$$$
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

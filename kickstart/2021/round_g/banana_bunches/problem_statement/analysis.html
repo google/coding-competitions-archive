@@ -1,0 +1,377 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round G</h3><h1>Analysis: Banana Bunches</h1><p>
+  Formally the problem can be written as: given an array of size $$$\mathbf{N}$$$, select at most two non-overlapping
+  subarrays, such that, sum of all the selected elements is equal to $$$\mathbf{K}$$$.
+  We need to minimise the sum
+  of lengths of these two subarrays. We can calculate the prefix sum of the given array in $$$O(\mathbf{N})$$$.
+  $$$Pre_{i}$$$ denotes the sum of all the elements from $$$1$$$ to $$$i$$$. The sum of elements
+  in a particular $$$subarray(i, j)$$$ is given by $$$Pre_{j} - Pre_{i-1}$$$ and can be calculated in
+  $$$O(1)$$$ time.
+</p>
+
+<p>
+  One special case is when there is an element equal to $$$\mathbf{K}$$$ in the given array. In this case, we
+  can return $$$1$$$ as the answer and can be done in a $$$O(\mathbf{N})$$$ traversal. For all the other
+  cases, we can get the answer by selecting two non-overlapping subarrays.
+</p>
+
+<h3> Test set 1 </h3>
+
+<p>
+  For this test set, we can consider all possible pair of subarrays as constraints on $$$\mathbf{N}$$$ are small.
+  The total number of pair of subarrays are $$$O(\mathbf{N}^{4})$$$. For each pair of non-overlapping subarrays,
+  one can check whether the sum of elements in these subarrays is equal to $$$\mathbf{K}$$$.
+  Formally, consider all $$$(i, j, x, y)$$$ such that sum of $$$subarray(i, j)$$$ and $$$subarray(x, y)$$$
+  is equal to $$$\mathbf{K}$$$ and $$$i \le j \lt x \le y$$$.
+  Among all such pairs of subarrays,
+  the optimal answer is the pair with the minimum sum of length of the subarrays. Formally, we need to
+  minimise $$$j - i + 1 + y - x + 1$$$ over all such pairs. For each pair,
+  one can calculate the sum and length of these subarrays in $$$O(1)$$$. Hence, the overall
+  complexity of the solution is $$$O(\mathbf{N}^{4})$$$.
+</p>
+
+<h3> Test set 2 </h3>
+
+<p>
+  For this test set, we cannot consider all possible pair of subarrays as this solution would time out
+  with the given constraints.
+  We can iterate on all possible $$$(i, j, x)$$$ and find an optimal index $$$y$$$ such
+  that sum of $$$subarray(i, j)$$$ and $$$subarray(x, y)$$$
+  is equal to $$$\mathbf{K}$$$ and $$$i \le j \lt x \le y$$$.
+  For a particular $$$(i, j, x)$$$ we need to find smallest index $$$y$$$ such that $$$Pre_{j}-Pre_{i-1} +
+  Pre_{y} - Pre{x-1} = \mathbf{K}$$$. This can be done by performing a binary search on indexes from $$$x$$$ to $$$N$$$.
+  If there is no such index $$$y$$$, we can ignore this triplet.
+  Among all such possible $$$(i, j, x, y)$$$ quadruples, we need to
+  minimise $$$j - i + 1 + y - x + 1$$$.
+  We are able to find an optimal index $$$l$$$
+  in $$$O(\log \mathbf{N})$$$ time complexity for a particular triplet $$$(i, j, x)$$$. There are $$$O(\mathbf{N}^{3})$$$
+  such triplets. Hence, the overall complexity of the solution is $$$O(\mathbf{N}^{3} \log \mathbf{N})$$$.
+</p>
+
+<p>
+    We can further reduce the complexity by using two pointers instead of binary search. We can consider
+  all possible $$$(j, x)$$$ and then use two pointer approach to find optimal $$$y$$$ for each $$$i$$$.
+  For each pair $$$(j, x)$$$, we perform $$$O(\mathbf{N})$$$ operations. Hence, the overall complexity of
+  the solution is $$$O(\mathbf{N}^{3})$$$.
+</p>
+
+<h3> Test set 3 </h3>
+<p>
+For this test set, we can store the optimal second subarray length for each sum and iterate over each possible
+  first subarray.
+<p>
+  Consider the following pseudocode:
+</p>
+
+<pre>
+<code>
+  for i = 0 to K:
+    Best[i] = inf
+  ans = inf
+  for i = N to 1:
+    currSum = 0
+    for j = i to 1:
+      // |currSum| denotes sum of subarray(j, i).
+      currSum += B[j]
+      if currSum <= K:
+        // Best[K - currSum] denotes the minimum length of subarray starting after index i which has sum equal to K - currSum.
+        ans = min(ans, j - i + 1 + Best[K - currSum])
+
+    currPostSum = 0
+    for x = i to N:
+      // |currPostSum| denotes sum of subarray(i, x).
+      currPostSum += B[x]
+      if currPostSum <= K:
+        // Update the minimum length of subarray with sum equal to |currPostSum|.
+        Best[currPostSum] = min(Best[currPostSum], x - i + 1)
+</code>
+</pre>
+<p>
+When we are iterating from $$$\mathbf{N}$$$ to $$$1$$$ and are at index $$$i$$$ currently, $$$Best_{S}$$$
+  stores the minimum length of subarray starting
+  at any index greater than $$$i$$$ and having sum $$$S$$$. Basically, this would denote the optimal
+  length of second subarray with sum $$$S$$$ if we choose first subarray ending at index $$$i$$$.
+We consider all indexes $$$j$$$ from $$$1$$$ to $$$i$$$. If sum of subarray $$$(j,i)$$$ is
+  $$$currSum$$$ (such that $$$currSum \le \mathbf{K}$$$), we update the answer.
+Then, we update the minimum length for each sum for the subarrays starting at index $$$i$$$.
+ We do this by iterating for $$$x$$$ from $$$i$$$ to $$$\mathbf{N}$$$. If sum of $$$subarray(i,x)$$$ is
+  $$$currPostSum$$$, then update $$$Best_{currPostSum}=min(Best_{currPostSum}, x - i + 1)$$$.
+  As $$$K \le 10^{6}$$$, we can maintain an array for storing $$$Best$$$. This would allow updating and
+  looking up the sum in $$$O(1)$$$ time.
+For each index we do $$$O(\mathbf{N})$$$ operations, hence the overall complexity is $$$O(\mathbf{N}^2 + \mathbf{K})$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

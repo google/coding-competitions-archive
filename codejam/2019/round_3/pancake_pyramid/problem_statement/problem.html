@@ -1,0 +1,410 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 3</h3><h1>Pancake Pyramid</h1><h3>Problem</h3>
+<p>
+  You have just finished cooking for some diners at the Infinite House of
+  Pancakes. There are <b>S</b> stacks of pancakes in all, and you have arranged
+  them in a line, such that the i-th stack from the left (counting starting
+  from 1) has <b>P<sub>i</sub></b> pancakes.
+</p><p>
+  Your supervisor was about to bring out the stacks to the customers, but
+  then it occurred to her that a picture of the stacks might make for a good
+  advertisement. However, she is worried that there might be too many stacks,
+  so she intends to remove the L leftmost stacks and the R rightmost stacks,
+  where L and R are nonnegative integers such that L + R &le; <b>S</b> - 3.
+  (Notice that at least 3 stacks of pancakes will remain after the removal.)
+</p><p>
+  Your supervisor also thinks the remaining stacks will look aesthetically
+  pleasing if they have the <i>pyramid property</i>. A sequence of N stacks
+  of heights H<sub>1</sub>, H<sub>2</sub>, ... , H<sub>N</sub> has the pyramid
+  property if there exists an integer j (1 &le; j &le; N) such that
+  H<sub>1</sub> &le; H<sub>2</sub> &le; ... &le; H<sub>j-1</sub> &le; H<sub>j</sub> and
+  H<sub>j</sub> &ge; H<sub>j+1</sub> &ge; ... &ge; H<sub>N-1</sub> &ge; H<sub>N</sub>.
+  (It is possible that this sequence might not look much like a typical
+  "pyramid" &mdash; a group of stacks of the same size has the pyramid
+  property, and so does a group in which the stack heights are nondecreasing
+  from left to right, among other examples.)
+</p><p>
+  Note that the sequence of stacks remaining after your supervisor removes
+  the L leftmost and R rightmost stacks might not yet have the pyramid
+  property... but you can fix that by adding pancakes to one or more of the
+  stacks! The <i>pyramidification cost</i> of a sequence of stacks is the
+  minimum total number of pancakes that must be added to stacks to give the
+  sequence the pyramid property.
+</p><p>
+  While your manager is carefully deciding which values of L and R to choose,
+  you have started to wonder what the sum of the pyramidification costs over
+  all valid choices of L and R is. Compute this sum, modulo the prime
+  10<sup>9</sup>+7 (1000000007).
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each begins with one line containing one integer
+  <b>S</b>: the number of stacks of pancakes. Then, there is one more line
+  containing <b>S</b> integers <b>P<sub>1</sub></b>, <b>P<sub>2</sub></b>,
+  ..., <b>P<sub>S</sub></b>. The i-th of these is the number of pancakes in the
+  i-th stack from the left.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the sum of the pyramidification costs over all valid choices of L and R,
+  modulo the prime 10<sup>9</sup>+7 (1000000007).
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 30 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  1 &le; <b>P<sub>i</sub></b> &le; 10<sup>9</sup>, for all i.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>S</b> = 3000, for up to 20 test cases.<br/>
+  3 &le; <b>S</b> &le; 500, for all remaining cases.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  <b>S</b> = 10<sup>6</sup>, for up to 1 test case.<br/>
+  <b>S</b> = 10<sup>5</sup>, for up to 3 test cases.<br/>
+  3 &le; <b>S</b> &le; 10000, for all remaining cases.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">3
+3
+2 1 2
+5
+1 6 2 5 7
+4
+1000000000 1 1 1000000000
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: 1
+Case #2: 16
+Case #3: 999999991
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+<p>
+  In Sample Case #1, your supervisor must choose L = 0 and R = 0, so that is
+  the only scenario you need to consider. The optimal strategy for that
+  scenario is to add a single pancake to the middle stack. Although the
+  resulting sequence of stacks looks flat, notice that it has the pyramid
+  property; in fact, any index will work as the j value.
+<p>
+  In Sample Case #2, here are all possible choices of L and R, the
+  corresponding remaining stacks, and what you should do in each scenario.
+</p>
+<ul>
+  <li>L = 0, R = 0: H = [1 6 2 5 7]. The optimal solution is to add
+    four pancakes to the third stack and one pancake to the fourth stack. Then
+    we have [1 6 6 6 7], which has the pyramid property with j = 5.</li>
+  <li>L = 0, R = 1: H = [1 6 2 5]. The optimal solution is to add
+    three pancakes to the third stack. Then we have [1 6 5 5], which has the
+    pyramid property with j = 2.</li>
+  <li>L = 0, R = 2: H = [1 6 2]. This already has the pyramid property
+    with j = 2.</li>
+  <li>L = 1, R = 0: H = [6 2 5 7]. The optimal solution is to add
+    four pancakes to the second stack and one pancake to the third stack. Then
+    we have [6 6 6 7], which has the pyramid property with j = 4.</li>
+  <li>L = 1, R = 1: H = [6 2 5]. The optimal solution is to add three
+    pancakes to the second stack. Then we have [6 5 5], which has the pyramid
+    property with j = 1.</li>
+  <li>L = 2, R = 0: H = [2 5 7]. This already has the pyramid property
+    with j = 3.</li>
+</ul>
+<p>
+  So the answer is (5 + 3 + 0 + 5 + 3 + 0) modulo (10<sup>9</sup> + 7), which
+  is 16.
+</p><p>
+  In Sample Case #3, we only need to add extra pancakes to create the pyramid
+  property when L = 0 and R = 0. In that case, it is optimal to add 999999999
+  pancakes to each of the second and third stacks. (We hope the diners are
+  hungry!) So the answer is (999999999 + 999999999) modulo
+  (10<sup>9</sup> + 7) = 999999991.
+</p>
+
+    </div>
+  </body>
+</html>

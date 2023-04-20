@@ -1,0 +1,715 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 1B</h3><h1>Digit Blocks</h1><h3>Problem</h3>
+<p>
+You are going to build $$$\mathbf{N}$$$ towers of $$$\mathbf{B}$$$ cubic blocks each, one block at a time.
+Towers are built bottom-up: the $$$i$$$-th block to be placed in a tower
+ends up as the $$$i$$$-th from the bottom. You need to decide where to place
+each block before getting to see any of the upcoming blocks, and once placed,
+blocks cannot be moved.
+</p><p>
+Each block has a single decimal digit printed on it, and towers are built such that the faces with
+digits are all facing the front. The font is such that blocks cannot be rotated to obtain
+a different digit (for example, a block with a $$$6$$$ on it cannot
+be rotated to obtain a block with a $$$9$$$ on it, nor vice versa).
+</p><p>
+For example, suppose $$$\mathbf{N}=3$$$ and $$$\mathbf{B}=3$$$ and you currently have towers as shown in Picture 1.
+If a block with a $$$6$$$ shows up next, you have two options: either place it on
+top of the tower with only two blocks (as shown in Picture 2)
+or start the third tower (as shown in Picture 3). Note that you cannot put it on top of the first
+tower since the first tower already has $$$\mathbf{B}$$$ blocks.
+</p>
+<div align=center>
+  <div style="display: inline-block; flex-direction: column; padding: 40px 60px 0 60px;">
+    <div>
+      <img src="img/digit_blocks_1.png" style="height: 150px;" alt="2 towers having (1, 2, 3) and (4, 5) from top down">
+    </div>
+    <div>
+      <p>
+        Picture 1
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex-direction: column; padding: 40px 60px 0 60px;">
+    <div>
+      <img src="img/digit_blocks_2.png" style="height: 150px;" alt="2 towers having (1, 2, 3) and (6, 4, 5) from top down">
+    </div>
+    <div>
+      <p>
+        Picture 2
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex-direction: column; padding: 40px 60px 0 60px;">
+    <div>
+      <img src="img/digit_blocks_3.png" style="height: 150px;" alt="3 towers having (1, 2, 3), (4, 5), and (6) from top down">
+    </div>
+    <div>
+      <p>
+        Picture 3
+      </p>
+    </div>
+  </div>
+</div>
+<p>
+After the building is done, we read the $$$\mathbf{B}$$$ digit integer
+printed on the front of each tower from the top to the bottom (that is, the digit on
+the last block placed on a tower is the most significant digit). Notice that these
+integers may have any number of leading zeroes.
+Then, we add those $$$\mathbf{N}$$$ integers together to obtain the score of our building operation.
+</p><p>
+For example, in Picture 4 below, the integers read on each tower, from left to right,
+are $$$123$$$, $$$345$$$, and $$$96$$$. The score of that building operation would
+be $$$123 + 345 + 96 = 564$$$.
+</p>
+<div align=center>
+  <div style="display: inline-block; flex-direction: column; padding: 20px 0 0 0;">
+    <div>
+      <img src="img/digit_blocks_4.png" style="height: 150px;" alt="3 towers having (1, 2, 3), (3, 4, 5), and (0, 9, 6) from top down">
+    </div>
+    <div>
+      <p>
+        Picture 4
+      </p>
+    </div>
+  </div>
+</div>
+<p>
+The digit for each block is generated uniformly at random, and independently of
+any other information.
+In order for your solution to be judged correct, the sum of its scores over all $$$\mathbf{T}$$$ test cases
+must be at least $$$\mathbf{P}$$$.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>.
+</p><p>
+  Initially the judge will send you a single line containing four integers $$$\mathbf{T}$$$, $$$\mathbf{N}$$$,
+  $$$\mathbf{B}$$$, and $$$\mathbf{P}$$$: the number of test cases, the number of towers,
+  the number of blocks in each tower, and the minimum total score you need to reach to
+  pass this test set.
+</p><p>
+  Then, you must process $$$\mathbf{T}$$$ test cases. Each test case consists of $$$\mathbf{N} \times \mathbf{B}$$$
+  exchanges. Each exchange corresponds to placing one block.
+  Within each exchange, the judge will first print a line containing a single integer
+  $$$\mathbf{D}$$$ representing the digit printed on the block you need to place.
+  You need to respond with a single line containing a single integer $$$\mathbf{i}$$$, the number
+  (between $$$1$$$ and $$$\mathbf{N}$$$) of the tower you want to place that block on.
+</p><p>
+  After the last exchange of each test case except the last one, the judge will
+  immediately start the next test case. After the last exchange of the last test case,
+  the judge will print an additional
+  line containing a single integer: <code>1</code> if your total score
+  is at least $$$\mathbf{P}$$$ or <code>-1</code> if it is not.
+</p><p>
+  If the judge receives an invalidly formatted line, an invalid tower number,
+  or the number of a tower that already contains $$$\mathbf{B}$$$ blocks from your
+  program, the judge will print a single number <code>-1</code>.
+  After the judge prints <code>-1</code> for any of the reasons explained above,
+  it will not print any further output. If your program continues to wait for the judge after
+  receiving a <code>-1</code>, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p>
+<p>
+  You can assume that the digit for each block is generated uniformly at random, and independently
+  for each digit, for each test case and for each submission. <i>Therefore
+  even if you submit exactly the same code twice, the judge could use different random digits</i>.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 60 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$\mathbf{T} = 50$$$.<br/>
+$$$\mathbf{N} = 20$$$.<br/>
+$$$\mathbf{B} = 15$$$.<br/>
+$$$\mathbf{D}$$$ is a decimal digit between $$$0$$$ and $$$9$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{P} = 860939810732536850$$$ (approximately $$$8.6 \times 10^{17}$$$).<br/>
+Note that this boundary is chosen as approximately $$$90\%$$$ of $$$\mathbf{T} \times S$$$, where
+$$$S = 19131995794056374.42...$$$ (approximately $$$1.9 \times 10^{16}$$$)
+is the highest possible <i>expected</i> score that a solution
+to this problem can achieve on one test case given unbounded running time.
+</p>
+
+<p>
+The exact value of $$$S$$$ as defined above can be found in lines 13 and 14 of the local testing
+tool.
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{P} = 937467793908762347$$$ (approximately $$$9.37 \times 10^{17}$$$).<br/>
+Note that this boundary is chosen as approximately $$$98\%$$$ of $$$\mathbf{T} \times S$$$.
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+
+  <div class="sample-interaction-wrapper">
+    <div class="sample-interaction-header">
+      <div class="sample-interaction-header-text">Sample Interaction</div>
+    </div>
+    <div class="sample-interaction-content">
+      <div class="sample-interaction-judge-solution-labels">
+        <div class="sample-interaction-judge-label">Judge</div>
+        <div class="sample-interaction-solution-label">Solution</div>
+      </div>
+      
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Constraints<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2 3 3 1500
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge provides $$$\mathbf{T}$$$, $$$\mathbf{N}$$$, $$$\mathbf{B}$$$, $$$\mathbf{P}$$$<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 1<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge provides a block with a 3 on it<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution places it on pile 1<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge provides a block with a 2 on it<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution places it on pile 1<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">5
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">We are now at the state shown in Picture 1<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">6
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">9
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">0
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">We are now at the state shown in Picture 4 (sum = 564)<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 2<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">7
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge provides the first block in the second case<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution places it on pile 3<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">(... 7 exchanges omitted ...)<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">8
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge provides the final block in the second case<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution places it on pile 2 (sum = 1285)<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Both Cases Finished<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge confirms that the sum of both test cases (1849) is at least 1500<br>
+</div>
+
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

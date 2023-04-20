@@ -1,0 +1,423 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round F</h3><h1>Analysis: Scheduling a Meeting</h1><h3>Test Set 1</h3>
+
+<p>
+  In Test Set 1, we can simply try all possible options to schedule a new
+  meeting. We can try all possible start times for a new meeting, for each Tech
+  Lead calculate how many of their scheduled meetings overlap with our proposed
+  meeting time, and then pick $$$\mathbf{K}$$$ smallest of these values. Output the minimum
+  for all the possible start times as the final answer.
+</p>
+
+<p>
+  This can be done in $$$O(\mathbf{D} \times (\mathbf{M} + \mathbf{N} \log \mathbf{N}))$$$ time complexity,
+  or similar, which is fast enough for this test set.
+</p>
+
+<p>
+  Note that limits in Test Set 1 are very permissive, and thus it is possible
+  to pass it with even slower solutions. For example, we can try all possible
+  starting times and all possible subsets of Tech Leads who will attend the
+  meeting, and for each such option count how many already scheduled meetings
+  overlap with the given time slot and have to be canceled. This will result
+  in a solution with $$$O(\mathbf{D} \times 2^\mathbf{N} \times \mathbf{M})$$$ overall time complexity.
+</p>
+
+<h3>Test Set 2</h3>
+
+<p>In Test Set 2, the limits are higher, so we will need a smarter solution.</p>
+
+<p>
+  There are many possible ways to solve this problem, and we list some of them
+  below. All approaches in this analysis use the following techniques and
+  observations:
+</p>
+
+<ol>
+  <li>
+    We will again try all possible start times for a new meeting, but now in a
+    sliding window fashion. This means that first we will try the range of
+    $$$(0, \mathbf{X})$$$ hours, then $$$(1, \mathbf{X} + 1)$$$, and so on.
+  </li>
+  <li>
+    We will maintain the number of current meetings for each Tech Lead as
+    meetings enter and exit our sliding window.
+  </li>
+  <li>
+    To minimize the number of cancelled meetings we need to meet with $$$\mathbf{K}$$$ Tech
+    Leads having the smallest number of current meetings. Sum of their numbers
+    of meetings will be the answer for the current window.
+  </li>
+</ol>
+
+<h4>Approach #1. Data structures and binary search.</h4>
+
+<p>Let us maintain two helper arrays:</p>
+
+<ul>
+  <li>
+    Number of Tech Leads that have exactly $$$i$$$ meetings in the current
+    window, for each $$$i$$$. Note that if you take a prefix sum $$$SUM(0, j)$$$
+    over this array, you will find the total number of people with less than or
+    equal to $$$j$$$ meetings for some $$$j$$$.
+  </li>
+  <li>
+    Sum of number of meetings for everyone with exactly $$$i$$$ meetings in the
+    current window, for all $$$i$$$. Note that if you take a prefix sum
+    $$$SUM(0, j)$$$ over this array, you will find the total number of meetings
+    for everyone with less than or equal to $$$j$$$ meetings for some $$$j$$$.
+  </li>
+</ul>
+
+<p>
+  To be able to quickly take prefix sums over these arrays, we will keep the
+  values in a data structure like segment tree or
+  <a href="https://en.wikipedia.org/wiki/Fenwick_tree" target="_blank"
+    >Fenwick tree</a
+  >.
+</p>
+
+<p>
+  Armed with these data structures and helper arrays, in each window we can use
+  binary search to find the biggest number of meetings among $$$\mathbf{K}$$$ Tech Leads we
+  will meet with, and then the sum of the number of their meetings.
+</p>
+
+<p>
+  Time complexity of this solution will be $$$O(\mathbf{D} + \mathbf{N} + \mathbf{M} \log \mathbf{M} + \mathbf{D}\
+  {\log} ^ {2} {\mathbf{M}})$$$ (which you can also optimize to $$$O(\mathbf{D} + \mathbf{N} + \mathbf{M}
+  \log \mathbf{M} + \mathbf{D} \log \mathbf{M})$$$ if you replace binary search with some kind of
+  smart segment tree descent).
+</p>
+
+<h4>Approach #2. Rebalancing sets.</h4>
+
+<p>
+  Another elegant solution is to store the number of the current meetings for
+  each Tech Lead in a data structure that allows to extract the minimum and the
+  maximum value, and remove an arbitrary value from it, like a tree-based set.
+  We will keep two of these data structures: one containing $$$\mathbf{K}$$$ Tech Leads with
+  the minimum number of meetings in the current window, and another with $$$\mathbf{N}
+  - \mathbf{K}$$$ other Tech Leads. We will update these data structures as the
+  meetings come and go: as a meeting starts or ends, we remove an old entry for
+  the corresponding Tech Lead in the data structure, insert a new entry with an
+  updated meetings count, and rebalance two data structures so that one of them
+  again has $$$\mathbf{K}$$$ smallest values (to achieve this, we may need to exchange the
+  biggest value from one data structure with the smallest value in the second
+  one). In addition, we will also maintain the sum of the number of meetings in
+  the data structure that holds $$$\mathbf{K}$$$ smallest values.
+</p>
+
+<p>
+  It can be noted that with careful implementation each meeting will trigger
+  only a constant number of operations to keep two data structures balanced, and
+  the total time complexity of this solution will be $$$O(\mathbf{D} + \mathbf{N} + \mathbf{M} \log
+  \mathbf{N})$$$.
+</p>
+
+<h4>Approach #3. Linear solution.</h4>
+
+<p>
+  Finally, the "linear" $$$O(\max(\mathbf{D}, \mathbf{N}, \mathbf{M}))$$$ solution to this problem
+  exists. This is possible if you carefully maintain the following values:
+</p>
+
+<ul>
+  <li>Number of the current meetings for each Tech Lead.</li>
+  <li>
+    Number of Tech Leads with exactly $$$i$$$ current meetings for all $$$i$$$.
+  </li>
+  <li>
+    Value of maximum number of meetings among $$$\mathbf{K}$$$ Tech Leads we will meet with.
+  </li>
+  <li>
+    Number of Tech Leads with that maximum number of meetings among $$$\mathbf{K}$$$ Tech
+    Leads we will meet with.
+  </li>
+  <li>
+    Sum of the meetings of all $$$\mathbf{K}$$$ Tech Leads we will meet with (which is also
+    the sum of $$$\mathbf{K}$$$ smallest numbers of current meetings).
+  </li>
+</ul>
+
+<p>
+  It can be noted that with each starting or ending meeting, all these values
+  can be recalculated in $$$O(1)$$$ time (in fact, most of these values change
+  at most by one), and we can achieve a solution with total linear time
+  complexity.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

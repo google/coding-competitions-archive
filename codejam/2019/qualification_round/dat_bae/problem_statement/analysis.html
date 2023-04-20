@@ -1,0 +1,405 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Qualification Round</h3><h1>Analysis: Dat Bae</h1><h3>Test set 1</h3>
+<p>
+  In this problem, we need to somehow identify which workers are not returning
+  the bits that we send to them. Let's see how strings of bits change when some
+  of the data is lost.
+</p>
+<p>
+  Imagine that we have ten workers, and we send them the following five random
+  strings of bits (the <i>i</i>-th bit in each string is sent to the <i>i-th</i> worker):
+</p>
+<pre>
+  0101010110
+  0101010101
+  0010100100
+  0110110101
+  0100100100
+</pre>
+<p>
+  Also, imagine that workers 3 and 6 are broken. In this case, we will lose the
+  following bits (highlighed in bold):
+</p>
+<pre>
+  010<b>1</b>01<b>0</b>110
+  010<b>1</b>01<b>0</b>101
+  001<b>0</b>10<b>0</b>100
+  011<b>0</b>11<b>0</b>101
+  010<b>0</b>10<b>0</b>100
+</pre>
+<p>
+  In the result, we will receive the following bit strings:
+</p>
+<pre>
+  01001110
+  01001101
+  00110100
+  01111101
+  01010100
+</pre>
+<p>
+  Notice, how in this representation, we lost <i>columns</i> of bits because of
+  the broken workers. It would be nice to be able to tell which columns we
+  lost &ndash; then we will be able to determine which workers did not return the
+  data!
+</p>
+<p>
+  Let's see if we can make all the columns different &ndash; then it will be
+  easy to tell which ones are missing. In test set 1 we have up to <b>N</b>
+  = 1024 workers, so we will need up to 1024 different columns. We can
+  send up to <b>F</b> = 10 bit strings, which means our columns will consist
+  of up to 10 bits.
+</p>
+<p>
+  Fortunately for us, 2<sup>10</sup> = 1024, so we can make each column represent a unique
+  number in the range from 0 to 1023. For example, we could make the <i>i</i>-th
+  column represent the number <i>i</i>, in which case the first five columns, that
+  represent numbers from 0 to 4, could look like this:
+</p>
+<pre>
+  01010...
+  00110...
+  00001...
+  00000...
+  00000...
+  00000...
+  00000...
+  00000...
+  00000...
+  00000...
+</pre>
+<p>
+  Now we can use a construction like this to see which workers are broken. If
+  the <i>i</i>-th worker is broken, the bit column representing the number
+  <i>i</i> will be missing in the result we receive.
+</p>
+<h3>Test set 2</h3>
+<p>
+  In the second test set, we can only send up to <b>F</b> = 5 bit strings, which
+  means our columns will consist of only up to 5 bits. 2<sup>5</sup> = 32, so we
+  can no longer use a previous approach of making each column unique.
+</p>
+<p>
+  Notice how we also know that <b>B</b> &le; min(15, <b>N</b>-1), even though we
+  have not used this fact in our solution so far. How does this additional constraint change the
+  problem? The first thing to notice is that only a small fraction of columns will be missing
+  when <b>N</b> = 1024, but these columns can still be in any positions.
+</p>
+<p>
+  Let's see what we can do with 32 numbers that we can represent with 5 bits. If
+  we put these numbers in an order, that is
+</p>
+<p>
+  <code>0, 1, ..., 31</code>
+</p>
+<p>
+  we can notice that since <b>B</b>, which is less than 15, is also less than 32,
+  this whole block of
+  32 numbers will never disappear completely. Let's see how we can make further use of this fact.
+  If we have several blocks like this:
+</p>
+<p>
+  <code>0, 1, ..., 31, 0, 1, ..., 31, 0, 1, ..., 31,...</code>
+</p>
+<p>
+  none of the blocks of numbers from 0 to 31 will disappear completely, and for
+  each the remaining numbers, we will always be able to identify which block it is
+  from.
+</p>
+<p>
+  Let's examine this in more detail. Numbers inside each block are in an increasing
+  order. Notice that even after some numbers disappear, when one block ends
+  and the next one starts, numbers go down:
+</p>
+<p>
+  <code>0, 1, ..., 31, 0, 1, ..., <b> 27, 5 </b>, ..., 31,...</code>
+  (numbers between 27 and 5 disappeared, but 27 is still bigger than 5)
+</p>
+<p>
+  Assume this is not the case, and
+  after some number <code>X</code> from one block goes a number
+  <code>Y</code> from the next block such that <code>X</code> &le; <code>Y</code>.
+  But this is impossible since there were at least 31 numbers between any such <code>X</code>
+  and <code>Y</code>, and these numbers could not disappear altogether.
+</p>
+<p>
+  With these observations at hand, we are ready for a final solution. Let the bit
+  columns of the strings we send to the database represent repeating blocks of numbers from 0 to 31:
+</p>
+<p>
+  <code>0, 1, ..., 31, 0, 1, ..., 31, 0, 1, ..., 31, ...</code> (<b>N</b> numbers total)
+</p>
+<p>
+  After we receive the responses from the database, we can iterate through the
+  remaining numbers, noting that the new block starts when the current number is
+  smaller than the previous one, and keeping track of how many blocks we have
+  seen so far. Knowing the position of the numbers inside the block and the
+  number of blocks we have seen, we can uniquely identify all the numbers we see:
+  for example number 16 in the fifth block is <code>(5 - 1) * 32 + 17 = 145-th</code>
+  number in the whole sequence. And if we know which numbers we have
+  seen in the whole sequence, we can find out which numbers are missing, and
+  output them as the numbers of the missing workers.
+</p><p>
+  Finally, we used the fact that <b>B</b> &lt; 2<sup>5</sup> to make the approach above
+  work. But <b>B</b> &lt; 2<sup>4</sup> too! That means we can use the same approach with only
+  four strings. In this case, it is possible that two consecutive numbers from different
+  blocks are equal, since there are 2<sup>4</sup> - 1 = 15 other numbers in between them, which
+  might all get deleted. Therefore, to detect block changes, we must use &ge; instead of &gt;
+  between consecutive numbers.
+</p>
+
+    </div>
+  </body>
+</html>

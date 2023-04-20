@@ -1,0 +1,448 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 3</h3><h1>Analysis: Fence Design</h1><p>
+This problem asks us to find a
+<a href="https://en.wikipedia.org/wiki/Point-set_triangulation" target="_blank">triangulation</a>
+of the given set of points that uses two particular edges. Many of the arguments that follow are
+referenced in the linked article, so you can use it as an introduction.
+</p><p>
+The first step to solve this problem is to notice some properties of the finished job.
+Let $$$P$$$ be the input set of poles and $$$F$$$ be a maximum set of fences with endpoints
+in $$$P$$$ that do not intersect other than at endpoints.
+</p><p>
+1. The fences that are the edges of the
+<a href="https://en.wikipedia.org/wiki/Convex_hull#Finite_point_sets" target="_blank">
+  convex hull</a> of $$$P$$$ are in $$$F$$$. <br/>
+Proof: By definition, the edges of the convex hull do not intersect with any other possible
+fence. Therefore, they can be added to any set of fences that do not contain them without
+generating any invalid intersections, so any maximum set contains them all.
+</p><p>
+2. The size of $$$F$$$ is at most $$$3\mathbf{N} - 3 - c$$$ where $$$c$$$ is the size of the convex hull of
+$$$P$$$. <br/>
+Proof: Consider the graph where poles are nodes and fences in $$$F$$$ are the edges. The graph is
+planar, so the generalized form of
+<a href="https://en.wikipedia.org/wiki/Planar_graph#Euler's_formula" target="_blank">
+  Euler's formula</a> applies. The formula states that $$$\mathbf{N} + A = K + |F|$$$, where $$$A$$$
+is the number of internal areas (not counting the outside) and $$$K$$$ the
+number of connected components of the graph.
+</p><p>
+Notice that each edge on the convex hull is adjacent to exactly one internal area, and other
+edges are adjacent to at most two internal areas. Therefore, the sum of the number of sides of
+all internal areas is at least $$$3A$$$ and that is counting each convex hull edge once
+and each other edge at most twice, so $$$3A \le c + 2(|F| - c) = 2|F| - c$$$, which means
+$$$A \le (2|F| - c) / 3$$$. Replacing that in Euler's formula we obtain
+$$$\mathbf{N} + (2|F| - c) / 3 \ge K + |F|$$$. It follows that
+$$$3\mathbf{N} + 2|F| - c \ge 3K + 3|F|$$$, and then $$$3\mathbf{N} - c - 3K \ge |F|$$$. Since $$$K \ge 1$$$,
+we obtain $$$|F| \le 3\mathbf{N} - 3 - c$$$.
+</p><p>
+3. The size of $$$F$$$ is at least $$$3N - 3 - c$$$. <br/>
+Proof: By induction. The base case is when all points in $$$P$$$ are on the convex hull.
+For that case, consider a set of all edges in
+the convex hull of $$$P$$$ plus any
+<a href="https://en.wikipedia.org/wiki/Polygon_triangulation" target="_blank">triangulation</a>
+of $$$P$$$. This set has exactly $$$2N - 3$$$ edges, which is equal to $$$3\mathbf{N} - 3 - c$$$ when
+$$$\mathbf{N} = c$$$, proving that there exists a set of at least that size without any invalid
+intersections.
+</p><p>
+If there exists a point $$$p$$$ not on the convex hull of $$$P$$$, consider an optimal set of
+edges for $$$P - {p}$$$, which by inductive hypotheses has size $$$3(\mathbf{N} - 1) - 3 - c$$$.
+Because $$$|F| = 3(\mathbf{N} - 1) -  c - 3$$$, and $$$3(\mathbf{N} - 1) - c - 3K \ge |F|$$$ from (2), $$$K$$$,
+the number of connected components, must be exactly one. Similarly, every internal area
+must be a triangle, with all edges in the convex hull being adjacent to one of them and
+all edges not in the convex hull being adjacent to two of them.
+By definition, $$$p$$$ is not on the convex hull. By the fact that there are no collinear triples,
+$$$p$$$ is not in an existing edge. Thus, $$$p$$$ is strictly contained in one of these triangles.
+Therefore, we can add
+edges from $$$p$$$ to each of the $$$3$$$ vertices of the triangle that contains $$$p$$$ to get a
+solution for our problem of size $$$3(\mathbf{N} - 1) - 3 - c + 3 = 3\mathbf{N} - 3 - c$$$.
+</p><p>
+From (2) and (3) above we know the exact number of fences we need to build (given the size
+of the convex hull of the set of poles). Moreover, we know that such an answer contains the convex
+hull of $$$P$$$ and every internal area delimited by fences in the output is a triangle.
+We can use this to devise algorithms to generate optimal sets.
+</p>
+<h3>Test Set 1</h3>
+<p>
+There are many possible solutions for Test Set 1. For example, the procedure in the proof of
+point (3) above shows how to solve the problem with no pre-placed fences. There are ad-hoc ways
+to get around the problems with pre-placed fences, but they take a lot of work, and there is
+something simpler.
+</p><p>
+The proofs above show that any maximal set of fences is also maximum (notice that we only
+used maximality in our reasoning). Therefore, we can simply add fences to a set as long as they
+do not intersect with any previously added fence. This algorithm can accommodate pre-placed
+fences quite easily: simply start with them. There are $$$O(\mathbf{N}^2)$$$ potential fences to
+consider, and for each one we need to check whether it intersects any of the fences we already
+have. Since the solution overall is of size $$$O(\mathbf{N})$$$ this means checking $$$O(\mathbf{N}^3)$$$
+intersections. Checking a pair of line segments to see if they intersect can be done in
+constant time, which means this algorithm takes $$$O(\mathbf{N}^3)$$$ time overall.
+</p>
+<h3>Test Set 2</h3>
+<p>
+As in Test Set 1, there are lots of algorithms that solve this problem without considering
+the pre-placed fences, but only some of them are easy enough to adapt to them.
+For example, the procedure from the proof of (3) can be implemented efficiently: if the order
+in which we process points is randomized and we keep the current triangles in a tree-like structure
+to perform the search for a triangle efficiently, we can get an expected $$$O(\mathbf{N} \log \mathbf{N})$$$
+time complexity. This leads to an algorithm similar to the
+<a href="https://en.wikipedia.org/wiki/Delaunay_triangulation#Incremental" target="_blank">
+incremental algorithm to compute a Delauney triangulation</a>.
+</p><p>
+Another option is to modify the
+<a href="https://en.wikipedia.org/wiki/Graham_scan" target="_blank">Graham Scan</a>
+algorithm to efficiently find the convex hull to keep not only a convex hull of the visited points,
+but also all the triangles for the points inside it.
+</p><p>
+Unfortunately, while the algorithms above can work with a lot of ad-hoc code to accommodate
+the pre-placed fences, they become really cumbersome. Below we present some better alternatives.
+</p><p>
+Let $$$x$$$ be the intersection of both lines that are the infinite extension of a pre-placed fence.
+Since the fences don't intersect, $$$x$$$ can occur on one of them, but not on both.
+Let us call any pre-placed fence that does not contain $$$x$$$ $$$f_1$$$, and
+the other fence $$$f_2$$$.
+By their definitions, all of $$$f_2$$$ is on the same side of the line that extends
+$$$f_1$$$. We can recognize which fence can be $$$f_1$$$ by comparing whether the
+<a href="https://en.wikipedia.org/wiki/Curve_orientation#Orientation_of_a_simple_polygon" target="_blank">
+orientation</a> of the two endpoints of a potential $$$f_1$$$ and each endpoint of $$$f_2$$$ is
+the same (that is, checking whether both endpoints of the candidate $$$f_2$$$ lie on the same
+side of the line that goes through $$$f_1$$$).
+</p>
+<h4>Sweep-line</h4>
+<p>
+We can solve the problem without pre-placed fences with a
+<a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" target="_blank">sweep-line</a> that
+considers the points in order of x-coordinate and maintains a convex hull of all the already seen
+points, as in the
+<a href="https://en.wikipedia.org/wiki/Convex_hull_algorithms" target="_blank">monotone chain convex hull
+algorithm</a>. When considering a new point $$$p$$$, we simply connect it to all points from the
+already-seen set that do not cause intersections from $$$p$$$. Notice that those points are
+a continuous range of the right side of the convex hull of the already-seen set.
+Therefore, we can find those points efficiently with
+<a href="https://en.wikipedia.org/wiki/Ternary_search" target="_blank">ternary searches</a>
+on its right side.
+</p><p>
+To accommodate pre-placed fences, we first rotate the plane to make $$$f_2$$$ vertical (possibly
+scaling everything to use only integers) and then run the sweep line algorithm only on points that
+are on the same side of the line that goes through $$$f_1$$$ as $$$f_2$$$ (including both endpoints
+of $$$f_2$$$ and neither endpoint of $$$f_1$$$). Since $$$f_2$$$ is now vertical, it will be
+included by the algorithm in the set when its second endpoint is processed. After that, we rotate
+everything again to make $$$f_1$$$ vertical, and start the algorithm from the set and
+convex hull we already have (the endpoints of $$$f_1$$$ will be the first two points that are
+processed in this second pass). As before, $$$f_1$$$ will be added naturally by the algorithm.
+</p><p>
+Notice the accommodation of the pre-placed fences only requires linear time work, so the overall
+algorithm, just as the version without pre-placed fences, requires $$$O(\mathbf{N} \log \mathbf{N})$$$ time
+overall.
+</p>
+<h3>Divide and conquer</h3>
+<p>
+This divide and conquer algorithm also has a correlate to computing the convex hull. The idea is
+simple: divide the set of points with a line that goes through $$$2$$$ points,
+compute the result of each side (both of which include those $$$2$$$ points), and then combine.
+</p><p>
+Let us call the two recursive results $$$P$$$ and $$$Q$$$. The convex hulls of both are convex
+polygons with a shared side. Then, we keep two current poles $$$p$$$ and $$$q$$$.
+Initially, both $$$p$$$ and $$$q$$$ are on the same endpoint of the shared side. Both move away
+from that shared side: $$$p$$$ through consecutive vertices of $$$P$$$ and $$$q$$$ through
+consecutive vertices of $$$Q$$$. Initially we move them both together. After that, let
+$$$p_0$$$ and $$$q_0$$$ be the previous pole where $$$p$$$ and $$$q$$$ were, respectively,
+and $$$p_1$$$ and $$$q_1$$$ be the next value for each (that is, $$$p_0p$$$ and  $$$pp_1$$$ are
+adjacent sides of the convex hull of $$$P$$$ and $$$q_0q$$$ and $$$qq_1$$$ are adjacent sides
+of the convex hull of $$$Q$$$). Then,
+<ul>
+  <li>If $$$p_1q$$$ does not intersect $$$p_0p$$$, we set $$$p = p_1$$$.</li>
+  <li>If $$$q_1p$$$ does not intersect $$$q_0q$$$, we set $$$q = q_1$$$.</li>
+  <li>Otherwise, we stop.</li>
+</ul>
+Each time we move one, we add the fence connecting the current $$$p$$$ and $$$q$$$ to the result.
+When we are done, we do the same starting from the other endpoint of the shared side.
+</p><p>
+To divide evenly, we can pick any point $$$x$$$, sort the other points by angle, and pick the
+median as $$$y$$$, dividing by the line that goes through $$$x$$$ and $$$y$$$.
+Alternatively, we can pick points randomly. On average, the split of
+points would be about even (as we did in the proposed solution for
+<a href="https://codingcompetitions.withgoogle.com/codejam/round/0000000000051708/000000000016c77f#analysis" target="_blank">
+Juggle Struggle: Part 1</a>).
+</p><p>
+The work done to combine takes linear time and the work done to split takes either
+$$$O(\mathbf{N} \log \mathbf{N})$$$ time for the sorting version or linear time
+for the randomized version. Using the
+<a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)" target="_blank">
+Master theorem</a> we can then see that using the randomized version, the overall algorithm takes
+$$$O(\mathbf{N} \log \mathbf{N})$$$ time, and using the sorting version, the overall running time is
+$$$O(\mathbf{N} \log^2 \mathbf{N})$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,445 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 1C</h3><h1>Lollipop Shop</h1><h3>Problem</h3>
+<p>
+  You own a lollipop shop. At the start of the day, you make <b>N</b>
+  lollipops, each of a single unique flavor, like huckleberry, cherry or lime.
+  <b>N</b> customers come into the shop during the day, one at a time. Each
+  customer gives you a list of which of your lollipop flavors they like. You
+  can sell them one lollipop of any of those flavors, as long as you have not
+  already sold someone else the same flavor earlier in the day (since there is
+  only one lollipop of each flavor). If none of the flavors they like are still
+  available, you cannot sell them a lollipop, and they leave your shop
+  disappointed.
+</p><p>
+  You do not know what each customer's flavor preferences are going to be until
+  they arrive. Each customer decides if they like or dislike each flavor
+  randomly, independently of whether they like any other flavor, or what
+  flavors anyone else likes. However, your market studies have shown that some
+  flavors may have a higher probability of being liked in general! For example,
+  the lime flavor might have a 10% chance of being liked by any particular
+  customer, whereas that chance might be 1% for the cherry flavor. These values
+  are always chosen independently and uniformly at random from the interval
+  [0.005, 0.1].
+</p><p>
+  Obviously, you want to sell lollipops to as many of the <b>N</b> customers
+  as possible! But, since you do not know what flavors your customers will ask
+  for ahead of time, you cannot always make an optimal decision &mdash;
+  sometimes you might sell a customer one flavor, and then later wish you had
+  sold them another.
+</p><p>
+  Suppose that you somehow knew all the customers' preferences in advance and
+  could plan ahead; then there is some maximum number M of lollipops that you
+  could possibly sell. You do not know the customers' preferences in advance,
+  but we require you to sell a number of lollipops that is at least 90% of M
+  for <u>each</u> input case.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This problem is
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems" target="_blank">
+  interactive</a>, which means that the concepts of input and output are different
+  than in standard Code Jam problems. You will interact with a separate process
+  that both provides you with information and evaluates your responses.
+  All information comes into your program via standard input; anything that you
+  need to communicate should be sent via standard output.
+  Remember that many programming languages buffer the output by default, so
+  make sure your output actually goes out (for instance, by flushing the
+  buffer) before blocking to wait for a response. See the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems" target="_blank">FAQ</a>
+  for an explanation of what it means to flush the buffer.
+  Anything your program sends through standard error is ignored, but it might
+  consume some memory and be counted against your memory limit, so do not
+  overflow it.
+</p><p>
+  Initially, your program should read a single line containing a single integer
+  <b>T</b> indicating the number of test cases. Then, you need to process
+  <b>T</b> test cases.
+</p><p>
+  For each test case, your program should read a single line with one integer
+  <b>N</b>, the number of lollipops (which is the same as the number of
+  customers).
+</p><p>
+  Then, for each of the customers, your program should read a single line,
+  which will contain space-separated integers. The first integer is <b>D</b>,
+  the number of flavors that customer likes. Then, <b>D</b> integers follow,
+  the ID numbers of those flavors, in strictly increasing order. Flavors have
+  unique ID numbers in the range [0, <b>N</b> - 1]. Note that <b>D</b> might be
+  zero for some or all customers.
+</p><p>
+  After each of these lines, your program must write a single line to standard
+  output, containing the ID number of one of the <b>D</b> flavors to sell to the
+  customer, or <code>-1</code> if no lollipop is to be sold to the customer.
+  After you have written the <b>N</b>th line for the test case,
+  your program should terminate if it was the last test case; otherwise, it
+  should start reading data for the next test case.
+</p><p>
+  If your program gets something wrong (e.g., tries to sell a customer a flavor
+  that was already sold, or tries to sell a customer a flavor they don't like,
+  or uses the wrong output format, or outputs an out-of-bounds value), the
+  judge will send <code>-1</code> to your input
+  stream and it will not send any other output after that. If your program
+  continues to wait for the judge after receiving <code>-1</code>,
+  your program will time out, resulting in a Time Limit Exceeded error. Notice
+  that it is your responsibility to have your program exit in time to receive
+  the appropriate verdict (Wrong Answer, Runtime Error, etc.) instead of a Time
+  Limit Exceeded error. As usual, if the total time or memory is exceeded, or
+  your program gets a runtime error, you will receive the appropriate verdict.
+  Not selling enough lollipops for a test case will not cause you to get the
+  <code>-1</code> message.
+</p><p>
+  You should not send additional information to the judge after processing all
+  test cases. In other words, if your program keeps printing to standard output
+  after the last test case, you will get a Wrong Answer judgment.
+</p>
+
+<h3>A note on judge behavior</h3>
+<p>
+  At the start of each test case, the judge will determine all customers'
+  preferences. That is, it will use a (hidden) list of probabilities
+  P<sub>i</sub> between 0.005 and 0.1, one for each flavor; each customer has
+  a probability P<sub>i</sub> of liking the i-th flavor. That is, the random
+  variables indicating whether customer j likes flavor i are independent and
+  identically distributed. These preferences are constant throughout the test
+  and will not be modified e.g. in response to your choices.
+</p>
+
+<h3>Test set 1 (Visible)</h3>
+<p>
+  <b>T</b> = 50.<br/>
+  <b>N</b> = 200.<br/>
+  0 &le; <b>D</b> &le; <b>N</b>.<br/>
+  Time limit (for the entire test set): 25 seconds.<br/>
+  Memory limit: 1GB.<br/>
+</p>
+
+<h3>Sample Interaction</h3>
+
+<p>
+  Note that this sample interaction has smaller values of <b>T</b> and <b>N</b>
+  than the real data.  The local testing tool also uses smaller cases.
+</p>
+<pre>
+  t = readline_int()           // reads 10 into t
+  n = readline_int()           // reads 4 into n (four customers & flavors)
+  prefs = readline_int_list()  // reads 1 2 (customer only likes flavor 2)
+  printline 2 to stdout        // sells this customer flavor 2
+  flush stdout
+  prefs = readline_int_list()  // reads 0 (customer likes nothing)
+  printline -1 to stdout       // no flavor to sell to the customer!
+  flush stdout
+  prefs = readline_int_list()  // reads 1 2 (customer only likes flavor 2)
+  printline -1 to stdout       // already used flavor 2, so no flavor to sell
+  flush stdout
+  prefs = readline_int_list()  // reads 2 1 3 (customer likes 1 and 3)
+  printline 3 to stdout        // note: we could have also sold flavor 1
+  flush stdout
+  n = readline_int()           // (start of case 2) reads 1
+  prefs = readline_int_list()  // reads 1 0
+  printline -1 to stdout       // non-optimal but legal choice
+  flush stdout
+  n = readline_int()           // (start of case 3) reads 5
+  prefs = readline_int_list()  // reads 2 1 3
+  printline 1 to stdout
+  flush stdout
+  prefs = readline_int_list()  // reads 2 1 2
+  printline 1 to stdout        // error -- tried to give same flavor twice!
+  flush stdout
+  prefs = readline_int_list()  // reads -1 (judge has given up on us)
+  exit                         // exits to avoid an ambiguous TLE error
+</pre>
+<p>
+  The pseudocode above demonstrates the following scenario.
+</p>
+<ul>
+  <li>In the first test case, the program sells a total of two lollipops. It
+    would not have been possible to sell more than two, so the actual number
+    sold is definitely at least 90% of the maximum possible number sold.</li>
+  <li>In the second test case, the program chooses (for the sake of
+    demonstration here) not to sell the customer a lollipop, although it could
+    have. It sells a total of 0 when it could have sold a total of 1. So, the
+    program will not pass this test set, but note that this does not cause the
+    judge to stop sending input.</li>
+  <li>In the third case, the program makes an error (again for the sake of
+    demonstration) that causes the judge to stop sending input. The program
+    recognizes this and terminates. The user will see a Wrong Answer judgment.
+  </li>
+</ul>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+    </div>
+  </body>
+</html>

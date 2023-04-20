@@ -1,0 +1,377 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Qualification Round</h3><h1>Analysis: Foregone Solution</h1><p>
+  There are at least three different approaches to this problem, and they
+  will have different degrees of success!
+</p>
+<h3>Brute force</h3>
+<p>
+  In test set 1, <b>N</b> is less than 100000, so if we want to find two
+  numbers A and B such that A + B = <b>N</b>, there are fewer than 100000
+  possible choices for A. (Once we choose a candidate value for A, we know that
+  B = <b>N</b> - A.) We can try all possible choices of A until we find one for
+  which neither A nor B contains a 4. However, we cannot apply this strategy
+  to test set 2, in which we might have to check almost 10<sup>9</sup> values!
+</p>
+<h3>Randomized</h3>
+<p>
+  We can repeatedly choose a candidate value of A uniformly at random from the
+  inclusive range [1, <b>N</b>-1], and check whether both it and
+  B = <b>N</b> - A are free of the dreaded 4s. But will this randomized
+  approach find a solution fast enough?
+</p><p>
+  How many numbers less than 10<sup>9</sup> do not contain a 4? Consider the
+  set of all 9-digit numbers, with leading zeroes allowed; notice that this set
+  therefore includes all 8-digit, etc. numbers. If we choose a number at random
+  from this set, the probability that it lacks a 4 is the probability that its
+  first digit is not a 4, times the probability that its second digit is not a
+  4, and so on. Since the probability is 9/10 for any one digit, and the
+  probabilities for different digits are independent, we have an overall
+  probability of (9/10)<sup>9</sup>, which is about 0.387. In practice,
+  depending on the actual value of <b>N</b>, we might have fewer valid choices,
+  but the size of this answer should give us some hope that we can find our A
+  and B quickly. If we presume that the probability that A has no 4s is not too
+  much smaller than our estimate, and that A not having a 4 does not
+  substantially increase the odds that B has a 4, there should be many working
+  values of A out there to find.
+</p><p>
+  We can argue more rigorously. Let D be the number of digits in <b>N</b>; we
+  will consider the set of all D-digit numbers less than <b>N</b>, with leading
+  zeroes allowed. Suppose that we choose A randomly from that set, and let
+  B = <b>N</b> - A, padding with leading zeroes as needed to bring A and B up
+  to D digits.
+</p><p>
+  Consider the last digit of A. If it is a 4, or if it is (<b>N</b> - 4) mod 10
+  (which means that the last digit of B is a 4), then we have failed. But at
+  least 8 of the 10 possible values for the last digit are OK. Then, assuming
+  we have not yet failed, consider the next-to-last digit of A. There is at
+  most one value for that digit that would imply that the next-to-last digit of
+  B is a 4, so at least 8 of the 10 possible values for the next-to-last digit
+  of A are OK. Notice that even though the value of the last digit of A might
+  determine which <i>particular</i> value for the next-to-last digit of A
+  would imply that the next-to-last digit of B is a 4, we can still be sure
+  that there exist at least 8 OK values.
+</p><p>
+  And so on, for all D-1 digits up to the first. We only need to worry about
+  the first digit of A or B being a 4 if the first digit of <b>N</b> is at
+  least 4, in which case there are certainly at least five possible values for
+  the first digit of A, of which (just as before) at most two can be bad. So
+  the overall probability that a randomly chosen A is OK is no smaller than
+  (8/10)<sup>D-1</sup> &times; (3/5). For D = 9, this is around 0.1, so our
+  randomized approach should only need an expected 10 or so tries to find an
+  answer, and the probability that it will fail to find one after e.g. 1000
+  tries is vanishingly small (around 10<sup>-46</sup>).
+</p><p>
+  If you check all values with D digits for some small D, you will find that
+  the worst case (i.e. the one with the fewest solutions) is a 4 followed by
+  D-1 9s. For <b>N</b> = 49999999, the fraction of possible choices that will
+  work is around 0.1258, so our bound of 0.1 was not particularly conservative!
+</p><p>
+  However, this approach is highly unlikely to work for test set 3, in which
+  <b>N</b> can be on the order of 10<sup>100</sup>. Our lower bound on the
+  probability that a randomly chosen solution is correct becomes
+  (8/10)<sup>99</sup> &times; (3/5), which is about 1.5 &times;
+  10<sup>-10</sup>. Even if we try a more clever randomized approach in which
+  we build a random A (less than <b>N</b>) out of non-4 digits and then check
+  the corresponding B, which would change those 8/10 factors to 9/10, that
+  bound would be on the order of 10<sup>-5</sup>, which seems too low to work
+  well on 100 test cases. Can we find a deterministic solution?
+</p>
+<h3>Constructive</h3>
+<p>
+  Observe that we can write <b>N</b> in terms of a sum of powers of 10 times
+  its digits. For example, 4837 = 4 &times; 1000 + 8 &times; 100 +
+  3 &times; 10 + 7 &times; 1.
+</p><p>
+  Notice that every digit can be written as a sum of two non-4 digits. In
+  particular, we can write 4 = 2 + 2, and for any other digit X, we can write
+  X = 0 + X.
+</p><p>
+  We can apply these observations to solve our problem digit by digit! In the
+  above example, we can decompose 4 &times; 1000 into 2 &times 1000; and
+  2 &times; 1000; 8 &times; 100 into 0 &times; 100 and 8 &times; 100, and so
+  on. In this way, we are building up the digits of our desired A and B; A
+  is 2 &times; 1000 + 0 &times; 100... = 2000, and B is 2 &times; 1000 +
+  8 &times; 100... = 2837.
+</p><p>
+  In summary, we can set A to be the same as <b>N</b> with every 4 replaced
+  with a 2, and every non-4 replaced with a 0. B is simply <b>N</b> with every
+  4 replaced with a 2. Even though we would normally need a "big integer"
+  implementation to handle numbers as large as a googol, in this case we can
+  implement the solution using only strings!
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

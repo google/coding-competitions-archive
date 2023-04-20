@@ -1,0 +1,362 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Coding Competitions Farewell Rounds - Round B</h3><h1>Analysis: Spacious Sets</h1><p>
+  For simplicty let us define a function $$$\text{minDiff(X)}$$$, which takes a
+  list of numbers $$$X$$$ as input and returns the minimum absolute difference
+  between any two elements in the list.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+  Since $$$\mathbf{N}$$$ is very small, for each $$$i$$$ we can find all subsets of $$$\mathbf{A}$$$
+  containing $$$\mathbf{A_i}$$$ in $$$O(2^\mathbf{N})$$$ and then we can filter the subsets that
+  have $$$\text{minDiff(subset)} \ge \mathbf{K}$$$ in $$$O(\mathbf{N}^2)$$$. We can find the
+  size of such subsets in $$$O(\mathbf{N})$$$ and then we can find the maximum size of
+  all such subsets while iterating through the subsets. So the total time
+  complexity will be $$$O(\mathbf{N} \cdot 2^\mathbf{N} \cdot \mathbf{N}^2) = O(2^\mathbf{N} \cdot \mathbf{N}^3)$$$ which
+  should work for Test Set 1.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  The previous algorithm would be too slow for Test Set 2, so we have to find
+  another efficient solution.
+</p>
+<p>
+  Since the order of elements in the subset does not matter, let us sort the list
+  $$$\mathbf{A}$$$ in increasing order and call it $$$B$$$. The output list
+  $$$L$$$ for $$$B$$$ can be rearranged to find the output list of $$$\mathbf{A}$$$.
+</p>
+
+<p>
+  For simplicty, let us use the below definition on some key lists:<br />
+
+  $$$E_i$$$ is the maximum length of some subsequence $$$s$$$ of $$$B$$$ such
+  that $$$s$$$ ends with $$$B_i$$$ and $$$\text{minDiff(s)} \ge \mathbf{K}$$$.<br />
+  $$$S_i$$$ is the maximum length of some subsequence $$$s$$$ of $$$B$$$ such
+  that $$$s$$$ starts with $$$B_i$$$ and $$$\text{minDiff(s)} \ge \mathbf{K}$$$.<br />
+</p>
+
+<p>
+  Now, $$$L_i$$$ can be written as $$$L_i = E_i + S_i - 1$$$ (since $$$B_i$$$
+  would be repeated). So we can derive $$$L$$$ by computing $$$E$$$ and
+  $$$S$$$.
+</p>
+
+<p>
+  We can use dynamic programming to compute $$$E$$$ and $$$S$$$:<br />
+  $$$E_i = E_{left_i} + 1$$$, where $$$\text{left}_i$$$ is the largest index less than
+  $$$i$$$ such that $$$B_i - B_{left_i} \ge \mathbf{K}$$$.<br />
+  $$$S_i = S_{right_i} + 1$$$, where $$$\text{right}_i$$$ is the smallest index
+  greater than $$$i$$$ such that $$$B_{right_i} - B_i \ge \mathbf{K}$$$.<br />
+</p>
+
+<h4>Binary Search</h4>
+
+<p>
+  Now the problem reduces to compute the $$$\text{left}$$$ and $$$\text{right}$$$ lists efficiently.
+  Since $$$B$$$ is sorted, by using binary search we can find $$$\text{left}_i$$$ and
+  $$$\text{right}_i$$$ for each $$$i$$$ in $$$O(\log\mathbf{N})$$$. Once we know $$$\text{left}$$$
+  and $$$\text{right}$$$ lists then we can easily compute the $$$E$$$ and $$$S$$$
+  lists in $$$O(\mathbf{N})$$$, and then we can compute the $$$L$$$ list in $$$O(\mathbf{N})$$$.
+  The total complexity will be $$$O(\mathbf{N}\log \mathbf{N} + \mathbf{N}\log\mathbf{N} + \mathbf{N} + \mathbf{N}) = O(\mathbf{N}
+  \log \mathbf{N})$$$.
+</p>
+
+<h4>Sweeping Technique</h4>
+
+<p>
+  Instead of binary search, there is a more efficient algorithm if we observe the
+  pattern of $$$\text{left}_i$$$ and $$$\text{right}_i$$$ values. The observation is: as $$$i$$$
+  increases, $$$\text{left}_i$$$ increases, and as $$$i$$$ decreases, $$$\text{right}_i$$$
+  decreases.
+</p>
+
+<p>
+  Now initialize a variable $$$x = 0$$$ and try to find $$$\text{left}_i$$$ while
+  iterating through $$$i$$$. At the $$$i$$$-th iteration, keep incrementing $$$x$$$
+  by $$$1$$$ till you find $$$B_i - B_{x+1} \lt \mathbf{K}$$$ or $$$x = i-1$$$.
+  Now $$$\text{left}_i = x$$$. At the end of the $$$i$$$-th step $$$x = \text{left}_i$$$.<br />
+  As $$$x$$$ always increases, total increment step of $$$x$$$ can be at max
+  length of list which is $$$\mathbf{N}$$$. So the amortized time complexity of finding the
+  $$$\text{left}$$$ list is $$$O(\mathbf{N})$$$.<br />
+  Similarly, $$$\text{right}$$$ list can found by iterating from right to left (from $$$\mathbf{N}$$$ to $$$1$$$),
+  and initializing the $$$x$$$ with $$$\mathbf{N}$$$ and keep decrementing in $$$O(\mathbf{N})$$$.<br />
+  Once we compute the $$$\text{left}$$$ and $$$\text{right}$$$ lists, we can compute $$$L$$$
+  list in $$$O(\mathbf{N})$$$. Total time complexity is $$$O(\mathbf{N}\log\mathbf{N} +\mathbf{N}) =
+  O(\mathbf{N}\log\mathbf{N})$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

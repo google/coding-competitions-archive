@@ -1,0 +1,422 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 3</h3><h1>Analysis: Square Free</h1><h3>Test Set 1</h3>
+<p>
+  In general, we will build all grids with the correct row and column sums,
+  then check each one to see if there are squares in them.
+  In Test Set 1, the size of the input is at most $$$6 \times 6$$$. This means that
+  there are $$$2^{36}$$$ different possible grids, which is too many to generate, so we
+  must make use of the row sum constraints. We do this by building the grid one cell at a time. As
+  you fill in each cell, ensure that corresponding row and column sums are still possible.
+  For example, if the row sum should be 3, but there are already 3 <code>/</code>s in this
+  row, you cannot put another <code>/</code>. Similarly, if the desired row sum is 3,
+  but there are already $$$\mathbf{R}-3$$$ <code>\</code>s in the row, you cannot put another
+  <code>\</code>. Once we are done filling out the grid,
+  we check if there are any squares in the grid that we have made. If there are no squares,
+  we are done! Otherwise, we move on to the next possible grid. If we finish searching
+  all possible grids and we have not found any, then it is impossible.
+</p><p>
+  Are we sure this is fast enough? Each row either needs 0, 1, 2, 3, 4, 5, or 6
+  <code>/</code>s in it. There are $$$\binom{6}{0} = 1$$$ choices with 0 <code>/</code>s,
+  $$$\binom{6}{1} = 6$$$ choices with 1 <code>/</code>s,
+  $$$\binom{6}{2} = 15$$$ choices with 2 <code>/</code>s,
+  $$$\binom{6}{3} = 20$$$ choices with 3 <code>/</code>s,
+  $$$\binom{6}{4} = 15$$$ choices with 4 <code>/</code>s,
+  $$$\binom{6}{5} = 6$$$ choices with 5 <code>/</code>s, and
+  $$$\binom{6}{6} = 1$$$ choices with 6 <code>/</code>s.
+  Thus, each row has at most 20 different valid choices. So this algorithm will explore
+  at most $$$20^6$$$ different grid. In practice, we will get nowhere near this bound.
+  In particular, there is at most one valid row for the bottom row (since we must
+  satisfy the column sum constraints). This alone reduces the search space to
+  at most $$$20^5$$$, but this, too, is an overestimate since there will be
+  a lot of pruning throughout the search.
+</p><p>
+  Checking for squares can be done in several ways. The easiest is to iterate over
+  all possible places that the top-most row of the square can be (and which consecutive
+  columns the <code>/\</code> are in). Then, for each possible size of square (1, 2, 3),
+  just check the corresponding grid entries on the four sides of the square.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  The bounds for Test Set 2 are much too large to exhaustively search all grids,
+  so we will need an insight. We call a grid that satisfies the row and column constraints
+  a <i>configuration</i>. First, let's discuss how to find <i>some</i> configuration
+  (it may or may not be square free). To do this, we will set this up as a graph and run
+  <a href="https://en.wikipedia.org/wiki/Maximum_flow_problem" target="_blank">maximum flow</a>
+  on it. There are $$$\mathbf{R}$$$ vertices that represent the rows and $$$\mathbf{C}$$$ vertices that represent
+  the columns. We will put an edge with capacity 1 between every pair of (row, column)
+  vertices. We will then connect the $$$i$$$&NoBreak;-&NoBreak;th row vertex to a super-row
+  vertex with capacity $$$\mathbf{S_i}$$$ and connect the $$$i$$$&NoBreak;-&NoBreak;th column vertex to a
+  super-column vertex with capacity $$$\mathbf{D_i}$$$.
+</p><p>
+  We now run flow through the network using the super-row vertex as the source and
+  the super-column vertex as the sink. If the network is saturated (that is, every edge
+  leaving the source has flow = capacity), then we have a solution. If there is flow
+  in the edge between row $$$r$$$ and column $$$c$$$, then the corresponding entry in the
+  grid is a <code>/</code>, otherwise it is a <code>\</code>. If the flow is not saturated,
+  then it is impossible to make a grid with the appropriate row and column sums. We leave
+  a formal proof of the bijection between configurations and valid flows on the described
+  network as an exercise.
+</p><p>
+  At this point, we have <i>some</i> configuration, but it may have squares in it.
+  We will discuss three different ways to produce a grid that is square free.
+</p>
+
+<h4>Lexicographically Smallest Configuration</h4>
+<p>
+  In this solution, we notice that the
+  <a href="https://en.wikipedia.org/wiki/Lexicographic_order" target="_blank">lexicographically smallest</a>
+  configuration (treating <code>\</code> as smaller than <code>/</code> reading in
+  <a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order" target="_blank">row-major order</a>)
+  is square-free! At first this is not obvious. However, think about two rows
+  ($$$r_i \lt r_j$$$) and two columns ($$$c_k \lt c_{\ell}$$$). If
+  $$$(r_i, c_k) = /, (r_i, c_{\ell}) = \backslash, (r_j, c_k) = \backslash, (r_j, c_{\ell}) = /$$$,
+  then this grid is not the lexicographically smallest configuration. Why? Because we can
+  swap all four of those without breaking the row or column constraints, while giving us a
+  smaller configuration
+  ($$$(r_i, c_k) = \backslash, (r_i, c_{\ell}) = /,
+      (r_j, c_k) = /, (r_j, c_{\ell}) = \backslash$$$).
+  This means that a lexicographically smallest configuration has no squares in the grid, because
+  the top-most row of a square must contain <code>/\</code> in the same columns in which
+  the bottom-most row of the square has <code>\/</code>.
+</p><p>
+  How do we find the lexicographically smallest configuration? There are two ways:
+  (1) give the edge between row $$$r$$$ and column $$$c$$$ a cost of
+  $$$2^{r-1+(c-1)\mathbf{R}}$$$ and run
+  <a href="https://en.wikipedia.org/wiki/Minimum-cost_flow_problem" target="_blank">minimum-cost maximum-flow</a>.
+  This will guaranteed find the lexicographically smallest, but the edge-costs will be
+  huge (up to $$$2^{\mathbf{RC}-1}$$$).
+  (2) We will run maximum flow iteratively. Say we have run maximum flow. Go through the
+  edges in row-major order of their corresponding cell. If there is no flow going through an
+  edge, then it is a
+  <code>\</code>. Great! This is the smallest this can be, so remove this edge from the graph
+  to lock that in. If there is flow going through the edge, then we "unpush" the flow from that
+  edge (decrease the flow from the sink to the column vertex to the row vertex to the source by 1)
+  and temporarily change that edge's capacity to 0. We then run flow again. If the flow
+  is still saturated, then we know there exists a configuration where this entry in the
+  grid is a <code>\</code>, so we can permanently remove this edge from the graph.
+  If it is not saturated, then we must put that edge back into the graph, and this entry
+  is forced to be a <code>/</code>.
+</p><p>
+  Complexity-wise, the first run of maximum flow takes $$$O( (\mathbf{RC})^2 )$$$ time. Then, for each
+  flow we run, we must only push one unit of flow through, which only takes a single
+  augmenting path, so $$$O(\mathbf{RC})$$$ time per edge. Thus, in total, this takes $$$O( (\mathbf{RC})^2 )$$$
+  time. Note that you can also fully re-run maximum flow for each edge instead of only pushing one
+  unit of flow with a sufficiently optimized flow implementation.
+</p>
+
+<h4>Minimum-Cost Maximum-Flow</h4>
+<p>
+  In the Lexicographically Smallest Configuration solution, we described how you can use
+  minimum-cost maximum flow to solve this problem with exponential edge costs. Here, we will
+  solve the problem using only polynomial sized edge costs. This solution makes use
+  of the same idea as the previous one: we want to avoid
+  $$$(r_i, c_k) = /, (r_i, c_{\ell}) = \backslash, (r_j, c_k) = \backslash, (r_j, c_{\ell}) = /$$$,
+  but other than that, we do not need a lexicographically smallest configuration.
+  If we set the edge cost between row $$$r$$$ and column $$$c$$$ to be $$$r \times c$$$,
+  then we will not get this configuration, since swapping all of these symbols does
+  not affect the row/column sums and strictly decreases the total cost.
+  The total cost is reduced by $$$i \times k + j \times \ell$$$ and increased by
+  $$$i \times \ell + j \times k$$$, which is a net decrease of $$$(i - j)(k - \ell) > 0$$$
+  since $$$i \lt j$$$ and $$$k \lt \ell$$$.
+</p>
+
+<h4>Flip-Flop!</h4>
+<p>
+  Another solution is to simply find some configuration, then check it for squares. If there
+  are no squares, then we are done! If there is a square, consider the top-most and bottom-most
+  row in the square. We will swap the top <code>/\</code> with the bottom <code>\/</code>.
+  This does not affect the row/column sums. In doing this, we have broken the current square, but
+  may have created another square. We continue breaking squares until we do not find
+  any. This process must eventually finish since at each swap, we are always making our grid
+  lexicographically smaller. You can never do more than $$$O( (\mathbf{RC})^2 )$$$ swaps of this form.
+</p>
+
+<h3>Common Mistake</h3>
+<p>
+  Be careful! Just because the sum of the $$$\mathbf{S_i}$$$&NoBreak;s is equal to the sum of the
+  $$$\mathbf{D_i}$$$&NoBreak;s does not mean that a configuration exists! One example is the following input,
+  where those sums coincide, yet there are no grids that meet all the per-row and per-column
+  requirements.
+
+<pre>
+4 6
+2 0 6 6
+4 2 2 2 2 2
+</pre>
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

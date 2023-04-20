@@ -1,0 +1,515 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 3</h3><h1>Analysis: Recalculating</h1><h3>A quarter pi helps the math go down</h3>
+<p>
+As can be seen in the pictures in the statement, lines dividing distinguishable and
+non-distinguishable areas are always 45 degree diagonals.
+The reason is that the distinguishability can only
+change when the retrievability of some repair center changes, and those only change when
+crossing diagonals because of the sum in the L<sub>1</sub> distance definition. Since
+horizontals and verticals are much easier to deal with than diagonals, we can rotate the
+whole problem by &pi;/4 = 45 degrees.
+If we do that directly (for example, by multiplying all points by the corresponding
+<a href="https://en.wikipedia.org/wiki/Rotation_matrix" target="_blank">rotation matrix</a>)
+we will find ourselves
+dealing with points at non-integer coordinates, which has problems in itself. Notice that rotating
+is equivalent to <a href="https://en.wikipedia.org/wiki/Vector_projection" target="_blank">
+  projecting</a> into
+new axes of coordinates. In this case, the directions of those
+new axes are the rows of the rotation matrix, or (2<sup>-2</sup>, 2<sup>-2</sup>) and
+(2<sup>-2</sup>, -2<sup>-2</sup>). The vectors (1, 1) and (1, -1) have the same directions but
+do not have length 1. We can still project onto them and end up with a rotated and re-scaled
+version of the input. Luckily, neither rotation nor re-scaling affects the ultimate result. So,
+a convenient transformation is to map each point (x, y) in the input to (x+y, x-y). Notice that
+in this rotated and scaled world, L<sub>1</sub> distance changes to
+<a href="https://en.wikipedia.org/wiki/L-infinity" target="_blank">L<sub>&infin;</sub></a>
+distance, which is
+just a fancy way of saying that those diagonals turn into horizontals and verticals that are
+exactly <b>D</b> meters away from the point in question. Although we will not explicitly mention
+it, this transformation is applied as the first step of all solutions presented here.
+</p>
+<h3>Test Set 1</h3>
+<p>
+We can write a solution for Test Set 1 by examining a few cases and finding a formula for
+each one. The set of points from which a repair center can be seen is an axis-aligned
+square of side 2<b>D</b> with the repair center at its center. Let us call that the <i>r-square</i>
+of the point.
+</p><p>
+There are 3 possible situations:
+</p><p align="center">
+<img src="ts1_cases.png"/>
+</p>
+<ul>
+<li>I: The r-squares do not intersect.</li>
+<li>II: The r-squares intersect and the repair centers are outside
+each other's r-squares.</li>
+<li>III: The repair centers are inside each other's r-squares.</li>
+</ul>
+<p>
+Situation I is the easiest to handle, because the answer is always 0, as Sample Case #2
+illustrates.
+</p><p>
+Situation II is illustrated by Sample Case #1. As suggested in the statement,
+we can find the red area as 3 times the area of the intersection of both r-squares (notice that
+the intersection is not necessarily a square) and the blue area as the sum
+of both r-squares, 2&times;(2<b>D</b>)<sup>2</sup>, minus the area of the intersection.
+</p><p>
+In Situation III, the total area in which Principia could be deployed can be calculated
+in the same way as before. The distinguishable area, however, is slightly different. It can be
+simpler to calculate the non-distinguishable area (highlighted below), which consists of four
+copies of the same region, and then complement the result.
+</p><p align="center">
+<img src="ts1_hard_case.png"/>
+</p>
+<h3>Test Set 2</h3>
+<p>
+Recall that Info(p) is the set of relative locations of repair centers that can be retrieved
+from a point p. Notice that when two points p and p' are very close, Info(p) and Info(p') will
+look similar.
+If the repair centers that can be retrieved from both are the same (which is true most of the time
+for points that are close to each other), then Info(p') is equal to Info(p) shifted by the shift
+between p and p'. However, if at least one repair center is retrieved from one of these points
+and not from the other, that is not true. In particular, Info(p) and Info(p') could be
+sets of different numbers of points.
+</p><p>
+First we deal with the changes in which repair centers can be retrieved by splitting the
+interesting area into parts. Within each part, the set of repair centers that can be retrieved
+is constant. Consider all the horizontal lines
+y=X+<b>D</b> and y=X-<b>D</b> for each x-coordinate X of a point in the input, and all vertical
+lines x=Y+<b>D</b> and x=Y-<b>D</b> for each y-coordinate Y of a point in the input. The points
+that are not surrounded by 4 of these lines (for example, the points above the highest horizontal
+line) are too far from all of the repair centers to be able to retrieve any of them, so we can
+disregard them for the rest of the analysis.
+These up to 4<b>N</b> lines divide the remaining points into up to
+4<b>N</b><sup>2</sup> - 4<b>N</b> - 1 rectangular regions. Since all sides of all r-squares
+fully overlap with these lines, the set of repair centers that are retrievable from any point
+strictly within one of those regions is the same. The set of repair centers that can be retrieved
+from points on the lines might be different from those retrieved from any of its adjacent
+regions. However, since the area of each line is 0, the probability of Principia being
+deployed there is 0, so we simply ignore them and work with points strictly within regions.
+For each region R, we calculate the total area A(R) of distinguishable points in the region
+and the total area B(R) of points where Principia can be deployed. The answer is then
+the sum of A(R) over all regions divided by the sum of B(R) over all regions.
+</p><p>
+Fix a current region C.
+Going back to the first paragraph, Info(p) and Info(p') are shifts of each other for all p and p'
+from the same region. Calculating B(C) is easiest: it is either the area of C if Info(p) is
+non-empty for any point p in the region, and 0 otherwise. To calculate A(C),
+we can use an analysis generalizing our reasoning in Test Set 1. We need to find other regions
+R where Info(q) is a shift of Info(p) for a point q in R. In Test Set 1, this happened for the
+regions where one repair center can be seen, because the sets of a single point are always shifts
+of each other. We can check whether Info(p) and Info(q) are shifts of each other and find
+the appropriate shift if they are. First we check that they have the same number of points,
+and then we sort the points in
+an order that is invariant by shift (for example, sorting by x-coordinate
+and breaking ties by y-coordinate). In this way, we can fix the shift as the one between the first
+point of Info(p) and the first point of Info(q). Finally, we check that that shift works for all
+pairs of i-th points. If true, we can shift R by the found amount to obtain R', and the
+intersection between R' and C is a rectangle in which the points are non-distinguishable.
+If we do that over all regions R, the union of all those intersections is exactly the area
+of non-distinguishable points in C, and we can subtract it from the area of C to obtain B(C).
+There are many algorithms (with different levels of efficiency) to find the area of the union
+of rectangles aligned with the axes. Given the low limits of Test Set 2, it suffices to use
+a technique like the above, in which we extend the rectangle sides to lines and divide
+into regions, checking each region individually.
+</p><p>
+For each region C, the algorithm needs
+to find Info(p) for a point p in C, which takes time O(<b>N</b>), then iterate over all other
+O(<b>N</b><sup>2</sup>) regions R and find Info(q) for a point there, check
+Info(q) against Info(p) for a shift, and possibly produce an intersection.
+That takes O(<b>N</b>) time per R, or O(<b>N</b><sup>3</sup>) overall for the fixed C.
+Then, we need to take the union of up to O(<b>N</b><sup>2</sup>) rectangles, which, with the
+simple algorithm above, can take between O(<b>N</b><sup>4</sup>) and O(<b>N</b><sup>6</sup>)
+time, depending on implementation details. This means the overall time, summing over all possible C,
+can be up to O(<b>N</b><sup>8</sup>). Most implementations should be OK in most languages though.
+As we will see, there are many optimizations needed for Test Set 3, and even just doing the
+simplest of them would be enough to pass Test Set 2. Alternatively, there is a known algorithm
+to find the area of the union of K rectangles in O(K log K) time, and multiple references to
+it can be found online. Using it off the shelf would yield an overall time complexity of
+O(<b>N</b><sup>4</sup> log <b>N</b>), which is small enough to handle much larger limits
+than Test Set 2's.
+</p>
+<h3>Test Set 3</h3>
+<p>
+To solve Test Set 3, we have a lot of optimization to do. The first step is to avoid calculating
+Info for each region more than once. That alone does not change the ultimate time complexity
+of the algorithm from the previous section, but it is a necessary step for all optimizations that
+follow.
+</p><p>
+We divide the work into two phases. In the first phase, we group all regions that have equivalent
+Info sets. For each region C, we calculate S := Info(p) for an arbitrary point p in C as before,
+discard it if S is empty. Otherwise, we sort S, and then shift both C and the sorted result by
+the first point such that the shifted S' has the origin as its first point.
+In this way, S' is a normalized pattern for C, and two regions with Info sets that are
+shifts of each other end up with the same S. After doing this, we can accumulate all shifted
+regions for each S that appears, and process them together.
+</p><p>
+Notice that we can sort the input points at the
+very beginning and then always process them in order such that every calculated S is already
+sorted, to avoid an extra log <b>N</b> factor in the time complexity.
+A rough implementation of this
+phase takes O(<b>N</b><sup>3</sup>) time if we use a dictionary over a hash table to aggregate
+all regions for each set S. We optimize this further below.
+</p><p>
+For the second phase, we have to process the set of shifted regions for each shifted S'. Since the
+regions are already shifted in a normalized way, we can process them all together. That is,
+instead of calculating A(C) for each individual C, we calculate A(S') := the sum of
+A(C) over all C in S'.
+</p><p>
+The picture below shows an example of the input we need to process for a fixed S'. There are
+multiple rectangular regions that have been shifted, so some may overlap now. We need
+the area of the part where no intersections happen (highlighted in the picture).
+If we do this by extending sides and processing each resulting region individually,
+we end up with an algorithm that takes between O(K<sup>2</sup>) and O(K<sup>3</sup>) time again,
+where K is the number of rectangles. However, the sum of the number of rectangles over all S' is
+O(<b>N</b><sup>2</sup>), because each original region appears in at most one group. Therefore,
+the overall cost of the second phase implemented like this over all S' would be between
+O(<b>N</b><sup>4</sup>) and O(<b>N</b><sup>6</sup>).
+</p><p align="center">
+<img src="shifted_regions.png"/>
+</p><p>
+We now have an algorithm with a first phase that takes O(<b>N</b><sup>3</sup>) time and a second
+phase that takes between O(<b>N</b><sup>4</sup>) and O(<b>N</b><sup>6</sup>) time overall. We need
+to optimize further.
+</p><p>
+For the first phase, if we want to keep O(<b>N</b><sup>2</sup>) regions and go significantly below
+O(<b>N</b><sup>3</sup>), we need to make the processing of each region not require a full pass
+over the input points. Consider a fixed row of regions between the same two horizontal lines.
+Notice that each repair center can be retrieved from a contiguous set of those regions, and they
+become both retrievable and non-retrievable in sorted order of x-coordinate. Therefore,
+we can maintain the list of points that represent S in amortized constant time
+by simply pushing repair centers that become retrievable to the back of the list and
+popping repair centers that become non-retrievable from the front. This technique is sometimes
+called "chasing pointers".
+</p><p>
+Unfortunately, this is not enough, as we need to shift each S by a different amount, and shifting
+S requires time linear in the size of S. It is entirely possible for S to contain a significant
+percentage of points for a significant percentage of regions.
+We can do better by using a
+<a href="https://en.wikipedia.org/wiki/Rolling_hash" target="_blank">rolling hash</a>
+of S. That would get us a hash of each S without any additional complexity. Unfortunately,
+we cannot shift the resulting hash. The last trick is, instead of hashing the actual points, hash
+the shift between each point and the last considered (adding a virtual initial point with any
+value). Those internal shifts are invariant to our overall shift of S, and since the first point
+of S' is always the origin, we can simply remove that one from the hash. The result is something
+that uniquely (up to hash collisions) represents the shifted S'.
+This change optimizes the first phase to run in O(<b>N</b><sup>2</sup>) time.
+</p><p>
+To optimize the second phase &mdash; specifically the calculation of the values A(C) &mdash;
+we can use an algorithm similar to the one mentioned at the
+end of the previous section to calculate the union of the area of all rectangles. Consider a
+<a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" target="_blank">
+  sweep line algorithm</a>
+that processes the start and end of each rectangle in order of x-coordinate. We can maintain
+a data structure that knows, for each y-coordinate, how many rectangles overlap the sweep line
+at coordinate y. We need to be able to insert a new interval of y-coordinates each time
+a rectangle starts, remove one each time a rectangle ends, and query the total length
+of y-coordinate covered by exactly one rectangle.
+Multiplying that by the difference in x-coordinate between stops of the sweep line,
+we can calculate how much area to add to A(S') at each stop of the sweep line.
+</p><p>
+We can use a
+<a href="https://cp-algorithms.com/data_structures/segment_tree.html" target="_blank">segment tree</a>
+to efficiently represent that. At each node of the segment tree we need to record:
+<ul>
+<li>(1) How many rectangles processed
+so far fully cover the interval represented by the node and do not fully cover its parent.</li>
+<li>(2) The total length covered by 1 or more rectangles within the interval represented by
+  the node.</li>
+<li>(3) The total length covered by 2 or more rectangles within the interval represented by
+the node.</li>
+</ul>
+(1) and (2) are exactly what need to be recorded for the algorithm to calculate just
+the area of the union of the rectangles. When inserting an interval I at a node representing
+interval J, if I and J do not overlap, we do nothing. If J is contained in I, we simply increment
+(1) and do nothing recursively. For any other case, we insert recursively into the node's children.
+Removal is similar: since in our use case removing J means that we previously
+inserted J, we are guaranteed that in the case where J is contained in I, (1) is positive,
+and we just decrement it. After inserting or removing as above, we recompute values (2) and (3).
+That recomputation can be done in constant time based on (1) and the (2) and (3) values of
+the children, if any, with a case analysis on whether (1) is 0, 1, or 2 or more. The details
+are left as an exercise to the reader. The total length covered by
+exactly 1 rectangle is exactly the value (2)-(3) on the root of the tree.
+</p><p>
+Since each insertion and removal requires going through at most O(log <b>K</b>) nodes, and the
+queries are resolved in constant time, using this sweep line algorithm with the described segment
+tree structure results in an algorithm that processes a set of K rectangles for the second phase
+in O(K log K) time. This results in O(<b>N</b><sup>2</sup> log <b>N</b>) time overall for the
+phase (and the algorithm), since, as we argued before, the sum of all K over all S' is
+O(<b>N</b><sup>2</sup>).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

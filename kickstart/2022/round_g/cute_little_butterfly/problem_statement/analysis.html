@@ -1,0 +1,424 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round G</h3><h1>Analysis: Cute Little Butterfly</h1><h3>
+  Test Set 1
+</h3>
+
+<p> Let us introduce some notation first.
+  <ul>
+    <li>The maximum $$$x$$$-coordinate of a flower $$$X_\max=\max_{1 \le i \le \mathbf{N}} \mathbf{X_i}$$$.</li>
+    <li>The maximum $$$y$$$-coordinate of a flower $$$Y_\max=\max_{1 \le i \le \mathbf{N}} \mathbf{Y_i}$$$.</li>
+  </ul>
+</p>
+
+<p>
+  For $$$\mathbf{N} \le 6$$$, we can enumerate all valid sequences of flowers and take the
+  sequence yielding the highest energy. A sequence of flowers is valid if their $$$y$$$-coordinates
+  form a non-increasing sequence and thus do not require any upward moves, which are illegal.
+  As we visit the flowers one by one, there is no incentive of changing the
+  direction if the next flower can be reached without doing so. This leads to the following
+  recursive method using Python-like syntax:
+</p>
+
+<p>
+<pre>
+used = [False] * N
+ans = 0
+enumerate(x=0, y=Y_max+1, is_right=True, energy=0)
+print(ans)
+
+def enumerate(x, y, is_right, energy):
+  ans = max(ans, energy)
+  for i in range(N):
+    if not used[i] and Y[i] &lt;= y:
+      used[i] = True
+      if (is_right and X[i] &lt; x) or (not is_right and X[i] &gt; x):
+        # Need to change direction to reach the i-th flower
+        enumerate(X[i], Y[i], not is_right, energy + C[i] - E)
+      else:
+        # Can reach the i-th flower without changing the direction
+        enumerate(X[i], Y[i], is_right, energy + C[i])
+      used[i] = False
+</pre>
+</p>
+
+<p>
+  The time complexity of this brute-force method is $$$O(\mathbf{N}!)$$$.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  Let us define another function.
+</p>
+<ul>
+<li>The energy function
+  $$$c(x,y)=\begin{cases} \mathbf{C_i}, & \text{if } (x,y)=(\mathbf{X_i},\mathbf{Y_i}) \text{ for some flower } i, \\
+  0, & \text{otherwise.} \end{cases}$$$ </li>
+</ul>
+<p>
+  The following observation will simplify our reasoning about the problem.
+  Since going straight without changing the direction does not consume any energy, we can
+  assume that direction changes happen at the $$$x$$$-coordinates $$$0$$$ and
+  $$$X_\max$$$ only. This, in turn, implies the existence of an optimal
+  path where the flowers at the same $$$y$$$-coordinate are visited in one straight movement from
+  left to right or from right to left without changing the direction in between. Therefore, we can
+  clearly distinguish between the two scenarios when the flowers at level $$$y$$$ are visited in the
+  right or left direction.
+</p>
+<p>
+  Let $$$r(x,y)$$$ be the maximum energy of a path ending at the point $$$(x,y)$$$
+  when the flowers at level $$$y$$$ are visited in the right direction, and let us define a similar
+  function $$$l(x,y)$$$ for the left direction. The final answer is then
+  $$$\max_{0 \leq x \leq X_\max,0 \leq y \leq Y_\max}\max(r(x,y),l(x,y))$$$.
+</p>
+<p>
+  The values of $$$r(x,y)$$$ and $$$l(x,y)$$$ can be computed using dynamic
+  programming and the following recurrence relations. As the relations suggest, we should
+  calculate the functions $$$r(x,y)$$$ and $$$l(x,y)$$$ for higher values of $$$y$$$ first.
+  For points in the same $$$y$$$ level, we calculate $$$r(x,y)$$$ from left to right, and
+  $$$l(x,y)$$$ from right to left.
+</p>
+<ol>
+  <li>$$$r(0,Y_\max)=c(0,Y_\max)$$$,</li>
+  <li>$$$r(x,Y_\max)=r(x-1,Y_\max)+c(x,Y_\max)$$$ for $$$x > 0$$$,</li>
+  <li>$$$l(X_\max,Y_\max)=c(X_\max, Y_\max)-\mathbf{E}$$$,</li>
+  <li>$$$l(x,Y_\max)=l(x+1,Y_\max)+c(x, Y_\max)$$$ for $$$x &lt; X_\max$$$,</li>
+  <li>$$$r(0,y)=\max[r(0,y+1),l(0,y+1)-\mathbf{E}]+c(0,y)$$$ for $$$y &lt; Y_\max$$$,</li>
+  <li>$$$r(x,y)=\max[r(x-1,y),r(x,y+1)]+c(x,y)$$$ for $$$x > 0$$$ and $$$y &lt; Y_\max$$$,</li>
+  <li>$$$l(X_\max,y)=\max[l(X_\max,y+1),r(X_\max,y+1)-\mathbf{E}]+c(X_\max,y)$$$ for $$$y &lt; Y_\max$$$,</li>
+  <li>$$$l(x,y)=\max[l(x+1,y),l(x,y+1)]+c(x,y)$$$ for $$$x &lt; X_\max$$$ and $$$y &lt; Y_\max$$$.</li>
+</ol>
+<p>
+  The following image illustrates these recurrence relations.
+</p>
+<img
+style="width: 100%; max-width: 1280px"
+src="images/analysis_test_set_2_updated.png"
+alt="Illustration of the recurrence relations."
+/>
+<p>
+  The time complexity of such a dynamic programming solution is $$$O(X_\max \times Y_\max)$$$, which
+  is efficient enough as the coordinates are bounded by $$$500$$$.
+</p>
+
+<h3>
+  Test Set 3
+</h3>
+
+<p>
+  For the large test set, the coordinate space is not reasonably restricted, so we should confine
+  the calculation of $$$r(x,y)$$$ and $$$l(x,y)$$$ to the set of points with flowers. The general
+  dynamic programming idea remains the same, though.
+</p>
+<p>
+  Assuming that we are currently processing the flower $$$i$$$, let us consider the recurrence
+  relation (6). We can reach the $$$i$$$-th flower from any processed flower $$$j$$$ moving in the
+  right direction if $$$\mathbf{X_j} \leq \mathbf{X_i}$$$. Among all such flowers $$$j$$$, we are looking for the
+  one with the largest $$$r(\mathbf{X_j}, \mathbf{Y_j})$$$. To make such a lookup efficient, let us store the
+  processed flowers in a set $$$S_r$$$ sorted by $$$\mathbf{X_j}$$$. Moreover, if $$$\mathbf{X_j} \leq \mathbf{X_k}$$$ for two
+  processed flowers $$$j \neq k$$$ and $$$r(\mathbf{X_j},\mathbf{Y_j}) \geq r(\mathbf{X_k},\mathbf{Y_k})$$$, we can safely ignore
+  the flower $$$k$$$ and drop it from $$$S_r$$$, so the set is essentially increasing by values
+  $$$r(\mathbf{X_j},\mathbf{Y_j})$$$ as well. Now, to find the best processed flower $$$j$$$ to visit the current
+  flower $$$i$$$ from, we just look for the flower $$$j$$$ in $$$S_r$$$ with the highest $$$\mathbf{X_j}$$$ such
+  that $$$\mathbf{X_j} \leq \mathbf{X_i}$$$. Once we are done calculating $$$r(\mathbf{X_i},\mathbf{Y_i})$$$, we add the flower
+  $$$i$$$ to the set $$$S_r$$$ and potentially drop some other flowers to maintain the sorted
+  property of the set.
+</p>
+<p>
+  In order to facilitate the calculation of $$$l(x,y)$$$, we should maintain a similar set of
+  processed flowers $$$S_l$$$, which is increasing by the coordinates $$$\mathbf{X_j}$$$ and decreasing by the
+  values $$$l(\mathbf{X_j},\mathbf{Y_j})$$$.
+</p>
+<p>
+  Equipped with the sets $$$S_r$$$ and $$$S_l$$$, we can also handle the border cases like
+  items (5) and (7) above. Suppose we have calculated the functions $$$r$$$ and $$$l$$$ for all flowers
+  $$$i$$$ with $$$\mathbf{Y_i} \gt y$$$ for some level $$$y$$$ and we are about to process the flowers
+  $$$i$$$ with $$$\mathbf{Y_i}=y$$$. Let $$$a$$$ be the first (i.e. leftmost) flower in $$$S_l$$$ and
+  $$$b$$$ be the last (i.e. rightmost) flower in $$$S_r$$$. To account for the
+  change of direction before visiting the leftmost flower $$$i$$$ with $$$\mathbf{Y_i}=y$$$, we should make
+  sure $$$r(\mathbf{X_i}, \mathbf{Y_i})$$$ is at least $$$l(\mathbf{X_a}, \mathbf{Y_a}) + \mathbf{C_i} - \mathbf{E}$$$ in analogy with the
+  recurrence relation (5) above. Similarly, for the rightmost flower $$$i$$$ with $$$\mathbf{Y_i}=y$$$,
+  $$$l(\mathbf{X_i}, \mathbf{Y_i})$$$ is at least $$$r(\mathbf{X_b}, \mathbf{Y_b}) + \mathbf{C_i} - \mathbf{E}$$$ in analogy with the
+  recurrence relation (7).
+<p>
+  The time complexity of this modified dynamic programming approach is $$$O(\mathbf{N} \log \mathbf{N})$$$, as it
+  involves sorting the flowers by their coordinates and using a standard sorted set data structure
+  with $$$O(\log \mathbf{N})$$$ time per operation.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

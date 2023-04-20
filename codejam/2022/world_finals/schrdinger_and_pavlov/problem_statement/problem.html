@@ -1,0 +1,485 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - World Finals</h3><h1>Schrödinger and Pavlov</h1><h3>Problem</h3>
+<p>
+<i>The story, all names, characters, and incidents portrayed in this problem statement are
+fictitious. No identification with actual persons is intended or should be inferred.</i>
+</p><p>
+It is 1935 and a meeting between two Nobel prize winners is producing astonishing results.
+Schr&ouml;dinger, a famous physicist, invited Pavlov, a famous physiologist, to see his experiments
+with cats in boxes. Pavlov brought his dog with him to keep up with his own
+research, and the combination proved interesting, to say the least.
+</p><p>
+Schr&ouml;dinger had a row of $$$\mathbf{N}$$$ boxes. Some boxes definitely contain a cat, some boxes definitely
+do not contain a cat, and some boxes may or may not contain a cat. Each box is only big enough
+to hold a single cat. Each box is also equipped with a special quantum tunnel, that allows
+the cat in the box to move to some other specific box if the destination was empty. The tunnels
+work in a single direction.
+</p><p>
+Cats are usually mellow and quiet and do not use the tunnels unless they become startled. When a
+third unannounced guest rings the bell, Pavlov's dog gets excited immediately and starts
+running and barking. The dog starts at box $$$1$$$ and runs towards box $$$\mathbf{N}$$$. 
+As the dog runs, it passes right next to each box, one at a time. When
+it passes next to a box that contains a cat, the cat in that box becomes startled. The
+startled cat checks the available tunnel and, if the destination box is empty, uses it to escape.
+If the destination box is occupied, the cat stays in its current box. The same cat can be startled
+more than once if they move to a box the dog will get to afterwards, and will proceed in the same
+way every time it is startled (using only the newly available tunnel each subsequent time).
+</p><p align="center">
+  <img src="img/schrodinger_and_pavlov.png" alt="Illustration of Sample Case #1 with a dog shown walking from left to right." style="width: 100%; min-width: 400px; max-width: 800px;"/>
+</p><p>
+After Pavlov's dog finally stops right next to the last box, Pavlov asks Schr&ouml;dinger whether
+there is a cat in that last box. Schr&ouml;dinger, true to his fame, replies that he does not know.
+Pavlov notices that the answer may depend on whether or not there were cats in the unknown boxes.
+Moreover, he also notices that because there are $$$k$$$ unknown boxes, there are $$$2^k$$$
+possible <i>initial configurations</i>, one for each combination of statuses of the unknown
+boxes. Pavlov tells Schr&ouml;dinger that they should try to calculate how
+many of the $$$2^k$$$ initial configurations would result in having a cat in the last box. You are
+asked to recreate that calculation. Since the output can be a really big number, we only ask you to
+output the remainder of dividing the result by the prime $$$10^9+7$$$ ($$$1000000007$$$).
+</p><p>
+<i>Neither cats, nor dogs, nor Nobel prize winners were harmed in the making of this problem
+  statement.</i>
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow, each
+described by exactly three lines. The first line of a test case contains a single integer
+$$$\mathbf{N}$$$, the number of boxes in Schr&ouml;dinger's experiment. Boxes are numbered between $$$1$$$
+and $$$\mathbf{N}$$$, in the order Pavlov's dog passes them by. The second line of a test case
+contains a single string $$$\mathbf{S}$$$ of $$$\mathbf{N}$$$ characters. The $$$i$$$-th character of $$$\mathbf{S}$$$ (counting
+from left to right) represents the contents of box $$$i$$$: it is an
+uppercase '<code>C</code>' if the box contains a cat, a period '<code>.</code>' if the
+box does not contain a cat and a question mark '<code>?</code>' if it is unknown whether
+the box contains a cat or not. The third line of a test case contains $$$\mathbf{N}$$$ integers
+$$$\mathbf{B_1}, \mathbf{B_2}, \dots, \mathbf{B_N}$$$, representing that there is a tunnel going out of box $$$i$$$
+and into box $$$\mathbf{B_i}$$$, for all $$$i$$$.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is the number of initial
+configurations that would result
+in a cat being in the last box and unable to escape despite hearing the barking, modulo the prime
+ $$$10^9+7$$$ ($$$1000000007$$$).
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 10 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 1234$$$.<br/>
+the length of $$$\mathbf{S} = \mathbf{N}$$$.<br/>
+Each character of $$$\mathbf{S}$$$ is either an upper case '<code>C</code>', a period '<code>.</code>' or
+  a question mark '<code>?</code>'.<br/>
+$$$1 \le \mathbf{B_i} \le \mathbf{N}$$$, for all $$$i$$$.<br/>
+$$$\mathbf{B_i} \neq i$$$, for all $$$i$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{N} \le 100$$$.<br/>
+$$$i - 5 \le \mathbf{B_i} \le i + 5$$$, for all $$$i$$$.
+  (All tunnels connect to nearby boxes.)<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{N} \le 5000$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="schrdinger_and_pavlov_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+4
+??.C
+2 3 1 3
+4
+????
+2 3 1 3
+6
+?.????
+6 6 6 6 6 5
+34
+????????????????????????????????CC
+2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 33
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="schrdinger_and_pavlov_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 1
+Case #2: 2
+Case #3: 15
+Case #4: 294967268
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Sample Case #1 is illustrated in the problem statement. There are $$$4$$$ possible configurations:
+<ul>
+<li><code>...C</code>: the dog runs through the first $$$3$$$ boxes without changing anything
+  because there is no cat there. Then, when it gets to the last box, the cat hears it and escapes
+  to box 3. Therefore, there is no cat in the last box in this case.</li>
+<li><code>C..C</code>: when the dog barks near box $$$1$$$, that startles the cat that
+  goes through the tunnel to get to box $$$2$$$, which was empty. Then, the same cat
+  gets startled again when the dog barks near box $$$2$$$ and gets to box $$$3$$$. And when
+  the dog barks next to box $$$3$$$, the cat hears it and returns to box $$$1$$$. Therefore,
+  when the dog gets to box $$$4$$$ and the other cats hears it, box $$$3$$$ is empty so the
+  cat escapes and the last box ends up empty.</li>
+<li><code>.C.C</code>: This case is very similar to the previous one. After the dog goes through
+  the first box and nothing happens, the state is the same as before, so the ultimate result
+  is the same: last box empty.</li>
+<li><code>CC.C</code>: In this case, the cat in the first box cannot escape when it hears the
+  dog, so it remains in box $$$1$$$. Then, when the cat in box $$$2$$$ gets startled it escapes to
+  box $$$3$$$ leaving a state of <code>C.CC</code>. When the dog gets to the box $$$3$$$, the cat
+  currently there cannot escape to box $$$1$$$ so the state remains the same. Finally, when the
+  dog gets to the last box, the cat that is there cannot escape because box $$$3$$$ is occupied
+  this time. So, in this case, the last box ends up with a cat after the dog ends its journey.</li>
+</ul>
+  Out of the $$$4$$$ possibilities, only $$$1$$$ (the last one) ends up with a cat in the last box,
+  so the answer is $$$1$$$.
+</p><p>
+  In Sample Case #2, the tunnels are set up the same as in Sample Case #1. Since no tunnel ends
+  at the last box, the configurations that start with no cat at the last box will also not end with
+  a cat there, so we do not need to count them. Then, we have $$$8$$$ additional configurations. The
+  $$$4$$$ we considered for Sample Case #1, out of which only $$$1$$$ ends up with a cat at the last
+  box. The remaining $$$4$$$ configurations are: <code>..CC</code>, <code>C.CC</code>,
+  <code>.CCC</code>, <code>CCCC</code>. From these additional $$$4$$$ configurations, only in the
+  last one listed a cat ends up in the last box, for a total of $$$2$$$ overall.
+</p><p>
+  In Sample Case #3, notice that for a cat to remain in the last box after the dog barks near it,
+  both that box and box $$$5$$$ must be occupied then (otherwise, either there is no cat in the
+  last box, or it will escape to box $$$5$$$). Since there is no tunnel going into box $$$5$$$,
+  a cat must start there. As long as there is another cat in any other box, box $$$6$$$ will get
+  (or remain) occupied before the cat in box $$$5$$$ gets an opportunity to escape, so all of those
+  will end up with a cat in the last box. As we argued before, a single cat is not enough. Thus,
+  we need to count the number of configurations with a cat in box $$$5$$$ and at least one other cat.
+  There are $$$2^4$$$ configurations with a cat in box $$$5$$$, and out of those, only $$$1$$$ has
+  no other cat, so the answer is $$$2^4-1=15$$$.
+</p><p>
+  In Sample Case #4, in all of the $$$2^k$$$ ways in which the $$$k$$$ unknown boxes may exist
+  a cat would be left in the last box.
+</p>
+
+    </div>
+  </body>
+</html>

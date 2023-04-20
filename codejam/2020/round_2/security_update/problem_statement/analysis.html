@@ -1,0 +1,363 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 2</h3><h1>Analysis: Security Update</h1><p>
+Let R<sub>i</sub> be the number of computers that receive the update before computer i, and
+T<sub>i</sub> be the time between computer 1 and computer i receiving the update. For each i,
+the input gives us exactly one of these numbers. We can set
+R<sub>1</sub> = T<sub>1</sub> = 0 for convenience.
+</p>
+<h3>A simplified problem</h3>
+<p>
+Let us assume for now that we have all the T<sub>i</sub>s. If computers i and j share a direct
+connection and T<sub>i</sub>=T<sub>j</sub>, then any path that gets to computer i in time
+T<sub>i</sub> does not go through computer j, and vice versa, because all latencies are positive.
+Therefore, we can assign any positive latency to all those connections.
+If computer i has a given T<sub>i</sub>, it means that any connection
+coming from computer j with T<sub>j</sub> &lt; T<sub>i</sub> needs to have a latency of
+at least T<sub>i</sub>-T<sub>j</sub>, or otherwise the update could get to computer i in
+less than T<sub>i</sub> time by getting to computer j in T<sub>j</sub> time and then using that
+connection. In addition, for at least one j, the latency of the connection between i and j has to be
+exactly T<sub>i</sub>-T<sub>j</sub>, or otherwise the time for the update to reach computer i would
+be larger than T<sub>i</sub>. One simple way to solve this problem is to make all connections
+between computers with different T values have a latency of exactly
+|T<sub>i</sub>-T<sub>j</sub>|; this takes O(<b>D</b>) time.
+</p><p>
+Notice that the algorithm above finds a valid assignment for any set of
+T<sub>i</sub>s. To solve the actual test sets, we are left with the problem: given some
+T<sub>i</sub>s and some other R<sub>i</sub>s, assign all of the non-given values in a way such that
+sorting the computers by T<sub>i</sub> leaves them sorted by R<sub>i</sub>, and vice versa.
+In particular, computers with equal T values should have equal R values, and vice versa.
+</p>
+<h3>Test Set 1</h3>
+<p>
+In this test set, we can solve the subproblem from the previous section by setting
+T<sub>i</sub> := R<sub>i</sub>.
+</p>
+<h3>Test Set 2</h3>
+<p>
+For Test Set 2, we again focus on solving the subproblem.
+We do that by first ordering the computers by what is going to be their final
+T<sub>i</sub> value (or equivalently, by their final R<sub>i</sub> value).
+We can partition the set of computers other than the source computer into two:
+those for which we know R<sub>i</sub> (part R)
+and those for which we know T<sub>i</sub> (part T). We can sort each of those
+in non-decreasing order of the known value.
+We now have 2 sets that are in the right relative order, and need to merge them as in the last
+step of <a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a>.
+We assign the source computer first. Then we iterate through the remaining <b>C</b>-1 slots in
+order. Suppose we have already merged N computers, and let computer k be the last one of those.
+Let i and j be the first computers remaining in parts R and T,
+respectively. If R<sub>i</sub> &le; N, we take computer i next and assign
+T<sub>i</sub> := T<sub>k</sub> if R<sub>i</sub> = R<sub>k</sub>, and
+T<sub>i</sub> := T<sub>k</sub>+1 otherwise. If R<sub>i</sub> &gt; N, we take computer j
+next and assign R<sub>j</sub> := R<sub>k</sub> if T<sub>j</sub> = T<sub>k</sub>
+and R<sub>j</sub> := N otherwise.
+</p><p>
+We can prove that if the original set of values is consistent with at least one latency
+assignment (which the statement guarantees), this generates a valid order and assignment
+of missing values, and moreover, it generates one in which the T value of the last
+computer in the order is minimal.
+We do that by induction on the number of computers. For a single computer, this is trivially true.
+Suppose we have <b>C</b> &gt; 1 computers. By our inductive
+hypothesis, the first <b>C</b>-1 computers in the order were ordered and assigned values
+in a consistent way, with a minimal T value for the last computer among all options.
+Let us say the last computer in the full order is computer i, and the next-to-last computer is
+computer j. By definition of how we assign missing values, R<sub>i</sub> = R<sub>j</sub> if and
+only if T<sub>i</sub> = T<sub>j</sub>. If indeed R<sub>i</sub> = R<sub>j</sub> and
+T<sub>i</sub> = T<sub>j</sub>, then the condition for the final assignment is equivalent to the
+inductive hypothesis. If computers i and j come from the same part, then the ordering choice
+between them was fixed, and the assignment of T values if needed is clearly minimal. So consider
+further the case in which computer i comes from a different part than computer j, and their
+R and T values are different. We have two cases: either computer i was in part R, or in part T.
+</p><p>
+If computer i was in part R, then its assigned T value is by definition the largest among all
+computers, and it's the smallest possible for it to go after computer j, whose value is minimal
+by the inductive hypothesis. As for the order,
+R<sub>i</sub> &le; <b>C</b>-1 per the limits. Since computer j comes from part T
+and was chosen for position <b>C</b>-1 (when N was <b>C</b> - 2), that means
+R<sub>i</sub> &gt; <b>C</b> - 2. Therefore, R<sub>i</sub>=<b>C</b>-1, and the chosen
+position is correct.
+</p><p>
+If, on the other hand, computer i was in part T, then its T value is minimal because
+T<sub>i</sub> is fixed. As for the
+order, notice that all computers have either a T value strictly less than T<sub>i</sub> or an R
+value strictly less than <b>C</b>-1, so none of them could have been last. By the inductive
+hypothesis, T<sub>j</sub> is minimal among all possible orders, which means, by the existence of a
+full assignment, it has to be T<sub>j</sub> &lt; T<sub>i</sub>, which implies the consistency of the
+final order and value assignment.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

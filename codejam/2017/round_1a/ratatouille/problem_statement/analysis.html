@@ -1,0 +1,391 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 1A</h3><h1>Analysis: Ratatouille</h1><h2>Ratatouille: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  The number of grams in a given package is not important in and of itself;
+  what is important is which multiples of the recipe that package could be used
+  in. If the base recipe requires 10 g of tomato, for instance, then a 201 g
+  package of tomatoes can be used to make 19, 20, 21, or 22 times the recipe,
+  but not any other multiple. So we can think of this package as the inclusive
+  range [19, 22].
+</p><p>
+  How can we find these ranges? Let Q be the amount in the package and R be the
+  amount of that ingredient required by the base recipe. Then any allowable
+  multiple m must satisfy both 0.9 &times; R &times; m &lt; Q and Q &lt; 1.1
+  &times; R &times; m. Simplifying and rearranging this, we get (10/11) &times;
+  (Q/R) &lt; m &lt; (10/9) &times; (Q/R); any integer value of m that satisfies
+  this inequality is part of the range, and we can find the lower and upper
+  bounds of this range in constant time. (Note that a range might not include
+  <i>any</i> integer values, e.g., for R = 10 and Q = 15.) It is possible to use
+  integer division here and avoid floating point numbers entirely.
+</p><p>
+  In the Small dataset, there can be at most two ingredients. If there is one
+  ingredient, the problem is very simple: each package with a non-empty range
+  (as described above) forms a kit, and each package with an empty range does
+  not.
+</p><p>
+  What if there are two ingredients? Then we need to pair up the packages into
+  kits, but we must be careful, since not any assignment will be optimal. For
+  example, suppose our recipe requires 5 g of A and 10 g of B, and we have the
+  following packages: 45 and 50 of A, and 110 and 111 of B. Converting these to
+  ranges, we get [9, 10] and [10, 11] for A, and [10, 12] and [11, 12] for B.
+  If we pair the [10, 11] package of A with the [10, 12] package of B, then we
+  will be left with a [9, 10] package of A and an [11, 12] package of B, and
+  those cannot be paired. However, we can make two kits by pairing the [9, 10]
+  package of A with the [10, 12] package of B, and the [10, 11] package of A
+  with the [11, 12] package of B.
+</p><p>
+  We could solve the problem via bipartite matching, but it is not needed.
+  Since there can be at most 8 packages of each ingredient in the Small, it is
+  possible to use brute force to try all 8! possible matchings and find the
+  largest number of kits that can be formed.
+</p>
+<h3>Large dataset</h3>
+<p>
+  The following greedy strategy works for the Large, for any number of
+  ingredients:
+</p>
+<ul>
+  <li>Keep making the smallest possible multiple of the recipe that we can.</li>
+  <li>Whenever we have a choice of packets, we choose one with the smallest
+    upper end of the range. Since we are always making the smallest multiple
+    we can, we do not care about the parts of the ranges up to and including
+    that multiple. We only care about how large the upper ends get. Since the
+    ranges are continuous, a range with a larger upper end is strictly more
+    flexible for future pairings than a range with a smaller upper end.</li>
+</ul>
+<p>
+  This strategy would not necessarily be optimal for arbitrary ranges, but it
+  is in this case thanks to the following property: if I<sub>1</sub> and
+  I<sub>2</sub> are the ranges of valid multipliers for the same ingredient,
+  and I<sub>1</sub> is included in I<sub>2</sub>, then I<sub>1</sub> and
+  I<sub>2</sub> have at least one endpoint in common. This is not hard to
+  prove: if I<sub>i</sub> comes from an original packet of size S<sub>i</sub>,
+  if S<sub>1</sub> &le; S<sub>2</sub>, then the lower bound of I<sub>1</sub>
+  must be no greater than the lower bound of I<sub>2</sub>. Otherwise,
+  S<sub>1</sub> &gt; S<sub>2</sub>, so the upper bound of I<sub>1</sub> must be
+  no less than the upper bound of I<sub>2</sub>. Let us call this property 0.
+</p><p>
+  We need some preliminary properties of our greedy algorithm before the main
+  proof:
+<ul>
+  <li><i>Property 1:</i> Whenever it chooses to discard a range, then there was
+    no valid kit remaining to use that range for. This follows directly by the
+    condition to discard ranges.</li>
+  <li><i>Property 2:</i> Whenever it chooses to use a set of ranges to form a
+    kit, and M is the lower bound of the intersection of all those ranges,
+    there is no other set of ranges left that could possibly make a kit with a
+    multiplier strictly less than M. This follows directly from the order in
+    which the ranges are considered.</li>
+</ul>
+<p>
+  Now we can combine all those properties and proceed by contradiction. Let
+  M<sub>1</sub>, M<sub>2</sub>, ..., M<sub>k</sub> be the smallest multipliers
+  of the kits produced by our greedy algorithm, in non-decreasing order. Let
+  N<sub>1</sub>, N<sub>2</sub>, ..., N<sub>k</sub>, N<sub>k+1</sub> be the
+  smallest multipliers of an assignment that produces one more kit, in
+  non-decreasing order.
+</p>
+<ul>
+  <li>Case A: Let i be the minimum i for which N<sub>i</sub> &lt;
+    M<sub>i</sub>. By property 2, that can only happen if there is no set of
+    ranges to make a kit with multiplier N<sub>i</sub>. That means the greedy
+    algorithm discarded such ranges or used them for some previous kit.
+    Property 1 prevents the discarding. Property 0 and the processing order
+    prevented the algorithm from using it before, because if a range R is
+    chosen at some point, all other remaining ranges for that ingredient have
+    an upper bound that is no less than R's, and therefore, such choice can't
+    prevent a future kit for being formed; all other ranges are, at that point,
+    at least as useful as R for larger multipliers.</li>
+  <li>Case B: There is no such i. Again, the greedy algorithm must have some
+    range missing not to be able to produce the kit with multiplier
+    N<sub>k+1</sub>. However, the same argument as in Case A using properties 1
+    and 0 shows that the wrong earlier decision that made that range not
+    available couldn't have happened.</li>
+</ul>
+<p>
+  We can implement this strategy with a separate list for each ingredient,
+  sorted first by nondecreasing lower end of range and then by nondecreasing
+  upper end of range. We keep looking at the set of earliest ranges of the
+  lists. If they all have an intersection, make them into a kit and remove
+  them. Otherwise, remove the least useful range (the one with the smallest
+  upper limit). We can speed this process up by using a priority queue, but
+  with <b>N</b> &times; <b>P</b> &le; 1000, such optimizations are not
+  necessary.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

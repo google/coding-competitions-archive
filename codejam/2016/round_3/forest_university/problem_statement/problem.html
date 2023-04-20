@@ -1,0 +1,454 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 3</h3><h1>Forest University</h1><h3>Problem</h3>
+<p>
+The Forest University offers its students <b>N</b> courses, which must all be
+taken to obtain the degree. The courses can only be taken one at a time - you
+must complete a course before starting another. Each course is either
+<i>basic</i>, which means one can take it without any prior knowledge, or
+<i>advanced</i>, in which case exactly one other course is its
+<i>prerequisite</i>.
+</p><p>
+A student must take the prerequisite for a course before taking the course,
+although they do not need to be taken immediately one after the other. A course
+might be the prerequisite for multiple other courses. There are no prerequisite
+cycles. Any sequence of the <b>N</b> courses that meets the rules for
+prerequisites is valid for obtaining the degree.
+</p><p>
+When you graduate, the university commemorates the sequence of courses you have
+taken by printing an abbreviated version of it on your graduation hat. More
+precisely, this abbreviated version is a string consisting of the first letter
+of the name of each course you have taken, in the order you have taken them.
+For example, if you have taken a Coding course and a Jamming course, in that
+order, your graduation hat will say <code>CJ</code>. It is considered trendy to
+have certain <i>cool words</i> as a substring of the string on one's graduation
+hat.
+</p><p>
+Consider all possible valid sequences in which the courses can be taken. For
+each cool word, you need to find the fraction of those sequences that have the
+cool word as a substring (at least once) of the string on the corresponding
+graduation hat. Note that we're interested in the fraction of possible course
+sequences, <i>not</i> the fraction of possible different graduation hat
+strings. (Since multiple courses may start with the same letter, there may be
+fewer possible strings than course sequences.)
+</p><p>
+Somewhat unusually for Code Jam, we are only looking for an approximate answer
+to this problem; pay careful attention to the output format.
+</p>
+
+<h3>Solving this problem</h3>
+<p>
+This problem has only 1 Small input and no Large input. You will be able to
+retry the input (with a time penalty).
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>. <b>T</b>
+test cases follow. Each test case consists of five lines, in this order, which
+contain the following:
+</p>
+<ol>
+<li>the number <b>N</b> of courses.</li>
+<li><b>N</b> integers; the i-th of these integers gives the number of the
+prerequisite course for the i-th course, or 0 if the i-th course is basic. The
+courses are numbered from 1 to <b>N</b>.</li>
+<li><b>N</b> uppercase English letters (without whitespace in between), with
+the i-th character giving the first letter of the i-th course's name.</li>
+<li>the number <b>M</b> of cool words.</li>
+<li><b>M</b> cool words, each of which consists only of uppercase English
+letters.</li>
+</ol>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing
+<code>Case #x: y<sub>1</sub> y<sub>2</sub> ... y<sub><b>M</b></sub></code>,
+where <code>x</code> is the test case number (starting from 1) and
+<code>y<sub>i</sub></code> is the fraction of valid course sequences that will
+have the i-th cool word as a substring of the string on the graduation hat.
+</p><p>
+<code>y<sub>i</sub></code> will be considered correct if it is within an
+absolute error of 0.03 of the correct answer. See the
+<a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a> for an
+explanation of what that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+
+<h3>Small dataset (Test Set 1 - Visible)</h3>
+<p>
+Time limit: 300 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+1 &le; <b>T</b> &le; 100.<br/>
+1 &le; <b>N</b> &le; 100.<br/>
+1 &le; <b>M</b> &le; 5.<br/>
+The length of each cool word is between 1 and 20.<br/>
+Each cool word consists of uppercase English letters only.<br/>
+There are no cycles formed by the prerequisites.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="forest_university_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+2
+0 1
+CJ
+4
+CJ C D JC
+3
+0 1 0
+BAA
+3
+AA AAB ABA
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="forest_university_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 1.0 1.0 0.0 0.0
+Case #2: 0.67 0.0 0.33
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+The sample output displays one set of acceptable answers to the sample cases.
+Other answers are possible within the allowed precision.
+</p><p>
+In sample case #1, course 1 (<code>C</code>) is a basic course that is a
+prerequisite for the advanced course 2 (<code>J</code>). The only way to
+complete the courses is to take course 1 and then course 2. This creates the
+string <code>CJ</code>. So the cool words <code>CJ</code>, <code>C</code>,
+<code>D</code>, and <code>JC</code> are present as substrings in 1, 1, 0, and 0
+out of 1 possible cases, respectively.
+</p><p>
+In sample case #2, the basic course 1 (<code>B</code>) is a prerequisite for
+the advanced course 2 (<code>A</code>), and course 3 (<code>A</code>) is
+another basic course. There are three possible ways of completing the courses:
+</p>
+<ol>
+<li>take course 1, then course 2, then course 3 (string: <code>BAA</code>)</li>
+<li>take course 1, then course 3, then course 2 (string: <code>BAA</code>)</li>
+<li>take course 3, then course 1, then course 2 (string: <code>ABA</code>)</li>
+</ol>
+<p>
+The cool words <code>AA</code>, <code>AAB</code>, and <code>ABA</code> are
+present as substrings in 2, 0, and 1 out of 3 possible cases, respectively.
+</p>
+
+    </div>
+  </body>
+</html>

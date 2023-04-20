@@ -1,0 +1,366 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round D</h3><h1>Analysis: Final Exam</h1><h3> Test set 1 </h3>
+
+<p>
+  For consistency, we will
+  use $$$maxDifficulty$$$ to represent the maximum difficulty of a problem which is equal to $$$1000$$$ for this test set.
+  As the difficulty of any problem can be at most $$$1000$$$, we can keep
+  track of all the problems that can be used to test the students. This can be done
+  by maintaining a boolean array $$$problemAvailable$$$ of size $$$maxDifficulty$$$ where
+  $$$problemAvailable[i]$$$ is true if a problem is still available for difficulty $$$i$$$.
+  We can iterate over the given $$$\mathbf{N}$$$ sets of problems and for each set $$$i$$$, mark that a problem
+  exists for each difficulty $$$x$$$ such that $$$\mathbf{A_i} \le x \le \mathbf{B_i}$$$. As no two sets contain the problems with
+  same difficulty level, we will iterate over a particular difficulty level at most once. Hence, we can
+  fill the boolean array $$$problemAvailable$$$ in $$$O(maxDifficulty)$$$ time.
+</p>
+
+<p>
+  For each query $$$j$$$, we can iterate through all remaining problems and
+  find out which problem has the difficulty $$$d$$$ such that $$$abs(d-\mathbf{S_j})$$$ is minimum.
+  This can be done in $$$O(maxDifficulty)$$$ time. After finding such problem, we can remove this problem
+  from the remaining problems by marking $$$problemAvailable[d]$$$ as false. This can be done in
+  constant time. Hence, we can answer each query in $$$O(maxDifficulty)$$$ time. The
+  overall complexity of the solution is $$$O(\mathbf{M} \times maxDifficulty)$$$.
+</p>
+
+<h3> Test set 2 </h3>
+
+<p>
+  We cannot list problems with all possible difficulties as maximum
+  difficulty can go upto $$$10^{18}$$$ in this test set. As the problem sets
+  contain problems with disjoint difficulties, we can store the problem sets as a range.
+  This can be done by using a map where key denotes the starting value of the range of difficulty
+  and value denotes the ending range of difficulty. To store the ranges from the initial problem
+  sets, we would need insertion operation in map. Hence,
+  we can store the ranges in $$$O(\mathbf{N} \times \log \mathbf{N})$$$ time complexity initially.
+</p>
+
+<p>
+  For a query $$$j$$$, we need to lookup into the map to find the problem with difficulty $$$d$$$
+  such that $$$abs(d-\mathbf{S_j})$$$ is minimized. We can perform an upper bound operation on map. In C++, one can use
+      <a href="http://www.cplusplus.com/reference/map/map/upper_bound/" target="_blank">std::map::upper_bound</a> method.
+       upper_bound($$$z$$$) returns first element greater than $$$z$$$. Suppose
+      upper_bound($$$\mathbf{S_j}$$$) returned $$$k$$$-th element of the map.
+  There are several cases that could occur:
+  <ul>
+    <li>
+      $$$k=1.$$$<br/>
+      <img src="images/kEquals1Case.png" width="60%" alt="Could not load image"/><br/>
+      This means that there is no range in map which could contain $$$\mathbf{S_j}$$$ as the first range in
+      map contains all values greater than $$$\mathbf{S_j}$$$.  Let the range corresponding to
+      first entry by $$$(x,y)$$$. The problem with difficulty $$$x$$$ will be the one with
+      closest value to $$$\mathbf{S_j}$$$. Thus, we can choose problem with difficulty $$$x$$$ for this query.
+      We can now update this range to $$$(x+1,y)$$$ as problem with difficulty $$$x$$$ is not available anymore.
+      If $$$x+1 \gt y$$$, we can remove this range.
+    </li>
+    <li>
+      Let the range corresponding to $$$(k-1)$$$-th element in map be $$$(l,r)$$$.
+      There are two cases here:
+      <ul>
+        <li>
+          $$$l \le \mathbf{S_j} \le r$$$.<br/>
+          <img src="images/SjProblemExists.png" width="60%" alt="Could not load image"/><br/>
+          This means that the problem with difficulty $$$\mathbf{S_j}$$$ exists. The answer to this
+          query would be the problem with difficulty $$$\mathbf{S_j}$$$. As this problem is not available
+          for the remaining queries, we can remove the range $$$(l,r)$$$ and insert 2 separate
+          ranges $$$(l,\mathbf{S_j}-1)$$$ and $$$(\mathbf{S_j}+1, r)$$$. If any of the ranges is invalid, we can
+          ignore that range.
+        </li>
+        <li>
+         $$$r \lt \mathbf{S_j}$$$.<br/>
+          <img src="images/SjProblemDoesNotExist.png" width="60%" alt="Could not load image"/><br/>
+         This means that there is no problem with difficulty $$$\mathbf{S_j}$$$.
+         If $$$\mathbf{S_j} - r \le x - \mathbf{S_j}$$$, then we can select the problem with difficulty $$$r$$$ as
+          it is closest to $$$\mathbf{S_j}$$$. We can update the range $$$(l,r)$$$ to $$$(l,r-1)$$$ if it is
+          a valid range.
+          Otherwise, we can select the problem with difficulty $$$x$$$. We can update the range $$$(x,y)$$$
+          to $$$(x+1,y)$$$ if it is a valid range.
+        </li>
+      </ul>
+    </li>
+</ul>
+</p>
+
+<p>
+  Each query can lead to addition of at most $$$1$$$ new entry into the map. Hence, the size of the
+  map would be $$$O(\mathbf{N} + \mathbf{M})$$$. We perform $$$O(1)$$$ operations each of which takes
+  $$$O(\log (\mathbf{N} + \mathbf{M}))$$$ time to compute answer
+  for a single query. So, we can
+  answer $$$\mathbf{M}$$$ queries in $$$O(\mathbf{M} \times \log (\mathbf{N} + \mathbf{M}))$$$ time.
+  Hence, the overall complexity of the solution is $$$O(\mathbf{N} \times \log \mathbf{N} + \mathbf{M} \times \log (\mathbf{N} + \mathbf{M}))$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

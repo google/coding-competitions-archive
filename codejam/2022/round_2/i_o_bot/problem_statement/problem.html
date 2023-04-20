@@ -1,0 +1,508 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 2</h3><h1>I, O Bot</h1><h3>Problem</h3>
+
+<p>
+  To welcome attendees to a developers' conference on Jupiter's moon of Io, the organizers inflated
+  many giant beach balls. Each ball is in roughly the shape of either a $$$1$$$ or a $$$0$$$, since
+  those look sort of like the letters I and O. The conference just ended, and so now the beach
+  balls need to be cleaned up. Luckily, the beach ball cleanup robot, BALL-E, is on the job!
+</p><p>
+  The conference was held on an infinite horizontal line, with station $$$0$$$ in the middle,
+  stations $$$1, 2, \dots$$$ to the right, and stations $$$-1, -2, \dots$$$ to the left. Station 0
+  contains the conference's only beach ball storage warehouse. Each other station contains at most
+  one beach ball.
+</p><p align="center">
+  <img src="img/i_o_bot.png" alt="Illustration of Sample Cases 1, 2, and 3."/>
+</p><p>
+  BALL-E has two storage compartments, each of which can hold a single beach ball. One compartment
+  can only hold $$$1$$$&NoBreak;-shaped balls and the other can only hold $$$0$$$&NoBreak;-shaped balls. (The
+  $$$1$$$&NoBreak;-shaped balls are more oblong than the $$$0$$$&NoBreak;-shaped balls, so neither shape of ball will
+  fit in the other shape's compartment.)
+</p><p>
+  BALL-E initially has both the $$$0$$$ and $$$1$$$ compartments empty, and it starts off at
+  station $$$0$$$. The robot can do the following things:
+</p>
+<ul>
+  <li>Move left one station or right one station. This costs 1 unit of power.</li>
+  <li>If there is a ball at the current station, and BALL-E is not already storing a ball of that
+    shape, it can put the ball in the appropriate compartment. This takes 0 units of power.</li>
+  <li>If there is a ball at the current station, BALL-E can compress it so that its shape becomes
+    the other shape. That is, a $$$1$$$&NoBreak;-shaped ball becomes a $$$0$$$&NoBreak;-shaped ball, or vice versa.
+    It takes $$$\mathbf{C}$$$ units of power to do this. Note that BALL-E may not change the shape of a ball
+    that it has already put into one of its compartments.</li>
+  <li> If BALL-E is at station 0 and is storing at least one ball, it can deposit all balls from
+    its compartment(s) into the beach ball storage warehouse. This takes 0 units of power and
+    leaves both compartments empty.</li>
+</ul>
+<p>
+  Notice that if BALL-E moves to a station and there is a ball there, BALL-E is not required to
+  pick it up immediately, even if the robot has an open compartment for it. Also, if BALL-E moves
+  to the station with the warehouse, it is not required to deposit any balls it has.
+</p><p>
+ Find the minimum number of units of power needed for BALL-E to transfer all of the balls to the
+  warehouse, using only the moves described above.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.<br/>
+The first line of each test case contains two integers, $$$\mathbf{N}$$$ and $$$\mathbf{C}$$$: the number of balls and the
+  amount of power units needed to change the shape of a ball, respectively.<br/>
+The next $$$\mathbf{N}$$$ lines describe the positions (i.e., station numbers) and the shapes of the balls.
+  The $$$i$$$-th line contains two integers, $$$\mathbf{X_i}$$$ and $$$\mathbf{S_i}$$$: the position and the shape of the
+  $$$i$$$-th ball, respectively.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$y$$$ is the <i>minimum</i> number
+  of units of power needed to transfer all of the balls to the warehouse, as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 40 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$0 \le \mathbf{S_i} \le 1$$$, for all $$$i$$$.<br/>
+$$$-10^9 \le \mathbf{X_i} \le 10^9$$$, for all $$$i$$$.<br/>
+$$$0 \le \mathbf{C} \le 10^9$$$.<br/>
+$$$\mathbf{X_i} &ne; 0$$$, for all $$$i$$$.<br/>
+All $$$\mathbf{X_i}$$$ are distinct.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+For at most 15 cases:<br/>
+$$$1 \le \mathbf{N} \le 5000$$$.<br/>
+For the remaining cases:<br/>
+$$$1 \le \mathbf{N} \le 100$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+For at most 15 cases:<br/>
+$$$1 \le \mathbf{N} \le 10^5$$$.<br/>
+For the remaining cases:<br/>
+$$$1 \le \mathbf{N} \le 5000$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="i_o_bot_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+5 0
+3 0
+6 0
+8 0
+10 1
+15 1
+5 10
+3 0
+6 0
+8 0
+10 1
+15 1
+5 1
+3 0
+6 0
+8 0
+10 1
+15 1
+2 0
+1000000000 0
+-1000000000 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="i_o_bot_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 52
+Case #2: 56
+Case #3: 54
+Case #4: 4000000000
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1 (illustrated in the statement), there are $$$\mathbf{N} = 5$$$ balls and $$$\mathbf{C} = 0$$$. One optimal strategy
+  is to make three round trips from (and back to) the warehouse:
+</p>
+<ul>
+  <li>
+    First round trip: Move to station $$$3$$$, pick up the $$$0$$$ ball there and store it in
+    the $$$0$$$ compartment, move back to station $$$0$$$, and deposit the ball in the warehouse.
+    This takes $$$6$$$ units of power.
+  </li><li>
+    Second round trip: Move to station $$$8$$$, pick up the $$$0$$$ ball there, and store it
+    in the $$$0$$$ compartment. Move to station $$$6$$$, change the $$$0$$$ ball there into a
+    $$$1$$$ ball, and pick it up and store it in the $$$1$$$ compartment. Move to station $$$0$$$
+    and deposit both balls in the warehouse. This takes $$$16$$$ units of power. (Recall that in
+    this case, it takes $$$0$$$ units of power to change a ball's shape.)
+  </li><li>
+    Third round trip: Move to station $$$10$$$. Change the $$$1$$$ ball there into a $$$0$$$
+    ball, and pick it up and store it in the $$$0$$$ compartment. Move to station $$$15$$$.
+    Pick up the $$$1$$$ ball there and store it in the $$$1$$$ compartment. Move to station
+    $$$0$$$ and deposit both balls in the warehouse. This takes $$$30$$$ units of power.
+  </li>
+</ul>
+<p>
+  The total number of units of power needed to collect all the balls is $$$52$$$.
+</p><p>
+  Sample Case #2 is like Sample Case #1, but now with $$$\mathbf{C} = 10$$$. Now BALL-E has to
+  use at least $$$56$$$ units of power:
+</p>
+<ul>
+  <li>
+    First round trip: Get the ball from station $$$3$$$. This takes $$$6$$$ units of power.
+  </li><li>
+    Second round trip: Get the differently-shaped balls from stations $$$6$$$ and $$$10$$$.
+    (These are a $$$0$$$ and a $$$1$$$, respectively, so there is no need to change the shape
+    of either of them.) This takes $$$20$$$ units of power.
+  </li><li>
+    Third round trip: Get the differently-shaped balls from stations $$$8$$$ and $$$15$$$.
+    This takes $$$30$$$ units of power.
+  </li>
+</ul>
+<p>
+  Sample Case #3 is also like Sample Case #1, but now with $$$\mathbf{C} = 1$$$. Here, BALL-E
+  needs at least $$$54$$$ units of power:
+</p>
+<ul>
+  <li>
+    First round trip: Get the ball from station $$$3$$$. This takes $$$6$$$ units of power.
+  </li><li>
+    Second round trip: Get the ball from station $$$8$$$. When passing through station $$$6$$$
+    on the way back, change the shape of the ball there and get it. This takes $$$17$$$ units of
+    power.
+  </li><li>
+    Third round trip: Do the same with the balls at stations $$$15$$$ and $$$10$$$. This takes
+    $$$31$$$ units of power.
+  </li>
+</ul>
+<p>
+  In Sample Case #4, one optimal strategy is for BALL-E to move to station $$$-1000000000$$$, get
+  the $$$1$$$ ball there, move to station $$$1000000000$$$, get the $$$0$$$ ball there, and then
+  return to station $$$0$$$ to deposit both of them.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,411 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 1C</h3><h1>Analysis: Intranets</h1><p>
+  We use terminology for
+  <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" target="_blank">graphs</a>.
+  The vertices are the $$$\mathbf{M}$$$ machines and the edges are the $$$\binom{\mathbf{M}}{2}$$$ links.
+</p>
+
+<h3>
+  Test Set 1
+</h3>
+<p>
+  Let's consider the process of assigning priorities to the edges one by one, from the highest
+  priority to the lowest. For simpicity, we number the $$$i$$$-th highest priority as priority
+  $$$i$$$ so that the smaller the number, the higher the priority.
+</p>
+<p>
+  Suppose we have assigned the highest $$$i$$$ priorities to $$$i$$$ edges, and we need to
+  assign the priority $$$(i+1)$$$ to a new edge. How can we do?
+</p>
+<p>
+  We have three types of choices. Suppose the new edge with the priority $$$(i+1)$$$ is $$$(u,v)$$$.
+  Let $$$S_i$$$ be the set of vertices that the edges with highest $$$i$$$ priorities connect with.
+</p>
+<ol>
+  <li>
+    If the vertices $$$u$$$ and $$$v$$$ don't occur in the previously assigned edges. I.e.
+    $$$u\notin S_i, v\notin S_i$$$, the number of such edges is $$$\binom{\mathbf{M}-|S_i|}{2}$$$. In this
+    case, $$$u$$$ and $$$v$$$ form a new intranet. So, the number of intranets increase by
+    $$$1$$$, and $$$|S_{i+1}|$$$ equals $$$|S_i|+2$$$.
+  </li>
+  <li>
+    If $$$u\in S_i, v\notin S_i$$$, the number of such edges is $$$|S_i|\cdot (\mathbf{M}-|S_i|)$$$. In 
+    this case, $$$v$$$ joins the intranet in which $$$u$$$ is located. So, the number of intranets 
+    does not change, and $$$|S_{i+1}|$$$ equals $$$|S_i|+1$$$.
+  </li>
+  <li>
+    If $$$u\in S_i, v\in S_i$$$, the number of such edges is $$$\binom{|S_i|}{2}-i$$$. In this
+    case, the edge is not activated. So, the number of intranets do not change,
+    and $$$|S_{i+1}|$$$ equals $$$|S_i|$$$.
+  </li>
+</ol>
+
+<p>
+  Then, we can use a dynamic programming approach to solve Test Set 1. Let $$$\text{dp}(i,j,k)$$$
+  denote the probability that we assign the highest $$$i$$$ priorities to the edges, the set of
+  vertices introduced by these $$$i$$$ edges has the size of $$$j$$$, and $$$k$$$ intranets have
+  been formed. The transition function can be deduced from the discussion above.
+  The time complexity is $$$O(\mathbf{M}^4)$$$ and it is enough to pass Test Set 1.
+</p>
+<p>
+  We can speed this up to $$$O(\mathbf{M}^2)$$$ by dropping $$$i$$$ from the keys. Let $$$\text{dp}(j,k)$$$
+  denote the probability that after assigning the highest $$$i$$$ priorities for some $$$i$$$,
+  the set of vertices introduced by these $$$i$$$ edges has the size of $$$j$$$,
+  and $$$k$$$ intranets have been formed.
+  The transition is to assign the highest priority
+  <strong>among the edges of the types 1 and 2 above</strong>.
+  The probability of there being a new intranet is
+  $$$\frac{\binom{\mathbf{M}-|S_i|}{2}}{\binom{\mathbf{M}-|S_i|}{2} + |S_i|\cdot (\mathbf{M}-|S_i|)}$$$
+  as we are no longer interested in priorities of the edges of the type 3 above.
+</p>
+
+<h3>
+  Observing the graph
+</h3>
+<p>
+  From the solution for Test Set 1, we see that each intranet corresponds to a pair of vertices
+  $$$(u, v)$$$ such that both $$$u$$$ and $$$v$$$ activate the edge $$$(u, v)$$$.
+  This fact can also be proved directly, and we describe here.
+</p>
+<p>
+  Let's fix an assignment of priorities and consider the directed graph
+  where the vertices are the machines and the edges are $$$(u, v)$$$ such that machine $$$u$$$ uses
+  the links connecting machines $$$u$$$ and $$$v$$$.
+  Since this graph is a functional graph (each vertex has outdegree $$$1$$$),
+  each connected component contains exactly one cycle (and possibly some chains of nodes leading
+  into the cycle).
+</p>
+<p>
+  A crucial observation is that the length of a cycle cannot be $$$3$$$ or more.
+  Assume the contrary: that vertices $$$u_1, \ldots, u_c$$$ ($$$c \ge 3$$$)
+  form a cycle in this order,
+  and let the priority of the link connecting $$$u_i$$$ and $$$u_{i+1}$$$ be $$$p_i$$$
+  (indices are modulo $$$c$$$).
+  Note that those links are distinct.
+  Since machine $$$u_i$$$ uses the link with highest priority, we have $$$p_i \lt p_{i-1}$$$.
+  This gives us $$$p_1 \gt p_2 \gt \cdots \gt p_c \gt p_1$$$, a contradiction.
+  As a self loop is also impossible, we conclude that every cycle in the graph has length $$$2$$$.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+<p>
+  Let's call the set of edges activated by both of their endpoints an <em>active matching</em>
+  as they form a
+  <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)" target="_blank">matching</a>.
+  Now the problem is to compute the probability that the size of the active matching is exactly $$$\mathbf{K}$$$.
+</p>
+<p>
+  For a matching $$$X$$$, let $$$f(X)$$$ be the probability that the active matching is $$$X$$$.
+  Since it is not easy to compute $$$f(X)$$$ directly, we apply
+  <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle" target="_blank">inclusion&dash;exclusion principle</a>
+  technique and so let $$$g(X)$$$ be the probability that the active matching
+  <strong>contains</strong> $$$X$$$, that is, $$$g(X) = \sum_{Y \supseteq X} f(Y)$$$.
+  By inverting this, we have
+  $$$f(X) = \sum_{Y \supseteq X} (-1)^{\lvert Y \rvert - \lvert X \lvert} g(Y)$$$.
+  Our answer is then calculated as follows:
+  $$$$\sum_{\lvert X \rvert = \mathbf{K}} f(X)
+  = \sum_{\lvert X \rvert = \mathbf{K}} \sum_{Y \supseteq X} (-1)^{\lvert Y \rvert - \lvert X \lvert} g(Y)
+  = \sum_{\lvert Y \rvert \ge \mathbf{K}} \binom{\lvert Y \rvert}{\mathbf{K}} (-1)^{\lvert Y \rvert - \mathbf{K}} g(Y)
+  = \sum_{i \ge \mathbf{K}} \binom{i}{\mathbf{K}} (-1)^{i-\mathbf{K}} \sum_{\lvert X \rvert = i} g(X)$$$$
+</p>
+<p>
+  All that remains is to compute $$$g(X)$$$.
+  Of course, this depends only on $$$\lvert X \rvert$$$, and we want to compute it when
+  $$$\lvert X \rvert = i$$$, for each $$$i = \mathbf{K}, \mathbf{K} + 1, \ldots, \mathbf{M}$$$.
+  There are $$$i!$$$ possible orders of priorities assigned to $$$X$$$.
+  Let's fix one of them and let the edges in $$$X$$$ be
+  $$$(u_1, v_1), (u_2, v_2), \ldots, (u_i, v_i)$$$ from the lowest priority to the highest.
+  Then the condition that the active matching contains $$$X$$$ is equivalent to,
+  for each $$$j = 1, 2, \ldots, i$$$, edge $$$(u_j, v_j)$$$ has the highest priority among edges
+  touching at least one of $$$u_1, v_1, \ldots, u_j, v_j$$$.
+  Hence we have
+  $$$$g(X) = i! \prod_{j=1}^i \frac{1}{\binom{\mathbf{M}}{2} - \binom{\mathbf{M}-2j}{2}}.$$$$
+<p>
+  Here we note that the denominators can be factorized to see that they are not divisible by
+  $$$10^9+7$$$.
+  The number matchings of size $$$i$$$ is $$$\frac{1}{i! 2^i} \frac{\mathbf{M}!}{(\mathbf{M}-2i)!}$$$,
+  and this completes the $$$O(\mathbf{M})$$$ time solution (the divisions can be done efficient
+  by using the factorization, though this is not necessary).
+</p>
+<p>
+  In fact, we can find the answers for $$$K = 1, \ldots, \lfloor \frac{\mathbf{M}}{2}\rfloor$$$
+  at the same time in $$$O(\mathbf{M} \log \mathbf{M})$$$ time:
+  The transformation from $$$g$$$ to $$$f$$$ can be represented by a convolution and we can use FFT.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

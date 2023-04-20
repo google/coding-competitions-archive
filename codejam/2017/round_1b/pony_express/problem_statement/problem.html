@@ -1,0 +1,507 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 1B</h3><h1>Pony Express</h1><h3>Problem</h3>
+<p>
+  It's the year 1860, and the Pony Express is the fastest mail delivery system
+  joining the East and West coasts of the United States. This system
+  serves <b>N</b> different cities. In each city, there is one horse (as in the
+  expression "one-horse town"); each horse travels at a certain constant speed
+  and has a maximum total distance it can travel before it becomes too tired to
+  continue.
+</p><p>
+  The Pony Express rider starts off on the starting city's horse. Every time the
+  rider reaches a city, they may continue to use their current horse or switch
+  to that city's horse; switching is instantaneous. Horses never get a chance to
+  rest, so whenever part of a horse's maximum total distance is "used up", it is
+  used up forever! When the rider reaches the destination city, the mail is
+  delivered.
+</p><p>
+  The routes between cities were established via complicated negotiations
+  between company owners, lawmakers, union delegates, and cousin Pete. That
+  means that the distances between cities do not necessarily follow common
+  sense: for instance, they do not necessarily comply with the triangle
+  inequality, and the distance from city A to city B might be different from the
+  distance from city B to city A!
+</p><p>
+  You are a time traveling entrepreneur, and you have brought a fast computer
+  from the future. A single computer is not enough for you to set up an e-mail
+  service and make the Pony Express obsolete, but you can use it to make optimal
+  routing plans for the Pony Express. Given all data about routes between cities
+  and the horses in each city, and a list of pairs of starting and ending
+  cities, can you quickly calculate the minimum time necessary for each
+  delivery? (You should treat all of these deliveries as independent; using
+  cities/horses on one route does not make them unavailable on other routes.)
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case is described as follows:
+</p>
+<ul>
+  <li>One line with two integers: <b>N</b>, the number of cities with horses,
+  and <b>Q</b>, the number of pairs of stops we are interested in. Cities are
+  numbered from 1 to <b>N</b>.
+  </li>
+  <li>
+  <b>N</b> lines, each containing two integers <b>E</b><sub>i</sub>, the maximum
+  total distance, in kilometers, the horse in the i-th city can go
+  and <b>S</b><sub>i</sub>, the constant speed, in kilometers per hour, at which the
+  horse travels.
+  </li>
+  <li>
+  <b>N</b> lines, each containing <b>N</b> integers. The j-th integer on the
+  i-th of these lines, <b>D</b><sub>ij</sub>, is -1 if there is no direct route
+  from the i-th to the j-th city, and the length of that route in kilometers otherwise.
+  </li>
+  <li>
+  <b>Q</b> lines containing two integers <b>U</b><sub>k</sub>
+  and <b>V</b><sub>k</sub>, the starting and destination point, respectively, of
+  the k-th pair of cities we want to investigate.
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y<sub>1</sub>
+  y<sub>2</sub> ...  y<sub><b>Q</b></sub></code>, where <code>x</code> is the
+  test case number (starting from 1) and <code>y<sub>k</sub></code> is the
+  minimum time, in hours, to deliver a letter from city <b>U</b><sub>k</sub> to
+  city <b>V</b><sub>k</sub>.
+</p><p>
+  Each <code>y<sub>k</sub></code> will be considered correct if it is within an
+  absolute or relative error of 10<sup>-6</sup> of the correct answer. See
+  the <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a> for an explanation of
+  what that means, and what formats of real numbers we accept.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  2 &le; <b>N</b> &le; 100.<br/>
+  1 &le; <b>E</b><sub>i</sub> &le; 10<sup>9</sup>, for all i.<br/>
+  1 &le; <b>S</b><sub>i</sub> &le; 1000, for all i.<br/>
+  -1 &le; <b>D</b><sub>ij</sub> &le; 10<sup>9</sup>, for all i, j.<br/>
+  <b>D</b><sub>ii</sub> = -1, for all i. (There are no direct routes from a city to itself.)<br/>
+  <b>D</b><sub>ij</sub> &ne; 0, for all i, j.<br/>
+  <b>U</b><sub>k</sub> &ne; <b>V</b><sub>k</sub>, for all k.<br/>
+  It is guaranteed that the delivery from <b>U</b><sub>k</sub> to <b>V</b><sub>k</sub> can be
+  accomplished with the given horses, for all k.<br/>
+  <b>U</b><sub>l</sub> &ne; <b>U</b><sub>m</sub> and/or <b>V</b><sub>l</sub> &ne; <b>V</b><sub>m</sub>,
+  for all different l, m. (No ordered pair of cities to investigate is repeated within a test case.)<br/>
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+  <b>D</b><sub>ij</sub> = -1, for all i, j where i + 1 &ne; j.
+  (The cities are in a single line; each route goes from one city to the next city in line.)<br/>
+  <b>Q</b> = 1.<br/>
+  <b>U</b><sub>1</sub> = 1.<br/>
+  <b>V</b><sub>1</sub> = <b>N</b>.
+  (The only delivery to calculate is between the first and last cities in the line).<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+1 &le; <b>Q</b> &le; 100.<br/>
+1 &le; <b>U</b><sub>k</sub> &le; <b>N</b>, for all k.<br/>
+1 &le; <b>V</b><sub>k</sub> &le; <b>N</b>, for all k.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="pony_express_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+3 1
+2 3
+2 4
+4 4
+-1 1 -1
+-1 -1 1
+-1 -1 -1
+1 3
+4 1
+13 10
+1 1000
+10 8
+5 5
+-1 1 -1 -1
+-1 -1 1 -1
+-1 -1 -1 10
+-1 -1 -1 -1
+1 4
+4 3
+30 60
+10 1000
+12 5
+20 1
+-1 10 -1 31
+10 -1 10 -1
+-1 -1 -1 10
+15 6 -1 -1
+2 4
+3 1
+3 2
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="pony_express_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 0.583333333
+Case #2: 1.2
+Case #3: 0.51 8.01 8.0
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Note that the last sample case would not appear in the Small dataset.
+</p><p>
+  In Case #1 there are two options: use the horse in city 1 for the entire trip,
+  or change horses in city 2. Both horses have enough endurance, so both options
+  are viable. Since the horse in city 2 is faster, it is better to change, for a
+  total time of 1/3 + 1/4.
+</p><p>
+  In Case #2 there are two intermediate cities in which you can change
+  horses. If you change horses in city 2, however, your new horse, while
+  blazingly fast, will not have enough endurance, so you will be forced to
+  change again in city 3. If you keep your horse, you will have the option to
+  change horses (or not) in city 3. So, the three options, with their total
+  times, are:
+</p><ol>
+  <li>Change horses in both city 2 and 3 (1/10 + 1/1000 + 10/8 = 1.351).</li>
+  <li>Change horses just in city 3 (2/10 + 10/8 = 1.45).</li>
+  <li>Never change horses (12/10 = 1.2).</li>
+</ol><p>
+  In Case #3, there are lots of alternatives for each delivery. The optimal one
+  for the first delivery (city 2 to city 4) is to go to city 1 in time 10/1000,
+  change horses, and then go to cities 2, 3 and 4, in that order, using the
+  horse from city 1, which takes time (10 + 10 + 10) / 60.
+</p><p>
+  For the second delivery (city 3 to city 2) you have no choice but to first go
+  to city 4 which takes time 10/5. Your relatively fast horse does not have
+  enough endurance to get anywhere else, so you need to grab the horse in city
+  4. You could use it to get directly to city 1 in time 15, but that would be
+  slower than riding it to city 2 in time 6 and then using the blazingly fast
+  horse in city 2 to get to city 1 in just 10/1000 extra time.
+</p><p>
+  In the third delivery (city 3 to city 1) of Case #3 it is optimal to use the
+  first two steps of the previous one, for a total time of 10/5 + 6 = 8.
+</p>
+
+    </div>
+  </body>
+</html>

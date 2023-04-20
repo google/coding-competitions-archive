@@ -1,0 +1,415 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round A</h3><h1>Analysis: Palindrome Free Strings</h1><h3>
+  Test Set 1
+</h3>
+
+<p>
+  Since $$$\mathbf{N}$$$ is small in this test set, we can enumerate all different ways to fill in the question
+  marks recursively, which produces at most $$$2^\mathbf{N}$$$ candidate strings. Then, we check for each
+  string if it contains a palindromic substring of $$$5$$$ or more characters.
+  If it does not, we have found a solution.
+</p>
+
+<p>
+  Checking for the presence of palindromic substrings can be done naively, by checking every
+  possible substring, which takes $$$O(\mathbf{N}^3)$$$ time ($$$O(\mathbf{N}^2)$$$ substrings times $$$O(\mathbf{N})$$$
+  to check if a substring is palindromic).
+  It is possible to achieve a lower complexity by searching for the
+  <a href="https://en.wikipedia.org/wiki/Longest_palindromic_substring" target="_blank">longest
+    palindromic substring</a> in $$$O(\mathbf{N}^2)$$$ or $$$O(\mathbf{N})$$$ time.
+</p>
+
+<p>
+  The overall time complexity will be between $$$O(2^\mathbf{N} \times \mathbf{N})$$$ and
+  $$$O(2^\mathbf{N} \times \mathbf{N}^3)$$$ but with the given constraints, even the slowest solution should pass.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  If $$$\mathbf{N} \lt 5$$$ the answer is trivially <code>POSSIBLE</code>, so without loss of generality,
+  we will assume $$$\mathbf{N} \ge 5$$$ in the following discussion.
+</p>
+
+<p>
+  <em>Observation 1:</em> If a string contains a palindromic substring $$$P$$$ of length
+  $$$|P| \gt 6$$$, then it must also contain a palindromic substring of length $$$5$$$ or $$$6$$$.
+  For example, we can take the middle $$$6$$$ characters of $$$P$$$ if $$$|P|$$$ is even, and the
+  middle $$$5$$$ characters otherwise. Consequently, as we fill in the question marks in $$$\mathbf{S}$$$, our only
+  concern is to avoid introducing palindromes of length $$$5$$$ or $$$6$$$.
+</p>
+
+<p>
+  If at any point in the recursive solution described above, the last $$$5$$$ or $$$6$$$ characters of
+  the prefix generated so far form a palindrome, we can backtrack immediately, thus pruning the
+  search space. If we  manage to generate the entire binary string of length $$$\mathbf{N}$$$ without forming a
+  palindrome of length $$$5$$$ or $$$6$$$, the answer is <code>POSSIBLE</code>. Otherwise, we have
+  exhausted the search space with no success, and the answer is <code>IMPOSSIBLE</code>.
+</p>
+
+<p>
+  This reduces the upper bound to $$$O(2^\mathbf{N})$$$, which is an improvement over the solution for
+  Test Set 1, but it is still prohibitively slow for Test Set 2. It turns out that the complexity
+  is much lower in practice.
+</p>
+
+<p>
+  Consider again that if we have a valid solution prefix, only its last five characters determine
+  whether it is possible to append a <code>0</code> or <code>1</code> without introducing a
+  palindrome. That means that all  valid strings can be generated by a finite state machine with
+  exactly $$$24$$$ states ($$$32$$$ five-character strings, minus $$$8$$$ palindromes).
+  A transition from <code>abcde</code> to <code>bcdef</code> is possible if and
+  only if neither <code>abcde</code> nor <code>bcdef</code> is a $$$5$$$-character palindrome and
+  <code>abcdef</code> is not a $$$6$$$-character palindrome.
+  All state transitions are shown in the directed graph below:
+</p>
+
+<img src="images/finite-state-machine.png" alt="Finite state machine">
+
+<p>
+  The graph shows, for example, that if the last five characters were <code>11101</code> then we can add
+  <code>0</code> to obtain <code>11010</code>, but we cannot add <code>1</code>, which would create
+  the palindrome <code>11011</code>. Any valid string can be formed by starting from some vertex
+  (corresponding with the first $$$5$$$ characters of the string) and then following edges of the
+  graph, appending the labels on the edges to the string.
+</p>
+
+<p>
+  <em>Observation 2:</em> The graph contains only two cycles, which do not overlap and neither is
+  reachable from the other. That means that the only way to form long strings is by repeating the
+  pattern <code>001101</code> (going through the left cycle, colored blue) or <code>110010</code>
+  (going through the right cycle, colored red).
+  Since we can start and end at any vertex of the graph, there are a few variations possible
+  at both ends of the string, but since the longest path before entering a cycle has length $$$2$$$,
+  and the longest path after exiting from a cycle has length $$$2$$$, all characters in the string
+  except for the first and last two must consist of repetitions of one of the two $$$6$$$-character
+  patterns mentioned before.
+  This gives an upper bound of $$$4 \times 12 \times 4 = 192$$$ palindrome-free strings of any fixed
+  length, though this is an overestimation and it can be shown that the real maximum is only
+  $$$36$$$.
+</p>
+
+<p>
+  The resursive solution will generate each possible prefix once. Therefore, it takes $$$O(M)$$$
+  time, where $$$M$$$ is the number of palindrome-free prefixes of the solution. We have shown above
+  that $$$M \le 36\mathbf{N}$$$,  which makes the overall runtime $$$O(\mathbf{N})$$$ and allows it to
+  pass without any additional memory.
+</p>
+
+<h4>Dynamic programming solutions</h4>
+<p>
+  It seems unlikely that contestants would take the time to draw the state graph before attempting
+  to solve the problem, so they might have missed the second observation. Fortunately, it is also
+  possible to solve the problem with only the first observation, by using dynamic programming.
+</p>
+
+<p>
+  The simplest way to reduce the runtime of the backtracking solution is to add
+  <a href="https://en.wikipedia.org/wiki/Memoization" target="_blank">memoization</a>.
+
+  If the solution is implemented as a function $$$f(p)$$$ where $$$p$$$ is a partial solution
+  string, we can replace this with a function $$$f'(p', i)$$$ where $$$p'$$$ is the $$$5$$$-character
+  suffix of $$$p$$$  and $$$i = |p|$$$ (the length of the prefix, or, equivalently, the position in
+  the input).
+  Observation 1 tells us that these representations are equivalent. We can simply cache the results
+  of $$$f'$$$ for each pair of arguments which requires $$$O(2^5 \times \mathbf{N})$$$ = $$$O(\mathbf{N})$$$ time
+  and space.
+</p>
+
+<p>
+  A second approach is bottom-up dynamic programming. We process the characters in the input from
+  left to right, while maintaining a set of possible prefixes truncated to the last five characters.
+  To process an input character, we calculate a new set by extending the prefixes from the old set.
+  For example, if the set contains <code>10100</code> and the next input character is <code>1</code>
+  then we can add <code>01001</code> to the next set. If the input character were <code>?</code>
+  instead, then we could also add <code>01000</code>.
+  If it becomes empty at any point, the answer is <code>IMPOSSIBLE</code>.
+  If it is nonempty when we reach the end of the input, then the answer is <code>POSSIBLE</code>.
+</p>
+
+<p>
+  The second approach effectively executes a nondeterministic finite state automaton corresponding
+  with the graph shown above.
+  It is nondeterministic because whenever the input contains a question mark, the transitions
+  labeled with <code>0</code> and <code>1</code> are both possible, hence the need to track a set of
+  states rather than a single current state only.
+  This approach takes $$$O(2^5 \times \mathbf{N})$$$ = $$$O(\mathbf{N})$$$ time too, but since we only maintain a
+  single set of possible states, the space requirement is reduced to $$$O(2^5) = O(1)$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

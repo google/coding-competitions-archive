@@ -1,0 +1,457 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - World Finals</h3><h1>Analysis: Radioactive Islands</h1><h2>Radioactive Islands: Analysis</h2>
+<p>
+This optimization problem touches on topics that are a bit further afield from
+our other problems!  But a wide range of reasonable solution approaches
+can be successful.
+</p><p>
+We will start with some general insights, and then move on to a few of the many
+possible solutions.
+</p>
+<h3>Never get too close to an island</h3>
+<p>
+The radiation dose rate rises sharply as we approach an island, so any path
+that passes too close to an island is worse than a path that takes the time to
+travel around it at a greater distance away.
+</p><p>
+This is helpful because we can be more confident about numerical precision when
+finding approximations to the best path, since areas where the dose rate is low
+are also those where the derivative of the dose rate with respect to position
+is low.
+</p>
+<h3>Never move left</h3>
+<p>
+Although the input limits do not allow it, suppose that the boat started
+0.000001 km to the left of an island. In that case, the effects of the island
+would be much worse than the effects of the background radiation, and we'd want
+to move left to "escape" from the island as fast as possible and eventually
+make a wide curve around it.
+</p>
+<p>
+Also, consider a scenario where the difference in the Y-coordinates of the endpoints is
+large enough that the angle between them is nearly 90&deg; from horizontal, and where
+there is an island in the middle of the direct path between the endpoints.
+Then an optimal path could start by moving almost vertically but slightly to the left,
+because that would give the island a wider berth without significantly increasing the
+total length of the path.
+</p>
+<p>
+However, we've made the input "nice" &mdash; the boat always starts 10 km to the left of the
+islands, where the maximum dose rate from the islands is at most 0.02&mu;Sv/h, and the
+maximum angle between the endpoints is 45&deg; from horizontal, so any movement to the left
+at the start would be misguided.
+</p><p>
+Similarly, leftward moves in the middle of the path do not help either &mdash; a path
+which zig-zags back and repeats some X-coordinates can be altered to take a more direct
+route with a lower total radiation dose.
+</p>
+<img src="curvedpath.png">
+<p>
+</p>
+<h3>Solution #1: Hill-climbing</h3>
+<p>
+</p><p>
+This optimization problem is well-suited for hill-climbing because it is easy to iteratively
+take a reasonable path and "nudge" it towards a better path in such a way that it will
+converge quickly towards a local minimum.
+</p>
+<p>
+How many local minima are there?
+Since we should never move left, and there's only one or two islands,
+the optimal paths can only take so many forms.
+With one island, the optimal path will either go above the island, or go below
+it. With two islands, the optimal path will either go above both islands,
+between the two islands, or below both islands.
+</p>
+<p>
+So if we start with a reasonable path for each of these forms and hill-climb from there,
+we will find each of the two or three local minima.
+</p>
+An easy way to do this is to
+model a path as a series of many small straight line segments. For each
+such segment, we can use calculus to find the amount of radiation
+received along that part of the path. Let's consider one such segment, running
+from (x<sub>1</sub>,y<sub>1</sub>) to (x<sub>2</sub>,y<sub>2</sub>), that we
+travel along between time 0 and time 1 (we've rescaled the times for
+convenience). Then the x and y coordinates, as a function of time t, are:
+</p>
+<p>
+x(t) = x<sub>1</sub> + t(x<sub>2</sub>-x<sub>1</sub>)<br>
+y(t) = y<sub>1</sub> + t(y<sub>2</sub>-y<sub>1</sub>)<br>
+</p><p>
+Suppose that there are two islands (the one island case is just a simpler
+version of this), and the y coordinates of the islands are y<sub>i1</sub> and
+y<sub>i2</sub>. (Recall that the x coordinates of both islands are 0.) Then the
+total amount of radiation is the definite integral from 0 to 1 of:
+</p><p>
+[1 + 1 / (x(t)<sup>2</sup> + (y(t)-y<sub>i1</sub>)<sup>2</sup>)) + 1 / (x(t)<sup>2</sup> + (y(t)-y<sub>i2</sub>)<sup>2</sup>))] &times; [sqrt((x<sub>2</sub>-x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub>-y<sub>i1</sub>)<sup>2</sup>))] dt
+</p><p>
+This integral can be solved exactly, but that's not necessary.  Multiplying the
+length of the segment by the average of the dose rates at the endpoints of the segment is
+sufficiently accurate, if enough segments are used.
+</p><p>
+The question is how to find the right positions for our segments. We can lay
+down a rough path with endpoints whose X-coordinates are fixed and evenly-spaced
+between -10 and +10.  Now, the Y-coordinates are a vector of real numbers,
+and we need to optimize that vector.
+</p><p>
+We can use <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a>
+to do this &mdash; we need to iterate finding a direction to move the vector in
+such that the total radiation decreases.
+</p></p>
+Adjusting one value at a time doesn't work &mdash; even if a particular point needs
+to be moved upward, if we move only that one point upward, we'll soon be increasing the total
+radiation dose because the path will have a "kink" in it.  But almost any other scheme will do &mdash;
+choosing an interval of points and nudging them all up or down in a triangular shape, moving the points
+in the middle more than the points at the end, will preserve the smoothness of the path.
+</p></p>
+Other more sophisticated nonlinear optimization techniques like the
+<a href="https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm">BFGS algorithm</a>
+work also.
+</p>
+<h3>Solution #2: Calculus of Variations</h3>
+<p>
+We can consider the Y-coordinate of the ship to be a function of its X-coordinate
+and write the total radiation dose as an integral involving that function, then use
+techniques from the
+<a href="https://en.wikipedia.org/wiki/Calculus_of_variations">calculus of variations</a>
+to minimize it. The
+<a href="https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation">Euler-Lagrange equation</a>
+gives us a condition, expressed as a differential equation, that any solution must satisfy.
+This condition is entirely local, so if we knew the
+initial direction the ship should travel, we could find the entire path by
+using a numerical integration technique such as a
+<a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge&ndash;Kutta method</a>,
+to find a solution to the differential
+equation using the known initial conditions. However, we don't know the initial
+direction of the boat &mdash; we only know its starting and ending positions!
+</p><p>
+If we guess an initial direction for the boat that's reasonable, then
+integrating will trace out a path, but the y-coordinate of the endpoint will
+probably not be right. So, we can do a binary search to find the initial
+direction that does lead us to the desired endpoint. If we repeat the binary
+search for ranges that correspond to each of the forms the path can take, then
+we will find the optimal path.
+</p><p>
+Simple numerical integration techniques using finite differences are accurate
+enough to solve this problem, but one has to be careful of initial directions
+that point too directly towards an island or that have too large a slope, as those
+cases can have large numerical errors that might cause the binary search
+to take the wrong branch.
+</p><p>
+KalininN used this method to solve the Small dataset, and his solution would
+have worked for the Large with some minor tweaking.
+</p>
+<h3>Solution #3: Dynamic Programming</h3>
+<p>
+Another approach is to overlay a grid of points on the map, and use dynamic
+programming to find the optimal path through them.  This is possible because
+the precision bound for this problem was not too strict, but it is still difficult to
+get right.  A grid with too few points cannot model the optimal path accurately
+enough to get the right answer, and a grid with too many points would result in
+a dynamic programming problem that is too big to solve in time.
+</p><p>
+Gennady.Korotkevich, the only contestant to solve the Large dataset, successfully
+used this approach.  He had two insights that made this method workable.
+</p><p>
+The ship's path is largely horizontal, with gradual changes in angle; the problem
+is mostly a question of how to carefully
+modulate the boat's vertical position. So the grid of points can have coarser
+horizontal granularity than vertical granularity; Gennady used a ratio of 20 to
+1.  In the final minutes of the contest, Gennady was testing two solutions,
+which only differed in their horizontal granularity.  The coarser grid turned
+out to be more accurate, because it was able to model angles more
+precisely.  A grid that was finer in both the horizontal and vertical directions
+would have been more accurate, but might have been too slow.
+</p><p>
+The second insight was that the path should have no segments which have a very steep
+angle, so when computing the optimal value for a point in one column, only
+points in the previous column within a certain vertical range need to be considered.
+The size of that range was controlled by a constant called <code>MAGIC</code> in
+Gennady's code. His solution ran in well
+under the time limit allowed for the Large, and the answers were within our
+somewhat generous error bounds.
+</p><p>
+It is possible to get a very accurate result quickly with this method by starting with a
+coarse grid, finding the optimal path in that grid, then iteratively improving the
+path by using finer and finer grids overlaying the space close to the path.
+</p><p>
+You can download our contestants' submissions to this problem (and others) from
+the Finals scoreboard.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

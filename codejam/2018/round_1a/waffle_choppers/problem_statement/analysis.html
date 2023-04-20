@@ -1,0 +1,386 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 1A</h3><h1>Analysis: Waffle Choppers</h1><h3>Test set 1</h3>
+<p>
+  In test set 1, we are asked to make only one horizontal cut and only
+  one vertical cut. There are <b>R</b> - 1 possible horizontal cuts and
+  <b>C</b> - 1 possible vertical cuts, so there are a total of (<b>R</b> - 1)
+  &times; (<b>C</b> - 1) different ways to make the two cuts. Since <b>R</b>
+  and <b>C</b> are both at most 10, there are at most 81 ways, and we can
+  try each one of them separately. For each way, we can count up the chocolate
+  chips in each of the four resulting pieces. If we ever find a way in which
+  that number is the same for all four pieces, the answer is
+  <code>POSSIBLE</code>; otherwise, it is <code>IMPOSSIBLE</code>.
+</p>
+<h3>Test set 2</h3>
+<p>
+  In test set 2, we may have to make many horizontal and vertical cuts,
+  and there are too many ways to do this to check. The worst cases occur when
+  <b>H</b> is close to half of (<b>R</b> - 1), and <b>V</b> is close to half of
+  (<b>C</b> - 1); there could be over 10<sup>57</sup> ways of making the cuts!
+  So we need another approach.
+</p><p>
+  Let us consider only the horizontal cuts, ignoring the vertical cuts for the
+  moment. These horizontal cuts break the waffle into two or more horizontal
+  "slices". Each of these slices will turn into exactly <b>V</b> + 1 pieces
+  when we make our vertical cuts. Here is the critical observation: if the
+  case is <code>POSSIBLE</code>, all of those pieces must have exactly the
+  same number of chips, and since each horizontal slice will produce exactly
+  the same number of pieces, all of those horizontal slices must have exactly
+  the same number of chips. Moreover, we know exactly what that number is; if
+  there are a total of C chips in the waffle, each of the <b>H</b> + 1
+  horizontal slices must have exactly C / (<b>H</b> + 1) chips, or else the
+  case is <code>IMPOSSIBLE</code>.
+</p><p>
+  This observation is so powerful that it tells us where we have to make the
+  cuts if the case is <code>POSSIBLE</code>! We can make a list of the numbers
+  of chips in each row, then turn that list into a cumulative sum of the total
+  number of chips seen so far. For example, for a waffle with seven rows
+  containing 3, 7, 6, 2, 2, 0, and 10 chips, respectively, the cumulative sum
+  list would be: [3, 10, 16, 18, 20, 20, 30]. In that example, if <b>H</b> = 2,
+  we know we have to make cuts immediately below rows that bring the total sum
+  to 10 and 20, and we can do so by cutting immediately below the second and
+  fifth rows. (Note that we could instead make our second cut below the sixth
+  row, but this would make no difference.) If <b>H</b> = 1, though, we need to
+  make our one cut immediately below a row that brings the total sum to 15, and
+  there is no such row. So, after this step, either we will know that the case
+  is <code>IMPOSSIBLE</code>, or we will know exactly where to make our
+  horizontal cuts.
+</p><p>
+  Then, we can consider only vertical cuts, using a similar method, and either
+  learn where to make them, or learn that the case is <code>IMPOSSIBLE</code>.
+  Even if we know where to make the horizontal and vertical cuts, though, we
+  are not done yet! These cuts might not actually create pieces with the same
+  number of chips. For example, for <b>H</b> = 1, <b>V</b> = 1, and this
+  waffle:
+</p>
+<code>
+  ..@@<br/>
+  ..@@<br/>
+  @@..<br/>
+  @@..<br/>
+</code>
+<p>
+  we will learn that if the case is <code>POSSIBLE</code>, we must make our
+  horizontal cut below the second row, and our vertical cut to the right of
+  the second column. But this creates two pieces with four chips each and two
+  pieces with no chips at all, so the case must be <code>IMPOSSIBLE</code>.
+</p><p>
+  To check that each piece has the same number of chips, we can start by
+  turning the list of horizontal cuts into a list of intervals; for example,
+  if we cut below the second and fifth rows in the [3, 10, 16, 18, 20, 20, 30]
+  example from above, then we have the inclusive intervals [1, 2], [3, 5], and
+  [6, 7]. We can do the same for the vertical cuts, and then perform a double
+  iteration over these two sets of intervals, checking each cell within each
+  pair of intervals. We know that each piece must have exactly (total # of
+  chips) / ((<b>H</b> + 1) &times; (<b>V</b> + 1)) chips if the case is
+  <code>POSSIBLE</code>, so if we ever find a slice in which this is not true,
+  the case is <code>IMPOSSIBLE</code>. Otherwise, we have finally shown that
+  the case really is <code>POSSIBLE</code>. (Once again, note that even if we
+  had a choice of where to make one or more of our cuts, this must have been
+  due to empty rows or columns, which do not influence the number of chips in
+  each piece.)
+</p><p>
+  (There are other ways to check the pieces; for example, we can make one
+  pass through the data, and, for each cell, calculate the number of chocolate
+  chips in the rectangle that has that cell as its lower right corner, and
+  the upper left corner of the waffle as its upper left corner. Then, to find
+  the number of chips in a certain piece, we can add and subtract the
+  appropriate rectangles from this set.)
+</p><p>
+  In summary, this algorithm involves several steps:
+</p>
+<ol>
+  <li>Create the row and column sum arrays. We can either make two separate
+    passes through every cell of the waffle, or make one pass and create both
+    arrays at once.</li>
+  <li>Convert the sum arrays into cumulative sum arrays.</li>
+  <li>Check the cumulative sum arrays to find our places to cut.</li>
+  <li>Use the cumulative sum arrays to create interval arrays.</li>
+  <li>Make one pass through every cell of the waffle in a directed way, using
+    the interval arrays, to check whether every piece has the same number of
+    chips.</li>
+</ol>
+<p>
+  Steps 1 and 5 above involve looking at each of the <b>R</b> &times; <b>C</b>
+  cells of the waffle, whereas steps 2, 3, and 4 only involve looking at
+  <b>R</b> or <b>C</b> values. So steps 1 and 5 dominate the running time,
+  which is O(<b>R</b> &times; <b>C</b>). (We could not have done better than
+  this anyway, since we clearly have to look at each cell of the waffle at
+  least once to solve the problem.)
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

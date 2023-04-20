@@ -1,0 +1,455 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - World Finals</h3><h1>Teleporters</h1><h3>Problem</h3>
+<p>
+  A short, short time into the future, in a nearby galaxy, you find yourself
+  wanting to take a little trip and get away from the responsibilities of being
+  Planet Thundera's only manufacturer of yarn. You decide to travel to Planet
+  Care-a-Lot, the most relaxing planet there is. To travel, you are going to
+  use the network of interstellar teleporters.
+</p><p>
+  A teleporter is a small machine floating around somewhere in space. You can
+  use it remotely from any point in space, but, due to the conservation of
+  teleportation distance principle, it can teleport you to any other point in
+  space at exactly the same L1 distance from the teleporter as your
+  L1 distance to it before the teleportation. The L1 distance between two points
+  at coordinates (x<sub>0</sub>, y<sub>0</sub>, z<sub>0</sub>) and
+  (x<sub>1</sub>, y<sub>1</sub>, z<sub>1</sub>) is given by
+  |x<sub>0</sub> -  x<sub>1</sub>| + |y<sub>0</sub> - y<sub>1</sub>|
+  + |z<sub>0</sub> - z<sub>1</sub>|. Unfortunately, your space jetpack is broken,
+  so you cannot move around on your own; to travel, you can only use the
+  teleporters.
+  You start at Planet Thundera. You can use a teleporter to travel from Planet
+  Thundera to a point p<sub>1</sub>, then use another to get from p<sub>1</sub>
+  to p<sub>2</sub>, and so on. The last teleportation must take you exactly to
+  Planet Care-a-Lot.
+</p><p>
+  Given the locations in 3-dimensional space of both planets and all the
+  available teleporters, find out if it is possible for you to make the trip
+  using only teleporters. If the trip can be made, what is the minimum number
+  of teleportations needed to get to your destination? (Even if two
+  teleportations use the same teleporter, they still count as separate
+  teleportations.)
+</p><p>
+  The input is given as points with coordinates that are all integers that fall
+  within a certain range. However, you are allowed to teleport to intermediate
+  points with integer or non-integer coordinates, and there are no range
+  restrictions on the points you can visit.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case starts with a single line with a
+  single integer <b>N</b>, the number of teleporters available. Then,
+  <b>N</b>+2 lines follow, each containing three integers <b>X<sub>i</sub></b>,
+  <b>Y<sub>i</sub></b>, and <b>Z<sub>i</sub></b>. The first of these lines
+  represents the coordinates of your home planet, Thundera. The second of these
+  lines represents the coordinates of your destination planet, Care-A-Lot. Each
+  of the remaining <b>N</b> lines represents the coordinates of one of the
+  teleporters.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is <code>IMPOSSIBLE</code> if it is not possible to get from Thundera to
+  Care-A-Lot using only the available teleporters, or, if it is possible, an
+  integer representing the minimum number of teleportations needed.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  (<b>X<sub>i</sub></b>, <b>Y<sub>i</sub></b>, <b>Z<sub>i</sub></b>) &ne;
+  (<b>X<sub>j</sub></b>, <b>Y<sub>j</sub></b>, <b>Z<sub>j</sub></b>) for all i
+    &ne; j. (No two described objects have the same coordinates.)
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+Time limit: 180 seconds.<br/>
+  1 &le; <b>N</b> &le; 100.<br/>
+  -10<sup>3</sup> &le; <b>X<sub>i</sub></b> &le; 10<sup>3</sup>, for all i.<br/>
+  -10<sup>3</sup> &le; <b>Y<sub>i</sub></b> &le; 10<sup>3</sup>, for all i.<br/>
+  -10<sup>3</sup> &le; <b>Z<sub>i</sub></b> &le; 10<sup>3</sup>, for all i.<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+Time limit: 360 seconds.<br/>
+  1 &le; <b>N</b> &le; 150.<br/>
+  -10<sup>12</sup> &le; <b>X<sub>i</sub></b> &le; 10<sup>12</sup>, for all i.<br/>
+  -10<sup>12</sup> &le; <b>Y<sub>i</sub></b> &le; 10<sup>12</sup>, for all i.<br/>
+  -10<sup>12</sup> &le; <b>Z<sub>i</sub></b> &le; 10<sup>12</sup>, for all i.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="teleporters_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+1
+0 0 0
+0 4 0
+0 3 0
+2
+0 0 1
+0 0 11
+0 0 3
+0 0 0
+3
+0 0 0
+6 2 0
+6 0 0
+3 0 0
+6 1 0
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="teleporters_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: IMPOSSIBLE
+Case #2: 3
+Case #3: 2
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, the only teleporter is exactly 3 units away from Thundera,
+  and we can only use it to go to another position that is <i>exactly</i> 3
+  units away from the teleporter. From that position, we can still only reach
+  other positions that are exactly 3 units away from the teleporter. Since
+  Care-a-Lot is 1 unit away from the teleporter, we can never reach it.
+</p><p>
+  In Sample Case #2, the optimal strategy is to first use the teleporter at
+  (0, 0, 3) to travel to (0, 0, 5). Then, from there, use the teleporter at
+  (0, 0, 0) to travel to (0, 0, -5). Finally, from there, use the teleporter
+  at (0, 0, 3) again to travel to (0, 0, 11). Note that the two uses of the
+  teleporter at (0, 0, 3) cause us to travel different distances, because we
+  are at different distances from the teleporter each time. Also note that the
+  two uses of that teleporter count as two separate teleportations.
+</p><p>
+  In Sample Case #3, the optimal strategy is to first use the teleporter at
+  (3, 0, 0) to travel to (6, 0, 0). Then, from there, use the teleporter at
+  (6, 1, 0) to travel to (6, 2, 0). Note that even though there was a
+  teleporter at (6, 0, 0), merely occupying the same point as a teleporter
+  does not count as using it.
+</p>
+
+    </div>
+  </body>
+</html>

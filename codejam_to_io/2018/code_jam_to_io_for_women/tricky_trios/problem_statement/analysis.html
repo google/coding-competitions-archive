@@ -1,0 +1,398 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2018 - Code Jam to I/O for Women</h3><h1>Analysis: Tricky Trios</h1><h2>Tricky Trios: Analysis</h2>
+<h3>Playing the game</h3>
+<p>
+  Before we can approach either of the datasets, we need to figure out an
+  optimal strategy for the game. One important insight is that we should not
+  begin a round by flipping over a known card, unless we know where all three
+  cards in a trio are (in which case we can flip them all to remove that
+  trio).
+</p><p>
+  To see why this is, suppose that we begin by flipping the one or two known
+  cards with a certain number. Then, when we move on to flipping unknown cards,
+  we either find the one or two remaining cards we need, or we fail and learn
+  the identity of only one more card. But if we instead begin by flipping an
+  unknown card, we have exactly the same chance of encountering the cards
+  needed to remove the aforementioned trio, in which case we can end the round
+  by flipping the known ones. We also have some other advantages: we have a
+  chance of removing any of the other trios, and if we fail to do that, we
+  will learn the identities of two more cards. So, beginning with an unknown
+  card is strictly better than beginning with a known card; it leaves more
+  options open and gets us more valuable information.
+</p><p>
+  What about the parts of a round other than the beginning? There is one
+  situation in which we have some flexibility: if the unknown card revealed on
+  our first flip matches one known card, there is no harm in flipping over that
+  known card as our second action before flipping over an unknown card as our
+  third action. But it is no worse to flip over an unknown card as our second
+  action instead, since we need to find the last member of that trio either way.
+</p><p>
+  So, the following simple rule is optimal: only flip known cards when they
+  are the last ones needed to remove a trio.
+</p>
+<h3>Small dataset</h3>
+<p>
+  This is an unusual dataset for Code Jam: there are only five possible test
+  cases, and three of them are given away as samples, so we can hardcode those
+  in and only focus on solving the <b>N</b> = 3 and <b>N</b> = 4 cases.
+</p><p>
+  Notice that whenever we flip an unknown card, we have no basis for choosing
+  any particular unknown card. Without loss of generality, we can choose to
+  reveal them from left to right. With this in mind, one tempting approach is
+  to repeatedly simulate playing the game, each time choosing a random
+  left-to-right order in which to deal with the cards, and then take the
+  average number of rounds. The tight requirement of an absolute or relative
+  error of 10<sup>-6</sup> makes this challenging, though; even millions of
+  simulations might not get us close enough! We can let a simulation run for
+  quite some time and get answers before starting the 4-minute submission
+  window, but even optimized code may not be fast enough, especially in an
+  interpreted language, for example.
+</p><p>
+  Instead of simulating random left-to-right orders, can we enumerate them all,
+  play through each one, and then take the average number of rounds? For our
+  <b>N</b> = 4 case, there are a total of (12 choose 3) &times; (9 choose 3)
+  &times; (6 choose 3) &times; (3 choose 3) = 369600 orders, which is a
+  tractably small amount. Although it is not necessary, we can cut this down
+  by another factor of <b>N</b>! by noting that the numbers on the cards are
+  essentially interchangeable; an order like 111222333444 will yield the same
+  result as an order like 222333444111. This drops the number of cases to
+  15400 for <b>N</b> = 4, and 1401400 for <b>N</b> = 5. Beyond that point,
+  though, there are just too many orders to consider individually.
+</p>
+<h3>Large dataset</h3>
+<p>
+  At the start of each round of the game, for each trio that we have not
+  already removed, we know the locations of three, two, one, or zero of the
+  cards, depending on what we have flipped over on earlier rounds. Let us
+  classify trios accordingly as Three-Known, Two-Known, One-Known, or
+  Zero-Known. Then we can consider the number of trios of each type &mdash;
+  (K<sub>3</sub>, K<sub>2</sub>, K<sub>1</sub>, K<sub>0</sub>) &mdash; as a
+  <i>state</i>, and think of a round as a transition from one state to another
+  state. We begin the game at (0, 0, 0, <b>N</b>), and we want to get to
+  (0, 0, 0, 0) as efficiently as possible, but our path will depend on how
+  lucky we get when flipping over unknown cards.
+</p><p>
+  Let us use f(state) to denote the question "how many rounds will it take,
+  on average, to finish the game when starting from this state?" To calculate
+  f(state), we must consider all the states in which the round can end, and
+  the probabilities of reaching each of those destination states. Then
+  f(state) is a sum of the f()s for those destination states, weighted by the
+  probability of reaching each of them.
+</p><p>
+  We can simplify this model at the outset by noting that if we play according
+  to our strategy above, K<sub>3</sub> will never be larger than 1, and if it
+  is 1, we should spend the next round to immediately remove the Three-Known
+  trio. That is, f(K<sub>3</sub>, K<sub>2</sub>, K<sub>1</sub>, K<sub>0</sub>)
+  = 1 + f(K<sub>3</sub> - 1, K<sub>2</sub>, K<sub>1</sub>, K<sub>0</sub>). So
+  we can remove the K<sub>3</sub> term and work with states of the form
+  (K<sub>2</sub>, K<sub>1</sub>, K<sub>0</sub>), and add in an extra round as
+  needed to reflect removing a Three-Known trio.
+</p><p>
+  For example, suppose that we start a round in a state (1, 1, 1); this means
+  that there are six unknown cards remaining, with one from a Two-Known trio,
+  two from a One-Known trio, and three from a Zero-Known trio. (Remember that
+  there are other known cards around as well &mdash; for instance, the other
+  two cards from the Two-Known trio &mdash; but we are focusing on the unknown
+  cards.) Let us consider one possible scenario: our first draw turns out to
+  be from the One-Known trio, and then our second draw turns out to be from the
+  Two-Known trio, which ends the round. This converts our Two-Known trio into
+  a Three-Known trio and our One-Known trio into a Two-Known trio. We should
+  immediately spend the next round to remove the Three-Known trio.
+</p><p>
+  The probability of the above happening is 2/6 (the odds of drawing one of
+  the unknown cards from the One-Known trio) &times; 1/5 (the conditional odds
+  of drawing the unknown card from the Two-Known trio). So, when we write the
+  expression for f(1, 1, 1), it should include the term 2/6 &times; 1/5 &times;
+  (2 + f(1, 0, 1)). The 2 represents the current round plus the extra round
+  spent removing the Three-Known trio. Note that (1, 0, 1) reflects that we
+  have converted a One-Known trio into a Two-Known trio and lost another
+  Two-Known trio.
+</p><p>
+  The above illustrates the calculation of just one term, and our solution
+  needs to be able to handle any state; the more general version of the term
+  above would be
+  ((2 &times; K<sub>1</sub>) /
+  (K<sub>2</sub> + 2 &times; K<sub>1</sub> + 3 &times; K<sub>0</sub>))
+  &times;
+  (K<sub>2</sub> /
+  (K<sub>2</sub> + 2 &times; K<sub>1</sub> - 1 + 3 &times; K<sub>0</sub>))
+  &times;
+  (2 + f(K<sub>2</sub>, K<sub>1</sub> - 1, K<sub>0</sub>)). Setting up terms
+  like this is the heart of the problem, and there are various possible
+  pitfalls, e.g.:
+</p>
+<ul>
+  <li>If our first flip on a round reveals a card from a Zero-Known trio,
+    our second flip might reveal a card from any of the following: a Two-Known
+    trio, a One-Known trio, the same Zero-Known trio, or a different Zero-Known
+    trio. It is important to distinguish between the latter two
+    possibilities.</li>
+  <li>We must avoid considering terms that represent impossible situations;
+    we cannot draw a card from a different Zero-Known trio if there is only
+    one Zero-Known trio in our starting state.</li>
+</ul>
+<p>
+  Once we have all this nailed down, we need a way to avoid computing f() for
+  the same state more than once. We can store each result and then look it up
+  again later if we need it for a future calculation, instead of doing
+  redundant work. This is
+  <a href="https://en.wikipedia.org/wiki/Memoization">memoization</a>,
+  a form of <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>.
+  This optimization allows the entire Large dataset to be solved in seconds.
+</p>
+
+    </div>
+  </body>
+</html>

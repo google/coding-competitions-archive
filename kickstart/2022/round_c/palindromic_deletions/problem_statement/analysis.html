@@ -1,0 +1,446 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round C</h3><h1>Analysis: Palindromic Deletions</h1><p>
+  The expected value of a discrete random variable is defined as the weighted average over all
+  possible values of the variable. That is, for a discrete random variable $$$X$$$ with probability
+  function $$$P(X)$$$, its expected value $$$E[X] = $$$ the sum of $$$X \times P(X)$$$ over all
+  possible values of $$$X$$$.
+</p>
+<p>
+  Keeping the above definition in mind, we can define a random variable $$$X$$$ as the number of
+  palindromes encountered in a particular game of Palindromic Deletions on a string of length $$$\mathbf{N}$$$,
+  with $$$P(X)$$$ being the probability function. We can write $$$P(X) = \frac{A(X)}{B}$$$, where
+  $$$A(X)$$$ is the number of distinct games which generate $$$X$$$ palindromes and $$$B$$$ is the
+  total number of distinct games. Notice that the number of distinct games can be defined as the
+  total number of orders of picking indexes $$$1$$$ to $$$\mathbf{N}$$$, which is equivalent to to the number of
+  permutations of an array of size $$$\mathbf{N}$$$. Therefore, $$$B = \mathbf{N}!$$$.
+</p>
+<p>
+  With the above simplification, we can write the expected value $$$E[X] = $$$ the sum of
+  $$$\frac{X \times A(X)}{\mathbf{N}!}$$$ over all possible integer values of $$$X$$$ between $$$1$$$ and
+  $$$\mathbf{N}$$$. Note that the game counts an empty string as a palindrome, hence it is not possible for
+  $$$X$$$ to be $$$0$$$. The problem translates into calculating the sum of $$$X \times A(X)$$$ over
+  all $$$X$$$ under modulo $$$10^{9} + 7$$$ (let us call this value $$$Y$$$). We can then multiply
+  $$$Y$$$ by the
+  <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse" target="_blank">modular
+  inverse</a> of $$$\mathbf{N}!$$$ under modulo $$$10^{9} + 7$$$ to get $$$E[X]$$$. Note that we are able to
+  simply multiply by the modular inverse of $$$\mathbf{N}!$$$ modulo $$$10^{9} + 7$$$ without reducing the
+  fraction to an irreducible form since $$$10^{9} + 7$$$ is prime and $$$\mathbf{N} \le 400$$$, which gives
+  us $$$\gcd (\mathbf{N}!, 10^{9} + 7) = 1$$$ (as the denominator will not contain any prime factors
+  $$$ \gt 400 $$$).
+</p>
+<h3>
+  Test Set 1
+</h3>
+<p>
+  For $$$\mathbf{N} \le 8$$$, we can simply recursively generate all possible games to calculate $$$Y$$$.
+  One way to do this is by starting with the input string and a count of palindromes encountered
+  $$$cnt = 0$$$. In each recursion level, we delete a character from the string and check if the
+  new string is a palindrome. If the new string is a palindrome, we increase $$$cnt$$$ by $$$1$$$.
+  We recursively do this operation again with the new string and $$$cnt$$$. This is done for each
+  character in the string at a particular recursion level. We return when we reach an empty string,
+  at which point we add $$$cnt$$$ to an outer $$$sum$$$ variable. After the top level recursive
+  function returns, $$$sum$$$ will store the value $$$Y$$$. All operations are done under modulo
+  $$$10^9 + 7$$$.
+</p>
+<p>
+  For example, let us visualize this with the sample string $$$aba$$$.
+</p>
+<ol>
+  <li>
+    <code>"<u>a</u>ba"</code>, $$$0 \rightarrow $$$ "<code><u>b</u>a"</code>,
+    $$$0 \rightarrow $$$ <code>"<u>a</u>"</code>, $$$1 \rightarrow $$$ <code>""</code>,
+    $$$2$$$
+  </li>
+  <li>
+    <code>"<u>a</u>ba"</code>, $$$0 \rightarrow $$$ "<code>b<u>a</u>"</code>,
+    $$$0 \rightarrow $$$ <code>"<u>b</u>"</code>, $$$1 \rightarrow $$$ <code>""</code>,
+    $$$2$$$
+  </li>
+  <li>
+    <code>"a<u>b</u>a"</code>, $$$0 \rightarrow $$$ "<code><u>a</u>a"</code>,
+    $$$1 \rightarrow $$$ <code>"<u>a</u>"</code>, $$$2 \rightarrow $$$ <code>""</code>,
+    $$$3$$$
+  </li>
+  <li>
+    <code>"a<u>b</u>a"</code>, $$$0 \rightarrow $$$ "<code>a<u>a</u>"</code>,
+    $$$1 \rightarrow $$$ <code>"<u>a</u>"</code>, $$$2 \rightarrow $$$ <code>""</code>,
+    $$$3$$$
+  </li>
+  <li>
+    <code>"ab<u>a</u>"</code>, $$$0 \rightarrow $$$ "<code><u>a</u>b"</code>,
+    $$$0 \rightarrow $$$ <code>"<u>b</u>"</code>, $$$1 \rightarrow $$$ <code>""</code>,
+    $$$2$$$
+  </li>
+  <li>
+    <code>"ab<u>a</u>"</code>, $$$0 \rightarrow $$$ "<code>a<u>b</u>"</code>,
+    $$$0 \rightarrow $$$ <code>"<u>a</u>"</code>, $$$1 \rightarrow $$$ <code>""</code>,
+    $$$2$$$
+  </li>
+</ol>
+<p>
+  Adding all $$$cnt$$$ at the end of each simulation, we get $$$sum = 2 + 2 + 3 + 3 + 2 + 2 =
+  14$$$. Hence, we get an expected value of $$$\frac{14}{3!} = \frac{14}{6}$$$. Dividing 14 and 6
+  by their GCD (greatest common divisor) i.e. $$$2$$$, we get the irreducible fraction
+  $$$\frac{7}{3}$$$.
+</p>
+<p>
+  The number of orders generated is $$$\mathbf{N}!$$$, while it takes $$$O(\mathbf{N})$$$ to check if a string is
+  a palindrome. The time and space complexity comes out to be $$$O(\mathbf{N} \times \mathbf{N}!)$$$, which is
+  approximately $$$3 \times 10^5$$$ operations.
+</p>
+<h3>
+  Test Set 2
+</h3>
+<p>
+  Instead of thinking about $$$Y$$$ as the sum of $$$X \times A(X)$$$, where $$$A(X)$$$ is the number
+  of games that generate $$$X$$$ palindromes, we can conversely think about it as the sum of $$$Q(K)$$$
+  over all $$$K = 0$$$ to $$$\mathbf{N} - 1$$$, where $$$Q(K)$$$ is the number of games in which a
+  palindrome of length $$$K$$$ is encountered.
+</p>
+<p>
+  Another observation to make here is that any palindrome that we encounter in a game will be a
+  subsequence of the input string $$$\mathbf{S}$$$. Consider a palindrome of length $$$K$$$ that exists as
+  a subsequence of the input string $$$\mathbf{S}$$$. The number of games in which we will encounter this
+  palindrome is $$$K! \times (\mathbf{N} - K)!$$$. This is because to encounter a particular palindrome
+  of length $$$K$$$ in a game, we must first remove the $$$\mathbf{N} - K$$$ characters that are not part
+  of the palindrome in any order, then remove the remaining $$$K$$$ characters in any order. With
+  this, we get $$$Q(K) = K! \times (\mathbf{N} - K)! \times F(K)$$$, where $$$F(K)$$$ is the number of
+  palindromes of length $$$K$$$ that occur as a subsequence of $$$\mathbf{S}$$$.
+</p>
+<p>
+  All that remains is to find the number of palindromes of length $$$K$$$ that occur as a
+  subsequence of $$$\mathbf{S}$$$. We can use dynamic programming to do this. We define our state as
+  $$$(L, R, len)$$$, where the value of this state $$$DP(L, R, len)$$$ equals the number of
+  palindromes of length $$$len$$$ that can be found as a subsequence of the substring
+  $$$\mathbf{S}[L, R]$$$ (indices $$$L$$$ and $$$R$$$ inclusive). We have three base cases:
+  <li>
+    Any state with $$$len = 0$$$ would have a value of $$$1$$$.
+  </li>
+  <li>
+    Any state with $$$len \lt 0$$$ would have a value of $$$0$$$.
+  </li>
+  <li>
+    Any state with $$$L \gt R$$$ that does not satisfy any of the above two cases
+    would have a value of $$$0$$$.
+  </li>
+</p>
+<p>
+  Now to calculate $$$DP(L, R, len)$$$, notice that if $$$\mathbf{S}[L] = \mathbf{S}[R]$$$, then we
+  have $$$DP(L + 1, R - 1, len - 2)$$$ palindromes that have $$$\mathbf{S}[L]$$$ and $$$\mathbf{S}[R]$$$ as the
+  first and last character respectively (or $$$DP(L + 1, R - 1, len - 1)$$$ palindromes if
+  $$$L = R$$$). All remaining palindromes can be found as a union of the palindromes of length
+  $$$len$$$ found in substrings $$$\mathbf{S}[L, R - 1]$$$ and $$$\mathbf{S}[L + 1, R]$$$. By the
+  <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle" target="_blank">
+  inclusion-exclusion principle</a>, the value of this union comes out to be
+  $$$DP(L, R - 1, len) + DP(L + 1, R, len) - DP(L + 1, R - 1, len)$$$. We subtract the palindromes
+  found in $$$DP(L + 1, R - 1, len)$$$ as we would be double counting them in
+  $$$DP(L, R - 1, len)$$$ and $$$DP(L + 1, R, len)$$$. The figure below helps visualize
+  $$$DP(1, 4, 2)$$$ for string $$$abccbd$$$. Strings are zero indexed.
+</p>
+<img src="images/inclusion_exclusion.png" width="50%"
+     alt="Visualizing inclusion exclusion on DP(1, 4, 2)" />
+<p>
+  With the above defined state and DP calculation in mind, we get $$$F(K) = DP(0, \mathbf{N} - 1, K)$$$ and
+  $$$Q(K) = DP(0, \mathbf{N} - 1, K) \times K! \times (\mathbf{N} - K)!$$$. Finally, we get $$$Y$$$ by summing all
+  $$$Q(K)$$$ for $$$K = 0$$$ to $$$\mathbf{N} - 1$$$.
+</p>
+<p>
+  We can precompute factorials upto $$$400$$$ linearly, then subsequently retrieve the precomputed
+  factorial values in constant time. The time to compute all states of the DP is $$$O(\mathbf{N}^3)$$$.
+  Similarly, we have $$$\mathbf{N}^3$$$ integer DP states, giving us an overall time and space complexity
+  of $$$O(\mathbf{N}^3)$$$.
+</p>
+<h3>
+  Bonus Solution
+</h3>
+<p>
+  While the above approach is good enough to pass the constraints if the DP array uses 32-bit
+  integers, we can further optimize on space by optimizing the calculation for $$$F(K)$$$ for
+  each $$$K$$$. Instead of creating an $$$\mathbf{N} \times \mathbf{N} \times \mathbf{N}$$$ DP array, we can create three
+  $$$\mathbf{N} \times \mathbf{N}$$$ DP arrays, where the first corresponds to some palindrome length $$$len$$$,
+  the second corresponds to length $$$len - 1$$$ and the third corresponds to length $$$len - 2$$$.
+  As the transitions described in the previous approach for the DP values of a given length
+  $$$len$$$ just need DP values from $$$len - 1$$$ and $$$len - 2$$$, we can construct
+  the DP array for $$$len$$$ using DP values of $$$len - 1$$$ and $$$len - 2$$$, then construct the
+  DP array for $$$len + 1$$$ using values from $$$len$$$ and $$$len - 1$$$, then for $$$len + 2$$$
+  using values from $$$len + 1$$$ and $$$len$$$, and so on. In this way, we can start with DP arrays
+  for $$$len = 0$$$ and $$$1$$$ as base cases and iteratively construct for each $$$len = 2$$$ to
+  $$$\mathbf{N} - 1$$$. The rest of the idea is similar to the previous solution. With this approach, even
+  though the time complexity is still $$$O(\mathbf{N}^3)$$$, the space complexity comes down to
+  $$$O(\mathbf{N}^2)$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

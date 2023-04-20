@@ -1,0 +1,393 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round D</h3><h1>Analysis: Image Labeler</h1><p>
+  First, we need to understand how to obtain the median of a set. A
+  <a href="https://en.wikipedia.org/wiki/Median" target="_blank"
+    >median is the value separating the higher and lower halves</a
+  >
+  of a set, so a set of length $$$k$$$ will have its median at element
+  $$$k/2$$$. For sets with an even number of elements, the median is the average
+  of the two middle elements.
+</p>
+
+<p>
+  A brute force approach to this problem is described in the example case, where
+  we try each possible combination of assigning regions to categories, and
+  taking the combination with the largest sum of medians.
+</p>
+<p>
+  Time complexity: $$$O(2^\mathbf{M})$$$ since we need to test each combination of
+  either assigning a region or not to each category. We can reduce the time
+  complexity even further through dynamic programming to avoid recalculating
+  assignmented categories, but there is an even better approach.
+</p>
+<p>
+  A more efficient approach is to maximize the sum by ensuring that the largest
+  regions each form their separate category. One way to do this is with a greedy
+  approach, where we remove the single largest region (say $$$\mathbf{A_k}$$$) and assign it to a
+  new category. Then the median of this category is equal to the size of that region.
+  Note that this is the largest median that we can obtain, because all
+  other regions $$$\mathbf{A_1},\cdots,\mathbf{A_N} \le \mathbf{A_k}$$$. If we continue this process
+  for the next $$$\mathbf{N}-1$$$ categories, we will have the largest possible medians
+  for all $$$\mathbf{N}$$$ regions. The largest regions can be identified by sorting $$$\mathbf{A}$$$ in
+  descending order.
+</p>
+<p>
+  The problem is that we may run out of categories. Precisely, we still have $$$\mathbf{N}-\mathbf{M}$$$
+  regions that we need to assign to some categories. Since we know that for
+  each of these remaining regions that they are smaller or equal to the ones already assigned
+  to categories, then assigning a new region to an existing category may reduce the median
+  of that category. We can decide to decrease the median of only one category &mdash;
+  the one that already has the smallest median. Our result (the sum of medians)
+  is then the sum of the largest $$$\mathbf{M}-1$$$ regions plus the median of all
+  other regions.
+</p>
+<p>
+  Time complexity: $$$O(\mathbf{N} \log \mathbf{N}+\mathbf{M})$$$ since we need to sort $$$\mathbf{N}$$$ regions
+  and sum up the top $$$\mathbf{M}-1$$$. Calculating the median of the final category
+  is only $$$O(1)$$$ because the regions are already in sorted order. We can even
+  solve this problem in linear time, but it was not required for this problem.
+  We only need to find top $$$\mathbf{M}$$$-1 regions (and we can do it in $$$O(\mathbf{N} + \mathbf{M})$$$ time),
+  and then we can find the median of the remaining regions
+  <a href="https://en.wikipedia.org/wiki/Median_of_medians" target="_blank">in linear time</a>
+  as well.
+</p>
+<h4>Proof</h4>
+<p>
+  We can formally prove that the greedy algorithm produces an optimal result.
+</p>
+<p>
+  We will prove that given any two arbitrary categories, the sum of medians does not decrease if we
+  reassign the regions within these categories so that
+  the largest region forms one category, and all the other regions forms the other category.
+  Let $$$\{O_1, O_2\}$$$ denote these two arbitrary categories.
+  Let $$$S$$$ denotes the number of participants in the region with the largest number of participants
+  within these categories and $$$T = O_1 \cup O_2 \setminus \{S\}$$$
+  ($$${S}$$$ and $$$T$$$ are two categories produced by the greedy algorithm).
+  We want to show that $$$median(O_1) + median(O_2) \leq S + median(T)$$$. Without loss of generality,
+  let us assume that $$$median(O_1) \leq median(O_2)$$$. In the pictures below, let us assume that the regions
+  within a category are sorted in the non-decreasing order.
+</p>
+<center>
+<image src="pictures/proof1.png">
+</center>
+<p>
+  In $$$T$$$, there are at least $$$\left\lceil\frac{|O_1|}{2}\right\rceil
+  + \left\lceil\frac{|O_2|}{2}\right\rceil - 1$$$ regions larger than or equal to
+  $$$median(O_1)$$$ &mdash; the regions larger than or equal to the medians of $$$O_1$$$ and $$$O_2$$$,
+  but we need to remove $$$S$$$ (hence $$$-1$$$).
+
+  Now we have to consider two cases:
+  <ol>
+    <li> Either in $$$T$$$ there are at least $$$\left\lceil\frac{|O_1|}{2}\right\rceil
+      + \left\lceil\frac{|O_2|}{2}\right\rceil$$$ regions larger than or equal to $$$median(O_1)$$$,
+      which implies $$$median(T) \geq median(O_1)$$$, so we can say that
+      $$$median(O_1) + median(O_2) \leq S + median(T)$$$, what we wanted to prove.</li>
+      <li>There are exactly $$$\left\lceil\frac{|O_1|}{2}\right\rceil + \left\lceil\frac{|O_2|}{2}\right\rceil - 1$$$
+        regions larger than or equal to $$$median(O_1)$$$. Now we will once
+        again consider various cases depending on the parity of $$$|O_1|$$$ and $$$|O_2|$$$:
+        <ol>
+          <li>$$$|O_1|$$$ and $$$|O_2|$$$ are even. Let us denote $$$L_1$$$ and $$$R_1$$$ as two "middle" regions of $$$O_1$$$ and
+            $$$L_2$$$ and $$$R_2$$$ as two "middle" regions of $$$O_2$$$.
+
+            <center>
+              <image src="pictures/proof2.png">
+              </center>
+
+            Then we can use the similar argument as before and say that in $$$T$$$
+            there are at least $$$\left\lceil\frac{|O_1|}{2}\right\rceil + \left\lceil\frac{|O_2|}{2}\right\rceil$$$ regions larger than or equal to $$$\max(L_1, L_2)$$$,
+            so $$$median(T) \geq \min(\max(L_1, L_2), \min(R_1, R_2))$$$, so $$$S + median(T) \geq \frac{L_1+R_1}{2} + \frac{L_2+R_2}{2} = median(O_1) + median(O_2)$$$,
+            since $$$S \geq \max(R_1, R_2)$$$.
+            </li>
+            <li>$$$|O_1|$$$ and $$$|O_2|$$$ are odd. Then we can see that there are  $$$\left\lceil\frac{|O_1|}{2}\right\rceil + \left\lceil\frac{|O_2|}{2}\right\rceil$$$
+              regions with more participants than $$$median(O_1)$$$, which is the case that we already described above.
+            </li>
+            <li>One of $$$|O_1|$$$ and $$$|O_2|$$$ is even and the other one is odd.
+              The argument here is similar to the arguments above, so we will leave it as an exercise to a reader.</li>
+        </ol>
+      </li>
+  </ol>
+</p>
+
+
+<p style="border-style: groove; border: 2px solid #34a853; padding: 5px;">
+  If you would like to explore more tasks like Image Label Verification on the
+  Crowdsource app and directly train Google’s artificial intelligence systems to
+  make Google products work
+  <a href="https://www.youtube.com/watch?v=oLTNtvIHJ7M" target="_blank">equally well for
+  <i>everyone, everywhere</i></a>, you can
+  <a href="http://goo.gle/cs-kick-start-2022" target="_blank">download it here</a>.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,436 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - World Finals</h3><h1>Analysis: Stack Management</h1><h2>Stack Management: Analysis</h2>
+<p>
+  This problem requires quite a lot of thinking, but relatively little code in
+  the end!
+</p><p>
+  Let S be the number of suits that appear on at least one card used in
+  the problem. For each of these suits, we will call the card with the highest
+  value the <i>ace</i> of that suit, and the second-highest card (if it exists)
+  the <i>king</i>. We'll say that a card is <i>visible</i> if it is at the top
+  of one of the stacks, and that a suit is <i>visible</i> if a card of that
+  suit is visible.
+</p><p>
+  Notice that once a suit becomes visible, it will stay visible throughout the
+  rest of the game. At any point in the game, if there are <b>N</b> visible
+  suits (recall that <b>N</b> is the number of stacks), then either we have
+  won, or we cannot make any more moves and so we have lost. On the other hand,
+  if there are fewer than <b>N</b> visible suits, then either we have won, or
+  we are able to make a move (because either a suit has two visible cards, or
+  there is an empty stack). In particular, this implies that if S &lt;
+  <b>N</b>, then we are guaranteed to win however we play. However, if
+  S &gt; <b>N</b>, we cannot win, because we can never remove the last
+  card of any suit from the game. This means that S = <b>N</b> is the
+  only interesting case, so we will assume from now on that S = <b>N</b>.
+  In this case, a winning position is a position in which we have exactly one
+  card in each stack, with each one representing a different suit.
+</p><p>
+  Let us assume there is some way to win the game, and we will consider the
+  very last move of that game. Before that move, we had not won, and yet we
+  were able to make a move; this means there must have been fewer than <b>N</b>
+  suits visible. So, the last move must have exposed a card of some suit that
+  had never been visible. This means that this suit contained only one card
+  (the card that now remains as the only card in its stack), and this card
+  started the game at the bottom of its stack.
+</p><p>
+  Also note that it is never disadvantageous to remove a card; the only real
+  decisions made in the game are choosing which cards to move into an empty
+  stack. Thus, as a pre-processing step, we can remove all the cards that can
+  be removed from the initial position. If doing that is enough to win the game,
+  we are done. If doing that leaves us with no empty stacks, we are also "done",
+  because we have lost the game! So, let's assume that when we begin, there is
+  at least one empty stack.
+</p><p>
+  We will now aim to prove that the following condition is necessary and
+  sufficient for a game to be winnable. Let us construct a graph in which
+  vertices are the suits for which the ace begins the game at the bottom of some
+  stack. We say that a vertex (suit) <i>s</i> is a <i>source</i> if the ace is
+  the only card in this suit, and that <i>s</i> is a <i>target</i> if there is
+  another ace (of a different suit) in the stack in which the ace of <i>s</i>
+  is at the bottom. We add an edge from vertex <i>s<sub>1</sub></i> to a
+  different vertex <i>s<sub>2</sub></i> if the king of <i>s<sub>2</sub></i> is
+  in the stack that has the ace of <i>s<sub>1</sub></i> at the bottom.
+</p><p>
+  Now, we claim the game is winnable if and only if there exists any path from
+  some source vertex to some target vertex.
+</p><p>
+  To understand this condition, consider a simple case in which there is a
+  single edge from a source suit <i>s<sub>1</sub></i> to a target suit
+  <i>s<sub>2</sub></i>; i.e., suit <i>s<sub>1</sub></i> has exactly one card
+  (an ace), which is at the bottom of a stack <i>A</i>, and suit
+  <i>s<sub>2</sub></i>'s king is in <i>A</i>. To ensure that
+  <i>s<sub>1</sub></i> is a source but not a target, assume that there are no
+  other aces in <i>A</i>, and to ensure that <i>s<sub>2</sub></i> is a target,
+  assume that its ace is at the bottom of a different stack <i>B</i>, and
+  there is a third suit <i>s<sub>3</sub></i> that has an ace higher up in
+  <i>B</i>, which we will assume is the ace nearest the bottom except for the
+  bottmmost card in <i>B</i>.
+</p><p>
+  The winning strategy in this case is as follows. First, make all legal moves
+  until the only remaining legal move is moving the ace of <i>s<sub>3</sub></i>
+  to an empty pile. Since we won't uncover the ace of <i>s<sub>1</sub></i>,
+  there will be fewer than <b>N</b> suits visible, so this state is always
+  achievable. When we reach this state, all of the following are true:
+  <ul>
+    <li>There is an empty stack (since <i>s<sub>1</sub></i> isn't visible, we'd
+      otherwise have two cards visible in one suit, and could remove the one
+      with the lower value).</li>
+    <li>Stacks <i>A</i> and <i>B</i> are the only stacks with more than one
+      card. (Otherwise, we could move a card from from one of the other stacks
+      into the empty space.)</li>
+    <li>The other <b>N</b>-3 stacks (aside from <i>A</i>, <i>B</i> and the
+      aforementioned empty stack) each contain an ace of one of the remaining
+      <b>N</b>-3 colors. (We couldn't have removed the aces, and they are not
+      in stack <i>A</i> or stack <i>B</i>).</li>
+  </ul>
+</p><p>
+  At this point, we will move the ace of <i>s<sub>3</sub></i> to the empty
+  stack, and then try to remove cards from <i>B</i>, until we get down to the
+  ace of <i>s<sub>2</sub></i>. If the top card of <i>B</i> isn't yet the ace of
+  <i>s<sub>2</sub></i>, then it's either in suit <i>s<sub>2</sub></i> (and
+  lower than the king, so we can remove it, because the king is visible), or in
+  some other suit (in which case the ace of that suit is visible, and we can
+  remove it). Therefore, we can remove cards down to the ace of
+  <i>s<sub>2</sub></i>, then remove the king of <i>s<sub>2</sub></i>, and then
+  again dig down to the ace of <i>s<sub>1</sub></i>. We can do this because
+  any card in <i>A</i> other than the ace of <i>s<sub>1</sub></i> will be
+  removable, since we now see all the aces other than <i>s<sub>1</sub></i>, and
+  there are no cards but the ace in suit <i>s<sub>1</sub></i>.
+</p><p>
+  The description above can be extended relatively easily to show how to win
+  the game when a longer path exists. First, we clean up everything but the
+  aces mentioned in the path, and then move the ace from the end of the path
+  into the empty space, and remove all the remaining cards one by one. So, what
+  remains is to prove that if the game is winnable, a path from a source to a
+  target always exists in the graph we constructed.
+</p><p>
+  At the end of a successful game, each of the <b>N</b> stacks will contain one
+  of the <b>N</b> aces. Whenever we move an ace to the bottom of a stack, it
+  will never again be covered. So, before the last move action, <b>N</b>-1 aces
+  will be on the bottom of a stack, and the last move is necesarilly moving an
+  ace to the empty spot. Some of the aces are visible before the last move.
+  Nothing interesting will happen to cards in those suits - we might uncover a
+  card in one of those suits, and then we will be able to immediately remove
+  it, because the ace is visible. The more interesting suits are the ones in
+  which the aces are not visible and are at the bottoms of stacks. Note that
+  once uncovered, an ace cannot be covered again, so these aces had to be at
+  the bottoms of their stacks from the beginning of the game, and the cards on
+  top of them had to be there from the beginning of the game. So, it's enough
+  to prove that we will see a source-target path in the position before the
+  last move. This will mean that the path was there from the beginning of the
+  game.
+</p><p>
+  The cards on top of the other stacks with more than one card have to be in
+  the same set of colors as the covered aces (or else they would have already
+  been removed). We want to prove they are all kings. We will proceed by
+  contradiction: assume that one of them is a lower card (say, a "queen of
+  spades"). Since it is visible and not removed, the king of spades must be
+  somewhere in one of the stacks, and not visible; it cannot have been removed
+  yet, because in this case the ace would have to be visible, and the queen
+  would have been removed as well.
+</p><p>
+  Consider what happens if we move this queen into the empty space. We
+  experience a sequence of removals, which cannot end with removing the queen
+  (that would contradict the assumption that no more moves can be made before
+  the winning one). Thus, it has to end in uncovering the ace of the suit that
+  was not previously visible (causing us to lose the game) - let's call this
+  suit "diamonds".
+</p><p>
+  Now, consider the winning move instead. We also end up with a sequence of
+  removals. After each removal except the last one, we see <b>N</b>-1 suits,
+  and so we have exactly one choice what to remove. So, we deterministically
+  remove cards until we, at some point, uncover the king or the ace of spades,
+  whichever comes first, and that causes us to remove the queen of spades...
+  and then execute the exact same deterministic sequence of removals that, in
+  the end, caused us to uncover the ace of diamonds. Note that the other high
+  spade card (whichever among the king and ace that we did not see) is not
+  uncovered in this sequence. If it were, it would have removed the queen of
+  spades in the previous scenario - so, we end up with at least one card that
+  is not visible, which is a contradiction.
+</p><p>
+  So, we have proven that kings are on top of our stacks with (non-visible)
+  aces on the bottom. At this point, following the graph from the ace that was
+  the source will eventually lead us to the target: the stack with two aces.
+</p><p>
+  After establishing all this, the algorithm to check for the desired condition
+  is fairly simple. After constructing our graph, we can start at sources and
+  perform a depth-first search to see if there is a path from any of them to a
+  target. This is considerably faster than running a backtracking algorithm on
+  the set of moves itself, which works for the Small but not for the Large.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

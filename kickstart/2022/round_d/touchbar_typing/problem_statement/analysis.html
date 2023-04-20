@@ -1,0 +1,377 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2022 - Round D</h3><h1>Analysis: Touchbar Typing</h1><h4>
+  Test Set 1
+</h4>
+<p>
+  When there is no duplicate key in the keyboard, there is only one way to type any given string. It
+  would suffice to simulate typing the given string and count the cost, for test set 1.
+</p>
+<p>
+  We can build a mapping from each character in the keyboard to its position in the keyboard. Let us
+  denote the position of $$$i$$$-th character of $$$\mathbf{S}$$$ on the keyboard as $$$p_i$$$.
+</p>
+<p>
+  Let us denote the current position of the finger on the keyboard with $$$y$$$.
+  We should start with the finger on the keyboard on $$$p_1$$$ position.
+</p>
+<p>
+  Then in each step, we need to add $$$\lvert y - p_i \lvert$$$ to the answer, and update the
+  current keyboard position to $$$p_i$$$.
+<p>
+  The time complexity of creating the mapping from each character to a position on the keyboard is
+  $$$O(\mathbf{M})$$$ . With help of the mapping previously mentioned, the time
+  complexity of calculating the answer is $$$O(\mathbf{N})$$$. The total time complexity of this approach is
+  $$$O(\mathbf{N}+\mathbf{M})$$$, which is sufficient for test set 1.
+</p>
+<h4>
+  Test Set 2
+</h4>
+<p>
+  In test set 2, keys on the keyboard are not unique. At each step of typing, there might be multiple
+  possible positions on the keyboards to move to next, and making optimal choice at every step will
+  lead to the minimum number of moves.
+</p>
+  Let us denote the set of positions of $$$i$$$-th character of $$$\mathbf{S}$$$ on the keyboard as $$$P_i$$$.
+<p>
+  We can consider a dynamic programming approach, where for each position $$$x$$$ on the given string,
+  and each position $$$y$$$ on the keyboard, we need to find the optimal solution based on
+  possible options for that instance. Then we have the recurrent function $$$F$$$,<br>
+  &emsp;$$$F(x, y) = min(F(x-1, j) + \lvert(y-j)\lvert), j \in P_{x-1}$$$.
+</p>
+<p>
+  This approach gives us a time complexity of $$$O(\mathbf{N}\times\mathbf{M}\times\mathbf{M})$$$, as there are total $$$\mathbf{N}\times\mathbf{M}$$$
+  possible states, and on each state, there are at most $$$\mathbf{M}$$$ options in the worst case. This is
+  sufficient for test set 2.
+</p>
+<h4>
+  Test Set 3
+</h4>
+<p>
+  For test set 3, $$$O(\mathbf{N}\times\mathbf{M}\times\mathbf{M})$$$ is not sufficient. We need to make the choices more
+  carefully to reduce the complexity. Try to think a little on how to optimise this step before
+  looking into the solution :)
+</p>
+<p>
+  One interesting observation is that every time when there are multiple possible keyboard positions
+  to jump to type the next character, it is always optimal to pick either the one with the minimal
+  distance on the left direction, or the one with the minimal distance on the right direction.
+  Let us consider the current position on the keyboard is $$$x$$$, and
+  there are multiple possibilities on the right, denoted by $$$y_1$$$, $$$y_2$$$, $$$y_3$$$ and so on,
+  sorted by in the order of
+  increasing distance from $$$x$$$. Now, jumping to $$$y_2$$$ or $$$y_3$$$ cannot be a better choice than
+  jumping to $$$y_1$$$. Let us consider two cases,
+</p>
+<ol>
+  <li>The next optimal move lies in the opposite direction, aka left. Then it is better to jump
+  to the closest option $$$y_1$$$, to minimise the total distance.
+  <img
+  src="images/optimal_position_on_other_side.png"
+  width="100%"
+  alt="Optimal position on opposite side."
+/></li>
+  <li>The next optimal move lies in the same direction, aka right. Then jumping to $$$y_1$$$ is at
+  least not worse than jumping to $$$y_2$$$, $$$y_3$$$. It can even be a better option,
+  if the next optimal position lies between $$$y_1$$$ and $$$y_2$$$. <img
+  src="images/optimal_position_on_same_side.png"
+  width="100%"
+  alt="Optimal position on same side."
+/></li>
+</ol>
+<p>
+  The same reasoning is
+  applicable in case of making a move to the left. Then it basically boils down to making a choice
+  of whether to move right, or left on the keyboard from any current position. The recurrent function
+  then changes to $$$F$$$,<br>
+  &emsp;$$$F(x, y) = min((F(x-1, j_{left}) + \lvert y-j_{left} \lvert), (F(x-1, j_{right}) + \lvert y-j_{right} \lvert))$$$
+  where $$${j_{left}, j_{right}} \in P_{x-1}$$$ and $$$j_{left}$$$ and $$$j_{right}$$$ are the closest two positions from $$$x$$$
+  on the left and the right respectively.
+</p>
+<p>
+  This makes the number
+  of choices $$$O(1)$$$, giving us a total time complexity of $$$O(\mathbf{N}\times\mathbf{M})$$$, which is sufficient
+  for test set 3.
+</p>
+
+<p style="border-style: groove; border: 2px solid #34a853; padding: 5px;">
+  If you would like to explore more tasks like Glide Type on the
+  Crowdsource app and directly train Google’s artificial intelligence systems to
+  make Google products work
+  <a href="https://www.youtube.com/watch?v=oLTNtvIHJ7M"
+  target="_blank">equally well for <i>everyone, everywhere</i></a
+  >, you can <a href="http://goo.gle/cs-kick-start-2022" target="_blank">download it here</a>.
+  </p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

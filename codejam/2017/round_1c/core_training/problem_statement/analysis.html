@@ -1,0 +1,395 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 1C</h3><h1>Analysis: Core Training</h1><h2>Core Training: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  In the Small dataset, every core must succeed. The probability that this will
+  happen is the product of the success probabilities of the individual cores:
+  <b>P<sub>0</sub></b> &times; <b>P<sub>1</sub></b> &times; ... &times;
+  <b>P<sub><b>N</b>-1</sub></b>. How can we assign our training units to
+  maximize that product?
+</p><p>
+  We will show that it is always best for us to spend our units on the core
+  with the lowest success probability. Suppose that <b>P<sub>0</sub></b> &lt;
+  <b>P<sub>1</sub></b>, and we have some tiny amount Q of units to spend; we
+  will denote <b>P<sub>2</sub></b> &times; ... &times;
+  <b>P<sub><b>N</b>-1</sub></b> as OtherStuff. If we spend the Q units to
+  improve <b>P<sub>0</sub></b>, our success probability becomes
+  (<b>P<sub>0</sub></b> + Q) &times; <b>P<sub>1</sub></b> &times; OtherStuff.
+  If we instead improve <b>P<sub>1</sub></b>, the product becomes
+  <b>P<sub>0</sub></b> &times; (<b>P<sub>1</sub></b> + Q) &times; OtherStuff.
+  Expanding those expressions, we find that they are identical, except that the
+  first has a Q &times; <b>P<sub>1</sub></b> &times; OtherStuff term where the
+  second has a Q &times; <b>P<sub>0</sub></b> &times; OtherStuff term. Since we
+  know that <b>P<sub>0</sub></b> &lt; <b>P<sub>1</sub></b>, the first value
+  must be larger. This means that we should improve <b>P<sub>0</sub></b> first.
+</p><p>
+  The argument above has one issue to iron out: what if increasing
+  <b>P<sub>0</sub></b> causes it to rise above <b>P<sub>1</sub></b>? By
+  the same argument, we should switch to improving <b>P<sub>1</sub></b> instead
+  at the instant that <b>P<sub>0</sub></b> exceeds <b>P<sub>1</sub></b>, and
+  vice versa if they change ranks again, and so on. So, once we have made
+  <b>P<sub>0</sub></b> equal to <b>P<sub>1</sub></b>, we should increase both
+  of them at the same time. More generally, we should increase the smallest
+  probability until it exactly matches the next smallest probability, then
+  increase those at the same time until they exactly match the next smallest,
+  and so on. We could try to simulate adding tiny units bit by bit, but it is
+  faster to directly calculate how many units are spent at each step. We must
+  take care to correctly handle the case in which we do not have enough units
+  to fully complete a step.
+</p>
+<h3>Large dataset</h3>
+<p>
+  In the Large dataset, <b>K</b> of the cores must succeed. Now it is no longer
+  necessarily optimal to improve the smallest probability. For example, suppose
+  that <b>N</b> = 2, <b>K</b> = 1, and <b>U</b> = 0.01, and the
+  <b>P<sub>i</sub></b> values for the two cores are 0.99 and 0.01. If we spend
+  all of our 0.01 units on the first core, its success probability becomes 1
+  and we succeed regardless of whether the second core succeeds. There is no
+  reason to consider spending any units on the second core.
+</p><p>
+  Let's extend this strategy of investing most heavily in a subset of the cores
+  and ignoring the rest. We will sort the cores' success probabilities from
+  lowest to highest, and focus on the ones from some index i onward. As in the
+  Small solution, we will start by improving the success probability of the
+  core at index i to match the success probability of the core at index i+1,
+  then improve those two until they match the success probability of the core
+  at index i+2, and so on. (If all of the success probabilities including and
+  beyond index i become 1, then we can improve the core at index i-1, and so
+  on.) We will show that, for some value of i, this is the optimal strategy.
+  We can then try every possibility for i and keep the one that yields the
+  largest overall answer. Notice that, for one optimal i, at most one
+  "previous" core i-1 needs to be improved, because there is at most
+  one i such that capacity is enough to improve
+  cores i, i+1, ..., <b>N</b> up to probability 1 and have some left
+  to improve i-1 but not up to 1 (otherwise, we can just choose
+  i-1 instead).
+</p><p>
+  First, let us consider whether it is better to improve core i or core
+  i+1. Let A<sub>i</sub> and B<sub>i</sub> be the probability of exactly
+  <b>K</b>-2 and <b>K</b>-1, respectively, of the cores
+  1, 2, ..., i - 1, i + 2, i + 3, ..., <b>N</b> succeeding. Let
+  P<sub>i,d</sub> be the probability of at least <b>K</b> cores succeding
+  if the success probability of core i is P<sub>i</sub>+d and the
+  probability of success of any other core j is P<sub>j</sub>.
+  By replacing the definitions and cancelling out some values, we
+  can see that P<sub>i,d</sub> - P<sub>i+1,d</sub> =
+  (A<sub>i</sub> - B<sub>i</sub>) &times;
+  (P<sub>i+1</sub> - P<sub>i</sub>) &times; d.
+  Since (P<sub>i+1</sub> - P<sub>i</sub>) &times; d is positive,
+  improving core i+1 is better than improving core i if and only if
+  B<sub>i</sub> &gt; A<sub>i</sub>. Moreover, this doesn't depend on
+  the initial success probabilities of cores i+1 and i, but only on their
+  relative values. So, if we improve core i+1 a little bit, it is still better
+  to keep improving core i+1 if we can instead of switching to improve core i.
+</p><p>
+  Now we want to show that there is some i<sub>0</sub> such that
+  B<sub>i</sub> &gt; A<sub>i</sub> if and only if i &ge; i<sub>0</sub>.
+  That i<sub>0</sub> is the core where we want to start improving.
+  Notice that A<sub>i</sub> depends on <b>N</b>-2 probabilities,
+  and A<sub>i+1</sub> depends on other <b>N</b>-2 cores, but
+  <b>N</b>-3 of those overlap. Assume fixed <b>N</b>-3 core probabilities
+  and let A(p) be the probability that exactly <b>K</b>-1 of the <b>N</b>-3
+  fixed cores and an additional core with probability p succed.
+  Define B(p) similarly. We will show that
+  A(p + d) - B(p + d) &gt; A(p) - B(p) for all p and d.
+  Let U, V and W be the probabilities of having exactly <b>K</b>-3,
+  <b>K</b>-2 and <b>K</b>-1 successes out of the fixed <b>N</b>-3 cores.
+  Then, A(p) = U &times; p + V &times; (1 - p) and
+  B(p) = V &times; p + W &times; (1 - p). Then, B(p) - A(p) is a linear
+  function on p, which means if it ever changes from positive to
+  negative, it must be B(0) - A(0) &gt; 0 and B(1) - A(1) &lt; 0, which
+  implies W &gt; V and V &lt; U. However, this is impossible, because it
+  is a well known fact in probability theory that the function f(k)
+  defined as the number of successes in a given set of independent
+  experiments is convex, so it has no local minimum at <b>K</b>-2.
+</p><p>
+  With the above claim established, we can check all possible values of i and
+  then take the largest overall success probability that we find. To compute
+  the probability of at least K successes, we can use a dynamic programming
+  method similar to the one described in the analysis
+  for last year's Red Tape Committee problem.
+</p><p>
+  It is difficult to prove this method under time pressure in a contest, but we
+  can discover it via brute force simulation, e.g., by dividing up the
+  available units into quanta and exploring all possible ways to partition them
+  among a small number of cores, and seeing which assignment yields the
+  greatest chance of success. It is also possible to arrive at the correct
+  answers via other methods such as
+  <a href="https://en.wikipedia.org/wiki/Gradient_descent" target="_blank">gradient descent</a>.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

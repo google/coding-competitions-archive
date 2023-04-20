@@ -1,0 +1,411 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 1A</h3><h1>Analysis: Prime Time</h1><h3>Test Set 1</h3>
+<p>
+  In Test Set 1, the total number of cards in the deck is at most $$$10$$$.
+  A small number like $$$10$$$ suggests we can brute force and simulate
+  all possible game scenarios. For each card we can decide whether it belongs to the first group
+  or the second group. Next, we sum up the numbers on the first group cards and compare
+  with the product of the numbers on the second group cards. If they are equal, current sum or
+  product is one of the possible candidate scores. After checking all possible partitions, we output
+  the maximum score or output the score $$$0$$$ if there is no feasible way to partition the cards.
+</p>
+<p>
+  Two things to watch out for. First, each of the groups has to be non-empty. This is easy to
+  handle. Second, the product of all the numbers may overflow the integer type of our choice (in the
+  worst case there may be $$$10$$$ cards, each with $$$499$$$). There are many ways one can
+  avoid this problem.
+  One way can be to first find
+  the sum of the first group numbers and then try to divide it by the second group numbers, one by
+  one. If at some
+  point we are unable to perform the division or if after all the divisions the result is not
+  $$$1$$$, we know current partition candidate can not be
+  good. Another way would be to notice that the sum of the first group can not be very high. A
+  naive upper bound is $$$4990$$$ (all the $$$10$$$ numbers are $$$499$$$ and they are in
+  the first group). Hence we
+  can find the product of the second group numbers in floating point and compare with the sum of
+  the first group numbers. Since the upper bound of the sum of the first group numbers
+  is very low, precision error should not cause any trouble.
+</p>
+<p>
+  There are $$$2^{\mathbf{N}}$$$ ways to partition the cards where $$$\mathbf{N}$$$ is the number of cards.
+  After
+  each partition we can find the sum and the product of the groups with a linear loop. Hence the
+  total
+  run time is $$$O(2^{\mathbf{N}}\mathbf{N})$$$. We could also get rid of the linear loop but such
+  optimization was not necessary.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  In Test Set 2, the total number of cards is at most $$$100$$$. Performing
+  all possible partitions
+  would surely timeout. But notice that we cannot put many numbers into the second group because
+  the product of positive numbers greater than $$$1$$$ quickly increases. This time the upper limit
+  for the sum of the first group numbers is $$$49900$$$. That means, we can not have more
+  than $$$15$$$ numbers
+  in the second group ($$$2^{16} > 49900$$$). We can use this observation to optimize our
+  brute force solution.
+</p>
+<p>
+  Let $$$S$$$ be the set of all possible partitions using the first $$$i$$$ cards for some
+  arbitrary ordering of the cards.
+  Instead of keeping explicit partitions, we will represent the partition as $$$(x, y)$$$ where
+  $$$x$$$ is the sum of the numbers in the first group and $$$y$$$ is the product of the
+  numbers in the
+  second group. This helps us to reduce the state space. Once we partition the first $$$i$$$
+  cards, it does
+  not matter exactly which card went to which group. We just care about the sum and the
+  product of the
+  respective groups. Now let $$$b$$$ be the value of the $$$i+1$$$'th card. Hence for
+  each partition $$$(x, y)$$$
+  in $$$S$$$ we will have two choices: $$$(x + b, y)$$$ and $$$(x, y \times b)$$$. If this makes
+  the product of the second group numbers larger than $$$49900$$$, we prune this state.
+  After considering
+  all $$$\mathbf{N}$$$ cards, we check if there is some partition where the sum of the first group numbers
+  is equal to the product of the second group numbers (i.e., a tuple in $$$S$$$ where both
+  values are equal). We output the maximum of these sum or product, or
+  $$$0$$$ if there is no such partition.
+</p>
+<p>
+  We can have at most $$$100$$$ numbers in the input. So it might be tempting to think that
+  there may be $$$100 \choose 15$$$ possible valid partitions.
+  But the product of the numbers
+  in the second group can be at most $$$49900$$$ and each of these $$$49900$$$ numbers
+  can be uniquely
+  represented as the product of primes. So the remaining numbers will go to the first group.
+  Hence after considering each of the input numbers there can be at most
+  $$$49900$$$ possible partitions ($$$49900$$$ possible second groups and for each of these
+  there is a unique first group). So this naive calculation gives us a limit of
+  $$$49900 \times 100 \approx 5 \times 10^6$$$ operations.
+</p>
+<p>
+  So far we have used the fact that each score can be uniquely represented as a product to prove
+  that our solution is fast enough, but it can also be used to obtain an alternative approach for
+  Test Set 2:
+  we have only $$$49900$$$ candidates for the final score, so we can iterate over them one by one.
+  For each candidate score, there is exactly one way to represent it as
+  a product of primes. Assuming we know the prime factorization of
+  the candidate how can we determine if the candidate is valid?
+  Suppose the prime $$$p$$$ appears in the prime factorization
+  $$$q$$$ times. Then, the prime $$$p$$$ has to be in the input at least $$$q$$$ times. This
+  condition guarantees us
+  that the second group is achievable. Next we need to come up with a condition to check the
+  existence of the first group. If we know the sum of the input numbers and subtract the sum of the
+  numbers in the second group we can get the sum of the first group which has to be equal to
+  our candidate. This guarantees the first group existence. Both of these conditions can be
+  checked very easily given the prime factorization of the candidate score.
+</p>
+<p>
+  It turns out that this approach generalizes very well to Test Set 3.
+</p>
+
+<h3>Test Set 3</h3>
+<p>
+  In Test Set 3, $$$\mathbf{N}$$$ can be up to $$$10^{15}$$$, which means the sum of the first group can be
+  as high as $$$4.99 \times 10^{17}$$$. But the number of cards in the second group can not be very
+  high. Since $$$2^{60} > 4.99 \times 10^{17}$$$, we can consider 60 as the upper bound
+  of number of cards in the second group. Although the product of at most 60 cards in the second
+  group can range from $$$2$$$ to $$$2^{60}$$$, the sum of the second group numbers can be only
+  up to $$$60 \times 499 = 29940$$$ (the actual maximum possible sum of the second group numbers is
+  $$$3025$$$ under the problem's constraint but even a crude estimate of $$$29940$$$ is enough
+  to get a working solution). Let $$$X$$$ be the sum of all the cards in the input.
+  Then, the sum of the first group numbers must be between $$$X - 29940$$$ and $$$X$$$, inclusive.
+  This means we have only $$$29941$$$ candidates for the final
+  score, so we could apply the second approach from Test Set 2 if only we could factorize those
+  candidates.
+</p>
+<p>
+  Unfortunately factorizing a number as big as $$$10^{17}$$$ is not an easy task. A naive
+  way may be to run a loop up to $$$\sqrt{10^{17}}$$$. However, in this problem we do not need
+  to care about the primes higher than $$$499$$$. To put it another way, if the candidate has
+  a prime factor
+  other than the input prime numbers, we cannot achieve this score in the second group. Hence,
+  it is enough to try to factorize the $$$29940$$$ candidates with only primes from $$$2$$$
+  to $$$499$$$. It takes about
+  $$$29940 \times (95 + 60) \approx 4.6 \times 10^6$$$ operations to factorize the
+  $$$29940$$$ candidates
+   (there are $$$95$$$ primes between $$$2$$$ and $$$499$$$ and in total there can be
+  at most $$$60$$$ prime factors).
+  We could also do
+  <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" target="_blank">sieve</a>-like
+  factorization reducing the number of operations to about
+  $$$29940\log{\log{499}} \approx 10^{5}$$$ but this is not necessary.
+  After the factorization, we can run a loop
+  to check if the number of each prime exceeds the input count and also to sum these
+  primes. This takes $$$29940 \times 95 \approx 3 \times 10^6$$$ operations.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

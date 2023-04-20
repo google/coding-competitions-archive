@@ -1,0 +1,461 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 3</h3><h1>Go++</h1><h3>Problem</h3>
+<p>
+The Go language was designed to have a simple API and to support
+multi-threading. The Code Jam team wants to push these goals to the limit, so
+we are proposing a new language called Go++.
+</p><p>
+The Go++ language uses one register, which stores one boolean value (0 or 1).
+This register is initialized to 0. The language has three instructions:
+<ul>
+<li><code>0</code>, which sets the register to 0.
+<li><code>1</code>, which sets the register to 1.
+<li><code>?</code>, which prints the current register value.
+</ul>
+Simple, right? To support multi-threading, we allow two different Go++ programs
+to run simultaneously while sharing the one register. Each instruction executes
+atomically &mdash; that is, one instruction must completely finish before the
+next instruction can start. However, the two programs may be interleaved in any
+way that preserves the relative order within each program.
+</p><p>
+For example, here are the only six ways in which the two programs
+<code>1?</code> and <code><u>?0</u></code> could be executed together. (The
+underline on the second program is just to distinguish its instructions from
+the instructions in the first program.)
+<ul>
+<li><code><u>?0</u>1?</code>, which will print <code>01</code>. (Remember that
+the register is initialized to 0.)</li>
+<li><code><u>?</u>1<u>0</u>?</code>, which will print <code>00</code>.</li>
+<li><code><u>?</u>1?<u>0</u></code>, which will print <code>01</code>.</li>
+<li><code>1<u>?0</u>?</code>, which will print <code>10</code>.</li>
+<li><code>1<u>?</u>?<u>0</u></code>, which will print <code>11</code>.</li>
+<li><code>1?<u>?0</u></code>, which will print <code>11</code>.</li>
+</ul>
+</p><p>
+Note that the output string always consists of <code>0</code>s and
+<code>1</code>s, and never <code>?</code>s, since <code>?</code> is not a state
+the register can be in.
+</p><p>
+Usually, programmers write programs to produce a desired output, but your task
+will be to write two programs that <i>won't</i> produce an <i>undesired</i>
+output! Specifically, you will be given a "bad" string <b>B</b> of length
+<b>L</b>, and a set <b>G</b> of <b>N</b> "good" strings, all of
+length <b>L</b>. You must produce two Go++ programs (not necessarily of the
+same length), which, when run in the way described here, could produce
+<i>all</i> of the strings in <b>G</b>, but could <i>not</i> produce the string
+<b>B</b>. It is fine if the programs could also produce other strings that are
+not <b>B</b> and not in <b>G</b>. Note that there must be a combined total of
+exactly <b>L</b> <code>?</code> instructions in the two programs. The combined
+number of instructions in the two programs must not exceed 200.
+</p><p>
+For example, for <b>B</b> = <code>11</code> and <b>G</b> = { <code>10</code>,
+<code>00</code> }, the programs <code>?</code> and <code>10?1</code> would be
+one valid answer. They can produce every string in <b>G</b>, but they cannot
+produce <b>B</b>, no matter how they are interleaved. (They can also produce
+the string <code>01</code>, which is not <b>B</b> and is not in <b>G</b>, but
+that is fine.) However, the programs <code>1?</code> and <code>?0</code> would
+not be a valid answer, since (as we saw above) they can produce <b>B</b>. The
+programs <code>00</code> and <code>??</code> would not be a valid answer, since
+they cannot produce every string in <b>G</b>.
+</p><p>
+Can you produce two programs that satisfy the conditions, or determine that the
+task is <code>IMPOSSIBLE</code>?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>. <b>T</b>
+test cases follow; each consists of three lines. The first line of each test
+case has two integers <b>N</b> and <b>L</b>: the number of strings in <b>G</b>,
+and the length of the <b>B</b> string and the strings in <b>G</b>. The second
+line has <b>N</b> different strings of length <b>L</b>: the strings in
+<b>G</b>. The third line has one string of length <b>L</b>: the bad string
+<b>B</b>. <b>B</b> and all of the strings in <b>G</b> are made up of only
+<code>0</code>s and/or <code>1</code>s.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #x: IMPOSSIBLE</code>,
+if no programs will satisfy the conditions; otherwise, output
+<code>Case #x: y z</code>, where <code>x</code> is the test case number
+(starting from 1) and <code>y</code> and <code>z</code> are your two programs
+that satisfy the conditions. The combined number of instructions in your
+programs must not exceed 200. Each program must contain at least one
+instruction. There must be a combined total of exactly <b>L</b> <code>?</code>
+instructions in the two programs.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+1 &le; <b>T</b> &le; 100.<br/>
+1 &le; <b>N</b> &le; 100.<br/>
+1 &le; <b>L</b> &le; 50.<br/>
+All strings in <b>G</b> are different.<br/>
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+<b>B</b> consists entirely of <code>1</code>s.<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+<b>B</b> may be any string consisting of <code>0</code>s and/or
+<code>1</code>s.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="go_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+2 2
+10 00
+11
+3 2
+11 10 00
+01
+4 2
+00 01 10 11
+11
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="go_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: ? 10?1
+Case #2: 1?? 0
+Case #3: IMPOSSIBLE
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+The sample output displays one set of answers to the sample cases. Other
+answers may be possible.
+</p><p>
+Sample case #1 is the one described in the problem statement.
+</p><p>
+Sample case #2 would not appear in the Small dataset.
+</p><p>
+Sample case #3 is obviously <code>IMPOSSIBLE</code> because <b>B</b> is
+in <b>G</b>.
+</p>
+
+    </div>
+  </body>
+</html>

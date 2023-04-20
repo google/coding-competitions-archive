@@ -1,0 +1,448 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Virtual World Finals</h3><h1>Analysis: Musical Cords</h1><h3>Test Set 1</h3>
+<p>
+In this problem, we are given a circle, a collection of points around the perimeter of the circle,
+  and the attachment values for each of those points (<b>L<sub>i</sub></b>).
+  We want  the top <b>K</b> pairs of points that maximizes the Euclidean distance between the
+  points plus their
+  attachment values. For Test Set 1, we know that the point values are picked randomly. We will need
+  to use this property somehow. We also know that <b>K</b>=1, so we are looking for the top pair of
+  points.
+</p><p>
+  Imagine considering the points around the circle in the clockwise order. Let us say that we are
+  at a point p. Also, without loss of generality, let us only consider points that are at most 180
+  degrees clockwise from p. That is, we only consider half of the circle starting at p. If we find
+  the maximum pairing (maximum distance plus attachment values) for every possible p,
+  the maximum over all of those pairs will be the answer. This is because considering each point,
+  (and points that are up to 180 degrees clockwise from it) will consider every possible
+  pair of points at least once.
+</p>
+
+<p>
+  So, we are considering all points p in the clockwise order around the circle and trying to find
+  the maximum pairing for each of these. If we consider the possible other points we could pair
+  with p in the counterclockwise order starting from the location 180 degrees clockwise of p (the
+  "other side" of the circle from p), then we can observe some useful properties. Once we have
+  considered some pairing point x, then some further counterclockwise point y will be closer to p.
+  Thus, for y to be the maximum pairing, its attachment value must be greater than x's attachment
+  value. So, we only need to consider points that increase in their attachment values.
+</p>
+
+<p>
+  We know that the attachment values are randomly selected.
+  In a sequence of <b>N</b> integers randomly selected from a uniform range,
+  we expect the running maximum to change only
+  log <b>N</b> times. To see why, observe that first element has a 1/1
+  chance of being the new maximum,
+  the second element has a 1/2 chance, the third element has a 1/3 chance, and so on. This is the
+  <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)" target="_blank">harmonic series</a>.
+  The sum of its first <b>N</b> terms is bounded by O(log <b>N</b>).
+  Thus, we expect to see only O(log <b>N</b>) changes of
+  maximum. This means the explained solution has
+  an expected time complexity of O(<b>N</b> log <b>N</b>),
+  which should be fast enough to pass. The worst case among all possible inputs takes
+  O(<b>N<sup>2</sup></b>) time. However, as we showed, this is extremely unlikely
+  with random attachment values.
+</p>
+
+<p>
+  Now, when we are considering a point x, we need an efficient way to find the
+  first point in the counterclockwise order from x whose
+  attachment value is greater than x. This is actually equivalent to a known problem: the
+  next greater element problem.
+  The twist is that our values are on a circle, so we have wraparound. One way to deal with this
+  is to make an array of attachment values, append it to itself, and then apply a fast algorithm
+  for the next greater element problem to the resulting array.
+</p>
+
+<p>
+  There are other approaches that also take O(<b>N</b><sup>2</sup>) time in the worst case, because
+  they might compare a high percentage of all pairs, but use other clever speedups like
+  jumping to the next greater value, to have a high chance to cut the number of comparisons
+  way down.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  The attachment values of points are not randomly generated in this test set, so we will need to
+  find a different approach. Also, <b>K</b>=10, so we also need to find more than one pair
+  of points. Instead of trying to find the top <b>K</b> pairs directly, we can find the best
+  pairing for each point, and extend this solution to find the top <b>K</b> pairs overall. Let's
+  first figure out how to find the best pairing for each point, then explain how to extend it to
+  find the top <b>K</b> pairs.
+</p><p>
+  We start by finding, for each input point P, which other input point
+  Q is its best pairing. That is, we find for which other input point Q the function
+  L<sub>P</sub> + L<sub>Q</sub> + distance(P, Q) is maximized.
+</p><p>
+  Now consider points P not necessarily in the input.
+  We define a value function V<sub>P</sub>(Q) = distance(P, Q) + L<sub>Q</sub>. Notice that
+  if P is a point in the input, V<sub>P</sub>(Q) + L<sub>P</sub> is the amount of
+  cord required to connect P and Q.
+</p><p>
+  Let us approach the problem visually. Imagine moving P around the circle
+  in the clockwise order and computing the value function V<sub>P</sub>(Q) for all the input
+  points Q that are up to 180 degrees clockwise of P.
+  As we move P, how does the distance function to some other point change?
+</p><p>
+  The Euclidean distance part of the distance function is equivalent to computing the length of a
+  circular chord. That is, V<sub>P</sub>(Q)=2&times;<b>R</b>&times;sin(angle(P, Q)/2)+L<sub>Q</sub>.
+  Notice here than the angle function is in the clockwise direction, and it's always less than
+  or equal to 180 degrees. Consider how this function changes when P changes. That is,
+  consider the function W<sub>Q</sub>(P)=V<sub>P</sub>(Q). As the domain for V<sub>P</sub>
+  is the Qs that are up to 180 degrees in the clockwise direction, the domain for W<sub>Q</sub>
+  is the Ps that are up to 180 degrees in the counterclockwise direction.
+</p><p>
+  For each Q, W<sub>Q</sub> has a constant term
+  L<sub>Q</sub>, and then a term that looks like half a sine wave. Notice that the graph
+  of the function is the same for any Q, but translated:
+  the change in angle(P, Q) translates it horizontally, and the change in L<sub>Q</sub> translates
+  it vertically.
+  An example of how these graphs might look follows.
+  Each black curve corresponds to W<sub>Q</sub> for a different point Q.
+</p>
+<p align="center">
+  <img src="sinegraph.png" style="width: 500px; height: auto;" />
+</p>
+<p>
+  Because all of the distance functions have the same shape, we can see that W<sub>Q</sub>
+  has maximum values compared to all other W functions for a continuous range of points P.
+  So, can we efficiently compute these ranges for each point? If so, we can use
+  these ranges to find the maximum for each possible point by finding which maximum's range it
+  falls into.
+</p><p>
+  We can analyze this graph by sweeping across it from left to right&mdash;that is,
+  increasingly along the x-axis. Since the x-axis represents points on a circle, it may be easier
+  to visualize if we instead represent each point by its angle with respect to the positive half
+  of the x-axis, as usual.
+  For a fixed angle A, let us consider only the curves whose domain includes at least one point
+  in the range [0, A] and call that set C<sub>A</sub>.
+  As we consider increasing values for A, at some point
+  we consider a curve for the first time, with domain [A, B]. The curve is definitely
+  maximum among all curves in C<sub>A</sub> at B, because it is the only curve at that point.
+  So, the range for which it is the maximum must end there.
+  Since we know there is only one such range, we can binary search to find the beginning of the
+  range.
+</p><p>
+  We keep a sorted list of non-overlapping ranges as we go, and add new ranges to the end.
+  Note that we may need to pop off some ranges from the end of the list if we find a new range
+  that covers them completely, or shorten them if the new range covers them only partially.
+  There can be zero or more left-most ranges where the new curve is fully under the maximum curve
+  in that range, zero or more right-most ranges where the new curve is fully over the maximum curve
+  in that range, and zero or exactly one range where the new curve and the curve from the range
+  cross. We
+  <a href="https://en.wikipedia.org/wiki/Bisection_method" target="_blank">binary search</a>
+  within the range for the exact crossing point.
+</p><p>
+  One issue we still need to deal with is that the graph is actually cyclic. It represents the
+  distance function to points as we go around a circle. So, the distance
+  functions we plot can "wrap around". We can deal with this via a method similar to what we used in
+  Test Set 1: append a copy of the input to itself, and go around the input twice.
+</p><p>
+  The final list of ranges can be used to get the maximum pairing for each point on the circle.
+  For each input point P, we find the Q for which W<sub>Q</sub> is the maximum at P.
+  Since we only need to check input points P, we can restrict the
+  domains of all functions and intervals discussed so far to input points
+  without affecting the correctness.
+  This allows us to binary search over an array of O(<b>N</b>) values as opposed to
+  over a range of real numbers.
+</p><p>
+  The time complexity of constructing the list of ranges is therefore O(<b>N</b> log <b>N</b>).
+  Then, we go through the list iterating over the list of possible Ps for each Q. While a
+  particular Q can have a long range, overall, we iterate over each input P at most once (or twice
+  for the duplicated input). This makes the final step take linear time.
+</p><p>
+  An O(<b>N</b>) algorithm for the above problem does exist.
+  This is left as an exercise for the reader.
+</p><p>
+  We have a way to find the best pairing for each point. How do we extend this solution to find the
+  top <b>K</b> unordered pairings? It is possible that a pair in the top <b>K</b> is not in our list of
+  best pairings for each point. However, we can still use our list. Consider sorting the list by
+  the Euclidean distance plus attachment values of the pair in descending order. The first entry
+  in the list will definitely be the top pair overall. The second top pair will either be the next
+  entry in our list, or it will be paired with one of the points in our top pair. We can look
+  at all pairings involving the points in our top pair, and now we know the second best pair. We
+  can repeat this process to find the top <b>K</b>. In each step, the pair we choose is either the
+  next best pair in our
+  list that we haven't seen,
+  or it is a pairing with a point in the previous pairs in our list. In each of these <b>K</b>
+  steps, we take O(<b>N</b>) time. Sorting our list initially takes O(<b>N</b> log <b>N</b>) time,
+  so our algorithm requires O(<b>N</b> log <b>N</b> + <b>N</b> &times; <b>K</b>) time overall,
+  which is fast enough to pass.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

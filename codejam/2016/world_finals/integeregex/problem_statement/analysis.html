@@ -1,0 +1,415 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - World Finals</h3><h1>Analysis: Integeregex</h1><h3>Analysis</h3>
+<p>
+  One handy property of regular expressions is that matching one of them is equivalent to being
+  accepted by a special type of machine called a
+  <a href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton">nondeterministic finite
+  automaton</a> (NFA).
+</p><p>
+  An NFA is a graph of states and transitions, with a special initial and final state. Each
+  transition is labeled with a digit or &epsilon;. When processing a string, the machine may move
+  from a current state to another state by taking an &epsilon;-transition, or by taking a digit
+  transition that matches the current digit of the string and moving to the next digit. After
+  the last digit of the input string is read, only &epsilon;-transitions are allowed. If there is
+  a path from the initial digit to the last digit that reads the entire input, we say the input
+  string is accepted or matched, and that path is called an accepting path.
+</p>
+
+<h3>Build an NFA that matches strings to the regular expressions of the problem.</h3>
+<p>
+  <a href=https://en.wikipedia.org/wiki/Thompson%27s_construction>Thompson's construction</a> is
+  one algorithm to construct an NFA that matches regular expressions.<br/>
+
+  The general outline is start with two special states: the initial state, <code>q</code>, and a
+  final accepting state, <code>f</code>.<br/>
+  Then build up the NFA f(E) recursively:
+  <ul>
+    <li>If E is a digit, then f(E) contains only the two special states linked with a transition
+      labeled with E.</li>
+    <li>f(E = E<sub>1</sub>E<sub>2</sub>) is the union of f(E<sub>1</sub>) and f(E<sub>2</sub>),
+      using the initial state of f(E<sub>1</sub>) as initial state of f(E), the final state of
+      f(E<sub>2</sub>) as final state, and adding an &epsilon;-transition from the final state
+      of f(E<sub>1</sub>) to the initial state of f(E<sub>2</sub>).</li>
+    <li>f(E = (E<sub>1</sub>|E<sub>2</sub>|...|E<sub>N</sub>)) is the union of all the
+      f(E<sub>i</sub>) plus an additional initial and final state. Then, &epsilon;-transitions are
+      added from the initial state of F(E) to each initial state of an f(E<sub>i</sub>) and
+      from the final state of each f(E<sub>i</sub>) to the final state of f(E).
+    <li>f(E = (E<sub>1</sub>)*) is just f(E<sub>1</sub>) with an additional &epsilon;-transition
+      from the final state to the initial state.
+  </ul>
+</p>
+
+<p>
+  Here's an example NFA built from the Integeregex <code>(13|1)((2)*|3)</code><br/>
+  <table>
+    <tr><td><img src="analysis1.png"/></td>
+  </table>
+</p>
+<p>
+
+<h3>Checking that a single string matches</h3>
+<p>
+  Consider the following example: the input string <code>1322</code> has an accepting path on the
+  NFA above that goes through these states:
+  <code>q</code>, s<sub>1</sub>, s<sub>2</sub>, s<sub>3</sub>, s<sub>6</sub>, s<sub>7</sub>,
+  s<sub>8</sub>, s<sub>7</sub>, s<sub>8</sub>, <code>f</code>.<br/>
+  Notice that there are multiple paths for each string, some may be accepting and some others may
+  not. Just one accepting path is enough for the string to be accepted.
+</p>
+
+<p>
+  Start with the set of possible states containing only the initial state (<code>q</code>).<br/>
+  For each character C in the string:<br/>
+  &nbsp;&nbsp;For each of the last possible states:<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;Find all the states that can be reached by &epsilon;-transitions then a
+      transition on C.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;Add these to the new set of all possible states.<br/>
+  From the last set of possible states:<br/>
+  &nbsp;&nbsp;if the accepting state (<code>f<code>) is reached from any of these states by
+    &epsilon;-transitions then the NFA (and the regular expression) match!.<br/>
+  <br/>
+  For example to check the string <code>1233</code> against our example NFA:<br/>
+  the NFA starts in the initial state <code>q</code><br/>
+  After &epsilon;-transitions and a transition on 1, the NFA can be in any of the states
+    {s<sub>2</sub>, s<sub>5</sub>}.<br/>
+  After &epsilon;-transitions and a transition on 3, the NFA can be in any of the states
+    {s<sub>3</sub>, s<sub>10</sub>}.<br/>
+  After &epsilon;-transitions and a transition on 2, the NFA can only be state s<sub>8</sub>.<br/>
+  After &epsilon;-transitions and a transition on 2, the NFA can only be state s<sub>8</sub>.<br/>
+  Because the accepting state <code>f</code> can be reached from s<sub>8</sub> with
+  &epsilon;-transitions, the NFA, and the regular expression, match <code>1322</code>!<br/>
+</p>
+
+<h3>Quickly counting all numbers that match the NFA</h3>
+<p>
+  We can now use dynamic programming to quickly check how many numbers less than or equal to X
+  match the NFA.<br/>
+  We keep a map of (is_empty, is_prefix_of_x, possible_states) to memoize the result starting from
+  that state.<br/>
+  We use is_empty to keep from adding zeros at the front of the number.<br/>
+  We use is_prefix_of_x to keep from counting numbers larger than X.<br/>
+</p><pre>
+def MatchNFA(X, transitions):
+  x_digits = []
+  for c in str(X):
+    x_digits.append(int(c))
+
+  # Start of numbers with same length  as X.
+  count_state = { (True, True, 'p') : 1 }
+  for index in range(len(X)):
+    # Start of shorter and shorter numbers.
+    new_count_state = { (True, False, 'p') : 1 }
+
+    for (is_empty, is_prefix_of_x, states), count in count_state.items():
+      for new_digit in range(10):
+        if is_empty and new_digit == 0:
+          continue # Numbers can't start with 0.
+
+        if is_prefix_of_x and new_digit &gt; x_digits[index]:
+          continue # Numbers can't be greater than X.
+
+        # Find all possible states if new_digit was next in the string
+        new_possible_states = []
+        for start_state in states:
+          # Add all states that can be reached from start_state by (&epsilon;)* new_digit
+          for epsilon_state in transitions[start_state]['']:
+            new_possible_states += transitions[epsilon_state][new_digit]
+        new_count_state[(False, is_prefix_of_x and new_digit == x_digits[index],
+                         set(new_possible_states))] += count
+    count_state = new_count_state
+
+  count_match = 0
+  for (is_prefix_of_x, states), count in count_state.items():
+    for final_state in states:
+      if 'f' in transitions[state]['']
+        count_match += count
+
+  return count_match</pre><p>
+  Finally we calculate the number of matching numbers between A and B as
+  MatchNFA(B, transitions) - MatchNFA(A-1, transitions).<br/>
+</p>
+
+<p>
+  As the number of states in the NFA grows, <code>new_possible_states</code> can grow exponentially
+  large (it can theoretically be the powerset of the states). However, the small maximum length
+  of the regular expression and the amount of non-digit characters consumed to include disjunctions
+  or repetitions make it so that the number is actually really small (for a computer) in practice.
+  There are mathematically provable bounds on the number, but the proofs are too long to fit
+  in the margins of this analysis.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

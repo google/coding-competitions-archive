@@ -1,0 +1,414 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Kick Start 2021 - Round F</h3><h1>Analysis: Festival</h1><h3>
+  Test Set 1
+</h3>
+
+<p>
+  We can consider each attraction as an interval that covers some range of days and has some
+  <i>happiness rating</i>.
+  Let us denote <i>happiness rating</i> of an interval as HR.<br/>
+  <br/>
+  At first we sort the intervals according to their HRs, from higher to lower.
+  Then we will iterate through each day and consider that day as the day we will attend the
+  festival. Let us denote this day as $$$d_i$$$. And let us denote the total happiness of upto $$$\mathbf{K}$$$
+  intervals on this day as $$$c_i$$$.<br/>
+  <br/>
+  Let us set $$$c_i$$$ to $$$0$$$. Now we will iterate through the sorted intervals and check if
+  $$$d_i$$$ is included in the current interval. If yes, then we add the HR of that
+  interval to $$$c_i$$$. If no, we continue to the next interval. If the number of intervals taken
+  into account reaches $$$\mathbf{K}$$$, we stop calculating $$$c_i$$$ and compare it to the current maximum
+  answer and store it as maximum if it is greater. If we iterate through all the intervals and the
+  number of intervals taken is less than $$$\mathbf{K}$$$, we still compare $$$c_i$$$ to the current maximum
+  answer and store it as maximum if it is greater.<br/>
+  <br/>
+  The answer is the maximum among all $$$c_i$$$s.<br/>
+  <br/>
+  The time complexity of this solution is $$$O(\mathbf{N} \times \log{\mathbf{N}} + \mathbf{D} \times \mathbf{N})$$$.<br/>
+  The space complexity (without considering the input) of this solution is $$$O(1)$$$ as no extra
+  memory is used.
+</p>
+
+<p>
+  A pseudocode would look something like this:
+</p>
+
+<pre>
+<code>
+  ans = 0
+  sort(intervals) // from higher to lower
+  for d_i = 1 to D:
+    c_i = 0
+    cnt = 0
+    for j = 1 to N:
+      if (cnt == K): break
+      if (s_j <= d_i <= e_j):
+        c_i += h[d_i]
+        cnt++
+    ans = max(ans, c_i)
+  return ans
+</code>
+</pre>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  Now the brute force will not work. We can still iterate through each day, but now we cannot check
+  each interval to see if this day is in that interval or not. Rather for each day, we will update
+  the events taking place on that day efficiently and then calculate the total HR for that day. We
+  will consider the ending days as the ($$$\mathbf{e_i}$$$ + 1)-th days, because the $$$\mathbf{e_i}$$$-th day is
+  included in the interval. So now we will consider the ($$$\mathbf{e_i}$$$ + 1)-th day as the ending day
+  for each interval. For example, if an interval ended on day $$$6$$$ previously, now we will
+  consider that it ends on day $$$7$$$.<br/>
+  <br/>
+  For each day, we will store the intervals that either start or end on that day.<br/>
+  <br/>
+  We will use segment trees for our solution. Each leaf node of the tree will be an interval and
+  the intervals will be sorted according to their HRs, from higher to lower. Initially every
+  interval will have a value of $$$0$$$. When an interval becomes active, we will update that index
+  with its HR. And when an interval becomes inactive, we will update that index with $$$0$$$ again.
+  We need to query the sum of any range in the trees. We also need another operation. At any moment
+  we need to find the index of the $$$\mathbf{K}$$$-th maximum (HR wise) active interval. If there are less than
+  $$$\mathbf{K}$$$ active intervals, we will return the index of the rightmost/last active interval. We can use
+  another segment tree for this.<br/>
+  <br/>
+  Now we will iterate through the days.<br/>
+  <br/>
+  If the current day is a starting day for an interval, it means this interval has become active.
+  We will update its index with its HR in one tree and will make it active in the other one.<br/>
+  If the current day is an ending day for an interval, it means this interval has become inactive.
+  We will update its index with $$$0$$$ in one tree and will make it inactive in the other one.<br/>
+  We will do this for each interval for which the current day is a starting day or an ending
+  day.<br/>
+  <br/>
+  On the days that we update the segment trees, after updating, we will query for the index of the
+  $$$\mathbf{K}$$$-th maximum active interval in the second tree. Let us assume this index is $$$idx$$$. And then
+  in the first tree, we will query the sum from the $$$0$$$-th index to index $$$idx$$$. We will
+  store this sum in the current answer if the current answer is smaller.<br/>
+  <br/>
+  The answer is the final value in the current answer.<br/>
+  <br/>
+  The time complexity of building a segment tree with $$$n$$$ elements is $$$O(n)$$$ and for
+  updating and querying the time complexity is $$$O(\log{n})$$$ for each operation.<br/>
+  So the time complexity of this solution is
+  $$$O(\mathbf{N} + \mathbf{D} + \mathbf{N} \times \log{\mathbf{N}})$$$.<br/>
+  And the space complexity of this solution is $$$O(\mathbf{N})$$$.
+</p>
+
+<h4>
+  Alternative Solution
+</h4>
+<p>
+  We will discuss another solution using
+  <a href="https://www.cplusplus.com/reference/set/multiset/" target="_blank">multisets</a> which is available in
+  C++ standard template library (STL). It can also be implemented using a
+  <a href="https://en.wikipedia.org/wiki/Binary_search_tree" target="_blank">binary search tree</a> in any
+  language.<br/>
+  <br/>
+  We will use two multisets, one to keep track of the $$$\mathbf{K}$$$ active intervals with higher HRs, and the
+  other one to keep track of the rest of the active intervals.<br/>
+  <br/>
+  Now we will iterate through the days again.<br/>
+  <br/>
+  If the current day is a starting day of an interval, then if the number of active intervals in the
+  first multiset is less than $$$\mathbf{K}$$$, we insert this interval in the first multiset. Otherwise, if the
+  interval with the smallest HR has a greater HR than this interval, then we insert this interval
+  in the second multiset. And if it is less or equal, then we remove the smallest from the first
+  multiset and insert the removed interval into the second multiset. And then we insert the current
+  interval in the first multiset.<br/>
+  <br/>
+  If the current day is an ending day of an interval, then if this interval is in the second
+  multiset, we simply remove it from there. Otherwise it is in the first multiset. So, we remove the
+  current interval from the first multiset. Then we remove the interval with the largest HR from the
+  second multiset and insert the removed interval in the first multiset.<br/>
+  <br/>
+  We always maintain a variable $$$sum$$$ which is the sum of the HRs of the intervals in the first
+  multiset. While inserting/removing an interval in/from the first multiset, we have to update the
+  value of the $$$sum$$$ accordingly.<br/>
+  <br/>
+  The answer is the maximum value of $$$sum$$$ across the whole time.<br/>
+  <br/>
+  The time complexity of accessing, inserting, removing elements from a multiset with $$$n$$$
+  elements is $$$O(\log{n})$$$ for each operation. Since there are $$$\mathbf{N}$$$ intervals and each
+  interval will be handled $$$2$$$ times and each handling will require $$$O(1)$$$ operations with
+  the multisets, the overall complexity of all operations with multisets will be
+  $$$O(\mathbf{N} \times \log{\mathbf{N}})$$$.<br/>
+  So, the overall complexity of this solution is: $$$O(\mathbf{D} + \mathbf{N} \times \log{\mathbf{N}})$$$.<br/>
+  And the space complexity of this solution is $$$O(\mathbf{N})$$$.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

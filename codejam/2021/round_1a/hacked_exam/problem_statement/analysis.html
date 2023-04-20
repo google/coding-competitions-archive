@@ -1,0 +1,436 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 1A</h3><h1>Analysis: Hacked Exam</h1><p>
+In this problem we want to maximize our expected score.
+Let $$$p_q$$$ be the
+probability of question $$$q$$$'s answer being <code>T</code>, and let $$$Q_\mathtt{T}$$$
+and $$$Q_\mathtt{F}$$$ be the sets of questions we answer with
+<code>T</code> and <code>F</code>, respectively. By
+<a href="https://en.wikipedia.org/wiki/Expected_value#Basic_properties" target="_blank">
+linearity of expectation</a>, the expected score to maximize can be written as
+$$$$\left(\sum_{q \in Q_\mathtt{T}} p_q \right) +
+    \sum_{q \in Q_\mathtt{F}} \left(1 - p_q \right).$$$$
+Notice that linearity of expectation
+can be used regardless of any conditional probability between different questions. In this
+case, those conditional probabilities can be quite complicated, so being able to ignore them
+and treat each question independently despite them not being
+<a href="https://en.wikipedia.org/wiki/Independence_(probability_theory)" target="_blank">
+independent in the probability
+theory sense</a> simplifies the solution process significantly. This is a trick that is important
+in many problems about expected values.
+</p><p>
+We operate with fractions throughout most of the proposed solutions. As noted in the sample,
+the needed numbers may exceed 64 bits for Test Set 3, and potentially for Test Set 2 as well,
+depending on the exact implementation of the algorithm and the fraction operations.
+It is absolutely possible to solve Test Set 2 with simply 64-bit integers and Test Set 3 with
+just 128-bit integers. Our most popular languages all support this in some way: C and C++
+have <code>__int128</code> support, Java and C# have <code>BigInteger</code>, JavaScript has
+<code>BigInt</code>, Bash has <code>bc</code>, and Python, Ruby and Haskell have native
+long integer support. We usually strive to make most of our problems solvable with just
+64-bit integer arithmetic, but in this case, limiting the number of questions so much would
+allow suboptimal solutions in fast languages to pass Test Set 3.
+</p><p>
+Notice that we can have information of $$$1$$$ or $$$2$$$ other students in the first
+two test sets, and also $$$3$$$ in the last test set.
+We could solve each number of students independently, but there is no need for that.
+Adding a student with the same answers and score as a student in the input
+results in a completely equivalent case, so we can always assume that
+there are a maximum number of students by copying any student the needed number of times.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+In Test Set 1, the number of questions $$$\mathbf{Q}$$$ is small enough that we can simply enumerate all
+possible $$$2^{\mathbf{Q}}$$$ sequences of answers, and filter out those who are inconsistent with
+the input (i.e., those for which one of the students would obtain a different score than they
+actually got). From the consistent ones, we can estimate the $$$p_q$$$s above as the ratio
+between the number of sequences that answer <code>T</code> to question $$$q$$$, over the total.
+Then, we can simply choose to answer <code>T</code> to those questions with
+$$$p_q \gt \frac{1}{2}$$$ and <code>F</code> to those with $$$p_q \lt \frac{1}{2}$$$. We can
+answer the questions with $$$p_q = \frac{1}{2}$$$ either way.
+</p>
+<h3>Test Set 2</h3>
+<p>
+In Test Set 2 $$$\mathbf{Q}$$$ is large, so we cannot enumerate the sequences of answers.
+We can, on the other hand, figure out the probabilities $$$p_q$$$ in a different way,
+and then proceed as before with choosing the answers by comparing those values to
+$$$\frac{1}{2}$$$.
+</p>
+<h4>An insight-based solution</h4>
+<p>
+One way to solve Test Set 2 is by splitting the questions into types.
+If two questions $$$q_1$$$ and $$$q_2$$$ received the same answer from each
+student, then by symmetry $$$p_{q_1} = p_{q_2}$$$.
+Then, let $$$p_{ab}$$$ be equal to the probability of a question's answer being <code>T</code>
+given that the first student answered $$$a$$$ and the second student answered $$$b$$$
+to it. By the first observation, each $$$p_q$$$ is equal to one of the $$$4$$$
+values $$$p_{\mathtt{TT}}$$$, $$$p_{\mathtt{TF}}$$$, $$$p_{\mathtt{FT}}$$$ or $$$p_{\mathtt{FF}}$$$.
+Moreover, by the symmetry of complementing answers,
+$$$p_{\mathtt{TT}} = 1 - p_{\mathtt{FF}}$$$ and $$$p_{\mathtt{TF}} = 1 - p_{\mathtt{FT}}$$$.
+Therefore, we can express every $$$p_q$$$ as a linear function of up to two variables
+$$$p_{\mathtt{TT}}$$$ and $$$p_{\mathtt{TF}}$$$. That means we can express the expected score of
+both students as linear functions on those two variables too. Given that their expected
+score should match their actual score, that gives us
+two equations with two unknowns. We can derive the real values of $$$p_{\mathtt{TT}}$$$ and
+$$$p_{\mathtt{TF}}$$$ from that system of equations.
+With every $$$p_q$$$ calculated, we can simply choose, for each question,
+an answer that has maximum probability, as in the solution for Test Set 1.
+</p><p>
+Notice that there are $$$4$$$ possible cases depending on how our two variables
+compare with $$$\frac{1}{2}$$$ (if one is exactly $$$\frac{1}{2}$$$ that means two cases
+are equivalent and if both are $$$\frac{1}{2}$$$ then all cases are equivalent). The
+$$$4$$$ cases exactly match with either answering the same as one of the students,
+or answering the opposite of one of the students.
+We can use this observation to greatly simplify the implementation
+as the score of a sequence given by a student is given to us, and the score of the complement
+of the answers of student $$$i$$$ is $$$\mathbf{Q} - \mathbf{S_i}$$$, so we can easily obtain the scores
+of the $$$4$$$ options and pick a highest one.
+</p>
+<h4>A more competitive-programming-standard solution</h4>
+<p>
+In case of having $$$2$$$ students, we can use
+<a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>
+to calculate the probability of each question having a particular answer. We compute the recursive
+function $$$f(s_1, s_2, q)$$$ defined as "how many ways are there to answer questions
+$$$q, q+1, q+2, \dots, \mathbf{Q}$$$ such that student $$$1$$$ gets exactly $$$s_1$$$ of them right
+and student $$$2$$$ gets exactly $$$s_2$$$ of them right?"
+We can define that function recursively as
+$$$$f(s_1, s_2, q) = f(s_1 - I_1(q, \mathtt{T}), s_2 - I_2(q, \mathtt{T}), q+1) +
+                     f(s_1 - I_1(q, \mathtt{F}), s_2 - I_2(q, \mathtt{F}), q+1)$$$$
+where $$$I_i(q, c)$$$ is $$$1$$$ if student $$$i$$$ answered $$$c$$$ to question $$$q$$$ and
+$$$0$$$ otherwise. The base cases are $$$f(0, 0, \mathbf{Q}+1) = 1$$$ and
+$$$f(s_1, s_2, \mathbf{Q}+1) = 0$$$ whenever one of $$$s_1$$$ or $$$s_2$$$ is not $$$0$$$. To simplify
+memoization, we may want to add a case to simply answer $$$0$$$ whenever $$$s_1$$$ or
+$$$s_2$$$ are negative, but the recursive equation holds as written for those cases.
+</p><p>
+By memoizing that function, we can compute it in time $$$O(\mathbf{Q}^3)$$$. We can calculate the
+probability of question $$$1$$$'s answer being <code>T</code> as
+$$$$\frac{f(\mathbf{S_1} - I_1(1, \mathtt{T}), \mathbf{S_2} - I_2(1, \mathtt{T}), 2)}
+         {f(\mathbf{S_1}, \mathbf{S_2}, 1)}.$$$$
+Then, by symmetry, we can reorder the questions to make any question the first one and re-run
+to compute the probability for any question. After having all probabilities, we simply
+answer the most likely answer for each question and sum its probability to our expected
+score. Since we need to run the probability computation $$$O(\mathbf{Q})$$$ times (once per question),
+the overall algorithm takes $$$O(\mathbf{Q}^4)$$$ time. This can be a little too slow.
+</p><p>
+If we add only the first observation of the insight-based solution, we can notice that
+two questions that were answered the same by both students have identical
+probabilities. Then, we only need to calculate the probability of up to $$$4$$$ question types
+(in the notation of the previous solution, we use dynamic programming to calculate all the
+$$$p_{ab}$$$s). This improves the overall running time to $$$O(\mathbf{Q}^3)$$$, which fits
+better within the time limit. An observation about complement could further reduce this to
+only $$$2$$$ question types, but that does not change the time complexity and it is not needed
+to pass this test set.
+</p>
+<h3>Test Set 3</h3>
+<p>
+The dynamic programming solution for Test Set 2 can be generalized to
+Test Set 3 by adding an additional score as another parameter to the recursive function.
+However, the additional dimension and larger limit for $$$\mathbf{Q}$$$ can easily make such solutions too slow.
+</p><p>
+Combining the full insights of the first solution to Test Set 2 with
+the solution to Test Set 1 works, though:
+there are $$$8$$$ probability variables $$$p_{abc}$$$, and pairs of complementary variables have
+complementary probabilities, so we only care about $$$4$$$ different ones.
+</p><p>
+Let us call the subindex of the variables (the $$$abc$$$ part)
+the "type" of a question. Let us number the types $$$1$$$ through $$$4$$$ in any order.
+If there are $$$q_j$$$ questions of type $$$j$$$,
+we can use quadruples $$$(t_1, t_2, t_3, t_4)$$$ with $$$0 \le t_j \le q_j$$$ for
+all $$$j$$$ to represent sequences of answers
+that answer <code>T</code> to exactly $$$t_j$$$ questions of type $$$j$$$. We know that
+there are
+$$$${q_1 \choose t_1} \cdot {q_2 \choose t_2} \cdot {q_3 \choose t_3} \cdot {q_4 \choose t_4}$$$$
+sequences of answers represented by this particular quadruple.
+If we filter the quadruples by the ones that give each student their actual score,
+we are effectively enumerating answers that are consistent with the input. This is what
+we did for Test Set 1! In this
+way, we can count which amount $$$t_j$$$ of questions of type $$$j$$$ has the largest probability
+and choose that one, for each $$$j$$$.
+</p><p>
+There are at most $$$(\mathbf{Q} / 4)^4$$$ quadruples to check. This makes the time complexity of
+the algorithm $$$O(\mathbf{Q}^4)$$$, but the $$$1/256$$$ constant is pretty significant, and a good
+implementation runs comfortably in time.
+</p><p>
+But wait! We can refine this solution even more by using the solution for Test Set 2
+that ends with solving the system of equations!
+We can express the score of each student
+as a linear function of $$$t_1, t_2, t_3$$$ and $$$t_4$$$. That gives us a system of
+$$$3$$$ equations and $$$4$$$ unknowns. That means that we only need to try all possible
+values for one of the $$$t_j$$$ and then simply solve the system to find unique values
+for the other three. That refines the solution above to requiring only $$$O(\mathbf{Q})$$$ time.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

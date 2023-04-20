@@ -1,0 +1,368 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 2</h3><h1>Analysis: Graceful Chainsaw Jugglers</h1><p>
+We can identify each juggler by a pair of integers (b, r) where 0 &le; b &le; <b>B</b>
+and 0 &le; r &le; <b>R</b>. The pair (0, 0) does not identify a valid juggler, although we
+could assume that it does and, since we can always add (0, 0) to any valid configuration
+that does not contain it, just solve the modified problem and subtract 1 to obtain the
+final answer. We can then focus on finding the size of the largest subset of
+V = [0; <b>B</b>] &times; [0; <b>R</b>] such that the sum of the first component of each element
+is <b>B</b>, and the sum of the second component of each element is
+<b>R</b>. Let us call b,r-valid to a set of distinct pairs that fulfills the sum conditions for
+specific b and r.
+</p>
+<h3>Test set 1</h3>
+<p>
+For Test set 1, we can first notice that the size of V is small. Therefore, we can do a dynamic
+programming iterating through V and deciding, for each pair, whether to include it or not.
+As part of the state we have to also include how many blue and red jugglers we can still include.
+Therefore, we enumerate V in any order
+v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>(<b>B</b>+1) &times; <b>R</b>+1</sub>,
+and then we compute a function f(i, b, r) defined as the size of the largest b,r-valid subset of
+{v<sub>1</sub>, v<sub>2</sub>, ..., v<sub>i</sub>}.
+</p><p>
+We can see that f has also a recursive definition as follows:
+</p><ul>
+  <li>f(0, 0, 0) = 0.</li>
+  <li>f(i + 1, b, r) = max(f(i, b, r), 1 + f(i, b - left(v<sub>i</sub>), r - right(v<sub>i</sub>)))
+    for all b, r, i.</li>
+</ul><p>
+The definition above is incomplete because it's not checking for indefinitions. A simple
+solution is to just define every undefined case as -infinity, or for this particular
+problem, - <b>B</b> - <b>R</b>.
+</p><p>
+Memoizing this recursive definition leads to an implementation that takes time proportional
+to the size of the domain of f, which is (<b>B</b>+1)<sup>2</sup> &times; (<b>R</b>+1)<sup>2</sup>,
+which is likely fast enough to solve Test set 1. If your implementation and language of choice
+are both on the slow side, it's possible that you need some additional insight to make it through
+the time limit. One simple trick is that the function f actually solves all possible test cases,
+since the set V is fixed. So, you can reuse the memoization table for all test cases and save
+99% of the work compared to solving each test case from scratch. You can even
+compute the entire table before submitting, and include it in your source code,
+although you should be wary of this strategy in general since it might cause
+your source file to exceed the 1 MB limit specified in our rules.
+</p>
+<h3>Test set 2</h3>
+<p>
+For Test set 2, we will definitely need the additional insight of not resetting the memoization
+table for each test case. However, the important additional insight is more specific to
+the problem.
+</p><p>
+First, let us define weak-b,r-valid sets as sets of distinct pairs of non-negative integers
+such that the sum of the values of the left sides of each pair is less than or equal
+to b, the sum of the values of the right sides of each pair is less than or equal to r.
+Of course, every b,r-valid set is also a weak-b,r-valid set, but the converse is not true.
+</p><p>
+One important property of weak-b,r-valid sets is that for fixed b and r, the size X of the
+largest weak-b,r-valid set is equal to the size Y of the largest b,r-valid set. We can prove
+that by noticing: (1) Y &le; X because every b,r-valid set is a weak-b,r-valid set;
+and (2) X &le; Y
+because if we let S be a weak-b,r-valid set of size X and then take an element (i,j) of S such
+that i is maximum, and j is maximum among those with maximum i, we can construct
+S' = S - {(i,j)} &cup; {(i + db, j + dr)} where db and dr are the difference between
+the sums of the left/right values of the pairs and b/r, respectively. By construction,
+S' is b,r-valid, and by the maximality of the choice of (i,j), (i + db, j + dr) is not
+in S - {(i,j)}, and thus, the sizes of S and S' are equal.
+</p><p>
+Let us now define minimal-weak-b,r-valid sets as weak-b,r-valid sets S such that
+for any (i,j) in S with i &gt; 0, (i-1, j) is also in S, and analogously,
+for any (i,j) in S with j &gt; 0, (i, j-1) is also in S. Similarly to the above,
+we can prove that the size of the largest minimal-weak-b,r-valid set for fixed b and r
+is the same as the size of the largest weak-b,r-valid sets by constructing a
+minimal-weak-b,r-valid sets of size X from a given weak-b,r-valid set S of size X.
+Let (i,j) in S be such that the minimality of the definition is violated (if such exists).
+Then, replace (i,j) in S for either (i-1,j) or (j-1,i) as appropriate to obtain another
+weak-b,r-valid set of the same size. This step strictly decreases the sum of the values
+of all pairs in S, thus, at some point, there are no such (i,j) to choose for and we
+successfully obtained a minimal-weak-b,r-valid set of size X.
+</p><p>
+The problem that remains is to find the size of the largest minimal-weak-b,r-valid set for
+given b and r. By the minimality condition, if (i,j) is in such largest set, so are
+(i-1, j), (i-2,j) (i,j-1), (i,j-2), (i-1, j-1), .... To formalize, (i,j) being present
+in a minimal-weak-b,r-valid set prescribes the presence of (i+1) &times; (j+1) pairs including
+itself. We can bound the sum of the left side values of all those pairs by
+(j+1) &times; (1 + 2 + ... + i) = (j+1) &times; i &times; (i+1) / 2, and analogously
+the sum of the right sides by (i+1) &times; j &times; (j+1) / 2. This means that instead
+of the set V from the solution above, we can use V', composed of the pairs in V that are
+under these bounds. This makes the size of V' be approximately
+O(<b>B</b><sup>1/3</sup> &times; <b>R</b><sup>1/3</sup>) when <b>B</b> and <b>R</b> are
+close, which is a big reduction from the size of V which is O(<b>B</b> &times; <b>R</b>).
+The overall complexity of the resulting algorithm for all test cases is then
+O(<b>B</b><sup>4/3</sup> &times;  <b>R</b><sup>4/3</sup>), which is fast enough to pass
+Test set 2.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

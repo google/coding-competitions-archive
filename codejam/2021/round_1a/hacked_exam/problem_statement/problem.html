@@ -1,0 +1,534 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 1A</h3><h1>Hacked Exam</h1><h3>Problem</h3>
+<p>
+  There is an exam with $$$\mathbf{Q}$$$ true or false questions.
+  The correct answer to each question is either <code>T</code> or <code>F</code>.
+  Each student taking the exam selects either <code>T</code> or <code>F</code> for each question,
+  and the student's score is the number of questions they answer correctly.
+</p>
+<p align="center"><img src="hacked_exam.png" style="max-width: 100%;" alt="Example Exam"/></p>
+<p>
+  There are $$$\mathbf{N}$$$ students who have already taken this exam.
+  For each of those students, you know the answers they gave to each question and their final score.
+  Assuming that any sequence of answers that is consistent with all of those students' scores has
+  the same probability of being the correct sequence of answers, you want to maximize your own expected score.
+  Determine what that expected score is and how to answer the questions so that you achieve
+  it.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, $$$\mathbf{T}$$$.
+  $$$\mathbf{T}$$$ test cases follow.
+  The first line of each test case contains two integers $$$\mathbf{N}$$$ and $$$\mathbf{Q}$$$:
+  the number of students and the number of questions, respectively.
+  Each of the next $$$\mathbf{N}$$$ lines contains a string $$$\mathbf{A_i}$$$ and an integer $$$\mathbf{S_i}$$$:
+  the $$$i$$$-th student's answers and their score, respectively.
+  The $$$j$$$-th character of $$$\mathbf{A_i}$$$ is
+  either <code>T</code> or <code>F</code>, representing the answer the $$$i$$$-th student gave
+  to the $$$j$$$-th question.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$ $$$z$$$/$$$w$$$</code>,
+  where $$$x$$$ is the test case number (starting from $$$1$$$),
+  $$$y$$$ is a string representing a sequence of answers that yields the maximum expected score
+  (in the same format as the input),
+  and $$$\frac{z}{w}$$$ is the maximum expected score as an irreducible fraction
+  (that is, $$$w$$$ must be positive and of minimum possible value).
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 30 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+  $$$1 \le \mathbf{T} \le 2021$$$.<br/>
+  The length of $$$\mathbf{A_i} = \mathbf{Q}$$$, for all $$$i$$$.<br/>
+  Each character of $$$\mathbf{A_i}$$$ is an uppercase <code>T</code> or an uppercase <code>F</code>,
+    for all $$$i$$$.<br/>
+  $$$0 \le \mathbf{S_i} \le \mathbf{Q}$$$, for all $$$i$$$.<br/>
+  There exists at least one sequence of correct answers consistent with the input.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+  $$$1 \le \mathbf{N} \le 2$$$.<br/>
+  $$$1 \le \mathbf{Q} \le 10$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+  $$$1 \le \mathbf{N} \le 2$$$.<br/>
+  $$$1 \le \mathbf{Q} \le 40$$$.<br/>
+</p>
+
+<h4>Test Set 3 (Hidden Verdict)</h4>
+<p>
+
+  $$$1 \le \mathbf{N} \le 3$$$.<br/>
+  $$$1 \le \mathbf{Q} \le 120$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <i>
+    Note: there are additional samples that are not run on submissions down below.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="hacked_exam_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+1 3
+FFT 3
+1 3
+FFT 2
+2 6
+FFTTTF 2
+FTFTFT 4
+2 2
+FF 1
+TT 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="hacked_exam_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: FFT 3/1
+Case #2: FFT 2/1
+Case #3: FTFFFT 4/1
+Case #4: TF 1/1
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In Sample Case #1,
+  given that the score for <code>FFT</code> is $$$3$$$,
+  the sequence of correct answers must be <code>FFT</code>.
+</p>
+<p>
+  In Sample Case #2,
+  given that the score for <code>FFT</code> is $$$2$$$,
+  the sequence of correct answers is <code>FFF</code>, <code>FTT</code>, or <code>TFT</code>,
+  each with probability $$$\frac{1}{3}$$$.
+  Your best strategy is to answer <code>FFT</code>, to achieve the expected score of
+  $$$\frac{1}{3} \times 2 + \frac{1}{3} \times 2 + \frac{1}{3} \times 2 = 2$$$.
+</p>
+<p>
+  In Sample Case #3, there are other answers that also achieve an expected score of $$$4$$$,
+  like <code>FTFTFT</code>.
+</p><p>
+  In Sample Case #4, one of the questions' answer is <code>T</code> and the other one
+  is <code>F</code>, but you do not know which is which. Answering <code>TF</code>
+  or <code>FT</code> scores you $$$2$$$ with probability $$$\frac{1}{2}$$$ and
+  $$$0$$$ with probability $$$\frac{1}{2}$$$, yielding an expected score of $$$1$$$.
+  Answering <code>FF</code> or <code>TT</code> guarantees a score of $$$1$$$.
+  Since any sequence of answers gives the same expected score, you can output any of them.
+</p>
+
+
+  <br/>
+  <h3>Additional Sample - Test Set 3</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 3. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="hacked_exam_sample_ts3_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_2').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_2');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_2">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_2">1
+3 120
+FFTFFFTFFFTTTTTTTFTFFFFFFTTTFTFFFTFTFFTTFTFFTFFTTTFTFTFFTFTFTTFFFFTFTFFFFTTTFTTFTTTTFFFTTFFFFFTTFFTFFTFFTTTFFFFTTFFTFTTF 55
+FFFTFFTTFFFFTFTFFTFFFTTTTTTFFFTTTFTTTTFFTFTTTFTTFFTTTFTFFFFTFFTTFFTTFTTFFTFTFFTFTTFTFTFFTTTFFTFTFTTFFTFTFTFTTFFTFFFTFTFT 62
+FFFTFTTFFFFFTFTFTTTTTTFFTTFTFFFTFFTTTTTTFFFTTTFFFTTFTFFFFFFTFTTFFTFTTTFTTTTFTTFFFFTFFTTFTFFTTTTTTFTFFFFFTTFFTFTFTFFTTTTT 64
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="hacked_exam_sample_ts3_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_2').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_2');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_2">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_2">Case #1: FFFTFTTTFFFFTFTFFTFTTTTTTTFFFFTTTFTTTTFFTFTTTTTFFFTFTFTFFFFTFFTTFTFTFTTTTTFFTFFFFFFFFTTFTTTTTTFTTTTFFFFTFTFTTFTFFFFTTTFT 189154508532118369075350624633/2901503505434414233388602018
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In the Sample Case for Test Set 3, you can get an expected score over $$$65$$$,
+  which is higher than the actual score of any of the other students. Notice that
+  both the numerator and denominator of the expected score can be significantly larger
+  than $$$2^{64}$$$ (the numerator in this case actually exceeds $$$2^{97}$$$).
+</p>
+
+
+    </div>
+  </body>
+</html>

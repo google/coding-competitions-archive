@@ -1,0 +1,356 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2011 - World Finals</h3><h1>Analysis: Google Royale</h1><p>Google Royale is perhaps the most unapproachable problem we have ever posed for the Google Code Jam. It requires a great deal of understanding before any progress at all can be made on the large input. This is because the interaction between winning probability and starting money is rather complicated, and you cannot possibly afford to do a complete search through all 10<sup>16</sup> states. Although the scenario here might seem similar to Millionaire, a previous Code Jam problem, you simply cannot afford the kind of computation that worked there.</p>
+
+<p>First, let's try to understand a betting round. Let the initial bet be <b>y</b>. If you lose k times and then win, your total earnings will be <b>y</b> * 2<sup>k-1</sup> - <b>y</b> * 2<sup>k-2</sup> - <b>y</b> * 2<sup>k-3</sup> - ... - <b>y</b>, which equals <b>y</b> no matter what k is. If you lose, your total earnings will be negative and the exact value will depend on how many times you doubled.</p>
+
+<p>The key to the whole problem is that your <i>expected</i> winnings from a betting round is exactly 0, no matter what your initial bet is and no matter how many times you are willing to double if you keep losing. (Recall that the <i>expected</i> winnings is your "average" winnings -- formally it is defined as sum p<sub>i</sub> * i, where p<sub>i</sub> is the probability that you win exactly i dollars.) The expected value is 0 because at each step of each round, you have a 50% chance of winning some money, and a 50% chance of losing the same amount of money. The average winnings is always 0 in each step, and therefore 0 overall.</p>
+
+<p>Now let's think about strategy a little bit. In general, there will be several different strategies that maximize your probability of winning. For now, we will work on identifying only one of them. We will come back to the question of finding the maximum bet later.</p>
+<br/>
+
+<p><b>Observation 1:</b> If you have <b>x</b> dollars, there is no reason to start a betting round with more than <b>V</b> - <b>x</b>.
+
+<p><b>Reason:</b> If you bet more than <b>V</b> - <b>x</b>, then winning will always put you over <b>V</b>. If you decrease the bet slightly, then winning is just as good, but losing is no worse. Therefore, you might as well bet less.
+</p>
+<br/>
+
+<p>From now on, we will always restrict our attention to strategies that follow Observation 1, and therefore, we will never end up with <i>more</i> than <b>V</b> dollars, no matter how lucky or unlucky we are.</p>
+<br/>
+
+<p><b>Observation 2:</b> Fix a strategy. Let <b>P</b> be the probability of reaching <b>V</b> dollars, and let <b>L</b> be the expected number of dollars you end up with if you lose. Then <b>P</b> = 1 - (<b>V</b> - <b>A</b>) / (<b>A</b> - <b>L</b>). Since <b>V</b> and <b>A</b> are fixed, this means maximizing <b>P</b> is equivalent to minimizing <b>L</b>.</p>
+
+<p><b>Reason:</b> This follows from the fact that your expected winnings after any number of betting rounds is always equal to 0, or equivalently, your total expected money is always equal to <b>A</b>. Let's see what this tells us at the end of all betting rounds. At that point, you will have won with probability <b>P</b>, in which case your money is exactly <b>V</b> by Observation 1. Or you will have lost with probability 1 - <b>P</b>, in which case your expected money is exactly <b>L</b>. Therefore, we get:<br/>
+<b>P</b> * <b>V</b> + (1 - <b>P</b>) * <b>L</b> = <b>A</b><br/>
+=&gt; <b>P</b> * (<b>V</b> - <b>L</b>) = <b>A</b> - <b>L</b><br/>
+=&gt; <b>P</b> = 1 - (<b>V</b> - <b>A</b>) / (<b>A</b> - <b>L</b>).</p>
+<br/>
+
+<p>So now the question reduces to making <b>L</b> as small as possible. Using these ideas, we can make a couple major deductions about the optimal strategy. </p><br/>
+
+<p><b>Observation 3:</b> If you have <b>x</b> dollars, you might as well do one of two things: (1) bet exactly <b>x</b> and double until you win or until it is no longer possible to double, or (2) bet exactly 1 and do not double even if you lose.</p>
+
+<p><b>Reason:</b> An optimal strategy will bet some number <b>y</b> and double up to <b>k</b> times. If one of the betting steps results in a win, you will end up with <b>x</b> + <b>y</b> dollars. Otherwise, you will end up with some number <b>x</b> - <b>z</b> dollars. As always, your expected number of dollars is constant, and so is equal to <b>x</b>. We will show how to replace the strategy of betting <b>y</b> and doubling up to <b>k</b> times with a new strategy (possibly requiring multiple betting rounds) that follows the rules we want, and that is at least as effective at reaching <b>x</b> + <b>y</b> dollars.</p> 
+
+<p><i>Case 1:</i> <b>x</b> - <b>z</b> &ge; 0. Instead of betting <b>y</b>, repeatedly bet 1 and do not double. Stop only when your total amount of money increases to <b>x</b> + <b>y</b> or decreases to <b>x</b> - <b>z</b>. Since <b>x</b> - <b>z</b> &ge; 0, it is legal to continue betting until one of these outcomes happens. Like the original strategy, this strategy will result in the same two outcomes (<b>x</b> + <b>y</b> dollars or <b>x</b> - <b>z</b> dollars), and the expected money at the end will still be <b>x</b> for the exact same reason. However, as Observation 2 shows, if two strategies have identical winning and losing outcomes and identical expected values at the end, they have identical probability of getting the better outcome. Therefore, this strategy is identical to the original strategy, and we can just do this instead.</p>
+
+<p><i>Case 2:</i> <b>x</b> - <b>z</b> &lt; 0. Instead of betting <b>y</b>, repeatedly bet 1 and do not double. Stop only when your total amount of money increases to <b>x</b> + <b>y</b> or decreases to <b>y</b>. If you end up at <b>y</b>, then bet <b>y</b>, and keep doubling until you win or go broke. If you win, go back to the first step and continue betting 1 until you reach <b>x</b> + <b>y</b> or return back down to <b>y</b>. If you end up at <b>y</b> again, bet <b>y</b>, and repeat. Like the original strategy, this will end with you having exactly <b>x</b> + <b>y</b> dollars or with you being broke. However, it is easy to check that <b>L</b> is strictly smaller here than in the original strategy while the expected money at the end, as always, stays equal to <b>x</b>. Therefore Observation 2 guarantees that this new strategy is strictly better than the original strategy.</p>
+
+<p>We have shown that any strategy can switch to betting 1 or <b>x</b> without becoming any worse, and that proves Observation 3.</p>
+<br/>
+
+<p>This is a very powerful observation, but there is still more to understand! With 10<sup>16</sup> possible money amounts, we cannot afford to try both strategies in every situation. There is one more idea that drastically cuts down the search space.</p>
+<br/>
+
+<p><b>Observation 4:</b> For each non-negative integer i, let M<sub>i</sub> be the largest integer such that M<sub>i</sub> * 2<sup>i</sup> &le; <b>M</b>. We will call these numbers "inflection points". Then you should never bet all your money unless the amount you have is an inflection point.
+</p>
+
+<p><b>Reason:</b> The proof here is very similar to Observation 3. Consider a strategy that bets everything for <b>x</b> satisfying M<sub>i</sub> &lt; <b>x</b> &lt; M<sub>i-1</sub>. Let <b>y</b> equal <b>x</b>/2, rounded up. Note that 2<b>y</b> &le; <b>x</b> + 1 &le; M<sub>i-1</sub>, so if we bet <b>y</b>, then we can double i times.</p>
+
+<p>The current strategy either gives you 2<b>x</b> dollars or <b>x</b> * (1 - 1 - 2 - ... - 2<sup>i-1</sup>) = -2<b>x</b> * (2<sup>i-1</sup> - 1). However, <b>y</b> / <b>x</b> &ge; 1/2 &gt; (2<sup>i-1</sup> - 1) / (2<sup>i</sup> - 1). Therefore, the losing amount of money for this strategy is more than -2<b>y</b> * (2<sup>i</sup> - 1).</p>
+
+<p>Now we consider an alternate strategy. Instead of going all in at <b>x</b>, repeatedly bet 1 and do not double. Stop only when your total amount of money increases to 2<b>x</b> or decreases to <b>y</b>. In the latter case, go all in and double up to i times, or until you win. As noted above, your bet will never exceed <b>M</b>, so this is a legal strategy. If you win, start over from the beginning. Like the original strategy, this will either leave you with 2<b>x</b> dollars or broke. However, if you are broke, you end up with <b>y</b> * (1 - 1 - 2 - ... - 2<sup>i</sup>) = -2<b>y</b> * (2<sup>i</sup> - 1). As argued above, this losing value is less than it was for the original strategy, and so Observation 2 implies the new strategy has a higher probability of reaching 2<b>x</b>. Therefore, the original strategy could not have been optimal.</p>
+<br/>
+
+<p><b>When to go All-In:</b>
+Let's say a dollar amount is an "all-in" point if we should bet everything when we have that amount of money. Observation 4 guarantees that all-in points are a subset of the inflection points, but it is not true that every inflection point is an all-in point.</p>
+
+<p>
+Consider the inflection points in increasing order. The smallest inflection point will be 1, and certainly that is an all-in point. Let's now consider the second smallest inflection point. Observation 2 says that our goal is to minimize <b>L</b>, so we calculate what we end up with if we go all in from this inflection point and lose. If it is our lowest total yet, we <i>should</i> go all in there. Otherwise, we can do better by betting 1 until we get to the lower inflection point. The same argument applies for the third inflection point, and then the fourth and so on. In this way, we can very quickly calculate an optimal strategy at every dollar amount.
+</p>
+
+<p>
+There are two tricky cases to watch out for here:
+<ul>
+<li> By Observation 1, we should only consider inflection points that are at most <b>V</b> / 2.
+<li> It might be that going all-in at a point x is equally effective as betting 1 and waiting until the next all-in point. In this case, we will say x is an "optional all-in point". The other all-in points are called "strict all-in points".
+</li>
+</ul>
+</p>
+<br/>
+
+<p><b>Calculating the Winning Probability:</b> Let P<sub>x</sub> denote the probability of reaching <b>V</b> if your current amount of money is x. If x is not a strict all-in point, then one optimal strategy is to bet 1 until we reach the strict all-in point directly above x or directly below x, or until we reach <b>V</b> itself. For any x between these all-in points, we have the recurrence: P<sub>x</sub> = (P<sub>x-1</sub> + P<sub>x+1</sub>)/2, or in other words, P<sub>x</sub> - P<sub>x-1</sub> = P<sub>x+1</sub> - P<sub>x</sub>. This implies P<sub>x</sub> is linear in this range, and therefore we can calculate P<sub>x</sub> if we know the value of P at both endpoints.</p>
+
+<p>We can now calculate P by starting from the largest all-in point and working down. For example, suppose the largest all-in point is y and the probability of losing immediately from going all in there is 1 - p. Then P<sub>y</sub> = p * P<sub>2y</sub>. Also, by linearity, P<sub>2y</sub> = P<sub>y</sub> * (<b>V</b> - 2y) / (<b>V</b> - y) + 1 * y / (<b>V</b> - 2y). We know p, <b>V</b>, and y, so it is easy to calculate P<sub>y</sub> from here. Once we have P<sub>y</sub>, we can use the same trick to calculate P for the second-largest all-in point, then for the third-largest all-in point, and so on, until eventually we have calculated all probabilities.
+</p>
+<br/>
+
+<p><b>Calculating the Largest Optimal Bet:</b> It remains only to calculate the largest optimal bet. If <b>A</b> is an all-in point, either strict or optional, then certainly we can and should bet <b>A</b> there.</p>
+
+<p>Otherwise, consider a dollar amount x. If x is not a strict all-in point, then we already saw that P<sub>x</sub> - P<sub>x-1</sub> = P<sub>x+1</sub> - P<sub>x</sub>. This means P<sub>x</sub> is completely linear between strict all-in points, and so we can certainly increase the bet until either winning or losing would take us to a strict all-in point on either side. If x is equal to a strict all-in point however, then 1 is not an optimal bet, and we have P<sub>x</sub> &gt; (P<sub>x-1</sub> + P<sub>x+1</sub>) / 2, or equivalently, P<sub>x</sub> - P<sub>x-1</sub> &gt; P<sub>x+1</sub> - P<sub>x</sub>. In particular, this means that increasing the bet further would hurt us. Therefore, the largest possible bet is the distance between <b>A</b> and the nearest strict all-in point.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

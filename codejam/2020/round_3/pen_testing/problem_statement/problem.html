@@ -1,0 +1,465 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 3</h3><h1>Pen Testing</h1><h3>Problem</h3>
+<p>
+You have <b>N</b> ballpoint pens. You know that each has a distinct integer number of units of
+ink between 0 and <b>N</b>-1, but the pens are given to you in random order, and therefore you do
+not know which pen is which.
+</p>
+<p>
+You are about to go on a trip to the South Pole (where there are no pens), and your luggage only has
+room for two pens, but you know you will need to do a lot of important postcard writing. Specifically,
+the two pens you choose must have a total of at least <b>N</b> ink units.
+</p>
+<p>
+Your only way to get information about the pens is to choose one and try writing something with it.
+You will either succeed, in which case the pen will now have one unit of ink less (and is now
+possibly empty), or fail, which means that the pen already had no ink left. You can repeat this
+multiple times, with the same pen or different pens.
+</p>
+<p>
+Eventually, you must select the two pens to take on your trip, and you succeed if the total amount
+of ink remaining in those two pens is at least <b>N</b> units.
+<p>
+You will be given <b>T</b> test cases, and you must succeed in at least <b>C</b> of them. Note that
+all test sets in this problem are Visible.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems" target="_blank">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing three integers
+  <b>T</b>, <b>N</b>, and <b>C</b>: the number of test
+  cases, the number of pens, and the minimum number of test cases you must succeed in.
+  (Note that the value of <b>N</b> is the same for all test sets,
+  and is provided as input only for convenience; see the Limits section for
+  more details.)
+</p><p>
+  Then, your program needs to process all <b>T</b> test cases at the same time (this is done to
+  reduce the number of roundtrips between your solution and the judging program). The interaction
+  is organized into rounds.
+</p>
+<p>
+  At the beginning of each round, your program must print one line containing <b>T</b> integers:
+  the <b>i</b>-th integer is the number of the pen you want to try writing with in the
+  <b>i</b>-th test case, or 0 if you do not want to write with any pen in this test case in this
+  round. The pens are numbered from 1 to <b>N</b>.
+</p>
+<p>
+  Be aware that flushing the output buffer after each one of these integers, instead of
+  only once after printing all <b>T</b>, could cause a Time Limit Exceeded error because of the
+  time consumed by the flushing itself.
+</p>
+<p>
+  The judge responds with one line containing <b>T</b> integers: the <b>i</b>-th integer is the
+  amount of ink spent in the <b>i</b>-th test case in this round. It will be equal to 1
+  if the writing in the <b>i</b>-th test case was successful. Otherwise, it will be
+  equal to 0, which could mean that you tried to write in the <b>i</b>-th test case but
+  the pen you chose had no ink left, or that you did not try to write in the <b>i</b>-th
+  test case at all.
+</p>
+<p>
+  You may participate in at most <b>N</b>&times;(<b>N</b>+1)/2 rounds. Note that this is enough to
+  be confident that all pens are empty.
+</p>
+<p>
+  When your program is ready to submit an answer for all test cases, it must print a line containing
+  the number 0 <b>T</b> times. This line is not counted towards the limit on the number of rounds,
+  and the judge will not send a response.
+</p>
+<p>
+  Then, your program must print another line with 2&times;<b>T</b> integers: the
+  (2&times;<b>i</b>-1)-th and the (2&times;<b>i</b>)-th integers in this line are the distinct
+  numbers of the pens that you take to the South Pole in the <b>i</b>-th test case.
+  The judge will not send a response, and your program must then terminate with no error.
+</p>
+<p>
+  If the judge receives unexpected output from
+  your program at any moment, the judge will print a single
+  number -1 and not print any further output. If your program continues to wait for the judge after
+  receiving a -1, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p>
+<p>
+  You can assume that the pens are given to you in random order. These orders are chosen
+  uniformly at random and independently for each test case and for each submission. <i>Therefore
+  even if you submit exactly the same code twice the judge will use different random orders</i>.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 90 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  <b>N</b> = 15.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+  <b>T</b> = 20000.<br/>
+  <b>C</b> = 10900 (<b>C</b>=0.545&times;<b>T</b>).<br/>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+  <b>T</b> = 20000.<br/>
+  <b>C</b> = 12000 (<b>C</b>=0.6&times;<b>T</b>).<br/>
+</p>
+
+<h4>Test Set 3 (Visible Verdict)</h4>
+<p>
+  <b>T</b> = 100000.<br/>
+  <b>C</b> = 63600 (<b>C</b>=0.636&times;<b>T</b>).<br/>
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+<h3>Sample Interaction</h3>
+<p>
+  The following interaction does not correspond to any of the three test sets, as its values of
+  <b>T</b> and <b>N</b> are too small. It merely serves to demonstrate the protocol.
+</p>
+
+<div class="problem-io-wrapper">
+  <table>
+  <tbody><tr>
+  <td>
+  <br>
+  <span class="io-table-header">Input to your program</span>
+  <br>&nbsp;
+  </td>
+  <td>
+  <br>
+  <span class="io-table-header">Output of your program</span>
+  <br>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+    <pre class="io-content">2 5 1<br/><br/>1 0<br/><br/>0 1<br/><br/>0 1<br/><br/><br/></pre>
+  </td>
+  <td>
+    <pre class="io-content"><br/>4 5<br/><br/>4 3<br/><br/>0 2<br/><br/>0 0<br/>3 4 3 4<br/></pre>
+  </td></tr></tbody></table>
+</div>
+
+<p>
+  Here is the same interaction, explained:
+</p>
+
+<pre>
+  // The following reads 2 into t, 5 into n and 1 into c.
+  t, n, c = readline_int_list()
+  // The judge secretly picks the number of units for each pen:
+  // in test case 1: 2 0 4 1 3
+  // in test case 2: 1 3 2 4 0
+  // We write with the 4-th pen in test case 1, and with the 5-th pen in test case 2.
+  printline 4 5 to stdout
+  flush stdout
+  // Reads 1 0, as the 4-th pen in test case 1 still had ink left,
+  // but the 5-th pen in test case 2 did not.
+  a1, a2 = readline_int_list()
+  // We write with the 4-th pen in test case 1 again, and with the 3-rd pen in test case 2.
+  printline 4 3 to stdout
+  flush stdout
+  // Reads 0 1.
+  a1, a2 = readline_int_list()
+  // We only write in test case 2 this time, with the 2-nd pen.
+  printline 0 2 to stdout
+  flush stdout
+  // Reads 0 1.
+  a1, a2 = readline_int_list()
+  // We decide we are ready to answer.
+  printline 0 0 to stdout
+  flush stdout
+  // We take the 3-rd and the 4-th pens to the South Pole in both test cases.
+  printline 3 4 3 4 to stdout
+  flush stdout
+  // In test case 1, the remaining amounts in the 3-rd and the 4-th pens are 4 and 0, and 4+0&lt;5,
+  // so we did not succeed.
+  // In test case 2, the remaining amounts in the 3-rd and the 4-th pens are 1 and 4, and 1+4&ge;5,
+  // so we succeeded.
+  // We have succeeded in 1 out of 2 test cases, which is good enough since c=1.
+  exit
+</pre>
+
+    </div>
+  </body>
+</html>
