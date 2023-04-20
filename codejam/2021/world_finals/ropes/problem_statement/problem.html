@@ -1,0 +1,553 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - World Finals</h3><h1>Ropes</h1><h3>Problem</h3>
+<p>
+Two scout teams are taking part in a scouting competition. It is the finals
+and each team is well prepared. The game is played along a river that flows west to east.
+There are $$$4\mathbf{N}$$$ trees planted along the river, with exactly $$$2\mathbf{N}$$$ of them lined up
+along the north bank and $$$2\mathbf{N}$$$ lined up along the south bank.
+Both teams alternate turns playing the game. Your team goes first.
+</p>
+<p>
+On each turn, the playing team selects one tree on each bank that does not have any ropes
+tied to it and ties a rope between both trees, making it cross the river. Each rope that is added
+is placed higher than all previous ropes. The playing team scores 1 point per each
+previously used rope that passes below the newly added rope.
+</p><p>
+After $$$2\mathbf{N}$$$ turns, all trees have exactly one rope tied to them, so there are no more
+possible plays and the game is over. The score of each team is the sum of the scores they got
+in all of their turns. If your team's score is strictly greater than the opposing team's score,
+your team wins. If your team's score is less than or equal to the opposing team's score,
+your team does not win.
+</p><p>
+The following animation shows a possible game with $$$\mathbf{N}=2$$$. Your team is represented by
+the color red and the other team by the color blue.
+</p><p align=center>
+<img src="img/game.gif" alt="Animation of the first sample interaction" style="max-width:300px;">
+</p><p>
+The opposing team felt confident that going second is a large advantage,
+so they revealed their strategy. On their turn, they choose the play that yields the maximum
+possible score for this turn. If multiple such plays exist, they choose one at random.
+This choice is generated uniformly at random, and independently for each play,
+for each test case and for each submission.
+Therefore, <i>even if you submit exactly the same code twice, the opposing team
+can make different random choices</i>.
+</p>
+<p>
+You play $$$\mathbf{T}$$$ games in total, and your team must win at least $$$\mathbf{W}$$$ of them.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing three integers
+  $$$\mathbf{T}$$$, $$$\mathbf{N}$$$, and $$$\mathbf{W}$$$: the number of test cases, the number of
+  turns of your team and the number of wins you need to get for your solution to be considered
+  correct, respectively. Note that the opposing team also
+  gets $$$\mathbf{N}$$$ turns, for a total of $$$2\mathbf{N}$$$ turns for each test case.
+</p>
+<p>
+  For each test case, your program must process $$$\mathbf{N}$$$ exchanges. Each exchange represents
+  two consecutive turns, one from your team and one from the opposing team.
+</p>
+<p>
+  For the $$$i$$$&NoBreak;-&NoBreak;th exchange, you must first print a single line with
+  two integers $$$\mathbf{A_i}$$$ and $$$\mathbf{B_i}$$$ and then read
+  a single line with two integers $$$\mathbf{C_i}$$$ and $$$\mathbf{D_i}$$$.
+  This represents that in your $$$i$$$&NoBreak;-&NoBreak;th turn you tied the rope between the $$$\mathbf{A_i}$$$&NoBreak;-&NoBreak;th
+  tree from the west on the north bank and the $$$\mathbf{B_i}$$$&NoBreak;-&NoBreak;th tree from the west on
+  the south bank. Similarly, in the opposing team's $$$i$$$&NoBreak;-&NoBreak;th turn they used the $$$\mathbf{C_i}$$$&NoBreak;-&NoBreak;th
+  tree from the west on the north bank and the $$$\mathbf{D_i}$$$&NoBreak;-&NoBreak;th tree from the west on
+  the south bank. Trees are indexed starting from 1.
+</p>
+<p>
+  After the $$$\mathbf{N}$$$ exchanges, you must read one number that represents the result of this game.
+  This number will be 1 if your team won, otherwise it will be 0.
+</p>
+<p>
+  The next test case starts immediately if there is one. If this was the last test case,
+  the judge will expect no more output and will send no further input to your program.
+  In addition, all $$$\mathbf{T}$$$ test cases are always processed, regardless of whether it is
+  already guaranteed that the threshold for correctness will or cannot be met.
+  The threshold is only checked after correctly processing all test cases.
+</p>
+<p>
+  If the judge receives an invalidly formatted line or invalid move (like using a tree
+  that has already been used) from your program at any moment, the judge will print a single
+  number -1 and will not print any further output. If your program continues to wait for the judge after
+  receiving a -1, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 90 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$\mathbf{T} = 2000$$$.<br/>
+$$$\mathbf{N} = 50$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{W} = 1200$$$ ($$$\mathbf{W} = 0.6 \cdot \mathbf{T}$$$).
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{W} = 1560$$$ ($$$\mathbf{W} = 0.78 \cdot \mathbf{T}$$$).
+</p>
+
+<h4>Test Set 3 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{W} = 1720$$$ ($$$\mathbf{W} = 0.86 \cdot \mathbf{T}$$$).
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+
+  <div class="sample-interaction-wrapper">
+    <div class="sample-interaction-header">
+      <div class="sample-interaction-header-text">Sample Interaction</div>
+    </div>
+    <div class="sample-interaction-content">
+      <div class="sample-interaction-judge-solution-labels">
+        <div class="sample-interaction-judge-label">Judge</div>
+        <div class="sample-interaction-solution-label">Solution</div>
+      </div>
+      
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Constraints<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2 2 1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge provides $$$\mathbf{T}$$$, $$$\mathbf{N}$$$, $$$\mathbf{W}$$$. These are illustrative and do not abide by the limits of any test set.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Game 1 (depicted in the animation above)<br>
+</div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">3 2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution connects the 3rd tree from the west on the north bank with the 2nd tree from the west on the south bank, scoring 0.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4 1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge crosses the only rope, scoring 1.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution crosses both previous ropes, scoring 2.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge crosses the first two ropes and not the last one, scoring 2 more.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">0
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Your team lost with a score of 2-3, so judge indicates not a win.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Game 2<br>
+</div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution starts, scoring 0.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge has no way to score, so it plays something scoring 0.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">3 2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution crosses the judge's rope, scoring 1.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge plays its only option, scoring 0 again.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Your team won with a score of 1-0, so judge indicates a win.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">The solution is considered correct because it got $$$1 \ge \mathbf{W}$$$ win.<br>
+</div>
+
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,423 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2012 - Round 1B</h3><h1>Analysis: Equal Sums</h1><br/><b>The Small Input</b><br/>
+
+<p>
+If you want to forget about the large input and go straight for the small, then Equal Sums might look like a classic dynamic programming problem. Here is a sketch of one possible solution in Python:
+</p>
+
+<pre>
+def GetSetWithSum(x, target):
+  if target == 0: return []
+  return GetSetWithSum(x, target - x[target]) + [x[target]]
+
+def FindEqualSumSubsets(S):
+  x = [0] + [None] * (50000 * 20)
+  for s in S:
+    for base_sum in xrange(50000 * 20, -1, -1):
+      if x[base_sum] is not None:
+        if x[base_sum + s] is None:
+          x[base_sum + s] = s
+        else:
+          subset1 = GetSetWithSum(x, base_sum + s)
+          subset2 = GetSetWithSum(x, base_sum) + [s]
+          return subset1, subset2
+  return None
+</pre>
+
+<p>
+The idea is that, in x, we store a way of obtaining every possible subset sum. If we reach a sum in two different ways, then we can construct two subsets with the same sum.</p>
+
+<p>
+For the small input, this approach should work fine. However, x would have to have size 500 * 10<sup>12</sup> for the large input. That is too big to work with, and you will need a different approach there.</p>
+
+<br/><b>The Large Input</b><br/>
+
+<p>
+The first step towards solving the large input is realizing that the statement is very misleading! Let's suppose you have just 50 integers less than 10<sup>12</sup>. There are 2<sup>50</sup> ways of choosing a subset of them, and the sum of the integers in any such subset is at most 50 * 10<sup>12</sup> &lt; 2<sup>50</sup>. By the <a href="https://www.google.com/search?q=pigeonhole+principle" target="_blank">Pigeonhole Principle</a>, this means that there are two different subsets with the same sum.
+</p>
+
+<p>
+So what does that mean for this problem? Well, even if you had just 50 integers to choose from instead of 500, the answer would never be "Impossible". You need to find some pair of subsets that have the same sum, and there is a lot of slack to work with. The trick is figuring out how to take advantage of that slack.
+</p>
+
+<br/><b>The Birthday "Paradox" Method</b>
+
+<p>
+The simplest solution is based on a classic mathematical puzzle: the birthday paradox.
+</p>
+
+<p>
+The birthday paradox says that if you have just 23 people in a room, then some two of them probably have the same birthday. This can be surprising because there are 365 possible days, and 23 is much smaller than 365. But it is true! One good way to look at is this: there are 23 choose 2 = 253 pairs of people, and each pair of people has a 1/365 chance of having the same birthday. In particular, the <i>expected</i> (aka average) number of pairs of people with the same birthday is 253 / 365 = 0.693... Once you write it that way, it is not too surprising that the probability of having at least <i>one</i> pair matching is about 0.5.
+</p>
+
+<p>
+It turns out this exact reasoning applies to the Equals Sums problem just as well. Here is a simple algorithm:
+<ul>
+<li> Choose 6 random integers from <b>S</b>, add them up, and store the result in a hash set. (Why 6? We'll come back to that later...)
+<li> Repeat until two sets of 6 integers have the same sum, then stop.
+</ul>
+After choosing t sets, there will be t choose 2 pairs, and each set will have sum at most 6 * 10<sup>12</sup>. Therefore, the expected number of collisions would be approximately t<sup>2</sup> / (12 * 10<sup>12</sup>). When t is around 10<sup>6</sup>, this expectation will be near 1, and the reasoning from the birthday paradox says that we'll likely have our collision.
+</p>
+
+<p>
+That's it! Since we can quickly generate 10<sup>6</sup> small subsets and put their sums into a hash-set, this simple algorithm will absolutely solve the problem. You may be worried about the randomness, but for this problem at least, you should not be. This algorithm is extremely reliable. By the way, this method will work on the small input as well, so you don't need to do the dynamic programming solution if you do not want to.
+</p>
+
+<p>
+<i>Note:</i> There are many similar approaches here that can work. For example, in our internal tests, one person solved the problem by only focusing on the first 50 integers, and trying random subsets from there. The proof below works for this algorithm, as well as many others.
+</p>
+
+<br/>
+<b>A Rigorous Proof</b>
+
+<p>If you have some mathematical background, we can actually prove rigorously that the randomness is nothing to worry about. It all comes down to the following version of the birthday theorem:</p>
+
+<p><b>Lemma:</b> Let X be an arbitrary collection of N integers with values in the range [1, R]. Suppose you choose t + 1 of these integers independently at random. If N &ge; 2R, then the probability that these randomly chosen integers are all different is less than <code>e<sup>-t<sup>2</sup> / 4R</sup></code>.</p>
+
+<p><b>Proof:</b> Let x<sub>i</sub> denote the number of integers in X with value equal to i. The number of ways of choosing t + 1 distinct integers from X is precisely</p>
+
+<p><code>sum<sub>(1 &le; i<sub>1</sub> &lt; i<sub>2</sub> &lt; ... &lt; i<sub>t+1</sub> &le; R)</sub> [ x<sub>i<sub>1</sub></sub> * x<sub>i<sub>2</sub></sub> * ... * x<sub>i<sub>t+1</sub></sub> ]</code>.</p>
+
+<p>For example, if t=1 and R=3, the sum would be <code>x<sub>1</sub> * x<sub>2</sub> + x<sub>1</sub> * x<sub>3</sub> + x<sub>2</sub> * x<sub>3</sub></code>. Each term here represents the number of ways of choosing integers with a specific set of values. Unfortunately, this sum is pretty hard to work with directly, but <a href="https://www.google.com/search?q=maclaurin's+inequality" target="_blank">Maclaurin's inequality</a> states that it is at most the following:</p>
+
+<p><code>(R choose t+1) * [ (x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>R</sub>) / R ]<sup>t+1</sup><br/>
+= (R choose t+1) * (N/R)<sup>t+1</sup></code>.</p>
+
+<p>On the other hand, the number of ways of choosing <i>any</i> t + 1 integers out of X is equal to <code>N choose t+1</code>. Therefore, the probability p that we are looking for is at most:
+
+<p><code>[ (R choose t+1) / (N choose t+1) ] * (N/R)<sup>t+1</sup><br/>
+= R/N * (R-1)/(N-1) * (R-2)/(N-2) * ... * (R-t)/(N-t) * (N/R)<sup>t+1</sup></code>.</p>
+
+<p>Now, since N &ge; 2R, we know the following is true for all a &le; t:</p>
+
+<p><code>(R-a) / (N-a)<br/>
+&lt; (R - a/2)<sup>2</sup> / [ R * (N-a) ]&nbsp;&nbsp;&nbsp;&nbsp;  (this is because (R - a/2)<sup>2</sup> &ge; R(R-a))<br/>
+&le; (R - a/2)<sup>2</sup> / [ N * (R-a/2) ]<br/>
+= (R - a/2) / N.</code></p>
+
+<p>Therefore, p is less than:</p>
+
+<p><code>R * (R - 1/2) * (R - 2/2) * ... * (R - t/2) / R<sup>t+1</sup></code>.</p>
+
+<p>It is now easy to check that <code>(R-a/2) * (R-t/2+a/2) &le; (R-t/4)<sup>2</sup></code>, from which it follows that p is also less than:
+
+<p><code>(R - t/4)<sup>t+1</sup> / R<sup>t+1</sup><br/>
+= (1 - t/4R)<sup>t+1</sup><br/>
+&lt; (1 - t/4R)<sup>t</sup>.</code></p>
+
+<p>And finally, we use the very useful fact that <code>1 - x &le; e<sup>-x</sup></code> for all x. This gives us <code>p &lt; e<sup>-t<sup>2</sup> / 4R</sup></code> as required.
+</p>
+<br/>
+
+<p>In our case, X represents the sums of all 6-integer subsets. We have N = 500 choose 6 and R = 6 * 10<sup>12</sup>. You can check that N &ge; 2R, so we can apply the lemma to estimate the probability that the algorithm will still be going after t+1 steps:
+
+<ul>
+<li>If t = 10<sup>6</sup>, the still-going probability is at most 0.972604477.
+<li>If t = 5*10<sup>6</sup>, the still-going probability is at most 0.499351789.
+<li>If t = 10<sup>7</sup>, the still-going probability is at most 0.062176524.
+<li>If t = 2*10<sup>7</sup>, the still-going probability is at most 0.000014945.
+<li>If t = 3*10<sup>7</sup>, the still-going probability is at most 0.00000000001.
+</ul>
+
+<p>In other words, we have a good chance of being done after 5,000,000 steps, and we will <i>certainly</i> be done after 30,000,000 steps. Note this is a mathematical fact, regardless of what the original 500 integers were.</p>
+
+<p><b>Comment:</b> What happens if you look at 5-element subsets instead of 6-element subsets? The mathematical proof fails completely because N &lt; R. In practice though, it worked fine on all test data we could come up with.</p>
+
+<p><br/><b>A Deterministic Approach</b></p>
+
+<p>The randomized method discussed above is certainly the simplest way of solving this problem. However, it is not the only way. Here is another way, this time with no randomness:</p>
+
+<ul>
+<li> Take 7,000,000 3-integer subsets of <b>S</b>, sort them by their sum, and let the difference between the two closest sums be d<sub>1</sub>. Let X<sub>1</sub> and Y<sub>1</sub> be the corresponding subsets.
+<li> Remove X<sub>1</sub> and Y<sub>1</sub> from <b>S</b>, and repeat 25 times to get X<sub>i</sub>, Y<sub>i</sub> and d<sub>i</sub> for i from 1 to 25.
+<li> Let Z = {d<sub>1</sub>, d<sub>2</sub>, ..., d<sub>25</sub>}. Calculate all 2<sup>25</sup> subset sums of Z.
+<li> Two of these subset sums are guaranteed to be equal. Find them and trace back through X<sub>i</sub> and Y<sub>i</sub> to find two corresponding subsets of <b>S</b> with equal sum.
+</ul>
+
+<p>
+There are two things to show here, in order to justify that this algorithm works:
+</p>
+
+<ul>
+<li><i><b>S</b> will always have at least 7,000,000 3-integer subsets.</i> This is because, even after removing X<sub>i</sub> and Y<sub>i</sub>, <b>S</b> will have at least 350 integers, and 350 choose 3 &gt; 7,000,000.
+<li><i>Z will always have two subsets with the same sum.</i> First notice that the subsets in the first step have sum at most 3 * 10<sup>12</sup>, and so two of the sums must differ by at most 3 * 10<sup>12</sup> / 7,000,000 &lt; 500,000. Therefore, each d<sub>i</sub> is at most 500,000. Now, Z has 2<sup>25</sup> subsets, and each has sum at most 25 * 500,000 &lt; 2<sup>25</sup>, and so it follows from the Pigeonhole Principle that two subsets have the same sum.
+</ul>
+
+<p>
+Other similar methods are possible too. This is a pretty open-ended problem!
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

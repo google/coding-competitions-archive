@@ -1,0 +1,484 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 1A</h3><h1>Ratatouille</h1><h3>Problem</h3>
+<p>
+  You've discovered it: the ultimate recipe for ratatouille, the famous French
+  dish! You know which ingredients to use, and how many grams of each one to
+  use, in order to make one serving of ratatouille. But you believe that anyone
+  can cook, and so you want to share the recipe with the world... and make some
+  money in the process!
+</p><p>
+  You have ordered some ingredient packages that are easy to ship. Each package
+  contains some amount of one ingredient; different packages may have different
+  amounts even if they contain the same ingredient. For convenience, you
+  ordered the same number of packages of each ingredient.
+</p><p>
+  You would like to use these packages to form as many ratatouille <i>kits</i>
+  as possible to send to customers. A kit consists of <i>exactly one</i>
+  package of each ingredient, and a label with the integer number of servings
+  of ratatouille that the kit makes. Since you do not want to shortchange
+  customers or waste food, each package must contain between 90 and 110 percent
+  (inclusive) of the amount of that ingredient that is actually needed to make
+  the number of servings of ratatouille on the kit's label.
+</p><p>
+  For example, suppose that one serving of ratatouille takes 500 g of tomato
+  and 300 g of onion. Suppose that you have a 900 g package of tomato and a
+  660 g package of onion. You could form these into a kit that makes two
+  servings of ratatouille. To make two servings, 1000 g of tomato and 600 g of
+  onion are required. Since the 900 g of tomato you have is within [90, 110]%
+  of the 1000 g of tomato required, and the 660 g of onion you have is within
+  [90, 110]% of the 600 g of onion required, this is acceptable. However, you
+  could not say that the kit makes one or three servings of ratatouille, nor
+  could you say that it makes 1.999 servings (the number of servings must be
+  an integer).
+</p><p>
+  Note that there are some sets of packages that could never form a kit.
+  Continuing with our recipe above, if you have a 1500 g package of tomato and
+  an 809 g package of onion, for example, there is no amount of servings that
+  you can make. Three servings would take 1500 g of tomato and 900 g of onion,
+  and the amount of onion is not within the [90, 110]% range. No other integer
+  amount of servings works, either.
+</p><p>
+  You want to share your recipe with as many customers as possible, so you want
+  to produce the maximum number of valid kits. (Of course, each package can be
+  used in at most one kit.) What is the largest number of kits that you can
+  form? Note that you are <i>not</i> required to maximize the total number of
+  servings of ratatouille formed.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each case consists of the following:
+</p>
+<ul>
+  <li>One line with two integers <b>N</b>: the number of ingredients, and
+    <b>P</b>, the number of packages of each ingredient.</li>
+  <li>One line with <b>N</b> integers <b>R<sub>i</sub></b>. The i-th of these
+    represents the number of grams of the i-th ingredient needed to make one
+    serving of ratatouille.</li>
+  <li><b>N</b> more lines of <b>P</b> integers each. The j-th value on the
+    i-th of these lines, <b>Q<sub>ij</sub></b>, represents the quantity, in
+    grams, in the j-th package of the i-th ingredient.</li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the maximum number of kits you can produce, as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  1 &le; <b>R<sub>i</sub></b> &le; 10<sup>6</sup>, for all i.<br/>
+  1 &le; <b>Q<sub>ij</sub></b> &le; 10<sup>6</sup>, for all i and j.<br/>
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+Time limit: 60 seconds.<br/>
+  1 &le; <b>N</b> &le; 2.<br/>
+  1 &le; <b>P</b> &le; 8.<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+Time limit: 120 seconds.<br/>
+  1 &le; <b>N</b> &le; 50.<br/>
+  1 &le; <b>P</b> &le; 50.<br/>
+  <b>N</b> &times; <b>P</b> &le; 1000.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="ratatouille_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">6
+2 1
+500 300
+900
+660
+2 1
+500 300
+1500
+809
+2 2
+50 100
+450 449
+1100 1101
+2 1
+500 300
+300
+500
+1 8
+10
+11 13 17 11 16 14 12 18
+3 3
+70 80 90
+1260 1500 700
+800 1440 1600
+1700 1620 900
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="ratatouille_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 1
+Case #2: 0
+Case #3: 1
+Case #4: 0
+Case #5: 3
+Case #6: 3
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Note that the last sample case would not appear in the Small dataset.
+<p></p>
+  Sample cases #1 and #2 are the ones described in the problem statement.
+</p><p>
+  In sample case #3, you can form a kit out of the 450 g package of the first
+  ingredient and the 1100 g package of the second ingredient, and say that the
+  kit makes 10 servings of ratatouille. That number of servings requires 500 g
+  of the first ingredient; you have 450 g, which is 90% of 500 and within the
+  allowed limit. It requires 1000 g of the second ingredient; you have 1100 g,
+  which is 110% of 1000 and within the allowed limit.
+</p><p>
+  Once you form this kit, however, you cannot form the remaining packages into
+  a kit. 449 g of the first ingredient and 1101 g of the second ingredient
+  would not be able to form 10 (or any other number of) servings. In fact, the
+  (450 g, 1100 g) kit is the only kit that can be formed from these packages.
+</p><p>
+  In sample case #4, no kits can be formed. Note that the recipe requires
+  particular amounts of particular ingredients <i>in the given order</i>; the
+  ingredients are not interchangeable. This is fine French cuisine, after all!
+</p><p>
+  In sample case #5, the recipe has only one ingredient &mdash; how elegantly
+  simple! A single serving cannot use more than 11 g, and two servings cannot
+  use fewer than 18 g. It is possible to form three kits: two with an 11 g
+  package, and one with an 18 g package.
+</p><p>
+  In sample case #6, you can form three valid kits: (700 g, 800 g, 900 g),
+  which makes 10 servings, and (1500 g, 1600 g, 1700 g) and (1260 g, 1440 g,
+  1620 g), each of which makes 20 servings. Note that you could also say that
+  the (1260 g, 1440 g, 1620 g) kit makes 17, 18, or 19 servings, but it does
+  not matter how many servings a kit makes as long as the kit is valid.
+</p>
+
+    </div>
+  </body>
+</html>

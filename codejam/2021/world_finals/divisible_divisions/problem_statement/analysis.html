@@ -1,0 +1,452 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - World Finals</h3><h1>Analysis: Divisible Divisions</h1><a href="https://youtu.be/pJ1fGIApE98" target="_blank">View problem and solution walkthrough video</a>
+<h3>Test Set 1</h3>
+<p>
+  In  Test Set 1, $$$\mathbf{S}$$$ is reasonably small. This allows us
+  to compute the answer for every prefix of the input using
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>.
+  We compute two values for every prefix ending at index $$$i$$$: $$$A_i$$$ and $$$B_i$$$,
+  which are the number of divisible divisions of this prefix whose last division
+  is divisible by $$$\mathbf{D}$$$ (<i>Type A</i>) and the number of divisible divisions of this
+  prefix whose last division is not divisible by $$$\mathbf{D}$$$ (<i>Type B</i>). The empty prefix
+  has corresponding values $$$A_0 = 1$$$ and $$$B_0 = 0$$$. The solution to
+  the problem is $$$A_{\text{length}(\mathbf{S})} + B_{\text{length}(\mathbf{S})}$$$.
+</p><p>
+  Let $$$\mathbf{S}[i..j]$$$ be the integer represented by the digits in $$$\mathbf{S}$$$ from index
+  $$$i$$$ to index $$$j$$$, inclusive. If $$$i > j$$$, then this is an empty substring
+  and the corresponding value is $$$0$$$ (this only happens with $$$j=0$$$ below).
+  To compute $$$A_k$$$, we will iterate over all possible last divisions
+  ($$$\mathbf{S}[1..k], \mathbf{S}[2..k], \dots, \mathbf{S}[(k-1)..k], \mathbf{S}[k..k]$$$). For each one of
+  these substrings (say $$$\mathbf{S}[i..k]$$$),
+  we check if it is divisible by $$$\mathbf{D}$$$, and if it is, we can append this division to
+  any divisible division that ends at index $$$i-1$$$. Since the division we constructed
+  is divisible by $$$\mathbf{D}$$$, it does not matter if the divisible division we are appending
+  to ends in a division that is divisible by $$$\mathbf{D}$$$. The formulas below use
+  <a href="https://www.google.com/url?sa=D&q=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FModular_arithmetic%23Congruence"  target="_blank">modular arithmetic notation</a>.
+  Thus,
+  $$$$A_k = \sum_{1 \leq i \leq k \\ \mathbf{S}[i..k] \equiv 0 \pmod{\mathbf{D}}} \left( A_{i-1} + B_{i-1} \right).$$$$
+  For convenience below, we slightly rewrite this equation as:
+  $$$$A_k = \sum_{0 \leq i \leq k-1 \\ \mathbf{S}[(i+1)..k] \equiv 0 \pmod{\mathbf{D}}} \left( A_i + B_i \right).$$$$
+</p><p>
+  We can compute $$$B_k$$$ similarly. We iterate over all possible last divisions.
+  For each one of these substrings that is not divisible by $$$\mathbf{D}$$$, we can append it to
+  any divisible division that <u>does</u> end with a division that is divisible by $$$\mathbf{D}$$$.
+  Thus,
+  $$$$B_k = \sum_{0 \leq i \leq k-1 \\ \mathbf{S}[(i+1)..k] \not\equiv 0 \pmod{\mathbf{D}}} A_i.$$$$
+</p><p>
+  Since |$$$\mathbf{S}$$$| is small, we can simply check all possible values. Some care is
+  needed when determining whether $$$\mathbf{S}[i..k]$$$ is divisible by $$$\mathbf{D}$$$. Using the fact that
+  $$$\mathbf{S}[i..k] = 10^{k-i} \cdot \mathbf{S}[i] + \mathbf{S}[(i+1)..k]$$$, we can avoid fully recomputing
+  the value of $$$\mathbf{S}[i..k]$$$ by keeping this rolling value (as well as
+  maintaining the current power of 10).
+</p><p>
+  For each $$$k$$$, computing $$$A_k$$$ and $$$B_k$$$ requires a linear sweep through
+  all smaller indices, so this solution takes $$$O(|\mathbf{S}|^2)$$$ time.
+</p>
+
+<h3>Test Set 2</h3>
+
+<h4>When $$$\mathbf{D}$$$ and 10 are relatively prime</h4>
+<p>
+  In Test Set 2, $$$\mathbf{S}$$$ is too large to use the dynamic programming solution
+  explained above. However, we will make use of the same foundation for our solution:
+  for each index, compute $$$A_k$$$ and $$$B_k$$$.
+</p><p>
+  Rather than sweeping through all smaller indices to check which prefixes are
+  divisible by $$$\mathbf{D}$$$ and which are not, we will instead use the following observation:
+  $$$\mathbf{S}[(i+1)..k] = \mathbf{S}[1..k] - \mathbf{S}[1..i] \cdot 10^{k-i}$$$.
+  To find all $$$i$$$ such that $$$\mathbf{S}[(i+1)..k] \equiv 0 \pmod{\mathbf{D}}$$$ (which is needed
+  in the formula above for both $$$A_k$$$ and $$$B_k$$$),
+  we instead search for all $$$0 \leq i \leq k-1$$$ such that
+  $$$\mathbf{S}[1..i] \cdot 10^{k-i} \equiv \mathbf{S}[1..k] \pmod{\mathbf{D}}$$$.
+  This allows us to group all terms in the summation by the value of
+  $$$v \equiv S[1..i] \pmod{\mathbf{D}}$$$:
+  $$$$\mathcal{A}^{(k)}_v = \sum_{0 \leq i \leq k-1 \\ \mathbf{S}[1..i] \cdot 10^{k-i} \equiv v \pmod{\mathbf{D}}} A_i,$$$$
+  and similar for $$$\mathcal{B}^{(k)}_v$$$.
+</p><p>
+  With this framework, we can re-write our formula above for $$$A_k$$$ and $$$B_k$$$:
+  $$$$A_k = \left( \mathcal{A}^{(k)}_{\mathbf{S}[1..k]} \right) + \left( \mathcal{B}^{(k)}_{\mathbf{S}[1..k]} \right)
+  \qquad\qquad\text{and}\qquad\qquad
+  B_k = \sum_{v \neq \mathbf{S}[1..k]} \mathcal{A}^{(k)}_{i} = \left( \sum_{0 \leq v \lt \mathbf{D}} \mathcal{A}^{(k)}_v \right) - \mathcal{A}^{(k)}_{\mathbf{S}[1..k]}$$$$
+</p><p>
+  The only piece of the puzzle left is determining how to compute $$$\mathcal{A}^{(k)}_v$$$
+  and $$$\mathcal{B}^{(k)}_v$$$ quickly.
+  Intuitively, to move from $$$\mathcal{A}^{(k)}_v$$$ to $$$\mathcal{A}^{(k+1)}_v$$$,
+  we must do two things:
+  (1) multiply every index $$$v$$$ by 10 modulo $$$\mathbf{D}$$$, then (2) apply our knowledge of
+  $$$A_k$$$ and $$$B_k$$$. In the equations below, we need to make use of the
+  <a href="https://en.wikipedia.org/wiki/Multiplicative_inverse" target="_blank">multiplicative inverse of 10 modulo $$$\mathbf{D}$$$</a>,
+  $$$10^{-1}$$$ (this is why we need $$$\mathbf{D}$$$ and 10 to be relatively prime).
+  Mathematically, we can write $$$\mathcal{A}^{(k+1)}_v$$$ as follows
+  (proofs of these are at the very bottom): if $$$\mathbf{S}[1..k] \equiv v \pmod{\mathbf{D}}$$$, then
+  $$$$\mathcal{A}^{(k+1)}_v = \mathcal{A}^{(k)}_{10^{-1}v} + A_k$$$$
+  and if $$$\mathbf{S}[1..k] \not\equiv v \pmod{\mathbf{D}}$$$, then
+  $$$$\mathcal{A}^{(k+1)}_v = \mathcal{A}^{(k)}_{10^{-1}v}.$$$$
+</p><p>
+  If we wish to store $$$\mathcal{A}^{(k+1)}_v$$$ as an array, we could naively loop through
+  every index $$$v$$$ of $$$\mathcal{A}^{(k)}_v$$$ (but that would be much too slow).
+  Instead, we do the multiplication implicitly.
+  If an index is $$$v$$$ in $$$\mathcal{A}^{(k)}$$$, then it is at index
+  $$$10v \pmod{\mathbf{D}}$$$ in $$$\mathcal{A}^{(k+1)}$$$. This means that after applying (1) above,
+  to compute the value of $$$\mathcal{A}^{(k+1)}_v$$$, we can instead examine
+  $$$\mathcal{A}^{(k)}_{10^{-1} \cdot v}$$$.
+  We can recursively apply this logic and store just one array: $$$\mathcal{A}^{(1)}$$$
+  and look at the appropriate index:
+  $$$$\mathcal{A}^{(k+1)}_i = \mathcal{A}^{(1)}_{10^{-k}i}.$$$$
+  In the case where $$$\mathbf{S}[1..k] \equiv v \pmod{\mathbf{D}}$$$, we accomplish (2) similarly by increasing
+  $$$\mathcal{A}^{(1)}_{10^{-k} \cdot \mathbf{S}[1..k]}$$$ by $$$A_k$$$
+  (and similar for $$$\mathcal{B}$$$).
+</p><p>
+  In total, we can keep track of all of these operations in $$$O(|\mathbf{S}|)$$$ time and
+  $$$O(\mathbf{D})$$$ memory. We do need one extra variable to store
+  $$$\left( \sum_{0 \leq v \lt \mathbf{D}} \mathcal{A}^{(k)}_v \right)$$$ for the computation of
+  $$$B_k$$$, but this is easy to maintain in $$$O(1)$$$ time per $$$k$$$.
+</p>
+
+<h4>Chinese Remainder Theorem to the rescue!</h4>
+<p>
+  The above algorithm works because $$$\mathbf{D}$$$ and 10 were assumed to be relatively prime. This was
+  needed for $$$10^{-1}$$$ to exist in all cases. But
+  what do we do when they are not?
+  We write $$$\mathbf{D} = 2^\ell 5^m n$$$, where $$$\text{gcd}(n, 10) = 1$$$.
+  Instead of checking that $$$\mathbf{S}[i..k] \equiv 0 \pmod{\mathbf{D}}$$$, we will instead break it
+  up into three separate (simultaneous) checks:
+  $$$\mathbf{S}[i..k] \equiv 0 \pmod{2^\ell}$$$,
+  $$$\mathbf{S}[i..k] \equiv 0 \pmod{5^m}$$$, and
+  $$$\mathbf{S}[i..k] \equiv 0 \pmod{n}$$$.
+  By the
+  <a href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem" target="_blank">Chinese Remainder Theorem</a>,
+  all three of these are true if and only if $$$\mathbf{S}[i..k] \equiv 0 \pmod{\mathbf{D}}$$$.
+</p><p>
+  Recall that we are searching for all $$$i$$$ such that
+  $$$\mathbf{S}[1..i] \cdot 10^{k-i} \equiv \mathbf{S}[1..k] \pmod{\mathbf{D}}$$$.
+  The key observation needed is that if $$$k - i \geq \ell$$$, then
+  $$$\mathbf{S}[1..i] \cdot 10^{k-i} \equiv 0 \pmod{2^\ell}$$$. Similarly,
+  if $$$k - i \geq m$$$, then
+  $$$\mathbf{S}[1..i] \cdot 10^{k-i} \equiv 0 \pmod{5^m}$$$. This means that a
+  substring of $$$\mathbf{S}$$$ (say $$$\mathbf{S}$$$[i..k]) that is longer than $$$\text{max}(\ell, m)$$$
+  can only contribute to $$$\mathcal{A}$$$
+  if $$$\mathbf{S}[1..k] \equiv 0 \pmod{2^\ell}$$$ and $$$\mathbf{S}[1..k] \equiv 0 \pmod{5^m}$$$.
+</p><p>
+  This leads us to our solution. For each $$$k$$$, we will compute $$$A_k$$$ and $$$B_k$$$
+  by breaking into two cases: the "small" substrings
+  and "large" substrings.
+  For "small" substrings (that is, substrings of length at most
+  $$$\text{max}(\ell, m)$$$), we use our algorithm from Test Set 1, looping
+  through all small substrings naively.
+</p><p>
+  For the "large" substrings, we know that if
+  $$$\mathbf{S}[1..k] \not\equiv 0 \pmod{2^\ell}$$$ or $$$\mathbf{S}[1..k] \not\equiv 0 \pmod{5^m}$$$,
+  then no large substrings are divisible by $$$\mathbf{D}$$$. So the large part of $$$A_k = 0$$$ and
+  the large part of $$$B_k = \sum_{0 \leq v \lt \mathbf{D}} \mathcal{A}^{(k)}_v$$$.
+  If, however, $$$\mathbf{S}[1..k] \equiv 0 \pmod{2^\ell}$$$ and $$$\mathbf{S}[1..k] \equiv 0 \pmod{5^m}$$$,
+  then we can use the technique described above (with $$$n$$$ instead of $$$\mathbf{D}$$$).
+  One small modification is needed: do not add in our knowledge of $$$A_k$$$ and $$$B_k$$$
+  into $$$\mathcal{A}$$$ or $$$\mathcal{B}$$$ until they are out of range of the
+  "small" substrings or else the "small" substrings will be counted multiple times.
+</p><p>
+  Computing the "large" substrings takes linear time (as explained in the section above).
+  To compute the "small" substrings, we must naively loop over $$$\max(\ell, m)$$$
+  elements. Note that $$$\max(\ell, m) \leq \log_2 \mathbf{D} $$$. This means that, in total,
+  we do $$$O(|\mathbf{S}| \log \mathbf{D})$$$ operations.
+</p>
+
+<h4>
+  Proofs
+</h4>
+<p>
+  If $$$\mathbf{S}[1..k] \equiv v \pmod{\mathbf{D}}$$$, then:
+  $$$$
+   \begin{array}{rcl}
+     \mathcal{A}^{(k+1)}_v & = & \sum_{0 \leq i \leq k \\ \mathbf{S}[1..i] \cdot 10^{k+1-i} \equiv v \pmod{\mathbf{D}}} A_i \\
+       ~ & = & \left(\sum_{0 \leq i \leq k-1 \\ \mathbf{S}[1..i] \cdot 10^{k+1-i} \equiv v \pmod{\mathbf{D}}} A_i \right) + A_k \\
+       ~ & = & \left(\sum_{0 \leq i \leq k-1 \\ \mathbf{S}[1..i] \cdot 10^{k-i} \equiv 10^{-1}v \pmod{\mathbf{D}}} A_i \right) + A_k \\
+       ~ & = & \mathcal{A}^{(k)}_{10^{-1}v} + A_k \\
+    \end{array}
+  $$$$
+  Otherwise, if $$$\mathbf{S}[1..k] \not\equiv v \pmod{\mathbf{D}}$$$, then:
+
+  $$$$
+   \begin{array}{rcl}
+     \mathcal{A}^{(k+1)}_v & = & \sum_{0 \leq i \leq k \\ \mathbf{S}[1..i] \cdot 10^{k+1-i} \equiv v \pmod{\mathbf{D}}} A_i \\
+        ~ & = & \left(\sum_{0 \leq i \leq k-1 \\ \mathbf{S}[1..i] \cdot 10^{k+1-i} \equiv v \pmod{\mathbf{D}}} A_i \right) \\
+        ~ & = & \left(\sum_{0 \leq i \leq k-1 \\ \mathbf{S}[1..i] \cdot 10^{k-i} \equiv 10^{-1}v \pmod{\mathbf{D}}} A_i \right) \\
+        ~ & = & \mathcal{A}^{(k)}_{10^{-1}v} \\
+   \end{array}
+  $$$$
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

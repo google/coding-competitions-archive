@@ -1,0 +1,384 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - Round 3</h3><h1>Analysis: How Big Are the Pockets?</h1><h3>(i). Computing the area of the polygon</h3>
+<p>
+  As Polygonovich walks, the interior of the polygon either always stays on his
+  right side, or always on his left side. This is by no means a trivial fact.
+  The polygon can be so complicated that given a poriton of the walk in the
+  middle, one has no way to decide whether the left side is the interior, or the
+  right side is. Let us accept this fact and assume the former case -- his right
+  hand always touches the interior of the polygon.
+</p><p>
+  Fix a vertical bar of unit width, observe the interaction between P,
+  Polygonovich's walk, and B, the vertical bar.
+</p>
+<ul>
+  <li>
+    P crosses B an even number of times. Because the walk is closed, and any
+    time Polygonovich crosses from the left to the right, the next time he must
+    cross in the other direction. From top down, we label them as the 1st
+    crossing, the 2nd one, and so on.
+  </li>
+  <li>
+    Furthermore, look down at B from high above. In the beginning, it is outside
+    the polygon. Every time it encounters an edge of P, it changes from being
+    outside the polygon to being inside and vice versa. So, a unit square on B
+    is inside the polygon if and only if it is between some
+    <nobr>(2k-1)-st</nobr> crossing and <nobr>(2k)-th</nobr> crossing.
+  </li>
+  <li>
+    Note that if the polygon is always on the right-hand side, then we know that
+    the <nobr>(2k-1)-st</nobr> crossing is always from left to right, and the
+    <nobr>(2k)-th</nobr> one is from right to left.
+  </li>
+</ul>
+<p>
+  Given any unit square U, we can decide whether it is in the polygon by
+  counting the number of left-to-right crossings vertically above U, minus the
+  number of right-to-left crossings above U. We can have a little counter inside
+  U, and each time there is a left-to-right crossing above U, we increase the
+  counter by 1; and for the right-to-left crossings, decrease the counter by 1.
+</p><p>
+  After these mental exercises, we make the final jump back to the interaction
+  between P and B. We may imagine a bounding box outside the polygon so that
+  there are finitely many counters, and we now consider the area, it is nothing
+  other than the summation of all the counters. To compute the area, we do the
+  following.
+</p>
+<blockquote>
+  Set A = 0 in the beginning. Walk along P, for each horizontal edge from left
+  to right at height h, we increment A by h. This is the effect of this edge on
+  all the counters for the unit squares below. And for each edge from right to
+  left at height h, we decrement A by h.
+</blockquote>
+<p>
+  All the time we assume the interior is always on the right hand side. In the
+  opposite case, the highest edge on each bar will be a right-to-left cross, and
+  all of the reasoning above is similar with only a difference in signs. So if
+  we ever find that A is negative at the end, we can negate it and get the right
+  area.
+</p><p>
+  We note that this is just a special case of the simple algorithm for computing
+  polygon areas in general. However, isn't the pictures nice, in the special
+  form of integer grids and axis-parallel edges?
+</p>
+
+<h3>(ii). Computing the area of the polygon plus the pockets</h3>
+<p>
+  The polygon plus the pockets gives staircases in four (NE, NW, SE, SW)
+  directions. A formal proof would be tedious. A picture with a good example
+  should suffice.
+</p>
+<img src="pocketsol.png" />
+<p>
+  As in the picture, let A be any one of the topmost edges, C be the bottommost
+  edge, B the right-most, and D the left-most one. We have 4 staircases: one
+  from A to B, one from B to C, one from C to D, and one from D to A.
+  Theoretically speaking, these are formed by the maximal points with respect to
+  four directions, and each of these staircases can be computed in
+  <nobr><b>m</b>log<b>m</b></nobr> time, where <b>m</b> is the number of points
+  on the polygon. In this problem, we use the guarantee that there are at most
+  6000 vertical strips. For each vertical strip x, define
+</p>
+<blockquote>
+  t(x) := the topmost polygon edge to cross the strip.<br>
+  b(x) := the bottommost polygon edge to cross the strip.<br>
+  H(x) := the topmost polygon edge or pocket on that strip.<br>
+  L(x) := the bottommost polygon edge or pocket on that strip.
+</blockquote>
+<p>
+  For x between A and B, H(x) is the maximum t(x') for all x' between x and B.
+  We may compute H(x) as follows<br>
+</p>
+<pre>
+H(x) = t(x) for the last strip
+for x = (the second last strip) down to A
+  H(x) = max(H(x+1), t(x))
+</pre>
+<p>
+  The values on the other staircases can be computed in the same manner.
+</p><p>
+  On strip x, the polygon plus pockets are the unit squares between L(x) and
+  H(x). So we can sum <nobr>H(x) - L(x)</nobr> over all the 6000 possible strips
+  and get the area of the polygon with pockets.
+</p>
+
+<h3>(iii). Solve our problem</h3>
+<p>
+  (ii) minus (i).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

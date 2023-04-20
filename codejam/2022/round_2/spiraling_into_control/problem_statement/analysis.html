@@ -1,0 +1,476 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 2</h3><h1>Analysis: Spiraling Into Control</h1><h3>
+  Test Sets 1 and 2
+</h3>
+<p>
+  You may or may not have run across the old chestnut of a technical
+  interview question that asks you to number all of the cells of a grid in
+  a spiral pattern. In this problem, doing that is potentially helpful for
+  the first two test sets. However, the last test set can be (and must be)
+  solved without explicitly creating and numbering a spiral. (For a case with
+  $$$\mathbf{N} = 9999$$$, we would need to store and number almost $$$10^8$$$
+  cells!) We'll worry about that later in the analysis.
+</p><p>
+  To make a numbered spiral, we can create a grid and loop through it,
+  starting from the upper left cell, and making a 90 degree turn to the right
+  each time we encounter a grid boundary or an already-numbered cell. One
+  clean way to do this is to use an array of "directions":
+  $$$((0, 1), (1, 0), (0, -1), (-1, 0))$$$, where the starting direction
+  $$$(0, 1)$$$ means stay in the same row and move one column right, and so
+  on, with the other three referring to moves downward, leftward, and upward,
+  respectively, in the grid. When our current direction is
+  $$$(\Delta r, \Delta c)$$$ and we are at cell $$$(r, c)$$$ in the grid, we
+  check cell $$$(r + \Delta r, c + \Delta c)$$$ to see if it is outside the
+  grid or has already been numbered. If so, we choose the next direction in
+  the direction vector, looping back to the start if we go off the end, and
+  then calculate $$$(r + \Delta r, c + \Delta c)$$$ using the new
+  $$$(\Delta r, \Delta c)$$$. Then, whether or not we changed direction, we
+  label the current cell, increment our label counter, and proceed to the cell
+  $$$(r + \Delta r, c + \Delta c)$$$. We stop when we label the $$$\mathbf{N}^2$$$-th
+  cell.
+</p><p>
+  For Test Set 1, we can exhaustively enumerate all legal paths, using our
+  spiral numbering to determine which moves are allowed. We can keep track of
+  the shortcuts taken in each possible path, and see whether any path finishes
+  in exactly $$$\mathbf{K}$$$ moves. Since there is a shortcut to take (or not take) in
+  almost every cell, this solution is exponential.
+</p><p>
+  For Test Set 2, we can refine this idea to avoid explicitly considering all
+  possible paths. For each cell in the grid, we create an array that can hold
+  up to one path for every possible number of moves "so far". Then we proceed
+  along the spiral in consecutive numerical order. For every cell we visit,
+  for every path in that cell's array, we try to extend it into all legal
+  neighboring cells.
+</p><p>
+  For example, in a $$$5 \times 5$$$ grid, we start at cell 1 with only a way
+  to get there in 0 moves. We tell each of the legal neighboring cells
+  (2 and 16) that we have a way to get there in 1 move, starting from cell 1.
+  Then, in cell 2, we tell each of cells 3 and 17 that we have a way to get
+  there in 2 moves, with the starting prefix $$$1, 2$$$, and so on. The key
+  difference from the Test Set 1 solution is that when a cell is offered a
+  path and it already has a path with exactly that number of moves, it does
+  not store the new path. This cuts down on the proliferation of possible
+  paths.
+</p><p>
+  And so we have a
+  <a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank">dynamic programming</a>
+  / <a href="https://en.wikipedia.org/wiki/Memoization" target="_blank">memoization</a>
+  solution. Since there is at most one shortcut to take in each cell, we do
+  constant work per cell; since we are populating a table that is
+  $$$\mathbf{N}^2 \times \mathbf{N}$$$, this solution takes $$$O(\mathbf{N}^3)$$$ time.
+</p>
+
+<h3>
+  Test Set 3
+</h3>
+<p>
+  To be able to handle grids with $$$\mathbf{N}$$$ up to 9999, we need to do three things
+  efficiently:
+</p>
+<ul>
+  <li>Given a value of $$$\mathbf{K}$$$, determine whether a path with exactly $$$\mathbf{K}$$$ moves
+    exists.</li>
+  <li>Find such a path.</li>
+  <li>Given the coordinates of a grid cell, find its number in the spiral.</li>
+</ul>
+<p>
+  We can begin by observing that the following values of $$$\mathbf{K}$$$ are
+  <code>IMPOSSIBLE</code>:
+</p>
+<ol>
+  <li>
+    $$$\mathbf{K} \lt \mathbf{N}-1$$$. In this case, even if we move as directly as possible
+    toward the center (taking only shortcuts), there are not enough moves to
+    get there.
+  </li><li>
+    Odd $$$\mathbf{K}$$$. We can see this via a "checkerboard argument". Imagine that the
+    grid has a
+  <a href="https://en.wikipedia.org/wiki/Checkerboard" target="_blank">checkerboard pattern</a>,
+    with the upper left cell being black.
+    Then the diagonal running from the upper left cell to the lower right cell
+    is entirely black, and so the central cell is black. Now, each move is in
+    an orthogonal (i.e., "compass") direction, so each move either takes us
+    from a black cell to a red cell or vice versa. Therefore, to end on the
+    central cell, which is black, we must make an even number of moves.
+  </li>
+</ol>
+<p>
+  As it turns out, these are the <i>only</i> impossible cases! To see why, it
+  helps to think of the spiral as consisting of concentric square rings, with
+  "ring" 0 being just the central cell, ring 1 being the eight cells around
+  that, ring 2 being the sixteen cells around ring 1, and so on. For example,
+  the rings in the $$$\mathbf{N} = 7$$$ grid look like this:
+</p>
+<br>
+<pre>
+  3333333
+  3222223
+  3211123
+  3210123
+  3211123
+  3222223
+  3333333
+</pre>
+<p>
+  In ring 1, there are three possible shortcuts: we can move into ring 0 from
+  the top, right, or bottom, and this will save us 6, 4, or 2 moves,
+  respectively, compared to just walking through all of ring 1 (and into ring
+  0) without taking a shortcut. But we can only take one of these shortcuts.
+</p><p>
+  In ring 2 (and beyond), for simplicity, let's only consider taking shortcuts
+  that are in the same row or column as the central cell. There are four such
+  shortcuts, and they will save us 14, 12, 10, or 8 moves, respectively.
+  Notice that if we take the 8-move shortcut from ring 2, for example, we
+  cannot use any of the shortcuts in ring 1. However, if we take the 14-move
+  shortcut from ring 2, we will still have access to all three shortcuts in
+  ring 1.
+</p><p>
+  Similarly, in ring 3, the shortcuts save us 22, 20, 18, or 16 moves, and if
+  we take the first of these, we still have access to all four shortcuts in
+  ring 2.
+</p><p>
+  We can turn these observations into a constructive solution for any even $$$\mathbf{K}$$$
+  that has an answer:
+<p><ul>
+  <li>
+    If we want to save between 2 and 22 moves, we take the specific shortcut
+    with that savings.
+  </li><li>
+    If we want to save between 24 and 36 moves, we can take the 22-move
+    shortcut and then take the specific shortcut (from ring 1 or 2) that gets
+    us the remaining savings.
+  </li><li>
+    If we want to save 38, 40, or 42 moves, we can take the 22-move and
+    14-move shortcuts and then the 2, 4, or 6-move shortcut from ring 1.
+  </li><li>
+    We already established that we cannot save 44 moves or more (since then
+    $$$\mathbf{K}$$$ would be less than $$$\mathbf{N}-1$$$).
+  </li>
+</ul>
+<p>
+  Generalizing this strategy: we can find the number of moves we need to save
+  (which is $$$\mathbf{N}^2 - 1 - \mathbf{K}$$$; call it $$$s$$$), and then proceed from the
+  outermost ring to the innermost. At each ring $$$r$$$,
+</p><ol>
+  <li>
+    If $$$s$$$ is greater than or equal to the number of moves saved by the
+    largest shortcut (i.e., $$$8r - 2$$$ moves), we take that shortcut,
+    subtract its savings from $$$s$$$, and proceed to the $$$r-1$$$-th ring.
+  </li><li>
+    If $$$s$$$ is equal to the number of moves saved by some other shortcut
+    in ring $$$r$$$ (i.e., $$$8r - 4$$$, $$$8r - 6$$$, or $$$8r - 8$$$), we
+    take that shortcut and stop. (We must be careful not to do this when
+    $$$8r - 8 = 0$$$, since that move &mdash; from cell $$$\mathbf{N}^2 - 1$$$ to
+    cell $$$\mathbf{N}^2$$$ &mdash; saves us nothing and is not a shortcut!
+  </li><li>
+    Otherwise, we reject all shortcuts in ring $$$r$$$, and proceed to ring
+    $$$r-1$$$.
+  </li>
+</ol>
+<p>
+  All that remains is to find the room numbers for the shortcuts that we take.
+  Instead of trying to generate the entire spiral, we can notice that, say,
+  the upper left corners of the rings (starting in the central cell and going
+  outward) have values
+  $$$\mathbf{N}^2, \mathbf{N}^2 - 8, \mathbf{N}^2 - 8 - 16, \mathbf{N}^2 - 8 - 16 - 24,$$$ etc. We can
+  even turn this into a formula: the upper left cell of ring $$$r$$$ has
+  number $$$\mathbf{N}^2 - 8 \sum_{i=0}^r i = \mathbf{N}^2 - 4(r)(r+1)$$$.
+</p><p>
+  Once we have the number of the upper left cell of a ring, it is not too
+  hard to find the values of the cells we are using for shortcuts in that ring
+  (i.e., the ones in the central row or column). If the upper left cell's
+  number is $$$x$$$, the shortcuts have numbers $$$x+r, x+3r, x+5r, x+7r$$$.
+</p><p>
+  Because there are $$$\frac{\mathbf{N}+1}{2}$$$ rings in total, and we do
+  $$$O(1)$$$ work in each of them, this solution is
+  $$$O(\mathbf{N})$$$ and easily passes Test Set 3. There are values of
+  $$$\mathbf{K}$$$ that require a shortcut to be used in every ring (except the central
+  cell), so we can't do better than this in general.
+</p>
+
+<h3>
+  It could have been worse...
+</h3>
+<p>
+  We thought about presenting this problem in a different way, without
+  mentioning spirals: starting from the upper left cell of an
+  $$$\mathbf{N} \times \mathbf{N}$$$ grid, give a path that reaches the central cell in
+  exactly $$$\mathbf{K}$$$ moves, or say it is impossible. One solution is to come up with
+  the spiral path and strategy from this problem! But there were many other
+  time-wasting roads to go down there, and the problem was already challenging
+  for the first problem of a Round 2.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

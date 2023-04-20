@@ -1,0 +1,489 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 3</h3><h1>Analysis: Slate Modern</h1><h2>Slate Modern: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+To formalize the reasoning about this problem and yield both an
+algorithm and a proof of its correctness we will resort to some graph theory.
+Consider an undirected graph G where the set of
+<b>R</b> &times; <b>C</b> + 1 nodes is the set of cells in the painting
+plus an additional special node we call root. We add an edge between each
+pair of adjacent cells with length <b>D</b> and for each cell that has
+a fixed brightness value v we add an edge from the root to the cell node
+with length v.
+</p><p>
+Let p(c) be the length of the
+<a href="https://en.wikipedia.org/wiki/Shortest_path_problem">shortest path</a> on G from the
+root to the node that represents cell c.
+</p><p>
+Property 1. The p(c) is an upper bound on the value that can be assigned to c. Let<br/>
+root, a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>k</sub>=c<br/>
+be the path of k edges
+from the root to c of total length p(c). By construction of G, a<sub>1</sub> is a fixed cell.
+Let v be a<sub>1</sub>'s value. Also by construction, the edge (root, a<sub>1</sub>) has length v
+and all other edges (a<sub>i</sub>, a<sub>i+1</sub>) have length <b>D</b>.
+Thus, p(a<sub>i</sub>) = v + (i - 1) &times; <b>D</b>. Clearly p(a<sub>1</sub>) = v is an
+upper bound on its value v, and by induction, if p(a<sub>i</sub>) is an upper bound on the
+values that can be assigned to a<sub>i</sub>, p(a<sub>i+1</sub>) = p(a<sub>i</sub>) + <b>D</b> is
+an upper bound on the values that can be assigned to a<sub>i+1</sub> because it can't differ by more
+than <b>D</b> with the value assigned to a<sub>i</sub> because the corresponding cells are adjacent
+(any edge from G not involving the root connects nodes representing adjacent cells).
+</p><p>
+Property 2. Let c be a fixed cell with value v. If p(c) &ne; v, then the case is
+impossible. Since there is an edge (root, c) with length v, p(c) &le; v. And, if p(c) &lt; v,
+the case is impossible by Property 1.
+</p><p>
+Property 3. If p(c) is exactly the value assigned to c for all fixed cells c, then the case is
+possible and assigning p(c) to each non-fixed cell c is a valid assignment of maximum sum.
+By the precondition we know that p assigns all fixed-cells their original value, so we only need
+to check if neighboring cells are assigned values that differ by no more than <b>D</b>. Let c and
+d be two neighboring cells. Since G contains an edge (c, d) with length <b>D</b> it follows
+by definition of shortest path that p(c) &le; p(d) + <b>D</b> and p(d) &le; p(c) + <b>D</b>.
+Since p is a valid assignment, and by property 1, it assigns all cells a maximum value, it follows
+immediately that p is a valid assignment of maximum sum.
+</p><p>
+This yields an algorithm to solve the Small dataset: calculate the shortest path from the root
+to all other cells using
+<a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's algorithm</a> and then
+use Property 2 to check for impossible cases. If the case is possible, the answer is just the sum
+of p(c) over all cell nodes c. Dijkstra's algorithm takes
+O(<b>R</b> &times; <b>C</b> &times; log (<b>R</b> &times; <b>C</b>)) time while both checking for
+Property 2 and summing take O(<b>R</b> &times; <b>C</b>) time. Therefore, the overall algorithm
+takes O(<b>R</b> &times; <b>C</b> &times; log <b>R</b> &times; <b>C</b>) time, that fits
+comfortably within the Small limits.
+</p><p>
+Another similar approach that sidesteps the graph theoretical considerations is noticing that by
+transitivity, a cell at S orthogonal steps of a fixed-cell with value v cannot be assigned a value
+greater than v + S &times; <b>D</b>. That means that if two fixed cells are at S orthogonal steps
+and their value differs by more than S &times; <b>D</b> the case is impossible. Otherwise, it can
+be shown that it's possible and a valid assignment of maximum sum results from assigning each
+cell the minimum of v + S &times; <b>D</b> over
+all values for v and S for each fixed cell (which is, of
+course, the exact same assignment as p() above). Checking all pairs of fixed-cells takes
+O(<b>N</b><sup>2</sup>) time and finding the assignment takes
+O(<b>R</b> &times; <b>C</b> &times; <b>N</b>) time, which means this yields an algorithm that
+takes O(<b>R</b> &times; <b>C</b> &times; <b>N</b>) time overall and it also passes the Small.
+The claims above can be proven directly, but the graph notation makes it easier, and the claims in
+both cases are essentially the same. Additionally, the graph theoretical approach directly
+yields a more efficient Small-only solution.
+</p>
+<h3>Large dataset</h3>
+<p>
+The size of the grid in the Large dataset is too big to inspect the cells one by one, so we need
+a different approach. The foundations built while solving the Small dataset, however, are still
+tremendously useful. We define the same G and function p as before.
+</p><p>
+Property 4. For every cell c there is a shortest path in G from the root to c of length k:<br/>
+root, a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>k</sub>=c<br/>
+where a<sub>1</sub> is a fixed cell and there is some i
+such that each edge (a<sub>j</sub>, a<sub>j+1</sub>) come from a horiztonal adjacency if and only
+if j &lt; i. In plain English, there is path that goes from the root to a fixed cell a<sub>1</sub>,
+then moves horizontally zero or more times, and then moves vertically zero or more times.
+We can prove this easily by noticing that if the last k-1 steps include h horizontal and k-1-h
+vertical steps of any shortest path, a path that does h horiztonal steps first
+and k-1-h vertical steps last will reach the same destination (through different intermediate
+cells), and since the length of the edges of all horizontal and vertical is the same (<b>D</b>),
+the resulting path is also a shortest path.
+</p><p>
+Let us call our original <b>R</b> &times; <b>C</b> matrix M.
+We can use a technique called coordinate compression to consider only the <i>interesting</i> part.
+We call a row or column interesting if it is in the
+border (top and bottom rows and leftmost and rightmost columns) or if it contains at least one
+fixed cell. The interesting
+<a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)#Submatrix">submatrix</a> M' is the
+submatrix of M that results on deleting all non-interesting rows and columns. Notice that M'
+contains all fixed cells of M, and possibly some non-fixed cells as well. The size of M' is
+however bounded by (<b>N</b>+2)<sup>2</sup>, which is much smaller than <b>R</b> &times; <b>C</b>
+in the largest cases within Large limits.
+</p><p>
+Define the graph G and shortest path function p for M in the same way as for the Small.
+Define also a smaller graph G'
+whose nodes are a root and cells that are in M'. G' contains one edge (root, c) with length v
+for each fixed-cell c with value v. Notice that, since M' contains all fixed cells, the root and
+all its outgoing edges in G' are the same as in G. G' also contains an edge connecting two cells
+that are orthogonal neighbors in M'. The length of each such edge (c, d) is S &times; <b>D</b>
+where S is the distance in orthogonal steps between c and d in the original matrix M.
+</p>
+<img src="matrix.png">
+<p>
+In the depicted input matrix there are 3 fixed cells. The 3 interesting rows and 4 interesting
+columns are highlighted in light red, and the cells in the intersection of an interesting row and
+an interesting column are highlighted in dark red. Those dark red cells make up M' and the nodes of
+G' (besides the root). The fixed cell containing a 3 has two neighbors in G'. The edge going to
+its vertical neighbor has length 2 &times; <b>D</b>, because it is 2 steps away in the original M.
+Similary, the edge going to its horizontal neighbor has length 3 &times; <b>D</b>.
+</p><p>
+Having G', we can define p'(c) as the shortest path in G' from the root to each cell c that exists
+in M'.
+</p><p>
+Property 5. For each cell c that exists in M', p'(c) = p(c). To prove this, consider a shortest
+path<br/>
+root, a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>k</sub>=c<br/>
+in G from the root to c with the hypothesis of Property 4 (that is, it does horizontal steps
+first, and vertical steps last). First, notice that if the edge going into a<sub>i</sub> is
+horizontal and the edge going out of it is vertical (that is, a<sub>i</sub> is the only corner),
+then a<sub>i</sub> is in M', because it shares a row with a<sub>1</sub>, which is a fixed cell and
+thus it is in M', and a column with a<sub>k</sub>=c, which is also in M'. Between a<sub>1</sub> and
+a<sub>i</sub> all moves are horizontal, so we can "skip" the a<sub>j</sub>s not in M', and the
+length of the edges in G' will exactly match the sum of the lengths of all intermediate edges.
+The analogous argument works for all the vertical moves between a<sub>i</sub> and  a<sub>k</sub>.
+</p><p>
+Notice that Property 5 implies that we can use a similar algorithm over G' to distinguish the
+impossible cases, as we can calculate p' and then know the value of p'(c) = p(c) for all fixed
+cells c, which we can use to check Property 2. We still need, however, a way to know the sum over
+all p(c) for the possible cases, which we can't calculate explicitly.
+</p><p>
+Let a cell c in M be at row i and column j. Let i<sub>0</sub> be the largest interesting row
+that is no greater than i, and i<sub>1</sub> be the smallest interesting row that is no
+less than i. Notice that i<sub>0</sub> = i = i<sub>1</sub> if i is interesting and
+i<sub>0</sub> &lt; i &lt; i<sub>1</sub> otherwise. Similarly let j<sub>0</sub> and j<sub>1</sub>
+be the closest interesting columns to j in each direction. We call the up to 4 cells at positions
+(i<sub>0</sub>, j<sub>0</sub>), (i<sub>0</sub>, j<sub>1</sub>), (i<sub>1</sub>, j<sub>0</sub>)
+and (i<sub>1</sub>, j<sub>1</sub>), which are all in M', the <i>sourrounding cells</i> of c.
+</p><p>
+Property 6. For each non-fixed cell c in row i and column j of M there is a shortest path from the
+root to c in G that goes through one of its sourrounding cells. This can be proven similarly to
+Property 4. After the first step of going from the root to the appropriate fixed cell
+a<sub>1</sub>, any path that has the minimum number of horizontal and vertical steps yields the
+same total length. Notice that there is always a sourrounding cell that is closer to a<sub>1</sub>
+than c (that's why they are "sourrounding"). Therefore, we can always take a path that goes through
+that sourrounding cell.
+</p><p>
+Given Property 6, we can build G', calculate p', and then solve each contiguous submatrix of M
+delimited by interesting rows as a separate problem. Each of those problems is an instance of our
+original problem in which we have fixed exactly the four corners. There is overlap in the border
+among these subproblems, but we can simply subtract the overlapping from the total. Calculating
+the sum of the overlapping part requires a few of the simple observations required to calculate
+the problem with four corners fixed, so we concentrate on solving the following: for a given
+matrix size and values in its 4 corners, calculate its sum (modulo 10<sup>9</sup>+7).
+It's important not to do modulo while calculating p or p', as that can ruin the calculation
+because we have inequalities in calculating shortest paths, and inequalities are not preserved
+under modulo operations. Notice that, if U is an upper bound for the given fixed values for cells,
+the longest path consists of at most 2 &times; U steps, so the highest value in the image of
+p is at most U + 2 &times; U &times; <b>D</b>, which is at most U + 2 &times; U<sup>2</sup>.
+With U up to 10<sup>9</sup>, that value fits in a 64-bit signed integer, which means we don't
+need large integers to hold on taking the results modulo 10<sup>9</sup>+7 until the summing part.
+</p><p>
+Let us call the matrix A and the 4 corners tl, tr, bl and br for top-left, top-right, bottom-left
+and bottom-right. As we argue in the Small dataset section, each cell's value is determined by
+one of the fixed cells, in this case, one of the four corners. Given the existence of the
+<a href="https://en.wikipedia.org/wiki/Shortest-path_tree">shortest path tree</a>, the region
+of cells that are determined by each given corner (breaking ties by giving an arbitrary priority
+to corners) is contiguous.
+For a given corner x and cell c, let us call the influence of x over c i(x,c) to
+the fixed value x has plus S &times; <b>D</b> where S is the number of orthogonal steps between x
+and c. We call lower values of influence stronger. The corner that determines the value of a cell
+is therefore any of the ones with the strongest influence.
+</p><p>
+Now, consider the top row: tl has a stronger influence than tr
+over a left-most contiguous set of cells, and tr has a stronger influence over a right-most set of
+cells. There may be a single cell where the influence strength is equal.
+It is not hard to prove that the column at which the strongest influence switches from being
+tl to tr (if looking from left to right) is the same in this top row as in any other row,
+because the influence values from tl and tr for the i-th row (from top to bottom) are exactly the
+same values as the values in the top row plus i &times; <b>D</b>, so the most influential between
+tl and tr is always the same across cells in any given column. A similar thing happens with each
+pair of non-opposite corners. There are 4 such pairs. If we consider the lines that split the
+influence region of each of those pairs, we have up to 2 vertical and 2 horizontal lines (some of
+them may overlap), dividing A into up to 9 pieces. All except the middle
+piece have a single corner that has the most influence, thus they can be solved in the same way.
+</p><p>
+Consider a matrix of r rows and c columns with a single influential corner with value v. The
+sum of a row containing the value v is v + (v + <b>D</b>) + (v + 2 &times; <b>D</b>) + ....
+This summation can be calculated with a
+<a href="https://en.wikipedia.org/wiki/Summation#Some_summations_of_polynomial_expressions">
+formula</a>. And then, the sum of each other row
+is c &times; <b>D</b> larger than the previous one, as we add <b>D</b> to the sum for each
+column. Again, this yields a summation over a known linear function, which can be reduced by
+the same known formula.
+</p><p>
+The middle piece of A has influence from two opposite corners (which pair of opposites depends on
+the order of the lines). We can again partition A into up to 3 parts: rows with influence from
+one corner, rows with influence from the other corner, and rows with influence from both. Two of
+those can be summed with a similar formula as the single influential corner case. The rest is a
+rectangle partitioned into two stepped shaped pieces where the influence is divided. Those
+laddered pieces can be summed as the summation over a certain range of a quadratic function, which
+can also be reduced to a
+<a href="https://en.wikipedia.org/wiki/Summation#Some_summations_of_polynomial_expressions">
+formula</a>.
+</p><p>
+This finishes the problem. There are lots of technical details, specifically math details,
+that aren't covered in detail, but we hope this conveys the main ideas. We encourage you to fill
+in the gaps yourself and ask the community to help out if you can't, as it will be really good
+practice for your next contest.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

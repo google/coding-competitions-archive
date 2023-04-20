@@ -1,0 +1,509 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - Round 1C</h3><h1>Analysis: Enclosure</h1><p>
+The goal is to place as few stones as possible to enclose at least <b>K</b> intersection points in an <b>N</b> * <b>M</b> grid. Intuitively, it is wasteful to create more than one enclosure since we can always combine the stones into one larger enclosure that cover same or more intersection points. Thus, we can restrict our search to solutions with one enclosure only.
+</p>
+
+<p>
+The figure below shows an enclosure for an <b>N</b> = 5 by <b>M</b> = 5 grid that covers <b>K</b> = 19 intersection points with the minimum number of 11 stones.
+<pre><code>-***-   # the first row
+*XXX*   # intermediate row
+*XXX*   # intermediate row
+*XX*-   # intermediate row
+-**--   # the last row</code></pre>
+</p>
+
+<p>
+We use <code>'-'</code> to represent empty intersection, <code>'X'</code> to represent an enclosed intersection point, and <code>'*'</code> to represent a stone placed in the intersection point (which is also enclosed). Observe that:
+<ul>
+<li>The stones in the first row and the last row are filled in consecutive position in the row.</li>
+<li>Each intermediate row (i.e., the row except the first and the last row) has exactly two stones (i.e., the left stone and the right stone).</li>
+</ul>
+</p>
+
+<p>
+Each intermediate row always contains two stones. If there exists an intermediate row that contains only one stone, then it may form two enclosures that touches their boundaries at that row. Since we are not interested in searching solutions with more than one enclosure, we can restrict each intermediate row to always contains exactly two stones.
+</p>
+
+<p>
+What about having more than two stones in an intermediate row? This is wasteful and we can avoid that too. To see this, let’s enumerate all possible ways to move the left stone boundary for the next row and at the same time it explains why each intermediate row always contains two stone in the final configuration. The following figure shows all three possible ways to move the left boundary stone:
+<pre><code>previous row:  --*XXX     --*XXX      --*XXX
+    next row:  -*XXXX     --*XXX      ---*XX
+              (expand)  (unchanged)  (shrink)</code></pre>
+</p>
+
+<p>
+Notice that we can only expand the boundary by one otherwise it will create a gap and it will no longer form a <b>closed</b> enclosure. Could we place stones in between to close the gap? Such as (shown in bold):
+<pre><code>previous row:  --*XXX      -<b>*</b>*XXX
+    next row:  *<b>*</b>XXXX      *XXXXX
+                          (push up)</code></pre>
+</p>
+
+<p>
+Yes, we can, but it is wasteful because we can always “push up” the placed stone to get one more enclosed intersection point as shown in the right figure. Moreover, we can do another push up on the previous row to the previous-previous row and so on until it is pushed up to the top row (each push up gains one more enclosed intersection point). Thus, in the end, after all the push ups, each intermediate row will contain exactly two stones.
+</p>
+
+<p>
+To make the search simple, we do not want any push up to happen. In the search, we fix the number of stones at the top row, and generate the next row and we do not want the next row to alter the previous row ("push up" alters the previous row). This explains why we do not want to expand the left boundary more than one position (i.e., it is simpler just to change the number of stones in the top row and do a separate search).
+</p>
+
+<p>
+For the shrink case, observe that we only need to shrink at most one position because shrinking more than one is wasteful since we will need more stones to fill the gaps (to maintain enclosure). See the following examples:
+<pre><code>previous row:   --*XXX     --*<b>*</b>XX
+    next row:   ---*<b>*</b>X     ----*X
+               (case 1)   (case 2)</code></pre>
+</p>
+
+
+<p>
+In the shrinking case 1, the bolded stone <code>'<b>*</b>'</code> (the rightmost stone) is not needed since it is already enclosed. The shrinking case 2 is wasteful since the bolded stone <code>'<b>*</b>'</code> (the middle stone) can be pushed down to enclose one more intersection point (which will still be wasteful because it will then became case 1).
+</p>
+
+<p>
+Looking at all the possible ways to move the left boundary, we can conclude that it is sufficient to place exactly two stones in each intermediate row.
+</p>
+
+<p>
+For the last row, we close the enclosure by connecting the left and right stone boundary of the previous row by placing the stones consecutively. For example:
+<pre><code>previous row:  --*XXXXX*--
+    last row:  ---*****---</code></pre>
+</p>
+
+<p>
+Note that we only close the enclosure if we are sure that the intersection points enclosed by all the previous rows and the last row is at least <b>K</b>.
+</p>
+
+<p>
+In summary, our search algorithm goes as follows:
+<ul>
+<li>First place a number of stones consecutively from left to right on the top row</li>
+<li>Place two stones for the following (intermediate) rows by expanding / shrinking / unchanged the left and right boundary with respect to the previous row</li>
+<li>Finally if we have enclosed enough intersection points, close the enclosure by placing stones consecutively at the last row.</li>
+</ul>
+</p>
+
+<p>
+We will discuss two common ways to solve this problem. The first is a dynamic programming (DP) solution and the second is a greedy solution.
+</p>
+
+<h2>Dynamic Programming (DP)</h2>
+<p>
+Since we brute-force the first row, we only need to perform DP for the intermediate rows and the last row. For each row, we need to know:
+<ul>
+<li>The remaining rows left.</li>
+<li>The left stone boundary position.</li>
+<li>The right stone boundary position.</li>
+<li>The remaining intersection points to enclose.</li>
+</ul>
+</p>
+
+<p>
+To minimize the left / right stone boundary position, we transpose the grid (if necessary) so that we ended up with the grid with smaller columns than its rows, without affecting optimality. With this transformation, now the left / right boundary position is at most <i>sqrt</i>(<b>N</b> * <b>M</b>). This leads to O(<b>N</b> * <i>sqrt</i>(<b>N</b> * <b>M</b>) * <i>sqrt</i>(<b>N</b> * <b>M</b>) * <b>N</b> * <b>M</b>) solution. While the amortized cost can be less, it still seems large and has potential to run more than the time limit. Can we do better?
+</p>
+
+<p>
+It turns out that the exact position of the left and right stone boundary does not really matter as long as the distance between them is not larger than the column size. This also applies for the stones at the top row. What matters is the number of stones placed consecutively in the top row. Where the stones are exactly placed does not matter as long as the number of stones is at most the column size.
+</p>
+
+<p>
+With this intuition, we can make the DP state smaller. Instead of maintaining the left and right stone boundary position, we can just maintain the distance between the two stones instead. The three possibilities of moving the stone boundaries in the next row (expand, shrink, unchanged) now translate to five possibilities of adding the stone distance, by -2, -1, 0, 1, or 2 as shown in the following examples.
+
+<pre><code>prev row:  -*XXX*-  -*XXX*-  -*XXX*-  -*XXX*-  -*XXX*-
+next row:  --*X*--  --*XX*-  -*XXX*-  -*XXXX*  *XXXXX*
+            (-2)     (-1)      (0)      (1)      (2)</code></pre>
+</p>
+
+<p>
+Note that for (-1) and (1) there is another possibility for the next row, but both have the same distance between the left and right stone boundaries.
+</p>
+
+<p>
+By switching the left and right boundary position to the distance between the left and right stone, we can reduce the DP states to three states (the remaining rows left, stone distance of the previous row, the remaining intersection to enclose). This reduces the complexity to O(<b>N</b> * <i>sqrt</i>(<b>N</b> * <b>M</b>) * <b>N</b> * <b>M</b>). The amortized cost is less than 32 million operations per test case which is fast enough to answer 100 test cases. Below is a sample implementation in Python 3:
+<pre><code>from functools import lru_cache
+import sys
+
+@lru_cache(maxsize = None)  # Memoization.
+def rec(rem_rows, prev_dist, rem_points, M):
+  if rem_points &lt;= 0:  # If the remaining area is non positive,
+    return 0  # then no stone is needed.
+
+  ret = 1000000  # Infinity.
+  if rem_rows &lt;= 0:  # No more row but rem_points is still &gt; 0.
+    return ret  # Return infinity.
+
+  if M == 1:  # Special case where each row only has one stone.
+    return rem_points  #  rem_rows &gt;= rem_points is guaranteed.
+
+  min_dist = max(prev_dist - 2, 1)
+  max_dist = min(prev_dist + 2, M)
+  for next_dist in range(min_dist, max_dist + 1):
+    if next_dist &gt;= rem_points:
+      # Close the enclosure for the last row.
+      ret = min(ret, next_dist)
+    elif next_dist &gt; 1:
+      # Cover this row using 2 stones.
+      next_rem_points = rem_points - next_dist
+      ret = min(ret, \
+        2 + rec(rem_rows - 1, next_dist, next_rem_points, M))
+
+  return ret
+
+
+def min_stones(N, M, K):
+  if N &lt; M:  # If the row size is smaller than the column size
+    (N, M) = (M, N)  # Transpose the grid
+
+  res = 1000000
+  # Try all possible number of stones for the top row.
+  for stones in range(1, min(K, M) + 1):
+    # The stones needed to cover the top row + the next rows.
+    stones = stones + rec(N - 1, stones, K - stones, M)
+    res = min(res, stones)
+
+  return res
+
+sys.setrecursionlimit(5000)
+for tc in range(int(input())):
+  print("Case #%d: %d" % (tc+1, \
+    min_stones(*map(int, input().split()))))</code></pre>
+</p>
+
+
+<h2>Greedy</h2>
+<p>
+Intuitively, the two stones in each intermediate row can be greedily placed as far as possible from each other to maximize the area enclosed without adding any additional stone. Consider the following example:
+<pre><code>---------      ---------      ----*----
+---------      ---------      ---*X*---
+--*****--      --*****--      --*XXX*--
+--*XXX*--      -*XXXXX*-      -*XXXXX*-
+--*XXX*--  -&gt;  *XXXXXXX*  -&gt;  *XXXXXXX*
+--*XXX*--      -*XXXXX*-      -*XXXXX*-
+--*****--      --*****--      --*XXX*--
+---------      ---------      ---*X*---
+---------      ---------      ----*----
+   (a)            (b)            (c)</code></pre>
+</p>
+
+<p>
+The enclosure in Figure (a) can be improved by moving the two stones (in each of the three intermediate rows) as far as possible from each other as shown in Figure (b). Similar reasoning can be made for each column that contain only two stones: move the top and bottom stones as far from each other as possible in that column. The enclosure in Figure (b) can be improved in the same way, resulting the enclosure as shown in Figure (c).
+</p>
+
+<p>
+Knowing that the optimal shape resembles a diamond, the greedy approach is to try to construct a diamond-shaped enclosure with area at least <b>K</b>. However, this is not always feasible if the grid is not large enough. In such case, the diamond-shape may be “truncated” at the top / left / right / bottom sides as shown below for the best enclosure for <b>N</b> = 6, <b>M</b> = 7, <b>K</b> = 27
+<pre><code>--***--
+-*XXX*-
+*XXXXX*
+-*XXXX*
+--*XX*-
+---**--</code></pre>
+</p>
+
+<p>
+Another useful observation is that the empty intersections at the corners always forms a right triangle. This allows us to generate all possible truncated (and perfect) diamond by placing empty triangles at the corners. Notice that the sizes (the length of its side) of the empty triangles at the corners may be different by at most one size.
+</p>
+
+<p>
+Fortunately, the large input is small enough that we can brute-force for all possible truncated (and perfect) diamond shapes. First we try all possible grid size, and for each possible grid size, we try to put empty triangles at the corners and compute the enclosure size and the stones needed. We record and return the minimum stones needed to construct the shape with area at least <b>K</b>. Below is a sample implementation in Python 3:
+<pre><code>def empty_triangle(size):
+  return size * (size + 1) / 2
+
+def min_stones(N, M, K):
+  if N &gt; M:
+    (N, M) = (M, N)
+
+  best = K
+  for R in range(2, N + 1):
+    for C in range(R, M + 1):
+      if R * C &gt;= K:
+        for i in range(2 * R):
+          cover = R * C
+          cover -= empty_triangle(i // 4)
+          cover -= empty_triangle((i + 1) // 4)
+          cover -= empty_triangle((i + 2) // 4)
+          cover -= empty_triangle((i + 3) // 4)
+          if cover &lt; K:
+            break
+          stones = 2 * (R + C) - 4 - i
+          best = min(best, stones)
+
+  return best</code></pre>
+</p>
+
+<p>
+The complexity of the above solution is O(<b>N<sup>2</sup></b> * <b>M</b>). However, if you are well versed in Mathematics, you can further improve the search to O(<i>log</i>(<b>K</b>)) by doing a binary search on the number of stones needed to form the truncated diamond shape and compute the number of enclosed intersection points in O(1) to make the binary search decision.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

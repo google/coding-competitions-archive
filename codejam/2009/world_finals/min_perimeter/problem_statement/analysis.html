@@ -1,0 +1,410 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2009 - World Finals</h3><h1>Analysis: Min Perimeter</h1><p>This problem is similar to the classical problem of finding the closest pair in a set of points.  Algorithms that solve the closest-pair problem can be adapted to solve this one.</p>
+
+<p>The number of points can be pretty large so we need an efficient algorithm. We can solve the problem in <i>O(n log n)</i> time using divide and conquer. We will split the set of points by a vertical line into two sets of equal size.  There are now three cases for the minimum-perimeter triangle: its three points can either be entirely in the left set, entirely in the right set, or it can use points from each half.<p>
+We find the minimum perimeters for the left and right sets using recursion.  Let the smallest of those perimeters be <i>p</i>. We can use <i>p</i> to make finding the minimum perimeter of the third case efficient, by only considering triangles that could have an area less than <i>p</i>.
+</p>
+<p>To find the minimum perimeter for the third case (if it is less than <i>p</i>) we select the points that are within a distance of <i>p/2</i> from the vertical separation line.  Then we iterate through those points from top to bottom, and maintain a list of all the points in a box of size <i>p x p/2</i>, with the bottom edge of the box at the most recently considered point.  As we add each point to the box, we compute the perimeter of all triangles using that point and each pair of points in the box.  (We could exclude triangles entirely to the left or right of the dividing line, since those have already been considered.)
+</p>
+<p>We can prove that the number of points in the box is at most 16, so we only need to consider at most a small constant number of triangles for each point.
+</p>
+<p>Splitting the current set of points by a vertical line requires the points to be sorted by <i>x</i> and going through the points vertically requires having the points sorted by <i>y</i>. If we do the <i>y</i> sort at each step that gives us an <i>O(n log<sup>2</sup> n)</i> algorithm, but we can keep the set of points twice, one array would have the points sorted by <i>x</i> and one would have the points sorted by <i>y</i>, and this way we have an <i>O(n log n)</i> algorithm.
+</p>
+<p>The time limits were a bit tight and input limits were large because some <i>O(n<sup>2</sup>)</i> algorithms work really well on random cases. This is why during the contest some solutions that had the right idea but used a <i>p x p</i> box size or sorted by <i>y</i> at each step didn't manage to solve the large test cases fast enough.
+</p>
+You can read Tomek Czajka's source to get the details of a good implementation:
+<pre>
+#include &lt;algorithm&gt;
+#include &lt;cassert&gt;
+#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;vector&gt;
+using namespace std;
+#define REP(i,n) for(int i=0;i&lt;(n);++i)
+template&lt;class T&gt; inline int size(const T&amp;c) { return c.size();}
+
+const int BILLION = 1000000000;
+const double INF = 1e20;
+typedef long long LL;
+
+struct Point {
+  int x,y;
+  Point() {}
+  Point(int x,int y):x(x),y(y) {}
+};
+
+inline Point middle(const Point &amp;a, const Point &amp;b) {
+  return Point((a.x+b.x)/2, (a.y+b.y)/2);
+}
+
+struct CmpX {
+  inline bool operator()(const Point &amp;a, const Point &amp;b) {
+    if(a.x != b.x) return a.x &lt; b.x;
+    return a.y &lt; b.y;
+  }
+} cmpx;
+
+struct CmpY {
+  inline bool operator()(const Point &amp;a, const Point &amp;b) {
+    if(a.y != b.y) return a.y &lt; b.y;
+    return a.x &lt; b.x;
+  }
+} cmpy;
+
+inline LL sqr(int x) { return LL(x) * LL(x); }
+
+inline double dist(const Point &amp;a, const Point &amp;b) {
+  return sqrt(double(sqr(a.x-b.x) + sqr(a.y-b.y)));
+}
+
+inline double perimeter(const Point &amp;a,
+                        const Point &amp;b,
+                        const Point &amp;c) {
+  return dist(a,b) + dist(b,c) + dist(c,a);
+}
+
+double calc(int n, const Point points[],
+            const vector&lt;Point&gt; &amp;pointsByY) {
+  if(n&lt;3) return INF;
+  int left = n/2;
+  int right = n-left;
+  Point split = middle(points[left-1], points[left]);
+  vector&lt;Point&gt; pointsByYLeft, pointsByYRight;
+  pointsByYLeft.reserve(left);
+  pointsByYRight.reserve(right);
+  REP(i,n) {
+    if(cmpx(pointsByY[i], split))
+      pointsByYLeft.push_back(pointsByY[i]);
+    else
+      pointsByYRight.push_back(pointsByY[i]);
+  }
+  double res = INF;
+  res = min(res, calc(left, points, pointsByYLeft));
+  res = min(res, calc(right, points+left, pointsByYRight));
+  static vector&lt;Point&gt; closeToTheLine;
+  int margin = (res &gt; INF/2) ? 2*BILLION : int(res/2);
+  closeToTheLine.clear();
+  closeToTheLine.reserve(n);
+  int start = 0;
+  for(int i=0;i&lt;n;++i) {
+    Point p = pointsByY[i];
+    if(abs(p.x - split.x) &gt; margin) continue;
+    while(start &lt; size(closeToTheLine) &amp;&amp;
+          p.y - closeToTheLine[start].y &gt; margin) ++start;
+    for(int i=start;i&lt;size(closeToTheLine);++i) {
+      for(int j=i+1;j&lt;size(closeToTheLine);++j) {
+        res = min(res, perimeter(p, closeToTheLine[i],
+                                 closeToTheLine[j]));
+      }
+    }
+    closeToTheLine.push_back(p);
+  }
+  return res;
+}
+
+double calc(vector&lt;Point&gt; &amp;points) {
+  sort(points.begin(), points.end(), cmpx);
+  vector&lt;Point&gt; pointsByY = points;
+  sort(pointsByY.begin(), pointsByY.end(), cmpy);
+  return calc(size(points), &amp;points[0], pointsByY);
+}
+
+int main() {
+  assert(0==system("cat &gt; Input.java"));
+  fprintf(stderr, "Compiling generator\n");
+  assert(0==system("javac Input.java"));
+  fprintf(stderr, "Running generator\n");
+  assert(0==system("java -Xmx512M Input &gt; input.tmp"));
+  fprintf(stderr, "Solving\n");
+  FILE *f = fopen("input.tmp", "r");
+  int ntc; fscanf(f, "%d", &amp;ntc);
+  REP(tc,ntc) {
+    int n; fscanf(f, "%d", &amp;n);
+    vector&lt;Point&gt; points;
+    points.reserve(n);
+    REP(i,n) {
+      int x,y; fscanf(f, "%d%d", &amp;x, &amp;y);
+      points.push_back(Point(2*x-BILLION,2*y-BILLION));
+    }
+    double res = calc(points);
+    printf("Case #%d: %.15e\n", tc+1, res/2);
+  }
+  fclose(f);
+}
+</pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

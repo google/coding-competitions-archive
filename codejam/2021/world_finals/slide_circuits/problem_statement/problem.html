@@ -1,0 +1,555 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - World Finals</h3><h1>Slide Circuits</h1><h3>Problem</h3>
+<p>
+Gooli is a huge company that owns $$$\mathbf{B}$$$ buildings in a hilly area. Five years ago, Gooli
+<a href="https://codingcompetitions.withgoogle.com/codejam/round/0000000000201bef/0000000000201d18" target="_blank">
+built slides</a> that allowed employees to go from one building to another
+(they are not bidirectional), starting a tradition of building slides between buildings.
+Currently, $$$\mathbf{S}$$$ slides exist.
+</p><p>
+Melek is Gooli's Head of Transportation and a problem-solving enthusiast. She was tasked with
+keeping the slides enjoyable to use. The idea she came up with was disabling some slides such
+that only circuits remained.
+A circuit is a set of two or more buildings $$$b_1, b_2, ..., b_k$$$ such that there is
+exactly one slide enabled from building $$$b_i$$$ to building $$$b_{i+1}$$$, for each $$$i$$$,
+and exactly one slide enabled from building $$$b_k$$$ to building $$$b_1$$$.
+No other slides from or to any of those buildings should be enabled, to prevent misdirection.
+A state of the slides is then called <i>fun</i> if each building belongs to exactly one circuit.
+</p><p>
+Slides in Gooli's campus are numbered with integers between 1 and $$$\mathbf{S}$$$, inclusive.
+Melek created a slide controlling console that supports two operations: enable and disable. Both
+operations receive three parameters $$$\ell$$$, $$$r$$$, and $$$m$$$ and perform the operation
+on each slide $$$x$$$ such that $$$\ell \le x \le r$$$ and $$$x$$$ is a multiple of $$$m$$$.
+An enable operation is valid only if all affected slides are in a disabled state right before the
+operation is performed. Similarly, a disable operation is valid only if all affected slides are
+in an enabled state right before the operation is performed.
+</p><p>
+The following picture illustrates a possible succession of states and operations.
+The layout has $$$3$$$ buildings and
+$$$3$$$ slides. Slides are light grey when disabled and dark grey when enabled.
+</p>
+<div align=center style="display: flex; flex-direction: row; flex-wrap: wrap; padding: 20px 0 0 0;">
+  <div style="display: inline-block; flex: 1 1 0; flex-direction: column; margin: 0 10px 0 10px;">
+    <div>
+      <img src="img/sample1_none.png" style="max-width:245px;" alt="Sample input 1">
+    </div>
+    <div>
+      <p>
+        <b>1.</b> Initial state. All sides are disabled.
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex: 1 1 0; flex-direction: column; margin: 0 10px 0 10px;">
+    <div>
+      <img src="img/sample1_12.png" style="max-width:245px;" alt="Sample input 1 with slides 1 and 2 enabled">
+    </div>
+    <div>
+      <p>
+        <b>2.</b> After enable operation with $$$\ell=1$$$, $$$r=2$$$, and $$$m=1$$$.
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex: 1 1 0; flex-direction: column; margin: 0 10px 0 10px;">
+    <div>
+      <img src="img/sample1_123.png" style="max-width:245px;" alt="Sample input 1 with slides 1, 2 and 3 enabled">
+    </div>
+    <div>
+      <p>
+        <b>3.</b> After enable operation with $$$\ell=3$$$, $$$r=3$$$, and $$$m=1$$$.
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex: 1 1 0; flex-direction: column; margin: 0 10px 0 10px;">
+    <div>
+      <img src="img/sample1_13.png" style="max-width:245px;" alt="Sample input 1 with slides 1 and 3 enabled">
+    </div>
+    <div>
+      <p>
+        <b>4.</b> After disable operation with $$$\ell=1$$$, $$$r=3$$$, and $$$m=2$$$.
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex: 1 1 0; flex-direction: column; margin: 0 10px 0 10px;">
+    <div>
+      <img src="img/sample1_1.png" style="max-width:245px;" alt="Sample input 1 with slide 1 enabled">
+    </div>
+    <div>
+      <p>
+        <b>5.</b> After disable operation with $$$\ell=1$$$, $$$r=3$$$, and $$$m=3$$$.
+      </p>
+    </div>
+  </div>
+  <div style="display: inline-block; flex: 1 1 0; flex-direction: column; margin: 0 10px 0 10px;">
+    <div>
+      <img src="img/sample1_12.png" style="max-width:245px;" alt="Sample input 1 with slides 1 and 2 enabled">
+    </div>
+    <div>
+      <p>
+        <b>6.</b> After enable operation with $$$\ell=1$$$, $$$r=2$$$, and $$$m=2$$$.
+      </p>
+    </div>
+  </div>
+</div>
+<p>
+Unfortunately, Sult, Melek's cat, found the console and
+started performing several valid enable and disable operations.
+After every console operation performed by Sult, Melek wants to know if the state of the slides
+can be made fun by enabling exactly one currently disabled slide.
+Note that Melek does not actually enable this slide.
+</p><p>
+In the picture above, we can see that after the first, third, and last operations, Melek
+could enable the only disabled slide and get to a fun state. After the
+second operation, there are two issues. One issue is that there are no currently disabled slides,
+so Melek cannot enable any. Additionally, the state is already fun, so even if there were
+additional disabled slides, enabling anything would result in a not fun state.
+After the fourth operation, there are
+two disabled slides, but enabling either would not yield a fun state.
+</p><p>
+All slides are initially disabled, then Sult performs its operations one at a time.
+After each of Sult's operations, determine which disabled slide, if any, Melek can enable
+to put the slides in a fun state.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.
+Each test case starts with a line containing three integers $$$\mathbf{B}$$$, $$$\mathbf{S}$$$, and $$$\mathbf{N}$$$: the
+number of buildings, slides, and operations to process, respectively.
+Then, $$$\mathbf{S}$$$ lines follow. The $$$i$$$&NoBreak;-&NoBreak;th of these lines contains two integers
+$$$\mathbf{X_i}$$$ and $$$\mathbf{Y_i}$$$, indicating that the slide with number $$$i$$$ goes from
+building $$$\mathbf{X_i}$$$ to building $$$\mathbf{Y_i}$$$.
+Finally, $$$\mathbf{N}$$$ lines represent the operations. The $$$j$$$&NoBreak;-&NoBreak;th of these lines
+contains a character $$$\mathbf{A_j}$$$ and three integers $$$\mathbf{L_j}$$$, $$$\mathbf{R_j}$$$, and $$$\mathbf{M_j}$$$, describing
+the $$$j$$$&NoBreak;-&NoBreak;th operation. $$$\mathbf{A_j}$$$ describes the type of operation using
+an uppercase <code>E</code> for enable and an uppercase <code>D</code> for disable.
+The operation is to be performed on slides with numbers that are simultaneously
+a multiple of $$$\mathbf{M_j}$$$ and between $$$\mathbf{L_j}$$$ and $$$\mathbf{R_j}$$$, inclusive.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing
+<code>Case #$$$x$$$: $$$y_1\ y_2\ \dots\ y_\mathbf{N}$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and $$$y_j$$$ is an uppercase
+<code>X</code> if there is no way to turn the state
+of slides created by the first $$$j$$$ console operations into a fun state by enabling
+exactly one disabled slide. Otherwise, $$$y_j$$$ should be an integer representing that
+enabling the $$$y_j$$$&NoBreak;-&NoBreak;th slide would turn the state created by the first $$$j$$$ console operations
+into a fun state.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{X_i} \le \mathbf{B}$$$, for all $$$i$$$.<br/>
+$$$1 \le \mathbf{Y_i} \le \mathbf{B}$$$, for all $$$i$$$.<br/>
+$$$\mathbf{X_i} \ne \mathbf{Y_i}$$$, for all $$$i$$$.<br/>
+$$$(\mathbf{X_i}, \mathbf{Y_i}) \neq (\mathbf{X_j}, \mathbf{Y_j})$$$, for all $$$i \neq j$$$.<br/>
+$$$\mathbf{A_j}$$$ is either uppercase <code>E</code> or uppercase <code>D</code>, for all $$$j$$$.<br/>
+$$$1 \le \mathbf{L_j} \le \mathbf{R_j} \le \mathbf{S}$$$, for all $$$j$$$.<br/>
+$$$1 \le \mathbf{M_j} \le \mathbf{S}$$$, for all $$$j$$$.<br/>
+Each operation is valid.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+Time limit: 10 seconds.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$2 \le \mathbf{B} \le 100$$$.<br/>
+$$$2 \le \mathbf{S} \le 1000$$$.<br/>
+$$$1 \le \mathbf{N} \le 1000$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+Time limit: 120 seconds.<br/>
+
+$$$1 \le \mathbf{T} \le 30$$$.<br/>
+$$$2 \le \mathbf{B} \le 3 \times 10^4$$$.<br/>
+$$$2 \le \mathbf{S} \le 3 \times 10^5$$$.<br/>
+$$$1 \le \mathbf{N} \le 3 \times 10^5$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="slide_circuits_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+3 3 5
+1 2
+2 3
+3 1
+E 1 2 1
+E 3 3 1
+D 1 3 2
+D 1 3 3
+E 1 2 2
+5 8 10
+1 5
+5 3
+4 1
+3 2
+2 4
+2 5
+2 1
+1 4
+E 1 8 2
+D 4 8 2
+E 3 5 1
+E 1 1 3
+E 1 1 1
+E 5 8 2
+D 1 8 3
+D 5 8 4
+D 4 5 1
+E 3 4 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="slide_circuits_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 3 X 2 X 3
+Case #2: 3 X 1 1 X X X 3 X 5
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  Sample Case #1 is the one depicted in the problem statement.
+</p><p>
+  The following picture shows the building and slide layout of Sample Case #2.
+</p><p align=center>
+<img src="img/sample2.png" alt="Sample input 2" style="max-width:300px;">
+</p><p>
+  The sets of enabled slides after each operation are:
+<ul>
+  <li>$$$\{2,4,6,8\}$$$,</li>
+  <li>$$$\{2\}$$$,</li>
+  <li>$$$\{2,3,4,5\}$$$,</li>
+  <li>$$$\{2,3,4,5\}$$$,</li>
+  <li>$$$\{1,2,3,4,5\}$$$,</li>
+  <li>$$$\{1,2,3,4,5,6,8\}$$$,</li>
+  <li>$$$\{1,2,4,5,8\}$$$,</li>
+  <li>$$$\{1,2,4,5\}$$$,</li>
+  <li>$$$\{1,2\}$$$, and</li>
+  <li>$$$\{1,2,3,4\}$$$.</li>
+</ul>
+</p>
+
+
+    </div>
+  </body>
+</html>

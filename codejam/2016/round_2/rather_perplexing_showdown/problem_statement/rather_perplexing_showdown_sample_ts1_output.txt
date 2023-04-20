@@ -1,0 +1,4 @@
+Case #1: PR
+Case #2: IMPOSSIBLE
+Case #3: PSRS
+Case #4: IMPOSSIBLE

@@ -1,0 +1,441 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - World Finals</h3><h1>Analysis: Family Hotel</h1><p>
+  Let P(<b>N</b>, <b>K</b>) denote the probability that room <b>K</b>
+  is occupied when the NO VACANCY sign goes up.  This is essentially
+  what the problem asks for, except that it is requested in a special
+  format.  We will get to that later.
+</p>
+
+<h3>Small input</h3>
+<p>
+  We first present an algorithm for the small input.  There
+  are <b>N</b>-1 ways to accommodate the first family, each with
+  probability 1/(<b>N</b>-1).  Suppose we assign to them adjacent
+  rooms i and i+1.  If either is equal to <b>K</b>, we are done.
+  Otherwise, <b>K</b> falls either in the interval [1, i-1] or in the
+  interval [i+2, <b>N</b>].  Take the former case without loss of
+  generality.  What happens in the interval [i+2, <b>N</b>] is now
+  irrelevant.  Hence the problem reduces to finding P(i-1, <b>K</b>).
+  Working out the math, we get the following recurrence relation:
+</p>
+
+<p>
+  <ul>
+  <li> P(1, 1) = 0, and </li>
+  <li>
+  P(<b>N</b>, <b>K</b>) = 1/(<b>N</b>-1) [
+  &mu;(<b>K</b>+1 &le; <b>N</b>) + &mu;(<b>K</b>-1 &ge; 1) +
+  &Sigma;<sub><b>K</b>+1 &le; i &le; <b>N</b>-1</sub> P(i-1, <b>K</b>) +
+  &Sigma;<sub>1 &le; i &le; <b>K</b>-2</sub> P(<b>N</b>-i-1, <b>N</b>-<b>K</b>+1) ],
+  where 1 &le; <b>K</b> &le; <b>N</b>, 2 &le; <b>N</b>,
+  and &mu;(condition) = 1 if condition holds and 0 otherwise.
+  </li>
+  </ul>
+</p>
+
+<p>
+  Setting aside the issues of precision and the special format
+  requirements of the output, we can use dynamic programming to
+  compute P(<b>N</b>, <b>K</b>) in time O(<b>N</b><sup>3</sup>).  This
+  is too slow even for the small case.  However, by defining S(n, k) =
+  &Sigma;<sub>k &le; i &le; n</sub> P(i, k), the recurrence simplifies
+  as follows:
+</p>
+
+<p>
+  P(<b>N</b>, <b>K</b>) = 1/(<b>N</b>-1) [
+  &mu;(<b>K</b>+1 &le; <b>N</b>) + &mu;(<b>K</b>-1 &ge; 1) +
+  S(<b>N</b>-2, <b>K</b>) + S(<b>N</b>-2, <b>N</b>-<b>K</b>+1) ].
+</p>
+
+<p>
+  The above recurrence can be used for an O(<b>N</b><sup>2</sup>)-time
+  algorithm, which is sufficient for the small input.
+</p>
+
+<h3>Modular arithmetic</h3>
+<p>
+  Before proceeding to a faster solution for the large input, let us
+  address the output format.  Let M = 10<sup>9</sup>+7 be the prime
+  specified in the problem statement.  For a rational solution p/q, we
+  are asked to output the unique integer y such that 0 &le; y &lt; M
+  and y*q = p (mod M).  In terms of the field (Z<sub>M</sub>, +, *),
+  we are simply looking for p/q (mod M) = p * q<sup>-1</sup>, where
+  the latter
+  (i.e., <a href="https://en.wikipedia.org/wiki/Modular_multiplicative_inverse">the
+  inverse of q modulo M</a>) equals q<sup>M-2</sup>
+  by <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem">Euler's
+  theorem</a>
+  (or <a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem">Fermat's
+  little theorem</a>).  This computation requires
+  only <a href="https://en.wikipedia.org/wiki/Modular_exponentiation">logarithmically
+  many operations</a> on integers less than M<sup>2</sup>.  In fact,
+  all the arithmetic can be carried out in this field, hence there is
+  no need for large integers or any floating-point operations.  Note
+  that the division operation in the recurrence is well-defined since
+  we never divide by a multiple of M.
+</p>
+
+<h3>Large input</h3>
+<p>
+  To solve the large input, we observe the following:
+</p>
+
+<p>
+  <em>Claim</em>:
+  P(<b>N</b>, <b>K</b>) = 1
+  - F(<b>K</b>) * F(<b>N</b>-<b>K</b>+1), where F(q) = 1-P(q, 1)
+  denotes the probability of the left-most room being unoccupied at
+  the end of the day.
+</p>
+
+<p>
+  <em>Proof</em>: 
+  This can be proved rigorously via induction with the base cases
+  being when <b>K</b> &isin; {1, <B>N</b>}, and using the recurrence
+  relation.  A more elegant proof, though, is as follows.
+  Suppose room K is left unoccupied until the end. In that case we
+  essentially have two independent hotels, one formed with rooms from
+  1 to <b>K</b>, and the other with rooms from <b>K</b>
+  to <b>N</b>. The first hotel gets those guests that are assigned to
+  rooms between (1,2) and (<b>K</b>-1,<b>K</b>), and the second hotel
+  gets those guests that are assigned to rooms between
+  (<b>K</b>,<b>K</b>+1) and (<b>N</b>-1,<b>N</b>). It's easy to see
+  that those two "sub-streams" of guests that are going to each hotel
+  are also uniformly and independently distributed. The only
+  difference between having such two hotels and one big hotel is that
+  room K could be occupied twice in the two hotel case, but since
+  we're considering the case where it's left unoccupied, this does not
+  happen. Now since the two hotels are independent, we just need to
+  multiply the probabilities that room <b>K</b>, which is a border
+  room in both hotels, is left unoccupied.
+  &#9632;
+</p>
+
+<p>
+  The recurrence for P(<b>N</b>, <b>K</b>) has a simpler form
+  for <b>K</b>=1, as follows:
+</p>
+
+<p>
+  <ul>
+    <li>P(1, 1) = 0, and</li>
+    <li>
+      P(<b>N</b>, 1) = 1/(<b>N</b>-1) [ 1 + S(<b>N</b>-2, 1) ] 
+      for <b>N</b> &ge; 2.
+    </li>
+  </ul>
+</p>
+
+<p>
+  Since the two one-dimensional arrays can be filled at the same time,
+  there is an O(<b>N</b>)-time algorithm to compute all values of
+  P(<b>N</b>, 1), hence F(<b>N</b>), which leads to a constant-time
+  operation for each P(<b>N</b>, <b>K</b>) query in the input.
+</p>
+
+<h3>Final remarks</h3>
+<p>
+  For the curious, the above recurrence yields the following solution
+  for F(q):
+</p>
+
+<p>
+  F(q) = &Sigma;<sub>0 &le; i &le; q-1</sub> (-1)<sup>i</sup> 1/i!, 
+  for q &ge; 1.
+</p>
+
+<p>
+  This has a combinatorial meaning, as well.  Consider a permutation
+  &pi; of 1, &hellip;, <b>N</b>-1, where &pi;<sub>i</sub> denotes the
+  time at which we try to assign pair of rooms i and i+1 (if both are
+  vacant).  Convince yourself that the number of such permutations
+  producing a certain outcome of room assignments is proportional to
+  that outcome's probability.
+  Now F(q) is equal to the probability that the length of the
+  decreasing sequence at the beginning of &pi; be even.  We calculate
+  this via Principle of Inclusion-Exclusion.
+</p>
+
+<p>
+  Since the claim above is the crux of the solution for large input,
+  it is worth noting that some contestants got the idea by simply
+  looking at the table of 1-P(<b>N</b>, <b>K</b>) for small values
+  of <b>N</b> and <b>K</b>.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

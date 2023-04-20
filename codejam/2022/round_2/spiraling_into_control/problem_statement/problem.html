@@ -1,0 +1,474 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 2</h3><h1>Spiraling Into Control</h1><h3>Problem</h3>
+<p>
+As punishment for being naughty, Dante has been trapped in a strange house with many rooms.
+The house is an $$$\mathbf{N} \times \mathbf{N}$$$ grid of rooms, with $$$\mathbf{N}$$$ odd and greater than $$$1$$$. The
+upper left room is numbered $$$1$$$, and then the other rooms are numbered
+$$$2$$$, $$$3$$$, ..., $$$\mathbf{N}^2$$$, in a clockwise spiral pattern. That is, the numbering proceeds
+along the top row of the grid and then makes a 90 degree turn to the right whenever a grid boundary
+or an already numbered room is encountered, and finishes in the central room of the grid. Because
+$$$\mathbf{N}$$$ is odd, there is always a room in the exact center of the house, and it is always numbered
+$$$\mathbf{N}^2$$$.
+</p><p>
+For example, here are the room numberings for houses with $$$\mathbf{N} = 3$$$ and $$$\mathbf{N} = 5$$$:
+</p><p align="center">
+  <img src="img/spiraling_into_control.png"
+      alt="The image shows a 3x3 grid of rooms and a 5x5 grid of rooms. Each room is numbered as described above."/>
+</p><p>
+Dante starts off in room $$$1$$$ and is trying to reach the central room (room $$$\mathbf{N}^2$$$).
+Throughout his journey, he can only make moves from his current room to higher-numbered, adjacent
+rooms. (Two rooms must share an edge &mdash; not just a corner &mdash; to be adjacent.)
+</p><p>
+Dante knows that he could walk from room to room in consecutive numerical order &mdash; i.e., if he
+is currently in room $$$x$$$, he would move to room $$$x+1$$$, and so on. This would take
+him exactly $$$\mathbf{N}^2 - 1$$$ moves. But Dante wants to do things his way! Specifically, he wants to
+reach the central room in exactly $$$\mathbf{K}$$$ moves, for some $$$\mathbf{K}$$$ strictly less than $$$\mathbf{N}^2 - 1$$$.
+</p><p>
+Dante can accomplish this by taking one or more <i>shortcuts</i>. A shortcut is a move between
+rooms that are not consecutively numbered.
+</p><p>
+For example, in the $$$5 \times 5$$$ house above,
+<ul>
+  <li>If Dante is at $$$1$$$, he cannot move to $$$17$$$, but he can move to $$$2$$$ or to
+    $$$16$$$. The move to $$$2$$$ is not a shortcut, since $$$1 + 1 = 2$$$. The move to
+    $$$16$$$ is a shortcut, since $$$1 + 1 \neq 16$$$.</li>
+  <li>From $$$2$$$, it is possible to move to $$$3$$$ (not a shortcut) or to $$$17$$$ (a shortcut),
+    but not to $$$1$$$, $$$16$$$, or $$$18$$$.</li>
+  <li>From $$$24$$$, Dante can only move to $$$25$$$ (not a shortcut).</li>
+  <li>It is not possible to move out of room $$$25$$$.</li>
+</ul>
+<p>
+As a specific example using the $$$5 \times 5$$$ house above, suppose that $$$\mathbf{K}$$$ = $$$4$$$. One
+option is for Dante to move from $$$1$$$ to $$$2$$$, then move from $$$2$$$ to $$$17$$$ (which is
+a shortcut), then move from $$$17$$$ to $$$18$$$, then move from $$$18$$$ to $$$25$$$ (which is
+another shortcut). This is illustrated below (the red arrows represent shortcuts):
+</p><p align="center">
+  <img src="img/spiraling_into_control_example.png"
+      alt="The image shows a 5x5 grid of rooms numbered as described in the statement. A path with arrows goes from 1 to 2 to 17 to 18 to 25. The arrows between 2 and 17 as well as 18 and 25 are red to show they are shortcuts."/>
+</p><p>
+  Can you help Dante find a sequence of exactly $$$\mathbf{K}$$$ moves that gets him to the central room, or
+  tell him that it is impossible?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ test cases follow.
+Each test case consists of one line with two integers $$$\mathbf{N}$$$ and $$$\mathbf{K}$$$, where $$$\mathbf{N}$$$ is the dimension of
+the house (i.e. the number of rows of rooms, which is the same as the number of columns of rooms),
+and $$$\mathbf{K}$$$ is the exact number of moves that Dante wants to make while traveling from room $$$1$$$
+to room $$$\mathbf{N}^2$$$.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #$$$x$$$: $$$y$$$</code>,
+where $$$x$$$ is the test case number (starting from 1).
+</p><p>
+If no valid sequence of exactly $$$\mathbf{K}$$$ moves will get Dante to the central room, $$$y$$$ must be
+<code>IMPOSSIBLE</code>.
+</p><p>
+Otherwise, $$$y$$$ must be an integer: the number of times that Dante takes a shortcut, as
+described above. (Notice that because Dante wants to finish in strictly less than
+$$$\mathbf{N}^2 - 1$$$ moves, he must always use at least one shortcut.) Then, output $$$y$$$ more lines
+of two integers each. The $$$i$$$-th of these lines represents the $$$i$$$-th time in Dante's
+journey that he takes a shortcut, i.e., he moves from some room $$$a_i$$$ to another room $$$b_i$$$
+such that $$$a_i + 1 \lt b_i$$$.
+</p><p>
+Notice that because these lines follow the order of the journey, $$$a_i \lt a_{i+1}$$$ for all
+$$$1 \le i \lt y$$$.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$1 \le \mathbf{K} \lt \mathbf{N}^2 - 1$$$.<br/>
+$$$ \mathbf{N} \mod 2 \equiv 1$$$. ($$$\mathbf{N}$$$ is odd.)<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+Time limit: 5 seconds.<br/>
+
+$$$3 \le \mathbf{N} \le 9$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+Time limit: 20 seconds.<br/>
+
+$$$3 \le \mathbf{N} \le 39$$$.<br/>
+</p>
+
+<h4>Test Set 3 (Hidden Verdict)</h4>
+<p>
+Time limit: 20 seconds.<br/>
+
+$$$3 \le \mathbf{N} \le 9999$$$.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="spiraling_into_control_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+5 4
+5 3
+5 12
+3 1
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="spiraling_into_control_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2
+2 17
+18 25
+Case #2: IMPOSSIBLE
+Case #3: 2
+11 22
+22 25
+Case #4: IMPOSSIBLE
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  Sample Case #1 is described in the problem statement. Dante's route is
+  $$$1 \to 2 \to 17 \to 18 \to 25$$$. Because $$$1 \to 2$$$ and
+  $$$17 \to 18$$$ are moves between consecutively numbered rooms, they are not included in the
+  output. Only the shortcuts ($$$2 \to 17$$$ and $$$18 \to 25$$$) are included.
+</p><p>
+  In Sample Case #2, there is no solution. (Recall that there is no way for Dante to move
+  diagonally.)
+</p><p>
+  In Sample Case #3, observe that $$$22$$$ appears both as the end of one shortcut and the
+  start of the next. It would not be valid to include the line <code>11 22 25</code> in the output;
+  each line must represent a single shortcut.
+</p><p align="center">
+  <img src="img/spiraling_into_control_example_2.png"
+      alt="The image shows a 5x5 grid of rooms numbered as described in the statement. A path with arrows is shown as described above. The arrows between 11 and 22 as well as 22 and 25 are red to show they are shortcuts."/>
+</p><p>
+  There is another solution that uses only one shortcut: Dante can
+  move from $$$1 \to 2 \to 3 \to 4 \to 5 \to 6$$$, then move from
+  $$$6 \to 19$$$ (a shortcut), then move from
+  $$$19 \to 20 \to 21 \to 22 \to 23 \to 24 \to 25$$$. This is also valid; there is no requirement
+  to minimize (or maximize) the number of shortcuts taken.
+</p><p>
+  In Sample Case #4, Dante cannot get to the central room ($$$9$$$, in this case) in just one move.
+</p>
+
+    </div>
+  </body>
+</html>

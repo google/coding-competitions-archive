@@ -1,0 +1,410 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2015 - Qualification Round</h3><h1>Analysis: Dijkstra</h1><p>
+We can solve this problem with the help of the following two insights. First, the product of the whole string must equal -1 (<i>i</i> ⨉ <i>j</i> ⨉ <i>k</i>). Second, we only need a small number of copies of the input string to check for a solution. One way to do this is by finding the shortest prefix of the whole string that reduces to <i>i</i> and the shortest subsequent prefix that reduces to <i>j</i>. If we find such two substrings, there is a solution because the rest of the string reduces to <i>k</i> thanks to the associative property. The rest of this editorial explains the two insights and provides a sample implementation.
+</p>
+
+<h3>No solution if the whole string cannot be reduced to -1</h3>
+<p>
+Suppose the string <b>S</b> is the whole concatenated string formed by repeating the given input string <b>X</b> times. If we can break the string S into three non-empty substrings <b>A</b>, <b>B</b>, <b>C</b> where A + B + C = S such that A reduces to <i>i</i>, B reduces to <i>j</i>, and C reduces to <i>k</i>, then the string S reduces to string "ijk", which then reduces to -1. Therefore, if the string S cannot be reduced to -1, then there is no solution. Reducing the string S can be done by simply multiplying all the characters in S into one value.
+</p>
+<p>
+If the string S can be reduced to -1, it doesn't mean that there is a solution for S. There are many strings (e.g., "ii", "jj", etc.) that reduces to -1 but do not form a concatenation of three substrings that reduce to <i>i</i>, <i>j</i>, and <i>k</i>, respectively.
+</p>
+<h3>The first two substrings must reduce to <i>i</i> and <i>j</i>, respectively</h3>
+<p>
+From now on, we only consider whole strings that reduce to -1. To determine whether a string <b>S</b> can be broken into three non-empty substrings <b>A</b>, <b>B</b>, <b>C</b> where each reduces to <i>i</i>, <i>j</i>, <i>k</i> respectively, we only need to find the first two substrings. The last substring is guaranteed to reduce to <i>k</i> since the whole string reduces to -1. 
+</p>
+<p>
+(There are other alternatives. For example, we can find the shortest prefix and the shortest suffix that reduce to <i>i</i> and <i>k</i>, respectively. If the prefix does not overlap with the suffix, then we can reduce the rest to <i>j</i>. Care must be taken as the multiplication operator is not commutative.
+<br>
+Exercise: Can the prefix-suffix pair actually overlap while the whole string can still be reduced to ‘ijk’? Answer: No.)
+<p>
+
+<p>
+To find the first substring, we start from the first character of the string S and start multiplying it with the next characters and so on until we get the value <i>i</i>. Afterward, we repeat the procedure from the current position until we get the value <i>j</i>. The rest of the string is guaranteed to be non-empty and reduce to <i>k</i>. The complexity of finding the first and the second substrings is O(L * X), since we need to scan the whole string S of length L * X.
+</p>
+<p>
+With these insights, we can solve the small input in O(L * X). Below is a sample implementation in Python:
+</p>
+<pre>
+M = [[ 0,  0,  0,  0,  0 ],
+     [ 0,  1,  2,  3,  4 ],
+     [ 0,  2, -1,  4, -3 ],
+     [ 0,  3, -4, -1,  2 ],
+     [ 0,  4,  3, -2, -1 ]]
+
+def mul(a, b):
+  sign = 1 if a * b &gt; 0 else -1
+  return sign * M[abs(a)][abs(b)]
+
+def multiply_all(S, L, X):
+  value = 1
+  for i in range(X):
+    for j in range(L):
+      value = mul(value, S[j])
+  return value
+
+def construct_first_two(S, L, X):
+  i_value = 1
+  j_value = 1
+  for i in range(X):
+    for j in range(L):
+      if i_value != 2:
+        i_value = mul(i_value, S[j])
+      elif j_value != 3:
+        j_value = mul(j_value, S[j])
+  return i_value == 2 and j_value == 3
+
+for tc in range(input()):
+  L, X = map(int, raw_input().split())
+  # maps 'i' =&gt; 2, 'j' =&gt; 3, 'k' =&gt; 4
+  S = [(ord(v) - ord('i') + 2) for v in raw_input()]
+  ok1 = multiply_all(S, L, X) == -1
+  ok2 = construct_first_two(S, L, X)
+  print "Case #%d: %s" % (tc + 1,
+    "YES" if ok1 and ok2 else "NO")
+</pre>
+<p>
+The multiplication matrix M is defined as a 5 x 5 matrix where the first column and the first row are not used (for value 0). The second row and the second column is for an identity value 1. The third, fourth and fifth (rows and columns) represent <i>i</i>, <i>j</i>, and <i>k</i>, respectively, identical to the quaternion multiplication matrix.
+</p>
+
+<h3>Optimizations for the large input</h3>
+<p>
+The maximum whole string length is 10^16 which is too large for an implementation of the algorithm above to finish within the time limit when it is executed in a today's computer. We need to optimize both of these functions: multiply_all() and construct_first_two().
+</p>
+
+<h3>Optimizing the multiply_all() method</h3>
+<p>
+Observe that the whole string is formed by repeating the input string (of length L) X times, giving the complexity of O(L * X). Since the multiplication operator is associative, we can reduce the input string into a single value before multiplying this value to itself X - 1 times. Thus, we can rewrite the multiply_all() method as follows:
+</p>
+<pre>
+def multiply_all(S, L, X):
+  value = 1
+  for i in range(L):
+    value = mul(value, S[i])
+  return power(value, X) # computes value^X
+</pre>
+<p>
+To quickly multiply the value with itself X - 1 times (that is, computing value^X), we can use the <a href="http://en.wikipedia.org/wiki/Exponentiation_by_squaring#Basic_method" target="_blank">exponentiation by squaring</a> technique which runs in O(log(X)):
+</p>
+<pre>
+def power(a, n):
+  if n == 1: return a
+  if n % 2 == 0: return power(mul(a, a), n // 2)
+  return mul(a, power(mul(a, a), (n - 1) // 2))
+</pre>
+<p>
+With this optimizations, the multiply_all() complexity is now O(L + log(X)). Since L is at most 10000 and X is at most 10^12, the number of multiplication operations is at most 10040.
+</p>
+<p>
+We can improve it further to O(L). Observe that the multiplication values (to itself) will always repeat to the original value after 4 consecutive multiplications, thus we only need to do at most X mod 4 multiplications to compute value^X:
+</p>
+<pre>
+def power(a, n):
+  value = 1
+  for i in range(n % 4):
+    value = mul(value, a)
+  return value
+</pre>
+
+<h3>Optimizing the call to construct_first_two()</h3>
+<p>
+To find the prefix, we start with an identity value 1 and multiply it with the value of the first position of the input string, and so on until we get a value <i>i</i>. Supposing X is sufficiently large, if we reach the end of the input string and haven't obtained the value <i>i</i>, we repeat this procedure for the next copy of the input string. At this point, the current value may be 1, <i>j</i>, <i>k</i>, -1, -<i>i</i>, -<i>j</i>, or -<i>k</i>. If the current value is 1, we may as well stop here and declare no solution because continuing the multiplication will result in the same value 1 again. However, if the current value is not 1, we can continue the procedure. 
+</p>
+<p>
+We know from the previous section that multiplying a value to itself will repeat to its original value every 4 consecutive multiplication. Thus, if we don't encounter the value <i>i</i> after executing the procedure for 4 copies of the input string, it is impossible to construct the desired prefix. If we do encounter value <i>i</i>, then we can proceed to find the second substring where the same insight applies.
+</p>
+<p>
+Thus, we can safely limit the call to construct_first_two() from X repeats:
+</p>
+<pre>
+  ok2 = construct_first_two(S, L, X)
+</pre>
+<p>
+to min(8, X) repeats:
+</p>
+<pre>
+  ok2 = construct_first_two(S, L, min(8, X))
+</pre>
+<p>
+This reduces the complexity of the construct_first_two() method from O(L * X) to O(L).
+</p>
+<p>
+Therefore, the complexity of the overall algorithm is now O(L) per test case.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

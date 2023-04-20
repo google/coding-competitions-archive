@@ -1,0 +1,465 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 3</h3><h1>Analysis: Revenge of GoroSort</h1><p>
+  In the original GoroSort problem from 2011, Goro could hold as many elements
+  in place as he wanted; using the terminology of this problem, he could
+  create arbitrary many box color groups with $$$1$$$ ball (element) each. But
+  unlike in this problem, he was only allowed to use at most one color group
+  of size greater than $$$1$$$. That made the optimal strategy relatively
+  straightforward: he could repeatedly permute all list elements that were not
+  in the correct places.
+</p><p>
+  That strategy puts one additional element in the right place each turn, in
+  expectation, which is clearly too slow for this problem. (Our version of that
+  solution takes almost $$$100000$$$ rounds!) What is more surprising is that
+  the crux of the original problem &mdash; namely, thinking in terms of
+  expected numbers of elements that become correctly placed after the bump
+  &mdash; can even be <i>misleading</i> in this problem!
+</p>
+<h3>The perils of pairing</h3>
+<p>
+  It is intutively clear that any elements that are already in the right place
+  should be left alone (i.e., each should be put in its own color group). It
+  also seems reasonable to not break up pairs of elements that are swapped (i.e.,
+  each is in the other's place). We can also reasonably guess that splitting
+  such a pair would be useless, and that putting additional elements in that
+  group would be worse than handling those other elements in their own
+  group(s).
+</p><p>
+  What about the other elements? One very tempting strategy is to try to pair
+  them up into "trespasser pairs" such that one member of the group is in the
+  other member's place. It may not be possible to do this with every element,
+  but we can, e.g., find a way to tack leftovers onto existing trespasser
+  pairs.
+</p><p>
+  Consider a trespasser pair ($$$x, y$$$), where $$$x$$$ belongs where $$$y$$$
+  is and $$$y$$$ belongs somewhere else entirely. The judge's "bumping"
+  (permutation) process will put $$$x$$$ in the right place with probability
+  $$$\frac{1}{2}$$$. So if we somehow manage to create around
+  $$$\frac{\mathbf{N}}{2}$$$ trespasser pairs, each bump will put around
+  $$$\frac{\mathbf{N}}{4}$$$ more elements in the right places. This seems quite
+  good, and it is good enough to pass Test Set 1, but not the other two. (Our
+  trespasser-pair-based solutions take between $$$15000$$$ and $$$16300$$$
+  rounds, depending on the care taken with implementation details.)
+</p>
+<h3>Thinking in terms of cycles</h3>
+<p>
+  Any permutation &mdash; and therefore any state in this problem &mdash; can
+  be described as a multiset of <a href="https://en.wikipedia.org/wiki/Permutation#Cycle_notation" target="_blank">cycles</a>
+  of particular lengths. For example, each element that is already in the
+  correct place is a $$$1$$$-cycle, and each pair of swapped elements is a
+  $$$2$$$-cycle.
+</p><p>
+  If we try to implement the pairing idea above in a greedy way, we may miss
+  some opportunities to form trespasser pairs. We can get as many as possible
+  by first finding all the cycles, then going through each cycle and chopping
+  it into trespasser pairs, plus perhaps one "trespasser trio" at the end. (A
+  trespasser trio is a set of elements $$$x, y, z$$$, in some order, such that
+  $$$y$$$ is in $$$x$$$'s place, $$$z$$$ is in $$$y$$$'s place, and $$$z$$$
+  belongs outside of the group.) These improvements (especially creating
+  trespasser trios where needed) help a lot, but not enough to pass Test Set
+  2; our trespasser pairs + one trio solution takes around $$$13100$$$ rounds.
+</p><p>
+  But what if we leave the cycles as they are, and make each cycle its own
+  permutation group? Now we do much better, and pass Test Set 2 as well (but
+  not Test 3; we take about $$$11800$$$ rounds). Why is this cycle-based strategy so
+  much better than the trespasser pair strategies?
+</p>
+<h3>When expectation doesn't satisfy our expectations</h3>
+<p>
+  Here's the problem with chopping into trespasser pairs. Suppose that we have
+  a $$$4$$$-cycle like $$$2 3 4 1$$$. If we split it into two trespasser pairs
+  $$$2 3$$$ and $$$4 1$$$, we will (in expectation) put one element in the
+  correct place. But, as we will see later on, we get the same expectation of
+  $$$1$$$ if we designate the entire cycle as one group.
+</p><p>
+  Does this necessarily mean these strategies are equally good? Let's set our
+  expectations appropriately! We really care about the expected <i>total</i>
+  number of rounds to finish sorting, so let's work toward calculating that
+  instead. First we observe that:
+</p>
+<ul>
+  <li>
+    <b>If we split the $$$4$$$-cycle into two trespasser pairs</b>:
+    <ul>
+      <li>
+        With probability $$$\frac{1}{4}$$$, both elements end up in their
+        correct places in the group, and we get two $$$1$$$-cycles and one
+        $$$2$$$-cycle.
+      </li><li>
+        With probability $$$\frac{1}{4}$$$, neither element ends up in its
+        correct place in the group, and we end up stuck at a $$$4$$$-cycle.
+      </li><li>
+        Otherwise, with probability $$$\frac{1}{2}$$$, we end up with a
+        $$$1$$$-cycle and a $$$3$$$-cycle.
+      </li>
+  </ul>
+  </li><li>
+    If we don't split the cycle before permuting:
+    <ul>
+      <li>
+        With probability $$$\frac{1}{24}$$$, we get four $$$1$$$-cycles.
+      </li><li>
+        With probability $$$\frac{1}{4}$$$, we get two $$$1$$$-cycles and a
+        $$$2$$$-cycle.
+      </li><li>
+        With probability $$$\frac{1}{3}$$$, we get a $$$3$$$-cycle and a
+        $$$1$$$-cycle.
+      </li><li>
+        With probability $$$\frac{1}{8}$$$, we get two $$$2$$$-cycles.
+      </li><li>
+        With probability $$$\frac{1}{4}$$$, we are stuck at a $$$4$$$-cycle.
+      </li>
+    </ul>
+  </li>
+</ul>
+<p>
+  Comparing these two probability distributions directly, and canceling out
+  the parts that are the same, we need to know which is better:
+</p>
+<ul>
+  <li>a $$$\frac{1}{6}$$$ probability of getting a $$$3$$$-cycle and a
+    $$$1$$$-cycle, or</li>
+  <li>a $$$\frac{1}{8}$$$ probability of getting two $$$2$$$-cycles and
+    a $$$\frac{1}{24}$$$ probability of getting four $$$1$$$-cycles</li>
+</ul>
+<p>
+  Now we can assess each of those states in terms of the expected number
+  of rounds to completion. A $$$3$$$-cycle turns out to take $$$3$$$ rounds,
+  in expectation, to become all $$$1$$$-cycles. (This comes from solving
+  $$$\mathbf{E}[3] = 1 + \frac{1}{3} \cdot \mathbf{E}[3] + \frac{1}{2}\mathbf{E}[2] + \frac{1}{6}(0)$$$,
+  and using the fact that $$$\mathbf{E}[2] = 2$$$.) By a similar analysis, two
+  $$$2$$$-cycles take $$$\frac{8}{3}$$$ rounds, in expectation, to become
+  all $$$1$$$-cycles. (And if we are lucky enough to reach four
+  $$$1$$$-cycles directly, $$$0$$$ additional rounds are needed.)
+</p><p>
+  Therefore, chopping up a $$$4$$$-cycle into two trespasser pairs is strictly
+  worse than leaving it as is! We wouldn't have known this if we
+  had argued purely based on the expected number of correctly placed elements;
+  it also matters what we leave behind. Intuitively, the trespassers can only
+  be dealt with after their companions have been correctly placed, so the
+  chopping strategy is less parallelizable. But we shouldn't assume this will
+  always be true no matter how we chop...
+</p>
+<h3>Chopping is not always bad</h3>
+<p>
+  It's tedious to perform the above analysis for cycles longer than $$$4$$$.
+  But we shouldn't give up hope. The expectations for the two strategies were
+  the same for $$$4$$$-cycles, but will that hold up in general?
+</p><p>
+  Let's think about how many cycles we expect to see in a random permutation
+  of length $$$\mathbf{N}$$$. You may have heard of the following problem: everyone loses
+  their hats all at once, and each person puts on a random hat; in
+  expectation, how many people get their own hats back? The probability that
+  the each person gets their own hat is $$$\frac{1}{\mathbf{N}}$$$, and then by
+  linearity of expectation, the total number of instances of someone getting
+  their own hat is $$$\frac{1}{\mathbf{N}} \cdot \mathbf{N} = 1$$$.
+</p><p>
+  So this gives us the expected number of $$$1$$$-cycles. We can make a
+  similar argument about $$$2$$$-cycles: there are $$${\mathbf{N} \choose 2}$$$
+  distinct pairs of elements that could form a 2-cycle, and for each one, the
+  probability that each has the other's element is
+  $$$\frac{1}{\mathbf{N}} \cdot \frac{1}{\mathbf{N}-1}$$$. This all boils down to
+  $$$\frac{1}{2}$$$. Indeed, the answer for general
+  $$$k$$$-cycles is $$$\frac{1}{k}$$$.
+</p><p>
+  Then how many total cycles should we expect? It's
+  $$$\frac{1}{1} + \frac{1}{2} + ... + \frac{1}{\mathbf{N}}$$$. You may recognize
+  this as the expression for the $$$\mathbf{N}$$$-th
+  <a href="https://en.wikipedia.org/wiki/Harmonic_number" target="blank">harmonic number</a>.
+  The harmonic numbers grow rather slowly; $$$H_{100}$$$, for example, is just
+  over $$$5$$$.
+</p><p>
+  Therefore, if there are only around $$$5$$$ cycles in our initial random
+  permutation of length $$$\mathbf{N} = 100$$$, we expect to place around $$$5$$$
+  elements. But if we chop the cycles into, say, $$$50$$$ trespasser pairs,
+  we should expect to place around $$$25$$$ elements! How can it possibly be
+  better to leave such large cycles alone? Does the argument about leaving
+  more mess behind really still hold up?
+</p><p>
+  One issue with chopping into pairs is that, intuitively, many roads to
+  completion include forming one or more $$$4$$$-cycles, and we have now seen
+  that the pair-chopping strategy mishandles them. (And now we have reason to
+  suspect that it mishandles larger cycles as well).
+</p><p>
+  What if we chop a cycle into chunks larger than pairs? For example, if we
+  chop a $$$6$$$-cycle into two trespasser trios, each of them will produce
+  $$$2 \cdot \frac{1}{3} = \frac{2}{3}$$$ correctly placed elements in
+  expectation. That's $$$\frac{4}{3}$$$ overall, which is less than the
+  $$$3 \cdot \frac{1}{2} = \frac{3}{2}$$$ we would have gotten from chopping
+  into trespasser pairs. But these trespasser trios leave less of a mess; each
+  one can only leave one element to clean up later, so there will be two such
+  elements as compared to three.
+</p><p>
+  It is hard to directly weigh the costs of cleaning up these leftover
+  elements against the benefits of correctly placing more elements in
+  expectation. The math for our $$$4$$$-cycle example was already a bit
+  cumbersome to carry out in a timed round, and there is not a strong
+  incentive to do even more of it when the local testing tool can quickly tell
+  us how well a strategy does, and when all three test sets are Visible.
+  Indeed, we can find that leaving all cycles of length less than $$$6$$$
+  intact, and breaking all cycles of length $$$6$$$ or more into trespasser
+  trios (or trespasser sets of four or five, when there are extra elements)
+  does much better than leaving all cycles intact, and lets us pass Test Set
+  3, taking about $$$10950$$$ rounds.
+</p><p>
+  We can do even better by choosing different chunk lengths (e.g. break each
+  cycle of length $$$c$$$ into chunks of size roughly $$$\sqrt{c}$$$, to get
+  down to around $$$10500$$$ rounds), but that is not necessary for this
+  problem.
+</p>
+
+    </div>
+  </body>
+</html>

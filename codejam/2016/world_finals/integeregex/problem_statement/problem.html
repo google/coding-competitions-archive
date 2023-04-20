@@ -1,0 +1,465 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - World Finals</h3><h1>Integeregex</h1><h3>Problem</h3>
+<p>
+In this problem, a valid regular expression is one of the following. In the
+following descriptions, <i>E</i><sub>1</sub>, <i>E</i><sub>2</sub>, etc. denote
+(not necessarily different) valid regular expressions.
+</p>
+<ul>
+<li>A decimal digit: that is, one of <code>0 1 2 3 4 5 6 7 8 9</code>.</li>
+<li>Concatenation: <i>E</i><sub>1</sub><i>E</i><sub>2</sub>.</li>
+<li>Disjunction:
+<code>(</code><i>E</i><sub>1</sub><code>|</code><i>E</i><sub>2</sub>
+<code>|</code>...<code>|</code><i>E</i><sub>N</sub><code>)</code>, for at least
+two expressions. Note that the outer parentheses are required.</li>
+<li>Repetition: <code>(</code><i>E</i><sub>1</sub><code>)*</code>. Note that
+the outer parentheses are required.</li>
+</ul>
+<p>
+For example, <code>7</code>, <code>23</code>, <code>(7)*</code>,
+<code>(45)*</code>, <code>(1|2|3)</code>, <code>((2)*|3)</code>,
+<code>(1|2|3)</code>, and <code>((0|1))*</code> are valid expressions.
+<code>(7)</code>, <code>4|5</code>, <code>4*</code>, <code>(1|)</code>, and
+<code>(0|1)*</code> are not.
+</p><p>
+We say that an expression <i>E</i> matches a string of digits <i>D</i> if and
+only if at least one of the following is true:
+</p>
+<ul>
+<li><i>E</i> = <i>D</i>.</li>
+<li><i>E</i> = <i>E</i><sub>1</sub><i>E</i><sub>2</sub> and there exist
+<i>D</i><sub>1</sub> and <i>D</i><sub>2</sub> such that
+<i>D</i> = <i>D</i><sub>1</sub><i>D</i><sub>2</sub> and <i>E</i><sub>i</sub>
+matches <i>D</i><sub>i</sub>.</li>
+<li><i>E</i> = <code>(</code><i>E</i><sub>1</sub><code>|</code>
+<i>E</i><sub>2</sub><code>|</code>...<code>|</code>
+<i>E</i><sub>N</sub><code>)</code> and at least one of the <i>E</i><sub>i</sub>
+matches <i>D</i>.</li>
+<li><i>E</i> = <code>(</code><i>E</i><sub>1</sub><code>)*</code> and
+there exist <i>D</i><sub>1</sub>, <i>D</i><sub>2</sub>, ...,
+<i>D</i><sub>N</sub> for some non-negative integer N such that <i>D</i> =
+<i>D</i><sub>1</sub><i>D</i><sub>2</sub>...<i>D</i><sub>N</sub> and
+<i>E</i><sub>1</sub> matches each of the <i>D</i><sub>i</sub>. In particular,
+note that <code>(</code><i>E</i><sub>1</sub><code>)*</code> matches the empty
+string.</li>
+</ul>
+<p>
+For example, the expression <code>((1|2))*3</code> matches <code>3</code>,
+<code>13</code>, <code>123</code>, and <code>2221123</code>, among other
+strings. However, it does <i>not</i> match <code>1234</code>,
+<code>3123</code>, <code>12</code>, or <code>33</code>, among other strings.
+</p><p>
+Given a valid regular expression <b>R</b>, for how many integers between
+<b>A</b> and <b>B</b>, inclusive, does <b>R</b> match the integer's base 10
+representation (with no leading zeroes)?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>. <b>T</b>
+test cases follow; each consists of two lines. The first line has two positive
+integers <b>A</b> and <b>B</b>: the inclusive limits of the integer range we
+are interested in. The second has a string <b>R</b> consisting only of
+characters in the set <code>0123456789()|*</code>, which is guaranteed to be a
+valid regular expression as described in the statement above.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #x: y</code>, where
+<code>x</code> is the test case number (starting from 1) and <code>y</code> is
+the number of integers in the inclusive range [<b>A</b>, <b>B</b>] that the
+the regular expression <b>R</b> matches.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+1 &le; <b>T</b> &le; 100.<br/>
+1 &le; <b>A</b> &le; <b>B</b> &le; 10<sup>18</sup>.<br/>
+1 &le; length of <b>R</b> &le; 30.<br/>
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+<b>R</b> contains no <code>|</code> characters.
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+No additional limits.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="integeregex_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">8
+1 1000
+(0)*1(0)*
+379009 379009
+379009
+1 10000
+(12)*(34)*
+4 5
+45
+1 100
+((0|1))*
+1 50
+(01|23|45|67|23)
+1 1000000000000000000
+((0|1|2|3|4|5|6|7|8|9))*
+1 1000
+1(56|(((7|8))*9)*)
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="integeregex_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 4
+Case #2: 1
+Case #3: 5
+Case #4: 0
+Case #5: 4
+Case #6: 2
+Case #7: 1000000000000000000
+Case #8: 6
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+Note that sample cases 5 through 8 would not appear in the Small dataset.
+</p><p>
+In sample case 1, the matches in range are 1, 10, 100, and 1000.
+</p><p>
+In sample case 2, the match in range is 379009.
+</p><p>
+In sample case 3, the matches in range are 12, 34, 1212, 1234, and 3434.
+</p><p>
+In sample case 4, there are no matches in range.
+</p><p>
+In sample case 5, the matches in range are 1, 10, 11, and 100.
+</p><p>
+In sample case 6, the matches in range are 23 and 45.
+</p><p>
+In sample case 7, it is possible to form any number in the range.
+</p><p>
+In sample case 8, the matches in range are 1, 19, 156, 179, 189, and 199.
+</p>
+
+    </div>
+  </body>
+</html>

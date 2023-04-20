@@ -1,0 +1,363 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Qualification Round</h3><h1>Analysis: Median Sort</h1><p>
+This problem is about <a href="https://en.wikipedia.org/wiki/Information_theory" target="_blank">
+information theory</a>. There are $$$\mathbf{N}! / 2$$$ essentially different outputs, which
+means we need at least $$$\log_2(\mathbf{N}! / 2)$$$ bits of information. For $$$\mathbf{N}=50$$$ that is
+slightly over $$$213$$$. That means that for Test Set 2, extracting less than a
+bit per query (on average) can work, but for Test Set 3 it will not. In Test Set 1,
+on the other hand, this informational analysis is not necessary.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+In this test set we have 300 queries per case, which is more than the number of different
+triples $$${\mathbf{N} \choose 3} = 120$$$. This means that we can query every possible subset
+of $$$3$$$ elements and memoize the results. Freed from the limitations of the number of
+queries, any solution to sort based on medians works. One simple way is to notice that the
+only elements that are never the median are the first and last elements, so we can identify
+those, and arbitrarily choose which one is the first and which one is the last.
+Then, we can eliminate those two and find the candidates for second and next-to-last
+as the ones that are never median in queries with only remaining elements. To know
+which one to assign second, we can check an additional query between the element we
+chose to go first and the two newfound elements: the one who is the median of that
+subset should be second, and the other one should be next-to-last. We can iterate this
+to find and place pairs of elements moving inwards until we place them all.
+</p><p>
+See below for other sorting algorithms that work on medians. While the other test sets
+have the additional burden of having to make them work in an
+<a href="https://en.wikipedia.org/wiki/Online_algorithm" target="_blank">online</a> way,
+we can use the pre-query tactic for this one to make our lives easier, even if we implement
+the same basic algorithm. It also allows for simpler implementations of some of the algorithms
+that use extra queries.
+</p>
+<h3>Test Set 2</h3>
+<p>
+Since just $$$1$$$ bit of information per query is enough for this test set, we can use one
+of our known comparison-based optimal
+<a href="https://en.wikipedia.org/wiki/Sorting_algorithm" target="_blank">sorting algorithms</a>
+like Merge Sort or Heap Sort. Even
+<a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank">Insertion Sort</a>
+can work if we use
+<a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank">binary search</a>
+to look for the
+insertion point. While Insertion Sort + Binary Search requires a suboptimal $$$O(\mathbf{N}^2)$$$ number
+of operations, it uses an optimal $$$O(\mathbf{N} \log \mathbf{N})$$$ number of comparisons.
+</p><p>
+For any of these algorithms we need a way to simulate a binary "less than" operation
+between two arbitrary items $$$i$$$ and $$$j$$$. One way
+to do that is to ask for the median of $$$i$$$, $$$j$$$ and $$$k$$$ while knowing $$$k$$$ is
+not the median. So, we could try to find an overall minimum or maximum and then use that
+as $$$k$$$ for every other query. Notice that there are $$$2$$$ elements that can be
+minimum and/or maximum and neither would
+be the median of any query. So, we can do a query for the median of the first three elements.
+We can discard the median of those and keep the other $$$2$$$ as candidates. We add any element
+we have not checked and do another median query, discarding the median and keeping $$$2$$$
+candidates again. After
+$$$\mathbf{N}-2$$$ queries, we have discarded $$$\mathbf{N}-2$$$ elements, and the $$$2$$$ that remain
+are the minimum and maximum.
+</p>
+<h3>Test Set 3</h3>
+<p>
+To solve Test Set 3 we can observe that our implementation of Insertion Sort can actually extract
+more than $$$1$$$ bit per query and have a smaller constant. Instead of looking for the
+minimum/maximum first, we simply use the minimum of our current range
+in the median query as $$$k$$$. This
+means it is not guaranteed to never be the median. However, if the "current minimum" is the median
+of our query, we know exactly where to insert and can stop searching.
+This effectively makes our query a binary comparison with a little bit of extra information,
+and that little bit (plus being careful about never overspending) can be enough to pass Test Set 3.
+More importantly, it enables us to not find for the minimum first, which is a significant
+overexpenditure.
+</p>
+<p>
+We can also find solutions that have more wiggle room by extracting a lot more than
+$$$1$$$ bit per query. Specifically, we want to extract something closer to the optimal
+$$$\log_2 3 \approx 1.58$$$ bits per query.
+That means considering all $$$3$$$ possible outcomes of the query, and have them
+happen with approximately equal probability (see
+<a href="https://en.wikipedia.org/wiki/Information_theory" target="_blank">
+the information theory article</a> for details on the
+link between the probability distribution of outcomes and the information content of the query
+response).
+</p><p>
+We can further refine the Insertion Sort implementation to use a ternary search (in this case,
+this means a search similar to binary search that splits into three parts instead of two)
+to extract the full potential out of the median query. At each step, we query the two elements
+that are $$$1/3$$$ and $$$2/3$$$ of the way into our current range, together with the element
+to be inserted. The result narrows down the search to one of three ranges (roughly
+first, middle or last third). Notice that any query that we do to handle border cases
+(like inserting at the very beginning or very end) does not get the optimal
+$$$1.58$$$ bits of information, so we want to be careful not to use those, or to use them
+infrequently.
+</p><p>
+A different option is to do a
+<a href="https://en.wikipedia.org/wiki/Quicksort#Multi-pivot_quicksort" target="_blank">
+two-pivot randomized quicksort</a>.
+By using two pivots, we make full use of each median query involving them and
+each other element, as there are three buckets where the other elements can fall, each
+corresponding to a possible response to the query. The only
+issue with this approach (and any other approach based on a
+<a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" target="_blank">
+divide and conquer</a>
+sorting algorithm) is that there are two ways to orient each recursive result if they have
+more than one element. If we use a query to decide which way is consistent with our decision on
+how to order the pivots, that query gives us only $$$1$$$ bit of information. Luckily,
+this is rather infrequent as it only happens proportional to the number of branches
+in the recursion tree that contain more than one element, which is a small number.
+</p>
+
+    </div>
+  </body>
+</html>

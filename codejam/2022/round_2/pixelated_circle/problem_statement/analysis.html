@@ -1,0 +1,449 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 2</h3><h1>Analysis: Pixelated Circle</h1><p>
+  Let $$$C$$$ and $$$C_w$$$ be the set of pixels colored by
+  <code>draw_circle_filled</code>($$$\mathbf{R}$$$) and
+  <code>draw_circle_filled_wrong</code>($$$\mathbf{R}$$$), the number of pixels that have
+  different colors in these pictures would be the cardinality (size) of the
+  symmetric difference of $$$C$$$ and $$$C_w$$$, that is: $$$|C \Delta C_w| =
+  |(C \setminus C_w) \cup (C_w \setminus C) |$$$.
+</p>
+
+<h3>Test Set 1</h3>
+<p>
+  For test set 1, $$$\mathbf{R}$$$ is small enough to build the sets of colored pixels from
+  <code>draw_circle_filled</code>($$$\mathbf{R}$$$) and
+  <code>draw_circle_filled_wrong</code>($$$\mathbf{R}$$$) with hash set of tuples. By
+  implementing the pseudocode in the problem statement, the time complexity
+  would be $$$O(\mathbf{R}^2)$$$ to get all colored pixels and $$$O(\mathbf{R}^2)$$$ to
+  compute the symmetric difference of the two sets.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  The key observation for optimizing the solution is that for any $$$\mathbf{R}$$$, every
+  pixel colored by <code>draw_circle_filled_wrong</code>($$$\mathbf{R}$$$) is also colored by
+  <code>draw_circle_filled</code>($$$\mathbf{R}$$$), that is $$$C_w \subseteq C$$$.
+  Therefore, we can simplify the size of symmetric difference to:
+</p>
+<!-- prettier-ignore -->
+<div>
+    $$$\begin{equation}\begin{split}
+  |C \Delta C_w| &= |(C \setminus C_w) \cup(C_w \setminus C) | \\
+  &= |(C \setminus C_w) \cup \emptyset | \\
+  &= |C| - |C\cap C_w| \\
+  &= |C| - |C_w| \\
+  \end{split}\end{equation}$$$
+</div>
+<p>
+  which means we can count the number of pixels colored by
+  <code>draw_circle_filled</code>($$$\mathbf{R}$$$) and
+  <code>draw_circle_filled_wrong</code>($$$\mathbf{R}$$$) separately, and the answer would be
+  the difference between these two numbers. The proof of this observation is
+  given at the <a href="#proof-cw-in-c">end of this analysis</a>.
+</p>
+
+<h4>Count pixels colored by <code>draw_circle_filled</code>($$$\mathbf{R}$$$)</h4>
+<p>
+  To get the number of pixels colored by <code>draw_circle_filled</code>($$$\mathbf{R}$$$),
+  we need to iterate through all possible values of $$$x$$$ and find
+  $$$y_{min}$$$ and $$$y_{max}$$$ for each $$$x$$$ which satisfy
+  $$$\mathbf{round}(\sqrt{x^2 + y^2}) \le \mathbf{R}$$$ for all $$$y_{min} \leq y \leq
+  y_{max}$$$. A solution for them is $$$y_{max} = \mathbf{floor}(\sqrt{\mathbf{R} + 0.5}^2 -
+  x^2)$$$ and $$$y_{min} = -y_{max}$$$. Therefore, we can get the number of
+  colored pixels with a for-loop for the following equation:
+</p>
+<div>
+  $$$\begin{equation} |C| = \sum_{x=-\mathbf{R}}^{\mathbf{R}}{\mathbf{floor}(\sqrt{(\mathbf{R} + 0.5)^2 -
+  x^2}) \times 2 + 1} \end{equation}$$$
+</div>
+<p>Time complexity: $$$O(\mathbf{R})$$$</p>
+
+<h4>Count pixels colored by <code>draw_circle_filled_wrong</code>($$$\mathbf{R}$$$)</h4>
+<p>
+  <code>draw_circle_filled_wrong</code>($$$\mathbf{R}$$$) is composed of
+  <code>draw_circle_perimeter($$$r$$$)</code> calls with $$$r$$$ from $$$0$$$ to
+  $$$\mathbf{R}$$$. Notice that pixels colored by
+  <code>draw_circle_perimeter($$$r_1$$$)</code> and
+  <code>draw_circle_perimeter($$$r_2$$$)</code> never overlap if $$$r_1 \neq
+  r_2$$$. Based on this observation, we can count the number of pixels colored
+  by each <code>draw_circle_perimeter($$$r$$$)</code> separately and sum them up
+  to get the total number of colored pixels. The proof of this observation is
+  given at the
+  <a href="#proof-disjoint-draw-circle-perimeter">end of this analysis</a>.
+</p>
+<p>
+  Looking into function <code>draw_circle_perimeter($$$r$$$)</code>, we can
+  break the colored pixels into 4 quadrants and count them separately. Since the
+  colored pattern is symmetric to both x-axis and y-axis, we just need to count
+  the pixels in Quadrant 1 (Q1), and the total count excluding the origin pixel
+  would be that number times 4, and plus 1 to include the origin pixel.
+</p>
+<p>
+  For $$$r \ge 1$$$, the colored pixels in Q1 are symmetric to the line
+  $$$x=y$$$, and there are exactly $$$x_t$$$ colored pixels between y-axis and
+  $$$(x_t, y_t)$$$, the closest point to line $$$x=y$$$ (above or on the line,
+  $$$x_t \ge y_t$$$). Since $$$x=y$$$ is at $$$45^{\circ}$$$ to the x-axis, the
+  integer $$$x_t$$$ would be either $$$\mathbf{ceil}(r/\mathbf{cos}(45^{\circ}))$$$ or
+  $$$\mathbf{floor}(r/\mathbf{cos}(45^{\circ}))$$$. We can compute the corresponding $$$y_t =
+  \mathbf{round}(\sqrt{r^2 - x_t^2})$$$ and choose the closer one above or on the line
+  $$$x=y$$$. Afterwards, the number of colored pixels in Q1 including x-axis
+  would be $$$2 \times x_t + 1$$$, and minus 1 if $$$(x_t, y_t)$$$ lies on the
+  line $$$x=y$$$ since it is not mirrored in this case.
+</p>
+<p>
+  Time complexity: $$$O(1)$$$ for counting pixels colored by
+  <code>draw_circle_perimeter($$$r$$$)</code>, and $$$O(\mathbf{R})$$$ for all colored
+  pixels.
+</p>
+<h4 id="proof-cw-in-c">Proof: $$$C_w \subseteq C$$$</h4>
+<p>
+  For every positive $$$\mathbf{R}$$$, $$$r$$$ and $$$x$$$ such that $$$0 \leq r \leq \mathbf{R}$$$
+  and $$$-r \leq x \leq r$$$, we want to prove that the following inequality
+  always satisfies:
+</p>
+<!-- prettier-ignore -->
+<div>
+  $$$\begin{equation}\begin{split}
+  & \mathbf{round}(\sqrt{x^2 + \mathbf{round}(\sqrt{r^2 - x^2})^2}) \leq r \\
+  \iff& \sqrt{x^2 + \mathbf{round}(\sqrt{r^2 - x^2})^2} - 0.5 \leq r \\
+  \iff& \sqrt{x^2 + \mathbf{round}(\sqrt{r^2 - x^2})^2} \leq r + 0.5 \\
+  \iff& x^2 + \mathbf{round}(\sqrt{r^2 - x^2})^2 \leq r^2 + r + 0.25 \\
+  \iff& x^2 + (\sqrt{r^2 - x^2} + 0.5)^2 \leq r^2 + r + 0.25 \\
+  \iff& r^2 + \sqrt{r^2 - x^2} + 0.25 \leq r^2 + r + 0.25 \\
+  \end{split}\end{equation}$$$
+</div>
+<p>
+  which always holds since $$$\sqrt{r^2 - x^2} \leq \sqrt{r^2} = r$$$ when
+  $$$|x| \leq r$$$ and $$$r \ge 0$$$.
+</p>
+<p>
+  Secondly, $$$y = \mathbf{round}(\sqrt{r^2 - x^2}) \leq \mathbf{round}(\sqrt{r^2}) \leq
+  \mathbf{R}$$$. Therefore $$$-\mathbf{R} \leq y \leq \mathbf{R}$$$ always holds.
+</p>
+<p>
+  The proof above shows that pixels colored by
+  <code>draw_circle_filled_wrong</code>($$$r$$$) with $$$0 \leq r \leq \mathbf{R}$$$
+  also satisfy the coloring condition in <code>draw_circle_filled</code>($$$\mathbf{R}$$$),
+  which implies $$$C_w \subseteq C$$$.
+</p>
+
+<h4 id="proof-disjoint-draw-circle-perimeter">
+  Proof: <code>draw_circle_perimeter($$$r_1$$$)</code> and
+  <code>draw_circle_perimeter($$$r_2$$$)</code> never overlap
+</h4>
+<p>
+  For the first coloring statement in
+  <code>draw_circle_perimeter($$$r$$$)</code>, we want to prove that given a
+  fixed $$$x$$$, the inequality $$$y_1 = \mathbf{round}(\sqrt{r_1^2 - x^2}) \neq y_2 =
+  \mathbf{round}(\sqrt{r_2^2 - x^2})$$$ for any pair of integers $$$r_1$$$ and
+  $$$r_2$$$ such that $$$r_1 \gt r_2 \geq 0$$$ and $$$|x| \leq r_2$$$ is always
+  true:
+</p>
+<!-- prettier-ignore -->
+<div>
+  $$$\begin{equation}\begin{split}
+  &|\sqrt{r_1^2 - x^2} - \sqrt{r_2^2 - x^2}| &\\
+  =\;& \sqrt{r_1^2 - x^2} - \sqrt{r_2^2 - x^2} &\; r_1 \gt r_2 \\
+  \geq\;& \sqrt{r_1^2 - x^2} - \sqrt{(r_1 - 1)^2 - x^2} &\; r_1 \texttt{ and } r_2 \texttt{ are integers} \\
+  \geq\;& (\sqrt{r_1^2} - \sqrt{x^2}) - (\sqrt{(r_1 - 1)^2} - \sqrt{x^2}) &\; \texttt{for any } |x| \leq r_1 - 1 \\
+  =\;& r_1 - x - (r_1 - 1) + x \\
+  =\;& 1
+  \end{split}\end{equation}$$$
+</div>
+<p>Based on the proof above, we can further get:</p>
+<!-- prettier-ignore -->
+<div>
+  $$$\begin{equation}\begin{split}
+  & \mathbf{round}(\sqrt{r_1^2 - x^2}) -\mathbf{round}(\sqrt{r_2^2 - x^2}) \\
+  \geq\;& \mathbf{round}(\sqrt{r_1^2 - x^2}) -\mathbf{round}(\sqrt{(r_1 - 1)^2 - x^2})\\
+  \geq\;& \mathbf{round}(\sqrt{r_1^2 - x^2}) - \mathbf{round}(\sqrt{r_1^2 - x^2} - 1) \\
+  \geq\;& 1 \\
+  \end{split}\end{equation}$$$
+</div>
+<p>
+  Therefore $$$y_1 \neq y_2$$$ always holds for all $$$r_1 \gt r_2 \geq 0$$$
+  given a fixed $$$x$$$ such that $$$|x| \leq r_2$$$. For the cases that $$$r_2
+  \lt |x| \leq r_1$$$, the pixels will nevery satisfy the coloring condition in
+  <code>draw_circle_perimeter($$$r_2$$$)</code>.
+</p>
+<p>
+  We can further extend the proof above for the 2nd, 3rd, and 4th coloring
+  statement in <code>draw_circle_perimeter($$$r$$$)</code> and prove that pixels
+  colored by <code>draw_circle_perimeter($$$r_1$$$)</code> and
+  <code>draw_circle_perimeter($$$r_2$$$)</code> never overlap.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

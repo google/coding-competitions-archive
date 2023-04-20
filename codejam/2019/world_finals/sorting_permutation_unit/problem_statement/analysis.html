@@ -1,0 +1,490 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - World Finals</h3><h1>Analysis: Sorting Permutation Unit</h1><h3>A rotation-based solution</h3>
+
+<p>
+  For simplicity, let's assume that none of the arrays we want to sort contain
+  any repeated entries. If there are repeatred entries, we can arbitrarily
+  choose a correct sorted order for them.
+</p><p>
+  To illustrate the sorting algorithm, let's first ignore the constraint on
+  the number of permutations, and use <b>N</b>-1 permutations: the i-th
+  permutation (1 &le; i &le; <b>N</b>-1) swaps the i-th element with the
+  <b>N</b>-th element.
+</p>
+
+<p>
+  For example, when <b>N</b> = 5, we use the following 4 permutations:
+  <ul>
+    <li><u>5</u> 2 3 4 <u>1</u></li>
+    <li>1 <u>5</u> 3 4 <u>2</u></li>
+    <li>1 2 <u>5</u> 4 <u>3</u></li>
+    <li>1 2 3 <u>5</u> <u>4</u></li>
+  </ul>
+</p>
+
+<p>
+  With this setup, we can use the <b>N</b>-th element as a "buffer" to sort
+  the first <b>N</b>-1 elements. The algorithm is as follows:
+  <ol>
+    <li>
+      If the element at position <b>N</b> is not the largest one, swap it to
+      the correct position.
+    </li>
+    <li>
+      Otherwise, there are 2 cases:
+      <ul>
+        <li>The array is sorted, and we are done.</li>
+        <li>The array is not sorted, so we swap the <b>N</b>-th element with
+          any element that is at an incorrect position (so that we can
+          continue using it as buffer).</li>
+      </ul>
+    </li>
+    <li>Repeat from step 1.</li>
+  </ol>
+</p>
+
+<p>
+  For example, let's consider the array [30, 50, 40, 10, 20]. We can:
+  <ul>
+    <li>Swap 20 to the correct position: [30, 20, 40, 10, 50].</li>
+    <li>
+      Now 50 is at the last position, but the array is not sorted, so we swap
+      it with any element that is at an incorrect position, for instance, 30:
+      [50, 20, 40, 10, 30].
+    </li>
+    <li>Swap 30 to the correct position: [50, 20, 30, 10, 40].</li>
+    <li>Swap 40 to the correct position: [50, 20, 30, 40, 10].</li>
+    <li>Swap 10 to the correct position: [10, 20, 30, 40, 50].</li>
+    <li>The array is now sorted.</li>
+  </ul>
+</p>
+
+<p>
+  Note that this solution uses <b>N</b>-1 permutations and 1.5<b>N</b>
+  operations:
+  <ul>
+    <li><b>N</b> operations to swap <b>N</b> elements to their correct positions,</li>
+    <li>
+      At most <b>N</b>/2 to swap the <b>N</b>-th element in case it is the largest. This is because
+      after we swap the largest element with an element at the wrong position, we won't need to do
+      so again on the next step.
+    </li>
+  </ul>
+</p>
+
+<h3>Reducing the number of permutations</h3>
+
+<p>
+  To fit within the limit on the number of allowed permutations, we can
+  instead use the following 5 operations:
+  <ul>
+    <li>One permutation that swaps elements <b>N</b>-1 and <b>N</b> &mdash;
+      the next-to-last and last elements.</li>
+    <li>
+      4 permutations that rotate each of the elements from 1 to <b>N</b>-1 by
+      1, 3, 9 and 27, respectively. (Notice that element <b>N</b> remains the
+      same.)
+    </li>
+  </ul>
+
+  With these 4 permutations, when <b>N</b> &le; 50, we can rotate the first
+  <b>N</b>-1 elements by any amount (from 1 to <b>N</b>-2) in at most 6
+  operations. For example, to rotate by 26 = 9 + 9 + 3 + 3 + 1 + 1, we
+  rotate by 9 two times, rotate by 3 two times, and then rotate by 1 two
+  times. To rotate by 47, we use 27 + 9 + 9 + 1 + 1. (Equivalently, we can
+  express any number less than 50 using a base three string with trinary
+  digits summing to 6 or less. The smallest number that would take 7 or
+  more is 53.)
+</p><p>
+  Our new algorithm is similar to the one above.
+  <ol>
+    <li>
+      If the element E at position <b>N</b> is not the largest one, swap it to
+      the correct position as follows:
+      <ul>
+        <li>Apply rotations to the first <b>N</b>-1 elements until the
+          (<b>N</b>-1)-th position is the slot where E should go.</li>
+        <li>Swap the (<b>N</b>-1)-th and <b>N</b>th positions, moving E
+          into place (and some other element into the <b>N</b>-th position.)
+        </li>
+      </ul>
+    </li>
+    <li>
+      Otherwise, E is the largest element. We need to temporarily move it out
+      of the <b>N</b>-th position. We can swap in some element that is not
+      already in its correct relative position among the first <b>N</b>-1
+      positions. We can use the same strategy as above to rotate to that
+      element. If there is more than one element in the wrong relative position,
+      we choose the element such that the amount we need to rotate to get it in
+      place is minimized.
+    </li>
+    <li>
+      We repeat the above until all of the elements in the first <b>N</b>-1
+      positions are in the correct relative order. Then, we may need to do some
+      final rotations to put them in the correct absolute positions.
+    </li>
+  </ol>
+</p><p>
+  For example, let's consider the array [30, 50, 40, 10, 20]. We will use 3 permutations:
+  <ul>
+    <li>Swap the last 2 elements: 1 2 3 <u>5</u> <u>4</u></li>
+    <li>Rotate the first <b>N</b>-1 elements by 1: 4 1 2 3 5</li>
+    <li>Rotate the first <b>N</b>-1 elements by 3: 2 3 4 1 5</li>
+  </ul>
+</p><p>
+  The algorithm works as follows:
+  <ul>
+    <li>
+      We first want to swap 20 to the relative position after 10:
+      <ul>
+        <li>Rotate the first <b>N</b>-1 elements by 3: [50, 40, 10, 30, 20]</li>
+        <li>Swap the last 2 elements: [50, 40, 10, 20, 30]</li>
+      </ul>
+    </li>
+    <li>
+      Now we want to swap 30 to the relative position after 20:
+      <ul>
+        <li>Rotate the first <b>N</b>-1 elements by 3: [40, 10, 20, 50, 30]</li>
+        <li>Swap the last 2 elements: [40, 10, 20, 30, 50]</li>
+      </ul>
+    </li>
+    <li>
+      The largest element, 50, is now at the last position. We need to swap it with some element
+      at the wrong position. In this case, there is exactly one such element: 40.
+      <ul>
+        <li>Rotate the first <b>N</b>-1 elements by 3: [10, 20, 30, 40, 50]</li>
+        <li>Swap the last 2 elements: [10, 20, 30, 50, 40]</li>
+      </ul>
+    </li>
+    <li>
+      Finally, we want to move 40 to its correct position:
+      <ul>
+        <li>Swap the last 2 elements: [10, 20, 30, 40, 50].</li>
+      </ul>
+    </li>
+</ul>
+</p><p>
+  The number of operations we use are:
+  <ul>
+    <li>1.5<b>N</b> operations for swapping (as shown in our first algorithm)</li>
+    <li>
+      6<b>N</b> operations for rotating the first <b>N</b>-1 elements, to swap them to correct
+      relative positions.
+    </li>
+    <li>
+      For the case where the largest element is at the <b>N</b>-th position, we
+      need an addition of <b>N</b> operations for rotating. This is because we
+      always rotate the minimum amount, after which the first step will rotate
+      the array until it's back at the same relative position. So in total,
+      the rotations in this step will rotate the array at most one full cycle.
+    </li>
+  </ul>
+  Thus we are using total of 8.5<b>N</b> = 425 operations.
+</p>
+<h3>An even tighter solution</h3>
+<p>
+  For each <b>N</b> &le; 50, there also exists a set of 4 rotations
+  that allows us to rotate the first <b>N</b>-1 elements by any amount
+  (from 1 to <b>N</b>-2) in at most 4 operations, making use of the fact that
+  rotating by <b>k</b> is the same as rotating by <b>k+N-1</b>.
+  As an example, for <b>N</b> = 50, {1, 3, 12, 20} is one such set.
+</p><p>
+  This yields a solution that uses just 325 operations in the worst case.
+</p>
+
+<h3>A randomized variant</h3>
+
+<p>
+  In an alternative solution, instead of four rotations of the other=
+  <b>N</b>-1 elements, we have four random involutions which swap randomly
+  selected pairs of the <b>N</b>-1 elements.
+</p><p>
+  Now we use the same algorithm as in the rotation solution, but instead of
+  rotating elements into place, we use a sequence of the random permutations
+  to move the right element to where it can be swapped with the buffer, and
+  then apply the sequence in reverse to move everything back to where it was.
+</p><p>
+  (We can use a breadth-first search to find the shortest sequence to move any
+  given element into place.)
+</p><p>
+  This process may result in a set of permutations that can't solve the input
+  or can't solve it in few enough permutations, but we can simply retry by
+  choosing a new set of random involutions, as getting a solution with under
+  450 permutations is highly likely.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

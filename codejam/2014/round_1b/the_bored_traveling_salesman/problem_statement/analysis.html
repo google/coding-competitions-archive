@@ -1,0 +1,434 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - Round 1B</h3><h1>Analysis: The Bored Traveling Salesman</h1><p>
+We can model this problem as a graph problem where the cities are nodes in the graph and the bidirectional flight tickets between cities are the bidirectional edges connecting the nodes. Each node has a distinct zip code number. The given constraints on the tickets and how it should be used can be modelled as a modified <a href="http://en.wikipedia.org/wiki/Depth-first_search" target="_blank">depth-first-search</a>-like traversal where: when we visit a node, we are not required to visit all of its neighbors but in the end all nodes must be visited. When a node is visited, its zip code is printed (i.e., pre-order traversal). When all nodes have been visited, the printed (concatenated) zip codes must form the smallest number possible.
+</p>
+
+<h3>
+<b>Brute Force Solution:</b>
+</h3>
+<p>
+The small input has at most 8 nodes. It is small enough that we can try all possible paths according to the rules (including all possible starting nodes), and pick the one with the smallest number (of concatenated zip codes). The brute force solution can have a time complexity of O(<b>N! * N</b>), where <b>N!</b> comes from having to potentially list all possible permutation of cities and for each permutation we can check its validity in O(<b>N</b>). As the large input can have up to 50 cities, this algorithm will be too slow. Therefore we propose an alternative solution to handle the large input.
+</p>
+
+<h3>
+<b>Greedy Solution:</b>
+</h3>
+<p>
+We can rank nodes based on its zip codes (i.e., the smallest node is the node with the smallest zip code). Since all of the zip codes are the same length, we can think of each zip code as a single digit number and to form the smallest concatenated digits we can just greedily concatenate the digits in increasing order. This means that the node with the smallest zip code should be the first node to be visited (i.e., the source node for the traversal). Thus, to minimize the final concatenated number, we should always visit the <b>next smallest feasible node</b> (we will discuss node feasibility later). Note that it is always possible to complete the traversal from the smallest node (or any node) since the input graph is connected.
+</p>
+
+<p>
+Before we provide the pseudocode of the greedy algorithm, let’s define some variables. We provide examples that make use of these variables in subsequent paragraphs:
+<ul>
+<li>
+DEAD: The set of nodes we’ve already visited and left (which we may never visit again).
+</li>
+<li>
+ACTIVE: The stack of nodes along our current path (originating from the source node).
+</li>
+<li>
+HEAD: The node at the top of the ACTIVE stack, which is the node we are currently on.
+</li>
+</ul>
+</p>
+
+<p>
+At each step, we may either:
+<ul>
+<li>
+Visit some not-yet-visited neighbor of HEAD, which adds the newly visited node to the top of the ACTIVE stack and make it as the new HEAD. This action is analogous to flying to a new city for the first time. Note that when we visit a new city, we should concatenate its zip code to our final answer.
+</li>
+<li>
+Leave HEAD, which pops HEAD from the ACTIVE stack and moves it to the DEAD set. This action is analogous to taking the return flight from HEAD using the return ticket used to visit HEAD. Note that we do not concatenate the city’s zip code to the final answer when leaving the city.
+</li>
+</ul>
+</p>
+
+<p>
+With that, we are ready to present the pseudocode for our greedy algorithm:
+</p>
+<code><pre>
+  root = the node with smallest zip code
+  DEAD = new Set()
+  ACTIVE = new Stack()
+  ACTIVE.push(root)
+  answer = “”
+  concatenate zipcode[root] to answer
+  while ACTIVE is not empty:
+    HEAD = ACTIVE.peek()
+    next = <b>next_smallest_feasible_node_to_visit()</b>
+    if next is EMPTY or no flight from HEAD to next:
+      # leave the HEAD node
+      insert HEAD to the DEAD set
+      ACTIVE.pop()
+    else:
+      # visit the next node
+      ACTIVE.push(next)
+      concatenate zipcode[next] to answer
+  print answer
+</pre></code>
+
+<p>
+Now, the hard part is: how do we compute the <b>next_smallest_feasible_node_to_visit()</b>? We first demonstrate it with an example.
+</p>
+
+<p>
+Suppose we have a graph and we start traversing from the source node <b>S</b> (which has the smallest zip code). Suppose the next nodes with smallest zip codes are nodes <b>A</b>, <b>B</b>, <b>C</b> in that order and A is connected to S, B is connected to A, and C is connected to B. Then the greedy algorithm will go from S -&gt; A -&gt; B -&gt; C. The figure below shows the current state of the traversal and the rest of the graph. Nodes S, A, B, C are in the ACTIVE stack where C is the HEAD:
+</p>
+<img src="tsp2.png">
+<p>
+How do we pick the next smallest feasible node to visit from C? Could we arbitrarily pick a node that is connected to the ACTIVE stack then decide to visit that node next? Actually not. We investigate the following three scenarios to clarify why we cannot arbitrarily pick a node connected to the ACTIVE stack.
+</p>
+<ul>
+<li>
+Scenario 1: Z’s zip code is smaller than both X and Y
+<br>
+In this case, we cannot visit Z as the next node since it requires us to travel back from C -&gt; B -&gt; A -&gt; S, then visit Z. This will put nodes C, B, A in the DEAD set. This becomes a problem for node X since it has not yet been visited and now there is no way to reach node X from any ACTIVE nodes (note that as we cannot visit the DEAD nodes therefore the DEAD nodes A, B, C disconnect X from S, Z and Y). Thus, node Z is not feasible as the next node to be visited next (after C).
+</li>
+<li>
+Scenario 2: X’s zip code is smaller than Y’s, and Y’s is smaller than Z’s
+<br>
+In this case, we can directly visit X from the currently active node C. Then, we can visit the next smallest node Y by traveling back from X -&gt; C -&gt; B -&gt; Y. Finally, we visit the next smallest node Z directly from Y. After that, we can go back all the way to S via Z -&gt; Y -&gt; B -&gt; A -&gt; S to complete the traversal.
+</li>
+<li>
+Scenario 3: Y’s zip code is smaller than X’s, and X’s is smaller than Z’s
+<br>
+In this case, we can visit the next smallest node Y by travelling back from C -&gt; B -&gt; Y  while putting node C in the DEAD set. The next smallest node X can still be reached by traveling back from Y -&gt; B -&gt; A -&gt; X and putting nodes B and Y in the DEAD set. Finally, the next smallest node Z can be visited by travelling back from X -&gt; A -&gt; S -&gt; Z.
+</li>
+</ul>
+<p>
+From the scenarios above, we know that Z is not feasible as the next node but both X and Y are feasible and we can visit the one with the smaller zip code first.
+</p>
+
+<p>
+In general, we need to be able to figure out if a node is feasible as the next node. To do so, we can instead ask when is a node not feasible as the next node. It is not a feasible node if by visiting that node, some nodes that are not-yet-visited become unreachable from the nodes in the ACTIVE stack (i.e., they can never be visited later because they are disconnected from the ACTIVE set due to some nodes that will be placed in the DEAD set when taking the return flight as in Scenario 1). Observe that nodes that are still reachable from nodes in the ACTIVE stack can still be visited later.
+</p>
+
+<p>
+To check whether the not-yet-visited nodes are still reachable from the ACTIVE nodes, we can do a connectivity check (via breadth-first-search or depth-first-search) from the source node to all the not-yet-visited nodes, avoiding the DEAD nodes. Note that since all ACTIVE nodes are all connected to the source node, doing the connectivity check from the source node is equivalent to doing the connectivity check from all ACTIVE nodes.
+</p>
+
+<p>
+Now, we are ready to devise an iterative algorithm to find the feasible nodes and pick the smallest node. Referring to our example above, in this iterative algorithm we will generate X, Y and Z in that order. The algorithm will terminate when we reach Z (please refer to Scenario 1 for the reason). Note that when this algorithm returns, it should not alter the ACTIVE stack and the DEAD set. Therefore, when running this algorithm we can either make a local copy of the ACTIVE stack and the DEAD set, or restore the changes we made (if we run this algorithm in place). The iterative algorithm is as follows:
+</p>
+<ol>
+<li>
+Check the neighbors of the current HEAD and record the next smallest node to visit.
+</li>
+<li>
+Try to abandon the current HEAD node and take the return flight to the previous node in the ACTIVE stack. If it is not possible to abandon this HEAD (i.e., it makes some not-yet-visited nodes unreachable), then we stop and return the smallest node we recorded. Otherwise, we take the return ticket from HEAD (abandon the current HEAD) and keep on looping by going to step 1.
+</li>
+</ol>
+
+<p>
+The following pseudocode shows one way to implement the above algorithm (with in place modification of the ACTIVE stack and DEAD set, and restoration of the changes before returning):
+</p>
+<code><pre>
+  def next_smallest_feasible_node_to_visit():
+    temp = new Stack()
+    best = EMPTY
+    while ACTIVE is not empty:
+      HEAD = ACTIVE.top()
+      # Check the neighbors of HEAD and record the 
+      # next smallest node as best.
+      for each neighbor i of HEAD that is not-yet-visited:
+        if best == EMPTY or zipcode[i] &lt; zipcode[best]:
+          best = i
+
+      # Abandon HEAD and go back up in the ACTIVE stack.
+      insert HEAD to the DEAD set
+      temp.push(HEAD)
+      ACTIVE.pop()
+
+      if there exists a not-yet-visited node that \
+        is not reachable from the source node:
+        break
+
+    # Restore the ACTIVE nodes and the DEAD set.
+    while temp is not empty:
+      HEAD = temp.top()
+      remove HEAD from the DEAD set
+      temp.pop()
+      ACTIVE.push(HEAD)
+
+    return best
+</pre></code>
+
+<p>
+How fast is this greedy algorithm? The greedy algorithm calls the search for the next smallest feasible node routine N times. Each search runs through all the nodes in the ACTIVE stack with at most O(<b>N</b>) nodes. For each node in the ACTIVE stack, we perform one connectivity check that takes O(<b>N</b>) time, and we loop through all of the node’s O(<b>N</b>) children. Therefore overall, it is O(<b>N<sup>3</sup></b>), which fits easily into the time limits.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,432 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 2</h3><h1>Analysis: Contransmutation</h1><h3>Test Set 1</h3>
+<p>
+In Test Set 1 everything is small. One possible solution is to simulate the process.
+There is never a reason to not convert elements other than lead, so we should just apply
+the transformations over and over until no more lead can be created. If after a long time
+the amount of lead keeps growing, that means the total is unbounded. In the Test Set 2 section
+we do a formal analysis on bounds, but for this one, using an intuitive definition of
+"a lot" should suffice. If the amount is bounded, 1 gram of a metal can transform into
+at most 512 grams of lead, since it can only go through 9 splits before getting into a cycle.
+That means if we ever see more than 5120 grams of lead, the amount is unbounded.
+</p><p>
+However, the first example shows that we need to do a little more. What if lead itself
+can be used to get more lead? If that's possible, and we can get any lead at all,
+the final amount is definitely unbounded. If it is not possible, then we have no
+reason to ever consume lead. One way to check is to do the simulation above
+starting with 1 gram each of the two elements that lead is turned into. If that
+leads to 0 or 1 grams of lead, then lead cannot be used to get more lead. Otherwise,
+it can.
+</p>
+<h3>Test Set 2</h3>
+<p>
+Test Set 2 is a lot larger, so a hand-wavy analysis and implementation will not work.
+However, we can use the same idea above more carefully. Since each metal takes at most
+<b>M</b> steps to turn into lead, we only need to do <b>M</b> iterations of a simulation,
+where a simulation involves going over all non-lead metals and converting all grams of them.
+This takes O(<b>M</b><sup>2</sup>) time. To prevent the numbers from growing too big,
+we can simply do this process twice: the first pass creates as much lead as possible from
+non-cyclical sources, so if the second pass creates even more, then it must come from
+cyclical sources that ultimately yield an unbounded amount of lead. The second part,
+to check for lead creating more lead, is the same as before.
+</p><p>
+Notice that the result
+does not fit in 64 bit integers, though, and doing modulo all the time as usual doesn't work
+right away, since we cannot afford to equate "no X" with "10<sup>9</sup>+7 grams of X"
+if X has the capability of creating unbounded amounts of lead (with X being lead itself,
+or some other metal). There are multiple ways to get around the problem, including
+using big integers, storing an additional bit for each result that represents whether it is an
+actual 0 value, and doing calculations modulo 10<sup>9</sup>+7 &times; K for some
+large random prime K until the very end.
+</p><p>
+There are other solutions that only work for Test Sets 1 and 2, that are less efficient
+implementations of the solution for Test Set 3, that is explained below.
+</p>
+<h3>Test Set 3</h3>
+<p>
+  For Test Set 3, the solution looks quite different but it is actually similar.
+  We check for cycles that may generate unbounded lead, and if there are none,
+  we can do the simulation with a single iteration, ordering the metals appropriately.
+  All of those things can be done in linear time, and we describe how below.
+</p><p>
+  One useful thing to notice early on is that if we can determine that the
+  amount of lead we can produce is bounded, the only formulas that are worth
+  using are those that can eventually (perhaps in conjunction with other
+  formulas) produce lead. Moreover, if the amount of lead is bounded, there is
+  no point in using lead as an input to any formula, because even in the best
+  case, every unit of lead will turn into one unit of lead and one unit of
+  something else that cannot be converted to lead. (Otherwise, we could simply
+  apply that series of formulas and generate as much lead as we want).
+</p><p>
+  These observations imply that we can only get an unlimited amount of lead if
+  some metal can produce itself and lead at the same time. In other words,
+  there must be a series of formulas that takes one unit of some metal X and
+  turns it into one unit of X and one unit of lead. In the process, we may end
+  up with some other metals as well, but those don't matter. Notice that if
+  that metal X directly produces metals A and B, then we require that either A
+  produces X and B produces lead, or vice versa. This is because even if X is
+  lead itself and either of A or B is also lead, without considering the other
+  result, we are just destroying 1 unit of lead to get 1 unit of lead, so the
+  total amount of lead doesn't change. In other words, in the unbounded case,
+  after applying each formula, we need to work on both of the outputs, not just
+  one of them.
+</p><p>
+  Let Q be a graph in which each metal is represented by a node, and there is
+  an edge from node u to node v if, by consuming 1 unit of u, we can produce 1
+  unit of v. Notice that if a metal i is initially not present (that is,
+  <b>G<sub>i</sub></b> = 0), and it is not reachable in Q from some j with
+  G<sub>j</sub> &gt; 0, then it is impossible to produce metal i. Therefore,
+  we can remove any such metals at the outset. In what follows, we assume that
+  Q contains no such metals.
+</p><p>
+  Let Q' be the <a href="https://en.wikipedia.org/wiki/Transpose_graph">transpose</a>
+  of Q, and let L denote the node representing lead. Then, traversing Q' from
+  node L defines a subgraph Q'<sub>L</sub>, where every node is a metal that can
+  produce lead after a series of transformations. Now, let P<sub>u</sub> be the
+  number of simple paths (paths without cycles) from L to any other node u in
+  Q'<sub>L</sub>. If the amount of lead is bounded, then P<sub>u</sub> is the
+  number of units of lead we can get from every unit of u. This follows from
+  the fact that every (reversed) edge is a valid transformation where we start
+  with 1 unit of some metal and produce 1 unit of some other metal, so along
+  the path, we are using the results of previous transformations and not the
+  very first unit of metal we started with. For example, let Q'<sub>L</sub> be
+  the following graph:
+<ul>
+  <li>1 &rarr; 2</li>
+  <li>1 &rarr; 3</li>
+  <li>2 &rarr; 4</li>
+  <li>3 &rarr; 4</li>
+</ul>
+  Which means the valid transformations are:
+<ul>
+  <li>4 turns into 2 and 3</li>
+  <li>2 turns into 1 and something else</li>
+  <li>3 turns into 1 and something else</li>
+</ul>
+<p>
+  There are 2 simple paths from 1 to 4, namely, 1 &rarr; 2 &rarr; 4 and 1 &rarr; 3 &rarr; 4. Now, 1
+  unit of metal 4 can be turned into 2 units of lead (1) as follows:
+</p>
+<ul>
+  <li>Turn one unit of 4 into one unit of 2 and one unit of 3</li>
+  <li>Take the one unit of 3 from step 1 and turn it into one unit of 1 and
+    one unit of some other metal</li>
+  <li>Take the one unit of 2 from step 1 and turn it into one unit of 1 and
+    one unit of some other metal</li>
+</ul>
+<p>
+  On the other hand, notice that the nodes that form
+  a <a href="https://en.wikipedia.org/wiki/Strongly_connected_component">strongly connected component (SCC)</a>
+  in Q are a set of metals that can produce each other. More formally, if u and
+  v belong to the same SCC, we can produce 1 unit of v from 1 unit of u, and
+  vice versa. With these definitions, we can say that the amount of lead is
+  unbounded if, for some node u in Q with v<sub>1</sub> and v<sub>2</sub>
+  being the two outputs of node u's formula, either:
+<ul>
+  <li>v<sub>1</sub> is in Q'<sub>L</sub>
+  and v<sub>2</sub> and u are in the same SCC, or</li>
+  <li>v<sub>2</sub> is in Q'<sub>L</sub> and v<sub>1</sub>
+  and u belong to the same SCC.</li>
+</ul>
+<p>
+  Otherwise, there is a limit on the amount of lead we can get, which can be
+  computed by multiplying P<sub>u</sub> by the initial number of units
+  <b>G<sub>u</sub></b> for each u in Q'<sub>L</sub>.
+</p><p>
+  We can compute all the SCCs in O(<b>M</b>) time using <a href="https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm">Tarjan's algorithm</a>
+  or <a href="https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm">Kosaraju's algorithm</a>
+  , since both the number of nodes and the number of edges in the graph are
+  linear on M. Walking over the graphs defined above also takes O(<b>M</b>)
+  time, and so does checking the unbounded condition. We can also compute all
+  P<sub>u</sub> in O(<b>M</b>) time by taking advantage of the fact that if the
+  amount of lead is not unbounded, then there are no cycles in Q'<sub>L</sub>.
+  (If a cycle existed in Q'<sub>L</sub>, then by reversing the edges, we get
+  at least one metal for which the unbounded condition holds.) Therefore, the
+  nodes on Q'<sub>L</sub> can be topologically sorted. That means we can
+  compute a function F from vertices to the number of simple paths in linear
+  time, using dynamic programming with this recursive definition:
+</p>
+<ul>
+  <li>F(L) = 1</li>
+  <li>F(u) = sum(F(v)) for each v, such that there is an edge from v to u in Q'<sub>L</sub></li>
+</ul>
+<p>
+  Since the number of edges in every graph described above is also O(<b>M</b>),
+  the whole problem can be solved in linear time.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

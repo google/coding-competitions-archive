@@ -1,0 +1,543 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - Round 3</h3><h1>Analysis: Willow</h1><p>
+The problem can be paraphrased as follows: we are given a tree with N vertices where each vertex i has Ci coins. There are two players taking turns in the game. First, each player picks a starting vertex (could be the same vertex), then player 1 makes the first move. In a move, the player picks a new neighboring vertex adjacent to the last picked vertex, forming a simple path. The path of one player is allowed to intersect with at most one vertex (i.e., no edges overlap) with the path of the other player. The game ends when neither player can make a move. The score for the player is the sum of all coins in the vertices picked by the player subtracted by the sum of all coins in the vertices picked by the other player. Our task is to find the maximum score player 1 can get.
+</p>
+<p>
+There are N possible starting vertices for player 1. After player 1 picks a starting vertex, player 2 also has N possible starting vertices. Both players will pick a starting vertex that maximizes their score. The high level solution for finding the maximum score for player 1 is shown in the pseudocode below:
+<p>
+<pre>
+  p1_max_score = -INFINITE
+  for p1_start_vertex in 1 .. N:
+    min_score = INFINITE
+    for p2_start_vertex in 1 .. N:
+      p1_score = <b>minimax</b>(p1_start_vertex, p2_start_vertex)
+      min_score = min(min_score, p1_score)
+    p1_max_score = max(p1_max_score, min_score)
+
+  print p1_max_score
+</pre>
+<p>
+Player 1 tries to pick the starting vertex that maximizes the p1_max_score while player 2 tries to pick the starting vertex that minimizes player 1’s score. The function <a href="https://www.google.com/search?q=minimax" target="_blank">minimax</a> is the main algorithm to maximize the score for the first player, given the starting vertex of each player.
+</p>
+<p>
+In the next two sections, we will present two minimax algorithms. The first minimax algorithm is based on a depth-first search simulation which runs in O(N^2), thus giving the overall complexity of O(N^4). The other minimax algorithm is based on <a href="https://www.google.com/?#q=dynamic+programming+topcoder" target="_blank">dynamic programming</a> which can be precomputed in O(N^2) and gives answers in O(1), thus giving the overall complexity of O(N^2 + N^2) = O(N^2).
+</p>
+
+<h3><b>Minimax using simulation O(N^2)</b></h3>
+<p>
+Given the starting vertex for each player, we can do a depth-first search (DFS) simulation for the minimax algorithm. The DFS state is the last vertices picked by each player and the player currently making the turn. The current player that makes the turn first grabs the coins at the current vertex and then tries to pick a neighboring vertex to visit that maximizes the total coins. Before visiting the neighboring vertex, the (bi-directional) edge connected to the new vertex is removed and later restored when the DFS backtracks. Finally, if the current player cannot make a move, then the player gives the turn to the other player to continue to make a move. The pseudocode below shows the sketch of the algorithm.
+</p>
+<pre>
+function rec(i, j, turn)  # See note 1
+  if visited[i][j][turn] return 0  # See note 2
+  visited[i][j][turn] = true
+
+  ci = C[i]  # See note 3
+  C[i] = 0  # Remove the coins at vertex i
+
+  ret = -INF
+  for each neighbor ni of i
+    remove edge[i][ni]  # See note 4
+    ret = max(ret, -rec(j, ni, 1 - turn))
+    restore edge[i][ni]
+
+  if ret == -INF
+    ret = -rec(j, i, 1 - turn)  # See note 5
+
+  C[i] = ci  # Restore the coins at vertex i
+
+  return ret + ci
+</pre>
+
+<p>
+Notes:
+<ol>
+<li>
+The first parameter i of the rec function is the last vertex picked by the current player that is currently making the turn. The second parameter j is the last vertex picked by the other player. The third parameter <b><i>turn</i></b> is the player ID that is making the turn (0 is the first player and 1 is the second player)
+</li>
+<li>
+The state (i, j, turn) is visited exactly once. The next visit to this vertex returns 0 which signifies a terminal condition.
+</li>
+<li>
+We temporarily store the coins at the vertex of the current player. Then we remove coins from the vertex i (so that further moves in the DFS cannot reuse the coins again), and later restore the coins before returning.
+</li>
+<li>
+Removing the connecting edge before visiting (recursing) the next vertex ensures that the edge will not be used any further by any of the players later in the DFS. Notice that the edge is restored later when the recursion backtracks. The same is true for the coins.
+</li>
+<li>
+If the current player cannot move, it must give the turn to the other player.
+</li>
+</ol>
+</p>
+<p>
+Given the starting vertex of both players, the DFS simulation above runs in O(N^2) to compute the maximum score for the first player. This comes from the number of distinct states in the parameters (N^2) and the fact that we never process the same state twice. The inner loop which loops through the neighbors of i can be amortized to O(1) since on average each vertex has 1 outgoing edge.
+</p>
+<p>
+Unfortunately, for different starting vertices, we cannot reuse the computation (i.e., we need to clear the visited states and start from scratch). Therefore the overall runtime complexity is O(N^4) which is only good for the small input N = 80.
+</p>
+<h3><b>Minimax with Dynamic Programming O(1)</b></h3>
+<p>
+The idea behind the O(1) runtime complexity is to be able to reuse the computation when computing for different starting vertices for each player. The DFS state described in the previous section is not independent from another DFS state because it has to keep track of the coins that have already been taken and also the edges that cannot be used anymore. Different DFS states have different sets of coins and edges that are available. If we can design a state where it does not need to care about which coins or edges are available, then we can make each state independent and we can memoize (cache) the state results and reuse it to compute other states. This way, each state can be computed in O(1).
+</p>
+<p>
+To design a state that is independent of each other, we need to make an important observation: <i>after a player makes a move, the edge connecting the last vertex to the new vertex is removed. If the new vertex is now unreachable from the other player’s last vertex then the two vertices are disconnected and each vertex is in its own tree, then the solution becomes trivial: each player simply takes <b>the best path</b> that remains open (the best path is the path that gives the maximum total coins) in its own tree. We therefore only need to perform minimax across states where the last vertices for both players are still in the same tree.</i>
+</p>
+<p>
+In our new minimax algorithm, the state space can be entirely described by <b>the last edge</b> traversed by each player (which is only O(N^2) pair of edges). There are two choices for the current player to move (i.e., to pick the new neighboring vertex):
+<ol>
+<li>
+<b>Pick the vertex towards the other player’s last vertex.</b> Note that the input graph is a tree, therefore, there is exactly one unique path connecting the last vertices of both player. The player picks the next vertex in this path that brings them closer together. This move will transition (recurse) to a new state where the other player is now the one taking the turn. The new state is independent from the previous state since we do not need to care about which coins or edges have been removed (i.e., the current player cannot go back to the previous vertex and the other player cannot reach the vertices behind the current player anyway). The vertex that leads to the other player’s last vertex can be found in O(1) by precomputing it beforehand. The precomputation uses dynamic programming where the states are the last edge used by the current player, and the last vertex of the other player. The transition for the current player is to move closer to the last vertex of the other player which can be done in O(1) since each vertex has 1 edge on average (please refer to the sample implementation below for the details of how the <b><i>next_node_to</i></b> is pre-calculated). Now, let’s see an example for the first choice we have just described:
+
+<img src="choice1.png"><br>
+
+Player 1 is the current player that is making the move and is at vertex i1 and the last edge used is the connecting edge to vertex p1. Player 2 is at vertex i2 and the last edge used is the connecting edge to vertex p2. The current player 1 makes a move by picking the vertex n1 that leads to i2 (there is exactly one path that leads to i2). After player 1 makes a move, we can recurse to a new independent state where the current player is player 2 at i2 with the same last edge and the other player is player 1 at n1 with the last edge being the connecting edge to i1.
+<br><br>
+</li>
+<li>
+<b>Pick the next best vertex that does not lead to the other player’s last vertex.</b> We can pick the vertex in O(1) if we precompute the list of next best vertex beforehand. This move will disconnect the current player’s newly picked vertex from the other player’s last vertex and their maximum total coins can now be processed independently in O(1) as explained in the example below. The other player can then independently pick the best path that avoids the edges used by the current player in O(1). We demonstrate it with the following example:
+<img src="choice2.png"><br>
+Just like before, player 1 is the current player that is making the move and is at vertex i1 with the last edge connecting to vertex p1. The other player is player 2 at vertex i2 with the last edge connecting to vertex p2. The current player 1 picks the new vertex n1 which is the vertex leading to the best path that is disconnected with the other player’s last vertex i2. At this point, both players become independent. Player 2 is free to pick the best path that avoids the two edges used by player 1 (marked as red edges). Player 2 can try moving in the direction to i1 and then “branch-off” at any time to another direction to find its best path. The special case is when it has reached i1, it cannot branch-off in the direction of p1 nor n1 since those edges are already used. Player 2 can only branch-off to vertex f2 from vertex i1. This means that it is sufficient to keep the best 3 outgoing edges for each vertex because when we branch-off, we only consider the next best path to branch-off and the 3rd best path is used only in the special case. We can pre-compute the maximum total coins gained via branching-off in between i2 to i1 (both inclusive) using dynamic programming in O(N^2) (please refer to the <b><i>branch_off_between</i></b> method and its comments in the sample implementation below). Thus, to answer the maximum coins that player 2 can get in this case can be answered in O(1).
+</li>
+</ol>
+</p>
+<p>
+The two cases above can be answered in O(1), therefore each state can be computed in O(1) and the result can be cached and reused to compute other states (i.e., it does not need to be re-set for different starting vertices). Since there are O(N^2) possible last edges for each player, there are only O(N^2) distinct states. Therefore, given any two starting vertices for each player, the new minimax algorithm can answer the maximum score for player 1 in O(1).
+</p>
+<p>
+Below is the sample implementation in C++11.
+</p>
+
+<pre>
+<b>#include</b> &lt;algorithm&gt;
+<b>#include</b> &lt;cstdio&gt;
+<b>#include</b> &lt;cstring&gt;
+<b>#include</b> &lt;vector&gt;
+
+<b>using</b> <b>namespace</b> std;
+
+<b>#define</b> MAXN 4001
+<b>#define</b> MAXE (MAXN * 3)
+
+<b>vector</b><i>&lt;</i><b>int</b><i>&gt;</i> con[MAXN];
+<b>int</b> T<i>,</i> N<i>,</i> C[MAXN]<i>,</i> id;
+<b>int</b> edge_id[MAXN][MAXN];
+<b>int</b> next_node_to[MAXN][MAXN];
+<b>int</b> best_coins[MAXE];
+<b>int</b> best_nodes[MAXE][3];
+<b>int</b> memo_rec[MAXE][MAXE];
+<b>int</b> memo_branch_off[MAXE][MAXE];
+
+<i>// Pre-calculate the next_node_to, best_coins, best_nodes.</i>
+<b>void</b> precalc(<b>int</b> i<i>,</i> <b>int</b> pi<i>,</i> <b>int</b> from<i>,</i> <b>int</b> first_node) {
+  next_node_to[from][i] <i>=</i> first_node;
+  <b>int</b> <i>&amp;</i>best <i>=</i> best_coins[edge_id[i][pi]];
+  best <i>=</i> 0;
+  <b>vector</b><i>&lt;</i><b>pair</b><i>&lt;</i><b>int</b><i>,</i> <b>int</b><i>&gt;</i> <i>&gt;</i> arr;
+  <b>for</b> (<b>int</b> ni <i>:</i> con[i]) <b>if</b> (ni <i>!</i><i>=</i> pi) {
+    precalc(ni<i>,</i> i<i>,</i> from<i>,</i> first_node);
+    <b>int</b> coins <i>=</i> best_coins[edge_id[ni][i]];
+    arr<i>.</i>push_back(make_pair(coins<i>,</i> ni));
+    best <i>=</i> <b>max</b>(best<i>,</i> coins);
+  }
+  <b>sort</b>(arr<i>.</i>rbegin()<i>,</i> arr<i>.</i>rend());
+  <b>for</b> (<b>int</b> j <i>=</i> 0; j <i>&lt;</i> arr<i>.</i>size() <i>&amp;</i><i>&amp;</i> j <i>&lt;</i> 3; j<i>+</i><i>+</i>)
+    best_nodes[edge_id[i][pi]][j] <i>=</i> arr[j]<i>.</i>second;
+  best <i>+</i><i>=</i> C[i];
+}
+
+<i>// Returns the best next vertex when coming from</i>
+<i>// edge (pi -&gt; i), excluding vertex v1 and v2.</i>
+<b>int</b> next_best_except(<b>int</b> i<i>,</i> <b>int</b> pi<i>,</i> <b>int</b> v1<i>,</i> <b>int</b> v2 <i>=</i> <i>-</i>1) {
+  <b>int</b> ei <i>=</i> edge_id[i][pi];
+  <b>int</b> j <i>=</i> 0<i>,</i> <i>*</i>arr <i>=</i> best_nodes[ei];
+  <b>if</b> (arr[j] <i>=</i><i>=</i> v1 <i>|</i><i>|</i> arr[j] <i>=</i><i>=</i> v2) j<i>+</i><i>+</i>;
+  <b>if</b> (arr[j] <i>=</i><i>=</i> v1 <i>|</i><i>|</i> arr[j] <i>=</i><i>=</i> v2) j<i>+</i><i>+</i>;
+  <b>return</b> arr[j];
+}
+
+<i>// Maximum coins for sub-tree i with parent pi.</i>
+<b>int</b> max_coins(<b>int</b> i<i>,</i> <b>int</b> pi) {
+  <b>return</b> (i <i>&lt;</i> 0) <i>?</i> 0 <i>:</i> best_coins[edge_id[i][pi]];
+}
+
+<i>// Maximum coins for branching off at any vertex in [i, j].</i>
+<b>int</b> branch_off_between(<b>int</b> i<i>,</i> <b>int</b> pi<i>,</i> <b>int</b> j<i>,</i> <b>int</b> pj) {
+  <b>int</b> ei <i>=</i> edge_id[i][pi];
+  <b>int</b> ej <i>=</i> edge_id[j][pj];
+  <b>int</b> <i>&amp;</i>ret <i>=</i> memo_branch_off[ei][ej];
+  <b>if</b> (ret <i>!</i><i>=</i> <i>-</i>1) <b>return</b> ret;
+
+  <b>if</b> (i <i>=</i><i>=</i> j) {
+    <b>int</b> ni <i>=</i> next_best_except(i<i>,</i> pi<i>,</i> pj);
+    <b>int</b> nj <i>=</i> next_best_except(i<i>,</i> pi<i>,</i> pj<i>,</i> ni);
+    <i>// The other player takes the third best vertex nj since</i>
+    <i>// the best two are already taken by the current player.</i>
+    <b>return</b> ret <i>=</i> max_coins(nj<i>,</i> j);
+  }
+
+  <b>int</b> nj <i>=</i> next_node_to[j][i];
+  <b>int</b> njb <i>=</i> next_best_except(j<i>,</i> pj<i>,</i> nj);
+  <b>int</b> branch_off_now <i>=</i> max_coins(njb<i>,</i> j);
+  <b>int</b> branch_off_later <i>=</i> ((nj <i>=</i><i>=</i> i) <i>?</i> 0 <i>:</i> C[nj])
+    <i>+</i> branch_off_between(i<i>,</i> pi<i>,</i> nj<i>,</i> j);
+
+  <b>return</b> ret <i>=</i> <b>max</b>(branch_off_now<i>,</i> branch_off_later);
+}
+
+<i>// Minimax for the current player with last edge (pi -&gt; i)</i>
+<i>// and the other player with last edge (pj -&gt; j).</i>
+<b>int</b> rec(<b>int</b> i<i>,</i> <b>int</b> pi<i>,</i> <b>int</b> j<i>,</i> <b>int</b> pj) {
+  <b>int</b> ei <i>=</i> edge_id[i][pi];
+  <b>int</b> ej <i>=</i> edge_id[j][pj];
+  <b>int</b> <i>&amp;</i>ret <i>=</i> memo_rec[ei][ej];
+  <b>if</b> (ret <i>!</i><i>=</i> <i>-</i>1) <b>return</b> ret;
+
+  <b>if</b> (i <i>=</i><i>=</i> j) {
+    <i>// The current player pick the next best path.</i>
+    <b>int</b> ni <i>=</i> next_best_except(i<i>,</i> pi<i>,</i> pj);
+    <i>// The other player pick the next next best path.</i>
+    <b>int</b> nj <i>=</i> next_best_except(i<i>,</i> pi<i>,</i> pj<i>,</i> ni);
+    <b>return</b> ret <i>=</i> max_coins(ni<i>,</i> i) <i>-</i> max_coins(nj<i>,</i> j);
+  }
+
+  <i>// The first option for the current player:</i>
+  <i>// The current player pick the vertex ni</i>
+  <i>// that leads to other player last vertex.</i>
+  <b>int</b> ni <i>=</i> next_node_to[i][j];
+  <b>int</b> option1 <i>=</i> ((ni <i>=</i><i>=</i> j) <i>?</i> 0 <i>:</i> C[ni]) <i>-</i> rec(j<i>,</i> pj<i>,</i> ni<i>,</i> i);
+
+  <i>// The second option for the current player:</i>
+  <i>// The current player go to the best path other than ni.</i>
+  ni <i>=</i> next_best_except(i<i>,</i> pi<i>,</i> ni);
+  <b>int</b> p1coins <i>=</i> max_coins(ni<i>,</i> i);
+  <i>// The other player branch off at any point</i>
+  <i>// between vertex i and j (inclusive).</i>
+  <b>int</b> p2coins <i>=</i> branch_off_between(i<i>,</i> pi<i>,</i> j<i>,</i> pj);
+  <b>int</b> option2 <i>=</i> p1coins <i>-</i> p2coins;
+
+  <i>// Pick the best outcome for the current player.</i>
+  <b>return</b> ret <i>=</i> <b>max</b>(option1<i>,</i> option2);
+}
+
+<b>int</b> <b>main</b>() {
+  <b>scanf</b>(<b>"</b><i>%d</i><b>"</b><i>,</i> <i>&amp;</i>T);
+  <b>for</b> (<b>int</b> TC <i>=</i> 1; TC <i>&lt;</i><i>=</i> T; TC<i>+</i><i>+</i>) {
+    <b>scanf</b>(<b>"</b><i>%d</i><b>"</b><i>,</i> <i>&amp;</i>N);
+    <b>for</b> (<b>int</b> i <i>=</i> 0; i <i>&lt;</i> N; i<i>+</i><i>+</i>) {
+      <b>scanf</b>(<b>"</b><i>%d</i><b>"</b><i>,</i> <i>&amp;</i>C[i]);
+      con[i]<i>.</i>clear();
+    }
+    id <i>=</i> 0;
+    <b>memset</b>(edge_id<i>,</i> <i>-</i>1<i>,</i> <b>sizeof</b>(edge_id));
+    <b>for</b> (<b>int</b> i <i>=</i> 0<i>,</i> j; i <i>&lt;</i> N <i>-</i> 1; i<i>+</i><i>+</i>) {
+      <b>scanf</b>(<b>"</b><i>%d</i><b>"</b><i>,</i> <i>&amp;</i>j); j<i>-</i><i>-</i>;
+      con[i]<i>.</i>push_back(j);
+      con[j]<i>.</i>push_back(i);
+      edge_id[i][j] <i>=</i> id<i>+</i><i>+</i>;
+      edge_id[j][i] <i>=</i> id<i>+</i><i>+</i>;
+    }
+    <b>for</b> (<b>int</b> i <i>=</i> 0; i <i>&lt;</i> N; i<i>+</i><i>+</i>) {
+      edge_id[i][N] <i>=</i> id<i>+</i><i>+</i>;
+    }
+
+    <i>// These memoizations are reset per test case.</i>
+    <b>memset</b>(best_coins<i>,</i> <i>-</i>1<i>,</i> <b>sizeof</b>(best_coins));
+    <b>memset</b>(best_nodes<i>,</i> <i>-</i>1<i>,</i> <b>sizeof</b>(best_nodes));
+    <b>memset</b>(next_node_to<i>,</i> <i>-</i>1<i>,</i> <b>sizeof</b>(next_node_to));
+    <b>memset</b>(memo_rec<i>,</i> <i>-</i>1<i>,</i> <b>sizeof</b>(memo_rec));
+    <b>memset</b>(memo_branch_off<i>,</i> <i>-</i>1<i>,</i> <b>sizeof</b>(memo_branch_off));
+
+    <i>// Pre-calculation.</i>
+    <b>for</b> (<b>int</b> i <i>=</i> 0; i <i>&lt;</i> N; i<i>+</i><i>+</i>) {
+      precalc(i<i>,</i> N<i>,</i> i<i>,</i> N);
+      <b>for</b> (<b>int</b> j <i>:</i> con[i]) precalc(j<i>,</i> i<i>,</i> i<i>,</i> j);
+    }
+
+    <b>int</b> max_diff <i>=</i> <i>-</i>1000000000;
+    <b>for</b> (<b>int</b> i <i>=</i> 0; i <i>&lt;</i> N; i<i>+</i><i>+</i>) {
+      <b>int</b> min_diff <i>=</i> 1000000000;
+      <b>for</b> (<b>int</b> j <i>=</i> 0; j <i>&lt;</i> N; j<i>+</i><i>+</i>) {
+        <b>int</b> cost <i>=</i> C[i] <i>-</i> (i <i>=</i><i>=</i> j <i>?</i> 0 <i>:</i> C[j]);
+        min_diff <i>=</i> <b>min</b>(min_diff<i>,</i> cost <i>+</i> rec(i<i>,</i> N<i>,</i> j<i>,</i> N));
+      }
+      max_diff <i>=</i> <b>max</b>(max_diff<i>,</i> min_diff);
+    }
+    <b>printf</b>(<b>"</b><b>Case #</b><i>%d</i><b>: </b><i>%d</i><i>\n</i><b>"</b><i>,</i> TC<i>,</i> max_diff);
+  }
+}
+</pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

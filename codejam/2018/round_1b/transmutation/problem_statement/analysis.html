@@ -1,0 +1,405 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 1B</h3><h1>Analysis: Transmutation</h1><p>
+  This is a very tricky problem with lots of pitfalls to consider.
+</p>
+<h3>Test set 1 (Visible)</h3>
+<p>
+  Plain brute force is sufficient to pass this data set. There are many ways
+  to approach it that would work, though. One intuitive approach would be to
+  create one gram of lead (metal 1) as often as possible.
+  Suppose <code>Create(i)</code> is a function that takes
+  a metal i as parameter and returns true if it can create one gram of the
+  i-th metal and false otherwise. Then, we can call <code>Create(1)</code>
+  repeatedly until it returns false, and output the number of calls that returned
+  true. An implementation of <code>Create(i)</code> works as follows:
+</p>
+<ul>
+  <li>First, check if the remaining amount of the i-th metal is positive. If it is,
+    we consume 1 gram of this metal and return true.
+  <li>Otherwise, let P and Q be the two metals that can be combined to create
+    the i-th metal.
+  <li>We recursively call <code>Create(P)</code> and <code>Create(Q)</code>.
+  <li>If both of the function calls return true, we return true. Otherwise we return
+    false.
+</ul>
+<p>
+  However, there is slight problem with the above function. When we are not
+  be able to create metal 1, this function will never end, it will keep
+  trying to create the metals. Consider a simple example: there are 3 metals
+  and for each of them the other two are the ingredients. Suppose, the
+  amount of the metals are now 0 but we are trying to create lead.
+  In such case, it will try to create the other two metals recursively, which will
+  eventually try to create the lead again and so on. One way to fix it would be
+  to check if we tried to create this i-th metal in the current call stack.
+  If we already tried to create the i-th metal and while doing so we looked
+  into its ingredient elements and again arrived at the i-th metal, that means it is not
+  possible to create the i-th metal (and eventually the lead) anymore. Another
+  way that is simpler to code is to limit the depth of the recursive call to
+  <b>M</b>, because after <b>M</b> recursive calls we are guaranteed to repeat at least
+  one metal.
+</p>
+<p>
+  The runtime of the above solution is not very large. The recursive call stack
+  is up to <b>M</b> calls deep and at each level we call <code>Create</code> twice recursively.
+  We may imagine it as a binary tree. The number of leaf nodes is at most
+  2<sup><b>M</b></sup> which makes the total less than 2<sup><b>M</b>+1</sup>. So, a
+  <code>Create(1)</code> call
+  takes O(2<sup><b>M</b></sup>) time. There may be at most 8 grams of each of these metals.
+  So we will call <code>Create(1)</code> function about 8<b>M</b> times. For <b>M</b> = 8,
+  this means the body of the function executes 8 &times; 8 &times; 2<sup>8</sup>, which is
+  not too large.
+</p>
+
+<h3>Test set 2 (Hidden)</h3>
+<p>
+  The approach above is of course too slow for the second test set. We can do a top-down approach
+  as follows: we maintain a current "recipe" to create lead. The initial recipe is just use 1
+  gram of lead to create 1 gram of lead. The invariant is that the current recipe is always optimal,
+  that is, any other way to create lead that can be done with the current supply is an expansion
+  of the recipe. An expansion of a recipe is the result of zero or more applications of replacing 1
+  gram of a metal in the recipe by 1 gram of each of the two metals required to make it. This
+  invariant is clearly true for the initial recipe.
+</p><p>
+  As a first step, we make as much lead as we can with the current recipe, which we already
+  mentioned is optimal.
+  After doing that, the supply of one or more of the metals in the recipe is less than
+  the recipe requirements of each. That means that any recipe that works is an expansion
+  of replacing 1 gram of each of those metals for its ingredients. We perform one of those
+  replacements to get a new optimal recipe and repeat.
+</p><p>
+  Notice that the total amount of grams of metal in the recipe only increases and the same number
+  in the supply only decreases or stays the same (if we make no lead in a step).
+  So, when the amount in the recipe surpasses the amount
+  in the supply we can stop, since we won't be able to make another gram of lead.
+</p><p>
+  Let S be the sum of all <b>G<sub>i</sub></b>, that is, the amount of grams of metal
+  in the initial supply.
+  Each step above takes O(<b>M</b>) if we represent the recipe as a vector of size <b>M</b>
+  with the required grams of each metal in the recipe. Checking how much lead we can do requires
+  a single pass to find the limiting ingredient, and finding an ingredient that we need to replace
+  requires another pass. Making the replacement of a single ingredient takes constant time.
+  Since after each step the total amount of grams of metal in the recipe increases by at least
+  1, and the supply does not increase, the number of steps until the stopping condition is at most
+  <b>S</b>. This makes the running time of this algorithm O(<b>M</b>S) which is enough
+  to pass for <b>M</b> &le; 100 and S &le; 10000.
+</p>
+<h3>Test set 3 (Hidden)</h3>
+<p>
+  Since S can be up to 10<sup>11</sup> for test set 3, we can't really use the
+  approach above. Adding a lot of prunning to it to prevent really long cycles of
+  replacements to happen can work, but it's hard to know exactly how much prunning
+  is required unless we take a systematic approach. Fortunately, using binary search can
+  simplify this a lot.
+  First, we consider the simplified problem of deciding if it is possible to make L grams
+  of lead, for an arbitrary L. If we can solve that efficiently, a simple binary search
+  within the range [0, S] finished the problem, and multiplies the time complexity
+  by a (relatively) small log S.
+</p><p>
+  For a fixed L, we start by adjusting our supply by making the amount of lead
+  <b>G<sub>1</sub></b> - L. That may leave us with lead debt instead of lead supply.
+  We now iterate paying off debt until either we cannot or we have no debt left. If
+  we cannot pay off some debt, then we cannot make L grams of lead. If we find ourselves
+  with no debt left, we can make L grams of lead. While we iterate, we will adjust the supply
+  <b>G</b> and the recipes <b>R</b>, that start as given in the input.
+</p><p>
+  For each step of pay off, find an ingredient i such that <b>G<sub>i</sub></b> &lt; 0.
+  If there are none, we paid off all debt and we are done. If there is, we go through
+  the recipe to make metal i. If the recipe contains metal i itself, we can't pay off
+  the debt and we are done. Otherwise, for each k grams required of metal j in the
+  recipe, we do <b>G<sub>j</sub></b> := <b>G<sub>j</sub></b> + k &times; <b>G<sub>i</sub></b>
+  (remember <b>G<sub>i</sub></b> is negative). That is, we push the debt of metal i to requiring
+  amounts of metals from its recipe. Finally we can set <b>G<sub>i</sub></b> := 0.
+  If we ever need i in the future, we know we
+  will again need to go through its recipe, so we replace any k grams of i in the recipe
+  of any ingredient by i's recipe multiplied by k. In this way, metal i will never be required
+  in the future.
+</p><p>
+  A step of payoff takes O(<b>M</b><sup>2</sup>) time: finding a metal in debt takes time
+  linear on <b>M</b>, and so do adjusting all ingredients (remember we represent recipes by
+  a vector of size <b>M</b> with the grams required for each metal). Replacing metal i in
+  a single recipe takes time linear on <b>M</b> too, and we have to do it for each other
+  of up to <b>M</b> metals, yielding O(<b>M</b><sup>2</sup>) time for the step.
+</p><p>
+  During each step of payoff one metal disappears from the recipes. Since at most <b>M</b> - 1
+  metals can disappear (when there is only one metal i left, its recipe is guaranteed to contain
+  metal i itself and we'll stop, since recipes only grow and thus are never empty) the total
+  number of payoff steps is O(<b>M</b>). This makes the overall time to check an arbitrary
+  L O(<b>M</b><sup>3</sup>), and the overall time for the entire algorithm
+  O(<b>M</b><sup>3</sup> log S), which is fast enough to solve the hardest test set.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,629 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 3</h3><h1>Win As Second</h1><h3>Problem</h3>
+<p>
+  Ueli and Vreni are playing a game. The game's board is a
+  <a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)" target="_blank">tree</a> with $$$\mathbf{N}$$$ vertices,
+  all initially colored blue.
+  They alternate turns, with Ueli going first. In each turn, a player must choose a
+  blue vertex, together with any subset (possibly none or all) of its blue neighbors,
+  and color all those vertices red. If at the start of a players' turn, all vertices are
+  red, then that player loses the game and the other player wins the game.
+</p><p>
+  In the example game below, Ueli colored vertex $$$3$$$ red in their first turn.
+  Then, Vreni chose vertex $$$2$$$ for their turn and colored both it and its neighbor
+  (vertex $$$1$$$) red. Because all vertices are now red, Ueli loses and Vreni wins.
+</p><p align="center">
+  <img src="img/win_as_second_example_1.png" alt="Illustration of Sample Case #1 Game #1."/>
+</p><p>
+  Ueli and Vreni have noticed that it is much easier for Ueli to win this game because he has the
+  first turn. Therefore they have adopted the following procedure: first, Ueli chooses an
+  integer $$$\mathbf{N}$$$. Then, Vreni chooses any tree with $$$\mathbf{N}$$$ vertices. And then they start playing
+  as described above, with Ueli taking the first turn.
+</p><p>
+  Vreni is hopeful that being able to choose the tree can help her overcome the disadvantage
+  of going second. Can you demonstrate how Vreni can win games in this setup?
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing an integer,
+  $$$\mathbf{T}$$$, the number of test cases. Then, $$$\mathbf{T}$$$ test cases must be processed.
+</p>
+<p>
+  For each test case, your program must first read a line containing a single integer $$$\mathbf{N}$$$,
+  the number of vertices that Ueli has chosen.
+  Then, your program must output $$$\mathbf{N}-1$$$ lines describing the edges of the tree Vreni
+  should choose. The nodes of the tree are numbered $$$1$$$ through $$$\mathbf{N}$$$.
+  Each line must represent a distinct edge of the tree with $$$2$$$ integers between
+  $$$1$$$ and $$$\mathbf{N}$$$: the two vertices the edge connects.
+  The edges must represent a tree.
+  The two integers within a line may be in either order, and the $$$\mathbf{N}-1$$$ lines themselves may
+  be in any order.
+</p>
+<p>
+  After that, your program must read a line containing a single integer $$$\mathbf{M}$$$, the number of games
+  that you need to play on this tree. These games are played independently; in other words,
+  all vertices of the tree are blue at the start of each game.
+</p>
+<p>
+  For each of the $$$\mathbf{M}$$$ games, you need to process some number of exchanges until the game is
+  over. Each exchange consists of a turn from each player.
+</p><p>
+  For each exchange, your program must read two lines describing Ueli's turn first.
+  The first of those lines will contain an
+  integer $$$\mathbf{K}$$$, denoting the number of blue vertices to be colored red.
+  The second of those lines will contain $$$\mathbf{K}$$$ distinct integers $$$\mathbf{A_1}, \mathbf{A_2}, \dots, \mathbf{A_K}$$$
+  describing the blue vertices to be colored red. $$$\mathbf{K}$$$ will be at least 1, and each $$$\mathbf{A_i}$$$
+  will be between 1 and $$$\mathbf{N}$$$, inclusive. Vertices $$$\mathbf{A_2}, \mathbf{A_3}, \dots, \mathbf{A_K}$$$ will all be
+  neighbors of vertex $$$\mathbf{A_1}$$$.
+</p>
+<p>
+  After that, your program must output Vreni's choice for their turn in the same format:
+  the first line with the number of blue vertices to be colored red, followed by the second
+  line with the numbers of those vertices, in such an order that all vertices
+  except the first one are neighbors of the first one.
+</p>
+<p>
+  If all vertices are red after Vreni's turn, it means that Vreni has won and this game is over.
+  The next game starts immediately if there is one. If this was the last game for this test case,
+  then the next test case starts immediately if there is one. If this was the last test case,
+  the judge will send no further input to your program, and the program must send no further output.
+</p>
+<p>
+  On the other hand, if all vertices are red after Ueli's move,
+  it means that Vreni has lost and therefore your program did not pass the test case.
+  In this case, instead of starting a new exchange by printing the last move
+  that colors all remaining blue vertices red, the judge will print a single number $$$-1$$$
+  and will not print any further output, and will not process any further games or test cases.
+</p>
+<p>
+  If the judge receives an invalidly formatted or invalid line (like outputting an
+  unexpected number of integers, or integers out of range, or outputting a set of edges
+  that do not form a tree, or trying to color a vertex
+  that is already red, or trying to color a vertex that is not a neighbor of the first
+  vertex colored in this turn) from your program at any moment, the judge
+  will also print a single number $$$-1$$$ and will not print any further output.
+  If your program continues to wait for the judge after
+  receiving a $$$-1$$$, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p>
+<p>
+  The judge is deterministic. In other words, if you make two attempts that print the
+  same numbers, you will get the same inputs from the judge. However, of course the judge can make
+  different moves in different games on the same tree.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 60 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{M} \le 50$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+$$$\mathbf{T}=1$$$.<br/>
+$$$\mathbf{N}=30$$$.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+
+$$$1 \le \mathbf{T} \le 10$$$.<br/>
+$$$31 \le \mathbf{N} \le 40$$$.<br/>
+No two test cases use the same value of $$$\mathbf{N}$$$.<br/>
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py3" download="testing_tool.py">Download testing tool</a>
+</p>
+
+<p>
+  Note that the testing tool just makes random choices for Ueli unless it can win in one turn.
+  Therefore, it might be easier to win against the testing tool than against the real judge, which
+  will try harder to win.
+</p>
+
+
+  <div class="sample-interaction-wrapper">
+    <div class="sample-interaction-header">
+      <div class="sample-interaction-header-text">Sample Interaction</div>
+    </div>
+    <div class="sample-interaction-content">
+      <div class="sample-interaction-judge-solution-labels">
+        <div class="sample-interaction-judge-label">Judge</div>
+        <div class="sample-interaction-solution-label">Solution</div>
+      </div>
+      
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Number of cases<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 1<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge gives $$$\mathbf{N}=3$$$.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 2
+1 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution outputs a tree with 3 vertices.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">A single game will be played on this tree.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 1, Game 1 (illustrated above)<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">1
+3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge colors the third vertex red. Note that the judge could have won immediately by coloring all vertices red, and therefore -1 would also be a possible output from the judge here.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">2
+1 2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution colors the two remaining vertices red and wins, so we move to the next test case since there was just one game to play in the first test case.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 2<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge gives $$$\mathbf{N}=4$$$.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1 2
+2 3
+2 4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution outputs a tree, pictured below.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Two games will be played on this tree.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 2, Game 1 (illustrated below)<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">3
+2 1 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge colors the first three vertices red. Note that vertex 2 must be printed first here.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1
+4
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution colors the remaining vertex red and wins, so we move to the next game.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-block-section-label">Case 2, Game 2 (illustrated below)<br>
+</div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">2
+2 3
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">Judge now makes a better first turn, coloring the two middle vertices red.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-solution-output-wrapper">
+    <div class="sample-interaction-solution-output-box">
+      <pre class="sample-interaction-solution-output-test">1
+1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-solution-note">Solution colors the first vertex red.<br>
+</div>
+
+  <div class="sample-interaction-block-spacer"></div>
+
+  <div class="sample-interaction-judge-output-wrapper">
+    <div class="sample-interaction-judge-output-box">
+      <pre class="sample-interaction-judge-output-test">-1
+</pre>
+    </div>
+  </div>
+
+  <div class="sample-interaction-judge-note">The judge can now win by coloring the last vertex red, so the solution is incorrect.<br>
+</div>
+
+    </div>
+  </div>
+
+
+<p>
+  Note that the sample interaction does not satisfy the constraints of either test set,
+  as its $$$\mathbf{N}$$$ values are too small. It is only presented to clarify the input and output format.
+</p><p>
+  Below is an illustration of Case #2, Game #1 at the beginning and after each turn:
+</p><p align="center">
+  <img src="img/win_as_second_example_2.png" alt="Illustration of Sample Case #2 Game #1."/>
+</p><p>
+  Below is an illustration of Case #2, Game #2 at the beginning and after each turn:
+</p><p align="center">
+  <img src="img/win_as_second_example_3.png" alt="Illustration of Sample Case #2 Game #2."/>
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,538 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Virtual World Finals</h3><h1>Analysis: Replace All</h1><p>
+The first thing we can notice is that since we replace every occurrence of a character, and at
+the end we count unique characters, we can regard the input <b>S</b> as a set. That is, multiple
+occurrences of the same character can be ignored, and the order of the characters is
+unimportant. We write "x &rarr; y" to represent the replacement of a character x by a character y.
+Here, and in the rest of the analysis, we use both lowercase and uppercase letters to represent
+variables, not actual letters that can happen in the input.
+</p><p>
+To simplify the explanations, we can represent the list of replacements as a
+<a href="https://en.wikipedia.org/wiki/Directed_graph" target="_blank">directed graph</a> G where nodes
+represent characters, and there is an edge from x to y if and only if
+there exists a replacement x &rarr; y in the input. Notice that each
+<a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)" target="_blank">weakly connected component</a>
+of G defines a problem that can be solved independently, and combining the results corresponds to
+adding up the number of distinct characters that can occur in the final text from each group.
+In particular, notice that a character c that does not appear in any replacement forms a
+single-node connected component, and the result for each such character is
+either 1 if c is in <b>S</b>, and 0 otherwise.
+</p><p>
+Let us define <i>diversity</i> as the number of unique characters in a text. Diversity
+of the last text is exactly what we are trying to maximize.
+If both x and y are in U, the diversity after performing x &rarr; y on U is 1 less than before.
+On the other hand, if at least one of x and y is not in U, then the diversity before and
+after performing x &rarr; y is the same.
+That is, the replacement can either cause a diversity loss of 1,
+or not cause any loss. We can then work on minimizing the diversity loss, and the final
+answer will be the original diversity minus the loss.
+</p>
+<h3>Test Set 1</h3>
+<p>
+In Test Set 1 the in-degree of each node of G is limited to at most 1. This restricts
+the types of weakly connected components the graph can have. If there is a node in the
+component with in-degree equal to 0, then the component is a
+<a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)" target="_blank">directed tree</a> and the node with
+in-degree equal to 0 is the root. If all nodes in the component have in-degree equal to 1, then
+there is a cycle (which we could find by starting at any node and following edges backwards
+until we see a node for the second time). Each node in the cycle only has its incoming edge
+coming from another node in the cycle, but it can have edges pointing out to non-cycle nodes.
+This means each cycle-node can be the root of a directed tree. These are the connected components
+of <a href="https://en.wikipedia.org/wiki/Pseudoforest" target="_blank">pseudoforests</a>.
+</p><p>
+We can break down this test set by component type.
+Let's consider the simplest possible tree first: a
+simple path c<sub>1</sub> &rarr; c<sub>2</sub> &rarr; ... &rarr;  c<sub>k</sub>. If both
+c<sub>k-1</sub> and c<sub>k</sub> are in the initial text <b>S</b>, then we cannot perform
+c<sub>k-1</sub> &rarr; c<sub>k</sub> without losing diversity.
+No other replacement in the text can make c<sub>k-1</sub> or c<sub>k</sub> disappear from
+the text, so they will both be present until c<sub>k-1</sub> &rarr; c<sub>k</sub>
+is performed for the first time. In addition, after
+we perform c<sub>i-1</sub> &rarr; c<sub>i</sub> for any i, we can immediately perform
+c<sub>i-2</sub> &rarr; c<sub>i-1</sub> without loss of diversity, since c<sub>i-1</sub>
+will definitely not be in the text then. Therefore, performing every replacement in the path
+in reverse order works optimally.
+</p><p>
+With some care, we can extend this to any tree. Consider a leaf node y that is maximally far from
+the root. The replacement x &rarr; y that goes into it is in a similar position as the last
+replacement in a path, but there could be other replacements that remove x from the text
+before performing x &rarr; y, which would prevent x &rarr; y from causing diversity loss.
+Since y is maximally far from the root, however, all other replacements
+that can help also lead to leaf nodes. If x and the right side of all replacements that
+go out of x are in <b>S</b>, there is no way to avoid losing diversity. However, only the first
+one we perform will cause diversity loss, whereas all the others can be done when x
+is no longer in the text, preventing further loss. We can generalize this by noticing that we
+can "push" characters down the tree without loss of diversity as long as there is at least one
+descendant node that is not in the current text. This is done by considering the path
+from a node x to the descendant that is not in the text y, and processing the path between x
+and y as described earlier.
+</p><p>
+From the previous paragraph, we can see that any edge x &rarr; y that does not go into a leaf
+node can be used without diversity loss. Even if there are no descendants of x in the tree that
+are not in the initial text <b>S</b>, we can process some unsalvageable leaf node first, and
+then we will have room to save x &rarr; y. Any edge z &rarr; w that goes into leaf nodes may be
+salvageable as well, as long as z has other descendants. Putting it all together, we can process
+the nodes in reverse <a href="https://en.wikipedia.org/wiki/Topological_sorting" target="_blank">topological
+order</a>. At the time when we process a node x, if there is any descendant of x that is not
+in the current text, then we can push x down and then process all of x's outgoing edges without
+any diversity loss. If we process a node x and its subtree consists only of nodes representing
+letters currently in the text, that means that we will lose 1 diversity with the first
+edge going out of x that we process (it doesn't matter which one we process first),
+but that loss is unpreventable.
+</p><p>
+To handle cycles, consider first a component that is just a simple cycle. If there is at least
+one node representing a character x not in <b>S</b>, then we can process it similarly to paths,
+without diversity loss: we replace y &rarr; x, then z &rarr; y, etc, effectively shifting which
+characters appear on the text, but keeping diversity constant. If all characters in the cycle
+are in <b>S</b>, then the first replacement we perform will definitely lose diversity, and after
+that we can prevent diversity loss by using the character that disappeared as x in the process
+from the first case.
+</p><p>
+If a component is a cycle with one or more trees hanging from it, we can first process each tree
+independently. Then, each of those trees will have at least one node representing a character
+not in the current text: either there was such a node from the start, or it was created as
+part of processing the tree.
+So, we can push down the root of one of those trees (which is a node in the cycle) without
+losing diversity. Then, there will be at least one node in the cycle whose represented character
+is not in the text, so we can process it without diversity loss.
+</p>
+<h3>Test Set 2</h3>
+<p>
+In Test Set 2, the graph G can be anything, so we cannot do a component type case analysis like
+we did for Test Set 1. However, we can still make use of the idea of processing paths and
+pushing characters to avoid diversity loss following our first replacement.
+</p><p>
+We tackle this by morphing the problem into equivalent problems.
+We start with the problem of finding an order of the edges of G that uses
+each edge at least once while minimizing steps in which we cause diversity loss.
+</p><p>
+First, notice that once we perform x &rarr; y, we can immediately perform any other x &rarr; z
+without diversity loss. So, if we have a procedure that uses at least one replacement of the
+form x &rarr; y
+for each x for which there is at least one, then we can insert the remaining replacements
+without altering the result. That is, instead of considering having to use every edge
+at least once, we can simply find a way to use every node that has out-degree at least 1.
+Furthermore, any replacement x &rarr; y such that x is not in <b>S</b> can be performed at
+the beginning without changing anything, so we do not need to worry about using them.
+Notice that we are only removing the requirement of using particular edges, not the
+possibility. Therefore, we can make the requirements even less strict:
+now we only need to use every node with out-degree at least 1 that represents
+a character present in <b>S</b>.
+</p><p>
+Now that we have a problem in which we want to cover nodes, and we know from our work in
+Test Set 1 that we can process simple subgraphs like paths and cycles in a way that limits
+diversity loss, we can define a generalized version of the
+<a href="https://en.wikipedia.org/wiki/Path_cover" target="_blank">minimum path cover</a> problem that is
+equivalent.
+</p><p>
+Given a list of paths L, let us define the <i>weight</i> of L
+as the number of paths in L minus the number of characters c not in <b>S</b> such
+that at least one path in L ends with c. That is, for each character c not in <b>S</b>,
+we can include just one path ending in c in L without adding to its weight.
+Let us say that a list of paths L <i>covers</i> G if every node in G with out-degree at least 1
+that represents a character in <b>S</b> is present in some path in L in a place other than at
+the end. That is, at least one edge going out of the node was used in a path in L.
+We claim that the minimum weight of a cover of G is equal to the minimum number
+of steps that cause diversity loss in the relaxed problem.
+</p><p>
+To prove the equivalency, we first prove that if we have a valid solution to the problem that
+causes D diversity loss, we can find a cover that has weight at most D. Afterwards we prove
+that if we have a cover with weight D, we can find a solution to the problem that causes a
+diversity loss of at most D.
+</p><p>
+Let r<sub>1</sub>, r<sub>2</sub>, ..., r<sub>n</sub> be an ordered list of replacements
+that satisfies the relaxed conditions of the problems and has D steps that cause
+diversity loss. We build a list of paths L iteratively, starting with the empty
+list. When considering replacement r<sub>i</sub> = x &rarr; y:
+<ol>
+<li>If the text before and after r<sub>i</sub> are the same, we do not change L.</li>
+<li>If there is a path starting with y in L, we append x at the start of it.</li>
+<li>Otherwise, we add r<sub>i</sub> as a new path in L.</li>
+</ol>
+</p><p>
+Notice that the first time we perform a replacement x &rarr; y where x is a node that we need
+to cover, we cannot be in case 1: the xs that were originally in <b>S</b> have not been
+replaced yet, so r<sub>i</sub> will replace them and change the text. Cases 2 and 3
+add x as a non-final part of a path. Further processing can only append things to the start of
+the path, so x will remain a non-final member of it. This proves that L is a cover.
+</p><p>
+Now, suppose step r<sub>i</sub> = x &rarr; y falls into case 3 and
+adds a path to L that increases its weight. Because we are not in case 1, x is in the
+text at the time we begin to perform r<sub>i</sub>. Since we are in case 3, there wasn't
+a path in L starting with y. That means that for any previous replacement of the form
+y &rarr; z that erased ys from the text, there was another replacement of the form
+w &rarr; y that that reintroduced y and caused it to no longer be a starting element of the path
+in L in which y &rarr; z was added.
+Moreover, since we are assuming this step increases L's weight, either
+y was in <b>S</b> or there is a path in L ending with v &rarr; y, which introduced y
+into the text. In either case, y is in the text before performing r<sub>i</sub>, meaning that
+r<sub>i</sub> causes diversity loss. Since every step that adds weight to L is
+a step that causes diversity loss, the weight of L is at most D.
+</p><p>
+Now let us prove that given a cover L of weight D, we can find a solution to the problem
+with diversity loss D. For that, we need to process paths in a manner that is not as simple as
+the one we used for Test Set 1. The way in which we process paths in Test Set 1 could only
+result in diversity loss on the first replacement made, but it also produced other
+changes in the text. Those changes could hurt us now that we have to process multiple
+paths within the same connected component.
+</p><p>
+To process a path P, we consider the status of the text U right before we start.
+We call a node <i>strictly internal</i> to a path if it is a node in the path that is neither the
+first nor the last node in the path.
+We split P into ordered subpaths
+P<sub>1</sub>, P<sub>2</sub>, ..., P<sub>n</sub> such that the last node of P<sub>i</sub>
+is the same as the first node of P<sub>i+1</sub> (the edges in the subpaths are a partition
+of the edges in P). We split in such a way that a strictly internal node of P is also a
+strictly internal node of the P<sub>i</sub> where it lands if and only if the character it
+represents is in U. Then, we process the subpaths in reverse order
+P<sub>n</sub>, then P<sub>n-1</sub>, ..., then P<sub>1</sub>. Within a subpath,
+we perform the replacements in the path's order (unlike in Test Set 1).
+Since the intermediate characters within a subpath do not appear in S, performing all the
+replacements of a subpath that starts with x and ends with y
+has the net effect of replacing x by y. In the case of P<sub>1</sub>, if x is
+not in U, then there is no effect. After processing subpath P<sub>i+1</sub> that starts with
+x<sub>i+1</sub>, x<sub>i+1</sub> is not in U, and after processing subpath P<sub>i</sub>,
+x<sub>i</sub> is not in U and x<sub>i+1</sub> is restored. The net effect is that
+processing the path in this way effectively replaces the first character of the path that is in
+U by the last character of the path, and doesn't change any other character.
+</p><p>
+Let L' be a sublist of L consisting of exactly one path that ends in c for each character c not in
+<b>S</b>. L - L' contains exactly D paths. We process the paths in L' first, and then
+the ones in L - L'. When we process a path in L', we change the text by introducing
+a new character to it. However, that character is not in the original <b>S</b>, and it is always
+a new one, so those changes cause no diversity loss. When processing all other paths, since the
+net effect is that of a single replacement, we can cause at most 1 diversity loss each time,
+which means at most D diversity loss overall.
+</p><p>
+Notice that if we have a path that touches a
+node x that represents a character in <b>S</b>, we can replace that node in the path with
+a cycle that starts and ends at x and visits its entire
+<a href="https://en.wikipedia.org/wiki/Strongly_connected_component" target="_blank">strongly connected
+component</a>. A replacement like this one on a path
+in a list does not change its weight. Therefore, we can relax the condition to require covering
+just one node of out-degree at least 1 and with a represented character in <b>S</b> per
+strongly connected component.
+</p><p>
+We can turn this into a
+<a href="https://en.wikipedia.org/wiki/Maximum_cardinality_matching" target="_blank">maximum matching</a> problem
+on a <a href="https://en.wikipedia.org/wiki/Bipartite_graph" target="_blank">bipartite graph</a>
+similarly to how we solve the minimum path cover problem in
+<a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" target="_blank">directed acyclic graphs</a>.
+Consider a matching M between the set of strongly connected components C (restricted to nodes
+representing characters in <b>S</b>) that need to be covered, and the set D equal
+to C and all remaining nodes representing characters not in <b>S</b>.
+An element c from C can be matched to an element d from D if there is a non-empty path from c to d
+(it cannot be matched with itself). This matching represents a "next" relationship assignment,
+and unmatched elements represent "ending" nodes in paths.
+More formally, let f(c) be the function that maps a member of C to the member of D that corresponds
+to the same strongly connected component.
+We can create a cover with weight exactly the size of the
+unmatched elements from C by creating a path that adds weight for each unmatched element from C,
+and adding paths that do not add weight for each element in D - C.
+</p><p>
+For each unmatched element c from C, add it to a new path, then append to its left its matched
+element M(f(c)), then M(f(M(f(c)))), etc. Then, for each matched element c in D - C,
+which are the characters not in <b>S</b>, do the same.
+This yields a set of paths that touches every element of C,
+and the ending elements are either unmatched elements from C or characters not in <b>S</b> which
+do not add weight. Notice that some unmatched elements could yield single node paths, which are
+paths not really considered above. However, since such a path always counts toward the weight,
+we can append any replacement to its end to make it not empty without increasing the weight.
+</p><p>
+Therefore, the size of the unmatched elements from C in a maximum matching of the defined
+relation, which we can calculate efficiently by
+<a href="https://en.wikipedia.org/wiki/Maximum_cardinality_matching#Algorithms_for_bipartite_graphs" target="_blank">
+adapting a maximum flow algorithm</a> like
+<a href="https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm" target="_blank">Ford-Fulkerson</a>, is
+equal to the minimum weight of a cover, which is what we needed to calculate.
+</p><p>
+Despite the long proofs, the algorithm is relatively straightforward to implement. The graph
+can be built in time linear in the size of the input,
+while the strongly connected components and their transitive
+closure, which are required to build the relation for the matching, can be found in quadratic
+time in the size of the alphabet A
+(the relation itself can have size quadratic in A, so it cannot be done faster).
+The maximum matching itself takes time cubic in A, because it needs to find up to
+A augmenting paths, each of which can take up to O(A<sup>2</sup>) time (linear in the size of
+the relation graph). This leads to an overall complexity of O(A<sup>3</sup>), which is fast enough
+for the small alphabet size of this problem. Moreover, we could use something simpler and
+technically slower for the strongly connected components and their transitive closure like
+<a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm" target="_blank">Floyd-Warshall</a>,
+simplifying the algorithm without affecting the overall running time.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

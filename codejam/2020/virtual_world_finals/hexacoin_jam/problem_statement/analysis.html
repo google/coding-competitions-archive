@@ -1,0 +1,457 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Virtual World Finals</h3><h1>Analysis: Hexacoin Jam</h1><p>
+The main task in this problem is to count how many ways there are to pick a permutation and
+a pair of numbers from the list such that their (possibly truncated) sum falls within the given
+interval. This is the numerator of a fraction representing the desired probability.
+The number of total picks (our denominator) is simply
+16! &times; <b>N</b> &times; (<b>N</b> - 1) / 2. Then, we can use a known algorithm (like dividing
+numerator and denominator by the
+<a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" target="_blank">greatest common divisor</a>)
+to reduce the fraction to the desired form. In the rest of the analysis, we focus only on
+calculating the non-reduced numerator.
+</p><p>
+One common denominator among all solutions for all test sets is that the actual values of the
+digits in the list do not matter. Once we fix a pair of numbers X and Y from the list,
+only the "digit structure" of the pair (X, Y) matters. The digit structure of a pair of numbers
+is a unique way to see their coupling as digits. We define it as the lexicographically
+smallest pair (P[X], P[Y]) across all possible digit permutations P, where P[X] is the result of
+replacing each digit of X with the value assigned to it by P. Notice that digit structures have
+length 2<b>D</b>.
+</p><p>
+The total number of digit structures grows rapidly when <b>D</b> increases, but depends only
+on <b>D</b>, which has small limits. The total number is 15 for <b>D</b>=2, 203 for <b>D</b>=3,
+4140 for <b>D</b>=4, and 115975 for <b>D</b>=5.
+</p>
+<h3>Test Set 1</h3>
+<p>
+In Test Set 1, the number of different digit structures is really small. In addition, for a
+fixed structure, we only care about the values assigned by the chosen permutation
+to up to 2<b>D</b> digits. For each digit structure with d unique digits,
+we can compute the value of the truncated sum for a valid assignment of those d digits,
+noting that there are (16 - d)! ways to generate each assignment.
+</p><p>
+The number of valid assignments can be somewhat large at 16! / 10! or about 6 million for 6
+different digits, but there is only one digit structure within Test Set 1 that has that many
+different digits. There are a handful that have 5, for which there are around half a million
+assignments each, and most structures have 4 or fewer different digits, which have fewer than 50
+thousand different assignments each. Moreover, this computation only depends on <b>D</b>
+and not on the rest of the input, so we have to do it only once for each possible structure
+for <b>D</b>=2 and <b>D</b>=3.
+</p><p>
+Given the precomputation above, we can iterate over the pairs of integers from the list, compute
+their digit structures, and use two
+<a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank">binary searches</a>
+to see how many of the numbers in the list are in range. Then, we compute the number of different
+digits in the structure d and multiply the total by (16 - d)!, which gives us the
+number of sums in range that can be produced for the given pair. Summing that result over
+all possible pairs gives us the answer we need.
+</p>
+<h3>Test Set 2</h3>
+<p>
+The precomputation above can be slow in Test Set 2. Not only do we have 4140 additional digit
+structures to process, but most importantly, a few of those have 7 and 8 unique digits. Each
+additional digit means an order of magnitude extra possible assignments. There are several ways
+to handle this, and we need only a few of the tricks below to make it work.
+</p><p>
+The first issue is that the lists we need to store are now too long to fit in memory. Since there
+are only up to 16<sup>4</sup> different results, many of those results would be repeated, so
+we can compress them based on those repetitions. This is still tough to pull off, so the best
+thing to do is to just not store the full list. We know we only care about how many items
+on the list are in range for up to <b>T</b> different ranges. So, we can read all cases before
+starting the computation, split the full range of sum results at every <b>A</b> and <b>B</b>
+that we read into up to 2<b>T</b>+1 minimal ranges,
+and then compress together all numbers that are within the same range. This definitely fits
+in memory.
+</p><p>
+We can also choose to not memoize between different test cases, and treat them one at a time.
+If we do that, we have a fixed <b>A</b> and <b>B</b>, so there is no need for lists, just a counter.
+We can either treat each pair of numbers individually as well (speeding up the process of
+assignments &mdash; see below) or try to memoize digit structures if any are repeated within
+the same test case. It is possible that almost every pair has a different digit structure,
+of course, but there are few digit structures with the maximum number of unique digits.
+This means the memoization reduces the total runtime in what was our previously worst case,
+and the new worst case (all different structures) is not as bad because many of those structures
+will have fewer different digits.
+</p><p>
+We can reduce the number of digit structures further by realizing that digit structures like
+(011, 022) and (012, 021) are equivalent, in the sense that for any assignment, their sum is
+the same: both are 11 &times; (P[2] + P[3]) + 100 &times; P[0], where 11 and 100 are in base 16.
+This only works in conjunction with some form of memoization.
+</p><p>
+Once we have either a range [<b>A</b>, <b>B</b>] or a small list of ranges fixed at the moment
+of processing the assignments, we can use it to do some pruning. Suppose we assign values to
+the digits in most significant positions first. When we have done a partial assignment, we can
+compute or estimate a range of possible values that the sum may have when we finish. As
+more highly significant digits get assigned, that range shrinks. If that range is completely
+inside our target range (or one of our target ranges) we can stop and know that all further
+assignments work, counting them using a simple multiplication. If the range is completely
+outside of the target range (or all target ranges),
+we can also stop and count nothing further.
+</p><p>
+As mentioned above, we need only some of the optimizations above to manage to pass Test Set 2.
+Of course, the more of them we find and implement, the more confident we can be about the speed
+of our solution.
+</p>
+<h3>Test Set 3</h3>
+<p>
+To simplify the problem, we can use a common technique when dealing with counting numbers
+in closed intervals [A, B]. We write a function f(U) that only calculates the value for
+closed intervals [0, U-1]. Then, the result for an interval [A, B] is f(B + 1) - f(A).
+In this case, we can use this to take care of the overflow as well, by simply ignoring the overflow
+and counting the number of hits in the interval [A, B] plus the number of hits in the interval
+[16<sup><b>D</b></sup> + A, 16<sup><b>D</b></sup> + B], which are the only possible sums whose
+truncation would yield a result in [A, B]. After we write our function f, this translates to
+a result of f(B + 1) + f(16<sup><b>D</b></sup> + B + 1) - f(A) - f(16<sup><b>D</b></sup> + A).
+We focus now on calculating f(U), that is, the number of picks of a permutation and a pair
+of numbers that yield a (non-truncated) sum of strictly less than U.
+</p><p>
+Both the number of possible values a sum can have and the possible number of pairs are small
+(for computers). We can use an asymmetric "meet in the middle" approach to take advantage of both
+those facts. We do this in a similar way as what we did for Test Set 1 and possibly for Test Set
+2, by keeping a count on each digit structure, and then iterating over the pairs of numbers from
+the list to see how much we have to use each of those counts.
+</p><p>
+First, let's consider all the ways to add up to something less than U. Let us fix the first number
+to have a value of x, so the second number can have any value less than U-x.
+A number y is less than U-x if and only if it has a smaller digit than U-x at the first
+position at which they differ. We can represent this set of ys by saying they are all the ys
+that start with the first i digits of U-x, then continue with a digit d smaller than the
+(i+1)-th digit of U-x, and any remaining digits can be any digit.
+</p><p>
+For example, if U=2345 and x=1122, then U-x=1223 and y can be of the form 0***, 10**, 11**,
+120*, 121*, 1220, 1221, 1222, where * represents any digit.
+</p><p>
+For each pair of an x and a prefix for y, we can represent all the pairs of numbers from the list
+that match by matching that with a digit structure that allows for *s at the end.
+In this way, a pair of numbers from the list X and Y can be
+mapped to x and y by a permutation if they have the same digit structure, disregarding the actual
+digit values. To represent this, we normalize the digit structure as we did before:
+no digit appears for the first time before another smaller digit. Therefore, a structure
+like x=1122 and y=10** is represented as x=0011 and y=02**. As before, the number of permutations
+that can match a pair of numbers to this digit structure is (16 - d)!, where d is the number
+of unique digits that appear in the structure.
+</p><p>
+Notice that different values of x can yield the same structure. For example,
+x=1133 yields U-x=1212, and for y=10** the structure is the same as for x=1122 and y=10**.
+</p><p>
+For each digit structure of 2<b>D</b> total digits that have between 0 and <b>D</b>-1 asterisks at
+the right end, we count the number of permutations that make its parts add up to something less
+than U.
+</p><p>
+We now process the pairs of numbers from the list. For each pair, we build its normalized digit
+structure as before, and add the count for that digit structure to our running total. We also
+add the count of the structures that result in replacing up to <b>D</b>-1 rightmost digits with *s.
+</p><p>
+We can express the complexity of this algorithm in terms of the base B, the number of digits
+of each number <b>D</b>, and <b>N</b>, the size of the list of numbers.
+The first stage iterates through up to O(B<sup><b>D</b></sup>) possible values for x, and for each
+one, considers up to O(B&times;<b>D</b>) digit structures for y. If factorials up to B are
+precomputed, and we store the results in a hash table or an array with a clever hashing for
+digit structures that keeps hashes unique and small, this requires only constant time per pair, so
+O(B<sup><b>D</b>+1</sup>&times;<b>D</b>) time overall.
+The second stage requires processing up to O(<b>D</b>) digit structures per pair, so it takes
+O(<b>N</b><sup>2</sup>&times;<b>D</b>) time in total. The sum of both stages gives us the overall
+time to compute f, which is
+O(B<sup><b>D</b>+1</sup>&times;<b>D</b> + <b>N</b><sup>2</sup>&times;<b>D</b>).
+Since we need only a constant number of calls to f, that is also the overall time complexity of
+our algorithm.
+</p><p>
+Another solution is to to use all of our Test Set 2 tricks in an efficient way. Consider
+especially the last one: when considering the pair of i-th most significant digits, only the pairs
+whose sum is close to either that value at <b>A</b> or that value at <b>B</b> produce a range
+of possible sums for the pair that is neither fully inside [<b>A</b>, <b>B</b>] nor
+fully outside of it. That means that for the i-th digits, there are only a linear number
+of pairs of digits that can be assigned at that position that would make the process not stop
+immediately, instead of a quadratic number.
+This shrinks the number of assignments to approximately the square root of its previous value,
+behaving more as exponential on <b>D</b> than as an exponential on 2<b>D</b>.
+This gives us a time complexity comparable to that of
+the other solution presented above. While the overall time complexity is still
+higher, these two solutions can perform pretty similarly for the limits we have:
+the bound on the number
+of assignments is actually smaller than B<sup><b>D</b></sup> because it behaves more like
+B! / (B - <b>D</b>)!. Those savings, plus those from not needing extra <b>D</b> terms, make up for
+the fact that the backtracking solution's time complexity has a term with behavior
+similar to B<sup><b>D</b></sup> and a term with behavior similar to <b>N</b><sup>2</sup>
+multiplied together instead of added.
+</p><p>
+Notice that the basic insights of both solutions are closely related.
+The pruning provides such a large speedup for the same reason that we can use the
+"meet in the middle" approach based on digit structures.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

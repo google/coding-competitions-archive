@@ -1,0 +1,637 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - Round 1B</h3><h1>Broken Clock</h1><h3>Problem</h3>
+<p>
+Emmett found an old clock in his attic. The clock is a circle with 3 hands that attach
+to the center and rotate clockwise at constant speeds. They are called the <i>hours hand</i>,
+the <i>minutes hand</i> and the <i>seconds hand</i>. At midnight, all hands point up.
+The hours hand completes a full revolution in $$$12$$$ hours, the minutes hand
+completes a full revolution in $$$1$$$ hour, and the seconds hand completes a
+full revolution in $$$1$$$ minute.
+$$$1$$$ hour is equal to $$$60$$$ minutes, $$$1$$$ minute is equal to $$$60$$$ seconds,
+and $$$1$$$ second is equal to $$$10^9$$$ nanoseconds.
+</p><p>
+For example, the clock depicted below is showing that the time is exactly $$$6$$$ hours
+and $$$30$$$ minutes after midnight. The hours hand (short black) is halfway between
+$$$6$$$ and $$$7$$$ (completed $$$6.5/12$$$ of a revolution),
+the minutes hand (long black) is pointing straight down because
+it has completed exactly $$$6$$$ and a half full revolutions and the seconds hand (red)
+is pointing straight up because it has completed an integer number of full revolutions.
+</p><p align=center>
+<img src="img/broken_clock_2.png" style="max-width: 300px;" alt="a clock showing 6:30">
+</p><p>
+Unfortunately, the hands are broken, so they all look identical and there is no way to know which hand
+is which. The clock in the picture above, with its hands broken, would look like this.
+</p><p align=center>
+<img src="img/broken_clock_2a.png" style="max-width: 300px;" alt="a clock showing 6:30 with all equal hands">
+</p><p>
+In addition, no markings remain that allow Emmett to know which way is up,
+so any rotation of the clock could be the correct one (the clock can only be rotated, not reflected).
+To continue with our example, the fully broken clock could look like this.
+</p><p align=center>
+<img src="img/broken_clock_2b.png" style="max-width: 300px;" alt="a clock showing 6:30 with all equal hands and rotated 45 degrees clockwise">
+</p><p>
+Emmett does know that the time was strictly
+before noon, that is, strictly less than $$$12$$$ hours after midnight. Emmett has taken a picture
+of the clock. Given that picture (represented by the angles of the hands relative to a single
+arbitrary axis), figure out what time it could correspond to.
+</p><p>
+Notice that Emmett has already figured out a viable orientation of the clock in some cases
+(Test Set 1) and has managed to narrow down the possible times to a whole integer number of seconds
+(Test Sets 1 and 2) or nanoseconds (Test Set 3). Please see the limits sections for more details.
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, $$$\mathbf{T}$$$. $$$\mathbf{T}$$$ lines follow.
+Each line describes a test case and contains three integers $$$\mathbf{A}$$$, $$$\mathbf{B}$$$, and $$$\mathbf{C}$$$: the angles of each hand,
+relative to an arbitrary axis and given in ticks in the clockwise direction. $$$1$$$ <i>tick</i>
+is equal to $$$1/12 \times 10^{-10}$$$ degrees. This means that the hours hand rotates exactly
+$$$1$$$ tick each nanosecond, the minutes hand rotates exactly $$$12$$$ ticks each nanosecond and
+the seconds hand rotates exactly $$$720$$$ ticks each nanosecond.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing
+<code>Case #$$$x$$$: $$$h$$$ $$$m$$$ $$$s$$$ $$$n$$$</code>,
+where $$$x$$$ is the test case number (starting from 1) and
+$$$h$$$, $$$m$$$, $$$s$$$, and $$$n$$$ are integers: $$$h$$$ is the number of full hours since
+midnight (between $$$0$$$ and $$$11$$$, inclusive),
+$$$m$$$ is the number of full minutes since the last full hour (between $$$0$$$ and $$$59$$$,
+inclusive), $$$s$$$ is the number of full seconds since the last full minute (between $$$0$$$
+and $$$59$$$, inclusive) and $$$n$$$ is the number of full nanoseconds since the
+last full second (between $$$0$$$ and $$$10^9-1$$$, inclusive).
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 30 seconds.<br/>
+Memory limit: 1 GB.<br/>
+
+$$$1 \le \mathbf{T} \le 100$$$.<br/>
+$$$0 \le \mathbf{A} \le \mathbf{B} \le \mathbf{C} \lt 360 \times 12 \times 10^{10}$$$.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+
+There is a time $$$t$$$ that corresponds to the input such that:
+<ul>
+  <li>$$$t$$$ is an integer number of seconds after midnight.</li>
+  <li>$$$t$$$ can be read from the input clock without rotating it.</li>
+</ul>
+</p>
+
+<h4>Test Set 2 (Visible Verdict)</h4>
+<p>
+
+There is a time that corresponds to the input and is an integer number of seconds after midnight.
+</p>
+
+<h4>Test Set 3 (Visible Verdict)</h4>
+<p>
+
+There is a time that corresponds to the input and is an integer number of nanoseconds after
+midnight.
+</p>
+
+
+  <h3>Sample</h3>
+  <i>
+    Note: there are additional samples that are not run on submissions down below.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="broken_clock_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+0 0 0
+0 21600000000000 23400000000000
+1476000000000 2160000000000 3723000000000
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="broken_clock_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 0 0 0 0
+Case #2: 6 30 0 0
+Case #3: 1 2 3 0
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+In Sample Case #1, all hands point up (as in the first picture below)
+which happens only exactly at midnight (as in the second picture below).
+</p><p align=center>
+<img src="img/broken_clock_1a.png" style="max-width: 300px;" alt="a clock showing midnight with all equal hands"> &nbsp; &nbsp; &nbsp;
+<img src="img/broken_clock_1.png" style="max-width: 300px;" alt="a clock showing midnight">
+</p><p>
+Sample Case #2 is the one pictured in the main part of the statement.
+The angles of the hands in degrees are $$$0$$$, $$$180$$$ and $$$195$$$. These
+angles can correspond to $$$6$$$&NoBreak;h $$$30$$$&NoBreak;m $$$0$$$&NoBreak;s without rotating the clock, as the
+pictures in the main part of the statement show. Notice however, that at
+$$$0$$$&NoBreak;h $$$30$$$&NoBreak;m $$$0$$$&NoBreak;s (pictured below), the clock looks
+the same but rotated 180 degrees.
+</p><p align=center>
+<img src="img/broken_clock_2_alt.png" style="max-width: 300px;" alt="a clock showing 0:30">
+</p><p>
+Even in Test Set 1,
+$$$0$$$&NoBreak;h $$$30$$$&NoBreak;m $$$0$$$&NoBreak;s would be a valid answer. The limit
+only says that there
+is one valid time that does not require rotating the clock, but times that work with rotation
+are also valid answers.
+</p><p>
+In Sample Case #3, the input represents the clock in the first picture below and the given output happens
+when interpreting the clock as in the second picture below.
+</p><p align=center>
+<img src="img/broken_clock_3a.png" style="max-width: 300px;" alt="a clock showing 01:02:03"> &nbsp; &nbsp; &nbsp;
+<img src="img/broken_clock_3.png" style="max-width: 300px;" alt="a clock showing 01:02:03 with all equal hands">
+</p>
+
+  <br/>
+  <h3>Additional Sample - Test Set 2</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 2. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="broken_clock_sample_ts2_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_1">3
+5400000000000 5400000000000 5400000000000
+10800000000000 32400000000000 34200000000000
+23076000000000 23760000000000 25323000000000
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="broken_clock_sample_ts2_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_1').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_1');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_1">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_1">Case #1: 0 0 0 0
+Case #2: 0 30 0 0
+Case #3: 1 2 3 0
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+Sample Cases in this test set are the same as in the previous one, but the clock is rotated by
+$$$45$$$, $$$90$$$, and $$$180$$$ degrees clockwise respectively, as shown below.
+</p><p align=center>
+<img src="img/broken_clock_1b.png" style="max-width: 300px;" alt="a clock showing midnight with all equal hands and rotated 45 degrees">
+<img src="img/broken_clock_2b.png" style="max-width: 300px;" alt="a clock showing 06:30:00 with all equal hands and rotated 90 degrees">
+<img src="img/broken_clock_3b.png" style="max-width: 300px;" alt="a clock showing 01:02:03 with all equal hands and rotated 180 degrees">
+</p>
+
+  <br/>
+  <h3>Additional Sample - Test Set 3</h3>
+  <i>
+    The following additional sample fits the limits of Test Set 3. It will not
+    be run against your submitted solutions.
+  </i>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="broken_clock_sample_ts3_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_2').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_2');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_2">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_2">1
+0 11 719
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="broken_clock_sample_ts3_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_2').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_2');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_2">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_2">Case #1: 0 0 0 1
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+As explained above, $$$1$$$ nanosecond after midnight the hands are moved
+by $$$1$$$, $$$12$$$, and $$$720$$$ ticks, respectively. If the clock is also rotated
+counter-clockwise by $$$1$$$ tick, the hand angles are exactly the ones given in the input.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - World Finals</h3><h1>Analysis: Paradox Sort</h1><p>
+<a href="https://www.youtube.com/watch?v=GYX3sn3Q_DQ&t=324m22s" target="_blank">Video of Igor Naverniouk’s explanation.</a>
+</p>
+
+<p>
+We can view the set of preferences as a directed graph.  We have a node in the graph for each candy, and if we prefer candy X over candy Y, then there is a directed edge from the node for X to the node for Y.
+</p>
+
+<p>
+We first describe a procedure to determine if we can find any valid permutation, then we describe a process to find the lexicographically smallest permutation.
+</p>
+
+<h3>
+Is a permutation possible?
+</h3>
+
+<p>
+To answer this question, we will use a depth-first search in the graph described above. We use A, the target candy, as the root of the search. A valid permutation exists if and only if we can visit <b>all</b> other candies from the root.  Otherwise, there is no valid permutation. Why is that?
+</p>
+<p>
+If all the candies are reached in the DFS, then we have a directed tree rooted at A containing all the nodes.  Then we can generate a valid permutation by printing the nodes using a <a href="http://en.wikipedia.org/wiki/Tree_traversal#Post-order" target="_blank">post-order traversal</a> of the tree (i.e. each node is placed in post-order in the permutation order).
+</p>
+<p>
+In that permutation, A is the last candy that Vlad will be offered, and Vlad will keep it. To see why this is true, consider the tree implied by the depth-first search. Let X be the candy Vlad is holding before receiving candy A. X must have been preferred to every candy between X and A in the post-order traversal. If X was not a child of A, then one of those candies must be X's parent in the tree, which Vlad would prefer over X. So X must be a child of candy A in the depth-first search, so he will prefer to keep A when offered it.
+</p>
+<p>
+We demonstrate this with an example for the following test case:
+</p>
+
+<pre>
+4 1
+-YNY
+N-YN
+YN-N
+NYY-
+</pre>
+
+<p>
+There are 4 candies, and the target candy is candy 1. The candy preferences are shown by directed edges in the figure below. The solid lines represent the tree the DFS found, while the dashed lines represent the edges that were not taken during the DFS.
+</p>
+
+<img src="paradox1.png"><br>
+
+
+<p>
+In the post-order traversal, we get the permutation (ordering) 3, 2, 4, 1, which is a valid permutation that leads to our target candy 1 being chosen in the end.
+</p>
+
+<p>
+Now we show that if there is a candy that we do not visit in the DFS, then there is no valid permutation. Let X be a candy that is not reached. Let Y be the candy that Vlad keeps after receiving candy X. Y is either X, or another candy which Vlad prefers to X, in which case there is a directed edge in the graph from Y to X. Y is not A, because there cannot be an edge from A to X, or X would have been visited in the depth-first traversal. Consider the list of unique candies that Vlad chooses to keep, in order of time. Assume that Vlad will end up with candy A. The list of kept candies must then end in A, and contain Y earlier in the list. In the sublist of candies between Y and A, Vlad prefers each candy to the one before it.  But this means there must be a directed path in the graph from A to X, which is impossible because X was not visited in the DFS. So Vlad cannot end up with candy A.
+</p>
+<p>
+Thus by using the depth-first traversal procedure, we can answer if the given input can form a valid permutation.
+</p>
+
+<p>
+In the following sections, we describe the procedure to generate the lexicographically-smallest permutation.
+</p>
+
+<h3>
+Checking for valid partial solutions
+</h3>
+
+<p>
+We will use a greedy strategy to find the lexicographically-smallest permutation. To help us with the greedy strategy, we discuss the case of a partial solution. We want to answer if we can generate a valid permutation from this partial list. In the partial list, the first few numbers (candies) of the lexicographically-smallest permutation have been selected, and one of those candies is the current “best” (preferred) candy B (which might be equal to A). We modify our graph by removing all the numbers (except B) that are already selected in the permutation.
+</p>
+
+<p>
+The goal is to answer if we can end up with A from the current partial solution. Trivially, if A is part of the set of removed numbers then it is impossible to generate a valid permutation (we can never end up with A from this state). But if A is not part of the removed set then there are two cases to consider: (i) B is <b>equal</b> to A, or (ii) B is <b>not equal</b> to A. If it is case (i), then A <b>must</b> be preferred over all remaining candies for us to end up with A, otherwise we can report that we cannot generate a valid permutation from this partial solution. Now, let us deal with the more complicated case (ii).
+</p>
+
+<p>
+First note that we cannot just use the idea proposed in the section “Is a permutation possible?”, i.e. pick A as the root, then do post-order depth-first traversal on the remaining nodes. The depth-first search might contain a path as follows: A-&gt;..-&gt;B-&gt;Y-&gt;Z (see figure below).  Then we can't use the post-order traversal, because B is already being held by Vlad, so Y and Z can't occur before it.
+</p>
+
+<img src="paradox2.png"><br>
+
+<p>
+Instead, we follow the following procedure:
+<ol>
+<li>
+Do the same depth-first search, but when visiting B, do not follow any edges out of B.
+</li>
+<li>
+Then, for each node X which was not visited by the DFS, and for which there is an edge from B to X, add X as a child of B.
+</li>
+</ol>
+</p>
+
+<p>
+If this succeeds in adding every node to the tree, then it is possible to complete the permutation, otherwise it is not.
+</p>
+
+<p>
+To construct the remainder of a permutation from this tree, we first append to the partial solution all the children of B that were added in step 2.  Vlad prefers B to each of these.  Then we remove B and its children from the tree, and append a post-order traversal of the remaining tree.  This results in A winning, for the same reasons as for the algorithm in the previous section for determining feasibility of the whole permutation.
+</p>
+
+</p>
+Also similarly to the previous section, we can show that if there is a node X which is not added to the tree by the above procedure, then Vlad cannot be left with A, or else there would be a path from A to X that would have allowed X to be added to the tree.
+</p>
+
+<h3>
+Finding the lexicographically-smallest permutation
+</h3>
+
+<p>
+We described above a method to determine if we can generate a valid permutation from a given partial solution.
+Using this idea, we give an algorithm that provides us with the lexicographically-smallest permutation.
+</p>
+
+<p>
+We start with an empty prefix of the permutation, then iteratively add the lexicographically smallest candy that leads to a valid prefix.
+It reports a partial solution as impossible if no candy can be added to the partial solution leading to a valid solution. This algorithm is outlined in the pseudocode below:
+</p>
+
+<pre>
+Let P = []  // The partial solution
+
+If !IsValidPartialSolution(P)
+  return IMPOSSIBLE
+
+Repeat N times
+  For i = 1 to N
+    // Test if appending i to P gives a valid partial solution
+    If P.contains(i) is false
+      If IsValidPartialSolution(P + [i]) is true
+        P = P + [i]
+        Break
+
+Return P
+</pre>
+
+<p>
+Sample implementation in Python 3:
+</p>
+
+<pre>
+def dfs(i, removed, visited):
+  visited.add(i)
+  for j in range(len(prefer[i])):
+    if prefer[i][j] == 'Y':
+      if j not in visited and j not in removed:
+        dfs(j, removed, visited)
+
+
+def valid(partial):
+  B = partial[0]
+  for i in partial:
+    if prefer[i][B] == 'Y':
+      B = i
+
+  removed = set(partial)
+  removed.remove(B)
+
+  # Trivial case.
+  if A in removed: return False
+
+  # Case (i)
+  if A == B:
+    for i in range(N):
+      if i != A and i not in removed:
+        if prefer[A][i] != 'Y':
+          return False
+    return True
+
+  # Case (ii)
+  visited = set([B])
+  dfs(A, removed, visited)
+  for i in range(len(prefer[B])):
+    if prefer[B][i] == 'Y':
+      visited.add(i)
+  return len(visited.union(removed)) == N
+
+
+def solve():
+  visited = set()
+  dfs(A, set(), visited)
+  if len(visited) != N: return "IMPOSSIBLE"
+
+  partial = []
+  for i in range(N):
+    for j in range(N):
+      if j not in partial and valid(partial + [j]):
+        partial = partial + [j]
+        break
+  return ' '.join(map(str, partial))
+
+
+for tc in range(int(input())):
+  [N, A] = map(int, input().split())
+  prefer = []
+  for i in range(N):
+    prefer.append(input())
+  print("Case #%d: %s" % (tc + 1, solve()))
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

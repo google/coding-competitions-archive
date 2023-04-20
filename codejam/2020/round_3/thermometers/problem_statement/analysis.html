@@ -1,0 +1,605 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 3</h3><h1>Analysis: Thermometers</h1><h3>
+  Test Set 1
+</h3>
+<p>
+  First of all, notice that <b>X<sub>i</sub></b> splits the circle into a sequence of segments, so
+  that throughout each segment, the temperature of all the points is the same. Let's say that the
+  i-th segment is the segment which starts at <b>X<sub>i</sub></b> and goes clockwise. We will use
+  d<sub>i</sub> as the length of the i-th segment. Also note that per the problem statement, there
+  are no adjacent segments with the same temperature, so we can safely ignore the actual
+  temperatures <b>T<sub>i</sub></b>.
+</p>
+<p>
+  We can make the following observations:
+</p>
+<ul>
+  <li>
+    We never need more than two thermometers on each segment, as a thermometer put in between two
+    others on the same segment will not cover any points which are not already covered by the
+    original two.
+  </li>
+  <li>
+    In an optimal answer, we should never have two adjacent segments with 2 thermometers each. If
+    we have two adjacent segments with 2 thermometers in each, we can simply "push" the middle 2
+    thermometers outwards until at least one of them runs into the other thermometer in their
+    segment, which reduces the total number of thermometers by at least one.
+  </li>
+  <li>
+    The adjacent thermometers on different adjacent segments need to be equidistant from the common
+    point of those segments. Otherwise, the temperature of some points between these thermometers
+    will be incorrect.
+  </li>
+  <li>
+    The thermometers in an optimal answer can always be put in integer or half-integer positions.
+    If we have an answer in which that is not the case, we can "push" the thermometers until they
+    reach integer or half-integer positions.
+  </li>
+</ul>
+<p>
+  Given these observations, and the low limits in Test Set 1, we can iterate through all possible
+  configurations and choose the one that gives the best answer.
+</p>
+<h3>
+  Test Set 2
+</h3>
+<p>
+  Note that if we know the position of a thermometer on segment A that is closest to an adjacent
+  segment B, we can calculate the anticipated position of a thermometer on B. To do so, we need
+  to "mirror" the known position over the common point of the segments. If the mirrored position
+  doesn't belong to the segment B, then it is not possible for segment A to have the closest
+  thermometer at this position.
+</p>
+<p>
+  First, let's assume that the answer is greater than <b>N</b>. We can apply the following greedy
+  strategy to find the optimal answer (we will show below that it actually works).
+</p>
+<p>
+  Let's start with some segment A and assume that this is the only segment. We can put a thermometer
+  at any point of A (except the endpoints, per the problem statement) and it will cover the whole
+  segment. So the <i>interval</i> of valid positions on A is the whole segment. Now, let's consider
+  an adjacent segment B and see how we can put the thermometers on both segments, so that only two
+  thermometers are used. We can mirror the interval of valid positions in A over the common point
+  of these segments. The interval of valid positions in B is the intersection of the mirrored
+  segment and B. We will refer to this operation as <i>propagation</i>.
+</p>
+<p>
+  We can continue propagating this interval through as many segments as possible and stop if the
+  propagated interval would be empty. If we propagate the last interval back to A through all the
+  intermediate segments, this will give us valid positions for the thermometers to cover all these
+  segments with one thermometer per segment.
+</p>
+<p>
+  As we cannot propagate the current interval anymore, we can define a new interval of valid
+  positions on the current segment, taking into account the old one, effectively putting two
+  thermometers on this segment, and repeat the process again. Once we reach segment A, we should
+  verify that the last interval begins before the first interval ends, so that we could put two
+  thermometers on segment A.
+</p>
+<p>
+  The answer will be <b>N</b> (as we have to put at least one thermometer on each segment) plus the
+  number of times we had to start with the new interval, effectively putting two thermometers on
+  the corresponding segment. We can try all segments as the starting one and choose the best
+  answer. Again, the proof that this always works is given below.
+</p>
+<p>
+  Now let's see how to handle the case of the answer being equal to <b>N</b>, when we put exactly
+  one thermometer on each segment. If we assume that z<sub>i</sub> is the position of a thermometer
+  on segment i, measured from the segment's beginning (point <b>X<sub>i</sub></b>), then, we can
+  calculate the other positions as follows:
+</p>
+<p>
+  z<sub>2</sub> = d<sub>1</sub> - z<sub>1</sub>
+</p>
+<p>
+  z<sub>3</sub> = d<sub>2</sub> - z<sub>2</sub> = d<sub>2</sub> - d<sub>1</sub> - z<sub>1</sub>
+</p>
+<p>
+  ...
+</p>
+<p>
+  z<sub><b>N</b></sub> = d<sub><b>N</b>-1</sub> - z<sub><b>N</b>-1</sub> = d<sub><b>N</b>-1</sub> -
+  d<sub><b>N</b>-2</sub> + d<sub><b>N</b>-3</sub> - ... +/- z<sub>1</sub>
+</p>
+<p>
+  z<sub>1</sub> = d<sub><b>N</b></sub> - z<sub><b>N</b></sub> = d<sub><b>N</b></sub> -
+  d<sub><b>N</b>-1</sub> + d<sub><b>N</b>-2</sub> - d<sub><b>N</b>-3</sub> + ... +/- z<sub>1</sub>
+</p>
+<p>
+  These equations give us a quick test for whether the answer could be <b>N</b>.
+</p>
+<p>
+  In case <b>N</b> is even:
+</p>
+<p>
+  z<sub>1</sub> = d<sub><b>N</b></sub> - d<sub><b>N</b>-1</sub> + d<sub><b>N</b>-2</sub> -
+  d<sub><b>N</b>-3</sub> + ... - d<sub>1</sub> + z<sub>1</sub>, or, subtracting z<sub>1</sub> from
+  both sides:
+</p>
+<p>
+  0 = d<sub><b>N</b></sub> - d<sub><b>N</b>-1</sub> + d<sub><b>N</b>-2</sub> -
+  d<sub><b>N</b>-3</sub> + ... - d<sub>1</sub>
+</p>
+<p>
+  As long as the above holds, any z<sub>1</sub> will satisfy the equation. The caveat here is that
+  some of the z<sub>i</sub>s may not be inside of the corresponding segments. So we need to verify
+  that we can do the same propagation as we did earlier, and reach the first segment without adding
+  the second thermometer on any segment. If we can do so, then the answer is <b>N</b>.
+</p>
+<p>
+  In case <b>N</b> is odd:
+</p>
+<p>
+  z<sub>1</sub> = d<sub><b>N</b></sub> - d<sub><b>N</b>-1</sub> + d<sub><b>N</b>-2</sub> -
+  d<sub><b>N</b>-3</sub> + ... + d<sub>1</sub> - z<sub>1</sub>, or, adding z<sub>1</sub> to both
+  sides:
+</p>
+<p>
+  2z<sub>1</sub> = d<sub><b>N</b></sub> - d<sub><b>N</b>-1</sub> + d<sub><b>N</b>-2</sub> -
+  d<sub><b>N</b>-3</sub> + ... + d<sub>1</sub>
+</p>
+<p>
+  In this case, there is exactly one value for z<sub>1</sub>. As in the previous case, we need to
+  verify that this value produces a valid set of positions, and we can do this by propagating
+  z<sub>1</sub> through all the segments. If we can do so, then the answer is <b>N</b>.
+</p>
+<p>
+  Propagating an interval through all segments is O(<b>N</b>), and we do this at most once to check
+  <b>N</b> as an answer, and do this <b>N</b> times if the answer is not <b>N</b>. This gives us
+  O(<b>N</b><sup>2</sup>) running time.
+</p>
+<p>
+  <b>Proof of greedy solution</b>
+</p>
+<p>
+  Here is an image which roughly describes the steps in the proof below:
+</p>
+<p style="text-align:center">
+  <img src="images/proof.svg" />
+</p>
+<p>
+  We will concentrate on the case when the answer is greater than <b>N</b>, since for the case of
+  <b>N</b> the solution is constructive.
+</p>
+<p>
+  Let's define a few additional terms.
+</p>
+<p>
+  A <i>chain</i> is a sequence of adjacent segments, where there is some placement of thermometers
+  such that each segment can be covered by one thermometer, except for the first and the last
+  ones, each of which requires two thermometers. Note that it is possible that a chain covers the
+  whole circle, starting in some segment, wrapping around the whole circle, and ending at the same
+  segment.
+</p>
+<p>
+  A <i>maximum chain</i> is a chain that cannot be extended clockwise by adding the next segment
+  because it is not possible to place the thermometers (as per the definition of a chain) to cover
+  such a chain.
+</p>
+<p>
+  Two chains are <i>consecutive</i> if the last segment of one chain is the first segment of the
+  other chain. Note that on the common segment, we will have to use two thermometers.
+</p>
+<p>
+  A <i>valid sequence of chains</i> is a sequence of consecutive chains containing all the given
+  segments.
+</p>
+<p>
+  Note that any valid positioning of the thermometers is a valid sequence of chains, and the number
+  of thermometers there is <b>N</b> plus the number of chains. The optimal answer is achieved in
+  the positioning requiring the smallest number of chains.
+</p>
+<p>
+  <i>Lemma 1.</i> If we have a valid sequence of chains and the first chain is not a <i>maximum
+  chain</i>, we can take some segments from the next chain(s) and attach them to this one until it
+  becomes maximum, while keeping the sequence valid and not increasing the total number of chains.
+</p>
+<div style="padding-left:2em">
+  <p>
+    <u>Proof</u>
+  </p>
+  <p>
+    Let's add a few more terms to our vocabulary.
+  </p>
+  <p>
+    The <i>position of a thermometer</i> on the i-th segment is the distance between the
+    thermometer and <b>X<sub>i</sub></b>.
+  </p>
+  <p>
+    A <i>chain flexibility interval</i> is a set of valid thermometer positions on a segment of a
+    chain, which can be correctly propagated through the whole chain. Note that it is always a
+    subsegment (maybe of length 0) of a segment.
+  </p>
+  <p>
+    The <i>first and last flexibility interval of a chain</i> are the instances of the chain
+    flexibility interval on the first and last segment of the chain accordingly.
+  </p>
+  <p>
+    We can now redefine a valid sequence of chains as a sequence of consecutive chains, containing
+    all the segments, such that on every segment connecting two chains, if (x<sub>last</sub>,
+    y<sub>last</sub>) and (x<sub>first</sub>, y<sub>first</sub>) are the last and first
+    flexibility intervals of these chains, then x<sub>last</sub> &le; y<sub>first</sub>.
+  </p>
+  <p>
+    Now let's consider the first and second chains in some configuration:
+  </p>
+  <ul>
+    <li>
+      a, b and c are the lengths of the first, second and the third segments (if any) of the second
+      chain. Note that a is also the last segment of the first chain.
+    </li>
+    <li>
+      (x<sub>1</sub>, y<sub>1</sub>) - last flexibility interval of the first chain (on segment a).
+    </li>
+    <li>
+      (x<sub>2</sub>, y<sub>2</sub>) - first flexibility interval of the second chain (also on
+      segment a).
+    </li>
+  </ul>
+  <p>
+    For clarity:
+  </p>
+  <ul>
+    <li>
+      x<sub>1</sub> &le; y<sub>2</sub> by the definition of a valid sequence of chains.
+    </li>
+    <li>
+      (a - y<sub>2</sub>, a - x<sub>2</sub>) - second flexibility interval of the second chain (on
+      segment b).
+    </li>
+  </ul>
+  <p>
+    Let's connect segment b to the first chain. Then:
+  </p>
+  <ul>
+    <li>
+      The last flexibility interval of the first chain will be mirrored to segment b and becomes (a
+      - y1, min(b, a - x1)).
+    </li>
+    <li>
+      The second flexibility interval of the second chain will become the first one, and in the
+      worst case will be (a - y2, a - x2) (in other cases it will grow and will contain this
+      interval fully).
+    </li>
+  </ul>
+  <p>
+    First, let's consider the case where the initial flexibility intervals of the chains are
+    intersecting (x<sub>2</sub> &le; y<sub>2</sub>). In this case the new configuration is valid,
+    as a - y<sub>1</sub> &le; a - x<sub>2</sub>, so we can go on to try the next segment if
+    possible.
+  </p>
+  <p>
+    Otherwise, if the original flexibility intervals were not intersecting (x<sub>2</sub> &gt;
+    y<sub>1</sub>), then the new configuration is not valid. Again, the new flexibility intervals
+    will be (a - y<sub>2</sub>, a - x<sub>2</sub>) and (a - y<sub>1</sub>, min(b, a -
+    x<sub>1</sub>)), they will not intersect, and the first flexibility interval of the second
+    chain will come before the last flexibility interval of the first chain (this is why the
+    configuration is invalid).
+  </p>
+  <p>
+    However, we can notice that because (a - y<sub>2</sub>, a - x<sub>2</sub>) belongs to the second
+    chain, it could be successfully propagated to the next segment (c) by definition. But, because
+    (a - y<sub>1</sub>, min(b, a - x<sub>1</sub>)) is even closer to the segment border, we must be
+    able to propagate it as well. This means that we can also attach the next segment to the
+    first chain:
+  </p>
+  <ul>
+    <li>
+      The first flexibility interval of the second chain becomes (b - (a - x<sub>2</sub>), b - (a -
+      y<sub>2</sub>))
+    </li>
+    <li>
+      The last flexibility interval of the first chain will be (b - min(b, a - x<sub>1</sub>),
+      min(c, b - (a - y<sub>1</sub>)))
+    </li>
+  </ul>
+  <p>
+    Now the configuration is valid, because b - min(b, a - x<sub>1</sub>) &le; b - (a -
+    y<sub>2</sub>), and x<sub>1</sub> &le; y<sub>2</sub> by definition.
+  </p>
+  <p>
+    What if we don't have a second segment to attach? Then we won't be able to attach the first
+    one either, since the flexibility intervals were not intersecting, and the flexibility interval
+    of a single segment is the whole segment.
+  </p>
+</div>
+<p>
+  <i>Lemma 2.</i> An optimal answer can always be achieved with a sequence of maximum chains and one
+  potentially non-maximum chain.
+</p>
+<div style="padding-left:2em">
+  <p>
+    <u>Proof</u>
+  </p>
+  <p>
+    Let's consider the first chain of an optimal answer. Let's attach segments from the next chain
+    while we can (we are allowed to do so by Lemma 1). Repeat with the next chain, and so on.
+    When we reach the last chain, leave it alone. Now all the chains except for the last one are
+    maximum, and the last one can be either maximum or not.
+  </p>
+</div>
+<p>
+  The solution described above is building all possible sequences mentioned in Lemma 2, and by that
+  lemma, some of them will be optimal.
+</p>
+<p>
+  Note that our proof has not dealt with small chains properly&mdash;that is, chains of length 1, 2
+  and 3 may not work properly in the proof above, but they are easy to deal with independently as
+  special cases.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

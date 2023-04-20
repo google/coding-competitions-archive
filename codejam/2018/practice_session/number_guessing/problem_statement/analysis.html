@@ -1,0 +1,643 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Practice Session</h3><h1>Analysis: Number Guessing</h1><h3>Test set 1</h3>
+<p>
+  Since <b>A</b> = 0 and <b>B</b> = 30 in this test set, and since we get <b>N</b> = 30 tries per
+  test case, we can simply guess every number from 1 to 30 until the judge sends back
+  <code>CORRECT</code>.
+</p>
+<h3>Test set 2</h3>
+<p>
+  In test set 2, since the answer could be anywhere in the range (0, 10<sup>9</sup>] and we still
+  have only 30 guesses, we will use binary search.
+</p>
+<p>
+  Initially, we know the answer P is in [1, 10<sup>9</sup>], which is a big range! To cut that range
+  by half, our first guess will be (1 + 10<sup>9</sup>) / 2 = 5&times;10<sup>8</sup>. If the judge
+  sends back <code>TOO_SMALL</code>, we will know that P is in [1, 5&times;10<sup>8</sup>).
+  Similarly, if the judge sends back <code>TOO_BIG</code>, P is in
+  (5&times;10<sup>8</sup>, 10<sup>9</sup>]. Otherwise, P is 5&times;10<sup>8</sup> and we are done.
+</p>
+<p>
+  We will cut that range further by making our next guess the middle number in that range.
+  Again, based on the judge response that we get, we will know that either we have guessed P
+  correctly, or P is in the upper or lower half of the range. We will do this repeatedly, until
+  <code>CORRECT</code> is received.
+</p>
+<p>
+  Each time we make a wrong guess, the range that we must examine next will always be at most half
+  the size of our previous range. So, it will take at most log<sub>2</sub>10<sup>9</sup> = 29.897353
+  &lt; 30 tries to guess P correctly.
+</p>
+
+<h3>Sample Solutions</h3>
+<p>
+  This problem was intended as an opportunity to get used to our interactive judges. Here are
+  some example solutions in all languages that we support so far:
+</p>
+<h4><b>Bash:</b></h4>
+<pre><code>read t
+for p in $(seq 1 $t); do
+  read -a line
+  a=${line[0]}
+  b=${line[1]}
+  read n
+  head=$(( a+1 ))
+  tail=$b
+  while true; do
+    mid=$(( (head+tail)/2 ))
+    echo $mid
+    read s
+    if [[ "$s" == "CORRECT" ]]; then
+      break
+    elif [[ "$s" == "TOO_BIG" ]]; then
+      tail=$(( mid - 1 ))
+    elif [[ "$s" == "TOO_SMALL" ]]; then
+      head=$(( mid + 1 ))
+    else
+      # Wrong answer; exit to receive Wrong Answer judgment
+      exit 0
+    fi
+  done
+done
+
+</code></pre>
+<h4><b>C:</b></h4>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+  int T; scanf("%d", &T);
+
+  for (int id = 1; id <= T; ++id) {
+    int A, B, N, done = 0;
+    scanf("%d %d %d", &A, &B, &N);
+    for (++A; !done;) {
+      int mid = A + B >> 1;
+      char result[32];
+      printf("%d\n", mid);
+      fflush(stdout);
+      scanf("%s", result);
+      if (!strcmp(result, "CORRECT")) done = 1;
+      else if (!strcmp(result, "TOO_SMALL")) A = mid + 1;
+      else B = mid - 1;
+    }
+  }
+  return 0;
+}
+
+</code></pre>
+<h4><b>C#:</b></h4>
+<pre><code>using System;
+
+public class Solution
+{
+  static public void Main ()
+  {
+    int num_test_cases = Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < num_test_cases; ++i) {
+      string[] lo_hi_s = Console.ReadLine().Split(' ');
+      int[] lo_hi = Array.ConvertAll(lo_hi_s, int.Parse);
+      int num_tries = Convert.ToInt32(Console.ReadLine());
+      int head = lo_hi[0] + 1, tail = lo_hi[1];
+      while (true) {
+        int m = (head + tail) / 2;
+        Console.WriteLine (m);
+        string s = Console.ReadLine();
+        if (s == "CORRECT") break;
+        if (s == "TOO_SMALL")
+        {
+          head = m + 1;
+        }
+        else
+        {
+          tail = m - 1;
+        }
+      }
+    }
+  }
+}
+
+</code></pre>
+<h4><b>C++:</b></h4>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+  int num_test_cases;
+  std::cin >> num_test_cases;
+  for (int i = 0; i < num_test_cases; ++i) {
+    int lo, hi;
+    std::cin >> lo >> hi;
+    int num_tries;
+    std::cin >> num_tries;
+    int head = lo + 1, tail = hi;
+    while (true) {
+      int m = (head + tail) / 2;
+      std::cout << m << std::endl;
+      std::string s;
+      std::cin >> s;
+      if (s == "CORRECT") break;
+      if (s == "TOO_SMALL")
+        head = m + 1;
+      else
+        tail = m - 1;
+    }
+  }
+  return 0;
+}
+
+</code></pre>
+<h4><b>Go:</b></h4>
+<pre><code>package main
+
+import (
+  "fmt"
+  "strings"
+)
+
+func main() {
+  var t int
+  fmt.Scanf("%d", &t)
+  for i := 1; i <= t; i++ {
+    var a, b, n int
+    fmt.Scanf("%d %d", &a, &b)
+    a = a + 1
+    fmt.Scanf("%d", &n)
+    for {
+      m := (a + b) / 2
+      fmt.Println(m)
+      var str string
+      fmt.Scanf("%s", &str)
+      if strings.EqualFold(str, "CORRECT") {
+        break
+      } else if strings.EqualFold(str, "TOO_SMALL") {
+        a = m + 1
+      } else if strings.EqualFold(str, "TOO_BIG") {
+        b = m - 1
+      }
+    }
+  }
+}
+
+</code></pre>
+<h4><b>Haskell:</b></h4>
+<pre><code>import System.IO
+
+getNum :: IO Int
+getNum = do
+    x <- getLine
+    let n = read x :: Int
+    return n
+
+bisect :: Int -> Int -> Int -> String -> IO ()
+bisect a b m "CORRECT" = return ()
+bisect a b m "TOO_SMALL" = singleCase (m+1) b
+bisect a b m "TOO_BIG" = singleCase a (m-1)
+
+query :: Int -> IO String
+query m = do
+    putStrLn ( show m )
+    hFlush stdout
+    x <- getLine
+    return x
+
+singleCase :: Int -> Int -> IO ()
+singleCase a b = do
+    let m = (a+b) $$$\mathbf{div}$$$ 2
+    response <- query m
+    bisect a b m response
+    return ()
+
+solve :: Int -> IO ()
+solve 0 = return ()
+solve n = do
+    [a, b] <- fmap(map read.words)getLine
+    _ <- getNum
+    singleCase (a+1) b
+    solve (n-1)
+
+main = do
+    hSetBuffering stdout NoBuffering
+    t <- getNum
+    solve t
+
+</code></pre>
+<h4><b>Java:</b></h4>
+<pre><code>import java.util.Scanner;
+
+public class Solution {
+  public static void solve(Scanner input, int a, int b) {
+    int m = (a + b) / 2;
+    System.out.println(m);
+    String s = input.next();
+    if (s.equals("CORRECT")) {
+      return;
+    } else if (s.equals("TOO_SMALL")) {
+      solve(input, m + 1, b);
+    } else {
+      solve(input, a, m - 1);
+    }
+  }
+
+  public static void main(String args[]) {
+    Scanner input = new Scanner(System.in);
+    int T = input.nextInt();
+    for (int ks = 1; ks <= T; ks++) {
+      int a = input.nextInt();
+      int b = input.nextInt();
+      int n = input.nextInt();
+      solve(input, a + 1, b);
+    }
+  }
+}
+
+</code></pre>
+<h4><b>JavaScript:</b></h4>
+<pre><code>var readline = require('readline');
+var rl = readline.createInterface(process.stdin, process.stdout);
+
+expect = 'begin';
+rl.on('line', function(line) {
+  if (expect === 'begin') {
+    num_test_cases = parseInt(line);
+    expect = 'lo_hi';
+    case_counter = 0;
+  } else if (expect === 'lo_hi') {
+    lo_hi = line.split(' ');
+    head = parseInt(lo_hi[0]) + 1;
+    tail = parseInt(lo_hi[1]);
+    expect = 'num_tries';
+  } else if (expect === 'num_tries') {
+    num_tries = line; // not used.
+    expect = 'solve';
+    mid = parseInt((head + tail) / 2);
+    console.log(mid);
+  } else if (expect === 'solve') {
+    if (line === 'CORRECT') {
+      ++case_counter === num_test_cases ? rl.close() : 0;
+      expect = 'lo_hi';
+    } else {
+      line === 'TOO_SMALL' ? head = mid + 1 : tail = mid - 1;
+      mid = parseInt((head + tail) / 2);
+      console.log(mid);
+    }
+  }
+}).on('close',function(){
+    process.exit(0);
+});
+
+</code></pre>
+<h4><b>PHP:</b></h4>
+<pre><code>&lt;?php
+
+function solve($a, $b) {
+  $m = ($a + $b) / 2;
+  printf("%d\n", $m);
+  fscanf(STDIN, "%s", $s);
+  if (strcmp($s, "CORRECT") == 0) {
+    return;
+  } else if (strcmp($s, "TOO_SMALL") == 0) {
+    $a = $m + 1;
+  } else {
+    $b = $m - 1;
+  }
+  solve($a, $b);
+}
+
+fscanf(STDIN, "%d", $t);
+for ($ks = 0; $ks < $t; $ks++) {
+  fscanf(STDIN, "%d %d", $a, $b);
+  fscanf(STDIN, "%d", $n);
+  solve($a + 1, $b);
+}
+?>
+
+</code></pre>
+<h4><b>Python2:</b></h4>
+<pre><code>import sys
+
+def solve(a, b):
+  m = (a + b) / 2
+  print m
+  sys.stdout.flush()
+  s = raw_input()
+  if s == "CORRECT":
+    return
+  elif s == "TOO_SMALL":
+    a = m + 1
+  else:
+    b = m - 1
+  solve(a, b)
+
+T = input()
+for _ in xrange(T):
+  a, b = map(int, raw_input().split())
+  _ = input()
+  solve(a + 1, b)
+
+</code></pre>
+<h4><b>Python3:</b></h4>
+<pre><code>import sys
+
+def solve(a, b):
+  m = (a + b) // 2
+  print(m)
+  sys.stdout.flush()
+  s = input()
+  if s == "CORRECT":
+    return
+  elif s == "TOO_SMALL":
+    a = m + 1
+  else:
+    b = m - 1
+  solve(a, b)
+
+T = int(input())
+for _ in range(T):
+  a, b = map(int, input().split())
+  _ = int(input())
+  solve(a + 1, b)
+
+</code></pre>
+<h4><b>Ruby:</b></h4>
+<pre><code>$stdout.sync = true
+
+def solve(a, b)
+  m = (a + b) / 2
+  puts m
+  $stdout.flush
+  s = STDIN.gets.chomp
+  if s.eql? "CORRECT"
+    return
+  elsif s.eql? "TOO_SMALL"
+    solve(m + 1, b)
+  else
+    solve(a, m - 1)
+  end
+end
+
+t = STDIN.gets.chomp.to_i
+ks = 1
+while ks <= t
+  a, b = STDIN.gets.split.map &:to_i;
+  n = STDIN.gets.chomp.to_i
+  solve(a + 1, b)
+  ks = ks + 1
+end
+</code></pre>
+
+    </div>
+  </body>
+</html>

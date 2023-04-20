@@ -1,0 +1,410 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 1B</h3><h1>Analysis: Mysterious Road Signs</h1><h3>Test Set 1 (Visible)</h3>
+<p>
+  First, let's break down what the problem is asking us to find. We are asked to identify sets of
+  contiguous signs, where each set is defined by four variables:
+</p>
+<ol>
+  <li>The index of the first sign in the set, <i>i</i> (inclusive)</li>
+  <li>The index of the last sign in the set, <i>j</i> (exclusive)</li>
+  <li>The destination for eastbound travelers, <i>M</i></li>
+  <li>The destination for westbound travelers, <i>N</i></li>
+</ol>
+<p>
+  In order for a set to be valid, each sign in the set must be truthful to eastbound travelers,
+  westbound travelers, or both. Given the four variables above, we can evaluate a set of signs for
+  validity in O(<em>j</em>&ndash;<em>i</em>) time. We can bound the number of possible values for
+  <i>M</i> and <i>N</i> by <b>S</b> by taking the set of all westbound or eastbound destinations
+  displayed by at least one sign. Since <em>i</em> and <em>j</em> are also bounded by <b>S</b>, we
+  would need O(<b>S</b><sup>5</sup>) time for this solution, which is not sufficient for Test Set 1.
+</p>
+<p>
+  To improve our brute-force solution, we can be more clever with how we pick <i>M</i> and <i>N</i>.
+  The first sign in a set tells us a lot of information: namely, it defines what either <i>M</i> or
+  <i>N</i> must be (one of the two destinations on the sign, or else the sign wouldn't be able to be
+  in the set). Suppose we fix <i>M</i> based on the first sign. Now, we can walk through the rest of
+  the signs in the set until we find a sign whose eastbound destination is not <i>M</i>; use that
+  sign's westbound destination as <i>N</i>. Continue walking until we reach a sign that does not
+  share either <i>M</i> or <i>N</i>, in which case the set is invalid, or until we reach the end of
+  the set, in which case the set is valid. We can perform the analogous process by fixing <i>N</i>
+  based on the first sign. This &ldquo;two-pass&rdquo; set evaluation algorithm runs in O(<b>S</b>)
+  time, since sets have size O(<b>S</b>).
+</p>
+<p>
+  Since there are O(<b>S</b><sup>2</sup>) sets of signs and we can evaluate each set for validity in
+  O(<b>S</b>) time, we have a O(<b>S</b><sup>3</sup>) algorithm, which is fast enough for Test Set
+  1.
+</p>
+<h3>Test Set 2 (Hidden)</h3>
+<p>
+  Clearly the cubic solution won't work on Test Set 2. It turns out that a quadratic solution coded
+  in a fast language with a sufficient amount of pruning can pass Test Set 2. However, in this
+  analysis, we will describe a O(<b>S</b> log <b>S</b>) solution followed by a linear-time
+  O(<b>S</b>) solution, both of which comfortably finish in time when evaluating Test Set 2.
+</p>
+<p>
+  The O(<b>S</b> log <b>S</b>) solution is a classic application of
+  <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm">divide and conquer</a>.
+  Cut the list of signs in half, except for a single sign at the center, which we will call the
+  &ldquo;midpoint&rdquo; sign. Recursively apply the algorithm to the western half and the eastern
+  half of signs. Then, use a modified version of the previously described two-pass algorithm to find
+  the best set containing the midpoint: first, fix <i>M</i> to the midpoint's eastbound destination.
+  Since we are looking for long segments, we can greedily add as many signs to the set as possible.
+  Walk the list of signs both westward and eastward until reaching a sign on each end that does not
+  share the same eastbound destination (<i>M</i> value) with the midpoint. Let <i>N</i><sub>1</sub>
+  equal the westbound destination of the western boundary (the first sign to the west that did not
+  match <i>M</i>) and let <i>N</i><sub>2</sub> equal the westbound destination of the eastern
+  boundary (the firsts sign to the east that did not match <i>M</i>). Find <i>M</i><sub>1</sub> and
+  <i>M</i><sub>2</sub> using an analogous procedure: return to the midpoint, walk westward and
+  eastward until reaching signs that do not share a westbound destination (<i>N</i> value) with the
+  midpoint, and let <i>M</i><sub>1</sub> and <i>M</i><sub>2</sub> be the eastbound destination of
+  the signs at the western boundary and eastern boundary, respectively. We now have four possible
+  M/N pairs: (<i>M</i>, <i>N</i><sub>1</sub>), (<i>M</i>, <i>N</i><sub>2</sub>),
+  (<i>M</i><sub>1</sub>, <i>N</i>), and (<i>M</i><sub>2</sub>, <i>N</i>). We can greedily walk east
+  and west from the midpoint with each of the four pairs to find the longest set containing the
+  midpoint. This &ldquo;four-pass&rdquo; step for D&amp;C runs in linear time. Now that we have
+  found the longest set(s) containing the midpoint as well as (recursively) the longest sets from
+  the western and eastern halves of signs, we can combine these results to get the longest sets for
+  the whole dataset. This yields an algorithm requiring T(<b>S</b>) operations to compute an input
+  of size <b>S</b>, for a function T that satisfies T(<b>S</b>) = 2T(<b>S</b>/2) + O(<b>S</b>).
+  Using the
+  <a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Master Theorem</a>
+  we get that T(<b>S</b>) = O(<b>S</b> log <b>S</b>).
+</p>
+<p>
+  The linear-time solution does a single pass, identifying all possible long segments. Start by
+  walking forward from the first sign. Maintain two &ldquo;candidates&rdquo;, called the
+  &ldquo;M-candidate&rdquo; and the &ldquo;N-candidate&rdquo;, with the following properties:
+</p>
+<ul>
+  <li>Two destinations <i>M</i> and <i>N</i>.</li>
+  <li>An index <i>start</i> corresponding to the westernmost sign in the contiguous segment of signs
+    that includes the current sign and that satisfies <i>M</i> or <i>N</i>.</li>
+  <li>An index <i>xstart</i> corresponding to the westernmost sign in the contiguous segment of
+    signs that includes the current sign and whose eastbound destinations are all <i>M</i> (for the
+    M-candidate) or whose westbound destinations are all <i>N</i> (for the N-candidate).</li>
+</ul>
+<p>
+  With these invariants, the set of signs starting at <i>start</i> and ending after the current
+  index is guaranteed to be a valid set.
+</p>
+<p>
+  To maintain the invariants when reading a new sign, we can use the following procedure to create
+  the new the M-candidate (the procedure for creating the new N-candidate is analogous):
+</p>
+<ul>
+  <li>If new sign's eastbound destination equals previous sign's eastbound destination, copy the
+    previous M-candidate to become the new M-candidate.</li>
+  <li>If the new sign's eastbound destination equals the previous N-candidate's <i>M</i> value, copy
+    the previous N-candidate to become the new M-candidate, and set <i>xstart</i> to the new sign's
+    index.</li>
+  <li>Otherwise, copy the previous N-candidate to become the new M-candidate, set <i>M</i> to the
+    new sign's eastbound destination, set <i>start</i> to <i>xstart</i>, and set <i>xstart</i> to
+    the new sign's index.</li>
+</ul>
+<p>
+  Consider the following illustration:
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" style="max-width: 450px" viewBox="0 0 450 200"><defs><style>.a{font-size:15px;font-family:DejaVuSans, DejaVu Sans;}.b{fill:#29abe2;}.b,.d{stroke:#000;stroke-miterlimit:10;stroke-width:2px;}.c{font-size:20px;font-family:DejaVuSansCondensed-Bold, DejaVu Sans;font-weight:700;}.d{fill:none;}.e{font-size:14px;font-family:DejaVuSansCondensed, DejaVu Sans;}</style></defs><title>mysterious_road_signs</title><text class="a" transform="translate(10.86 34.01)">eastbound destinations (Dᵢ+Aᵢ)</text><text class="a" transform="translate(10.86 172.4)">westbound destinations (Dᵢ–Bᵢ)</text><rect class="b" x="10.86" y="48.11" width="40" height="40"/><text class="c" transform="translate(24.6 75.56)">6</text><rect class="b" x="10.86" y="108.11" width="40" height="40"/><text class="c" transform="translate(20.86 135.56)">-1</text><rect class="b" x="70.86" y="48.11" width="40" height="40"/><text class="c" transform="translate(84.6 75.56)">8</text><rect class="b" x="70.86" y="108.11" width="40" height="40"/><text class="c" transform="translate(80.86 135.56)">-1</text><rect class="b" x="130.86" y="48.11" width="40" height="40"/><text class="c" transform="translate(144.6 75.56)">7</text><rect class="b" x="130.86" y="108.11" width="40" height="40"/><text class="c" transform="translate(144.6 135.56)">0</text><rect class="b" x="190.86" y="48.11" width="40" height="40"/><text class="c" transform="translate(204.6 75.56)">8</text><rect class="b" x="190.86" y="108.11" width="40" height="40"/><text class="c" transform="translate(204.6 135.56)">2</text><rect class="b" x="250.86" y="48.11" width="40" height="40"/><text class="c" transform="translate(264.6 75.56)">8</text><rect class="b" x="250.86" y="108.11" width="40" height="40"/><text class="c" transform="translate(264.6 135.56)">2</text><rect class="b" x="310.86" y="48.11" width="40" height="40"/><text class="c" transform="translate(324.6 75.56)">9</text><rect class="b" x="310.86" y="108.11" width="40" height="40"/><text class="c" transform="translate(324.6 135.56)">0</text><line class="d" x1="310.86" y1="108.11" x2="290.86" y2="88.11"/><line class="d" x1="310.86" y1="88.11" x2="290.86" y2="108.11"/><line class="d" x1="250.86" y1="128.11" x2="230.86" y2="128.11"/><line class="d" x1="250.86" y1="68.11" x2="230.86" y2="68.11"/><line class="d" x1="190.86" y1="108.11" x2="170.86" y2="88.11"/><line class="d" x1="130.86" y1="88.11" x2="110.86" y2="108.11"/><line class="d" x1="70.86" y1="128.11" x2="50.86" y2="128.11"/><line class="d" x1="190.86" y1="88.11" x2="170.86" y2="108.11"/><line class="d" x1="130.86" y1="108.11" x2="110.86" y2="88.11"/><line class="d" x1="70.86" y1="88.11" x2="50.86" y2="108.11"/><text class="e" transform="translate(360.36 34.61)">M-candidate:<tspan x="0" y="16.8">M=9, N=2</tspan><tspan x="0" y="33.6">start=3</tspan><tspan x="0" y="50.4">xstart=5</tspan></text><text class="e" transform="translate(360.36 120.61)">N-candidate:<tspan x="0" y="16.8">M=8, N=0</tspan><tspan x="0" y="33.6">start=1</tspan><tspan x="0" y="50.4">xstart=5</tspan></text></svg>
+<p>
+  The illustration shows six zero-indexed signs and the destinations for those six signs. The signs
+  are connected by lines that show which candidates are used when calculating the candidates for the
+  next step. The candidates after reading the sixth sign (index 5) are shown at the end. On top we
+  have the M-candidate with <i>M</i>=9 and <i>N</i>=2. The candidate starts at index 3, because the
+  sign at index 2 does not have a compatible westbound or eastbound destination for that candidate.
+  The illustration also demonstrates how <i>xstart</i>=5 is the start of the most recent string of
+  westbound destination <i>M</i> matches, which in this case is only the current sign. The
+  N-candidate goes all the way back to start index 1 with <i>M</i>=8 and <i>N</i>=0.
+</p>
+<p>
+  Since calculating the new candidates takes constant time, and we have to read each sign in
+  sequence, this is an O(<b>S</b>) solution.
+</p>
+<p>
+  There are two more tips that can aid in solutions to this problem. First is that we don't ever
+  need to remember <b>A<sub>i</sub></b>, <b>B<sub>i</sub></b>, and <b>D<sub>i</sub></b> directly; we
+  only care about the westbound and eastbound destinations. You could therefore compute those
+  destinations upon reading in the data and store them in a list of pairs. The second tip is that
+  there is a lot of opportunity for pruning: if you maintain a global list of the best known sets of
+  signs, you never need to look at any candidate sets that are smaller than the current best,
+  allowing you to prune away a lot of segments that you no longer need to evaluate. All of the
+  solutions described here except for the O(<b>S</b>) solution can take advantage of pruning.
+</p>
+
+
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

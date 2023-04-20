@@ -1,0 +1,482 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Qualification Round</h3><h1>Cubic UFO</h1><h3>Problem</h3>
+<p>
+  A mysterious cubic alien ship has appeared in the sky over Toronto! In this
+  problem, Toronto is a plane in three-dimensional space that is parallel to
+  the xz plane at y = -3 km. The alien ship is a solid cube with side length
+  1 km, centered at (0 km, 0 km, 0 km), with its eight corners at (+/- 0.5 km,
+  +/- 0.5 km, +/- 0.5 km). The ship is casting an ominous shadow onto the
+  plane; formally, the shadow is the orthogonal projection of the cube onto the
+  plane. (We consider the sun to be a point infinitely far above the Toronto
+  plane along the y-axis.)
+</p><p>
+  The military is willing to tolerate the ship as long as the aliens meet their
+  bureaucratic demand: the shadow must cover an area of the plane that is
+  acceptably close to <b>A</b> km<sup>2</sup> (see the Output section for a
+  precise definition). They have hired you, a geometric linguistics expert, to
+  convey this demand to the aliens. In your communications so far, you have
+  learned that the ship cannot change size, and the center of the ship cannot
+  move, but the ship is able to rotate arbitrarily in place.
+</p><p>
+  Please find a way that the aliens can rotate the ship so that the shadow's
+  area is close to <b>A</b>. Express your rotation using three points: the
+  centers of any three non-pairwise-opposing faces.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow; each consists of one line with a rational
+  <b>A</b>, the desired area of the shadow, in km<sup>2</sup>,
+  with exactly six digits after the decimal point.
+</p>
+<p>
+  It is guaranteed that there is always a way to rotate the ship in the desired
+  manner for the values of <b>A</b> allowed in this problem.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, first output one line containing <code>Case #x:</code>,
+  where <code>x</code> is the test case number (starting from 1). Then, output
+  three more lines with three rational values each: the x, y, and z coordinates
+  of one of your three provided face-centers, as described above. You are
+  welcome to use decimal (e.g., 0.000123456) or scientific notation (e.g.,
+  1.23456e-4).
+</p><p>
+  Your answer will be considered correct if and only if all of the following
+  are true:
+</p>
+<ol>
+  <li>The distance (in km) from each point to the origin must be between
+    0.5 - 10<sup>-6</sup> and 0.5 + 10<sup>-6</sup>, inclusive.</li>
+  <li>The angles (in radians) between segments connecting the origin to each
+    point must be between &pi;/2 - 10<sup>-6</sup> and
+    &pi;/2 + 10<sup>-6</sup>, inclusive.
+  </li>
+  <li>The area of the shadow (in km<sup>2</sup>), computed by projecting all 8
+    vertices onto the y = -3 plane and finding the area of the convex hull of
+    those projected points, must be between <b>A</b> - 10<sup>-6</sup> and
+    <b>A</b> + 10<sup>-6</sup>, inclusive. We will compute the vertices as
+    +/- p<sub>1</sub> +/- p<sub>2</sub> +/- p<sub>3</sub> (that is,
+    for each p<sub>i</sub> we add either p<sub>i</sub> or -p<sub>i</sub> to the
+    total using vector addition), where p<sub>1</sub>,  p<sub>2</sub>, and
+    p<sub>3</sub> are the face-centers that you provide.
+  </li>
+</ol>
+<p>
+  Please note that you might need to output more than 6 digits after the
+  decimal point to safely pass the checks mentioned above. If there are
+  multiple acceptable answers, you may output any one of them.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 30 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  1.000000 &le; <b>A</b> &le; 1.414213<br/>
+</p>
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  1.000000 &le; <b>A</b> &le; 1.732050<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="cubic_ufo_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+1.000000
+1.414213
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="cubic_ufo_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1:
+0.5 0 0
+0 0.5 0
+0 0 0.5
+Case #2:
+0.3535533905932738 0.3535533905932738 0
+-0.3535533905932738 0.3535533905932738 0
+0 0 0.5</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, there is no need to rotate the cube at all; with two of its
+  faces already parallel to the plane, the cube is already casting a shadow
+  that is a square with side length 1.
+</p><p>
+  In Sample Case #2, one possible solution is to tell the aliens to give the
+  cube a 45 degree turn around the x = y = 0 line, creating a shadow that is a
+  rectangle with dimensions of 1 and sqrt(2).
+</p><p>
+  The following rough image shows the cubes and shadows for Sample Cases #1 and
+  #2. The sun is shown for clarity, but remember that it is actually a point
+  infinitely far away along the y-axis.
+</p>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="500px" width="500px"
+	 viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
+<polygon fill="#4095D1" points="3.8,31.7 3.8,45.3 14.4,49.1 14.4,35.6 "/>
+<polygon fill="#EF4637" points="13.9,27.6 3.8,31.7 14.3,35.6 24.5,31.5 "/>
+<polygon fill="#30B455" points="24.5,31.5 24.5,45 14.4,49.1 14.3,35.6 "/>
+<polygon fill="#EF4637" points="61.6,26 54.3,28.6 62.9,40.1 70.2,37.5 "/>
+<polygon fill="#4095D1" points="62.9,40.1 53.6,48.8 45,37.3 54.3,28.6 "/>
+<polygon fill="#30B455" points="70.2,37.5 61,46.1 53.6,48.8 62.9,40.1 "/>
+<circle fill="#FEEA39" cx="57.6" cy="10.7" r="3.1"/>
+<polygon fill="#939598" points="14.2,52.1 1.2,57.3 14.2,62.3 27.1,57.2 "/>
+<polygon fill="#939598" points="54,52.1 41,57.3 59.2,64.4 70.8,58.9 "/>
+<circle fill="#FEEA39" cx="14.2" cy="10.7" r="3.1"/>
+<radialGradient id="SVGID_1_" cx="13.9311" cy="61.1319" r="3.4011" fx="16.5038" fy="58.9074" gradientTransform="matrix(1 0 0 -1 0 72)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.3652" style="stop-color:#FDFDFD;stop-opacity:0.6348"/>
+	<stop  offset="0.5102" style="stop-color:#F6F6F6;stop-opacity:0.4898"/>
+	<stop  offset="0.6161" style="stop-color:#EAEAEA;stop-opacity:0.3839"/>
+	<stop  offset="0.703" style="stop-color:#D9D8D9;stop-opacity:0.297"/>
+	<stop  offset="0.7782" style="stop-color:#C2C2C2;stop-opacity:0.2218"/>
+	<stop  offset="0.8454" style="stop-color:#A6A6A7;stop-opacity:0.1546"/>
+	<stop  offset="0.9065" style="stop-color:#858586;stop-opacity:9.353757e-02"/>
+	<stop  offset="0.9612" style="stop-color:#605F61;stop-opacity:3.881031e-02"/>
+	<stop  offset="1" style="stop-color:#414042;stop-opacity:0"/>
+</radialGradient>
+<circle opacity="0.3" fill="url(#SVGID_1_)" enable-background="new    " cx="14.2" cy="10.7" r="3.1"/>
+<ellipse transform="matrix(0.5772 -0.8166 0.8166 0.5772 -0.6958 16.7075)" opacity="0.35" fill="#FFFFFF" enable-background="new    " cx="15.8" cy="9" rx="0.5" ry="0.7"/>
+<radialGradient id="SVGID_2_" cx="57.3721" cy="61.1319" r="3.4011" fx="59.9448" fy="58.9074" gradientTransform="matrix(1 0 0 -1 0 72)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.3652" style="stop-color:#FDFDFD;stop-opacity:0.6348"/>
+	<stop  offset="0.5102" style="stop-color:#F6F6F6;stop-opacity:0.4898"/>
+	<stop  offset="0.6161" style="stop-color:#EAEAEA;stop-opacity:0.3839"/>
+	<stop  offset="0.703" style="stop-color:#D9D8D9;stop-opacity:0.297"/>
+	<stop  offset="0.7782" style="stop-color:#C2C2C2;stop-opacity:0.2218"/>
+	<stop  offset="0.8454" style="stop-color:#A6A6A7;stop-opacity:0.1546"/>
+	<stop  offset="0.9065" style="stop-color:#858586;stop-opacity:9.353757e-02"/>
+	<stop  offset="0.9612" style="stop-color:#605F61;stop-opacity:3.881031e-02"/>
+	<stop  offset="1" style="stop-color:#414042;stop-opacity:0"/>
+</radialGradient>
+<circle opacity="0.3" fill="url(#SVGID_2_)" enable-background="new    " cx="57.6" cy="10.7" r="3.1"/>
+<ellipse transform="matrix(0.5772 -0.8166 0.8166 0.5772 17.6741 52.1437)" opacity="0.35" fill="#FFFFFF" enable-background="new    " cx="59.2" cy="9" rx="0.5" ry="0.7"/>
+</svg>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,419 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Qualification Round</h3><h1>Analysis: Indicium</h1><h3>Test Set 1</h3>
+<p>
+  There are a few different options for solving test set 1. Since there are only 44
+  possible cases, one option is to generate all answers by hand or via a program
+  that is run locally, then submit a program that dispenses those. Another
+  approach is to notice that
+  there are not many different Latin squares for <b>N</b> &le; 5 (see the number of Latin
+  squares <a href="https://oeis.org/A002860" target="_blank">here</a>), and check them all.
+  To generate all Latin squares,
+  we can recursively fill in the cells one by one. For each cell, we try all <b>N</b>
+  possible values. For each one, we ensure that it does not conflict with any
+  cells in the same row or same column. Since there are at most 161280 Latin squares
+  to consider, this is quite quick.
+</p>
+<h3>Test Set 2</h3>
+<p>
+  Unfortunately, once <b>N</b> gets even slightly large, there are way too many Latin
+  squares to generate them all (for <b>N</b> = 11, for example, there are
+  776966836171770144107444346734230682311065600000 different Latin squares).
+</p><p>
+  There are many creative ways to solve this test set. The
+  <a href="https://groups.google.com/forum/#!forum/google-code" target="_blank">Code Jam forum</a>
+  is a good place to share and discuss different solutions!
+  For example, we can directly create Latin squares with the appropriate trace
+  by modifying structured Latin squares (for example, by modifying
+  <a href="https://en.wikipedia.org/wiki/Circulant_matrix#Definition" target="_blank">circulant Latin squares</a>).
+  Below, we discuss an easy-to-implement idea which is a little tricky to come up with and uses
+  a graph algorithm in the middle!
+</p><p>
+  First, we start by dealing with the impossible cases. If <b>K</b> = <b>N</b>+1, then the only
+  possible diagonals have exactly one <code>2</code> and <b>N</b>-1 <code>1</code>s. However, if
+  <b>N</b>-1 of the diagonal
+  elements are <code>1</code>, then the only location for the <code>1</code> in the remaining
+  row must be on
+  the diagonal, so we cannot make a sum of <b>N</b>+1. Similarly, we cannot make a sum
+  of <b>N</b><sup>2</sup>-1 since the only possible diagonal is one <code>N-1</code>
+  and <b>N</b>-1 <code>N</code>s.
+</p><p>
+  We will now show a construction which works for every other case (with 2 additional small cases that don't work, see below).
+  One of the main insights needed is that all possible sums are achievable
+  using a diagonal with almost all values the same. In particular, we may assume
+  that at least <b>N</b>-2 values are the same: AAAA ... AABC
+  for some A, B, C (not necessarily all different).
+</p><p>
+  For example, if <b>N</b> = 10 and <b>K</b> = 20, we can choose A = 2, B = 2, and C = 2. If <b>N</b> = 10
+  and <b>K</b> = 55, we can choose A = 6, B = 4, and C = 3. We already showed above that
+  A = B if and only if A = C. We leave it as an exercise to show that all values for
+  <b>K</b> between <b>N</b> and <b>N</b><sup>2</sup> are possible with these constraints. (Note: you have
+  to be a little careful with <b>N</b> = 3. If B = C, then A = B = C for a similar reason; so with
+  <b>N</b> = 3, neither <b>K</b> = 5 nor <b>K</b> = 7 will have solutions).
+  To find the appropriate values of A, B, and C, we can brute force all possible triples
+  and check whether the chosen diagonal will work.
+</p><p>
+  Now that we know what the diagonal looks like, how do we actually find a Latin
+  square that has this diagonal? To do that, we will fill in the unfilled cells
+  row by row. We will use
+  <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)" target="_blank">bipartite matching</a>
+  to find a valid row. In one bipartition,
+  we have <b>N</b> vertices for the <b>N</b> cells in that row. In the other bipartition, we have
+  <b>N</b> vertices for the <b>N</b> numbers that can be placed into the cell. Make an edge between
+  the cell vertex on the diagonal and the number vertex that was decided on. For
+  every other cell, make an edge
+  between a cell vertex and a number vertex if that number can be put into that
+  cell without breaking the Latin square properties.
+</p><p>
+  We can greedily pick any perfect matching for each row <i>starting with the rows with B and
+  C on their diagonal</i>.
+  Once we have filled in these two rows, we can use
+  <a href="https://en.wikipedia.org/wiki/Hall%27s_marriage_theorem" target="_blank">Hall's Marriage Theorem</a>
+  to show that we will never run into any issues (so long as the conditions
+  above about A, B, C are met).
+</p>
+<h3>Hall's Theorem</h3>
+<p>
+  This section is dedicated to proving the above claim that Hall's theorem holds. We will
+  assume in this section that the reader is comfortable with Hall's theorem.
+  A one sentence high-level reminder of Hall's theorem: <i>All subsets of one bipartition
+  have a neighborhood that is at least as large as the original subset if and only
+  if the graph has a perfect matching.</i>
+</p><p>
+  For the explanation here, we will make the top two rows with B and C on their diagonal
+  as the top two rows. We'll assume that these two rows are already filled in (and leave the
+  proof you can do this to the reader). The important part is that the top-left 2 &times; 2
+  submatrix is <code>CA</code>/<code>AB</code>. Now imagine that we have filled in
+  <b>N</b>-k rows (and have k mostly empty rows). Consider this example with <b>N</b> = 8
+  and k = 3.
+  (<code>?</code> means filled in, but it doesn't matter with what and <code>_</code>
+  means not filled in yet):
+</p><div style="padding-left:2em"><pre>
+CA??????
+AB??????
+??A?????
+???A????
+????A???
+_____A__
+______A_
+_______A
+</pre></div><p>
+  For each of the <b>N</b>-1 non-<code>A</code>
+  "cell vertices", the <b>N</b>-k vertices on the left
+  of the diagonal have a degree of k and the k-1 vertices on the right of the diagonal
+  have a degree of k-1 (because the number <code>A</code> is also restricted).
+  For each of the <b>N</b>-1 non-<code>A</code> "number vertices", each number originally had
+  degree <b>N</b> and we have removed at least <b>N</b>-k of those edges since the number
+  appeared once in the top <b>N</b>-k rows. Thus, the maximum degree of the "number vertices"
+  is k.
+</p><p>
+  We will ignore the "cell vertex" and the "number vertex" corresponding to the forced diagonal
+  entry since that will be forced in our matching (and leaving it out makes our math below
+  easier).
+</p><p>
+  Let X be a subset of "cell vertices". Let m = |X|. We must show that |N(X)| &ge; m in order
+  to utilize Hall's theorem (where N(X) is the set of "number vertices" that are adjacent
+  to at least one vertex in X). We have 2 separate cases:
+</p><div style="padding-left:2em">
+  <p>
+    <b>Case 1:</b> m &le; k-1.
+  </p><p>
+    Since the degree of each vertex in X is at least k-1, the number of edges leaving X
+    is at least m &times; (k-1). Consider the "number vertices" that these edges are
+    absorbed into. Since the maximum degree of "number vertices" is k, there are at
+    least (m &times; (k-1))/k "number vertices" that absorb these edges. That is,
+    |N(X)| &ge; (m &times; (k-1))/k = m-m/k.
+    Since m &le; k-1, we have that m/k &lt; 1. So |N(X)| &gt; m-1. Since |N(X)| is an integer,
+    we have |N(X)| &ge; m as desired.
+  </p><p>
+    <b>Case 2:</b> m &ge; k.
+  </p><p>
+    Consider the edges leaving X. At most k-1 of them have degree k-1, and the remaining have
+    degree k. Thus, the number of edges leaving X is at least
+    (k-1) &times; (k-1) + (m-(k-1)) &times; k.
+    Since the maximum degree of "number vertices" is k, there are at
+    least ((k-1) &times; (k-1) + (m-(k-1)) &times; k)/k "number vertices" that absorb these
+    edges. That is, |N(X)| &ge; ((k-1) &times; (k-1) + (m-(k-1)) &times; k)/k = m - (1 - 1/k).
+    Since 1 - 1/k &lt; 1, we have |N(X)| &gt; m-1. Since |N(X)| is an integer,
+    we have |N(X)| &ge; m as desired.
+  </p>
+</div>
+<p>
+  Thus, in all cases, the conditions for Hall's theorem are satisfied, so there exists a
+  perfect matching and we can iteratively complete the Latin square.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,461 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 2</h3><h1>Analysis: Emacs++</h1><h3>Test Set 1</h3>
+<p>
+  TL;DR: Think of the brackets like a tree where a position's parent is the closest pair of
+  brackets that contain that position. Go to the Lowest Common Ancestor, then back down the tree.
+</p><p>
+  With this problem, our first thought may be to write a
+  <a href="https://en.wikipedia.org/wiki/Breadth-first_search">breadth first search</a>
+  for each query and add up the values. Unfortunately, this is much too slow for the bounds
+  provided. Thankfully, we can make use of the structure of the Lisp++ program and the
+  fact that all movement costs are 1 (going left, going right, or going to the
+  matching bracket&mdash;we will call going left or right "walking" and going to the
+  matching bracket "jumping" to make the explanation easier).
+</p><p>
+  Two somewhat simple observations are needed before we can talk about the intended solution.
+  The first observation needed is that we almost always want to jump instead of walking
+  inside of a pair of brackets. If we are at
+  a bracket endpoint, and jumping to the other endpoint doesn't make us "overshoot" the query's
+  destination, then we should take that jump instead of walking there.
+  The second observation needed is that if a pair of brackets contains both our current position
+  and our destination, we should never move outside of that pair of brackets.
+</p><p>
+  Using just these two observations, let's discuss what an optimal path looks like for a specific
+  query. Consider the closest pair of brackets that contains both the start and end of the query:
+</p><p align="center">
+  <img src="img/ts1_a.png" style="width: 500px; height: auto;" />
+</p><p>
+  The optimal path for this query must move "up" to this level:
+</p><p align="center">
+  <img src="img/ts1_b.png" style="width: 500px; height: auto;" />
+</p><p>
+  One we are at this level, we jump along the top level of the siblings until we are
+  at the brackets for the end query, then move "down" to the query answer.
+  Note that we can jump either left or right (one of which will wrap around
+  when we hit the bracket's endpoint) so we should check both and take the minimum.
+</p><p align="center">
+  <img src="img/ts1_c.png" style="width: 500px; height: auto;" />
+</p><p>
+  At this point, we treat the Lisp++ program as a tree with the parents in the tree
+  being the closest pair of brackets that enclose us. Note that one of the parents is
+  strictly closer than the other, so we will always go to that parent first on our path "up"
+  or "down" the tree. The layer at the top is simply the
+  <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">lowest common ancestor</a>
+  in the tree, which can be computed in O(log <b>K</b>) time.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  TL;DR: (1) Find two pairs of brackets that partition the Lisp++ program into
+  4 disjoint sections. (2) Compute the shortest path from the break points to answer
+  queries that go from one region to another. (3) Recurse on the 4 subregions.
+</p><p>
+  For Test Set 2, some of the properties we used are no longer available to us.
+  In particular, it may now be optimal to venture outside of the LCA described above.
+  There are two main classes of solutions that are used to solve this test set. One is a
+  modification of the LCA algorithm above. We will show the other here because it demonstrates
+  an algorithm that is less traditional. Rather than answering the queries one at a
+  time, we will employ a method where we can solve them in batches.
+</p><p>
+  The key property we will be using is the ability to partition the Lisp++ program into multiple
+  (almost) independent sections. First, let's start with a crucial observation. Consider a
+  pair of matching brackets. The only way to get from inside the brackets to outside
+  the brackets is to cross through the brackets themselves. These brackets that are used to split
+  the input into the different sections will be called the <i>special brackets</i>
+  throughout the explanation.
+</p><p align="center">
+  <img src="img/ts2_a.png" style="width: 500px; height: auto;" />
+</p><p>
+  We can use this fact to answer queries differently. Rather than computing the
+  distance from the starting point to the ending point of the query, we can compute the
+  distance from each of the special brackets to the query's starting point and from the special
+  brackets to the query's ending point. Since we know that any shortest path must go
+  through one of the special brackets, we know that the sum of these two distances is the answer
+  to the query.
+</p><p>
+  At first, it doesn't seem like this helps us. However, note that we can compute the
+  answer to all queries that go from inside the brackets to outside the brackets at
+  once! Just compute the distance from the special brackets to all locations (using
+  <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra's algorithm</a>,
+  for example) and use the method above.
+</p><p>
+  Now what about all of the queries that start and end inside the special brackets (or outside the
+  special brackets)? Well, the shortest path from the start to the end <i>might</i> go through
+  the special brackets we chose,
+  so we should make note of the potential answer if it does. Now, we're only
+  interested in paths that do not use the special brackets.
+</p><p>
+  Thus, we can split our problem up into two sub-problems: the "inside" part and the
+  "outside" part. Split the queries up into their appropriate parts (inside and outside)
+  and recursively solve
+  each of these. Note that the special brackets can be removed completely since we know
+  the answers to any query involving them.
+  There is one issue, though: this isn't necessarily fast enough. &#9785; If we
+  choose our special brackets poorly so that the "inside" is always a short string,
+  then this algorithm will need
+  O(<b>K</b><sup>2</sup>) time. In order to make this fast, we need to ensure that
+  both subproblems are about half the size of the original problem. If we add in some
+  more heuristics and choose our bracket pair randomly, we can make our code faster on
+  average, but it is not guaranteed to pass the data. There is a slight tweak we can make
+  described below which will save us!
+</p><p>
+  Instead of spliting the string into 2 sections, we will instead split the string into 4
+  sections. Consider a specific pair of brackets. Those brackets' <i>parents</i> are the
+  closest pair of brackets that enclose them. If we split using a pair
+  of brackets and their parents' brackets, we split our input into 4 sections. Note
+  that it is impossible to get from those inner side pieces to the other side without
+  crossing one of our two pairs of special brackets (since the parents are the closest brackets
+  to our original brackets that would allow us to do that).
+</p><p align="center">
+  <img src="img/ts2_b.png" style="width: 500px; height: auto;" />
+</p><p>
+  This small change looks like we just made things more complicated, but it solves our issue
+  from above! First, let's add a pair of brackets to the outside of our string
+  and set its <b>L<sub>i</sub></b>, <b>R<sub>i</sub></b>, and <b>P<sub>i</sub></b> to infinity.
+  This way, all pairs of brackets have a parent, except for this new infinite pair we added.
+</p><p>
+  Let's consider all the bracket pairs whose span (from starting bracket to closing
+  bracket, inclusive) includes the middle bracket (there are two "middle" brackets; we
+  can choose either). Call these brackets the "middle line brackets".
+  The middle line brackets will form a chain in which each bracket pair nests
+  under another middle line bracket, or is the outermost bracket that we added.
+  Our middle line brackets have some nice properties that we can use.
+</p><p>
+  If we consider the middle line brackets from outermost to innermost, we can observe
+  that the spans of the brackets go from containing more than half the characters (the outermost
+  bracket that we added spans the whole string)
+  in our Lisp++ program, to containing at most half of the characters.
+  This is because they are always getting smaller, and the innermost one spans
+  at most half of all characters. Let's consider this "pivot point". It comprises a pair
+  of consecutive middle line brackets in which one spans more than half,
+  and it has a direct child that is also a middle line bracket that spans at most half.
+  If we take these two brackets and cut them out of the string, we will have broken the
+  string into 4 disjoint (possibly empty) parts, none of which contain more than half
+  of the characters in the string.
+</p><p align="center">
+  <img src="img/ts2_c.png" style="width: 500px; height: auto;" /><br/>
+  <img src="img/ts2_d.png" style="width: 500px; height: auto;" />
+</p><p>
+  Why? Let's say our brackets look like this  <code>A ( B ( C ) D ) A</code>. We know
+  that since the outer bracket pair spans more than half, the region <code>A</code>
+  contains less then half of the characters. We know that the inner bracket either
+  crosses or touches the middle line, so the regions <code>B</code> and <code>D</code>
+  contain less than half of the characters. Finally, <code>C</code> has at most half
+  (remember that we chose <code>C</code> specifically because it was the first middle
+  line bracket that contained at most half of the characters). Note that we cannot get
+  from one region to another without crossing a special bracket. In particular, we cannot
+  get between <code>B</code> and <code>D</code> because the outer special brackets are
+  the parent of the inner special brackets.
+</p><p>
+  Thus, we can solve the problem by finding the two pairs of special brackets we are
+  going to split on, using Dijkstra's algorithm to answer the queries that go between
+  different regions (as well as compute potential answers for those queries that do not),
+  and then recursing into the 4 sub-problems.
+  Since each recursion cuts the length of the input string
+  in half, we recurse at most O(log <b>K</b>) times. The sum of the strings at any particular
+  depth of the recursion is at most the length of the original string. So the total
+  work we needed to do at each layer is at most O(<b>K</b> log <b>K</b>) to run Dijkstra
+  from our 4 special brackets. Also, each query is looked at at most once on each layer
+  of the recursion, so the total complexity is
+  O(<b>K</b> log<sup>2</sup> <b>K</b> + <b>Q</b> log <b>K</b>).
+</p>
+<h3>Some Common Issues</h3>
+<p>
+  Here is a list of common issues that might explain a Wrong Answer or
+  Time Limit Exceeded verdict:
+
+</p>
+  <ul style="list-style: initial; padding: initial;">
+    <li>
+      The edges are directed! This means that the distance from A to B is not
+      necessarily the same as the distance from B to A. For the intended solution,
+      this means we need to run Dijkstra's algorithm twice, not just once.
+    </li><li>
+      If we place values in our code about "infinity", those values must be large enough,
+      but not so large as to cause overflows.
+    </li><li>
+      Picking a random edge and just breaking it into doing inside and outside is in general
+      too slow. Even if we break the left and the right apart if they're not connected,
+      we can run into issues. Consider the following. Let X=<code>((((( ... )))))</code>, be of
+      length sqrt(N). If the input is XXXXX ... XXXX sqrt(N) times, then picking randomly
+      is not very efficient. In order to split the input, we need to get lucky and
+      hit one of the outer points of X in order to really cut down on the size of the
+      input.
+    </li>
+</ul>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

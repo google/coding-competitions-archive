@@ -1,0 +1,368 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 1A</h3><h1>Analysis: The Last Word</h1><h2>The Last Word: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+In the Small dataset, there will be at most 15 letters in <b>S</b>. At each
+step of the game, we are given a letter to add to either the front or the back
+of the current word. The number of possible words after adding the <i>i</i>-th
+letter (during step <i>i</i>) is at most twice the number of possible words
+after step <i>i</i>-1, since we have two choices of where to add the new
+letter. This means that the number of possible last words that can be made from
+all of the letters is at most 2<sup>15</sup>. We can generate each of these
+possible last words and find which one comes last alphabetically.
+</p><p>
+Here is one way of doing this in Python:
+<pre>
+def alphabetically_last_word(S):
+  possible_words = set([''])
+  for c in S:
+    possible_words = set([c + r for r in possible_words] + [r + c for r in possible_words])
+  return max(possible_words)
+</pre>
+</p>
+<h3>Large dataset</h3>
+<p>
+The approach in the previous paragraph is too slow for the Large dataset, and
+so some additional observations are required. During step <i>i</i>, we are
+adding a single new letter <b>S</b><sub><i>i</i></sub> to the front or the back
+of our current word X<sub><i>i</i>-1</sub>, yielding a new word
+X<sub><i>i</i></sub> = X<sub><i>i</i>-1</sub><b>S</b><sub><i>i</i></sub> or
+X<sub><i>i</i></sub> = <b>S</b><sub><i>i</i></sub>X<sub><i>i</i>-1</sub>. To
+have the end result be as alphabetically late as possible, it is always better
+to have X<sub><i>i</i></sub> be as alphabetically late as possible as well. We
+can show this formally: during every step of the process that produces the
+alphabetically latest answer, after <i>i</i> letters have been chosen, our
+string X<sub><i>i</i></sub> should be the alphabetically latest substring that
+we can produce from the first <i>i</i> letters of <b>S</b> under the given
+rules.
+</p><p>
+Assume we are at the <i>i</i>-th step, and we can either add the new letter
+<b>S</b><sub><i>i</i></sub> at the beginning or the end of
+X<sub><i>i</i>-1</sub>. Let Y<sub><i>i</i></sub> be the alphabetically earlier
+of <b>S</b><sub><i>i</i></sub>X<sub><i>i</i>-1</sub> and
+X<sub><i>i</i>-1</sub><b>S</b><sub><i>i</i></sub>, and Z<sub><i>i</i></sub> be
+the alphabetically later of the two. Suppose that Y<sub><i>i</i></sub> were
+the optimal choice at this step. Then we could write our last word as
+AY<sub><i>i</i></sub>B for some A and B. We could instead choose
+Z<sub><i>i</i></sub> and insert the letters during future steps in the same way
+to yield AZ<sub><i>i</i></sub>B as the last word. No matter what the values of
+A and B are, it is always true that AZ<sub><i>i</i></sub>B comes no
+alphabetically earlier than AY<sub><i>i</i></sub>B, because
+Z<sub><i>i</i></sub> comes no alphabetically earlier than Y<sub><i>i</i></sub>.
+This means that any word using Y<sub><i>i</i></sub> can be turned into a word
+that is at least as late in alphabetical order by substituting
+Z<sub><i>i</i></sub> at this step instead. It follows that choosing
+Z<sub><i>i</i></sub> is always correct.
+</p><p>
+This means that our X<sub><i>i</i></sub> must be the alphabetically latest of
+X<sub><i>i</i>-1</sub>S<sub><i>i</i></sub> and
+S<sub><i>i</i></sub>X<sub><i>i</i>-1</sub>. Therefore, when we add
+<b>S</b><sub><i>i</i></sub> to X<sub><i>i</i>-1</sub>, we only need to check
+whether putting <b>S</b><sub><i>i</i></sub> in the front or putting
+<b>S</b><sub><i>i</i></sub> in the back would produce the alphabetically latest
+string.
+</p><p>
+Here is some simple Python code that implements the optimized procedure:
+<pre>
+def alphabetically_last_word(S):
+  result = ''
+  for c in S:
+    result = max(c + result, result + c)
+  return result
+</pre>
+</p><p>
+Note that the solutions for the Small and Large datasets are very similar. The
+only difference is that the solution to the Large recognizes which one of the
+possible words that can be formed at each step will necessarily be part of the
+optimal last word. Instead of keeping an amount of information that may grow
+exponentially with the number of steps in the game, the code for the Large
+keeps track of a single string at each step, allowing it to run much faster
+and use less memory. The presented solution for the Small dataset requires
+exponential time and memory, whereas the presented solution for the Large
+dataset requires only polynomial time and memory.
+</p><p>
+Another way to think about this is that the <code>max</code> operation commutes
+with the set-building step inside the code for the Small, allowing us to keep
+the maximum at each step rather than computing the maximum at the end. This
+observation shows a path for extending a solution that solves the Small dataset
+into the one we explained that can also solve the Large dataset. (Check out
+"A possible stepping stone..." in
+<a href="https://plus.sandbox.google.com/+LifeatGoogle/posts/FqAEpWfvMDh">
+this essay</a>.)
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

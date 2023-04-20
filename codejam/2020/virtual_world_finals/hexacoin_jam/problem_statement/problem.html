@@ -1,0 +1,490 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Virtual World Finals</h3><h1>Hexacoin Jam</h1><h3>Problem</h3>
+<p>
+  The Code Jam team's first cryptocurrency, jamcoins, never caught on. This year,
+  we are trying again with <i>hexacoins</i>, which are named for their
+  use of base 16. To "mine" a <b>D</b>-digit hexacoin, one has to work with
+  integers using exactly <b>D</b> base 16 digits, including leading zeroes
+  if needed. Each value represents an integer between 0 and 16<sup><b>D</b></sup> - 1,
+  inclusive. Base 16 digits are represented by the numbers 0 through 9 and
+  the uppercase letters A through F, as usual. For example, F2B, 0C8 and 000 are valid values when <b>D</b>=3,
+  corresponding to the base 10 values 3883, 200 and 0. On the other
+  hand, 1234, DF, C0DE and JAM are not valid values when <b>D</b>=3.
+</p><p>
+  When performing addition of <b>D</b>-digit base 16 values, any overflow
+  digits are dropped. That is, the addition is performed modulo
+  16<sup><b>D</b></sup>. For example, F2B + 0C8 = FF3 (4083 in base 10) and F2B + F2B = E56 (3670 in base 10,
+  because the sum's result is 7766, and taking modulo 16<sup>3</sup>
+  yields 3670).
+</p><p>
+  To "mine" a <b>D</b>-digit hexacoin, a computer must perform the following
+  steps:
+</p>
+<ol>
+  <li>Choose a list <b>L</b> of <b>N</b> <b>D</b>-digit
+    base 16 values <b>L<sub>1</sub></b>, <b>L<sub>2</sub></b>,
+    ..., <b>L<sub>N</sub></b>.</li>
+  <li>Choose a target range of <b>D</b>-digit base 16
+    values: the numbers from <b>S</b> to <b>E</b>, inclusive.</li>
+  <li>Choose a permutation P of the base 16 digits 0 through F,
+    uniformly at random from among all 16! such permutations.</li>
+  <li>Apply P to all digits of all numbers in the list, creating a new list L'
+    consisting of <b>N</b> <b>D</b>-digit base 16 values. Formally,
+    the j-th digit of the i-th element of L' is the result of applying P
+    to the j-th digit of the i-th element of <b>L</b>.</li>
+  <li>Choose a pair of elements from L' without
+    replacement, uniformly at random from among all such possible choices,
+    and independently of the choice of permutation.</li>
+  <li>Calculate the sum (dropping overflow digits) of the two chosen elements.</li>
+</ol>
+<p>
+If the sum calculated in the last step is between <b>S</b> and <b>E</b>, inclusive,
+then a hexacoin has been found! For example, suppose that:
+</p>
+<ul>
+  <li><b>L</b> = [134, 000, FFB, 000, AA9].</li>
+  <li><b>S</b> = 85C and <b>E</b> = EDF.</li>
+  <li>The computer happens to choose P = (0 &rarr; 4, 1 &rarr; A, 2 &rarr; 2, 3 &rarr; 8,
+    4 &rarr; 9, 5 &rarr; B, 6 &rarr; C, 7 &rarr; 7, 8 &rarr; F, 9 &rarr; 1, A &rarr; 0,
+    B &rarr; 3, C &rarr; 5, D &rarr; 6, E &rarr; E, F &rarr; D).
+</ul>
+<p>
+  Then, when P is applied to <b>L</b>, the resulting L' is
+  [A89, 444, DD3, 444, 001]. Notice that P is not applied to <b>S</b> and <b>E</b>.
+</p><p>
+  There are (5 &times; 4) / 2 = 10 pairs of values to choose, and each pair
+  has a probability of 1/10 of being chosen. The only sums that fall within the
+  range are A89 + DD3 = 85C, 444 + 444 = 888, A89 + 001 = A8A, DD3 + 001 = DD4,
+  and A89 + 444 = ECD (twice).
+</p><p>
+  The first two steps are already computed and you know the list <b>L</b> and
+  the range [<b>S</b>, <b>E</b>] that were chosen. What is the probability that
+  a hexacoin is found after the rest of the process is performed?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case consists of three lines.
+  The first line contains two integers <b>N</b> and <b>D</b>: the size
+  of the given list and the number of digits to work with,
+  respectively. The second line contains two <b>D</b>-digit base 16 numbers
+  <b>S</b> and <b>E</b>: the inclusive lower and upper bounds of the target range,
+  respectively. Then there is one more line containing <b>N</b> <b>D</b>-digit
+  base 16 numbers <b>L<sub>1</sub></b>, <b>L<sub>2</sub></b>, ...,
+  <b>L<sub>N</sub></b>, representing the values in the list.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y z</code>,
+  where <code>x</code> is the test case number (starting from 1) and
+  <code>y</code> and <code>z</code> are non-negative integers, such that the
+  fraction <code>y</code>/<code>z</code> represents the probability of
+  finding a hexacoin, under the conditions described above. All of
+  <code>x</code>, <code>y</code>, and <code>z</code> must be in base 10. If there
+  are multiple acceptable values for <code>y</code> and <code>z</code>, choose
+  the ones such that <code>z</code> is minimized.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 90 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  2 &le; <b>N</b> &le; 450.<br/>
+  <b>S</b> contains exactly <b>D</b> characters.<br/>
+  Each character of <b>S</b> is a base 16 digit.<br/>
+  <b>E</b> contains exactly <b>D</b> characters.<br/>
+  Each character of <b>E</b> is a base 16 digit.<br/>
+  <b>S</b> &le; <b>E</b>.<br/>
+  <b>L<sub>i</sub></b> contains exactly <b>D</b> characters, for all i.<br/>
+  Each character of <b>L<sub>i</sub></b> is a base 16 digit, for all i.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  2 &le; <b>D</b> &le; 3.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  2 &le; <b>D</b> &le; 4.<br/>
+</p>
+
+<h4>Test Set 3 (Hidden Verdict)</h4>
+<p>
+  1 &le; <b>T</b> &le; 10.<br/>
+  2 &le; <b>D</b> &le; 5.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="hexacoin_jam_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+2 2
+10 10
+00 FF
+2 2
+10 11
+00 FF
+4 3
+FFF FFF
+230 A10 010 F70
+4 3
+AFF FFF
+230 A10 010 F70
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="hexacoin_jam_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 7 120
+Case #2: 1 15
+Case #3: 0 1
+Case #4: 2731 8736
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, the target range is just a single value 10. Since the result
+  ends with 0, the sum of the values assigned to both last digits 0 and F
+  must end in 0 as well. Since P[0] and P[F] are different values, their sum cannot
+  be exactly 0. Therefore, P[0] + P[F] must be 10 (in base 16). There are 7 pairs
+  of different digits that accomplish that. P[0] and P[F] cannot both be 8.
+  All 7 pairs lead to an overall sum of 10 (after dropping an overflow 1).
+  Therefore, there are 14 assignments of different digits to 0 and F that lead to a
+  hexacoin. There are 16 &times; 15 possible assignments to those digits, so the result is
+  14/240 = 7/120.
+</p><p>
+  In Sample Case #2, we need to add the probability of the result being exactly 11
+  to the result of Sample Case #1.
+  The only way that happens is if 0 and F are assigned to
+  0 and 1, in either order. That has a probability of 2/240=1/120, leading to a total
+  of 7/120 + 1/120 = 8/120 = 1/15.
+</p><p>
+  In Sample Case #3, notice that regardless of which permutation and pair of numbers
+  the computer chooses from the list, we will add two numbers that end in the same digit.
+  That produces an even result, even after taking it modulo 16<sup>3</sup>. Since the only
+  value in range is odd, we have no hope of mining a hexacoin in this case. Notice that
+  <code>0 2</code> is an invalid representation of the answer because <code>z</code>
+  would not be minimum.
+</p>
+
+    </div>
+  </body>
+</html>

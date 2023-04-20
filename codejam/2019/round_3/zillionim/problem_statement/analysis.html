@@ -1,0 +1,380 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 3</h3><h1>Analysis: Zillionim</h1><p>
+  There may not be a <i>zillion</i> possible solutions to this problem, but
+  there are more than we can discuss in this analysis! We'll only touch on a
+  few here, some of which work, and some of which don't. You're welcome to
+  share yours in the
+  <a href="https://groups.google.com/forum/#!forum/google-code">Code Jam Google Group</a>!
+</p>
+<h3>Random play</h3>
+<p>
+  What if we always choose a move uniformly at random from among all available
+  moves, just like the AI does? Intuitively, since the overall number of coins
+  is large relative to the size of any one move, going first or second is not
+  very important (given that in this case, both sides are playing randomly and
+  not using any strategy), and every game is close to a fair coin flip. Suppose
+  that we have a 50% chance of winning a game with this strategy; then, per the
+  binomial distribution, we have only about an 0.0004% chance of winning 300 or
+  more games out of 500. So this approach won't even get us the 1 point for
+  test set 1!
+</p>
+<h3>A mirror strategy</h3>
+<p>
+  If we were allowed to go first in this game, we could guarantee a win using
+  the following strategy. Imagine a "center line" drawn between the
+  (10<sup>12</sup> / 2)-th and ((10<sup>12</sup> / 2) + 1)-th coins, dividing
+  the coins into two regions of equal size. On the first turn, we could take
+  the group of 10<sup>10</sup> coins bisected by this line &mdash; that is,
+  the coins numbered from ((10<sup>12</sup> - 10<sup>10</sup>) / 2) + 1 to
+  ((10<sup>12</sup> + 10<sup>10</sup>) / 2). Then, after every move by the
+  opponent, we could make the same move, but reflected across this center
+  line. For example, if the opponent were to take the 10<sup>10</sup> coins
+  starting from coin number 2, we would respond by taking the group of
+  10<sup>10</sup> coins starting from the next-to-last coin and going left.
+  We would always be guaranteed a move, by symmetry, so the opponent would
+  have to eventually lose.
+</p><p>
+  Sadly, we cannot move first, but we can try to adapt this strategy by just
+  making the mirrored version of the opponent's move. This will always be
+  possible unless the opponent makes a move that crosses the center line, in
+  which case we cannot mirror it. But if the opponent happens to move close to
+  the center line without crossing it &mdash; specifically, taking a coin fewer
+  than 10<sup>10</sup> / 2 coins away from the center without crossing the
+  center &mdash; then they will ensure their own defeat. If they do happen
+  to make a move that crosses the center line, we can abandon our strategy and
+  move randomly.
+</p><p>
+  We can run a local simulation and find that this strategy does better than
+  randomness, winning around 57.5% of the time. Unfortunately, this only gives
+  us about a 14% chance of passing test set 1. Moreover, because our moves
+  depend on the judge's moves, we cannot easily tweak the judge's randomness;
+  we only get some control over that once the judge has made a move that hurts
+  our strategy. So, all in all, it's probably best to abandon this approach.
+</p>
+<h3>A 2 &times; 10<sup>10</sup> strategy</h3>
+<p>
+  Let's call a remaining set of (at least 10<sup>10</sup>) contiguous coins a
+  "run". Observe that a "run" of exactly 2 &times; 10<sup>10</sup> remaining
+  coins can be very useful for us. We have the option of taking the first
+  10<sup>10</sup> or the last 10<sup>10</sup> coins from that run, and leaving
+  a run of exactly 10<sup>10</sup> coins (and therefore one possible move)
+  behind. On the other hand, if we take any other group of 10<sup>10</sup>
+  coins from that run, we will leave no moves behind, "destroying" the run.
+  Also notice that if the AI happens to move within this run, it will virtually
+  always make the second type of move; the odds of it happening to choose the
+  first or last 10<sup>10</sup> coins are negligible.
+</p><p>
+  Because of this, a run of exactly 2 &times; 10<sup>10</sup> coins lets us
+  control the parity of the game. Suppose, as a thought experiment, that the
+  only remaining runs are of exactly 2 &times; 10<sup>10</sup> coins each, and
+  that it is our turn. If the number of remaining runs is odd, we can move in
+  a way that destroys one of the runs, and then the AI will do the same, and so
+  on until we leave the AI with no moves. If the number of remaining runs is
+  even, we can take the first 10<sup>10</sup> coins from one run, leaving the
+  other 10<sup>10</sup> behind as a smaller run. Now the AI is in the same bad
+  "even number of remaining runs" situation that we were just in.
+</p><p>
+  We can set up a situation like this by making many moves early on that leave
+  behind runs of exactly 2 &times; 10<sup>10</sup> coins. For example, we
+  can repeatedly choose the largest remaining run of size
+  3 &times; 10<sup>10</sup> or greater, and start from the
+  (2 &times; 10<sup>10</sup> + 1)-th coin from the left in that group, leaving
+  a run of exactly size 2 &times; 10<sup>10</sup> behind (in addition to any
+  leftover piece to the right of our move). Then, as long as there are still
+  runs larger than 2 &times; 10<sup>10</sup> but smaller than 3 &times;
+  10<sup>10</sup>, we can use our moves to destroy them by moving in their
+  centers. Our goal is to eliminate all runs larger than 2 &times;
+  10<sup>10</sup> before the AI randomly destroys all of our runs of 2 &times;
+  10<sup>10</sup>. Intuitively, we do not need to worry too much about this,
+  since the AI is more likely to move within some remaining larger runs than
+  within our last remaining run of 2 &times; 10<sup>10</sup> runs, so it will
+  usually be helping us out! Once all runs are of size
+  2 &times; 10<sup>10</sup> or smaller, and we have at least one run of size
+  2 &times; 10<sup>10</sup>, we have imposed the near-lockdown situation
+  described above.
+</p><p>
+  We hope you will forgive us for not trying to calculate an exact success
+  probability for the above strategy, but one can use a local simulation to
+  show that it wins, e.g., all 100000 of 100000 games. The chances of it losing
+  more than one of 500 games are vanishingly small... and even if the worst
+  somehow happens, in this case, we do have some control over the overall
+  randomness, and we can try again with a slight tweak.
+</p>
+<h3>Other parity-based strategies</h3>
+<p>
+  In Round 1C this year, we had
+  <a href="https://codingcompetitions.withgoogle.com/codejam/round/00000000000516b9/0000000000134cdf">Bacterial Tactics</a>
+  , another problem about a turn-taking game. You may recall that the analysis
+  brought up the
+  <a href=https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem>Sprague–Grundy theorem</a>
+  ; can we use a similar parity-based strategy here?
+</p><p>
+  As in our 2 &times; 10<sup>10</sup> strategy, we can try to keep the number
+  of remaining runs even for the AI by moving in the middle of a run if there
+  is an even number of runs, or otherwise taking the left end of some other
+  large run. Empirically, this strategy solves TS1, and it even solves TS2 if
+  we always take the largest remaining run. It ends up being similar to our
+  best strategy described above, even though it does not allow for such fine
+  control.
+</p><p>
+  We can even achieve a perfect solution for this problem by exhaustively
+  calculating Grundy numbers and storing them using run-length encoding!
+  However, it is possible to arrive at the 2 &times; 10<sup>10</sup> idea above,
+  which is good enough, without knowing anything about this theory.
+</p>
+
+    </div>
+  </body>
+</html>

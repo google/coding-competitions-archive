@@ -1,0 +1,460 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 3</h3><h1>Thermometers</h1><h3>Problem</h3>
+<p>
+  You are part of a team of researchers investigating the climate along the
+  coast of an island. The island's coast is modeled as a circle with a
+  circumference of <b>K</b> kilometers. There is a lighthouse on the coast
+  which occupies a single point on the circle's circumference. Each point on
+  the coast is mapped to a real number in the range [0, <b>K</b>); formally,
+  point x is the point on the coast that is x kilometers away from the
+  lighthouse when walking clockwise along the coast. For example, if
+  <b>K</b> = 5, point 0 is the point where the lighthouse is, point 1.5 is the
+  point that is 1.5 kilometers away from the lighthouse in the clockwise direction,
+  and point 2.5 is the point that is located at the diametrical opposite of the
+  lighthouse.
+</p><p>
+  You are in charge of studying coastal temperatures. Another team installed a
+  coastal temperature measuring system that works as follows: a number of
+  thermometers were deployed at specific points to measure the temperature at
+  those points. No two thermometers were placed at the same point. In that
+  team's model, points without thermometers are assumed to have the same
+  temperature as the one measured by the closest thermometer. For points that
+  are equidistant from two thermometers, the thermometer in the clockwise
+  direction is used (the first one you would encounter if walking clockwise
+  from the point).
+</p><p>
+  Unfortunately, you do not know how many thermometers the system used or
+  where they were placed, but you do have access to the system's temperature
+  data. It is given as two lists
+  of <b>N</b> values each <b>X<sub>1</sub></b>, <b>X<sub>2</sub></b>, ...,
+  <b>X<sub>N</sub></b> and <b>T<sub>1</sub></b>, <b>T<sub>2</sub></b>, ...,
+  <b>T<sub>N</sub></b>, representing that each point x where
+  <b>X<sub>i</sub></b> &le; x &lt; <b>X<sub>i+1</sub></b> is assigned
+  temperature <b>T<sub>i</sub></b>, for each 1 &le; i &lt; <b>N</b>, and each
+  point x where 0 &le; x &lt; <b>X<sub>1</sub></b> or
+  <b>X<sub>N</sub></b> &le; x &lt; <b>K</b> is assigned temperature
+  <b>T<sub>N</sub></b>. The points are enumerated in the clockwise direction,
+  so <b>X<sub>i</sub></b> &lt; <b>X<sub>i+1</sub></b>, for all i.
+</p><p>
+  You want to determine the smallest number of thermometers
+  that, when placed in some set of locations, could have produced the observed
+  data.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow; each consists of three lines. The first line of a
+  test case contains two integers <b>K</b> and <b>N</b>: the circumference
+  of the island and the size of the lists representing the temperature data.
+  The second line
+  contains <b>N</b> integers <b>X<sub>1</sub></b>, <b>X<sub>2</sub></b>, ...,
+  <b>X<sub>N</sub></b>. The third line contains <b>N</b> integers
+  <b>T<sub>1</sub></b>, <b>T<sub>2</sub></b>, ..., <b>T<sub>N</sub></b>. The
+  way in which the integers in the second and third line represent the
+  temperatures is explained above.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the minimum number of thermometers that could have produced the observed
+  input data, as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 30 seconds per test set.<br/>
+  Memory limit: 1 GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  2 &le; <b>N</b> &le; min(100, <b>K</b>). <br/>
+  0 &le; <b>X<sub>1</sub></b>. <br/>
+  <b>X<sub>i</sub></b> &lt; <b>X<sub>i+1</sub></b>, for all i. <br/>
+  <b>X<sub>N</sub></b> &lt; <b>K</b>. <br/>
+  184 &le; <b>T<sub>i</sub></b> &le; 330, for all i. <br/>
+  <b>T<sub>i</sub></b> &ne; <b>T<sub>i+1</sub></b>, for all i. <br/>
+  <b>T<sub>1</sub></b> &ne; <b>T<sub>N</sub></b>. <br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+  2 &le; <b>K</b> &le; 10.
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+  2 &le; <b>K</b> &le; 10<sup>9</sup>.
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="thermometers_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+2 2
+0 1
+184 330
+3 2
+0 1
+184 330
+10 3
+1 5 9
+184 200 330
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="thermometers_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2
+Case #2: 3
+Case #3: 3
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, at least 2 thermometers are needed because there are two
+  different temperatures measured. It is possible to produce the data using
+  exactly 2 thermometers, with one thermometer (measuring 184) at point 0.5 and
+  another (measuring 330) at point 1.5. Note that point 0 and point 1 are
+  equidistant from both thermometers, so the thermometer in the clockwise
+  direction is used. The temperature measured at point 0 comes from the
+  thermometer at point 0.5 and the temperature measured at point 1 comes from
+  the thermometer at point 1.5.
+</p>
+<p style="text-align:center">
+  <img src="images/sample_case_1.svg"/>
+</p>
+<p>
+  The data from Sample Case #2 could not be produced with just 2 thermometers.
+  It could be produced with 3 thermometers if they were placed at point 0.2,
+  point 1.8, and point 2.8, measuring 184, 330 and 330, respectively. There are
+  other ways to place 3 thermometers that would also yield the input data.
+</p>
+<p style="text-align:center">
+  <img src="images/sample_case_2.svg"/>
+</p>
+<p>
+  In Sample Case #3, one way to produce the data with 3 thermometers is to
+  place them at point 0, point 2 and point 8, measuring 330, 184 and 200,
+  respectively.
+</p>
+<p style="text-align:center">
+  <img src="images/sample_case_3.svg"/>
+</p>
+
+    </div>
+  </body>
+</html>

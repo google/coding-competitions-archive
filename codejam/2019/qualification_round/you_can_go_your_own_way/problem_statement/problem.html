@@ -1,0 +1,496 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Qualification Round</h3><h1>You Can Go Your Own Way</h1><h3>Problem</h3>
+<p>
+  You have just entered the world's easiest maze. You start in the northwest
+  cell of an <b>N</b> by <b>N</b> grid of unit cells, and you must reach the
+  southeast cell. You have only two types of moves available: a unit move to
+  the east, and a unit move to the south. You can move into any cell, but you
+  may not make a move that would cause you to leave the grid.
+</p><p>
+  You are excited to be the first in the world to solve the maze, but then
+  you see footprints. Your rival, Labyrinth Lydia, has already solved the maze
+  before you, using the same rules described above!
+</p><p>
+  As an original thinker, you do not want to reuse any of Lydia's moves.
+  Specifically, if her path includes a unit move from some cell A to some
+  adjacent cell B, your path cannot also include a move from A to B.
+  (However, in that case, it is OK for your path to visit A or visit B, as long
+  as you do not go from A to B.) Please find such a path.
+</p><p>
+  In the following picture, Lydia's path is indicated in blue, and one
+  possible valid path for you is indicated in orange:
+</p>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="400px" viewBox="0 0 502 502" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="All" transform="translate(1.000000, 1.000000)">
+            <g id="All-without-circles">
+                <g id="Back" stroke-width="2" stroke="#000000">
+                    <g id="Group">
+                        <rect id="Rectangle-2" x="0" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="100" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="200" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="300" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="400" y="0" width="100" height="100"></rect>
+                    </g>
+                    <g id="Group" transform="translate(0.000000, 100.000000)">
+                        <rect id="Rectangle-2" x="0" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="100" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="200" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="300" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="400" y="0" width="100" height="100"></rect>
+                    </g>
+                    <g id="Group" transform="translate(0.000000, 200.000000)">
+                        <rect id="Rectangle-2" x="0" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="100" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="200" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="300" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="400" y="0" width="100" height="100"></rect>
+                    </g>
+                    <g id="Group" transform="translate(0.000000, 300.000000)">
+                        <rect id="Rectangle-2" x="0" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="100" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="200" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="300" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="400" y="0" width="100" height="100"></rect>
+                    </g>
+                    <g id="Group" transform="translate(0.000000, 400.000000)">
+                        <rect id="Rectangle-2" x="0" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="100" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="200" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="300" y="0" width="100" height="100"></rect>
+                        <rect id="Rectangle-2" x="400" y="0" width="100" height="100"></rect>
+                    </g>
+                </g>
+                <g id="Group-5" transform="translate(60.000000, 40.000000)">
+                    <path d="M0,10 L80,10" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(78.000000, 10.000000) rotate(-270.000000) translate(-78.000000, -10.000000) " points="78 0 88 20 68 20"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(190.000000, 98.000000) rotate(-180.000000) translate(-190.000000, -98.000000) " points="190 88 200 108 180 108"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(190.000000, 198.000000) rotate(-180.000000) translate(-190.000000, -198.000000) " points="190 188 200 208 180 208"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(190.000000, 298.000000) rotate(-180.000000) translate(-190.000000, -298.000000) " points="190 288 200 308 180 308"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(290.000000, 398.000000) rotate(-180.000000) translate(-290.000000, -398.000000) " points="290 388 300 408 280 408"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(178.000000, 10.000000) rotate(-270.000000) translate(-178.000000, -10.000000) " points="178 0 188 20 168 20"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(278.000000, 310.000000) rotate(-270.000000) translate(-278.000000, -310.000000) " points="278 300 288 320 268 320"></polygon>
+                    <polygon id="Triangle-2" fill="#4990E2" transform="translate(378.000000, 410.000000) rotate(-270.000000) translate(-378.000000, -410.000000) " points="378 400 388 420 368 420"></polygon>
+                    <path d="M100,10 L180,10" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M200,310 L280,310" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M300,410 L380,410" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M190,20 L190,100" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M190,120 L190,200" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M190,220 L190,300" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M290,320 L290,400" id="Line" stroke="#4990E2" stroke-width="5" stroke-linecap="square"></path>
+                </g>
+                <g id="Group-5" transform="translate(40.000000, 60.000000)" stroke="#F6A623">
+                    <path d="M20,90 L100,90" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(98.000000, 90.000000) rotate(-270.000000) translate(-98.000000, -90.000000) " points="98 80 108 100 88 100"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(10.000000, 77.000000) rotate(-180.000000) translate(-10.000000, -77.000000) " points="10 67 20 87 0 87"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(310.000000, 177.000000) rotate(-180.000000) translate(-310.000000, -177.000000) " points="310 167 320 187 300 187"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(310.000000, 277.000000) rotate(-180.000000) translate(-310.000000, -277.000000) " points="310 267 320 287 300 287"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(410.000000, 377.000000) rotate(-180.000000) translate(-410.000000, -377.000000) " points="410 367 420 387 400 387"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(198.000000, 90.000000) rotate(-270.000000) translate(-198.000000, -90.000000) " points="198 80 208 100 188 100"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(398.000000, 290.000000) rotate(-270.000000) translate(-398.000000, -290.000000) " points="398 280 408 300 388 300"></polygon>
+                    <polygon id="Triangle-2" fill="#F6A623" transform="translate(298.000000, 90.000000) rotate(-270.000000) translate(-298.000000, -90.000000) " points="298 80 308 100 288 100"></polygon>
+                    <path d="M120,90 L200,90" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M220,90 L300,90" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M320,290 L400,290" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M10,0 L10,80" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M310,100 L310,180" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M310,200 L310,280" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                    <path d="M410,300 L410,380" id="Line" stroke-width="5" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow; each case consists of two lines. The first line
+  contains one integer <b>N</b>, giving the dimensions of the maze, as
+  described above. The second line contains a string <b>P</b> of 2<b>N</b> - 2
+  characters, each of which is either uppercase <code>E</code> (for east) or
+  uppercase <code>S</code> (for south), representing Lydia's valid path
+  through the maze.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is a string of 2<b>N</b> - 2 characters each of which is either uppercase
+  <code>E</code> (for east) or uppercase <code>S</code> (for south),
+  representing your valid path through the maze that does not conflict with
+  Lydia's path, as described above. It is guaranteed that at least one
+  answer exists.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 15 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  <b>P</b> contains exactly <b>N</b> - 1 <code>E</code> characters and exactly
+    <b>N</b> - 1 <code>S</code> characters.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  2 &le; <b>N</b> &le; 10.<br/>
+</p>
+
+<h4>Test set 2 (Visible)</h4>
+<p>
+  2 &le; <b>N</b> &le; 1000.<br/>
+</p>
+
+<h4>Test set 3 (Hidden)</h4>
+<p>
+  For at most 10 cases, 2 &le; <b>N</b> &le; 50000.<br/>
+  For all other cases, 2 &le; <b>N</b> &le; 10000.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="you_can_go_your_own_way_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">2
+2
+SE
+5
+EESSSESE
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="you_can_go_your_own_way_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: ES
+Case #2: SEEESSES
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  In Sample Case #1, the maze is so small that there is only one valid
+  solution left for us.
+</p><p>
+  Sample Case #2 corresponds to the picture above. Notice that it is acceptable
+  for the paths to cross.
+</p>
+
+    </div>
+  </body>
+</html>

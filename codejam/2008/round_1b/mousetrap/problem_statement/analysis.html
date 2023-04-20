@@ -1,0 +1,382 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - Round 1B</h3><h1>Analysis: Mousetrap</h1><p>
+  In this nice problem, there are two viewpoints one can start with.
+</p>
+<ul>
+  <li>
+    The current position is fixed and the array of cards is rotating each time.
+  </li><li>
+    Think of the cards as a fixed ring (represented byan array) and the current
+    position in focus as a pointer moving on the ring.
+  </li>
+</ul>
+<p>
+  For most of us (and our programs), it is more convenient to adopt the second
+  viewpoint.
+</p><p>
+  After reading the story, it is not hard to see that the task is clear: put
+  card 1 in the first position, then for each card i (in the order 2, 3, ...,
+  <b>K</b>), we start from the current position, and find the i-th empty spot
+  to the right, wrap around as many times as necessary, then put card i there.
+</p><p>
+  The problem is to simulate the process described above. What makes it
+  interesting is that <b>K</b> can be as big as 1000000, which makes the naive
+  <nobr>&Theta;(<b>K</b><sup>2</sup>)</nobr> simulation too slow for our
+  8-minute time limit. For each step, we need to compute the next position much
+  faster than <nobr>&Theta;(<b>K</b>)</nobr> as in the naive approach. We
+  describe three solutions below.
+</p>
+
+<h3>Solution A.</h3>
+<p>
+  Let <nobr><b>S</b> = &radic;<b>K</b></nobr>, we partition the <b>K</b>
+  positions into <b>S</b> intervals of roughly equal size (also <b>S</b>). In
+  addition to bookkeeping which positions are occupied (an array of size
+  <b>K</b>, we call the first level counter), we also count for each interval
+  how many positions are occupied (an array of size <b>S</b> that we call the
+  second level counter).
+  With this information, we may skip intervals of length <b>S</b> as many as
+  possible, until we arrive at an interval where we know the card must belong
+  to.  Then in that interval we only need to deal with at most <b>S</b> first
+  level counters.
+</p><p>
+  Once we put down a card, it is a simple matter to update the counters. We
+  only need to update one on the first level and one on the second level.
+</p><p>
+  This solution runs in time <nobr>O(<b>K</b><sup>1.5</sup>)</nobr>.
+</p>
+
+<h3>Solution B.</h3>
+<p>
+  Push the idea in the previous solution further. Why not have more levels of
+  counters?
+  In fact, one nice plan is to organize the levels into a binary tree. On the
+  bottom (first) level of the tree we have each position as a separate
+  interval. Every time we go up one level, we combine every other interval with
+  the next one. Thus we will have log<b>K</b> levels; the top level being a
+  single interval with all the positions. We omit the details, since we will
+  see this again in the analysis of a Round 1C problem.
+  We mention that the total number of counters is <nobr>O(<b>K</b>)</nobr>, and
+  for each card we will need O(log <b>K</b>) time to find the position and
+  another <nobr>O(log <b>K</b>)</nobr> time to update the counters. The running
+  time of this method is <nobr>O(<b>K</b> log <b>K</b>)</nobr>.
+</p><p>
+  For similar ideas in computer science, we refer to the Wiki page for
+  <a href="http://en.wikipedia.org/wiki/Interval_tree" target="_blank">interval trees</a>.
+</p>
+
+<h3>Solution C.</h3>
+<p>
+  Now let us do something different. At each step, after one position is
+  occupied by card number i, we delete the position from the deck.
+</p><p>
+  Notice that <b>n</b>, the number of queries is at most 100. We do not need to
+  relabel all the positions, it is enough to do this for those <b>n</b> that we
+  are interested in.
+</p><p>
+  The solution can be implemented in two flavors, based on which viewpoint in
+  the beginning of the analysis you pick. The short C++ program is, again,
+  based on the second one, where the position (pos) changes as a pointer, and
+  the deck does not move, except we delete one position in each step.
+</p>
+<pre>
+for (int j = 0; j &lt; n; j++) answers[j] = -1;
+for (int i = 1, pos = 0; i &lt;= K; i++) {
+  // Compute the next position, after wrap-around.
+  pos = (pos + i - 1) % (K - i + 1);
+  for (int j = 0; j &lt; n; j++)
+  if (answers[j] &lt; 0) {
+    if (queries[j] == pos+1) {
+      queries[j] = -1; answers[j] = i;
+    } else if (queries[j] &gt; pos+1) {
+      // The effect of deleting the next position.
+      queries[j]--; 
+    }
+  }
+}
+</pre>
+<p>
+  You can use a trick to combine the two arrays queries[] and answers[] into
+  one. The programs runs in <nobr>&Theta;(<b>n K</b>)</nobr> time.
+</p>
+
+<h3>More information:</h3>
+<p>
+  <a href="http://www.google.com/search?q=interval+tree" target="_blank">Interval trees</a>
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

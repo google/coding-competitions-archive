@@ -1,0 +1,1001 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Qualification Round</h3><h1>Go, Gopher!</h1><h3>Problem</h3>
+<p>
+  The Code Jam team has just purchased an orchard that is a two-dimensional
+  matrix of cells of unprepared soil, with 1000 rows and 1000 columns. We plan
+  to use this orchard to grow a variety of trees &mdash; AVL, binary, red-black,
+  splay, and so on &mdash; so we need to <i>prepare</i> some of the cells by
+  digging holes:
+</p>
+<ul>
+  <li>In order to have enough trees to use for each year's tree problems, we
+    need there to be at least <b>A</b> prepared cells.</li>
+  <li>In order to care for our trees properly, the set of all prepared cells
+    must form a single grid-aligned rectangle in which every cell within the
+    rectangle is prepared.</li>
+</ul>
+<p>
+  Note that the above also implies that none of the cells outside of that
+  rectangle can be prepared. We want the orchard to look tidy!
+</p>
+<p>
+  For example, when <b>A</b>=11, although the eleven prepared cells in the left
+  figure below form a 3x4 rectangle (that is, with 3 rows and 4 columns), the
+  cell in the center of the rectangle is not prepared. As a result, we have not
+  yet completed preparing our orchard, since not every cell of the 3x4 rectangle
+  is prepared. However, after just preparing the center cell, the rectangle of
+  size at least 11 is fully filled, and the orchard is ready.
+</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="525px"
+   height="200px"
+   viewBox="0 0 555.62496 211.66667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="Figure-1.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="899.44547"
+     inkscape:cy="217.14286"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px"
+     inkscape:snap-page="false"
+     inkscape:snap-text-baseline="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-85.333303)">
+    <rect
+       id="rect3717"
+       width="140"
+       height="105"
+       x="70"
+       y="121.99997"
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:1.17875695" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke-width:0.34027782"
+       y="156.99997"
+       x="105"
+       height="35"
+       width="35"
+       id="rect4640" />
+    <rect
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:1.17875695"
+       y="121.99997"
+       x="350"
+       height="105"
+       width="140"
+       id="rect4638" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -4.7761905e-5,261.33851 H 557.94595"
+       id="path4590"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4592"
+       d="M -2.2679049,226.33851 H 555.6781"
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -2.2679049,121.33851 H 555.6781"
+       id="path4594"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4596"
+       d="M -2.2679049,156.33851 H 555.6781"
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -2.2679049,191.33851 H 555.6781"
+       id="path4598"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 35.661458,80.041636 V 306.82735"
+       id="path4604"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4606"
+       d="M 70.661458,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 105.66146,80.041636 V 306.82735"
+       id="path4608"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4610"
+       d="M 140.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 175.66146,80.041636 V 306.82735"
+       id="path4612"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 210.66146,80.041636 V 306.82735"
+       id="path4616"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4618"
+       d="M 245.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 280.66146,80.041636 V 306.82735"
+       id="path4620"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4622"
+       d="M 315.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 385.66146,80.041636 V 306.82735"
+       id="path4624"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4626"
+       d="M 385.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 350.66146,80.041636 V 306.82735"
+       id="path4630"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 420.66146,80.041636 V 306.82735"
+       id="path4632"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4634"
+       d="M 455.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 490.66146,80.041636 V 306.82735"
+       id="path4636"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#34a853;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="394.29492"
+       y="276.38663"
+       id="text4644"><tspan
+         sodipodi:role="line"
+         id="tspan4642"
+         x="394.29492"
+         y="276.38663"
+         style="font-size:50.79999924px;fill:#34a853;fill-opacity:1;stroke-width:0.26458332">✔</tspan></text>
+    <text
+       id="text4656"
+       y="276.38663"
+       x="114.87968"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:50.79999924px;fill:#ea4335;fill-opacity:1;stroke-width:0.26458332"
+         y="276.38663"
+         x="114.87968"
+         id="tspan4654"
+         sodipodi:role="line">✘</tspan></text>
+    <text
+       id="text4660"
+       y="209.40831"
+       x="221.6158"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:123.47222137px;fill:#fbbc04;fill-opacity:1;stroke-width:0.26458332"
+         y="209.40831"
+         x="221.6158"
+         id="tspan4658"
+         sodipodi:role="line">⇨</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5285"
+       d="M 525.66146,80.041256 V 306.82697"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>
+<p>
+  See below for another example. In this case, <b>A</b>=6. Note that the middle
+  figure prepares a cell outside the 3x2 rectangle, so although the rightmost
+  figure prepares a rectangle of size 6, the entire set of the prepared cells
+  does not form a rectangle (due to the extra cell on the left). As a result,
+  the orchard is not ready.
+</p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="525px"
+   height="200px"
+   viewBox="0 0 555.62496 211.66667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="Figure-3.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="652.36863"
+     inkscape:cy="217.14286"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px"
+     inkscape:snap-page="false"
+     inkscape:snap-text-baseline="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-85.333303)">
+    <rect
+       id="rect4722"
+       width="35"
+       height="35"
+       x="210.15475"
+       y="156.99997"
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:0.34027782" />
+    <rect
+       id="rect3717"
+       width="70"
+       height="105"
+       x="35"
+       y="121.99997"
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:0.833507" />
+    <rect
+       id="rect5277"
+       width="35"
+       height="35"
+       x="35"
+       y="156.99997"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke-width:0.34027782" />
+    <rect
+       id="rect5271"
+       width="35"
+       height="35"
+       x="420"
+       y="156.99997"
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:0.34027782" />
+    <rect
+       id="rect4700"
+       width="70"
+       height="105"
+       x="455"
+       y="121.99997"
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:0.833507" />
+    <rect
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:0.833507"
+       y="121.99997"
+       x="245"
+       height="105"
+       width="70"
+       id="rect4698" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke-width:0.34027782"
+       y="156.99997"
+       x="245"
+       height="35"
+       width="35"
+       id="rect4640" />
+    <rect
+       style="fill:#34a853;fill-opacity:1;fill-rule:nonzero;stroke-width:0.34027782"
+       y="156.99997"
+       x="210.15475"
+       height="35"
+       width="35"
+       id="rect5267" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -4.7761905e-5,261.33851 H 557.94595"
+       id="path4590"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4592"
+       d="M -2.2679049,226.33851 H 555.6781"
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.35358894;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -2.2679049,121.33851 H 555.6781"
+       id="path4594"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4596"
+       d="M -2.2679049,156.33851 H 555.6781"
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.35358882;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -2.2679049,191.33851 H 555.6781"
+       id="path4598"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 35.661458,80.041636 V 306.82735"
+       id="path4604"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4606"
+       d="M 70.661458,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 105.66146,80.041636 V 306.82735"
+       id="path4608"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4610"
+       d="M 140.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 175.66146,80.041636 V 306.82735"
+       id="path4612"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 210.66146,80.041636 V 306.82735"
+       id="path4616"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4618"
+       d="M 245.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 280.66146,80.041636 V 306.82735"
+       id="path4620"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4622"
+       d="M 315.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 385.66146,80.041636 V 306.82735"
+       id="path4624"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4626"
+       d="M 385.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 350.66146,80.041636 V 306.82735"
+       id="path4630"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 420.66146,80.041636 V 306.82735"
+       id="path4632"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4634"
+       d="M 455.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 490.66146,80.041636 V 306.82735"
+       id="path4636"
+       inkscape:connector-curvature="0" />
+    <text
+       id="text4656"
+       y="276.50388"
+       x="44.879688"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:50.79999924px;fill:#ea4335;fill-opacity:1;stroke-width:0.26458332"
+         y="276.50388"
+         x="44.879688"
+         id="tspan4654"
+         sodipodi:role="line">✘</tspan></text>
+    <text
+       id="text4660"
+       y="208.65236"
+       x="105.95508"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:123.47222137px;fill:#fbbc04;fill-opacity:1;stroke-width:0.26458332"
+         y="208.65236"
+         x="105.95508"
+         id="tspan4658"
+         sodipodi:role="line">⇨</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="317.62173"
+       y="209.40831"
+       id="text4712"><tspan
+         sodipodi:role="line"
+         id="tspan4710"
+         x="317.62173"
+         y="209.40831"
+         style="font-size:123.47222137px;fill:#fbbc04;fill-opacity:1;stroke-width:0.26458332">⇨</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="254.87968"
+       y="276.50388"
+       id="text4720"><tspan
+         sodipodi:role="line"
+         id="tspan4718"
+         x="254.87968"
+         y="276.50388"
+         style="font-size:50.79999924px;fill:#ea4335;fill-opacity:1;stroke-width:0.26458332">✘</tspan></text>
+    <text
+       id="text5281"
+       y="276.50388"
+       x="464.8797"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ea4335;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:50.79999924px;fill:#ea4335;fill-opacity:1;stroke-width:0.26458332"
+         y="276.50388"
+         x="464.8797"
+         id="tspan5279"
+         sodipodi:role="line">✘</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5283"
+       d="M 525.66146,80.041636 V 306.82735"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>
+<p>
+  Digging is hard work for humans, so we have borrowed the
+  <a href="https://blog.golang.org/gopher">Go gopher</a> from the
+  <a href="https://golang.org/">Google Go</a> team and trained it to help us
+  out by preparing cells. We can <i>deploy</i> the gopher by giving it the
+  coordinates of a <i>target cell</i> in the matrix that is not along any of
+  the borders of the matrix. However, we have not yet perfected the gopher's
+  training, so it will choose a cell uniformly at <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">
+  (pseudo-)random</a> from the 3x3 block of nine cells centered on the target
+  cell, and then prepare the cell it has chosen. (If it chooses a cell that
+  was already prepared, it will uselessly prepare it again.)
+</p>
+<p>
+  We can only deploy the gopher up to 1000 times before it gets too tired to
+  keep digging, so we need your help in figuring out how to deploy it
+  strategically. When you deploy the gopher, you will be told which cell the
+  gopher actually prepared, and you can take this information into account
+  before deploying it again, if needed. Note that you do not have to declare
+  the dimensions or location of a rectangle in advance.
+</p>
+<h3>Input and output </h3>
+<p>
+  This problem is
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems">
+  interactive</a>, which means that the concepts of input and output are different
+  than in standard Code Jam problems. You will interact with a separate process
+  that both provides you with information and evaluates your responses.
+  All information comes into your program via standard input; anything that you
+  need to communicate should be sent via standard output.
+  Remember that many programming languages buffer the output by default, so
+  make sure your output actually goes out (for instance, by flushing the
+  buffer) before blocking to wait for a response. See the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq" target="_blank">FAQ</a>
+  for an explanation of what it means to flush the buffer.
+  Anything your program sends through standard error is ignored, but it might
+  consume some memory and be counted against your memory limit, so do not
+  overflow it. To help you debug, a local testing tool script (in Python) is
+  provided at the very end of the problem statement. In addition, sample solutions
+  to a previous Code Jam interactive problem (in all of our supported languages) are
+  provided in the analysis for
+  <a href="https://codingcompetitions.withgoogle.com/codejam/round/0000000000000130/0000000000000523" target="_blank">Number Guessing</a>.
+</p><p>
+  Initially, your program should read a single line containing a single integer
+  <b>T</b> indicating the number of test cases. Then, you need to process
+  <b>T</b> test cases.
+</p><p>
+  For each test case, your program will read a single line containing a single
+  integer <b>A</b> indicating the minimum required prepared rectangular area.
+  Then, your program will process up to 1000 exchanges with our judge.
+</p><p>
+  For each exchange, your program needs to use standard output to send a single
+  line containing two integers I and J: the row and column number you want to
+  deploy the gopher to. The two integers must be between 2 and 999, and written
+  in base-10 without leading zeroes. If your output format is wrong (e.g., out
+  of bounds values), your program will fail, and the judge will send you a single
+  line with <code>-1 -1</code> which signals that
+  your test has failed, and it will not send anything to your input stream after
+  that. Otherwise, in response to your deployment, the judge will print a single
+  line containing two integers I&#39; and J&#39; to your input stream, which your
+  program must read through standard input.
+</p><p>
+  If the last deployment caused the set of prepared cells to be a rectangle
+  of area at least <b>A</b>, you will get I&#39; = J&#39; = 0, signaling the end of the
+  test case. Otherwise, I&#39; and J&#39; are the row and column numbers of the cell
+  that was actually prepared by the gopher, with abs(I&#39;-I) &le; 1 and abs(J&#39;-J) &le; 1.
+  Then, you can start another exchange.
+</p><p>
+  If your program gets something wrong (e.g. wrong output format, or
+  out-of-bounds values), as mentioned above, the judge will send I&#39; = J&#39; = -1,
+  and stop sending output to your input stream afterwards. If your program
+  continues to wait for the judge after reading in I&#39; = J&#39; = -1, your program
+  will time out, resulting in a Time Limit Exceeded error. Notice that it is
+  your responsibility to have your program exit in time to receive the
+  appropriate verdict (Wrong Answer, Runtime Error, etc.) instead of a Time
+  Limit Exceeded error. As usual, if the total time or memory is exceeded, or
+  your program gets a runtime error, you will receive the appropriate verdict.
+</p><p>
+  If the test case is solved within 1000 deployments, you will receive the
+  I&#39; = J&#39; = 0 message from the judge, as mentioned above, and then continue to
+  solve the next test case. After 1000 exchanges, if the test case is not
+  solved, the judge will send the I&#39; = J&#39; = -1 message, and stop sending output
+  to your input stream after.
+</p><p>
+  You should not send additional information to the judge after solving all test
+  cases. In other words, if your program keeps printing to standard output after
+  receiving I&#39; = J&#39; = 0 message from the judge for the last test case, you will
+  receive a Wrong Answer judgment.
+</p><p>
+  Please be advised that for a given test case, the cells that the gopher will pick
+  from each 3x3 block are (pseudo-)random and independent of each other, but
+  they are determined using the same seed each time for the same test case,
+  so a solution that gives an incorrect result for a test case will do so
+  consistently across all attempts for the same test case. We have also set
+  different seeds for different test cases.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 20.<br/>
+  Memory limit: 1 GB.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>A</b> = 20.<br/>
+  Time limit (for the entire test set): 20 seconds.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  <b>A</b> = 200.<br/>
+  Time limit (for the entire test set): 60 seconds.<br/>
+</p>
+
+<h3>Sample interaction</h3>
+<pre>
+  t = readline_int()         // reads 2 into t
+  a = readline_int()         // reads 3 into a
+  printline 10 10 to stdout  // sends out cell 10 10 to prepare
+  flush stdout
+  x, y = readline_two_int()  // reads 10 11, since cell 10 11 is prepared
+  printline 10 10 to stdout  // sends out cell 10 10 again to prepare
+  flush stdout
+  x, y = readline_two_int()  // reads 10 10, since cell 10 10 is prepared
+  printline 10 12 to stdout  // sends out cell 10 12 to prepare
+  flush stdout
+  x, y = readline_two_int()  // reads 10 11, since cell 10 11 is prepared again
+  printline 10 10 to stdout  // sends out cell 10 10 to prepare
+  flush stdout
+  x, y = readline_two_int()  // reads 11 10, since cell 11 10 is prepared
+  printline 11 10 to stdout  // sends out cell 11 10 to prepare
+  flush stdout
+  x, y = readline_two_int()  // reads 0 0; since cell 11 11 is prepared, a rectangle of size 4
+</pre>
+<p>
+  The pseudocode above is the first half of a sample interaction for one test set.
+  Suppose there are only two test cases in this test set. The pseudocode first reads
+  the number of test cases into an integer <code>t</code>. Then the first test case begins.
+  For the first test case, suppose <b>A</b> is 3 (although, in the real test sets,
+  <b>A</b> is always either 20 or 200). The pseudocode first reads the value of <b>A</b>
+  into an integer <code>a</code>, and outputs <code>10 10</code> the location of
+  the cell to prepare. By (pseudo-)random choice, the cell at location 10 11 is
+  prepared, so the code reads <code>10 11</code> in response. Next, the code
+  outputs cell <code>10 10</code> again for preparation, and the gopher prepares
+  <code>10 10</code> this time. The code subsequently sends <code>10 12</code> with
+  the goal of finishing preparing a rectangle of size 3, but only gets cell
+  <code>10 11</code> prepared again. <code>10 10</code> is then sent out, and this time
+  <code>11 10</code> is prepared. Notice that although the prepared area is of size 3,
+  a rectangle has not been formed, so the preparation goes on. In the end, the pseudocode
+  decides to try out cell <code>11 10</code>, and <code>0 0</code> is sent back, which
+  implies that cell 11 11 has been prepared, completing a rectangle (or square, rather)
+  or size 4. As a result, the first test case is successfully solved.
+</p>
+<pre>
+  a = readline_int()         // reads 3 into a
+  printline 10 10 to stdout  // sends out cell 10 10 to prepare
+  x, y = readline_two_int()  // does not flush stdout; hangs on the judge
+</pre>
+<p>
+  Now the pseudocode is ready for the second test case. It again first reads an integer
+  <code>a = 3</code> and decides to send cell <code>10 10</code> to prepare.
+  However, this time, the code forgets to
+    flush the stdout buffer! As a result, 10 10 is buffered and not sent to the judge.
+  Both the judge and the code wait on each other, leading to a deadlock and eventually a
+  Time Limit Exceeded error.
+</p>
+<pre>
+  a = readline_int()         // reads 3 into a
+  printline 1 1 to stdout    // sends out cell 1 1 to prepare
+  x, y = readline_two_int()  // reads -1 -1, since 1 is outside the range [2, 999]
+  printline 10 10 to stdout  // sends a cell location anyway
+  x, y = readline_two_int()  // hangs since the judge stops sending info to stdin
+</pre>
+<p>
+  The code above is another example. Suppose for the second test case, the code
+  remembers to flush the output buffer, but sends out cell <code>1 1</code> to prepare.
+  Remember that the row and column of the chosen cell must both be in the range
+  [2, 999], so 1 1 is illegal! As a result, the judge sends back <code>-1 -1</code>.
+  However, after reading <code>-1 -1</code> into x and y, the code proceeds to
+  send another cell location to the judge, and wait. Since there is nothing in
+  the input stream (the judge has stopped sending info), the code hangs and will
+  eventually receive a Time Limit Exceeded error.
+</p>
+<p>
+  Note that if the code in the example above exits immediately after reading
+  <code>-1 -1</code>, it will receive a Wrong Answer instead:
+</p>
+<pre>
+  a = readline_int()         // reads 3 into a
+  printline 1 1 to stdout    // sends out cell 1 1 to prepare
+  x, y = readline_two_int()  // reads -1 -1, since 1 is outside the range [2, 999]
+  exit                       // receives a Wrong Answer judgment
+</pre>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+    </div>
+  </body>
+</html>

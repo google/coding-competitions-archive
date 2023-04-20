@@ -1,0 +1,466 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - Round 1C</h3><h1>Analysis: Letter Blocks</h1><p>
+  Let us first notice that this problem is equivalent to finding an order in which partial strings
+  should be concatanted such that occurrences of the same letter appear together.
+</p>
+
+<h3>
+  Test Set 1
+</h3>
+
+<p>
+  Since $$$\mathbf{N}$$$ is at most $$$6$$$, the number of permutations of these strings is at most
+  $$$6! = 720$$$.
+</p>
+<p>
+  We can therefore generate all permutations and for each of them we need to verify the final string
+  which results of concatenating the input strings in that particular order.
+</p>
+<p>
+  Let us take a look at the string <code>CCCABDAEEF</code>. To verify the string it is enough to:
+  <li>
+    Get a set of letters: {A, B, C, D, E, F}
+  </li>
+  <li>
+    Create a grouped represantation of a string: <code>"CABDAEF"</code>
+  </li>
+  <li>
+    The string is good if and only if the lengths coincide.
+  </li>
+</p>
+<p>
+  If for at least one permutation the size matches, we can print out this string. Otherwise,
+  it's impossible.
+</p>
+<p>
+  The time complexity of this solution is $$$O(\mathbf{N!}\times\sum_{i=1}^N |\mathbf{S_i}|)$$$, which means $$$\mathbf{N!}$$$
+  times the sum of the lengths of the input strings, because there are $$$\mathbf{N!}$$$ permutations and the
+  verification of the final string takes linear time.
+</p>
+
+<h3>
+  Test Set 2
+</h3>
+
+<p>
+  In this test set $$$\mathbf{N}$$$ can be $$$100$$$, so $$$\mathbf{N!}$$$ is too large to enumerate all permutations.
+</p>
+<p>
+  First of all, we can verify that each of the strings $$$\mathbf{S_i}$$$ meets the requirements from the task.
+  This can be done by applying the verification method described in the section above for each $$$\mathbf{S_i}$$$
+  individually. If the verification fails for one of the input strings, then it will certainly fail
+  for any permutation of them and therefore we output <code>IMPOSSIBLE</code>.
+</p>
+<p>
+  Let us call middle letters all letters other than the first and last consecutive segment of
+  letters. Next, let us notice that if the string $$$\mathbf{S_i}$$$ has more than $$$2$$$ distinct letters,
+  then:
+  <li>
+    If a letter is a middle letter in more than one input string, then those occurrences will not be
+    together in the final string regardless of the order in which we concatenate them. Therefore,
+    this case is impossible.
+  </li>
+  <li>
+    If the middle letters exist in a single input string, they don't influence the outcome as those
+    occurrences will be together in the final string regardless of the order in which we
+    concatenate. Therefore, in this case we can assume the input string is simply two letters long
+    removing everything except the first and last letter of it.
+  </li>
+  Therefore, for each middle letter we can count in how many strings it appears and if the answer is
+  more than $$$1$$$ for any of them, we can print out <code>IMPOSSIBLE</code>.
+</p>
+<p>
+  Since we also verified each string already, we know that each letter appears only in
+  $$$1$$$ block inside each $$$\mathbf{S_i}$$$.
+</p>
+<p>
+  After this step the problem is now simplified into strings of two forms:
+  <li>
+    $$$X$$$: Represents the string consisting of only one block of letter $$$X$$$.
+  </li>
+  <li>
+    $$$XY$$$: Reperesents the string starting with a block of $$$X$$$ letters and ending with a
+    block of $$$Y$$$ letters.
+  </li>
+  If there are two strings of the form $$$X$$$ for the same letter, we can concatenate them as they
+  can't be separated by other strings in the final solution. If there are two strings of the form
+  $$$X_1Y_1$$$ and $$$X_2Y_2$$$, then the answer is <code>IMPOSSIBLE</code> if $$$X_1 = X_2$$$
+  (due to $$$Y_1$$$) or $$$Y_1 = Y_2$$$ (due to $$$X_2$$$), because it means that in any ordering,
+  there would be at least one block of a different letter between letters $$$X_1$$$ and $$$Y_1$$$.
+</p>
+<p>
+  Therefore for each string $$$\mathbf{S_i}$$$, we can create the following mappings using sets:
+  <li>
+    If $$$\mathbf{S_i}$$$ is of the form $$$X$$$, then insert $$$\mathbf{S_i}$$$ into $$$single[X]$$$.
+  </li>
+  <li>
+    If $$$\mathbf{S_i}$$$ is of the form $$$XY$$$, then insert $$$\mathbf{S_i}$$$ into both $$$starts[X]$$$ and $$$ends[X]$$$.
+  </li>
+  In other words, $$$single[X]$$$, $$$starts[X]$$$ and $$$ends[X]$$$ must all contain exactly
+  $$$1$$$ element for each letter $$$X$$$. If the element already exists, we return
+  <code>IMPOSSIBLE</code>.
+</p>
+
+<h5>
+  Starting string
+</h5>
+<p>
+  Let us consider starting string as the input string which is not forced by any previous strings in
+  the final answer. When can the given string $$$\mathbf{S_i}$$$ be a starting string?
+  <li>
+    If $$$\mathbf{S_i}$$$ is of the form $$$X$$$, then there must be no other strings ending with letter $$$X$$$,
+    i.e. $$$ends[X] = \mathbf{S_i}$$$.
+  </li>
+  <li>
+    If $$$\mathbf{S_i}$$$ is of the form $$$XY$$$, then $$$starts[X] = \mathbf{S_i}$$$ and $$$ends[X] = null$$$ and
+    $$$single[X] = null$$$.
+  </li>
+  With these two conditions, we consider a set of candidates $$$C$$$ containing all such starting
+  strings.
+</p>
+<h5>
+  Extending the block
+</h5>
+<p>
+  Let us consider we already built the partial answer $$$A$$$ which ends with letter $$$c$$$. If
+  there exists a string at $$$single[c]$$$, it is the last chance to append it, because otherwise it
+  would be separated by at least one block of another letter. Similarly, if there exists a string at
+  $$$starts[c]$$$, we must extend it now for the same reason.
+</p>
+<h5>
+  How to choose the starting string?
+</h5>
+<p>
+  It turns out that for starting a new block, we can choose an arbitrary candidate from the
+  candidates set.
+</p>
+<p>
+  $$$Proof$$$: Let us assume that we picked string $$$\mathbf{S_i}$$$ as the starting string but the optimal
+  solution started the block with $$$\mathbf{S_j}$$$. Let us consider the swapped optimal solution in which we
+  swap these blocks.
+</p>
+<p>
+  Let $$$\mathbf{S_i}$$$ start with letter $$$a$$$ and $$$\mathbf{S_j}$$$ with letter $$$b$$$. Then:
+</p>
+<p>
+  <li>
+    Optimal = |b..X|a....Y|
+  </li>
+  <li>
+    Optimal (swapped) = |a....Y|b..X|
+  </li>
+</p>
+<p>
+  Let us consider what happens after swapping:
+  <li>
+    Middle letters of these blocks: Any letters between $$$b$$$ and $$$a$$$ can't be
+    after $$$a$$$ and any letters after $$$a$$$ can't be before $$$a$$$. Therefore after swap they
+    also remain fine.
+  </li>
+  <li>
+    Letters $$$b$$$: Optimal solution can't have any $$$b$$$ letters after $$$a$$$. Therefore this
+    swap is okay.
+  </li>
+  <li>
+    Letters $$$a$$$: Since $$$\mathbf{S_i}$$$ belongs to the candidate set, therefore $$$ends[a] = \mathbf{S_i}$$$ or
+    $$$ends[a] = null$$$. It means, that there are either no strings ending in $$$a$$$ or
+    $$$\mathbf{S_i}$$$ is the only string ending with $$$a$$$. Therefore $$$X$$$ can't end with $$$a$$$ and the
+    swap remains correct.
+  </li>
+</p>
+<h5>
+  Final solution
+</h5>
+<p>
+  Repeat:
+</p>
+<li>
+  1. Pick an arbitrary string from the candidate's set and start the block with it.
+</li>
+<li>
+  2. Let e = last letter of the current solution. If starts[e] != null, add starts[e] to current
+  solution and repeat step 2. Otherwise goto step 1.
+</li>
+<li>
+  3. If candidate's set is empty, print solution. Otherwise, print <code>IMPOSSIBLE</code>.
+</li>
+
+<p>
+  Time complexity:
+  $$$O(\mathbf{N}\times\sum_{i=1}^N |\mathbf{S_i}|)$$$, since we are touching each candidate only once.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

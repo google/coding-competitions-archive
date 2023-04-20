@@ -1,0 +1,388 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - World Finals</h3><h1>Analysis: Ping Pong Balls</h1><h3>Special Cases</h3>
+<p>
+  The small dataset can be solved by a brute force. With algorithms like breadth
+  first search (BFS), one can find all the points that are triggered.
+</p><p>
+  Another case we can use BFS is when the two displacement vectors are
+  collinear. In this case all the points we need to consider are in a line, and
+  there will be no more than 1000000 points on any line.
+</p>
+
+<h3>General Case</h3>
+<p>
+  Interestingly, for the general case, where the two vectors are not collinear,
+  one can use a shorter program with a simpler data structure. Here we introduce
+  a solution that only involves vector additions. This is not the most efficient
+  solution, but it is good enough for our purposes.
+</p><p>
+  <i>Note</i>: This is not the first time we've encountered a 2-dimensional
+  integer lattice where it is better to change the coordinate system. See the
+  similar picture we have in the analysis for Problem D in online round 3.
+</p><p>
+  Let us use [x, y] to denote the points in the ordinary coordinate system, and
+  (a, b) to denote the points in the new system. Suppose the two displacement
+  vectors are V1 = [&delta;<sub>x1</sub>, &delta;<sub>y1</sub>], V2 =
+  [&delta;<sub>x2</sub>, &delta;<sub>y2</sub>], Suppose that the first ball hits
+  position P = [x<sub>0</sub>, y<sub>0</sub>]. The points in the new system is
+  given by
+</p>
+<blockquote>
+  (a, b) := P + aV<sub>1</sub> + bV<sub>2</sub> =
+  [x<sub>0</sub> + a&delta;<sub>x1</sub> + b&delta;<sub>x2</sub>,
+  y<sub>0</sub> + a&delta;<sub>y1</sub> + b&delta;<sub>y2</sub>]. (*)
+</blockquote>
+<p>
+  The problem is to figure out, from (0, 0), how many points will be hit by
+  repeatedly adding (1, 0) or (0, 1).
+</p><p>
+  It is not hard to prove, using (*) and the fact that the two vectors are not
+  collinear, that for any points (a, b) inside the room, the numbers a and b are
+  bounded by some quantity <b>Q</b>, where <b>Q</b> is the size of the room
+  times the maximum value of the &delta;s. With the limits in our problem,
+  <b>Q</b> &le; 2 &times; 10<sup>7</sup>.
+</p><p>
+  For any fixed <b>a</b>, it is easy to see that there is a contiguous sequence
+  of numbers <b>b</b> such that (a, b) is hit. In other words, there are numbers
+  b<sub>a</sub> and b'<sub>a</sub> such that (a, b) is hit if and only if
+  b<sub>a</sub> &le; b &le; b'<sub>a</sub>. This is because, if we let
+  b<sub>a</sub> and b'<sub>a</sub> be the minimum and maximum <b>b</b> that get
+  hit, respectively, then, by convexity, (a, b) is inside the room for all
+  <b>b</b> between b<sub >a</sub> and b'<sub>a</sub>. Once we hit (a,
+  b<sub>a</sub>), we keep adding (0, 1) and get all the other points. It is
+  clear that (a, b'<sub>a</sub>) is the last point that stays in the room, and
+  (a, b'<sub>a</sub> + 1) is outside the room.
+</p><p>
+  It is good enough if we can iterate over <b>a</b> = 0, 1, 2, ..., (at most
+  <b>Q</b>), and quickly compute b<sub>a</sub> and b'<sub>a</sub> for each
+  <b>a</b>. Notice that, by definition, (a, b<sub>a</sub> - 1) is not hit. In
+  order to hit (a, b<sub>a</sub>), the last step must be from (a - 1,
+  b<sub>a</sub>). So
+</p>
+<blockquote>
+  b<sub>a-1</sub> &le; b<sub>a</sub> &le; b'<sub>a-1</sub>.
+</blockquote>
+<p>
+  To find b<sub>a</sub>, we can simply start from b<sub>a-1</sub> and keep
+  increasing until we hit a point inside the room. Note that for a single
+  <b>a</b> this might take a long time. However, the b<sub>a</sub>'s are
+  monotone, so the cost never exceeds <b>Q</b>.
+</p><p>
+  Once we find b<sub>a</sub>, we can use a binary search to find b'<sub>a</sub>.
+  Although a binary search is simple and quick enough, another approach seems
+  dumber but actually works faster. Similarly to the way we get b<sub>a</sub>
+  from b<sub>a-1</sub>, we may also get b'<sub>a</sub> from b'<sub>a-1</sub>.
+  Here the b'<sub>a</sub> are not monotone, so we need to try both increasing
+  and decreasing. Nevertheless, based on the rectangular shape of the room, the
+  direction will not change more than once. The total cost is still O(Q).
+</p><p>
+  Sample code from the judges for the non-collinear case:
+</p>
+
+<pre>
+int T, W, H;
+int x, y, dx1, dx2, dy1, dy2;
+
+bool inside(int a, int b) {
+  int xx = x + a*dx1 + b*dx2;
+  int yy = y + a*dy1 + b*dy2;
+  if(xx&lt;0 || xx&gt;=W) return false;
+  if(yy&lt;0 || yy&gt;=H) return false;
+  return true;
+}
+
+long long play() {
+  long long ans=0;
+  int b1=0; int b2=1000001;
+  for(int a=0; ; a++) {
+    while(!inside(a, b1)) {
+      b1++;
+      if(b1&gt;b2) return ans;
+    }
+    if(inside(a, b2)) {
+      while(inside(a, b2)) b2++;
+      b2--;
+    } else {
+      while(!inside(a, b2)) b2--;
+    }
+    ans+=(b2-b1+1);
+  }
+  return 0;
+}
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

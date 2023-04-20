@@ -1,0 +1,423 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 2</h3><h1>Analysis: Red Tape Committee</h1><h2>Red Tape Committee: Analysis</h2>
+<p>
+This problem poses two challenges: figuring out which sets of members to
+consider as possible committees, and calculating the tie probability for each
+committee. In the Small dataset, brute force will suffice for both of these
+subproblems. However, in the Large dataset, we will need more efficient methods
+for both of them.
+</p>
+<h3>Who should we choose?</h3>
+<p>
+One might think that in order to create ties, we should choose from among the
+most "moderate" department members &mdash; that is, the ones with Yes
+probabilities closest to 0.5. In fact, the opposite is true! The best way to
+create a tie is to choose department members from one or both <i>extremes</i>.
+That is, we should choose the <i>M</i> (possibly zero) of the department
+members with the lowest Yes probabilities, and the <b>K</b> - <i>M</i> of the
+department members with the highest Yes probabilities. This makes sense
+intuitively; to take an extreme case, a committee of two members with Yes
+probabilities of 0.00 and 1.00 will always tie, whereas a committee of two
+members with Yes probabilities of 0.50 and 0.50 will tie only half the time.
+Experimentation bears this idea out. But how can we prove it?
+</p><p>
+Without loss of generality, let's sort the members in increasing order of Yes
+probability. Suppose that we have chosen a committee of these members that
+maximizes the tie probability. If there are multiple such committees, suppose
+that we have chosen the one that also minimizes the sum of the members' indexes
+in that sorted list.
+</p><p>
+We'll show that this set consists of the <i>M</i> (possibly zero) leftmost
+members and the <b>K</b> - <i>M</i> rightmost members, as described above.
+Suppose that there exist the following: a member X, who is in our set, and
+members Y and Z, who are not in our set, and that they are in the left to right
+order Y, X, Z. Fix all the other members and consider the tie probability as a
+function of member X's Yes probability. This is a linear function. If it has
+slope 0, then we can get an equally good set with a smaller sum of member
+indices by replacing X with Y. If it has slope > 0, we can get a better set by
+replacing X with Z. If it has slope < 0, we can get a better set by replacing X
+with Y. So X must not exist!
+</p><p>
+Therefore, we can try all values of <i>M</i> and consider only those
+committees. This linear search adds a multiplier of O(<b>K</b>) to the running
+time of the calculation of tie probabilities. The one-time sort also adds a
+single O(<b>N</b> log <b>N</b>) term.
+</p>
+<h3>How likely is a tie?</h3>
+<p>
+For a large committee, we cannot explicitly consider all 2<sup><b>N</b></sup>
+possible voting outcomes. Many of these outcomes are very similar, and we would
+do a lot of redundant work. This is an ideal situation for dynamic programming.
+</p><p>
+Let's build a table in which the columns represent the committee members, the
+rows represent the total number of Yes votes so far, and the numbers in the
+cells measure the probability of being in the situation represented by that
+row and column. We start with a 1.00 in the upper left cell, which represents
+the situation before anyone has voted; there is a 100% chance that there will
+be no "Yes" votes at this stage. Let's consider a committee with Yes
+probabilities of 0.10, 0.20, 0.50, and 1.00. We will label the columns in that
+order (although the order does not matter).
+</p>
+<code>
+<b>- init 0.10 0.20 0.50 1.00</b><br>
+<b>0</b> 1.00 ---- ---- ---- ----<br>
+<b>1</b> ---- ---- ---- ---- ----<br>
+<b>2</b> ---- ---- ---- ---- ----<br>
+<b>3</b> ---- ---- ---- ---- ----<br>
+<b>4</b> ---- ---- ---- ---- ----<br>
+</code>
+<p>
+When the first member votes, either the vote will be "Yes" with 10% probability
+(and we will have one Yes vote), or "No" with 90% probability (and we will have
+zero Yes votes). So the 1.00 value gets split up among two cells in the next
+column: the "0 Yes votes after 1 member has voted" and "1 Yes vote after 1
+member has voted" cells.
+</p>
+<code>
+<b>- init 0.10 0.20 0.50 1.00</b><br>
+<b>0</b> 1.00 0.90 ---- ---- ----<br>
+<b>1</b> ---- 0.10 ---- ---- ----<br>
+<b>2</b> ---- ---- ---- ---- ----<br>
+<b>3</b> ---- ---- ---- ---- ----<br>
+<b>4</b> ---- ---- ---- ---- ----<br>
+</code>
+<p>
+Let's look at the "0 Yes votes after 1 member has voted" cell, which represents
+90% of all possible situations after the first member has voted. That
+probability will feed into two of the cells in the next column: the one just to
+the right, and the one just below that. Since the second member has an 80%
+probability of voting No, 80% of that 90% possibility space branches off to the
+"0 Yes votes after 2 members have voted" cell. The other 20% of that 90%
+branches off to the "1 Yes vote after 2 members have voted" cell.
+</p>
+<code>
+<b>- init 0.10 0.20 0.50 1.00</b><br>
+<b>0</b> 1.00 0.90 0.72 ---- ----<br>
+<b>1</b> ---- 0.10 0.18 ---- ----<br>
+<b>2</b> ---- ---- ---- ---- ----<br>
+<b>3</b> ---- ---- ---- ---- ----<br>
+<b>4</b> ---- ---- ---- ---- ----<br>
+</code>
+<p>
+And now for the "1 Yes vote after 1 member has voted" cell, which represents
+10% of all possible situations after the first member has voted. Again, that
+probability will feed into the right and down-and-right neighboring cells in the
+next column. Note that we add 0.08 to the existing value of 0.18 in the "1 Yes
+vote after 2 members have voted" cell; there are multiple ways of getting to
+that cell. The power of dynamic programming is that it merges separate
+possibilities like this and lets us consider them together going forward; this
+prevents an exponential increase in the number of possibilities.
+</p>
+<code>
+<b>- init 0.10 0.20 0.50 1.00</b><br>
+<b>0</b> 1.00 0.90 0.72 ---- ----<br>
+<b>1</b> ---- 0.10 0.26 ---- ----<br>
+<b>2</b> ---- ---- 0.02 ---- ----<br>
+<b>3</b> ---- ---- ---- ---- ----<br>
+<b>4</b> ---- ---- ---- ---- ----<br>
+</code>
+<p>
+Continuing in this way, we can fill in the whole table. Note that every column
+sums to 1, as expected.
+</p>
+<code>
+<b>- init 0.10 0.20 0.50 1.00</b><br>
+<b>0</b> 1.00 0.90 0.72 0.36 0.00<br>
+<b>1</b> ---- 0.10 0.26 0.49 0.36<br>
+<b>2</b> ---- ---- 0.02 0.14 0.49<br>
+<b>3</b> ---- ---- ---- 0.01 0.14<br>
+<b>4</b> ---- ---- ---- ---- 0.01<br>
+</code>
+<p>
+The tie probability is the value in the "2 Yes votes after 4 members have
+voted" cell: 0.49. We could have optimized this further by not considering any
+rows below the number of Yes votes needed for a tie. In practice, in problems
+like this, one should store the logarithms of probabilities instead of the
+actual values, which can become small enough for floating-point precision
+errors to matter.
+</p><p>
+The number of calculations in this method is proportional to the dimensions of
+the table, each of which is proportional to <b>K</b>, so the running time of
+this part is O(<b>K</b><sup>2</sup>). Combining that with the O(<b>K</b>)
+method of selecting committees, the overall running time of our approach is
+O(<b>K</b><sup>3</sup>) + O(<b>N</b> log <b>N</b>). Since <b>K</b> cannot
+exceed <b>N</b>, and <b>N</b> cannot exceed 200 for the Large, this is fast
+enough, albeit not optimal. (For example, we could do a ternary search on the
+value of <i>M</i> mentioned above, instead of a linear search.)
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

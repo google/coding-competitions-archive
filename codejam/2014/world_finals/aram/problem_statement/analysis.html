@@ -1,0 +1,363 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - World Finals</h3><h1>Analysis: ARAM</h1><a href="https://www.youtube.com/watch?v=GYX3sn3Q_DQ&t=341m45s" target="_blank">Video of Bartholomew Furrow’s explanation.</a>
+
+<p>We are going to do a binary search to find the answer.  At each iteration of the binary search, we have some estimate of the answer Q, and we need to decide if that estimate is too high or too low.  We do this by trying to find a strategy that can achieve a fraction Q of wins in the long run.
+
+<p>We need to describe what a valid strategy is.  In a straightforward dynamic programming formulation of the problem, the current state would be the champion we have been assigned, the amount of money we have, and the number of games that remain; the decision we would need to make at each state is whether to reroll.
+
+<p>Obviously we cannot compute the decision for each of these states individually; there are O(10^100 * N * R * G) of them!  But since the number of games that will be played is immense, we can assume that the number of games remaining is unimportant, and just optimize assuming there are "infinite" games remaining.  It can be proved that the amount of error this will induce in the answer is far less than 10^-10, the required precision.  Also note that if we reroll when assigned a certain champion for a particular amount of money, then it also makes sense to reroll when assigned a champion with a lower winning probability, with the same amount of money.  So to compute a strategy, we we only need to decide for each amount of money, which hero we would reroll that has the highest winning probability.
+
+<p>But how do we evaluate how good a strategy is, when we're going to play infinite games?  When we are low on money, we need to be more conservative about when we reroll.  If we reroll too aggressively when we have very little money left and our amount of money drops below 1 dollar, we will not be able to reroll for a while and our expected number of wins will drop.  Intuitively what we need to determine is, if our money gets low, to say M dollars, how much will we fall behind our expected number of won games before our amount of money improves to M+1/G?
+
+<p>We define the "surplus" for a set of games as the number of games won in the set minus Q multiplied by the number of games played in the set.  We choose our strategy at M money to maximize the expected surplus of the set of games that occur until we reach M+1/G money.  (If M is equal to R, then our amount of money will not increase, so we use the set of games that lasts until we have M money again.)  Let this value be A[M].
+
+<p>If M&lt;1 then we cannot reroll, so
+
+<p><img src="aram1.png">
+
+<p>since the set will consist of exactly one game, and we get a random champion.
+
+<p>For 1 &lt;= M &lt; R, suppose that our strategy requires that we will reroll the worst K_M heroes.  Sort the values Pi.  Then:
+
+<p><img src="aram2.png">
+
+<p>Similarly, for M=R:
+
+<p><img src="aram3.png">
+
+<p>We can compute the optimal values for A by optimizing for K_M separately for each M from 0 to R.  Note that A[M]&gt;=-1 for all M, since the strategy of never rerolling has a surplus no worse than -1, so the optimal strategy must be at least as good as that.
+
+<p>If A[R]&gt;=0, we decide that Q is too high.  If A[R]&lt;0, we decide that Q is too low.  We now show that this works.
+
+<p>We start with R money.  We will return to R money multiple times, with expected surplus A[R] each time, until finally we reach 10^100 games and stop.  Consider instead the scenario where once we reach 10^100 games, we keep playing until we reach R money again.  The expected surplus in this scenario is T*A[R], where T&gt;=1 is the expected number of times we return to R money.  Now, let X be the expected surplus of the games after the 10^100th.  From the definition of A, X=A[M] + A[M+1/G] + ... + A[R-1/G], where M is the amount of money we have after game 10^100.
+
+<p>Assume that A[M]&lt;0 for M&lt;R (if not, we can play as if R was equal to the lowest M such that A[M] &gt;= 0 and the proof will work).  Then -RG &lt;= X &lt; 0.
+
+<p>Now the surplus for the first 10^100 games is Y=T*A[R] - X.  Therefore T*A[R] &lt; Y &lt;= T*A[R] + RG.  
+
+<p>RG is insignificant over 10^100 games.  So the fraction of expected wins for this strategy is Q + T*A[R] * 10^-100.  So we assert that if A[R] &gt;= 0, then we can achieve a strategy which wins a fraction of at least Q, and otherwise we cannot.  This will allow our binary search to converge to a sufficiently accurate answer.
+
+<p>Below is a sample implementation in Python 3. To avoid fractional dollars, we introduce a smaller unit (e.g., a coin) C for the money where G coins is equal to one dollar.
+
+<pre># Can you win at least X fraction of the time?
+def CanWin(X):
+  A = []
+  last_G_values = 0
+
+  # C &lt; G, not enough coins for a reroll.
+  for C in range(0, G):
+    A.append(avg_win_prob_top[N] - X)
+    last_G_values += A[C]
+
+  # C &gt;= G, enough coins for a reroll.
+  for C in range(G, R * G + 1):
+    A.append(-1e100)
+    for K in range(1, N + 1):
+      p = (N - K) / N  # Probability of rerolling.
+      p_reroll = p / (1 - p) * last_G_values
+      p_not_reroll = avg_win_prob_top[K] - X
+      A[C] = max(A[C], p_reroll + p_not_reroll)
+
+    if A[C] &gt;= 0: return True
+    last_G_values += A[C] - A[C - G]
+
+  return False
+
+
+for tc in range(int(input())):
+  [N, R, G] = map(int, input().split())
+  win_prob = map(float, input().split())
+  win_prob = sorted(win_prob, reverse=True)
+
+  avg_win_prob_top = [0]
+  for topK in range(1, N + 1):
+    avg_win_prob_top.append(sum(win_prob[0:topK]) / topK)
+
+  lo = 0
+  hi = 1
+  for i in range(60):
+    mid = (lo + hi) / 2
+    if CanWin(mid):
+      lo = mid
+    else:
+      hi = mid
+
+  print("Case #%d: %.15f" % (tc + 1, lo))</pre>
+
+
+<p>An alternative solution is to evaluate strategies by modelling the game as a Markov chain and computing its stationary distribution, then iteratively improving the strategy.  It is quite difficult to do this with sufficient accuracy.
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

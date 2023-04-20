@@ -1,0 +1,435 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2012 - Round 3</h3><h1>Analysis: Lost Password</h1><p>
+This is certainly an intimidating problem. Even small strings, like the example from The Fellowship of the Ring, are difficult to work through.  When you are trying to combine passwords of length at most 500 into a password string, there are so many possibilities to consider that optimization quickly becomes overwhelming. 
+</p>
+
+<br/>
+<p><b>The Small Input</b></p>
+
+<p>
+Let's begin with the small input. In this case, we need to connect up pairs of letters. The key insight here is to imagine everything as a graph. If you have heard of <a href="https://www.google.com/search?q=de+bruijn+sequence" target="_blank">De Bruijn sequences</a> before, that is the perfect thing to build from. We will make a vertex for each letter (the 26 normal letters as well as all the 133t variations), and add an edge between every pair of letters. Each 2-letter word that we need in our password string corresponds to an edge on this graph. For example, "t0" corresponds to the edge 't' -&gt; '0'. Let's call these <i>candidate edges</i>.
+</p>
+
+<p>
+Next let's consider a password string. We can think of this as a path on the graph. We start at the first letter, and then continually move to the next letter in the string. For example, "abc0" corresponds to the path 'a' -&gt; 'b' -&gt; 'c' -&gt; '0'. Therefore, the problem can be re-stated as follows: what is the length of the shortest path on this graph that includes all the candidate edges?
+</p>
+
+<p>
+Here is it is helpful to think back to another classic algorithm problem: <a href="https://www.google.com/search?q=eulerian+path" target="_blank">Eulerian paths</a>. The problem could also be re-stated as: if we start with just the candidate edges, what is the minimum number of edges we need to add so that the resulting graph has an Eulerian path? Fortunately for us, the Eulerian path problem has been completely solved!
+</p>
+
+<p><b>Fact:</b> A directed graph has an Eulerian path if and only if (1) every vertex has in-degree equal to its out-degree except possibly for two vertices that are off by one, and (2) every vertex with positive degree is connected in the underlying undirected graph.</p>
+
+<p>
+If you play with some examples, you will see that you will always be connected here, but let's come back to a formal proof when we talk about the large input. The fact that connectivity comes for free is really what makes this problem solvable, and so it is a good thing to think about!
+</p>
+
+<p>
+The remaining condition says that all we need to do is add edges to balance in-degrees and out-degrees. We can add any edge we want at any time, so the method is simple: choose a vertex u with higher in-degree than out-degree and a vertex v with higher out-degree than in-degree, and then add an edge from u to v. Repeat until there are only two vertices left that are only slightly imbalanced, and we're done! After all that talk, we end up with a very simple greedy algorithm.
+</p>
+
+<br/>
+<p><b>The Large Input</b></p>
+
+<p>
+In fact, this solution already has most of the key ideas that go into solving the large as well, but we just need to take them further. There are three main challenges:
+</p>
+
+<ul>
+<li> When passwords are length greater than 2, how do we interpret them as edges on a graph?
+<li> When it comes time to balancing degrees, some edges will be impossible to add. How do we adapt the greedy algorithm from before?
+<li> The output password could be huge! Is it really possible to solve the problem in time less than the size of the output password?
+</ul>
+
+<p>
+The first challenge is the most important, and again, De Bruijn sequences provide a good model to build from. If we are trying to construct all passwords of length k, we will create a graph with vertices corresponding to all lengh-(k-1) phrases. Each candidate password corresponds to the edge between its prefix phrase and its suffix phrase. Let's begin by making this nice and rigorous, although the intuition is exactly the same as in the small input.
+</p><br/>
+
+<p><b>A Minimum-Cost Flow Interpretation</b></p>
+
+<p>Let us call any length-k substring of <b>S</b> (and any of its "l33tspeak" equivalents) a "candidate", and any length-(k-1) string composed of  digits and lowercase letters a "phrase" (whether it is contained in a candidate or not).  For each phrase s, define its weight w(s) to be the number of candidates that end with s minus the number of candidates that begin with s. Note that the sum of w(s) is 0. (The weight of a phrase will measure how far the corresponding vertex is from supporting an Eulerian path.)
+</p>
+
+<p>
+Form a directed graph G with vertices corresponding to the phrases.  For phrases <i>a</i> and <i>b</i>, add an edge from <i>a</i> to <i>b</i> if you can make <i>a</i> into <i>b</i> by adding a letter to the end of <i>a</i> and removing the first letter of <i>a</i>. Now we set up a flow problem: if a phrase <i>s</i> has positive weight, it is a source with capacity |w(s)|; otherwise it is a sink with capacity |w(s)|.  All edges have infinite capacity and cost one.
+</p>
+
+<p>
+Let ANSWER denote the shortest possible length of a password string for <b>S</b>, let C denote the set of all candidates, and let FLOW_EDGES denote the minimum number of edges (i.e. minimum cost) in an "almost-maximum" flow. (Specifically, this is a flow that leaves at most 1 capacity unused in some source and at most one 1 capacity unused in some sink).
+</p>
+
+<p><b>Lemma 1:</b> ANSWER = FLOW_EDGES + |C| + k - 1.</p>
+
+<p><b>Proof Part 1:</b> ANSWER &le; FLOW_EDGES + |C| + k - 1</p>
+
+<p>
+Let G' be the directed graph formed as follows:
+<ul>
+<li>Begin with the directed multi-graph formed by the minimum-cost almost-maximum flow on G.
+<li>For each candidate c, add an edge from the prefix phrase of c to the suffix phrase of c.
+</ul>
+For a given phrase s, let's calculate its out-degree minus its in-degree in G'. After the first step, this value is exactly w(s), except for two vertices that are off by 1. (This is due to the fact that our flow is only almost maximum.) After the second step, this value becomes exactly 0, again except for two vertices that are off by 1.
+</p>
+
+<p>
+Therefore, we know G' satisfies the condition on in-degrees and out-degrees for it to have an Eulerian path. (See the "Fact" in the Small Input discussion.) We now show it also satisfies the connectivity condition. This is where we use the specific nature of the problem and the fact that |<b>S</b>| &ge; 2k. Actually, we suspect the last condition is unnecessary in the end, but the proof becomes much harder if this is not true!</p>
+
+<p>
+Let's say a vertex s is a <i>core</i> vertex if it corresponds to a phrase in <b>S</b>, or to a 133tspeak variation of such a phrase.
+<ul>
+<li> If s a core vertex, then s is adjacent in G' to its predecessor and successor phrases within <b>S</b>. (Note that there may be multiple predecessors or successors if the new letter has a leet variation or if <b>S</b> appears multiple times.) Therefore, we can certainly follow the edges of G' to go from s to some phrase a(s) that starts at the first letter of <b>S</b>. We can then walk from there to a phrase b(s) that ends at the last letter of <b>S</b>. Since a(s) and b(s) are completely disjoint, we can choose b(s) to be completely non-leet by always adding on non-leet successor letters. This means b(s) does not depend on s, and hence we have demonstrated every core vertex is connected to a single vertex in G'.
+<li> Now consider a non-core vertex t with positive degree in G'. This can only happen if t has positive degree in G, and therefore it must be connected via the flow to some core vertex s. Since we just showed all core vertices are connected, we conclude the non-core vertices are connected as well.
+</ul>
+</p>
+
+<p>
+Therefore, the underlying undirected graph of G' is indeed connected, and hence G' has an Eulerian path consisting of some vertices s<sub>1</sub>, s<sub>2</sub>, ... s<sub>FLOW_EDGES + |C| + 1</sub>. We can now construct a password string as follows:
+<ul>
+<li>Begin the password string with the k - 1 letters in s<sub>1</sub>.
+<li>For each subsequent vertex s<sub>i</sub>, append to the password string the one letter at the end of s<sub>i</sub> that is not in s<sub>i-1</sub>.
+</ul>
+This string has length exactly k - 1 + FLOW_EDGES + |C|, as required. Notice that after appending the letter for s<sub>i</sub>, the final k-1 letters in the password string are always precisely equal to s<sub>i</sub>. (This invariant can easily be proven by induction.) Now consider an arbitrary candidate c. Because of how we constructed G', c has prefix s<sub>i-1</sub> and suffix s<sub>i</sub> for some i. But then after appending the letter for s<sub>i</sub>, the last k letters precisely spell out c. Hence, every candidate is in this password string, and the inequality is proven.
+</p>
+
+<p><b>Proof Part 2:</b> ANSWER &ge; FLOW_EDGES + |C| + k - 1</p>
+
+<p>For the second part of the proof, we just need to reverse the previous argument. It is actually a little easier because we do not have to worry about connectivity.</p>
+
+<p>Consider a password string P of length ANSWER. By definition, we know each candidate must appear somewhere in P. Therefore, for each candidate c, we can define pos(c) to the be the character in P where the first occurrence of c begins. Now let's order the candidates c<sub>1</sub>, c<sub>2</sub>, ..., c<sub>|C|</sub> by pos(c).</p>
+
+<p>For each i, consider the substring of P starting with character pos(c<sub>i</sub>) + 1 and ending with character pos(c<sub>i+1</sub>) + k-2. Note that this substring begins with the suffix phrase of c<sub>i</sub> and ends with the prefix phrase of c<sub>i+1</sub>.</p>
+
+<p>By reversing the construction from the previous section, we can interpret this substring as a path in the graph G from the suffix phrase of c<sub>i</sub> to the prefix phrase of c<sub>i+1</sub>. This path has pos(c<sub>i+1</sub>) - pos(c<sub>i</sub>) - 1 edges in it. Now let's think about what happens when we combine all these paths. We get a flow with a source at every suffix phrase except c<sub>|C|</sub> and a sink at every prefix phrase except c<sub>1</sub>. When we add all these sources and sinks together, we get precisely an almost max-flow on G. Furthermore, this flow uses exactly sum<sub>i</sub> [pos(c<sub>i+1</sub>) - pos(c<sub>i</sub>) - 1] = pos(c<sub>|C|</sub>) - pos(c<sub>1</sub>) - |C| + 1 edges.</p>
+
+<p>It follows that FLOW_EDGES &le; pos(c<sub>|C|</sub>) - pos(c<sub>1</sub>) - |C| + 1. Finally, we know pos(c<sub>|C|</sub>) &le; |P| - k = ANSWER - k, and also pos(c<sub>1</sub>) &ge; 0. Therefore, ANSWER &ge; FLOW_EDGES + k + |C| - 1, as required.</p>
+<br/>
+
+<p><b>A Greedy Solution</b></p>
+
+<p>At this point, we still have not solved the whole problem, but we have reduced it to something more tractable. Minimum-cost flow is a complicated problem but it is well known, and at least it can be solved in polynomial time. We can either try to optimize here, or we can use more clever idea to make our life much simpler.</p>
+
+<p><b>Lemma 2:</b> Fix the graph G and assign arbitrary source and sink capacities to arbitrary nodes. Then, a minimum-cost almost-max flow can be achieved by repeatedly taking the shortest path from an unused source to an unused sink, and pushing flow along there (without ever reverting any flow that's already been pushed).</p>
+
+<p><b>Proof:</b> Let F denote a minimum-cost almost-max flow on G, and suppose the shortest path in G between a source and a sink goes from source u to sink x.
+Furthermore, suppose that F contains a path from u to a different sink y, and a path from a different source v to x. We claim that we could replace these two paths with a path from u to x and with a path from v to y to achieve a flow with no more edges. (Since F is only an almost-max flow, it might also be that u and/or x is simply not used in F, but that case is a lot simpler.) Recall that every edge in G has infinite capacity, so the only challenge here is making sure the path lengths work out.</p>
+
+<p>Given two phrases p and q, let's define A(p, q) to be the longest string that is both a suffix of p and a prefix of q. Then the distance from p to q in G is precisely equal to k - 1 - |A(p, q)|. This means we can reformulate the claim as follows: given that |A(u, x)| &ge; max(|A(u, y)|, |A(v, x)|), prove that |A(u, x)| + |A(v, y)| &ge; |A(u, y)| + |A(v, x)|.</p>
+
+<p>Now, notice that A(u, x) and A(u, y) are both suffixes of u, but A(u, x) is at least as long. Therefore, A(u, y) is a suffix of A(u, x). Similarly, A(v, x) is a prefix of A(u, x). Let t = |A(u, y)| + |A(v, x)| - |A(u, x)|. If t &le; 0, the claim is trivial. Otherwise, there must be a length-t string z that is a suffix of A(v, x) and a prefix of A(u, y). Then z is also a suffix of v and a prefix of y. Therefore, |A(v, y)| &ge; |z| = t, and the claim is proven.</p>
+
+<p>We have shown that F can be modified to contain the path from u to x without increasing the number of edges. Now consider the rest of F. It defines a smaller flow, and we can repeat the same argument to show this residual flow can also be modified to contain the shortest path between a remaining source and a remaining sink, and that this modification will not increase the number of edges. Applying this argument repeatedly gives us the flow proposed in the lemma without ever increasing the number of edges, and so we have shown that this flow is indeed optimal.</p>
+<br/>
+
+<p><b>The Implementation</b></p>
+
+<p>Almost there! We have outlined a greedy algorithm, but what does it actually mean when it is put back into the context of the original problem, and how can it be implemented quickly?</p>
+
+<ul>
+<li> The first thing to do is to construct the prefix phrases and the suffix phrases of all candidates. We need to construct an almost max-flow from the suffixes to the prefixes. If a phrase is both a suffix and a prefix, then these two instances cancel out.
+<li> First we should look for a source u and a sink x that are separated by distance 1 in the underlying graph. This is equivalent to saying that there is a length k-2 string that is a suffix of u and a prefix of x.
+<li> Next we should look for a source u and a sink x that are separated by distance 2 in the underlying graph. This is equivalent to saying that there is a length k-3 string is a suffix of u and a prefix of x.
+<li>And so on...
+</ul>
+
+<p>This can be summarized as follows:
+<ul>
+<li>Let P = the multi-set of prefix phrases of all candidates.
+<li>Let S = the multi-set of suffix phrases of all candidates.
+<li>Let x = k + |C| and i = 0.
+<li>(*) While |P| &ge; 2 and |P intersect S| &ge; 1: delete one copy of a common element from both P and S and increment x by i.
+<li>Remove the last letter from every element in P and the first letter from every element in S.
+<li>Increment i by 1, and repeat again from (*) until P and S have just one element.
+<li>Output x.
+</ul></p>
+
+<p>Unfortunately, this is still a little too slow. It will run in time proportional to the output password string length, which could be 10<sup>18</sup>. The final optimization is that if you look at any element in P (or S) in the algorithm above, then all 133tspeak variations of that element should also be in P (or S). You can always treat all variations as one big batch:
+<ul>
+<li>Let P = the map from phrase to the number of times a 133tspeak variation of that phrase appears as the prefix of a candidate.
+<li>Define S similarly for suffixes.
+<li>Let x = k + |C| and i = 0.
+<li>(*) While P and S are non-empty:
+<li>While P and S have a common element t: delete min(P[t], S[t]) from P[t] and S[t] and increment x by i * min(P[t], S[t]).
+<li>Remove the last letter from every element in P and the first letter from every element in S.
+<li>Increment i by 1 and repeat again from (*) until P and S are empty.
+<li>Output x-i+1.
+</ul></p>
+
+<br/>
+<p><b>The Misof Implementation</b></p>
+
+<p>Only one contestant solved this problem during the contest, and he used a variation on the method approached here. Instead of using the greedy algorithm, he implemented the flow directly, grouping together 133t variations in the same way that we did to achieve sub-linear running time in the password string size. It is a little slower and a little harder to implement, but it works just fine. Congratulations to misof for coming up with this!</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,391 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - World Finals</h3><h1>Analysis: The Cartesian Job</h1><p>
+The first thing to notice about the problem is that all lasers rotate at the same speed. That
+means that after each second, regardless of direction, the lasers will be back at the
+configuration given in the input, and each subsequent second will just be a copy of the
+previous one. Then, we only need to check what happens within a second. In what follows,
+we assume the configuration given in the input happens at time = 0 seconds and we only care
+about what happens for times in the range 0 to 1 seconds.
+</p>
+<h3>Test set 1</h3>
+<p>
+In Test set 1 there are such a low number of lasers that we can try every possibly combination
+of directions and add 2<sup>-<b>N</b></sup> to the result for each one that leaves the segment
+uncovered some of the time.
+</p><p>
+For fixed directions of rotation, we can check whether the segment is covered by first mapping
+each laser to the interval of time during which it will cover the segment and then seeing if the
+union of all those intervals covers the full second. We refer to intervals in the
+modulo 1-second ring; that is, an interval can start at t<sub>0</sub> and end at
+t<sub>1</sub> &lt; t<sub>0</sub>, covering the time from t<sub>0</sub> to 1 second and from 0
+seconds to t<sub>1</sub>. There are several ways to check if the union of intervals, even
+intervals in a ring, cover the full second, but a simple one is to split the intervals that
+wrap around into two non-wrapping-around ones, sort those intervals by start time, let t = 0,
+and do for each interval (t<sub>0</sub>, t<sub>1</sub>), if t<sub>0</sub> &gt; t, then there's
+a hole; else, t = max(t, t<sub>1</sub>). If we reach the end,
+there's a hole if and only if t &lt; 1.
+</p><p>
+To obtain the covering interval for a given laser with endpoint p and second point q we check
+the angle qp(0,0) and qp(0,1000),
+and then divide by 2&pi;. Notice that if we do this with floating point arithmetic,
+it is highly likely that we will have precision problems. We can do it with integer only
+arithmetic by representing the times symbolically as the angles represented by the original
+vectors. To simplify the presentation, we assume we computed actual times, but all the
+operations needed for the rest of the solution can be implemented for an indirect
+representation of those times intervals.
+</p><p>
+Since we need to check every combination of clockwise and counterclockwise rotations, and
+evaluating a particular combination requires looping over each laser, this solution takes
+O(<b>N</b> &times; 2<sup><b>N</b></sup>) time, which is sufficient for Test set 1.
+</p>
+<h3>Test set 2</h3>
+<p>
+We start by observing that the two time intervals corresponding to each direction of rotation
+of a given laser are symmetrical; that is, they are of the form (t<sub>0</sub>, t<sub>1</sub>)
+and (1-t<sub>1</sub>, 1-t<sub>0</sub>). Notice that the symmetry is both to the 1/2 second point
+and to the extreme 0 seconds / 1 second, because we are in a ring. Adding the fact that intervals
+are less than 1/2 long, we can notice that the pair of intervals coming from a given laser can
+be categorized into one of three types:
+</p><ul>
+<li>Two non-overlapping intervals, one within (0, 1/2) and the other within (1/2, 1). Example:
+  [0.2, 0.3] and [0.7, 0.8].</li>
+<li>Two intervals that overlap around 1/2. Example: [0.3, 0.6] and [0.4, 0.7].</li>
+<li>Two intervals that overlap around 0 a.k.a. 1. Example: [0.8, 0.1] and [0.9, 0.2].</li>
+</ul><p>
+For the last two types, the overlapped area is an interval of time during which the segment
+is guaranteed to be guarded. Therefore, we can remove the overlapped part from further
+consideration and assume that the two intervals are just their symmetric difference. In the
+first example above, we'd remove [0.4, 0.6] from consideration and keep the pair of
+intervals [0.3, 0.4] and [0.6, 0.7]. After we do this with all intervals, the part that remains
+to be considered is some subinterval of (0, 1/2) and some subinterval of (1/2, 1), and each
+pair of intervals is exactly two symmetrical intervals, one on each side.
+</p><p>
+At this point the problem we need to solve is, given two symmetrical intervals
+u<sub>1</sub> within (0, 1/2) and u<sub>2</sub> within (1/2, 1), and a set of pairs of
+intervals (a, b), (1 - b, 1 - a), what is the probability that the union of picking one from
+every pair uniformly at random does not cover both u<sub>1</sub> and u<sub>2</sub>?
+Notice that because of symmetry, one particular split (a collection of one interval from each pair)
+covers u<sub>1</sub> if and only if the opposite split covers u<sub>2</sub>.
+So, an alternate way to frame the problem is: given the list of intervals from each pair that are
+inside u<sub>1</sub>, what is the probability at least one part of a random split of them doesn't
+cover u<sub>1</sub>? This problem we can solve with a dynamic programming approach over the list of
+intervals.
+</p><p>
+The dynamic programming algorithm is, in a way, a simulation of the algorithm we presented above
+to check if the union of the intervals covers the universe, over all combinations at once.
+We iterate the intervals in non-decreasing order of left end. We also keep a state of which
+prefix of u<sub>1</sub> each side of the split has already covered. Formally,
+if u<sub>1</sub> = (v, w) we calculate a
+function f(i, x, y) = probability of a split of intervals i, i+1, ..., <b>N</b> not covering
+<i>both</i> the remainder of the first side (x, w) <i>and</i> the remainder of the second
+side (y, w). Equivalently, this is the probability of the cover not being full given that intervals
+1, 2,..., i are split in a way that the union of the intervals from one side of
+the split is (v, x) and the union of the intervals from the other side is (v, y).
+The base case is if min(x, y) &ge; w, then f(i, x, y) = 0, or
+if i &gt; <b>N</b> or min(x, y) &gt; the left end of the i-th interval, then
+f(i, x, y) = 1. For all other cases, we can calculate
+f(i, x, y) = (f(i+1, max(x, b), y) + f(i+1, x, max(y, b))) / 2, where
+(a, b) is the i-th interval in the order. Finally, the answer to the problem is f(0, v, v).
+</p><p>
+Noticing the values x and y for which we need to calculate f are always either s or the right end
+of an interval bounds the size of the part of f's domain that we need, and thus the running time
+of the algorithm, by O(<b>N</b><sup>3</sup>). We can further notice that max(x, y) is always
+equal to the maximum between s and the maximum right end of intervals 0, 1, ..., i-1. This reduces
+the domain size and running time to O(<b>N</b><sup>2</sup>). One further optimization needed is
+to notice that if min(x, y) is not one of the largest K right ends of intervals 0, 1, ..., i-1,
+then the result of f(i, x, y) is multiplied by 2<sup>-K</sup> or less to calculate the final
+answer. For values as small as 50 for K, that means the impact in the answer of
+the value of f is negligible in those cases and we can just approximate it as 0,
+making the size of the domain of f we have to recursively calculate only
+O(K &times; <b>N</b>).
+</p><p>
+Implementing the dynamic programming algorithm as explained above can be tricky, especially if
+you want to memoize using integer indices over the intervals and largest K last values,
+as opposed to floating point numbers. However, doing a forward-looking iterative algorithm can
+be a lot easier. We maintain a dictionary of states to probability, where a state is just
+the two values x and y, always sorted so that x &le; y. We start with just {(s, s): 1}.
+The, we consider each interval (a, b) iterative and for each state (s<sub>1</sub>, s<sub>2</sub>)
+with probability p in the last step's result, we add probability p / 2 to new states
+sorted(max(s<sub>1</sub>, b), s<sub>2</sub>) and sorted(s<sub>1</sub>, max(s<sub>2</sub>, b))
+if a &le; s<sub>1</sub>. If a &gt; s<sub>1</sub>, we add p to our accumulated result and don't
+generate any new state, since state (s<sub>1</sub>, s<sub>2</sub>) is guaranteed to
+leave some unguarded time. This is a simple implementation of the quadratic version, but
+the real trick is when making the optimization to bring the time down to linear, which in this
+case is simply ignoring states with too low probability (i.e., if p &lt; &epsilon;, do nothing).
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

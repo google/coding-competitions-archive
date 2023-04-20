@@ -1,0 +1,570 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - World Finals</h3><h1>Go, Gophers!</h1><h3>Problem</h3>
+
+<p>
+  Earlier this year, the Code Jam team planted an orchard with the help of an
+  industrious gopher. It must have told other gophers, because we now have
+  somewhere between 2 and 25 gophers living in the orchard. But it is hard to
+  be sure exactly how many there are, because these gophers only emerge from
+  their underground tunnels to eat at night, and we are too tired after a hard
+  day of tree-pruning to stay up and watch for them. However, we do know how to
+  make one "gopher snack" per day, which we can leave out each night to see
+  whether it gets eaten. We think we can use this information to determine the
+  number of gophers.
+</p><p>
+  Here is what we know about the way that gophers eat. The N gophers meet during
+  one day in a council to determine an order in which
+  they will emerge over the following N nights, one at a time. Then, during each
+  of the i-th of the next N nights, the i-th gopher in the order emerges and
+  looks for a gopher snack. Each gopher has its own particular taste level
+  (which never changes), and it will eat a snack if and only if the snack's
+  quality level is at least as high as that gopher's taste level. During the day
+  after the N-th gopher in the order has emerged, the gophers choose a new
+  order and the process continues. Notice that even if a gopher chooses not to eat the
+  snack that it finds, it still does not emerge again until it comes up in the
+  next order chosen by the council.
+</p><p>
+  We must make exactly one new gopher snack each day; even if a snack is not
+  eaten, it spoils and cannot be reused the next night. Each morning, we learn
+  whether or not the previous night's snack was taken.
+</p><p>
+  Today, we know that the gophers are meeting in their council to determine
+  their next order, so tonight will mark the start of that order. We are willing
+  to devote some serious time to this investigation &mdash; as many as
+  10<sup>5</sup> nights. Using <b>S</b> or fewer snacks, can you help us figure
+  out how many gophers there are?
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This problem is
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems" target="_blank">interactive</a>,
+  which means that the concepts of input and output are different than in
+  standard Code Jam problems. You will interact with a separate process that
+  both provides you with information and evaluates your responses. All
+  information comes into your program via standard input; anything that you
+  need to communicate should be sent via standard output. Remember that many
+  programming languages buffer the output by default, so make sure your output
+  actually goes out (for instance, by flushing the buffer) before blocking to
+  wait for a response. See the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems" target="_blank">FAQ</a>
+  for an explanation of what it means to flush the buffer. Anything your
+  program sends through standard error is ignored, but it might consume some
+  memory and be counted against your memory limit, so do not overflow it. To
+  help you debug, a local testing tool script (in Python) is provided at the
+  very end of the problem statement. In addition, sample solutions to a
+  previous Code Jam interactive problem (in all of our supported languages) are
+  provided in the analysis for
+  <a href="https://codingcompetitions.withgoogle.com/codejam/round/0000000000000130/0000000000000523" target="_blank">Number Guessing</a>.
+</p><p>
+  Initially, your program should read a single line containing a single integer
+  <b>T</b> indicating the number of test cases. Then, you need to process
+  <b>T</b> test cases. For each test case, your program will first read one
+  line containing one integer <b>S</b>: the maximum number of snacks you can
+  use. Then, your program will process up to <b>S</b> + 1 exchanges with our
+  judge, in which the last exchange must be a guess at the answer.
+</p><p>
+  For the i-th exchange, your program needs to use standard output to send a
+  single line containing an integer Q<sub>i</sub>.
+</p>
+<ul>
+  <li>If Q<sub>i</sub> is in the inclusive range [1, 10<sup>6</sup>], it
+    represents that you will leave out a gopher snack with quality level
+    Q<sub>i</sub>. In response, the judge will print a single line with a
+    single integer: 1 if the gopher ate the snack, or 0 if it did not. This
+    line will be printed to your input stream, as described above, and your
+    program must read it through standard input. Then, you can start another
+    exchange.</li>
+  <li>If Q<sub>i</sub> is in the inclusive range [-25, -2], it represents
+    that your answer to the test case is that there are -Q<sub>i</sub>
+    gophers. If your answer is correct, the judge will proceed to the next test
+    case, if there is one.</li>
+</ul>
+<p>
+  The judge will print a single line with the integer -1, and then stop sending
+  output to your input stream, if any of the following happen:
+</p>
+<ol>
+  <li>Your program sends a malformed or out-of-bounds value (e.g.,
+    1000001, -1, or GO_IS_THE_BEST_LANGUAGE), or too many values (e.g.,
+    1 2).</li>
+  <li>Your program sends a value not in the inclusive range [-25, -2] after
+    having already sent <b>S</b> values for the current test case.</li>
+  <li>Your program sends a value in the inclusive range [-25, -2] that is not a
+    correct answer. Note that this means that you only get one chance to answer
+    a test case correctly.</li>
+</ol>
+<p>
+  If your program continues to wait for the judge after receiving
+  -1, your program will time out, resulting in a Time Limit Exceeded error.
+  Notice that it is your responsibility to have your program exit in time to
+  receive the appropriate verdict (Wrong Answer, Runtime Error, etc.) instead
+  of a Time Limit Exceeded error. As usual, if the total time or memory is
+  exceeded, or your program gets a runtime error, you will receive the
+  appropriate verdict.
+</p><p>
+  You should not send additional information to the judge after solving all test
+  cases. In other words, if your program keeps printing to standard output after
+  sending the answer to the last test case, you will get a Wrong Answer
+  judgment.
+</p>
+<h4>Important warning</h4>
+<p>
+  Context switching between your program and the judge is expensive, and more so in our judging
+  system. As opposed to other interactive problems, we found it necessary in all our reference
+  solutions for this problem to bundle the exchanges to the server. That is, instead of
+  "print taste level, read response, print taste level, read response" we can do
+  "print taste level, print taste level, read response, read response" which requires less
+  context switching.
+</p><p>
+  <b>Benchmarks:</b>
+  To give you some idea of how a given bundling of queries will perform in our system, we are
+  providing some benchmarks. We wrote a program that performs <b>S</b> = 10<sup>5</sup>
+  exchanges bundled into groups of specific sizes B &mdash; that is, it prints B taste levels,
+  then reads B responses, then prints B more, then reads B more, and so on,
+  <b>S</b> / B times. We implemented this in both Python and C++, always
+  printing the B taste levels to a string variable and printing that string later, ensuring the
+  buffer is not flushed within a bundle. Here are the results for each bundle size B, in seconds
+  (rounded up to the next half-second, and taking the worst case over multiple runs):
+</p><table>
+  <tr><td>B</td><td>1</td><td>10</td><td>50</td><td>100</td><td>200</td><td>500</td><td>10<sup>5</sup></td></tr>
+  <tr><td>Python</td><td>167</td><td>21</td><td>6.5</td><td>5.5</td><td>5</td><td>5</td><td>&gt;250</td></tr>
+  <tr><td>C++</td><td>130</td><td>18</td><td>5.5</td><td>5.5</td><td>4.5</td><td>2.5</td><td>&gt;250</td></tr>
+</table><p>
+  Notice that with somewhat small bundle sizes, the context switching time gets below 5s per test,
+  which is under a minute per test set.
+<p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 10.<br/>
+  Time limit: 90 seconds per test set. <b>(See important warning in the input/output section).</b><br/>
+  Memory limit: 1GB.<br/>
+  The number of gophers is between 2 and 25, inclusive.
+  The taste level of each gopher is between 1 and 10<sup>6</sup>, inclusive.
+  <b>S</b> = 10<sup>5</sup>.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  No two gophers have the same taste level.<br/>
+  The order in which the gophers emerge each night is chosen uniformly at random from all
+  possible orders, and independently of all other orders.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  The GCD of the set {x : there exist exactly x &ge; 1 gophers in the input that share
+  a taste level} = 1.<br/>
+  The order in which the gophers emerge is chosen independently of the provided snacks.<br/>
+</p>
+
+<p>
+  For each test case, the multiset of taste levels and the seed for the random
+  number generation are generated by the problem setters in advance of the
+  contest, and will be the same for any contestant, for any submission. That means two
+  submissions that offer the same number s<sub>i</sub> of snacks for test case i will
+  see the gophers emerge in the same order.
+</p>
+
+<p>
+  For example, the following scenario would be possible in either of the
+  test sets:
+</p>
+<ul>
+  <li>two gophers, one with taste level 1, and one with taste level 2</li>
+</ul>
+<p>
+  The following scenario would be possible in test set 2, but not in test set
+  1:
+</p>
+<ul>
+  <li>three gophers, two with taste level 1, and one with taste level 2</li>
+</ul>
+<p>
+  The following scenarios would not be possible in either of the test sets:
+</p>
+<ul>
+  <li>six gophers, four with taste level 1, and two with taste level 2</li>
+  <li>two gophers, both with taste level 7</li>
+</ul>
+
+<h3>Sample Interactions</h3>
+
+<p>
+  The following interaction is for Test set 1.
+</p>
+<pre>
+  // In this example, the problem setters have already determined that the first
+  // test case has two gophers with taste levels 1 and 2 (we will call them A
+  // and B, respectively), and that the second test case has four gophers with
+  // taste levels 1, 999, 123, and 4567 (we will call them C, D, E, and F,
+  // respectively).
+  // The judge randomly generates the first order: A, B.
+  t = readline_int()           // Code reads 2 into t.
+  s = readline_int()           // Code reads 100000 into s.
+  printline 1 to stdout        // Code sends a snack with quality level 1.
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher A ate the
+                               //   snack).
+  printline 1 to stdout
+  flush stdout
+  resp = readline_srt()        // Code reads 0 into resp (gopher B did not eat
+                               //   the snack).
+                               // Judge randomly generates B, A as the next
+                               //   order.
+  printline 2 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher B ate the
+                               //   snack).
+  printline 1 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher A ate the
+                               //   snack).
+                               // Judge randomly generates B, A as the next
+                               //   order.
+  printline 2 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher B ate the
+                               //   snack).
+  printline 2 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher A ate the
+                               //   snack).
+  printline -2 to stdout       // Code correctly determines that the only
+  flush stdout                 //   scenario consistent with the information
+                               //   given so far is two gophers with taste
+                               //   levels 1 and 2.
+                               // Judge rules that the answer is correct, and
+                               //   prepares the next test case...
+                               // Judge randomly generates C, E, F, D as the
+                               //   first order.
+  s = readline_int()           // Code reads 100000 into s. (This also shows
+                               //   that the answer to the first test case was
+                               //   correct.)
+  printline 0 to stdout        // Code sends an invalid value.
+  flush stdout
+  resp = readline_str()        // Code reads -1 into resp.
+  exit                         // Code exits to avoid an ambiguous TLE error.
+</pre>
+
+<p>
+  The following interaction is for Test set 2. Notice that the interactions in
+  the first test case are the same as in the previous example, but the outcome
+  is different.
+</p>
+<pre>
+  // In this example, the problem setters have already determined that the first
+  // test case has three gophers with taste levels 1, 2, and 1; we will call
+  // them A, B, and C, respectively, and they will be ordered ABCCBAABCCBA...
+  t = readline_int()           // Code reads 1 into t.
+  s = readline_int()           // Code reads 100000 into s.
+  printline 1 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher A ate
+                               //   the snack).
+  printline 1 to stdout
+  flush stdout
+  resp = readline_srt()        // Code reads 0 into resp (gopher B did not eat
+                               //   the snack).
+  printline 1 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher C ate the
+                               //   snack).
+  printline 2 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher C ate the
+                               //   snack).
+  printline 2 to stdout
+  flush stdout
+  resp = readline_str()        // Code reads 1 into resp (gopher B ate the
+                               //   snack).
+  printline -2 to stdout       // Code erroneously decides that there
+                               //   are two gophers A and B with taste levels
+                               //   1 and 2; this is consistent with the
+                               //   information given so far for the order
+                               //   A,B,A,B,A, but the true number of gophers
+  flush stdout                 //   is different, so judge rules it is wrong.
+  s = readline_str()           // Code tries to read s but gets -1, meaning
+                               //   that the answer to the last test case was
+                               //   wrong.
+  exit                         // Code exits to avoid an ambiguous TLE error.
+</pre>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+    </div>
+  </body>
+</html>

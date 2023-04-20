@@ -1,0 +1,404 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 3</h3><h1>Analysis: Pancake Pyramid</h1><p>
+  We can make a couple of useful observations at the outset. First, if we have an interval of
+  length 1 or 2, we do not
+  need to add any pancakes for it to have the pyramid property, so we can ignore the restriction of length
+  &ge; 3 in the problem. Second, for any interval, the "peak" in the optimal answer
+  is the largest stack in the original interval (we leave this for you to think about). If there
+  are multiple largest stacks in an interval, we will take the leftmost largest
+  stack as the peak.
+</p>
+<h3>O(<b>S</b><sup>3</sup>) &mdash; Too slow</h3>
+<p>
+  For each of the ((<b>S</b> + 1) choose 2) intervals, determine where the peak will be located once the interval is
+  turned into a pyramid. Once we know where the peak will be, we have two smaller problems: we need
+  a non-decreasing sequence to the peak's left and a non-increasing sequence to the peak's right.
+  To compute how many pancakes we need in the non-decreasing interval, we may simply sweep from the
+  leftmost point and add pancakes until no stack in the interval to the left of the i-th stack is strictly taller than
+  the i-th stack. By maintaining the running maximum as we sweep, we can compute the number of needed
+  pancakes needed per interval in O(<b>S</b>) operations. Since there are O(<b>S</b><sup>2</sup>) intervals, this
+  algorithm requires O(<b>S</b><sup>3</sup>) operations in total.
+</p>
+<h3>O(<b>S</b><sup>2</sup>) &mdash; Test Set 1</h3>
+<p>
+  The ideas above lay the framework for a quicker solution. Instead of independently recomputing the number of
+  pancakes needed to make an interval non-decreasing (or non-increasing), we can use
+  the results from other intervals. Say we know the index of largest stack of pancakes in the range
+  [L, R] (call this index M[L, R]) and the smallest number of pancakes needed to make the interval
+  [L, R] into a non-decreasing sequence (call this number X[L, R]). We can compute both M[L, R+1]
+  and X[L, R+1] in O(1) time since the height at M[L, R+1]=max(<b>P<sub>M[L, R]</sub></b>, <b>P<sub>R+1</sub></b>)
+  and X[L, R+1] = X[L, R] + (<b>P<sub>R+1</sub></b> - <b>P<sub>M[L, R+1]</sub></b>). Similarly, we can store
+  Y[L, R], which is the smallest number of pancakes needed to make the interval [L, R] into a
+  non-increasing sequence.
+</p><p>
+  For any interval [L, R], the smallest number of pancakes needed to turn the interval into a
+  pyramid is simply X[L, M[L, R]] + Y[M[L, R], R]. The precomputation takes O(<b>S</b><sup>2</sup>) time and
+  memory and the second step uses O(1) time per interval to compute the answer. Thus, in total, this
+  is O(<b>S</b><sup>2</sup>).
+</p>
+<h3>O(<b>S</b> log <b>S</b>) &mdash; Test Set 2</h3>
+<p>
+  The above strategy will be too slow and require too much memory to handle the larger bounds. For
+  this test set, we will still use the same underlying idea of needing the number of pancakes to
+  make an interval non-decreasing or non-increasing. But instead of computing X and Y, we will
+  compute cumulative values: define X'[L, R] = X[L, R] + X[L+1, R] + ... + X[R, R] and
+  Y'[L, R] = Y[L, L] + Y[L, L+1] + ... + Y[L, R]. Now, instead of focusing on the left and right
+  endpoints, we will base our strategy on the peaks of the intervals.
+</p><p>
+  Initially, we do not know the value of X' or Y' for any interval. In our analysis, we will
+  assume that we only know the X' and Y' values for maximal intervals. That is, if two intervals
+  are side-by-side, we will merge them (we will never have intersecting intervals).
+  For example, if we know X'[L, k] and X'[k+1, R], we will merge these together into
+  X'[L, R] and forget about X'[L, k] and X'[k+1, R]. The full process of how to merge is explained
+  below. In particular, this means that any given stack is in at most one known interval for X'
+  and one known interval for Y'.
+</p><p>
+  We will process the peaks from smallest to largest. When we process the i-th stack, we are only
+  interested in intervals that have stack i as their peak. If X'[L, i-1] is computed for some value
+  of L, then L must be the furthest left index such that P<sub>L</sub>, P<sub>L+1</sub>, ...
+  , P<sub>i-1</sub> are all less than P<sub>i</sub> (since we are processing the stacks from
+  smallest to largest). Similarly, if Y'[i+1, R] is computed for some value R, then R must be the
+  furthest right index such that P<sub>i+1</sub>, P<sub>i+2</sub>, ...
+  , P<sub>R</sub> are all at least P<sub>i</sub>. If such L and R exist, then we can compute the
+  number of pancakes needed over all intervals that have i as their peak:
+</p><p>
+  X'[L, i-1] * (R - i + 1) + Y'[i+1, R] * (i - L + 1)
+</p><p>
+  Note that if we don't know X'[L, i-1] for any L, then <b>P<sub>i-1</sub></b> &ge; <b>P<sub>i</sub></b>, so i
+  cannot be a peak with any interval that includes both i-1 and i. The answer for those intervals
+  will be computed later when we consider stack i-1 as the peak (and likewise for stack i+1 if we do
+  not know Y'[i+1, R] for any R). In these cases, we may use X' = 0 (or Y' = 0). Note that since our
+  intervals are maximal and we are computing from smallest to largest,
+  <b>P<sub>L-1</sub></b> &ge; <b>P<sub>i</sub></b> (similarly,
+  <b>P<sub>R+1</sub></b> &gt; <b>P<sub>i</sub></b>).
+</p><p>
+  Now we want to merge X'[L, i-1], X'[i+1, R] and stack i into X'[L, R]. We will do this in two
+  steps. First, note that X'[L, i] = X'[L, i-1]: since we are processing the stacks from smallest to
+  largest, P<sub>i</sub> can be freely added as the right endpoint of any non-decreasing sequence in this
+  range. Now let's merge X'[L, i] and X'[i+1, R]. Observe that X'[L, R] sums over intervals that
+  end at the R-th stack. If an interval starts in the range [i+1, R], then it is already counted
+  in X'[i+1, R]. If an interval starts in [L, i], then we can start with some sequence in [L, i],
+  but since <b>P<sub>i</sub></b> is the peak, every value on the right must be exactly
+  <b>P<sub>i</sub></b>. The number of pancakes needed to bring every value in [i+1, R] up to
+  <b>P<sub>i</sub></b> can be computed in O(1) time using cumulative sums. Thus, the full merge is:
+</p><p>
+  X'[L, R] = X'[i+1, R] + (X'[L, i-1] +
+  <b>P<sub>i</sub></b> &times; (i-L+1) &times; (<b>P<sub>i+1</sub></b> + ... + <b>P<sub>R</sub></b>))
+</p><p>
+  The Y' values can be computed similarly. In terms of complexity, we need to sort the stacks at the
+  beginning in O(<b>S</b> log <b>S</b>) time and the remaining steps take constant time per peak,
+  so O(<b>S</b>) overall. This means the algorithm takes O(<b>S</b> log <b>S</b>) time.
+</p>
+<h3>O(<b>S</b>)</h3>
+<p>
+  Although the O(<b>S</b> log <b>S</b>) solution is fast enough to solve test
+  set 2, an O(<b>S</b>) solution is also possible! We present a sketch of the
+  idea here, which can be read independently of the solution above.
+</p><p>
+  To make things easier, we pretend that the stacks all have different heights.
+  Each time we compare the heights of two stacks of identical height, we break
+  the tie by assuming that the stack with the larger index is higher.
+</p><p>
+  Let us think through the solution starting from the end. For each stack, we
+  want to compute the pyramidification cost for all the ranges in which this
+  stack is the highest; in such cases, it will be the peak of the pyramid. Then
+  we can sum all of those values for all of the stacks, and that will be our
+  overall result.
+</p><p>
+  In order to compute those pyramidification costs, we can compute the
+  following for each stack <i>s</i>:
+</p>
+<ul>
+  <li>The nearest higher stack to the left of <i>s</i> (possibly an infinitely
+    high "guard" stack appended to the beginning of the sequence); call this
+    the "left blocker". Let D<sub>L</sub> be the absolute distance (in stacks)
+    from <i>s</i> to the left blocker.</li>
+  <li>The nearest higher stack to the right of <i>s</i> (or guard stack)
+    stack added after the sequence); call this "right blocker". Let
+    D<sub>R</sub> be the absolute distance (in stacks) from <i>s</i> to the
+    right blocker.</li>
+  <li>The pyramidification cost for all the ranges that end with <i>s</i> and
+    in which <i>s</i> is the highest; call this "left pyramidification cost"
+    C<sub>L</sub>.</li>
+  <li>The pyramidification cost for all the ranges that start with <i>s</i> and
+    in which <i>s</i> is the highest; call this "right pyramidification cost"
+    C<sub>R</sub>.</li>
+</ul>
+<p>
+  Then the pyramidification cost for <i>s</i> can be calculated as
+  C<sub>L</sub> &times; D<sub>R</sub> + C<sub>R</sub> &times; D<sub>L</sub>.
+</p><p>
+  Now, how can we compute C<sub>L</sub> and D<sub>L</sub> for each stack?
+  (The solution is analogous for C<sub>R</sub> and D<sub>R</sub>; the only
+  major difference is that the inequality used to compare stacks is strict
+  on one side and non-strict on the other, due to tie-breaking.)
+</p><p>
+  We can traverse the stacks from left to right, keeping a
+  <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a>
+  structure (capital S to avoid confusion) X that remembers the longest
+  decreasing sequence of stacks ending on the current stack. We iterate through the stacks
+  and when seeing a stack s we consume from X all stacks that are lower than s,
+  adding their contributions to the current left pyramidification cost. Let t' = s
+  at the beginning, and later t' = the previously consumed stack. The
+  contribution of a consumed lower stack t is the number of pancakes missing between t and t'
+  (calculated in constant time, if we precompute the cumulative sum of stack
+  sizes) multiplied by the distance to the left blocker of t'.
+  The left blocker of s is the first stack we can't consume from X, because it's higher than s.
+  Once we're done with s, we add s to X and keep going.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,408 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 3</h3><h1>Analysis: Good News and Bad News</h1><h2>Good News And Bad News: Analysis</h2>
+
+<p>
+  The ordered pairs of friends form a directed graph in which each friend is a
+  node and each news path is an edge. Notice that we can work on one connected
+  component at a time, because each can be solved independently of the others.
+  In the following, we assume a connected graph.
+</p><p>
+  One additional observation is that if any edge of the undirected graph is a
+  <a href="https://en.wikipedia.org/wiki/Bridge_(graph_theory)">bridge</a>
+  &mdash; that is, an edge not present in any cycle &mdash; then the task is
+  impossible. This is a consequence of the news balance on nodes extending to
+  subsets of nodes: if we group nodes on each side of the bridge, the aggregate
+  balance of each subset must be zero, and values in edges internal to the
+  subset don't affect that balance. Since the bridge is the only external edge,
+  this forces its value to be zero. Formally, the news balance property is
+  preserved by
+  <a href="https://en.wikipedia.org/wiki/Edge_contraction#Vertex_identification">vertex identification</a>,
+  and we can identify all vertices on each side of the bridge to reach a
+  contradiction.
+</p><p>
+  Note that since we can pass positive or negative news on each edge, we can
+  forget about the directions of edges in our graph, and consider it as
+  undirected. If the directed version had opposing edges (v, w) and (w, v), the
+  undirected version can just have two edges between v and w. After solving the
+  problem on the undirected graph, we simply adjust the sign of the value we
+  assign to each edge according to its original direction.
+</p>
+<h3>Small dataset</h3>
+<p>
+  The Small dataset can have up to 4 friends, so there can be as many as 12
+  edges. The bad news is that with up to 2 × 4<sup>2</sup> = 32 possible legal
+  values for each of those edges, there can be 32<sup>12</sup> possible answers
+  to check, which is far too large to handle with brute force. The good news is
+  that there are only on the order of 2<sup>12</sup> graphs to consider; we can
+  rule out the ones that have bridges (since those are impossible), and then
+  run whatever method we come up with on all of the others to see if we get
+  solutions.
+</p><p>
+  What if we don't really need the full extent of the [-16, 16] range? We can
+  try restricting our values to a smaller set and see whether we get solutions.
+  As Sample Case #5 demonstrates, we might need negative values, so we can try
+  a set like {-2, -1, 1, 2, 3}, for instance. It turns out that this set alone
+  is enough to solve all possible Small cases that do not contain a bridge, so
+  we can use brute force to find all possible assignments.
+</p>
+<h3>Large dataset</h3>
+<p>
+  Judging by the Small solution, we may believe that all bridgeless graphs do
+  have a solution, and that's indeed the case (as we will see in Solution 2,
+  below).
+</p><p>
+  <i>Solution 1.</i> Start by using
+  <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>
+  to build a
+  <a href="https://en.wikipedia.org/wiki/Spanning_tree">spanning tree</a> of
+  the underlying undirected graph. Assign all non-tree edges a random nonzero
+  value in [-K, K]. Now, the current balance of each node is some integer. In
+  leaf-to-root order, we can go through all nodes using the single non-assigned
+  edge remaining to make the balance zero. Notice that if we fix all <b>F</b>-1
+  non-root nodes, the root is automatically fixed, because the sum of the
+  balance over all nodes always equals 0 (an edge with value v contributes v to
+  one balance and -v to another). Notice that it is possible that a node's
+  balance is 0 when we need to fix it, leaving us no non-zero choice for the
+  corresponding tree edge. Additionally, if the balance on a node is too high,
+  the value we need for the corresponding edge could be out of range. However,
+  a value for K around <b>F</b> yields a small probability of both, which we
+  can find through experimentation. And, if we happen to run into a problem, we
+  can re-run the algorithm. As long as the probability of success is a
+  not-too-small constant, running it enough times will eventually yield a valid
+  assignment. Since we can implement this in linear time, and the bounds are
+  small, we can afford thousands of runs per test case, or possibly more. So,
+  even with weak experimental data on the probabilities, we can build enough
+  confidence that this method works. Notice that we can avoid explicitly
+  checking for bridges by assuming that failure after 1000 or so retries means
+  the case is impossible.
+</p><p>
+  <i>Solution 2</i>. Again, find a DFS spanning tree of the graph and number
+  the nodes in discovery order. Remember that in a DFS over an undirected
+  graph, every non-tree edge goes from a node to some ancestor in the tree.
+  Direct all edges in root-to-leaf direction (we reverse or split edges after
+  solving, as explained above). We assign edges not in the tree a value of 1,
+  that is, they send positive news from nodes to descendants. On the other
+  hand, we assign negative values to tree edges. We process the nodes in
+  reverse discovery order: as in the previous randomized solution, each node
+  has a single adjacent edge with no assigned value, so we assign it the only
+  value that makes the node balanced.
+</p><p>
+  Let us prove that the values assigned this way are all negative if there is
+  no bridge or contain a zero if there is a bridge: assume a value of 0 for
+  unassigned edges to check the current balance of a node x right before we
+  attempt to balance it. Let A be the set of descendants of x, including x
+  itself. There is exactly one tree edge going into A: the edge that we are
+  trying to assign at this step. Let us call it e. All other edges going into A
+  are non-tree, so they all have a value of 1. The current aggregate balance of
+  A then equals the number of non-tree edges going into A. Since nodes are
+  processed in leaf-to-root order, all nodes in A other than x are balanced,
+  and A's balance equals x's balance. If the number is zero, then there are no
+  edges other than e going into A, which makes e a bridge. If the number is
+  greater than 0 (it is a number of edges, so it can't be negative), the
+  current balance of x is greater than 0 and we can assign its opposite, a
+  negative number, to e. This value is always within the legal
+  [-<b>F</b><sup>2</sup>, <b>F</b><sup>2</sup>] range, because its magnitude is
+  equal to some number of edges in the graph, and the total number of edges in
+  the graph cannot exceed <b>F</b> &times; (<b>F</b> - 1), which is less than
+  <b>F</b><sup>2</sup>.
+</p><p>
+  <i>Solution 3</i>. We keep the nodes balanced at all times. Start with 0 on
+  all edges. For each undirected edge, if it has a 0 in the current valuation,
+  find a cycle that contains it and then add -K to all edges of the cycle,
+  where K is an integer different from the current values of all edges in the
+  cycle. This choice of K guarantees that the procedure doesn't change a
+  non-zero edge into zero, and it always changes at least one zero edge into a
+  non-zero (the current edge), so it always finishes. Adding a value to edges
+  in a cycle maintains the balance of each node. If we choose K with minimum
+  possible absolute value, and cycles as short as possible, this won't exceed
+  the range. The easy to prove maximum absolute value this can produce is
+  <b>F</b> &times; <b>P</b> / 2, because K is always in the range
+  [-<b>F</b>/2, <b>F</b>/2] as there can't be more than <b>F</b> forbidden
+  values for it. There are also at most <b>P</b> steps. However, there are many
+  results showing that graphs with many edges have lots of short cycles, so
+  we believe it's impossible to construct a case in which the range is
+  exceeded. Further, if we randomize the order to fix edges and retry many
+  times, we can work around the worst cases that specifically try to overload a
+  given edge, but possibly produce lots of small cycles that help fix the
+  others cheaply. Notice that the idea of using the DFS tree to fix balances in
+  the previous solutions is actually the same idea from this theoretically
+  simpler solution, but using the
+  <a href="https://en.wikipedia.org/wiki/Cycle_basis#Fundamental_cycles">fundamental cycles</a>
+  of the graph instead of potentially all of them.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

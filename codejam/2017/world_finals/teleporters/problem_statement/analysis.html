@@ -1,0 +1,442 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - World Finals</h3><h1>Analysis: Teleporters</h1><h2>Teleporters: Analysis</h2>
+<p>
+This problem starts off with a strange twist, because instead of the regular
+<a href="https://en.wikipedia.org/wiki/Euclidean_geometry">Euclidean geometry</a>
+(also known as L2 geometry),
+it uses <a href="https://en.wikipedia.org/wiki/Taxicab_geometry">L1 geometry</a>. The reason, if
+you are curious, is that the distance between two points with integer coordinates is also an
+integer. A Euclidean geometry version of this had serious precision issues, and L1 geometry has
+all the properties that are needed. A concept that will come up later is the set of points
+that are at a particular distance from a center. In Euclidean geometry, that's just a sphere.
+In L1 geometry, though, is an <a href="https://en.wikipedia.org/wiki/Octahedron">octahedron</a>
+with diagonals (segments that connect opposite vertices, passing through the center) parallel
+to the axis. Luckily, most intuitive properties of spheres in Euclidean geometry also work for
+spheres in L1 geometry, with the important exception of rotations, that are not used in this
+problem. If it helps you to visualize, for remainder of the text, you can think of the problem as
+working in L2 geometry. However, throughout the rest of this analysis, every time we say
+"distance", we are referring to L1 distance; we will write dist(x, y) for the L1 distance
+between points x and y. Every time we say "sphere", we are referring to L1 spheres
+(i.e., regular octahedra).
+</p>
+
+
+<h3>Small dataset</h3>
+<p>
+Let us start slowly: after 0 teleportations starting from a point P, the only
+reachable place is point P.
+After 1 teleportation, reachable places depend on which teleporter we used. If we use
+teleporter t, reachable points are the surface of the sphere with center t
+and radius dist(P, t). Let R<sub>i</sub> be the set of points that are reachable
+in i teleportations using any set of teleporters. As we mentioned above,
+R<sub>0</sub> = {P} and R<sub>1</sub> is
+a union of <b>N</b> sphere surfaces, one centered on each teleporter.
+What about R<sub>2</sub>? If we use teleporter u for the second teleportation,
+we can land at any point that is at distance d from u, where d can take the
+value of any distance betwen u and a point in R<sub>1</sub>. This implies R<sub>2</sub>,
+and all other R<sub>i</sub>, are also a union of sphere surfaces, possibly
+infinitely many.
+</p><p>
+Notice that R<sub>1</sub> is a connected continuous set because all the spheres' surfaces
+intersect at point P. Thus, the values for the distance d in the definition above
+form an interval, since the distance function is continuous. This implies that
+R<sub>2</sub> is actually a union of sphere differences: for each teleporter t,
+all points x such that L<sub>t,2</sub> &le; dist(x, t) &le; U<sub>t,2</sub> are reachable.
+(Throughout these explanations, we use L to refer to a lower bound on a reachable range, and
+U for a corresponding upper bound.)
+Once again, all the sphere differences contain P, thus, they intersect
+and R<sub>2</sub> is a connected continuous set, which means the distances we use to calculate
+R<sub>3</sub> are intervals. This argument generalizes to prove by induction that each
+R<sub>i</sub> is exactly the union over all teleporters t of all points x such that
+L<sub>t,i</sub> &le; dist(x, t) &le; U<sub>t,i</sub>.
+</p><p>
+This yields a dynamic programming algorithm that solves the Small dataset. Keep two
+arrays L and U representing the values L<sub>t,i</sub> and U<sub>t,i</sub> for a
+particular i and use them to calculate the next values L<sub>t,i+1</sub> and U<sub>t,i+1</sub>.
+After each iteration, check whether L<sub>t,i</sub> &le; dist(Q, t) &le; U<sub>t,i</sub> for
+some t, and if so, i is the answer.
+</p><p>
+By definition, L<sub>t,i+1</sub> and U<sub>t,i+1</sub> are the distances from t to its closest
+and farthest points in R<sub>i</sub>, respectively.
+The farthest point in R<sub>i</sub> from t is at a distance which is the maximum over all
+teleporters u of dist(t, u) + U<sub>u,i</sub> (this is the distance to the point on the
+surface of the sphere centered at u with radius U<sub>u,i</sub> that is the opposite direction
+from t).
+The closest point is slightly more complicated. For each teleporter u we need to consider:
+</p><ul>
+<li>dist(t, u) - U<sub>u,i</sub> if dist(t, u) &gt; U<sub>u,i</sub> (t is outside the outer
+  sphere centered at u),</li>
+<li>L<sub>u,i</sub> - dist(t, u) if dist(t, u) &lt; L<sub>u,i</sub>
+  (t is inside the inner sphere), or</li>
+<li>0, in all other cases (t is in between, that is, it is itself a
+  reachable point).</li>
+</ul>
+This means we can calculate each L<sub>t,i</sub> and U<sub>t,i</sub> in O(<b>N</b>) by comparing
+the values above for each teleporter u.
+<p>
+Notice that a point reachable in i teleportations is also reachable in i+1, i+2, ... etc
+teleportations, because
+you can use a teleporter to move from a point to itself. Thus, U<sub>t,i</sub> is non-decreasing
+with i, and L<sub>t,i</sub> is non-increasing with i.
+Additionally, since the distances dist(t, u) are positive, when <b>N</b> &ge; 2, the maximum
+over all t of U<sub>t,i</sub> is strictly increasing with i, and the minimum over all t of
+L<sub>t,i</sub> is strictly decreasing with i up to the first j where L<sub>t,j</sub> = 0.
+That means, for <b>N</b> &ge; 2, the intervals grow until one of them represents a
+sphere covering the entire cube of values for Q within the limits.
+Moreover, since the values are integers, the increase
+and decrease is at least 1 per iteration, so the number of iterations needed to cover the
+entire region of valid Qs is bounded by 3M (M on each direction), where M is the number of valid
+coordinates, which is only 2001 in the Small dataset.
+This in particular means that for <b>N</b> &ge; 2 the answer is never impossible.
+For <b>N</b>=1, we can note that using the same
+teleporter twice in a row is never useful, so after 1 iteration, if Q is not reached, the answer
+is impossible.
+</p>
+The time complexity of the presented algorithm is O(M <b>N</b><sup>2</sup>): up to 3M steps,
+each of which requires calculating O(<b>N</b>) values, and calculating each one requires an
+iteration over <b>N</b> other teleporters and constant-time math.
+<p>
+
+<h3>Large dataset</h3>
+<p>
+Of course, when M is bounded by 2 &times; 10<sup>12</sup> + 1, a time complexity linear on M won't
+finish fast enough, so we have to do something else.
+</p><p>
+Let us focus first on deciding if it's possible to go from P to Q with a single
+teleportation. That means using a single teleporter t, and due to conservation of distance,
+it must be dist(P, t) = dist(Q, t). Moreover, this condition is sufficient and
+necessary for the answer to be 1. We can check for this condition initially
+with a loop over all teleporters in O(<b>N</b>) time.
+</p><p>
+As we saw on the Small, checking whether the answer is 1 is sufficient to fully solve
+cases with <b>N</b> = 1. We assume further that <b>N</b> &ge; 2.
+</p><p>
+Let us now consider the case where there exists two teleporters t and u such that
+dist(P, t) &ge; dist(Q, t) and dist(P, u) &le; dist(Q, u).
+Consider the sphere A centered at t that passes through P, and the sphere B
+centered at u that passes through Q. By the assumed inequalities, A contains
+Q and B contains P, which means A and B intersect. Let x be any point at the
+intersection, for which dist(P, t) = dist(x, t) and dist(Q, u) = dist(x, u)
+hold. Then, x is a possible intermediate stop to go from P to Q in exactly
+2 teleportations, so, if the inequalities hold, 2 is the answer. Notice there
+are other cases in which 2 is also the answer, which are covered below.
+</p><p>
+At this point, we can assume that either P is closer to any teleporter than
+Q, or vice versa (otherwise, we can choose two teleporters to fullfill the
+inequalities at the beginning of the previous paragraph). Since the problem
+is symmetric, swap P and Q if needed to make P the closest of P and Q to all
+teleporters.
+</p><p>
+Now recall the definitions of R, L and U from the Small solution.
+Since P is closest to all teleporters, dist(Q, t) &gt; U<sub>t,1</sub> = dist(P, t)
+for all t. This means Q is outside the spheres centered in all teleporters. Since
+L<sub>t,i</sub> is non-increasing with i, the inner sphere contracts with each
+step, which means Q is never inside the inner sphere, so as soon as Q is inside
+the outer sphere, we are guaranteed that Q is reachable. So, we only need to calculate
+the Us. By reading its definition above, we note that U<sub>t,i</sub> is equal to the
+longest path from P to t using teleporters as intermediate steps, where the length of
+each step is simply the distance between the two points.
+</p><p>
+We can calculate the length of the required longest paths
+for all t and a fixed i in O(<b>N</b><sup>3</sup> log i) time by using
+something similar to <a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring">iterated
+squaring</a> to calculate the matrix of largest distances from any teleporter to any other in
+i - 1 steps, and then combining that with the vector of distances from P to each teleporter.
+The "multiplication" here is not an actual matrix times matrix multiplication, but
+rather the use of the property that the longest path from t to u in i steps is the longest
+path from t to v in j steps plus the longest path from v to u in k - j steps, for some v.
+Taking j = k / 2 for even k shows how to do log k steps overall.
+This, combined with a binary search on the number of steps, gives an algorithm with overall
+time complexity O(<b>N</b><sup>3</sup> log<sup>2</sup> M). If you have a good implementation in
+a fast language, this runs in minutes, but it's enough to pass the Large.
+</p><p>
+It's possible to get rid
+of one the log factors for an overall time complexity of O(<b>N</b><sup>3</sup> log M), and a program
+that finishes the Large in a few seconds. This is achieved by starting the binary search on a
+range [min, max) whose size, that is, max - min, is a power of 2. Each step calculates
+mid as the averge of min and max, so mid - min and max - mid are also powers of 2, which
+proves by induction that the range size is a power of 2 in every step of the binary search.
+Then, since mid - min is also a power of 2 in every step, every distance matrix you need is of a
+number of steps that is itself a power of 2 (the range keeps being cut in half, so it remains of
+size a power of 2, so the delta between the min and the midpoint that we need to test is always a
+power of 2). That means we can precalculate all needed matrices in O(<b>N</b><sup>3</sup> log M)
+time, since the matrix for 2<sup>k+1</sup> steps is the "square" of the matrix for 2<sup>k</sup>
+steps. With the memoized matrices, each step of the binary search only takes
+O(<b>N</b><sup>2</sup>) time to "multiply" the matrix and the initial vector.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

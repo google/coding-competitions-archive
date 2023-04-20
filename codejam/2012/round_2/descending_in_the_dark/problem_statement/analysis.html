@@ -1,0 +1,489 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2012 - Round 2</h3><h1>Analysis: Descending in the Dark</h1><p>
+The main challenge in this problem is determining whether a cave is lucky. The set of all possible states is huge, so a complete search over all plans is simply not going to work. Fortunately, there is one observation we can use to greatly simplify the task.</p>
+
+<br/>
+<b>Eliminating Backtracking</b>
+
+<p>
+Fix a cave <b>C</b>, and recall that <b>S<sub>C</sub></b> denotes the set of squares from which <b>C</b> can be reached. We will build up our plan one instruction at a time.
+</p>
+
+<p>
+Let <b>X</b> be the set of squares that you can be in if you start in <b>S<sub>C</sub></b> and follow the plan so far. If <b>X</b> contains a square not in <b>S<sub>C</sub></b>, we know the plan cannot work for every starting position. Otherwise, we can be 100% sure that the plan so far is fine! This is because the set of possible squares we are in has either stayed the same or gotten strictly smaller. In particular, if there was a plan that worked from the starting position, we can append it to what we have done so far, and it will still work.
+</p>
+
+<p>
+So what does this mean? As long as we don't do a move that adds a square not in <b>S<sub>C</sub></b> to the set of possible squares <b>X</b>, we can go ahead and do that move, and it will still be possible to finish. In particular, we can always move left and right whenever we want, since moving left or right can never move you out of <b>S<sub>C</sub></b>.
+</p>
+
+<br/>
+<b>All You Need Is Down!</b>
+
+<p>
+Even with the previous observation, we still have work to do. We now know all the moves that can be done safely, but the state space is still huge. We can't find just any move; we need one that makes progress.
+</p>
+
+<p>
+Here is where it is important that you cannot go up the mountain. Suppose you can add a Down move to the plan, satisfying the following two properties:
+<ul>
+<li> There is at least one position in <b>X</b> from which you can actually move down. (Without this, the Down move will never do anything, and so is useless!)
+<li> There is no position in <b>X</b> from which a down move will take you outside of <b>X<sub>C</sub></b>.
+</ul>
+If you add this Down move to the plan, then the sum of the heights over all squares in <b>X</b> will have gone down, and it can never go up again, because you can never climb the mountain!
+</p>
+
+<p>
+Since the sum of the heights is a positive integer, you will eventually have to stop making Down moves. At that point, you are stuck in one or more horizontal intervals. If there is just one interval and it contains the cave, the plan can be finished successfully. Otherwise, you're screwed! And remember, since this set of squares is a subset of what you started with, you were in fact screwed from the start.
+</p>
+
+<br/>
+<b>Can You Go Down?</b>
+
+<p>
+Only one question remains: given a set of positions <b>X</b> reachable from the start, can you come up with a valid plan that includes at least one Down move?
+</p>
+
+<p>
+<b>X</b> must be contained in a set of horizontal intervals, bounded by impassable squares to the left and right. Since it is always safe to move left and right, we can keep moving left until <b>X</b> is actually just the leftmost square in each of these intervals. If we cannot make progress from that situation, we have already shown we are lost.
+</p>
+
+<p>
+As we perform left and right moves from there, our position within each interval might change. However, note that if two intervals have the same length, our relative horizontal positions within them will always be the same. Therefore, let's define x<sub>j</sub> to be our relative horizontal position within all intervals of length j. (In particular, x<sub>j</sub> = 0 if we are in the leftmost position, and x<sub>j</sub> = j - 1 if we are in the rightmost position.)
+
+<p><b>Lemma:</b> It is possible to reach position (x<sub>1</sub>, x<sub>2</sub>, ...) using left and right moves if and only if x<sub>i</sub> &le; x<sub>j</sub> &le; x<sub>i</sub> + j - i for all i &lt; j.
+
+<p><b>Proof:</b> First we show x<sub>i</sub> &le; x<sub>j</sub>. This is true initially. If it ever failed after some sequence of moves, it would be because x<sub>i</sub> and x<sub>j</sub> were equal, and then either:
+<ul>
+<li> We moved left, and only x<sub>j</sub> was able to move.
+<li> We moved right, and only x<sub>i</sub> was able to move.
+</ul>
+However, both of these scenarios are impossible. Therefore, x<sub>i</sub> is indeed at most x<sub>j</sub>, or in other words, the distance from x<sub>i</sub> to the left wall is no larger than the distance from x<sub>j</sub> to the left wall. The same argument can be applied for the right wall, which gives us the other half of the inequality: x<sub>j</sub> &le; x<sub>i</sub> + j - i.
+</p>
+
+<p>Conversely, any set of positions with x<sub>i</sub> &le; x<sub>j</sub> &le; x<sub>i</sub> + j - i really can be reached via the following algorithm:
+<ul>
+<li>Start with each x<sub>i</sub> = 0.
+<li>Loop from i = largest interval length down to 2.
+<li>Move i-2 + x<sub>i</sub> - x<sub>i-1</sub> times to the right, and then i-2 times to the left.
+</ul>
+Try it yourself and you will see why it works!
+</p>
+<br/>
+
+<p>
+We are now essentially done. We need to determine if there is set of positions {x<sub>i</sub>} that can be reached for which it is safe to move down. Once you have gotten this far, you can finish it off with <a href="https://www.google.com/search?q=dynamic+programming" target="_blank">dynamic programming</a>. Here is some pseudo-code that determines whether there is a set of positions from which it is possible to move down and make progress:
+<pre>
+old_safety = [SAFE] * (n+1)
+for length in {n, n-1, ..., 1}:
+  for i in [0, length-1]:
+    pos_safety[i] = best(old_safety[i], old_safety[i+1])
+    if moving down leaves <b>S<sub>C</sub></b>:
+      pos_safety[i] = UNSAFE
+    elif moving down is legal and pos_safety[i] == SAFE:
+      pos_safety[i] = SAFE_WITH_PROGRESS
+  old_safety = pos_safety
+return (pos_safety[0] == SAFE_WITH_PROGRESS)
+</pre>
+This is a good starting point, but you would still have to tweak it to actually record what the right x<sub>i</sub> is for all i.
+</p>
+
+<p>Putting it all together, we repeatedly use the above algorithm to see if it is possible to make a down move. If so, we do it and repeat. Otherwise, we stop. If the only remaining interval is the one containing the cave, then that cave is lucky. Otherwise, it is not!
+</p>
+
+<p>Since there are no correct submissions for the large input during the contest, we provide here a full java solution (by <a href="https://www.google.com/search?q=Petr+Mitrichev" target="_blank">Petr Mitrichev</a>) so everyone can use it to generate correct outputs for various inputs.
+</p>
+
+<pre>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Dark {
+ static class Segment {
+  int len;
+  long goodExitMask;
+  long badExitMask;
+ }
+
+ public static void main(String[] args) throws IOException {
+  BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+  int numTests = Integer.parseInt(reader.readLine());
+  for (int testId = 0; testId &lt; numTests; ++testId) {
+   String[] parts = reader.readLine().split(" ", -1);
+   if (parts.length != 2) throw new RuntimeException();
+   int rows = Integer.parseInt(parts[0]);
+   int cols = Integer.parseInt(parts[1]);
+   String[] field = new String[rows];
+   for (int r = 0; r &lt; rows; ++r) {
+    field[r] = reader.readLine();
+    if (field[r].length() != cols) throw new RuntimeException();
+   }
+   System.out.println("Case #" + (testId + 1) + ":");
+   for (char caveId = '0'; caveId &lt;= '9'; ++caveId) {
+    int cr = -1;
+    int cc = -1;
+    for (int r = 0; r &lt; rows; ++r)
+     for (int c = 0; c &lt; cols; ++c)
+      if (field[r].charAt(c) == caveId) {
+       cr = r;
+       cc = c;
+      }
+    if (cr &lt; 0) continue;
+    boolean[][] reach = new boolean[rows][cols];
+    reach[cr][cc] = true;
+    int nc = 1;
+    while (true) {
+     boolean updated = false;
+     for (int r = 0; r &lt; rows; ++r)
+      for (int c = 0; c &lt; cols; ++c)
+       if (reach[r][c]) {
+        if (r &gt; 0 &amp;&amp; field[r - 1].charAt(c) != '#' &amp;&amp; !reach[r - 1][c]) {
+         reach[r - 1][c] = true;
+         ++nc;
+         updated = true;
+        }
+        if (c &gt; 0 &amp;&amp; field[r].charAt(c - 1) != '#' &amp;&amp; !reach[r][c - 1]) {
+         reach[r][c - 1] = true;
+         ++nc;
+         updated = true;
+        }
+        if (c + 1 &lt; cols &amp;&amp; field[r].charAt(c + 1) != '#' &amp;&amp; !reach[r][c + 1]) {
+         reach[r][c + 1] = true;
+         ++nc;
+         updated = true;
+        }
+       }
+     if (!updated) break;
+    }
+    List&lt;Segment&gt; segments = new ArrayList&lt;Segment&gt;();
+    for (int r = 0; r &lt;= cr; ++r)
+     for (int c = 0; c &lt; cols; ++c)
+      if (reach[r][c] &amp;&amp; (c == 0 || !reach[r][c - 1])) {
+       int c1 = c;
+       while (reach[r][c1 + 1]) ++c1;
+       Segment s = new Segment();
+       s.len = c1 - c + 1;
+       for (int pos = c; pos &lt;= c1; ++pos) {
+        if (r + 1 &lt; rows &amp;&amp; field[r + 1].charAt(pos) != '#') {
+         if (reach[r + 1][pos])
+          s.goodExitMask |= 1L &lt;&lt; (pos - c);
+         else
+          s.badExitMask |= 1L &lt;&lt; (pos - c);
+        }
+       }
+       segments.add(s);
+      }
+    while (true) {
+     int maxLen = 0;
+     for (Segment s : segments)
+      maxLen = Math.max(maxLen, s.len);
+     long[] badByLen = new long[maxLen + 1];
+     for (Segment s : segments) {
+      badByLen[s.len] |= s.badExitMask;
+     }
+     long[] possible = new long[maxLen + 1];
+     possible[1] = 1;
+     for (int len = 1; len &lt;= maxLen; ++len) {
+      possible[len] &amp;= ~badByLen[len];
+      if (len &lt; maxLen) {
+       possible[len + 1] = possible[len] | (possible[len] &lt;&lt; 1);
+      }
+     }
+     for (int len = maxLen; len &gt; 1; --len) {
+      possible[len - 1] &amp;= possible[len] | (possible[len] &gt;&gt; 1);
+     }
+     List&lt;Segment&gt; remaining = new ArrayList&lt;Segment&gt;();
+     for (Segment s : segments)
+      if ((s.goodExitMask &amp; possible[s.len]) == 0) {
+       remaining.add(s);
+      }
+     if (remaining.size() == segments.size()) break;
+     segments = remaining;
+    }
+    System.out.println(caveId + ": " + nc + " " + (segments.size() == 1 ? "Lucky" : "Unlucky"));
+
+   }
+  }
+ }
+}
+
+</pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

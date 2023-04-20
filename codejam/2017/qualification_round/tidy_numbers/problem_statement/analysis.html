@@ -1,0 +1,409 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Qualification Round</h3><h1>Analysis: Tidy Numbers</h1><h2>Tidy Numbers: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  The Small dataset can be solved by a simulation, going backwards through the
+  numbers that Tatiana counted. We start with <b>N</b> and check whether it is
+  tidy. If it is, we are done; if not, we check <b>N</b>-1, and then
+  <b>N</b>-2 if <b>N</b>-1 is not tidy, and so on.
+</p><p>
+  Checking a number for tidiness takes a single pass over its digits. We
+  can bound the number of digits of numbers no greater than <b>N</b> by
+  log<sub>10</sub><b>N</b>. Since we iterate through at most O(<b>N</b>)
+  numbers, the overall time complexity of this approach is O(<b>N</b> log
+  <b>N</b>). This is easily fast enough to solve the Small dataset, in which
+  <b>N</b> &le; 1000, but it will not hold up for the Large dataset, which can
+  have <b>N</b> as large as 10<sup>18</sup>. If you start at the non-tidy
+  number 111111111111111110, you have a <i>very</i> long way down to count
+  before reaching the answer, 99999999999999999!
+</p><p>
+  To iterate through the digits of an integer, you can use a language-provided
+  utility to convert it to a string, or repeatedly take the value modulo 10 to
+  obtain the last digit and divide by 10 to remove the last digit.
+</p>
+<h3>Large dataset: A greedy approach</h3>
+<p>
+  There is an efficient greedy approach for the Large, but it has some tricky
+  cases.
+</p><p>
+  Let us name the digits of <b>N</b> N<sub>1</sub>, N<sub>2</sub>, ...,
+  N<sub>L</sub> from most to least significant (i.e., left to right, the way in
+  which we usually write digits). Let A be our desired answer: the most
+  recently counted tidy number. We want A to have as many digits from the left
+  as possible in common with <b>N</b>, because that minimizes the value
+  <b>N</b> - A.
+</p><p>
+  Find the first "inversion" in <b>N</b> &mdash; that is, the minimum i such
+  that N<sub>i</sub> &gt; N<sub>i+1</sub>. If there is no such i, then
+  <b>N</b> is already tidy and A = <b>N</b>. Otherwise: no number starting
+  with the sequence N<sub>1</sub>, N<sub>2</sub>, ..., N<sub>i</sub> can be
+  both smaller than <b>N</b> and tidy. So, we can try making our answer start
+  with A<sub>1</sub> = N<sub>1</sub>, A<sub>2</sub> = N<sub>2</sub>, ...,
+  A<sub>i-1</sub> = N<sub>i-1</sub>. The next digit A<sub>i</sub> has to be
+  less than N<sub>i</sub>, so we can try using A<sub>i</sub> =
+  N<sub>i</sub>-1. If A<sub>i</sub> is greater than or equal to
+  A<sub>i-1</sub>, we can make the remaining digits from A<sub>i+1</sub>
+  onward into 9s; this makes A as large as possible while ensuring that it
+  remains tidy. However, if A<sub>i</sub> is less than A<sub>i-1</sub>, we
+  would just be creating another inversion, and so we should instead try
+  starting A with the digits up to N<sub>i-2</sub>. If that doesn't work, we
+  can try the digits up to N<sub>i-3</sub>, and so on. We may even start with
+  zero digits of <b>N</b>; for <b>N</b> = 211, we get A = 199. Even starting
+  with zero digits might not work: for <b>N</b> = 100, for example, the answer
+  is 99.
+</p><p>
+  Let's condense these observations into a final algorithm. If there is no
+  inversion, we are done. Otherwise, if the first digit of the inversion is
+  i, find the maximum j &lt; i such that N<sub>j</sub> &lt; N<sub>j+1</sub>.
+  If there is no such j, set j = 0. Then A starts with N<sub>1</sub>,
+  N<sub>2</sub>, ..., N<sub>j</sub>, N<sub>j+1</sub>-1, and then ends with
+  enough 9s to make it length L. The only exception is if j = 0 and
+  N<sub>1</sub> is 1, in which case the answer is L-1 9s.
+</p><p>
+  Since this strategy requires only one pass
+  forward through the digits of <b>N</b> and then another pass backward, it
+  is O(the number of digits in <b>N</b>), which, as we argued above, is
+  O(log <b>N</b>). In this case, we can even get away with not converting the
+  input data strings into integers!
+</p><p>
+  To bypass some of the complexity above, we could have simply tried all
+  combinations of the form SD999...99, where S is each prefix of <b>N</b>
+  (including the empty prefix), D is each possible digit from 0 to 9, and the
+  number of 9s is such that the total length is L. L-1 9s must also be included
+  as a special case. Then the answer must be among those options, and it is the
+  largest tidy number among them that does not exceed <b>N</b>. This is a
+  common trick to simplify the code of greedy solutions: try more options than
+  are needed, as long as the number of options is still tractable. It is often
+  easier to implement finding the best solution among several options than to
+  implement the checks necessary to avoid options we know we do not need.
+</p>
+<h3>Large dataset: A combinatoric approach</h3>
+<p>
+  Another way to solve this with a little bit more math is to notice that there
+  are few tidy numbers. For a fixed length L, the number of tidy numbers is the
+  number of ways to put 8 balls in L+1 bins. Each bin represents a position at
+  the start or end or in between two digits, and each ball represents "increase
+  the number by 1". So, for instance, tidy number 2455 is represented by 1 ball
+  in the first bin (skipping 1), 2 balls in the second bin (moving from 2 to 4),
+  1 ball in the third (4 to 5), no ball in the fourth (5 is repeated), and the rest
+  of the balls in the last bin (moving from 5 up to 9, but there are no digits left
+  to write). 8 balls in L+1 bins is equal to (L+8 choose 8) which, for the maximum
+  L=18, is less than 2 million. So, we can enumerate all of the tidy numbers,
+  skipping the rest and just return the largest we find which is no greater than
+  <b>N</b>. To enumerate tidy numbers, we can use recursion like in this pseudocode:
+</p><pre>
+best = 1
+enum(current_string, current_digit, digits_left):
+  if digits_left &gt; 0
+    enum(current_string + current_digit, current_digit, digits_left - 1)
+    enum(current_string + (current_digit + 1), current_digit + 1, digits_left - 1)
+  else
+    if best &le; string_to_int(current_string) &le; N
+      best = string_to_int(current_string)
+</pre><p>
+  We can also define a function that finds the next tidy number greedily and use it. We present
+  such a function in the next subsection.
+</p>
+<h3>Large dataset: A binary search approach</h3>
+<p>
+  Our original problem is: given an integer <b>N</b>, find the largest Y &le;
+  <b>N</b> such that Y is a tidy number. Let's consider a related problem:
+  given an integer X, find the smallest integer Y &ge; X such that Y is a tidy
+  number. That problem turns out to have a significantly simpler solution.
+  Suppose that X is a sequence of digits X<sub>1</sub>, X<sub>2</sub>, ...,
+  X<sub>L</sub>, enumerated from most to least significant, as above. Then Y
+  can be formed by finding the first inversion in the sequence (i.e., the
+  minimum i such that X<sub>i</sub> &gt; X<sub>i+1</sub>) and creating a
+  new number that is X<sub>1</sub>, X<sub>2</sub>, ..., X<sub>i</sub> plus
+  enough additional copies of X<sub>i</sub> to make Y as long as X. For
+  example, if we start with the number 13254, then the first inversion is at
+  32, and we replace everything after the 3 with more 3s, forming 13333. If
+  there are no inversions, then X is already tidy and Y = X. This algorithm is
+  O(L) for an X of L digits.
+</p><p>
+  With this related problem solved, we can solve the original problem by
+  <a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">binary searching</a>
+  for the smallest range [X, <b>N</b>] such that the Y (as defined above) that
+  corresponds to X is not larger than <b>N</b>. This approach takes
+  O(log<sup>2</sup> <b>N</b>) time, because the binary search takes log
+  <b>N</b> steps, and each step requires running the O(L) greedy algorithm
+  above. As argued above, L can be bounded by log <b>N</b>. This approach is
+  less efficient than the greedy approach above, but it is still easily fast
+  enough to pass the Large dataset.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

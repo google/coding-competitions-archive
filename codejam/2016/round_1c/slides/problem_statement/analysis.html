@@ -1,0 +1,416 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 1C</h3><h1>Analysis: Slides!</h1><h2>Slides!: Analysis!</h2>
+<h3>Small dataset</h3>
+<p>
+The Small dataset has bounds that suggest we can construct all possible sets of
+slides, but this turns out to be overly optimistic. We represent a set of
+slides as a directed graph <i>G</i>, with each node representing a building,
+and a directed edge from node <i>i</i> to node <i>j</i> representing a slide
+leading from building <i>i</i> to building <i>j</i>. The most straightforward
+construction tries either including or not including each of the <b>B</b> *
+(<b>B</b>-1) possible slides, for a total of 2<sup><b>B</b> *
+(<b>B</b>-1)</sup> possible sets of slides. Unfortunately, even for <b>B</b> =
+6, this is too many: there are approximately 2<sup>30</sup> sets to check, or
+about a billion.
+</p><p>
+However, one observation allows us to dramatically cut down the number of sets
+we have to examine. Notice that there can never be a cycle as part of any valid
+path from building 1 to building <b>B</b>. If there were a cycle, then we could
+generate new, valid paths by traversing that cycle arbitrarily many times
+before continuing to our destination, meaning that the number of valid paths
+would be infinite. (The <i>G</i> that we use can still contain a cycle that is
+not on any valid path; however, removing that cycle would not affect the number
+of valid paths, and thus we only need to consider graphs <i>G</i> with no
+cycles at all.)
+</p><p>
+This means that any valid path from building 1 to building <b>B</b> cannot
+visit the same building twice, so each path can have length at most <b>B</b>.
+As a result, running a depth-first search on <i>G</i> starting from node 1 will
+take O(<b>B</b>) time for each path found. If we find more than <b>M</b> paths,
+then we can terminate our search immediately, since this set of slides cannot
+be valid. This means that our worst-case running time to test any given set of
+slides is O(<b>M</b>*<b>B</b>). We can also calculate a smaller upper bound on
+the number of sets we have to examine: for each pair of slides <i>i</i> and
+<i>j</i>, exactly one of three possibilities must be true:
+</p>
+<ul>
+<li>There is a slide from <i>i</i> to <i>j</i>.</li>
+<li>There is a slide from <i>j</i> to <i>i</i>.</li>
+<li>There is no slide from <i>i</i> to <i>j</i> and no slide from <i>j</i> to
+<i>i</i>.</li>
+</ul>
+<p>
+Since there are <b>B</b> * (<b>B</b>-1) / 2 different pairs of slides, this
+gives us an upper bound of 3<sup><b>B</b> * (<b>B</b>-1) / 2</sup> possible
+sets of slides. For <b>B</b> = 6, this number is around fourteen million, which
+is a manageable number of sets to check.
+</p><p>
+Another helpful observation that makes the small even more tractable is that
+since our graph has no cycles, it is a directed acyclic graph, and so it has a
+topological sorting. So, for any correct solution, we could renumber the
+buildings (other than 1 and <b>B</b>) such that every slide's end building has
+a larger number than its start building. Since this is true, we only need to
+consider slides that go from lower to higher building numbers.
+</p>
+<h3>Large dataset</h3>
+<p> The Large dataset requires a more efficient approach. A natural first
+question to ask is: what is the maximum number of paths from building 1 to
+building <b>B</b> that we can possibly construct? One straightforward
+construction that seems to yield a large number of paths is to construct a
+slide from building <i>i</i> to building <i>j</i> for every pair of positive
+integers <i>i</i>, <i>j</i> with 1 &le; <i>i</i> &lt; <i>j</i> &le; <b>B</b>.
+To compute the number of paths for this set of slides, notice that every path
+from building 1 to building <b>B</b> corresponds uniquely to a set of distinct
+integers from the set {2, ..., <b>B</b>-1} representing the buildings visited
+along that path. For example, if <b>B</b> = 5, then the set {2, 4} would
+correspond to the path 1 -> 2 -> 4 -> 5, and the empty set would correspond to
+the path 1 -> 5. Since there are <b>B</b>-2 integers strictly between 1 and
+<b>B</b>, each of which can be either absent or present in a set, there are
+2<sup><b>B</b>-2</sup> unique sets that can be constructed, and thus
+2<sup><b>B</b>-2</sup> possible paths from 1 to <b>B</b>.
+</p><p>
+But is this the largest possible number of paths we can construct? It turns out
+that it is. We can show this by the pigeonhole principle. We assume that there
+exists some set of slides that yields some number <b>M</b> &gt;
+2<sup><b>B</b>-2</sup> paths, and derive a contradiction. Each path corresponds
+to some set of distinct integers {2, ..., <b>B</b>-1} representing the
+buildings visited along that path, and since there are 2<sup><b>B</b>-2</sup>
+distinct such sets, it follows that two paths of slides must visit the exact
+same buildings. This means there is some pair of buildings <i>i</i> and
+<i>j</i> such that <i>i</i> is visited before <i>j</i> on one of these paths,
+but is visited after <i>j</i> on the other path. (If there were no such pair,
+then these two paths would be exactly the same, since no building can ever be
+visited twice.) Since we can reach building <i>i</i> from building <i>j</i> and
+vice versa, it follows that there is a cycle between the two buildings. This
+contradicts what we showed earlier, meaning that we cannot construct a set of
+slides with exactly <b>M</b> paths for <b>M</b> &gt; 2<sup><b>B</b>-2</sup>.
+</p><p>
+Now we show how to extend the ideas above to handle the case where <b>M</b>
+&lt; 2<sup><b>B</b>-2</sup>. We start by constructing all possible slides from
+building <i>i</i> to building <i>j</i> for every pair of positive integers
+<i>i</i>, <i>j</i> with 2 &le; <i>i</i> &lt; <i>j</i> &le; <b>B</b>. Notice
+that there are exactly 2<sup><b>B</b>-1-i</sup> ways to get from building
+<i>i</i> to building <b>B</b>. Each path from building <i>i</i> to building
+<b>B</b> maps uniquely to a subset of distinct integers from the set {i + 1,
+..., <b>B</b>-1}. This set contains <b>B</b>-1-i integers, so there are
+2<sup><b>B</b>-1-i</sup> possible subsets that we can choose. If we build a
+slide from building 1 to building <i>i</i> for <i>i</i> strictly between 1 and
+<b>B</b>, then this increases the number of ways to get from 1 to <b>B</b> by
+exactly 2<sup><b>B</b>-1-i</sup>, since there are that many ways to get from
+building <i>i</i> to building <b>B</b>. This suggests a method for generating a
+network with exactly <b>M</b> slides. We start by writing <b>M</b> in binary.
+If the <i>i</i>-th digit of <b>M</b> (counting from the right, starting from 1)
+is a 1, then we add a path between building 1 and building <b>B</b>-i. This
+will add 2<sup>i-1</sup> new paths to our slide network. If we repeat this
+process for each value of <i>i</i>, then we will end up with a network with a
+number of paths from 1 to <b>B</b> exactly equal to <b>M</b>. This process will
+work if <b>M</b> has at most <b>B</b>-2 digits, meaning <b>M</b> &le;
+2<sup><b>B</b>-2</sup>-1. Since <b>M</b> = 2<sup><b>B</b>-2</sup> is the
+largest value we are able to construct, this gives us a method for constructing
+all values of <b>M</b> between 1 and 2<sup><b>B</b>-2</sup>. We have previously
+shown a construction for <b>M</b> = 2<sup><b>B</b>-2</sup>, which is equivalent
+to the solution for <b>M</b> = 2<sup><b>B</b>-2</sup> - 1 with an additional
+path from building 1 to building <b>B</b>.
+</p><p>
+This means that a sequence of slides is therefore possible to construct if, and
+only if, <b>M</b> &le; 2<sup><b>B</b>-2</sup>, and the above construction works
+for any such <b>M</b>. The sequence itself is computed by the construction
+above.
+</p><p>
+To illustrate the above method, here are valid answers for all cases with
+<b>B</b> = 5, and <b>M</b> = 1 through 8:
+</p><p>
+<code>
+<b>M</b> = 1 <b>M</b> = 2 <b>M</b> = 3 <b>M</b> = 4 <b>M</b> = 5 <b>M</b> = 6
+<b>M</b> = 7 <b>M</b> = 8<br/>
+<br>
+00010 00100 00110 01000 01010 01100 01110 01111<br/>
+00111 00111 00111 00111 00111 00111 00111 00111<br/>
+00011 00011 00011 00011 00011 00011 00011 00011<br/>
+00001 00001 00001 00001 00001 00001 00001 00001<br/>
+00000 00000 00000 00000 00000 00000 00000 00000<br/>
+</code>
+<p>
+Observe that the solutions only differ in their first lines. The first lines of
+the solutions for <b>M</b> = 1 through 7 are 1, 2, ..., 7 in binary plus an
+extra 0 at the end. The first line of the solution for <b>M</b> = 8 is 7 in
+binary, plus an extra 1 at the end: the direct connection from building 1 to
+building 5 that brings the total to 8. For <b>M</b> &ge; 9, the answer is
+<code>IMPOSSIBLE</code>.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

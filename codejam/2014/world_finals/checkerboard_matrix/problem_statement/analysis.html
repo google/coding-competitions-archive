@@ -1,0 +1,409 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - World Finals</h3><h1>Analysis: Checkerboard Matrix</h1><p>
+<a href="https://www.youtube.com/watch?v=GYX3sn3Q_DQ&t=311m20s" target="_blank">Video of Igor Naverniouk’s explanation.</a>
+</p>
+
+<p>
+Let’s start by making some observations about a checkerboard matrix:
+<ul>
+<li>
+Since a matrix is of dimension 2*N by 2*N, each row and each column have the same number of 0s and 1s.
+</li>
+<li>
+Corners of a checkerboard matrix always have two 0s and two 1s, and if we take any submatrix with at least 2 rows and 2 columns (not necessarily square) there will be an even number of 0s and 1s in the corners.
+</li>
+</ul>
+Here is an example of a checkerboard matrix and two sample submatrices (shown with red borders), there are four 1s and no 0s in the corners of one of them and two 1s, two 0s in the other’s. It is easy to see that it is impossible to find any submatrix with at least 2 rows and 2 columns where the above property is false.
+</p>
+<img src="checker.png">
+<p>
+Now, let’s analyze what happens when we swap 2 rows or 2 columns. Such an operation doesn’t change the number of 0s and 1s in a row or column, but more importantly corners of any submatrix will still have even number of 0s and 1s. Indeed, by swapping rows or columns we transform any submatrix with corners located on both of the swapped rows or columns and it will not change the numbers in the corners. This means that any matrix for which the above properties doesn’t hold cannot be transformed into a checkerboard matrix.
+</p>
+<p>
+Let’s take a matrix for which the above properties hold and consider a pair of rows (the same arguments hold for columns). We can show that all rows that start with 1 will actually be equal to each other and so will be all rows that start with 0 (let’s call these sets of rows A and B). Additionally, corresponding (same column) numbers of a type A and type B row will be different. Thus A rows will be the inverse of B rows. Let’s prove this by considering two rows of the same type. Let’s choose a submatrix with 2 corners fixed in the first column and the others in some other column. By definition of row types, we have 2 corners in the first column equal to each other, but then by the property of a checkerboard matrix we cannot have two different numbers in the other corners as we would get an odd number of 0s or 1s. Therefore, all numbers of same type rows (i.e. A or B) are the same. Analogously we can show that A rows and B rows are the inverse of each other. Since in a checkerboard matrix each row and column has the same number of 0s and 1s, the number of rows of each type is the same. The same arguments hold for columns.
+</p>
+<p>
+Here is an example of a matrix obtained by permutation of rows and columns of a checkerboard matrix, which demonstrates the facts we just proved:
+</p>
+<img src="checker2.png">
+<p>
+In a checkerboard matrix, type A and type B rows (and columns) alternate. We note that transformations of rows and columns are independent and we can first find the optimal number of row swaps, then the optimal number of column swaps, and then sum these numbers. Let us denote a type A row (or column) as ‘A’, and a type B row (or column) as ‘B’. Therefore the problem generalizes to the following problem: Given a sequence of 'A' and 'B' characters where the number of ‘A’s is the same as the number of ‘B’s, swap pairs of elements to make the ‘A’s and ‘B’s alternate. We have 2 choices on which letter goes first, either ‘A’ or ‘B’. We can try both. Given the desired order is fixed we can take a pair of ‘A’ and ‘B’ that are in the wrong place and swap them and record the number of swaps.
+</p>
+
+<p>
+To conclude, here is the algorithm for the whole problem:
+<ol>
+<li>
+Start by assigning the first row to type A
+</li>
+<li>
+Go over all rows and compare them element by element with the first row
+<ul>
+<li>
+if rows equal each other, they are of the same type
+</li>
+<li>
+if they are the inverse of each other, they are of type B
+</li>
+<li>
+otherwise the given matrix cannot be transformed into a checkerboard matrix and we can output “IMPOSSIBLE”
+</li>
+</ul>
+</li>
+<li>
+Check that the sets A and B have the same number of rows, otherwise output “IMPOSSIBLE”
+</li>
+<li>
+The minimum number of row (similarly for column) swaps is equal to min(nswaps_A, nswaps_B) where nswaps_X is the number of wrong positions for type X if we assume that the first row is of type X. The number of wrong positions for type X is equal to the number of rows of type X that reside at even positions. Remember that type A and B must alternate.
+</li>
+<li>
+Repeat 1-4 for columns.
+</li>
+<li>
+Output the sum of the answers for rows and columns.
+</li>
+</ol>
+</p>
+
+<p>
+Sample implementation in Python 3:
+</p>
+
+<pre>
+def count_swaps(pos):
+  nswaps = 0
+  for i in pos:
+    if i % 2 == 0:
+      nswaps = nswaps + 1
+  return nswaps
+
+
+def inverse(A):
+  return [chr(ord('0') + ord('1') - ord(c)) for c in A]
+
+# min_swaps returns minimum swaps required to 
+# form alternating rows. If B is an invalid matrix, 
+# returns -1 to denote an impossible case.
+def min_swaps(M, N):
+  # Step 1.
+  typeA = M[0]
+  typeB = inverse(typeA)
+
+  pos_A = []
+  pos_B = []
+  for i in range(2 * N):
+    # Step 2 a.
+    if M[i] == typeA:
+      pos_A.append(i)
+    # Step 2 b.
+    elif M[i] == typeB:
+      pos_B.append(i)
+    # Step 2 c.
+    else:
+      return -1
+  # Step 3.
+  if len(pos_A) != len(pos_B):
+    return -1
+
+  # Step 4.
+  return min(count_swaps(pos_A), count_swaps(pos_B))
+
+
+def solve(M, N):
+  # Step 1-4.
+  row_swaps = min_swaps(M, N)
+  if row_swaps == -1:
+    return "IMPOSSIBLE"
+
+  Mt = [list(i) for i in zip(*M)]  # Transpose matrix M
+
+  # Step 5.
+  col_swaps = min_swaps(Mt, N)
+  if col_swaps == -1:
+    return "IMPOSSIBLE"
+
+  return row_swaps + col_swaps
+
+
+for tc in range(int(input())):
+  N = int(input())
+  M = []
+  for i in range(2 * N):
+    M.append(list(input()))
+  print("Case #%d: %s" % (tc + 1, solve(M, N)))
+</pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

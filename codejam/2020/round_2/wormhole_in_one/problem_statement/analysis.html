@@ -1,0 +1,433 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 2</h3><h1>Analysis: Wormhole in One</h1><h3>
+  Test Set 1
+</h3>
+<p>
+  As the limits for Test Set 1 are very small, we should be able to apply a brute-force algorithm
+  and check all possible directions, starting points, and links between holes. However, there are
+  infinitely many directions and starting points. Let's find a way to work with a finite number of
+  possibilities.
+</p>
+<p>
+  First, let us observe that in order for the ball to touch more than two holes, some pairs of holes
+  must be on lines parallel to the chosen direction. Otherwise, the best we can do is to link
+  together two holes; the ball will go through them and will not touch any other holes.
+</p>
+<p>
+  So, when choosing an initial hit direction, we only need to consider those that are parallel to
+  lines that connect pairs of holes.
+</p>
+<p>
+  Also, the exact starting point is not important. We can decide which hole we want to enter first,
+  and then, regardless of which hit direction we choose, we can position the ball such that it will
+  enter that hole (before any others). For example, because the holes are always at unique integer
+  coordinates, we can choose a starting distance of 0.1 from the hole, in the direction that is the
+  opposite of our hit direction.
+</p>
+<p>
+  Now, we can try all possible starting holes and linking schemes &mdash; with a recursive
+  backtracking algorithm, for example &mdash; and choose the combination that touches the largest
+  number of holes. This should be enough to pass Test Set 1.
+</p>
+<h3>
+  Test Set 2
+</h3>
+<p>
+  Suppose for now that we have chosen the direction of the hit. Let's calculate the maximum possible
+  answer given that decision.
+</p>
+<p>
+  Imagine lines parallel to the chosen direction and going through all of the holes. Notice that
+  each hole is on at most one such line. We will call a line an <i>odd line</i> if it contains an
+  odd number of holes (but more than one), and an <i>even line</i> if it contains an even number of
+  holes (at least two). If there are lines which only contain one hole, we call these holes
+  <i>standalone holes</i>.
+</p>
+<p>
+  Let's also consider the holes along each line to be ordered in the chosen direction.
+</p>
+<p>
+  Note that:
+</p>
+<ul>
+  <li>
+    We cannot touch more than two standalone holes: one at the beginning, and one at the very end of
+    the ball's journey.
+  </li>
+  <li>
+    In the best case, we would touch all non-standalone holes.
+  </li>
+</ul>
+<p>
+  Let's say we have C<sub>odd</sub> total holes on the odd lines, C<sub>even</sub> total holes on
+  the even lines, and C<sub>1</sub> standalone holes. Then the answer is not greater than
+  C<sub>odd</sub> + C<sub>even</sub> + min(2, C<sub>1</sub>).
+</p>
+<p>
+  To touch two standalone holes, we should touch an even number of holes between them. To understand
+  why, note that first of the standalone holes must be an entry to a wormhole, and the second one
+  must be an exit from another wormhole. All of the holes that the ball touches in between those
+  starting and ending holes must be linked in pairs by wormholes, which means there should be an
+  even number of holes. This also means that if the number of non-standalone holes is odd, then we
+  will not be able to touch two standalone holes; in such a case, the answer will not be greater
+  than C<sub>odd</sub> + C<sub>even</sub> + min(1, C<sub>1</sub>).
+</p>
+<p>
+  As we will see, these upper limits can actually be achieved, so the answer is:
+</p>
+<ul>
+  <li>
+    C<sub>odd</sub> + C<sub>even</sub> + min(1, C<sub>1</sub>), if C<sub>odd</sub> +
+    C<sub>even</sub> is odd
+  </li>
+  <li>
+    C<sub>odd</sub> + C<sub>even</sub> + min(2, C<sub>1</sub>), if C<sub>odd</sub> +
+    C<sub>even</sub> is even
+  </li>
+</ul>
+<p>
+  Note that the parity of C<sub>odd</sub> + C<sub>even</sub> is the same as the parity of
+  C<sub>odd</sub>, as C<sub>even</sub> is always even.
+</p>
+<p>
+  Let's construct the linking scheme for the case when C<sub>odd</sub> is even and C<sub>1</sub> is
+  greater than 1:
+</p>
+<ol>
+  <li>
+    Connect one standalone hole to the first hole of any even line.
+  </li>
+  <li>
+    Connect the other holes on that line pairwise consecutively (the last hole will remain
+    unconnected).
+  </li>
+  <li>
+    Connect the last hole on that line to the first hole of another even line, and repeat steps 2
+    and 3 until only odd lines are left untouched.
+  </li>
+  <li>
+    Connect the last hole of the last even line to the first hole of any odd line.
+  </li>
+  <li>
+    Connect the second hole of that odd line (A) to the second hole of another odd line (B).
+  </li>
+  <li>
+    Connect the last hole of line B to the first hole of line B.
+  </li>
+  <li>
+    Connect the last hole of line A to the first hole of another odd line.
+  </li>
+  <li>
+    Connect the remaining holes of line A in consecutive pairs.
+  </li>
+  <li>
+    Connect the remaining holes of line B in consecutive pairs.
+  </li>
+  <li>
+    Repeat steps 5-9 until all the odd lines are used.  When there are no more odd lines, connect
+    the last hole of the last odd line to an unused standalone hole.
+  </li>
+</ol>
+<p>
+  This scheme can be easily modified for the other cases, when C<sub>odd</sub> is odd, and/or
+  C<sub>1</sub> is less than 2.
+</p>
+<p>
+  Summarizing this, we can make full use of all of the odd and even lines and up to two standalone
+  holes.
+</p>
+<p>
+  To calculate the number of holes on each line for a given direction, we can iterate through all
+  ordered pairs of the holes and find the equation of the line that connects them in the form y =
+  mx + y<sub>0</sub>. Now, for each m, we store how many times we see each y<sub>0</sub>. This
+  number will be equal to the number of pairs of holes on this line, which we can use to calculate
+  the number of holes. Note that we only need to do this once, as we will get the counts for all
+  directions we are interested in.
+</p>
+<p>
+  Now, we can iterate through all the directions and calculate the answer for each one as described
+  earlier by iterating through all the lines parallel to the current direction. Our final answer
+  will be the maximum over the answers for all directions.
+</p>
+<p>
+  Note that even though there are O(<b>N</b><sup>2</sup>) directions, and O(<b>N</b>) lines parallel
+  to a direction, the total number of lines for all directions is O(<b>N</b><sup>2</sup>), as every
+  line can be parallel to two (opposite) directions. So the total time complexity of this solution
+  implemented optimally is O(<b>N</b><sup>2</sup>), but slower implementations might also pass.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

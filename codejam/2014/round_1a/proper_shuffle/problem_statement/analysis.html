@@ -1,0 +1,467 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - Round 1A</h3><h1>Analysis: Proper Shuffle</h1><p>
+This problem is a bit unusual for a programming contest problem since it does not require the solution to be exactly correct. In fact, even the best solutions may get wrong answer due to random chance. That being said, there exist solutions that can correctly classify, with high probability of success, whether a permutation was generated using the BAD algorithm or the GOOD algorithm. One such solution is to generate many samples of BAD and GOOD permutations and to look at their frequency distribution according to some scoring functions. Knowing the distributions of the scores, we can create a simple classifier to distinguish the GOOD and the BAD permutations. Note that while the solution seems to be very simple, the amount of analysis needed and the number of trial and errors to produce a good scoring function are not trivial. The rest of the analysis explains the intuition to construct a good scoring function.
+</p>
+
+<h4>
+<b>What makes a GOOD permutation?</b>
+</h4>
+<p>
+If a permutation of a sequence of <b>N</b> numbers is GOOD, then the probability of each number ending up in a certain position in the permutation is exactly <b>1 / N</b>. In the GOOD algorithm, this is true for every step. In the first step, the probability of each number ending up in the first position is exactly <b>1 / N</b> since the length of the sequence is initially <b>N</b>. Now the number in the first position is fixed (i.e., it will not be swapped again in the next steps), we can ignore it in the second step and only consider the remaining sequence of <b>N - 1</b> numbers. Whichever number that gets chosen in the second step did not get chosen in the first step (<b>(N - 1) / N</b> chance), and got chosen in the second step (<b>1 / (N - 1)</b> chance), so every number has a <b>1 / N</b> chance of ending in the second position. Continuing this logic, in the end, every number has a uniform <b>1 / N</b> probability to end up in any position in the permutation sequence.
+</p>
+
+<h4><b>Why is the BAD algorithm BAD?</b></h4>
+<p>
+Let’s examine the BAD algorithm. At first, the BAD algorithm may look “innocent” that in <b>step i</b> it picks an element at random position and swaps it to the element at position <b>i</b>. However, a deeper look will reveal that the direction in which <b>i</b> is progressing makes the resulting permutation become BAD (i.e., it is not uniform). To see this, imagine we are currently at step i and we pick a random number <b>X</b> at position j where j happens to be less than i. Then <b>X</b> can never be swapped to lesser position than i in the next steps. The number <b>X</b> can only be swapped to higher positions in the permutation. This creates some bias in the permutation.
+</p>
+
+<p>
+Let’s examine the frequency of seeing the number i that ends up in position j in the permutation for all i,j. We illustrate the frequency in the figures below. The x-axis (from left-to-right) is the original position of the numbers (from 0 to N - 1). The y-axis (from bottom-to-top) is the position of numbers in the permutation generated by the algorithm (from 0 to N - 1). For this illustration, we use N = 100. We run each algorithm (the GOOD and the BAD separately) 20K times and record the event that number i (in the original position) ends up in position j (in the permutation). The intensity of the pixel at position x=i, y=j represent the frequency of the events. The darker the color represent the higher frequency of occurrence.
+</p>
+
+<img src="good_vs_bad.png">
+<p>
+We can observe that the GOOD algorithm uniformly distributes the numbers from the original positions to the resulting permutation positions. While the BAD algorithm tends to distribute the lower numbers in the original positions to the higher positions in the permutation (notice the darker region on the top left corner).
+</p>
+
+
+<h2><b>A Simple Classifier</b></h2>
+<p>
+With the above insights, we can devise a simple scoring function to classify the BAD permutation by counting the number of elements in the permutation that move to lower positions compared to its original position. See the following pseudo-code for such a scoring function:
+</p>
+<code>
+<pre>
+def f(S):
+  score = 0
+  for i in 0 .. N-1:
+    if S[i] &lt;= i:
+      score++
+  return score
+</pre>
+</code>
+
+<p>
+The scoring function <b>f</b> takes in a permutation sequence <b>S</b> of length <b>N</b> and returns how many numbers in the permutation sequence that ends up at position that is less than or equal to its original position. If the permutation sequence <b>S</b> is generated by the GOOD algorithm, we expect that the score should be close to 500 for N = 1000. If <b>S</b> is generated by the BAD algorithm, we expect that the score should be significantly lower than 500 (since the lower numbered elements tends to move to higher position). If we run 10K samples for each algorithm and plot the frequency distribution of the scores, we will get the following graph:
+</p>
+
+<img src="shuffle_chart.png">
+
+<p>
+The GOOD algorithm produces samples with scores clustered near <b>500</b> while the BAD algorithm produces samples with scores near <b>472</b>. Knowing these scores, we can build a very simple classifier that decides whether a given permutation sequence <b>S</b> is generated by the GOOD or the BAD algorithm with high probability. We can simply check the score of <b>f(S)</b> whether it is near 472 (BAD) or 500 (GOOD), as depicted in the following pseudo-code:
+</p>
+
+<code>
+<pre>
+if <b>f(S)</b> &lt; <b>(472 + 500) / 2</b>:
+  S is produced by the BAD algorithm
+else:
+  S is produced by the GOOD algorithm
+</pre>
+</code>
+
+
+<h4><b>How accurate is the classifier?</b></h4>
+<p>
+The good thing about being a programmer is that we do not always need formal proofs. We can roughly guess the accuracy of the classifier by generating a number of GOOD / BAD permutations each with 50% probability and check how many permutations are correctly classified using our simple classifier. According to our simulation, the simple classifier achieves around 94.05% accuracy. The simple classifier is good enough to correctly solve 109 test cases out of 120 test cases: this will happen in roughly 94.58% of all inputs. In the unlucky situation that your input is in the other 5.42%, you can download another one. 5.42% seems to be a lot to be given to chance though. What if you were only allowed one submission? In the next section we'll explore one idea out of many that offer higher chances of success.
+</p>
+
+<h2><b>Naive Bayes Classifier</b></h2>
+Let <b>S</b> be the input permutation. We want to find <b>P(GOOD | S)</b>, the probability that the GOOD algorithm was used, given that we saw the permutation <b>S</b>. By <a href="http://en.wikipedia.org/wiki/Bayes%27_theorem" target="_blank">Bayes’ theorem</a> it follows that:
+<pre>
+<b>P(GOOD | S) = P(S | GOOD) * P(GOOD) / (P(S | GOOD) * P(GOOD) + P(S | BAD) * P(BAD))</b>
+</pre>
+
+<p>
+where: 
+<ul>
+<li>P(S | GOOD) is the probability that S is generated by the GOOD algorithm</li>
+<li>P(S | BAD) is the probability that S is generated by the BAD algorithm</li>
+<li>P(GOOD) is the probability that the permutation is chosen from the GOOD set</li>
+<li>P(BAD) is the probability that the permutation is chosen from the BAD set</li>
+</ul>
+</p>
+
+<p>
+Since we know that P(GOOD) and P(BAD) is equally likely since each algorithm has the same probability to be used, then we can simplify the rule to:
+</p>
+
+<pre>
+<b>P(GOOD | S) = P(S | GOOD) / (P(S | GOOD) + P(S | BAD))</b>
+</pre>
+
+<p>
+If <b>P(GOOD | S) &gt; 0.5</b>, it means that the permutation <b>S</b> is more likely generated by the GOOD algorithm. By substituting <b>P(GOOD | S)</b> with the right hand side of the rule in <b>P(GOOD | S) &gt; 0.5</b> and performing some algebraic manipulation, we can further simplify the expression to <b>P(S | GOOD) &gt; P(S | BAD)</b>.
+</p>
+
+<p>
+We know the exact value for <b>P(S | GOOD)</b> is <b>1/N!</b> since there are N! possible permutations. Hence, we only need to find <b>P(S | BAD)</b>. If we can find <b>P(S | BAD)</b>, we will have an optimal algorithm. Unfortunately, we do not know how to efficiently compute <b>P(S | BAD)</b> precisely. The best algorithm we know is intractable for large N = 1000.
+</p>
+
+<p>
+Nevertheless, we can borrow an idea from machine learning and make a simplifying <a href="http://en.wikipedia.org/wiki/Naive_Bayes_classifier" target="_blank">Naive Bayes</a> assumption: let’s assume that the movement of each element is independent. Now we can approximate P(S | BAD):
+</p>
+
+<pre>
+<b>P(S | BAD)  ≈  P(S[0] | BAD) * P(S[1] | BAD) * ... * P(S[N-1] | BAD)</b>
+</pre>
+
+<p>
+where <b>P(S[0] | BAD)</b> is the probability that the first element in a random permutation generated by BAD is in fact <b>S[0]</b>. Without the independence assumption, we would have terms like <b>P(S[1] | BAD + S[0])</b>, which means "the probability that the second element is in fact <b>S[1]</b> given that BAD is used to generate the permutation and that <i>the first element is <b>S[0]</b></i>". Naive Bayes allows us to remove the <i>italicized</i> assumption, which makes the calculation tractable (but not completely accurate). 
+</p>
+
+<p>
+To be fair, we should make the same simplifying assumption for <b>P(S | GOOD)</b>. Luckily, this is easy; in the GOOD algorithm, each element has a <b>1 / N</b> chance of moving to each position, so <b>P(S | GOOD) = 1 / N<sup>N</sup></b> regardless of what <b>S</b> we are given.
+</p>
+
+<p>
+Now, let’s see how we can implement the Naive Bayes classifier. Let <b>P<sub>k</sub>[i][j]</b> be the probability that number <b>i</b> ends up at position <b>j</b> after <b>k</b> steps of the BAD algorithm. We are interested in the probabilities where <b>k = N</b> (i.e., after N steps have been performed). We can compute <b>P<sub>k</sub></b> from <b>P<sub>k-1</sub></b> in O(<b>N<sup>2</sup></b>) time by simulating all possible swaps. <b>P<sub>0</sub></b> is easy; nothing has moved, so we just have the identity matrix. See the pseudo-code below. <b>P<sub>k</sub>[i][j]</b> is the <b>prev[i][j]</b> variable which will contain the probability of number <b>i</b> ends up at position <b>j</b> after <b>k</b> steps generated by the BAD algorithm.
+</p>
+
+<code>
+<pre>
+  prev[i][i] = 1.0 for all i, otherwise 0.0  // An identity matrix.
+  pmove = 1.0 / N  // Probability of a number being swapped.
+  pstay = 1.0 - pmove  // Probability of a number not being swapped.
+
+  for k in 0 .. N-1:
+      for i in 0 .. N-1:
+          next[i][k] = 0
+          for j in 0 .. N-1:
+              next[i][k] += prev[i][j] * pmove  // (1)
+              if j != k:
+                  next[i][j] = prev[i][j] * pstay +
+                               prev[i][k] * pmove  // (2)
+      Copy next to prev
+
+</pre>
+</code>
+
+<p>
+Note for (1): P[i][k] for the next step is equal to:  (P[i][j] in the previous step) * (move probability to k).
+Note for (2): P[i][j] for the next step is equal to:   (P[i][j] in the previous step) * (staying probability at j) +
+  (P[i][k] in the previous step) * (move probability to j).
+</p>
+
+<p>
+The above algorithm runs in O(<b>N<sup>3</sup></b>). It may take several seconds (or minutes if implemented in a slow scripting language) to finish. However, we can run this offline (before we download the input), and store the resulting probability matrix in a file. Note that the above algorithm can also be optimized to O(<b>N<sup>2</sup></b>) if needed. See Gennady Korotkevich's solution for GCJ 2014 Round 1A for an implementation.
+</p>
+
+<p>
+Next, we compute the approximation probability of <b>P(S | BAD)</b> as described previously.
+<code>
+<pre>
+  bad_prob = 1.0
+  for i in 0 .. N:
+    bad_prob = bad_prob * prev[S[i]][i]
+</pre>
+</code>
+</p>
+
+<p>
+Finally, to produce the output, we compare it with <b>P(S | GOOD)</b> and see which one is greater.
+<code>
+<pre>
+  good_prob = 1.0 / N^N
+  if good_prob &gt; bad_prob:                             
+    S is produced by the GOOD algorithm
+  else:
+    S is produced by the BAD algorithm
+</pre>
+</code>
+</p>
+
+<p>
+Note that the pseudo code above is dealing with very small probability that may cause underflow in the actual implementation. One way to avoid this problem is to use sum of the logarithm of the probabilities instead of the product of the probabilities.
+</p>
+
+<p>
+Empirically, the Naive Bayes classifier has a success rate of about <b>96.2%</b>, which translates into solving at least 109 cases correctly out of 120 in <b>99.8%</b> of all inputs.
+</p>
+
+<p>
+Finally, in this editorial we described two methods to solve this problem. There are likely other solutions that perform even better and we invite the reader to try come up with such solutions.
+</p>
+
+
+
+
+
+
+
+
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

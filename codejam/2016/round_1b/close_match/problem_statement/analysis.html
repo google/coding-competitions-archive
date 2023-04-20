@@ -1,0 +1,386 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 1B</h3><h1>Analysis: Close Match</h1><h2>Close Match: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+A brute force algorithm will work just fine for the Small. For each case, we
+can try all possible ways to fill in the <code>?</code>s and see which way
+produces the smallest absolute difference. It is important to break any ties
+first by the first score, or, if necessary, by the second score. Even in the
+worst case for brute force, <code>??? ???</code>, there are only 10<sup>6</sup>
+= one million different possibilities to check.
+</p>
+<h3>Large dataset</h3>
+<p>
+Many Code Jam problems look complex and challenging, but have a surprisingly
+simple solution. But sometimes we throw in just the opposite sort of problem!
+In this case, it's easy to come up with a tantalizing greedy approach that will
+sometimes fail. We'll present an approach that gets greedy only when it's safe
+to do so.
+</p><p>
+We will investigate various different ways to fill in the <code>?</code>s, and
+we will constantly keep track of the best set of scores (using tiebreaker
+rules) seen so far. We will look at the pair of characters in the first
+position of each string, then the pair of characters in the second position of
+each string, and so on.
+</p><p>
+When we look at a pair of characters, we must decide how to fill in any
+<code>?</code>s. We may be able to make those two digits of the final scores be
+the same, either by filling in <code>?</code>s appropriately, or because the
+two characters are already the same digit and we have no choice. If we're
+lucky, and we never encounter a position where the two strings have different
+digits, we can make every pair of digits in the final scores the same! This is
+as good as it gets; our difference will be 0.
+</p><p>
+For example, for the case <code>?1? 2??</code>, we can make all the digits
+equal to get <code>210 210</code>. We choose <code>0</code>s for any pair of
+<code>?</code>s to satisfy the tiebreaker rules.
+</p><p>
+However, we won't have this option in every test case. If the strings have
+different digits at some position, then there's no way the score difference
+can be 0. Moreover, we may even need to introduce our own difference before
+that first existing point of difference! For instance, in the case <code>??0
+?99</code>, we don't want to just make the digits equal until we get to the
+first point of difference, because that would leave us with
+<code>090 099</code>, whereas we can do better with <code>100 099</code>.
+</p><p>
+So, if we have two different digits at any position in the strings, then either
+we can make everything equal up to that first existing point of difference, or
+we can introduce a first point of difference earlier. That is, we will start
+from the left, and for some number of positions (possibly zero), we will make
+the digits in the final scores equal. Then we will encounter (or make) our
+first point of difference.
+</p><p>
+Once we've reached our first point of difference, we know something crucial:
+<i>which of the two final scores is larger</i>. Because the scores have been
+equal up until the first point of difference, the score with the larger digit
+in this position is guaranteed to be larger, no matter how we fill in any
+<code>?</code>s beyond this point.
+</p><p>
+Moreover, we know exactly how to fill in those <code>?</code>s to minimize the
+difference between the two scores! We have no reason to make the larger number
+any larger, so all of its <code>?</code>s should become <code>0</code>s. And we
+want to make the smaller number as large as possible, so all of its
+<code>?</code>s should become <code>9</code>s.
+</p><p>
+So, as we step through our strings from left to right, for every position of
+the strings, we'll do the following:
+<ol>
+<li>If we encounter two identical digits, move on.</li>
+<li>If we encounter two different digits, fill in all remaining
+<code>?</code>s, compare those scores with the best we've seen so far, and
+stop. We're done!</li>
+<li>If we encounter a digit and a <code>?</code>:
+<ul>
+<li>If the digit is not <code>9</code>: try changing the <code>?</code> to
+1 more than that digit. This would introduce a first point of difference, so we
+know how we would fill in all remaining <code>?</code>s. Compare those scores
+with the best we've seen so far. Then...</li>
+<li>If the digit is not <code>0</code>: try changing the <code>?</code> to
+1 less than that digit. This would introduce a first point of difference, so we
+know how we would fill in all remaining <code>?</code>s. Compare those scores
+with the best we've seen so far. Then...</li>
+<li>Change the <code>?</code> to that digit and move on. (Why didn't we try
+changing the <code>?</code> to all possible digits? We can get away with doing
+this, but it's not necessary. If we have control over the digits at the first
+point of difference, there's no reason to make them differ by more than 1; this
+would just make the overall difference larger, regardless of what we do with
+the rest of the strings.)</li>
+</ul></li>
+<li>If we encounter two <code>?</code>s:
+<ul>
+<li>Try changing the first <code>?</code> to a <code>0</code> and the
+second <code>?</code> to a <code>1</code>. Figure out the scores and compare.
+Then...</li>
+<li>Try changing the first <code>?</code> to a <code>1</code> and the
+second <code>?</code> to a <code>0</code>. Figure out the scores and compare.
+Then...</li>
+<li>Change both <code>?</code>s to 0s and move on. (Again, there is no reason
+to make the <code>?</code>s differ by more than <code>1</code>.)</li>
+</ul></li>
+</ol>
+<p>
+We must make sure our implementation also checks the case in which there is no
+point of difference. Once we're done, the best scores will be our answer.
+</p><p>
+This approach has some room for improvement, but it solves the Large very
+quickly. It makes one full pass through the strings, and at each position, it
+might make up to 2 additional partial passes, so the worst case running time is
+O(<b>N</b><sup>2</sup>), where <b>N</b> is the length of <b>C</b> (and
+<b>J</b>). We leave an O(<b>N</b>) approach as an exercise!
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

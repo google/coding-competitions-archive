@@ -1,0 +1,411 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 3</h3><h1>Zillionim</h1><h3>Problem</h3>
+<p>
+  Zillionim is a turn-based game for two players. Initially, 10<sup>12</sup> coins are
+  arranged end-to-end in a single line, numbered from 1 to 10<sup>12</sup> from left to right.
+  During a turn, a player must select 10<sup>10</sup> consecutive coins and remove them.
+  Two coins that were not originally consecutive do not become consecutive even if all of
+  the coins in between them are removed.
+</p><p>
+  On their turn, a player makes a valid move if possible, and then it is their opponent's turn.
+  If a player cannot make a valid move on their turn, they lose the game (and the opponent wins
+  the game).
+</p><p>
+  Because our engineers are still hard at work training our machine learning model to play
+  Zillionim, we have created a simple AI that plays Zillionim by making random moves.
+  The AI always gets the first turn.
+  On each of the AI's turns, the AI determines all valid moves and chooses one of them uniformly
+  at random.
+</p><p>
+  Can you beat this AI... at least most of the time?
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems">Interactive Problems section</a>
+  of our FAQ.
+</p><p>
+  Initially, your program should read a single line containing two integers
+  <b>T</b>, the number of test cases, and <b>W</b>, the minimum number of games you need to win
+  for your solution to be considered correct. Then, you need to process <b>T</b> test cases,
+  each of which is a single game of Zillionim.
+</p><p>
+  Each test case is processed by making exchanges with the judge until one player wins
+  the game. For each exchange, the judge first outputs a single line with a
+  single integer <b>P</b>, to be interpreted as follows:
+</p><ul>
+<li>If 1 &le; <b>P</b> &le; 10<sup>12</sup> - 10<sup>10</sup> + 1, then the AI has removed
+  coins numbered <b>P</b>, <b>P</b> + 1, ..., <b>P</b> + 10<sup>10</sup> - 1 and it is your
+  turn. Note that this means there is at least one valid move remaining for you to play.
+  The AI always plays a valid move.</li>
+<li>If <b>P</b> = <code>-2</code>, your last move caused you to win the current game.</li>
+<li>If <b>P</b> = <code>-3</code>, the AI has made a move that caused it to win the current game.
+  Notice that in this case, the judge does not send you the AI's last move.</li>
+<li>If <b>P</b> = <code>-1</code>, the last information you sent to the judge was malformed data or an
+  invalid move (out of range or attempting to remove coins that were not there),
+  meaning that you will get a Wrong Answer verdict for not playing correctly (more below).</li>
+</ul><p>
+  After receiving a positive integer <b>P</b>, you should send back a single line with a positive
+  integer Q (1 &le; Q &le; 10<sup>12</sup> - 10<sup>10</sup> + 1)
+  representing that you are removing coins numbered Q, Q + 1, ..., Q + 10<sup>10</sup> - 1.
+  Each of these coins must not have been previously removed during the current game.
+</p><p>
+  After the judge sends a <code>-2</code> or <code>-3</code>, if it was the last game,
+  the judge will terminate and so should your program. Otherwise, the judge will proceed
+  to send data corresponding to the first exchange of the next game. The judge
+  will not check how many games you have won or lost until all games have been processed correctly.
+  For example, if you win <b>T</b> - 1 games and then send malformed data during the last game,
+  you will receive a Wrong Answer verdict, regardless of the value of <b>W</b>.
+</p><p>
+  After receiving a <code>-1</code>, your program should terminate to receive a
+  Wrong Answer verdict. If your program continues to wait for the judge after receiving
+  <code>-1</code>, your program will time out, resulting in a Time Limit Exceeded error.
+  Notice that it is your responsibility to have
+  your program exit normally and within the time limit to receive a Wrong Answer verdict
+  instead of a Runtime Error or Time Limit Exceeded.
+</p><p>
+  The seed for the random generator is predetermined (and is different) for each game.
+  This means that two submissions that make the exact same sequence of moves in a given game
+  will receive the exact same sequence of moves from the AI for that game. It also means the play
+  of the AI in a game does not depend, even in the pseudo-random generation sense, on the
+  plays made in previous games within the same test set.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 50 seconds per test set.<br/>
+Memory limit: 1GB.<br/>
+<b>T</b> = 500.<br/>
+-3 &le; <b>P</b> &le; 10<sup>12</sup> - 10<sup>10</sup> + 1.<br/>
+<b>P</b> &ne; 0.<br/>
+<b>P</b> represents a valid play or valid information about the game's status,
+  as explained above.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+<b>W</b> = 300.<br/>
+</p>
+
+<h4>Test set 2 (Visible)</h4>
+<p>
+<b>W</b> = 475.<br/>
+</p>
+
+<h4>Test set 3 (Visible)</h4>
+<p>
+<b>W</b> = 499.<br/>
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+<h3>Sample Interaction</h3>
+
+<p>
+  For simplicity, the following interaction uses 50 coins in total instead of 10<sup>12</sup>, and
+  each move removes 10 consecutive coins instead of 10<sup>10</sup>. The rules are otherwise the
+  same.
+</p>
+
+<pre>
+  t, w = readline_int_list()   // reads 500 into t and 300 into w
+  p = readline_int()           // reads 23 into p; this is the beginning of the first game. The
+                               //   AI has taken coins 23 through 32, inclusive.
+  printline 38 to stdout       // we decide to take coins 38 through 47, inclusive
+  flush stdout
+  p = readline_int()           // reads 3 into p. The AI has taken coins 3 through 12, inclusive.
+  printline 13 to stdout       // we decide to take coins 13 through 22, inclusive
+                               //  (and this is our only remaining move!)
+  flush stdout
+  p = readline_int()           // reads -2 into p. We won the first game since the AI had no move.
+  p = readline_int()           // reads 32 into p; this is the beginning of the second game. The
+                               //   AI has taken coins 32 through 41, inclusive.
+  printline 13 to stdout       // we decide to take coins 13 through 22, inclusive
+  flush stdout
+  p = readline_int()           // reads -3 into p. We don't know the AI's move, but it left us
+                               //   with no valid move, so we lost the second game.
+  p = readline_int()           // reads 10 into p; this is the beginning of the third game. The
+                               //   AI has taken coins 10 through 19, inclusive.
+  printline 0 to stdout        // we select an invalid index (coin numbering starts at 1!)
+  flush stdout
+  p = readline_int()           // reads -1 into p -- we have made a mistake!
+  exit                         // exits to avoid an ambiguous TLE error
+</pre>
+
+    </div>
+  </body>
+</html>

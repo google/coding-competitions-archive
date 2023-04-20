@@ -1,0 +1,362 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2012 - Round 3</h3><h1>Analysis: Quality Food</h1><h3>Multiple Solutions</h3>
+
+<p>
+Sometimes our problemsetters like to come up with big, complicated solutions to their problems, and sometimes it turns out that there are simpler alternatives.  We'll present two solutions here, including the simple one that many problems solvers used, and the more complex one used by the author.
+</p>
+
+<h3>How much does a single delivery cost?</h3>
+
+<p>
+Let's look at the cost of a delivery containing <b>K</b> meals.  It's easy to see that we should order the cheapest meal with a time-to-stale of at least 0, the cheapest meal with a time-to-stale of at least 1, the cheapest meal with a time-to-stale of at least 2, and so on until we order the cheapest meal with a time-to-stale of at least <b>K</b>.  Since <b>K</b> could be very large, we'll solve this problem in O(<b>N</b> log(<b>N</b>)).
+</p>
+
+<p>
+First we'll sort the kinds of food by price, and construct an array that contains [(0, 0), (d<sub>1</sub>, c<sub>1</sub>), (d<sub>2</sub>, c<sub>2</sub>), ...], where we should buy food that costs c<sub>i</sub> for the meals between d<sub>i-1</sub> and d<sub>i</sub> after the delivery arrives.  We can then process that into another array containing (d<sub>i</sub>, C<sub>i</sub>), where C<sub>i</sub> is the total cost of a single delivery that lasts d<sub>i</sub> days, and (C<sub>i</sub>-C<sub>i-1</sub>) / (d<sub>i</sub>-d<sub>i-1</sub>) = c<sub>i</sub>.   
+</p>
+
+<p>
+We only had to do those above steps once.  Now that we have that array, it's an O(log(N)) binary search (or a simpler linear search, since we'll find that we don't need the efficiency for either of our solutions) to find out how much it costs to have a delivery that lasts <b>K</b> days: find i such that d<sub>i-1</sub> &le; <b>K</b> &lt; d<sub>i</sub>, and charge C<sub>i-1</sub> + (K-d<sub>i-1</sub>)*c<sub>i-1</sub>.
+</p>
+
+<p>
+We'll call that function <code>SingleDeliveryCost(days)</code>, and for convenience later in this editorial we'll also define <code>SingleDayCost(day)</code> to be the cost to buy the cheapest meal with a time-to-stale of at least <code>day</code>.  Observe that <code>SingleDayCost(a) &le; SingleDayCost(b)</code> if <code>a &le; b</code>, and that <code>SingleDeliveryCost(days+1) = SingleDeliveryCost(days) + SingleDayCost(days+1)</code>.
+</p>
+
+<h3>Deliveries should be (almost) the same size</h3>
+
+<p>
+Let's show that all of your deliveries should be almost the same size.  Let's suppose that we have a solution that has a delivery, A, containing <code>a</code> meals, and another delivery, B, that contains <code>b</code> meals, with <code>b &ge; a+2</code>.  Then the cost for those two deliveries is <code>SingleDeliveryCost(a) + SingleDeliveryCost(b)</code>.  If instead we increased delivery A's size to <code>a+1</code> and decreased delivery B's size to <code>b-1</code>, we'd have the same total number of days, but the delivery cost would be:<br/>
+<code>SingleDeliveryCost(a+1) + SingleDeliveryCost(b-1)<br/>
+= SingleDeliveryCost(a) + SingleDayCost(a+1) + SingleDeliveryCost(b) - SingleDayCost(b-1)<br/>
+&le; SingleDeliveryCost(a) + SingleDeliveryCost(b)</code>.
+</p>
+<p>
+This shows that all our deliveries should be of size <code>a</code> or <code>a+1</code> for some value of <code>a</code>.
+</p>
+
+<h3>Deliveries should be of an "interesting" size</h3>
+
+<p>
+Let's say that we want to buy a total of <b>D</b> days' worth of food, and we want to know how big our deliveries should be.  We'll start by considering a number of deliveries <code>X</code> that we're going to show is "uninteresting": one such that if we look the size of the largest delivery, <code>ceil(D/X)</code>, then <code>ceil(D/(X-1)) = ceil(D/X) = ceil(D/(X+1))</code>.  In such a case, adding a delivery changes the cost by <code>SingleDeliveryCost(ceil(D/X)) - ceil(D/X)*SingleDayCost(ceil(D/X))</code>.  If we add a delivery, we'll change the cost by the negation of that amount.  One of those two quantities has to be non-negative, which means that we never need to consider making <code>X</code> deliveries.
+</p>
+
+<p>
+That means that we only need to look at numbers of deliveries such that if we changed the number of deliveries, we'd be changing <code>SingleDayCost(ceil(D/X))</code>.  There are only 2<b>N</b> such delivery sizes, and trying all of them solves the problem in O(N log(N)).
+</p>
+
+<h3>The other approach</h3>
+
+A competitor who couldn't convince himself or herself of the above still has a good chance of solving the problem.  We'll start by presenting a trick ("Changing the Question") that you can use whether or not you have the above realization&ndash;it might make the math easier&ndash;and a totally different approach that, admittedly, requires some math of its own.
+
+<h3>Changing the Question</h3>
+
+<p>
+An observation we can make is that instead of solving the problem that was asked, we can play a trick to let ourselves solve a simpler problem: "Can I eat quality food for <b>D</b> days?"  We do this by <b>binary searching on the answer</b>.  We know the answer is between 0 and <b>M</b>, so we can start by solving that problem O(log(M)) times.
+</p>
+
+<h3>How many deliveries should there be?</h3>
+
+<p>
+If the logic in the previous solution was too complicated, here's an alternative that probably isn't going to make you any happier.  On the other hand, if you were thinking that there weren't enough logarithmic factors in the complexity analysis, or enough -ary searches, this could make you happy.  This was our original solution for the problem, and it makes the I/O author perversely proud to have been part of making a problem to which a binary search in a ternary search in a binary search is a perfectly reasonable solution.
+</p>
+
+<p>
+The argument here is that we can <a href="http://en.wikipedia.org/wiki/Ternary_search" target="_blank">ternary search</a> for the number of deliveries that minimizes the cost to buy quality food for <b>D</b> days.  In order for a ternary search to be possible, the function has to be strictly decreasing, then strictly increasing (or vice versa).  In this case, the domain of the function is from where the number of deliveries <code>X</code> is the minimum possible number at which we could order <b>D</b> meals (regardless of how expensive they are), to <code>X=<b>D</b></code>.  We'll show that the function decreases, then increases over this domain.
+</p>
+
+<p>
+First let's take the <code>SingleDayCost</code> function and extend it over the real numbers.  We already know what it is for the integers; let's just linearly interpolate for the real numbers in between, and call the result <code>G</code>.  This has the nice result that the cost for <code>X</code> deliveries and <b>D</b> days, which we'll call <code>H(X)</code>, is <code>H(X) = G(D/X)*X + X*F</code>.
+</p>
+
+<p>
+Now, we're about to start taking derivatives, and although <code>G</code> is continuous, it isn't differentiable.  There are a couple of ways of getting around this, and we're going to take a physicists' route.  We'll define a function <code>G''</code> to be a sum of <a href="http://en.wikipedia.org/wiki/Dirac_delta_function" target="_blank">delta functions</a> such that the double-integral of <code>G''</code> over <code>X</code> is our original <code>G</code>.  Then we'll define <code>G'</code> to be <code>G''</code>'s integral, and <code>G</code> to be <code>G'</code>'s integral.  That lets us say that the first derivative of <code>G</code> is non-negative everywhere, and so is its second derivative.  Don't try this at home, folks, especially if you live in a math class.
+</p>
+
+<p>
+What we're really interested in doing here is proving that <code>H(X)</code> is decreasing and then increasing, which we can do by proving that it has a positive second derivative:<br/>
+<code>H(X) = G(D/X)*X + X*F</code><br/>
+<code>H'(X) = G(D/X) - X*G'(D/X)*X<sup>-2</sup> + F</code><br/>
+<code>H'(X) = G(D/X) - G'(D/X)/X + F</code><br/>
+<code>H''(X) = -X<sup>-2</sup>G'(D/X) + X<sup>-2</sup>G'(D/X) + G''(D/X)X<sup>-3</sup></code><br/>
+<code>H''(X) = G''(D/X)X<sup>-3</sup> &ge; 0</code><br/>
+</p>
+
+<p>
+Therefore <code>H(X)</code> is decreasing and then increasing (or just decreasing or increasing, which is also fine), and can be ternary searched on for the minimum cost of surviving <b>D</b> days.  This algorithm's complexity works out to O(Nlog(N) + log<sup>2</sup>(M)log(N)).
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

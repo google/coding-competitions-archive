@@ -1,0 +1,431 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - World Finals</h3><h1>Analysis: Operation</h1><h2>Operation: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+Let us consider the Small dataset first. The number of operations is large
+enough that trying all possible orderings would time out, but a typical trick
+might work: turn that <b>N</b>! into a 2<sup><b>N</b></sup> with dynamic programming
+over subsets of cards. That is, try to reduce all possible orderings of a subset
+of the cards to only few possible results that are worth exploring further.
+The first option to try is to define a function f(C), for a subset C of the
+cards, as the best possible result of applying cards in C to the starting
+value <b>S</b>. It seems that defining f(C) as the maximum over all c in C of
+applying c to f(C - c) could be reasonable (with f(&empty;) being <b>S</b>).
+However, it doesn't quite work in general. For instance,
+suppose c is <code>* -1</code>. We are getting the maximum possible result out
+of f(C - c), only to flip the sign right after. It
+would have been better to get the minimum possible result for f(C - c) instead.
+Of course, if c is <code>* 2</code> instead, getting the maximum for f(C - c)
+seems like a good idea. It turns out that the best option is always either
+the minimum or the maximum for f(C - c), which we prove below. Therefore,
+let g(C, maximum) be the maximum possible result of applying cards in C to
+<b>S</b>, and g(C, minimum) be the minimum among those results. We can define
+g(C, m) recursively as the "m" (i.e., the maximum or the minimum depending on m)
+over each c and each m' in {minimum, maximum} of applying c to g(C - c, m'),
+with g(&empty;) = <b>S</b>.
+This definition of g formalizes our intuition that only the minimum and maximum
+possible values are needed from each subset. We prove its correctness below.
+The result is then g(C, maximum) for C = the entire input set.
+The function has a domain of size 2<sup><b>N</b></sup> &times; 2, and calculating
+each value involves an iteration over at most 2 &times; <b>N</b>
+possibilities, yielding O(2<sup><b>N</b></sup> &times; <b>N</b>)
+operations in total after memoizing the recursion.
+Of course, those operations are over large-ish integers. The number of digits
+of those integers is bounded by O(<b>N</b>D) where D is the number of digits
+of the input operands. That means the time complexity of each operation,
+which operates on a large integer and an input integer with up to D digits,
+is bounded by O(<b>N</b>D<sup>2</sup>), which makes the overall
+running time of this algorithm
+O(2<sup><b>N</b></sup> &times; <b>N</b><sup>2</sup> &times; D<sup>2</sup>).
+</p><p>
+We can prove the definition of g is correct by complete induction. If C is the empty
+set, then g is correct immediately by definition. Otherwise, assume g is correct
+for all m' and all sets C' smaller than C, and let us prove that g(C, m)
+is correct. Let c be the last card used in an ordering of C that gives the "m"
+result when applied to <b>S</b>. If c is +v or -v, we can commute
+the operator "m" with the application of c. That is: let T be the result of applying all of
+the other operations in the optimal order. Then we know that T + v or T - v is
+"m" over the operations, so if the value of T is not the
+optimal g(C - c, m), then there is some other ordering that yields
+g(C - c, m) + v or g(C - c, m) - v, which is better. The same is true for c
+being a multiplication or division by a non-negative, since those also commute
+with maximum and minimum. If c is a multiplication or division by a negative,
+then it can commute with a maximum or minimum operator, but the operator is
+reversed, that is, max turns into min, and vice versa. Since we try both
+maximum and minimum in the definition of g, that poses no problem.
+Notice that this proof also shows that we do not even need to try both options for m';
+we only need to check the one that actually works. Trying both is simpler, though,
+and it doesn't impact the running time in a significant way.
+</p>
+<h3>Large dataset</h3>
+<p>
+Of course, an exponential running time would not work for the Large dataset,
+so we need to reason further.
+As a first simplification, assume all additions and subtractions have positive
+operands by removing those with a zero operand, and flipping both the sign
+and the operand of those with a negative operand. This leaves an input with
+the same answer as the original one.
+</p><p>
+Suppose all cards are already ordered forming an expression E. We can
+<a href="https://www.google.com/url?sa=D&q=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FDistributive_property">distribute</a>
+to "move" all additions and subtractions to the right end creating a new expression E'
+that contains multiplications and divisions first, and additions and subtractions later.
+In order to make the value of E the same as the value of E', we change the
+added or subtracted value on each term.
+The value of a given addition or subtraction card is going to be multiplied/divided by all
+multiplications/divisions that are to its right in E.
+For instance, if E = (((0 + 1) &times; 4) - 6) / 2, then
+E' = ((0 &times; 4) / 2) + 2 - 3. Notice "+ 1" turned into "+ 2" because it is multiplied
+by 4 and divided by 2. "- 6" turned into "- 3" because it is only divided by 2 (the
+multiplication in E does not affect it).
+</p><p>
+If we consider an initial fixed card "+<b>S</b>", we can even move that one to the end and
+always start with a 0, making multiplications and divisions in E effectively not needed
+in E'. The final result is then the sum over all additions minus the sum over
+all subtractions of the adjusted values (in the example above 4 is the adjusted
+value of the only addition and 3 is the adjusted value of the only subtraction). Notice
+that this shows the value of <b>S</b> always impacts the final result in the
+same way regardless of the order: it adds <b>S</b> times the product of all
+multiplications and divided by all divisions to the result.
+</p><p>
+Consider a fixed order for multiplications and divisions, and insert the
+additions and subtractions. As explained in the previous paragraph, inserting
+operation Z at a given position implies that Z will get multiplied by all multiplications
+that are to its right, and divided by all divisions that are to its right. Effectively,
+each position has a fraction F such that operations inserted there get multiplied by F.
+Given the view of the final result above, it follows
+that it's always best to insert additions at a position where F is maximal,
+and subtractions at a position where F is minimal. Even though there could be
+multiple places with the same value of F, this shows that it is never suboptimal
+to insert all additions in the same place A, and all subtractions in the same
+place B. Since additions and subtractions commute, this further shows that it
+is equivalent to have an input with a single addition and a single subtraction
+whose operand is the sum of the operands of the corresponding operation (after
+adjusting the signs to make them all positive).
+</p><p>
+Given the simplification, we can reverse the point of view. Consider the
+addition and subtraction fixed and insert multiplications and divisions.
+Since multiplication and division commute, we just need to decide between 3
+places: a) before both addition and subtraction, b) in between, c) after both.
+What we insert in a) will multiply/divide only <b>S</b> in the final result,
+what we insert in b) will multiply/divide <b>S</b> and only additions or only subtractions
+depending on which is earlier, and what we insert in c) will multiply/divide
+everything. If we fix the positions of multiplications
+and divisions with negative operands, we can greedily place multiplications
+and divisions with a positive operand: we place multiplications to apply
+to the greatest of the 3 values mentioned above (after applying the fixed
+multiplications and divisions by a negative) and divisions to apply to the
+lesser of the 3 (after doing the same). This shows that it is never suboptimal to place
+all multiplications by a positive together in one place, and all divisions
+by a positive in one place.
+</p><p>
+To further simplify, divisions can't have a zero operand, but multiplications can.
+Notice that a "* 0" will nullify the entire thing, so only the placement of the
+rightmost "* 0" matters, so we can simplify them all into a single card (or no card
+if there is no "* 0" in the input). This leaves only multiplications and divisions
+by a negative. If a pair of multiplications by a negative are in the same place
+a), b) or c) as above, they multiply as a positive, so it is always better to move the
+pair to the optimal place to put multiplications, as long as we have pairs. If there is
+an even number of multiplications by a negative in a suboptimal place, then all of them
+get moved by this. If their number is odd, all but one are moved. Leaving behind the one with
+the smallest absolute value is optimal. A similar argument applies
+to divisions by a negative, although the optimal place to move to may of course be different than
+the optimal place to move multiplications.
+This shows that we can group multiplications and divisions by a negative similarly
+to what we did with all other operations, but leaving out the two smallest absolute
+values of each type, as they may be needed in suboptimal places to perform a sign change
+(there are 3 places out of which 1 is optimal, leaving 2 suboptimal places).
+</p><p>
+After all the groupings, we are left with at most 11 cards: 1 addition, 1 subtraction, 1
+multiplication by 0, 1 multiplication by a positive, 1 division by a positive, 3 multiplications
+by negatives and 3 divisions by negatives. This can be refined further, but there's no
+need for it. With just 11 cards, we can apply the Small solution and finish the problem. There are
+also other ways of reasoning among similar lines to get the number of cards low enough.
+Another possibility that doesn't require any dynamic programming is to notice that we can
+brute-force the order of the addition and subtraction (two options), and then brute-force which
+place a), b) or c) each multiplication and division (up to 8 cards after all simplifications)
+should go into. This requires exploring only 2 &times; 3<sup>8</sup> combinations in total,
+and exploring each one is a relatively fast process requiring only O(<b>N</b><sup>2</sup>) time
+(11 operations of quadratic time each, since the operands in the simplified cards can have linear
+size).
+</p><p>
+It is possible to reduce the set of cards further with more thought, and it's also possible
+to follow other lines of reasoning that will lead you to slightly higher card totals that
+are small enough to make the dynamic programming solution work.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

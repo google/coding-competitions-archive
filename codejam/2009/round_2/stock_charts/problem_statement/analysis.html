@@ -1,0 +1,374 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2009 - Round 2</h3><h1>Analysis: Stock Charts</h1>
+<p>
+It will come as no great surprise, but the author of this problem came up with it while reading a local newspaper's end-of-year economics summary, seeing a number of overlaid charts in it and then wondering how to minimize the number of charts needed.
+</p>
+<h3>Charts and DAGs</h3>
+<p>
+Consider two simple charts: A and B.  They can be related to each other in one of three ways: all of A's values can be strictly less than all of B's values (A &lt; B), in which case they can appear on the same overlaid chart; their lines can cross (A \ B), in which case they can't appear on the same overlaid chart; or all of A's values can be strictly greater than all of B's values (A &gt; B), in which case they can appear on the same overlaid chart.
+</p>
+<p>
+Given this sort of relationship we can construct a graph, where the nodes are simple charts and there is an edge from A to B iff A &gt; B.  This gives us a directed, acyclic graph that is its own (non-reflexive) transitive closure.  Any directed path in the DAG represents a valid composite chart.  To solve the problem, then, we want to find the minimum number of paths that we need so that all nodes are part of exactly one path.
+</p>
+<p>
+How would we find the paths? We may start from a chart that is relatively high, then find one below it, and keep adding lower charts, until we cannot find more. This completes our first overlaid charts. We start the same process for the second path, and so on. In any step, there might be several choices for the next chart we can use. In order to minimize the number of paths, we need to make a good choice in each step.
+</p>
+<p>
+Now, behold, the Aha moment of this problem.
+</p>
+<h3>Solution from maximum matching</h3>
+<p>
+<br/><br/>
+<img src="stock.png"/>
+<br/><br/>
+For the DAG with <i>n</i> points, we make a bipartite graph with <i>n</i> points on each side. Draw an edge from X<sub>A</sub> to Y<sub>B</sub> if the relation A &gt; B holds, i.e., B can be the next chart below A. Observe (yes, you really need to see it, instead of hear it!) how any path in the DAG corresponds to a series of edges in the bipartite graph; and how any matching of the bipartite graph corresponds to a way to partition the DAG into paths. Any unmatched point X<sub>A</sub> on the left side corresponds to the lowest point on a path (the lowest chart on an overlaid graph). Each path has exactly one such point. We want to minimize the number of paths, the same as minimizing the number of unmatched points on the left side. That is, we want to find the maximum matching in a bipartite graph.
+</p>
+<p>
+Here is the judge's solution in C++.
+<pre>
+namespace Solver {
+int N,K;
+bool cbn[111][111]; // can be next
+int prev[111];
+bool visited[111];
+
+bool FindNextDfs(int a) {
+  if(a&lt;0) return true;
+  if(visited[a]) return false;
+  visited[a]=true;
+  for (int i=0;i&lt;N;i++) if(cbn[a][i]) {
+      if(FindNextDfs(prev[i])) {
+        prev[i]=a;
+        return true;
+      }
+    }
+  return false;
+}
+
+int Solve(const vector&lt;vector&lt;int&gt; &gt;&amp; stock) {
+  N=stock.size(); K=stock[0].size();
+  int i,j,k;
+  for(i=0;i&lt;N;i++) {
+    for(j=0;j&lt;N;j++) {
+      if(i==j) cbn[i][j]=false;
+      else {
+        cbn[i][j]=true;
+        for(k=0;k&lt;K;k++)
+          if(stock[i][k]&lt;=stock[j][k]) cbn[i][j]=false;
+      }
+    }
+  }
+  memset(prev, -1, sizeof(prev));
+  int ret=0;
+  for(i=0;i&lt;N;i++) {
+    memset(visited, 0, sizeof(visited));
+    if(!FindNextDfs(i)) ret++;
+  }
+  return ret;
+}
+</pre>
+Note that this is indeed the bipartite matching program. We named the variables as if we are really constructing the set of paths and unaware of the bipartite graph. In fact, it's a worthy exercise to go over this without bipartite matching in your mind.
+</p>
+<p>
+This completes the solution of our problem. But we may continue with more stories.
+</p>
+<h3>Theoretical background</h3>
+<p>In combinatorics, DAGs are called <i>partially ordered sets</i>, or <i>posets</i>. A directed path is called a <i>chain</i> in the poset. An independent set in the DAG, corresponding to a set of points where no '&gt;' relation holds between any two of them, is called an <i>anti-chain</i>. Our problem is then, given a poset, find the minimum number of chains needed to cover all the points.<br/>
+If we see an anti-chain of size &alpha;, we need at least &alpha; chains to cover the set, because each chain can contain at most one of these points. Suppose we find the maximum anti-chain to be of size &alpha;*, we know the answer must be at least &alpha;*. Is this enough though?<br/>
+We are ready to introduce one of the classical theorems in combinatorics.
+</p>
+<p>
+<i>Theorem</i> (Dilworth 1950) In a poset, the minimum number of chains needed to cover the whole set equals the size of the biggest anti-chain.
+</p>
+<p>
+Dilworth's theorem is closely related to other classical theorems in combinatorics. In fact it is equivalent to Hall's marriage theorem on bipartite graphs, and the max-flow-min-cut theorem.
+</p>
+<p>
+The number in Dilworth's theorem is (naturally) called the width of the poset. Our algorithm above thus finds the width of a poset. Interested readers might find, in our input file, perturbed copies of the following posets:
+<ul>
+<li>The complete Boolean lattice: All the 2<sup>k</sup> subsets of a k-element set, where A &gt; B if B is a subset of A. All the &lceil;k/2&rceil;-subsets form a maximum anti-chain of size (k choose &lceil;k/2&rceil;), and indeed we can partition the Boolean lattice into this many chains. (This is called the Sperner's theorem.)</li>
+<li>All the integers from 1 to n, A &gt; B if A is a multiple of B. The set of all the prime numbers seems to be a big anti-chain. But it is not big enough. We leave it as an exercise to prove that the width of this poset is &lceil;n/2&rceil;.</li>
+</ul>
+</p>
+
+<h3>More information</h3>
+<p>
+<a href="http://www.google.com/search?q=partially+ordered+set" target="_blank">Partially ordered set</a> -
+<a href="http://www.google.com/search?q=dilworth's+theorem" target="_blank">Dilworth's theorem</a>
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

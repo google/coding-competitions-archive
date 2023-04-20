@@ -1,0 +1,411 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Qualification Round</h3><h1>Analysis: Fractiles</h1><p>
+This problem is more about analyzing an existing algorithm than writing a new one. Once you
+understand how more complex artwork depends on the original sequence, you can solve the problem
+with a short piece of code.
+</p><p>
+The first thing to notice is that if the original sequence is all <code>L</code>s, the artwork will
+be all <code>L</code>s, no matter what the value of <b>C</b> is. If we choose some set of tiles
+that all turn out to be <code>L</code>s for some original sequence other than all <code>L</code>s,
+then our solution is invalid, because we won't be able to tell whether the artwork was based on
+that original sequence or on an original sequence of all <code>L</code>s. This means we have to
+come up with a set of positions to check out such that for any original sequence besides all
+<code>L</code>s, we will see at least one <code>G</code>.
+</p>
+<h3>Small dataset</h3>
+<p>
+In the Small dataset, since we can check as many tiles as the length of the original sequence, we
+may be tempted to try to reconstruct it in full. And while this is possible (we'll get there in a
+moment), there is an easier alternative. The simplest solution, as it turns out, is to always
+output the integers 1 through <b>K</b>. It can be easily proved that it works with the following
+two-case analysis. Let us call the original sequence <i>O</i>, and let <i>A</i><sub><i>i</i></sub>
+be the artwork of complexity <i>i</i> for a fixed <i>O</i>.
+</p><p>
+1. Suppose that <i>O</i> starts with an <code>L</code>. Let us prove that each
+<i>A</i><sub><i>i</i></sub> starts with <i>O</i>. This is trivially true for
+<i>A</i><sub>1</sub> = <i>O</i>. Now, if <i>A</i><sub><i>i</i></sub> starts with <i>O</i>, it also
+starts with an <code>L</code>, and since the transformation maps that first <code>L</code> into a
+copy of <i>O</i>, <i>A</i><sub><i>i</i>+1</sub> starts with <i>O</i>. By induction, each
+<i>A</i><sub><i>i</i></sub> starts with <i>O</i>. Then, by checking positions 1 through <b>K</b>,
+we are checking a copy of the original sequence <i>O</i>, so if there are any <code>G</code>s in
+<i>O</i>, we will see a <code>G</code>.
+</p><p>
+2. Suppose instead that <i>O</i> starts with a <code>G</code>. Let us prove that each
+<i>A</i><sub><i>i</i></sub> starts with a <code>G</code>. This is trivially true for
+<i>A</i><sub>1</sub> = <i>O</i>. Now, if <i>A</i><sub><i>i</i></sub> starts with a <code>G</code>,
+then <i>A</i><sub><i>i</i>+1</sub> also starts with a <code>G</code>, since the transformation maps
+that <code>G</code> at the start of <i>A</i><sub><i>i</i></sub> to <b>K</b> <code>G</code>s at the
+start of <i>A</i><sub><i>i</i>+1</sub>. By induction, each <i>A</i><sub><i>i</i></sub> starts with
+<code>G</code>. Then, since we are checking position 1, we will see a <code>G</code>.
+</p><p>
+Since we will see at least one <code>G</code> for any original sequence that is not all
+<code>L</code>s, and only <code>L</code>s for the original sequence that is all <code>L</code>s,
+we have answered the question successfully. Notice that this also proves that there is no
+impossible case in the Small dataset.
+</p><p>
+The proofs above hint at another possible solution for the Small dataset that gets enough
+information from the tiles to know the entire <i>O</i>. We will explain it not only because it is
+interesting, but also because it is a stepping stone towards a solution for the Large dataset.
+</p><p>
+We have seen that position 1 of any <i>A</i><sub><i>i</i></sub> is always equal to position 1 of
+<i>O</i>. Is there any position in <i>A</i><sub><i>i</i></sub> that is always equal to position 2
+of <i>O</i>? It turns out that there is, and the same is true for any position of <i>O</i>.
+</p><p>
+Consider position 2 of <i>O</i> as an example. It is position 2 in <i>A</i><sub>1</sub> = <i>O</i>.
+When <i>A</i><sub>2</sub> is produced from <i>A</i><sub>1</sub>, the tile at position 2 of
+<i>A</i><sub>1</sub> determines which tiles will appear at positions <b>K</b> + 1 through
+<b>K</b> + <b>K</b> of <i>A</i><sub>2</sub>. In particular, the second of those tiles, the tile
+at position <b>K</b> + 2 of <i>A</i><sub>2</sub>, is the same as the tile at position 2 of
+<i>A</i><sub>1</sub>. Then, it follows that position <b>K</b> + 2 of <i>A</i><sub>2</sub> generates
+positions <b>K</b>*(<b>K</b> + 2 - 1) + 1 through <b>K</b>*(<b>K</b> + 2) of
+<i>A</i><sub>3</sub>, and the second of those tiles, at position
+<b>K</b>*(<b>K</b> + 2 - 1) + 2 of <i>A</i><sub>3</sub>, is also a copy of position 2 of
+<i>O</i>. You can follow this further to discover which position of <i>A</i><sub><b>C</b></sub> is
+equal to position 2, or you can write a program to do it for you. Similarly, for each position of
+<i>O</i> there is exactly one "fixed point" position in <i>A</i><sub><b>C</b></sub> that is always
+equal in value, and you can get those with a program by generalizing the procedure described for
+position 2. If you check out all of those positions, you obtain a different result for every
+possible <i>O</i>, which makes the solution valid.
+</p>
+<h3>Large dataset</h3>
+<p>
+The reasoning that we just used to find fixed points will help us solve the Large. Each position
+in <i>A</i><sub><i>i</i></sub> generates <b>K</b> positions in <i>A</i><sub><i>i</i>+1</sub>. So,
+indirectly, each position in <i>A</i><sub><i>i</i></sub> also generates <b>K</b><sup>2</sup>
+positions in <i>A</i><sub><i>i</i>+2</sub>, <b>K</b><sup>3</sup> positions in
+<i>A</i><sub><i>i</i>+3</sub>, and so on. Let us say that a position in
+<i>A</i><sub><i>i</i>+d</sub> is a descendant of a position <i>p</i> in
+<i>A</i><sub><i>i</i></sub> if it was generated from a position in
+<i>A</i><sub><i>i</i>+<i>d</i>-1</sub> generated from a position in
+<i>A</i><sub><i>i</i>+<i>d</i>-2</sub> ... generated from position <i>p</i> in
+<i>A</i><sub><i>i</i></sub>. Notice that a <code>G</code> in any given position of any
+<i>A</i><sub><i>i</i></sub> implies a <code>G</code> in all descendant positions. However, if there
+is an <code>L</code> in position <i>p</i> of <i>A</i><sub><i>i</i></sub>, a descendant position
+(<i>p</i> - 1)*<b>K</b>+<i>d</i> (with 1 &le; <i>d</i> &le; <b>K</b>) of
+<i>A</i><sub><i>i</i>+1</sub> will be equal to position <i>d</i> of <i>O</i>. So, position
+(<i>p</i> - 1)*<b>K</b>+<i>d</i> of <i>A</i><sub><i>i</i>+1</sub> is an <code>L</code> if and only
+if both position <i>p</i> of <i>A</i><sub><i>i</i></sub> and position <i>d</i> of <i>O</i> are
+<code>L</code>s. If we take this further, we arrive at a key insight: any position of any
+<i>A</i><sub><i>i</i></sub> is an <code>L</code> if and only if a particular set of positions in
+<i>O</i> are <code>L</code>s.
+</p><p>
+We can find those positions by thinking about the orders in which the descendants at each level
+were produced. For instance, for <b>K</b>=3, position 8 of <i>A</i><sub>3</sub> is descendant
+number 2 of position 3 of <i>A</i><sub>2</sub>, which in turn is descendant number 3 of position
+1 of <i>A</i><sub>1</sub>. That means that position 8 of <i>A</i><sub>3</sub> is <code>L</code>
+if and only if positions 2, 3 and 1 of <i>O</i> are all <code>L</code>s. So, just by looking at
+position 8 of <i>A</i><sub>3</sub>, we know whether the original sequence had a
+<code>G</code> in at least one of those three positions.
+</p><p>
+Generalizing this, if we start at position <i>p</i><sub>1</sub> of <i>A</i><sub>1</sub> = <i>O</i>,
+and take its <i>p</i><sub>2</sub>-th descendant in <i>A</i><sub>2</sub>, and then take its
+<i>p</i><sub>3</sub>-th descendant in <i>A</i><sub>3</sub>, and so on, until taking the
+<i>p</i><sub><b>C</b></sub>-th descendant in <i>A</i><sub><b>C</b></sub>, we have a single position
+that tells us whether the original sequence has a <code>G</code> in positions
+<i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, ..., <i>p</i><sub><b>C</b></sub>. And, conversely, for
+any position in <i>A</i><sub><b>C</b></sub>, we can find a corresponding sequence of <b>C</b>
+positions that lead to it. So, each position we check on <i>A</i><sub><b>C</b></sub> can cover up
+to <b>C</b> positions of <i>O</i>, and will cover exactly <b>C</b> positions if we make the right
+choice. Since we need to cover all <b>K</b> positions of the original sequence, that means the
+impossible cases are exactly those where <b>S</b>*<b>C</b> &lt; <b>K</b> &mdash; that is, where
+getting <b>C</b> positions out of every one of our <b>S</b> tile choices is still not enough.
+For the rest, we can assign a list of positions [1, 2, ..., <b>C</b>] to tile choice 1,
+[<b>C</b>+1, <b>C</b>+2, 2<b>C</b>] to tile choice 2, and so on until we get to <b>K</b>. If the
+last tile choice has a list shorter than <b>C</b>, we can fill it up with copies of any integer
+between 1 and <b>K</b>. Now all we need to do is match each of these lists to a position in
+<i>A</i><sub><b>C</b></sub>, which we can do by following the descendant path (descendants of
+position <i>p</i> are always positions (<i>p</i> - 1)*<b>K</b>+1 through
+(<i>p</i> - 1)*<b>K</b>+<b>K</b>). This simple Python code represents this idea:
+</p>
+<pre>
+def Solve(k, c, s):
+  if c*s &gt; k:
+    return []  # returns an empty list for impossible cases
+  tiles = []
+  # the list for the last tile choice is filled with copies of k
+  # i is the first value of the list of the current tile choice
+  for i in xrange(1, k + 1, c):
+    p = 1
+    # j is the step in the current list [i, i+1, ..., i+C-1]
+    for j in xrange(c):
+      # the min fills the last tile choice's list with copies of k
+      p = (p - 1) * k + min(i + j, k)
+    tiles.append(p)
+  return tiles
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

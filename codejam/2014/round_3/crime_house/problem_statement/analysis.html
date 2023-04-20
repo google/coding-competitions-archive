@@ -1,0 +1,404 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2014 - Round 3</h3><h1>Analysis: Crime House</h1><p>
+You are given a log of criminals entering and leaving a house from the front door. The log is for one day, and at the start of the day there might be criminals in the house. This house may have other entrances and exits besides the front door, and the criminals might wear masks when entering/leaving the house. The task is to figure out if, given the log, it is possible that there is only one door (i.e. the front door only), and if so to figure out the minimum number of people that could be in the house at the end of the day.
+</p>
+<h3><b>Building intuition:</b></h3>
+<p>
+Before proceeding with the solution, let us develop some intuition for the problem. Let us say we are actually given a log where <b><i>none</i></b> of the criminals wore a mask, i.e. none of the entries are ‘E 0’ or ‘L 0’. In that case, the solution would be to simulate the log from <b>start to end</b>, i.e. simulate criminals entering and leaving the house via <b><i>one</i></b> door only, and to see if the simulation is valid. When is a simulation valid? Let us instead discuss when a simulation would be invalid. During the simulation, if we encounter a ‘E X’ command (note X &gt; 0), and ‘X’ was already in the house then it is invalid (impossible to enter twice without leaving). Similarly if we encounter a ‘L X’ command, and ‘X’ isn’t already in the house then it is invalid. Note that if it was the first time encountering the ‘L X’ command then we can say that ‘X’ was already in the house at the start of the day so it would be valid.
+</p>
+<p>
+The reason why the problem we are given is complicated is because of the presence of masked criminals. We are going to tackle this problem using a greedy strategy. We will first assume that there are <b>‘S’</b> number of criminals at the start of the day. Then we will do a simulation like we described before (i.e. simulation from start to end), except whenever we encounter a masked criminal, we will try to greedily assign a criminal number to the masked criminal. We will describe this greedy assignment later, but first let us describe a few terms we use in the editorial.
+</p>
+<h3><b>Terms:</b></h3>
+<p>
+Let us first describe some of the terms we use in this editorial. We call the log an <b>event</b> queue, which is a sequence of ‘E 0’, ‘L 0’, ‘E X’, or ‘L X’ (where X &gt; 0) events. During our simulation, we will go through the queue from start to end. During the simulation let us say we are at index i in the event queue, then we define the <b>current</b> event queue to be the subsequence of the event queue starting from index i to the end of the queue. During the simulation, we will also maintain a set of criminal numbers that are inside the house: we call the set <b>INSIDE</b>. Finally, the last term to define is the <b>next known event</b> for a particular criminal (non-zero) number. To help understand this term, we will use an example. Let us say our current event queue (along with the location indices) is:
+</p>
+<pre>
+0: ‘E 0’
+1: ‘E 0’
+2: ‘E 5’
+3: ‘L 1’
+4: ‘E 1’
+5: ‘L 1’
+6: ‘E 1’
+7: ‘L 5’
+8: ‘E 2’
+</pre>
+<p>
+There are three unmasked criminal numbers: 1, 2 and 5. Note we do not consider the masked criminals. Criminal ‘1’ appears 4 times in the current queue at indices 3, 4, 5, and 6. The next known event for criminal ‘1’ is defined to be ‘L 1’ at index 3 (which is the earliest among the 4 events). Similarly criminal ‘2’ appears 1 time at index 8, therefore the next known event for criminal ‘2’ is ‘E 2’ at index 8. Similarly criminal ‘5’ appears 2 times, at indices 2 and 7. The next known event for criminal ‘5’ is defined to be ‘E 5’ at index 2.
+</p>
+<h3><b>Greedy strategy:</b></h3>
+<p>
+Now, let us proceed with the explanation for the greedy solution. First, let us assume we start with ‘S’ criminals already in the house. We will simulate the presence of these ‘S’ criminals in the house by adding ‘S’ ‘E 0’ events at the start of the event queue. To make things simpler during the simulation, we will pretend that all the criminals leave at the end of the day. To do so, we can add <b>‘T’</b> ‘L 0’ events to the end of the event queue such that the number of ‘E’ events and ‘L’ events are equal. We will then proceed to simulate this resulting event queue to check for validity and also in the process, if possible, assign numbers to the masked criminals. If the simulation is a valid simulation then for this event queue, our answer is ‘T’ i.e. the number of criminals remaining in the house at the end of the day. We will discuss how we find ‘S’ (and correspondingly ‘T’) later.
+</p>
+<p>
+We now describe the simulation. As mentioned earlier, we simulate from the start to the end. If we are able to successfully go through all the events then this event queue is a valid event queue. At any instant we have a current event queue (which is defined above). Note that at the start of the simulation, the set INSIDE is an empty set. We will now discuss how to address the four cases for the first event in the current queue, i.e. the cases ‘E X’, ‘L X’, ‘E 0’ and ‘L 0’ (note that X &gt; 0).
+</p>
+<h3><b><i>Case ‘E X’:</i></b></h3>
+<p>
+In this case, person ‘X’ is entering the house. It will only be valid if ‘X’ is <i>not</i> already inside the house, which we can check by seeing if the INSIDE set does not already contain ‘X’. If true, then this is a valid event, else it is an invalid event hence an invalid simulation therefore we end the simulation. Also, if ‘E X’ is valid, we need to update the INSIDE set by adding ‘X’ to it.
+</p>
+<h3><b><i>Case ‘L X’:</i></b></h3>
+<p>
+In this case, person ‘X’ is leaving the house. It will only be valid if ‘X’ is already inside the house, which we can check by seeing if the INSIDE set contains ‘X’. If true, then this is a valid event, else it is an invalid event hence an invalid simulation therefore we end the simulation. Also, if ‘L X’ is valid, we need to update the INSIDE set by removing ‘X’ from it.
+</p>
+<h3><b><i>Case ‘E 0’:</i></b></h3>
+<p>
+In this case, a masked criminal is entering. Our objective is to assign a number to this masked criminal. If we are able to assign a number to the masked criminal, the criminal will then enter the house which we do so by adding the assigned criminal number to the INSIDE set. Now the question is how do we assign numbers to this masked criminal. There are two cases to consider:
+</p>
+<h3><b><i>Case ‘E 0’ (a):</i></b></h3>
+<p>
+First, we consider the set of known criminals (i.e. ones that aren’t masked) in the current queue who are also not inside the house (i.e. not in the INSIDE set). Out of these criminals, we consider the criminals for which the next known event is a leave event (i.e. ‘L X’ for criminal ‘X’). These are the people who need to leave the house at some point, but it isn’t known when they leave the house. All of these people must enter the house in ‘E 0’ events that happen before they leave. If such a person exists, we make a greedy choice and choose the person who is leaving soonest, to leave ourselves with maximum time to get the remaining people out. Why do we make this greedy choice? Consider two such people, 1 and 2. The sequence, then, looks like this:
+</p>
+<pre>
+‘E 0’ ... ‘L 1’ ... ‘L 2’
+</pre>
+<p>
+Note that the ‘...’ denotes other events in the event queue which we do not list out to avoid complexity. In order for this event queue to be valid, there must be another ‘E 0’ to match the ‘L 1’ and ‘L 2’ events (note that 1 and 2 are not in the INSIDE set). There are two possibilities then:
+</p>
+<pre>
+‘E 0’ ... ‘E 0’ ... ‘L 1’ ... ‘L 2’
+</pre>
+and
+<pre>
+‘E 0’ ... ‘L 1’ ... ‘E 0’ ... ‘L 2’
+</pre>
+<p>
+In both situations, choosing the entering masked criminal to have been criminal number ‘1’ works. But if we had instead chosen the entering masked criminal to have been criminal number ‘2’, then the second possibility listed above would be invalid (the second ‘L 1’ cannot be matched with the ‘E 0’ that comes after it). Therefore we are better off if we choose ‘1’. This logic generalizes to the case where there are more than two people.
+</p>
+<h3><b><i>Case ‘E 0’ (b):</i></b></h3>
+<p>
+If no such person in Case ‘E 0’ (a) exists, we simply create a new person who doesn't show up anywhere unmasked (i.e. assign a number that is big e.g. a million; make sure to assign unique numbers to each new person). Why create a new person? It is because the alternative is to use someone who is outside the building, but whose next known event is an enter event. For example, let's suppose the person doing that is person 5. Then we have a sequence like this:
+</p>
+<pre>
+‘E 0’ ... ‘E 5’
+</pre>
+<p>
+For person 5 to be entering at the start, we need the sequence to look like this:
+</p>
+<pre>
+‘E 0’ ... ‘L 0’ ... ‘E 5’
+</pre>
+<p>
+In that situation, having person 1,000,000 enter is just as good as having person 5 enter. But in the situation where there is no ‘L 0’ between the ‘E 0’ and the ‘E 5’, person 1,000,000 could leave the house later (if there is a ‘L 0’ afterwards), but person 5 is stuck entering the house, then entering it again causing the simulation to be invalid. Therefore we better off to create a new person with a new unique number in such cases.
+</p>
+<h3><b><i>Case ‘L 0’:</i></b></h3>
+<p>
+In this case, a masked criminal is leaving the house. As in the case for case ‘E 0’, the goal is to assign a number to the masked criminal. After assigning the number ‘X’ to the criminal (if that is possible), we must update the INSIDE set by removing ‘X’ from the set. Note that if the INSIDE set is empty when we encounter the ‘L 0’ event then it is an invalid simulation. For cases when there are criminals in the INSIDE set, there are three cases to consider:
+</p>
+<h3><b><i>Case ‘L 0’ (a):</i></b></h3>
+<p>
+Consider all the criminals who are inside, and whose next known event is that they are entering the house. By the same logic as in Case ‘E 0’ (a), we choose the one who is entering the soonest. If we are able to do such an assignment, we need not consider any of the other ‘L 0’ cases.
+</p>
+<h3><b><i>Case ‘L 0’ (b):</i></b></h3>
+<p>
+If no such person in the previous case exists, then we consider all criminals who are inside the house. If there is one criminal who has no next known event (either ‘E X’ or ‘L X’) with the house, have that person leave; they have to leave at some point in no particular order, and it's better to have them leave than someone whose next known event is that they are leaving. If we were able to choose such a criminal, then we need not consider the last case.
+</p>
+<h3><b><i>Case ‘L 0’ (c):</i></b></h3>
+<p>
+If no such person in the previous two cases exists, we're now stuck with criminals who are inside and whose next known event is that they're leaving. In such a case, we make a greedy choice and take the one who leaves as late as possible, so we have the maximum number of chances for our selected person to enter the house again (with an ‘E 0’ event). Why do we make this greedy choice? Consider two such people we need to choose from, 1 and 2. The sequence, then, looks like this:
+</p>
+<pre>
+‘L 0’ ... ‘L 1’ ... ‘L 2’
+</pre>
+<p>
+In order for this to be valid, there must be another ‘E 0’. There are two possibilities:
+</p>
+<pre>
+‘L 0’ ... ‘E 0’ ... ‘L 1’ ... ‘L 2’
+</pre>
+<p>
+and
+</p>
+<pre>
+‘L 0’ ... ‘L 1’ ... ‘E 0’ ... ‘L 2’
+</pre>
+<p>
+In both situations, assigning the leaving masked person (‘L 0’) to be person 2 works, but choosing 1 does not work for the second possibility. So we are better off to choose person 2 for ‘L 0’. This logic generalizes to the case where there are more than two people.
+</p>
+<br>
+<p>
+And so that concludes the four cases to consider for the first event in the current queue. As discussed earlier, if the first event is deemed invalid when considering the four cases, then we have an invalid simulation. But if we are able to successfully assign a criminal number, then we advance to the next event in the event queue and get a new current queue, and continue on with our simulation. If we reach the end, then it is a valid event queue.
+</p>
+<h3><b>Picking ‘S’ criminals initially in the house:</b></h3>
+<p>
+Earlier on, we had assumed there were ‘S’ criminals initially in the house. But the question is what value do we consider for ‘S’? We can try all values from 0 to <b>N</b> (the size of the queue). Doing so one by one might still be slow for the large input. However,  we can use binary search to make the search faster. Note that having more people (larger ‘S’) in the house gives us more flexibility to make the simulation work i.e. bigger values of ‘S’ gives us more ‘E 0’ at the start and more ‘L 0’ at the end to work with. Also if the simulation was valid for ‘S’ = i, it would be valid for ‘S’ = i + 1 too because we are adding a ‘E 0’ at the start and correspondingly a ‘L 0’ at the end (which can match each other in our already valid simulation for ‘S’ = i). This means that for the smaller values of ‘S’, we might get invalid simulations (i.e. false values), but after a certain ‘S’ value we will start getting valid simulations (i.e. true values). This indicates that the boolean function (i.e. that function that indicates whether the simulation is valid or not) is a <a href="http://en.wikipedia.org/wiki/Monotonic_function#Boolean_functions" target="_blank">monotonic boolean function</a> (for input ‘S’ = 0 to N). When a function is monotonic, we can use <a href="https://www.google.com/search?q=binary+search+topcoder" target="_blank">binary search</a> to make the search faster.
+</p>
+<p>
+Finally, as specified in the problem, if we are unable to find any valid simulation for any of the values of ‘S’ then we report “CRIME TIME” as the answer.
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,463 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 2</h3><h1>Emacs++</h1><h3>Problem</h3>
+<p>
+  In 2016's Distributed Code Jam, we introduced the Lisp++ language for Lisp
+  fans who prefer a higher density of parentheses. Here is a reminder of how
+  the language's syntax works:
+</p>
+<p>
+  A Lisp++ program is a string of balanced parentheses. More formally, a Lisp++
+  program consists of one of the following. (In this specification, <i>C</i>
+  stands for some program code &mdash; not necessarily the same code each time.)
+</p>
+<ul>
+  <li><code style="font-weight: 900;">()</code> Literally, just an opening parenthesis and a closing
+    parenthesis. We say that this <code style="font-weight: 900;">(</code> matches this <code style="font-weight: 900;">)</code>,
+    and vice versa.</li>
+  <li><code style="font-weight: 900;">(</code><i>C</i><code style="font-weight: 900;">)</code> A program within a pair of enclosing
+    parentheses. We say that this <code style="font-weight: 900;">(</code> matches this <code style="font-weight: 900;">)</code>,
+    and vice versa.</li>
+<li><i>CC</i> Two programs (not necessarily the same), back to back.</li>
+</ul>
+<p>
+  This year, we are pleased to announce Emacs++, a text viewer for Lisp++.
+  Emacs++ displays a Lisp++ program of length <b>K</b> as a single long line
+  with a cursor that you can move around. The cursor is a "block cursor" that
+  is always located <i>on</i> one of the <b>K</b> characters in the program,
+  rather than between characters.
+</p><p>
+  At any point, you can perform one of the following three actions to move the
+  cursor. (i represents the current position of the cursor, counting starting
+  from 1 for the leftmost position.)
+</p>
+<ul>
+  <li>Move the cursor one character to the left (or, if the cursor is already
+    on the leftmost character, does nothing). This takes <b>L<sub>i</sub></b>
+    seconds.</li>
+  <li>Move the cursor one character to the right (or, if the cursor is already
+    on the rightmost character, does nothing). This takes <b>R<sub>i</sub></b>
+    seconds.</li>
+  <li>Teleport the cursor to the parenthesis matching (as described above) the
+    parenthesis that is the i-th character. This takes <b>P<sub>i</sub></b>
+    seconds.</li>
+</ul>
+<p>
+  We think Emacs++ will be simple for power users, but we still need to
+  understand how efficient it is. We have a single Lisp++ program and list of
+  <b>Q</b> queries about that program; each query consists of a start position
+  <b>S<sub>j</sub></b> and an end position <b>E<sub>j</sub></b>. To answer the j-th query,
+  you must determine the smallest possible amount of time N<sub>j</sub> (in
+  seconds) that it will take to take the cursor from position <b>S<sub>j</sub></b>
+  to position <b>E<sub>j</sub></b>, if you make optimal decisions.
+</p><p>
+  Please output the sum of all of those N<sub>j</sub> values.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. The first line of a test case contains two integers <b>K</b>,
+  which is the length of the Lisp++ program, and <b>Q</b>, which is the number of queries.
+</p>
+<p>
+  The second line of a test case contains a string <b>P</b> of <b>K</b> characters, each of which
+  is either <code style="font-weight: 900;">(</code> or <code style="font-weight: 900;">)</code>,
+  representing a Lisp++ program (string of balanced parentheses), as described above.
+</p>
+<p>
+  The third, fourth, and fifth lines of a test case each contain <b>K</b> integers. The i-th
+  integers in these lines are the values <b>L<sub>i</sub></b>, <b>R<sub>i</sub></b>, and
+  <b>P<sub>i</sub></b>, respectively, that are described above.
+</p>
+<p>
+  The sixth and seventh lines of a test case each contain <b>Q</b> integers. The j-th integers
+  in these lines are <b>S<sub>j</sub></b> and <b>E<sub>j</sub></b>, respectively, that are
+  described above.
+</p>
+
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is the sum of the N<sub>j</sub> values that are described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 60 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  <b>K</b> = 10<sup>5</sup> and <b>Q</b> = 10<sup>5</sup>, for at most 9 test cases.<br/>
+  2 &le; <b>K</b> &le; 1000 and  1 &le; <b>Q</b> &le; 1000, in all other cases.<br/>
+  length of <b>P</b> = <b>K</b>
+  <b>P</b> is a string of balanced parentheses, as described above.<br/>
+  1 &le; <b>S<sub>j</sub></b> &le; <b>K</b>, for all j.<br/>
+  1 &le; <b>E<sub>j</sub></b> &le; <b>K</b>, for all j.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+  <b>L<sub>i</sub></b> = 1, for all i.<br/>
+  <b>R<sub>i</sub></b> = 1, for all i.<br/>
+  <b>P<sub>i</sub></b> = 1, for all i.<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+  1 &le; <b>L<sub>i</sub></b> &le; 10<sup>6</sup>, for all i.<br/>
+  1 &le; <b>R<sub>i</sub></b> &le; 10<sup>6</sup>, for all i.<br/>
+  1 &le; <b>P<sub>i</sub></b> &le; 10<sup>6</sup>, for all i.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="emacs_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">1
+12 5
+(()(((()))))
+1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1 1 1
+7 4 4 12 5
+12 11 10 1 6
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="emacs_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 10
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<p>
+  In the sample case, which obeys the limits for Test Set 1, all of the time
+  costs are the same (1 second per move). <br/>
+  The shortest times for the queries are as follows:
+  <ol>
+    <li>Move right from 7 five times to 12 taking 5 seconds.</li>
+    <li>Teleport from 4 to 11 taking 1 second.</li>
+    <li>Teleport from 4 to 11, then move left to 10 taking 2 seconds.</li>
+    <li>Teleport from 12 to 1, taking 1 second.</li>
+    <li>Move right from 5 to 6 taking 1 second.</li>
+  </ol>
+  Thus, the sum of query times is 5+1+2+1+1 = 10 seconds.
+</p>
+
+    </div>
+  </body>
+</html>

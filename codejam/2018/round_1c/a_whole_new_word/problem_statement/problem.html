@@ -1,0 +1,573 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 1C</h3><h1>A Whole New Word</h1><h3>Problem</h3>
+<p>
+  Vincent and Desta are childhood friends. Today, Vincent is showing <b>N</b>
+  distinct <b>L</b>-letter words to Desta by using some letter tiles. Each tile
+  contains one uppercase English alphabet letter, and one number between 1 and
+  <b>L</b>. A word consists of the letters spelled out by <b>L</b> tiles with
+  numbers from 1 through <b>L</b>, in order. (Vincent's words are not
+  necessarily real English words.)
+</p>
+<p>
+  For example, if Vincent has <b>N</b> = 3 words with <b>L</b> = 4, and the
+  words are {<code>CAKE</code>, <code>TORN</code>, <code>SHOW</code>}, then
+  Vincent must show the following to Desta:
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="240" height="193" viewBox="0 0 360 290">
+<rect x="7" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="5" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="45" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">C</text>
+<text x="73" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">1</text>
+<rect x="97" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="95" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="135" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">A</text>
+<text x="163" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">2</text>
+<rect x="187" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="185" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="225" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">K</text>
+<text x="253" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">3</text>
+<rect x="277" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="275" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="315" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">E</text>
+<text x="343" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">4</text>
+<line x1="2" y1="97" x2="358" y2="97" style="stroke:#646464;stroke-width:1" />
+<rect x="7" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="5" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="45" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">T</text>
+<text x="73" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">1</text>
+<rect x="97" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="95" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="135" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">O</text>
+<text x="163" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">2</text>
+<rect x="187" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="185" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="225" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">R</text>
+<text x="253" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">3</text>
+<rect x="277" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="275" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="315" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">N</text>
+<text x="343" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">4</text>
+<line x1="2" y1="197" x2="358" y2="197" style="stroke:#646464;stroke-width:1" />
+<rect x="7" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="5" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="45" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">S</text>
+<text x="73" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">1</text>
+<rect x="97" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="95" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="135" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">H</text>
+<text x="163" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">2</text>
+<rect x="187" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="185" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="225" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">O</text>
+<text x="253" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">3</text>
+<rect x="277" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="275" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="315" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">W</text>
+<text x="343" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">4</text>
+</svg>
+<p>
+  Desta feels that creating words must be easy, and he wants to create a new
+  word that obeys the rules above and is not one of Vincent's existing words.
+  However, Desta does not have any tiles of his own, so he must use some of
+  Vincent's tiles.
+</p>
+<p>
+  For instance, if Vincent has the words from the previous example, then Desta
+  can make a new word such as <code>CORN</code> or <code>SAKE</code> or
+  <code>CHRE</code> (Desta's words are also not necessarily real English words).
+  Each of the example is illustrated in the following image:
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="240" height="193" viewBox="0 0 360 290">
+<rect x="7" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="5" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="45" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">C</text>
+<text x="73" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">1</text>
+<rect x="97" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="95" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="135" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">O</text>
+<text x="163" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">2</text>
+<rect x="187" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="185" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="225" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">R</text>
+<text x="253" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">3</text>
+<rect x="277" y="9" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="275" y="5" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="315" y="45" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">N</text>
+<text x="343" y="73" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">4</text>
+<line x1="2" y1="97" x2="358" y2="97" style="stroke:#646464;stroke-width:1" />
+<rect x="7" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="5" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="45" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">S</text>
+<text x="73" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">1</text>
+<rect x="97" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="95" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="135" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">A</text>
+<text x="163" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">2</text>
+<rect x="187" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="185" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="225" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">K</text>
+<text x="253" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">3</text>
+<rect x="277" y="109" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="275" y="105" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="315" y="145" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">E</text>
+<text x="343" y="173" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">4</text>
+<line x1="2" y1="197" x2="358" y2="197" style="stroke:#646464;stroke-width:1" />
+<rect x="7" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="5" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="45" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">C</text>
+<text x="73" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">1</text>
+<rect x="97" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="95" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="135" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">H</text>
+<text x="163" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">2</text>
+<rect x="187" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="185" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="225" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">R</text>
+<text x="253" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">3</text>
+<rect x="277" y="209" width="80" height="80" rx="2" ry="2" style="fill:#323232;stroke:#323232;stroke-width:2;" />
+<rect x="275" y="205" width="80" height="80" rx="2" ry="2" style="fill:#B0AC6C;stroke:#000000;stroke-width:2;" />
+<text x="315" y="245" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 60px; text-anchor: middle">E</text>
+<text x="343" y="273" dy="0.6ex" style="stroke:none; font-family: sans-serif; font-weight: bold; font-size: 24px; text-anchor: middle">4</text>
+</svg>
+<p>
+  Note that the three rows in the image above are independent. Desta only needs
+  to make one new word.
+</p>
+<p>
+  However, in the above example, Desta cannot make <code>WAKE</code>, for
+  example, because there is no W tile with a number 1. Nor can he make
+  <code>COO</code>, since it is not the right length.
+</p>
+<p>
+  Notice that it may be impossible for Desta to make a new word. For example, if
+  Vincent has only one word, then Desta cannot make anything new. Or, if Vincent
+  has the words {<code>AA</code>, <code>AB</code>, <code>BA</code>,
+  <code>BB</code>}, then any word that Desta can form is already present.
+</p>
+<p>
+  Help Desta to choose a word that he can show to Vincent using only the tiles
+  used by Vincent, or indicate that it is impossible to do so.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each begins with one line with two integers
+  <b>N</b> and <b>L</b>: the number of Vincent's words, and the length of each
+  word. Then, <b>N</b> more lines follow. The i-th of these lines contains
+  a string of <b>L</b> uppercase English letters representing the i-th of
+  Vincent's words.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1) and <code>y</code>
+  is a valid word to be chosen by Desta, or <code>-</code> (a single dash
+  character of ASCII value 45) if there is no valid word to be chosen by Desta.
+  If there is more than one valid word that Desta can make, you can output any
+  of them.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 100.<br/>
+  Time limit: 15 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  No two of Vincent's words are the same.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  1 &le; <b>N</b> &le; 26<sup>2</sup>.<br/>
+  1 &le; <b>L</b> &le; 2.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  1 &le; <b>N</b> &le; 2000.<br/>
+  1 &le; <b>L</b> &le; 10.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="a_whole_new_word_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">5
+4 1
+A
+B
+C
+D
+4 2
+WW
+AA
+SS
+DD
+4 2
+AA
+AB
+BA
+BB
+3 4
+CAKE
+TORN
+SHOW
+5 7
+HELPIAM
+TRAPPED
+INSIDEA
+CODEJAM
+FACTORY
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="a_whole_new_word_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: -
+Case #2: WA
+Case #3: -
+Case #4: CORN
+Case #5: HOLIDAY
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  Note that the last two sample cases would not appear in test set 1.
+</p>
+<p>
+  In Sample Case #1, the only words that can be construted using the tiles used
+  by Vincent are <code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>.
+  However, all of those words already appear in Vincent's list of words, so
+  Desta is not allowed to choose them.
+</p>
+<p>
+  In Sample Case #2, there are 12 possible new words that Desta can make, one of
+  which is <code>WA</code>.
+</p>
+<p>
+  Sample Case #3 was explained in the problem description above; there is no new
+  word that Desta can make.
+</p>
+<p>
+  Sample Case #4 was explained in the problem description above; other answers
+  such as <code>SAKE</code> are possible.
+</p>
+<p>
+  In Sample Case #5, other answers such as <code>TRAPJAM</code> are possible.
+</p>
+
+    </div>
+  </body>
+</html>

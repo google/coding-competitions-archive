@@ -1,0 +1,411 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 1C</h3><h1>Analysis: Bacterial Tactics</h1><h3>Test set 1</h3>
+<p>
+  On a player's turn, the grid will be in some <i>state</i>, according to
+  whether any bacteria have already been placed, and how they have spread. We
+  can determine whether a state is <i>losing</i> via the following recursive
+  definition:
+</p>
+<ul>
+  <li>the player has no moves because there are no empty cells</li>
+  <li>any of the player's moves would either cause a mutation, or give the
+    opponent a <i>winning</i> state.
+    <ul>
+      <li>A winning state is a state that has at least one <i>winning move</i>
+        &mdash; that is, a move that would leave the other player in a losing
+        state.</li>
+    </ul>
+  </li>
+</ul>
+<p>
+  Observe that if a state is not losing, it must be winning, since it has at
+  least one move that does not cause a mutation and does not give the opponent
+  a winning state.
+</p><p>
+  To find the number of winning opening moves (if any) for Becca, we can check
+  each move to see whether it is a winning move. Of course, to do this, we
+  have to investigate the resulting state recursively per the above definition.
+  However, since there are up to two moves per empty cell per state, the
+  naive implementation that recursively counts the number of winning moves for
+  each state may not be fast enough to handle even
+  the 4 &times; 4 grids in test set 1, so we should optimize it.
+</p><p>
+  Notice that whether a state is winning or losing does not depend on who the
+  player is or on any previous moves. Since the same state may come up multiple
+  times, we should consider memoizing our findings about each state to use in
+  the future. It may be daunting that the number of possible states is intractably
+  large. However,
+  for any given case, there can be at most 16 initially empty cells, each of
+  which can be either filled in by bacteria or not. (After a colony has been
+  placed and has spread, it no longer matters what type it was.) So, we can put
+  an upper bound of 2<sup>16</sup> on the number of states per case. In
+  practice, there will be even fewer because not all states are reachable.
+</p><p>
+  Moreover, we can save some time by not computing the exact number of winning
+  moves for every state we examine. We only care about this value for an
+  initial state; for every other state, it suffices to determine whether it is
+  winning or losing. If we are investigating a non-initial state's moves and we
+  find a winning move, we can declare the state to be winning, and stop. This
+  optimization alone may be enough to solve test set 1.
+</p>
+<h3>Test set 2</h3>
+<p>
+  When a player makes a legal move, the bacteria spread across the entire width
+  or length of the row or column, up until the line of bacteria reaches reaches
+  the edge of the grid or a cell that is already infected. Therefore, each move
+  creates up to two subproblems that are independent in the sense that a move
+  in one subproblem does not affect the state of the other.
+</p>
+<p>
+  Each subproblem can be expressed as a rectangle contained within the full
+  grid. There are therefore at most O(<b>R</b><sup>2</sup><b>C</b><sup>2</sup>)
+  subproblems. How can we use the results of these subproblems to determine the
+  overall winner of the game?
+</p>
+<p>
+  The goal of the game is to force the opponent into a situation in which
+  there is no move they can make that leads them down a path to victory. The
+  game is <em>impartial</em>: both players have access to the same set of
+  moves. It is therefore apt to draw a comparison between Bacterial Tactics
+  and the ancient game <a href="https://en.wikipedia.org/wiki/Nim">Nim</a>, an
+  impartial game with similar types of decisions. The mathematics of Nim are
+  well-studied. A discovery particularly useful to us is the
+  <a href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem">Sprague–Grundy Theorem</a>,
+  which says that any impartial game can be mapped to a state of Nim.
+  Every state in Nim corresponds to a non-negative <em>Grundy number</em>, or
+  <a href="https://en.wikipedia.org/wiki/Nimber"><em>nimber</em></a>, where any
+  nonzero nimber indicates a winnable game.
+</p>
+<p>
+  According to nimber addition, the nimber of a game state after we place a
+  colony is equal to the <em>XOR</em> of the two subproblems. The nimber of a
+  game state before we place a colony is the
+  <a href="https://en.wikipedia.org/wiki/Mex_(mathematics)"><em>minimum excludant</em></a>,
+  or <em>MEX</em>, of the set of possible nimbers after placing colonies. We
+  can therefore solve Bacterial Tactics recursively using the following
+  pseudocode:
+</p>
+<pre>
+let solve(state) be a function:
+  let s = Ø
+  for each legal colony placement:
+    add [solve(first subproblem) XOR solve(second subproblem)] to s
+  return MEX(s)
+</pre>
+<p>
+  Given this general framework, we can now optimize our implementation.
+</p>
+<p>
+  First, as in test set 1, we can memoize the game states, which are now
+  defined using rectangles of various sizes within the original grid. Note that
+  it is not possible to have bacteria from previous moves in a subproblem,
+  because we always cut the rectangle along the row or column of cells infected
+  by a colony placement. We may also want to pre-compute the nimbers of all
+  sizes of an empty rectangle (no radioactive cells), which is information that
+  can be shared across all test cases.
+</p>
+<p>
+  Second, observe that if it is legal to place a V colony in a cell, then it is
+  also legal to place a V colony in any cell in that column, and similarly for
+  H colonies in a row, within the boundary of the current subproblem's
+  rectangle. We therefore need to check only the rows and columns for legal
+  colony placements, not each individual cell.
+</p>
+<p>
+  Third, we can construct a data structure that allows us to determine
+  whether a colony placement is legal for any row or column in a given
+  rectangle in O(1) time, allowing us to evaluate any game state in
+  O(<b>R</b>+<b>C</b>) operations. For each row and column in the full grid,
+  create an array. Check the cells in the row or column in ascending order,
+  appending the 1-indexed position of the most recently seen radioactive cell,
+  or 0 if a radioactive cell has not been encountered yet. For example, for the
+  row <code>.#..#</code>, the array would be [0, 2, 2, 2, 5]. Suppose we have a
+  rectangle that includes the third and fourth cells of that row. The fourth
+  entry of the array is a 2. Since cell 2 is not in our rectangle (we have
+  cells 3 and 4 only), we can conclude that it is safe to place an H colony in
+  this row of our rectangle. This data structure can be pre-computed for each
+  test case in O(<b>R</b><b>C</b>) time.
+</p>
+<p>
+  To summarize, there are O(<b>R</b><sup>2</sup><b>C</b><sup>2</sup>)
+  subproblems, and each subproblem takes O(<b>R</b>+<b>C</b>) operations.
+  If we let N be <em>max</em>(<b>R</b>, <b>C</b>), this leads to
+  O(N<sup>5</sup>) total time complexity, sufficient for test set 2. Less
+  efficient solutions might still pass, depending on their implementations.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,428 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2012 - Round 1C</h3><h1>Out of Gas</h1><h3>Problem</h3>
+
+<p>
+Your car is out of gas, and you want to get home as quickly as possible!  Fortunately, your home is at the bottom of a hill and you (in your car) are at the top of it.  Unfortunately, there is a car in front of you, and you can't move past it.  Fortunately, your brakes are working and they are <i>very</i> powerful.
+</p>
+<p>
+You <i>start</i> at the top of the hill with speed 0 m/s at time 0 seconds.  Gravity is pulling your car down the hill with a constant acceleration.  At any time, you can use your brakes to reduce your speed, or temporarily reduce your acceleration, by any amount.
+</p>
+<p>
+How quickly can you reach your home if you use your brakes in the best possible way?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>.  <b>T</b> test cases follow.  The first line of each test case contains three space-separated numbers: a real-valued number <b>D</b>, the distance in meters to your home down the hill; and two integers, <b>N</b> and <b>A</b>.  The distance <b>D</b> will be given in <i>exactly 6 decimal places</i>.
+</p>
+<p>
+<b>N</b> lines follow, each of which contains two space-separated, real-valued numbers: a time <b>t</b><sub>i</sub> in seconds, and a position <b>x</b><sub>i</sub> in meters.  The <b>t</b><sub>i</sub> and <b>x</b><sub>i</sub> values will be given in <i>exactly 6 decimal places</i>.
+
+</p>
+<p>
+One line follows, with <b>A</b> space-separated, real-valued numbers <b>a</b><sub>i</sub>, which are accelerations in <code>m/s<sup>2</sup></code>.  The accelerations will be given in <i>exactly 2 decimal places</i>.
+</p>
+<p>
+The other car's position is specified by the (<b>t</b><sub>i</sub>, <b>x</b><sub>i</sub>) pairs.  The car's position at time <b>t</b><sub>i</sub> seconds is <b>x</b><sub>i</sub> meters measured from the top of the hill (i.e. your initial position). The car travels at constant speed between time <b>t</b><sub>i</sub> and <b>t</b><sub>i+1</sub>.  The positions and times will both be given in increasing order, with <b>t</b><sub>0</sub>=0.  
+</p>
+<p>
+For example, if t<sub>5</sub>=10, x<sub>5</sub>=20, t<sub>6</sub>=20, x<sub>6</sub>=40, then 10 seconds after the <i>start</i>, the other car is 20 meters down the hill; 15 seconds after the <i>start</i>, the other car is 30 meters down the hill; and 20 seconds after the <i>start</i>, the other car is 40 meters down the hill.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing "Case #c:", where c is the case number (starting from 1).  Then output <b>A</b> lines, the i<sup>th</sup> of which contains the minimum number of seconds it takes you to reach your home if your acceleration down the hill due to gravity is <b>a</b><sub>i</sub>, and you use your brakes in the best possible way.  Answers within an absolute or relative error of 10<sup>-6</sup> of the correct answer will be accepted.  There should be no blank lines in the output.
+</p>
+
+<h3>Notes</h3>
+<p>
+<p>
+<b>Position and Acceleration:</b> An object with a constant acceleration <code>a m/s<sup>2</sup></code> and starting speed of <code>v<sub>0</sub> m/s</code> will move a distance of v<sub>0</sub>*t + 0.5*a*t<sup>2</sup></code> after <code>t</code> seconds.
+</p>
+<b>Distance on the slope:</b> All the distances and accelerations are given with respect to the straight line down the hill.  They are <b>not</b>, for example, horizontal distances; so if your car is accelerating at <code>2 m/s<sup>2</sup></code> with an initial speed of <code>0 m/s</code>, and the other car is stopped at x=1, it will take exactly 1 second to reach the other car.
+</p>
+<p>
+<b>The other car:</b> You may never pass the other car, which means that at no time shall your distance down the hill be greater than that of the other car.  It may be equal.  The cars should be considered as point masses.
+</p>
+<p>
+<b>Output values:</b> You can print as many decimal places as you like in the output.  We will read and compare your answers with ours, and at that time we will be using 10<sup>-6</sup> as a threshold for inaccuracy.  So 25, 25.0 and 25.000000 are the same from our perspective.  Trailing zeros after the decimal point does not matter.
+</p>
+
+<h3>Limits</h3>
+<p>
+Memory limit: 1GB.<br/>
+1 &le; <b>T</b> &le; 20.<br/>
+1.0 &le; <b>D</b> &le; 10<sup>4</sup>.<br/>
+1.0 &le; <b>a</b><sub>i</sub> &le; 9.81.<br/>
+0.0 &le; <b>t</b><sub>i</sub> &le; 10<sup>5</sup>.<br/>
+0.0 &le; <b>x</b><sub>i</sub> &le; 10<sup>5</sup>.<br/>
+<b>t</b><sub>i</sub> &lt; <b>t</b><sub>i+1</sub>.<br/>
+<b>x</b><sub>i</sub> &lt; <b>x</b><sub>i+1</sub>.<br/>
+<b>t</b><sub>0</sub> = 0<br/>
+<b>x</b><sub>N-1</sub> &ge; <b>D</b>.<br/>
+</p>
+
+<h4>Test set 1 (Visible Verdict)</h4>
+<p>
+Time limit: 60 seconds.<br/>
+1 &le; <b>N</b> &le; 2.<br/>
+1 &le; <b>A</b> &le; 10.<br/>
+</p>
+
+<h4>Test set 2 (Hidden Verdict)</h4>
+<p>
+Time limit: 120 seconds.<br/>
+1 &le; <b>N</b> &le; 2000.<br/>
+1 &le; <b>A</b> &le; 250.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="out_of_gas_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+1000.000000 2 3
+0.000000 20.500000
+25.000000 1000.000000
+1.00 5.00 9.81
+50.000000 2 2
+0.000000 0.000000
+100000.000000 100.000000
+1.00 1.01
+10000.000000 3 1
+0.000000 0.000000
+10000.000000 0.100000
+10000.100000 100000.000000
+1.00
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="out_of_gas_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1:
+44.7213595
+25.000000
+25.0
+Case #2:
+50000.0
+50000.0
+Case #3:
+10140.974143
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

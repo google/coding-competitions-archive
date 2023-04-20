@@ -1,0 +1,501 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - World Finals</h3><h1>Two-Tiling</h1><h3>Problem</h3>
+<p>
+  Your game company just ordered a lot of square game boards with 64 blank unit
+  cells, intending to turn them into chessboards, but your boss has suddenly
+  declared that chess is out of fashion. To make the best use of all of these
+  boards, you have designed a new puzzle that uses <i>tiles</i>.
+</p><p>
+  A tile is a contiguous set of unit cells, connected edge-to-edge, that can
+  fit inside a 3x3 square of unit cells. For example, the following are
+  examples of valid tiles (with each <code>@</code> denoting a piece of the
+  tile, and extra <code>.</code> characters for padding):
+</p>
+<p><code>
+    ... @@@ @@@ .@@<br/>
+    ... @@@ @.@ @.@<br/>
+    .@. @@@ @.. @@@<br/>
+</code></p>
+<p>
+  The following would NOT be valid tiles:
+</p>
+<p><code>
+    @@. @.@ .@@.<br/>
+    ... .@. @@@@<br/>
+    .@@ @.@ .@@.<br/>
+</code></p>
+<p>
+  When the solver of your new puzzle places a tile on the board, its unit cells
+  must exactly overlap some unit cells on the board that have not already been
+  covered by other tiles. A tile is still considered the same type of tile even
+  after being arbitrarily translated, rotated (by multiples of 90 degrees),
+  and/or reflected, and the solver is allowed to do any of those things to a
+  tile while placing it. For example, all of these are considered to be
+  the same tile (and other variants of that tile are possible):
+</p>
+<p><code>
+    .@. ..@ @.. ... @@.<br/>
+    @@. .@@ @@. .@@ .@@<br/>
+    @.. .@. .@. @@. ...<br/>
+</code></p>
+<p>
+  To make your puzzle, you will color one or more of the cells on the board
+  red. The solver will solve the puzzle by placing tiles on the board such that
+  all red cells are covered up, but no other cell is covered up. To save on
+  manufacturing costs, the solver receives only one type of tile, but they are
+  given exactly enough copies of it to be able to cover all of the red cells.
+</p><p>
+  Your job is to decide which of the board's cells to color red. Unfortunately,
+  your boss is still deciding which of two particular tiles to use for the
+  game. You are tired of waiting, so you have decided to try to color a set of
+  cells such that the puzzle can be solved regardless of which of the tiles
+  ends up being used.
+</p>
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow; each consists of four lines. Each of the first
+  three lines has three characters, then a single space, then three more
+  characters. The fourth line is a blank line.
+</p><p>
+  When looking at an entire case, the space characters separate a 3x3 grid on
+  the left and a 3x3 grid on the right. Each grid represents a frame in which
+  one of the two tiles is displayed. In each grid, each character is either
+  <code>@</code>, representing a cell that is part of the tile, or
+  <code>.</code>, representing a cell that is not part of the tile. Note that
+  these <code>.</code> cells have nothing to do with the puzzle or the board,
+  and are just padding to make the shape of the tile clear. It is guaranteed
+  that the two tiles are not the same, as described in the statement above.
+</p><p>
+<h3>Output</h3>
+<p>
+  For each test case, output one line with <code>Case #x: y</code>, where
+  <code>x</code> is the test case number (starting from 1), and <code>y</code>
+  is <code>POSSIBLE</code> if there is a solution to the problem, and
+  <code>IMPOSSIBLE</code> if there is not. Then, if there is a solution, output
+  eight more lines of seventeen characters each, forming two 8x8 grids with one
+  column of space characters in between. Each grid must use dot
+  (<code>.</code>) characters to denote any blank cells, or characters from the
+  following set of 64:
+</p><p>
+  <code>!?0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</code>
+</p><p>
+  to denote the individual tiles used in a solution to the puzzle. Within each
+  8x8 grid, each non-dot character must denote a part of the same single tile,
+  and different characters must denote different tiles. Each tile in the grid
+  on the left must be the same as the tile on the left in input, up to
+  rotations, translations and reflections. Each tile in the grid on the right
+  must be the same as the tile on the right in input, up to rotations,
+  translations and reflections. The set of cells that are not dots in both 8x8
+  grids must be the same, and must be nonempty.
+</p><p>
+  If there are multiple valid solutions, you may output any one of them.
+</p>
+
+<h3>Limits for Test set 1 (Visible; the only test set)</h3>
+<p>
+  <b>T</b> = 595. (Every possible test case, up to isomorphism, is included.)
+  <br/>
+  Time limit: 30 seconds.<br/>
+  Memory limit: 1GB.<br/>
+  The cells in each tile in the input form a single contiguous group via their
+    edge-to-edge connections.<br/>
+  The two tiles in the input are not the same, as described in the statement.
+    <br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="two-tiling_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">4
+.@@ .@.
+.@. .@.
+.@@ @@.
+
+@@@ @@@
+@.@ @@@
+@@@ @@@
+
+.@. ...
+@@. .@@
+@.. ...
+
+... ..@
+... ..@
+@.. ...
+
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="two-tiling_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: POSSIBLE
+....11.. ....11..
+...221.. ...221..
+...211.. ...321..
+...22... ...32...
+.333.... .433....
+4343.... 5444....
+444..... 555.....
+........ ........
+Case #2: IMPOSSIBLE
+Case #3: POSSIBLE
+........ ........
+..T..I.. ..T..I..
+.TT..II. .tT..Ii.
+.T....I. .t....i.
+........ ........
+.LL..EE. .LL..EE.
+..LLEE.. ..llee..
+........ ........
+Case #4: POSSIBLE
+the.CODE AAB.CDDE
+Jam.2018 FFB.CGGE
+........ ........
+World... HHIIJ...
+.FiNALS. .KLLJMM.
+.cup.... .KNN....
+........ ........
+TRIUMPH! OOPPQQRR
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+  The sample output displays one set of answers to the sample cases. Other
+  answers may be possible.
+</p><p>
+  In Sample Case #2, there is no possible set of red cells that would make
+  the puzzle solvable regardless of which of the two tiles is chosen.
+</p><p>
+  In Sample Cases #3 and #4, note that the chosen set of red cells is not
+  required to be contiguous. Also note that the dots in the input for a tile
+  are not considered part of the tile, and have no significance in creating
+  the puzzle. For example, the given answer would also be acceptable for the
+  following input:
+</p>
+<p><code>
+    ... ...<br/>
+    .@. .@.<br/>
+    ... .@.<br/>
+</code></p>
+<p>
+  Moreover, that input is isomorphic with Sample Case #4, and would not appear
+  in the same test set along with Sample Case #4.
+</p>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,394 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2013 - Qualification Round</h3><h1>Analysis: Treasure</h1><h3>Lexicographically Smallest?</h3>
+
+<p>
+This problem asks you to open the chests in the lexicographically smallest order. As if it's not hard enough to find just any old way to open the chests, we make you find a particular way! If you have not tried similar problems before, this part might seem especially daunting.
+</p>
+
+<p>
+However, it's a red herring. Suppose you can answer the following simpler question: "Is it possible at all to open all the chests?". Then you can use that as a black box to find the lexicographically smallest way of opening them. Check whether you have the key to open chest #1 first, and whether the black box says it is possible to open all the remaining chests after doing so. If the answer to both questions is yes, then you should definitely start by opening chest #1. Otherwise, you have no choice but to try a different chest. Repeating this logic for every chest at every time, you can get the lexicographically smallest solution.
+</p>
+
+<p>
+This is not very fast, but there aren't too many chests to worry about here, so that's okay. And that means, from now on, we can focus on the slightly simpler question: "Is it possible to open all the chests?".
+</p>
+
+<br/>
+<h3>Eulerian Path</h3>
+
+<p>
+Unfortunately, even this question is still pretty hard!
+</p>
+
+<p>
+When dealing with a really tricky problem, it can sometimes be helpful to look at special cases to build up your intuition. Towards that end, let's suppose that you begin with exactly one key, that one chest is empty, and that all remaining chests also contain exactly one key. Why look at this case in particular? You'll see!
+</p>
+
+<p>
+In this version of the problem, you will always have exactly one key at any given time. When you open a chest of type A containing a key of type B, you are switching from a key of type A to a key of type B. This suggests that we can represent the problem as a graph. We will have one vertex for each chest/key type, and for every chest, we will add a directed edge from the chest type to the contained key type.
+</p>
+
+<p>
+You begin with a single key, and then you must choose a chest of the matching type, giving you a key of perhaps a different type. From there, you must choose a chest of the new type, and so on, eventually choosing every chest exactly once. In the graph formulation, you can think of this as beginning at the vertex corresponding to your starting key, and then repeatedly following edges, using each edge exactly once. In other words, you are looking for an <a href="https://www.google.com/search?q=eulerian+path" target="_blank">Eulerian Path</a> on the graph!
+</p>
+
+<p>
+The good news here is that Eulerian Path is a famous problem and you can look up on the internet how to tell if one exists:
+</p>
+
+<ul>
+<li> At most one vertex (namely the start vertex) has OutDegree - InDegree = 1.
+<li> At most one vertex has InDegree - OutDegree = 1.
+<li> All other vertices have InDegree = OutDegree.
+<li> There is a path from the start vertex to every other vertex in the graph.
+</ul>
+
+<p>
+The bad news is that if this special case is already as hard as Eulerian Path, the full problem is going to be even harder!
+</p>
+
+<br/>
+<h3>Generalizing the Eulerian Path</h3>
+
+<p>
+If you come up with the previous observation, the first thing you might try is to reduce the full problem directly to Eulerian paths. Unfortunately, this is probably doomed to fail. Once you have multiple keys in a single chest, there is no graph structure to use. (Nothing we have found anyway!)
+</p>
+
+<p>
+The better plan is to generalize only the conditions required for an Eulerian path to exist. In fact, those conditions can be described very naturally in terms of chests and keys:
+</p>
+
+<ul>
+<li> For each type, there must be at least as many keys of that type as there are chests of that type.
+<li> It must be possible to get at least one key of any single type.
+</ul>
+
+<p>
+Let's say a chest/key configuration is <i>connected</i> if it satisfies the second condition, and <i>good</i> if it satisfies both conditions. It turns out that it is possible to open all the chests if and only if the configuration is good!
+</p>
+
+<p>
+And it is not too hard to check if a configuration is good - the first condition is just a count, and the second can be checked with a <a href="https://www.google.com/search?q=breadth+first+search" target="_blank">Breadth First Search</a> or a <a href="https://www.google.com/search?q=depth+first+search" target="_blank">Depth First Search</a>. So all that remains for a complete solution is convincing ourselves that checking goodness is indeed equivalent to the original problem:
+</p>
+
+<p>
+<br/>
+<b>Claim:</b> It is possible to open all the chests if and only if the configuration is good.
+</p>
+
+<p>
+<b>Proof:</b> One direction is easy. If the configuration is not good, then we will never be able to open enough chests of one type, either because there are not enough keys, or because we can never reach even one of those keys.
+</p>
+
+<p>
+For the other direction, let's suppose we have a good configuration. Nothing we do from this point on will change whether there are enough keys of each type. We will show there is always at least one chest we can open that also maintains the connectivity property. The resulting configuration would then also be good, so there would also be a chest we could open there that would maintain connectivity, and so on. Repeating, we can keep opening chests until there is nothing left.
+</p>
+
+<p>
+So all we need to do is prove that there is at least one chest that can be opened without breaking connectivity. We know the configuration is connected initially. For each type T, there is a sequence of chests we can open to get a key of type T. To be precise, here exists a sequence of types T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>n</sub>, with the following properties:
+<ul>
+<li> You already have at least one key of type T<sub>1</sub>.
+<li> T<sub>n</sub> = T.
+<li> For each i, there is a chest of type T<sub>i</sub> which you would be able to open to get a key of type T<sub>i+1</sub>.
+</ul>
+</p>
+
+<p>
+Suppose you have a key of some arbitrary type A. If you already have <i>all</i> keys of type A, then you can open all the chests of type A, and doing so will certainly not break connectivity. So that case is easy.
+</p>
+
+<p>
+Otherwise, there must exist some chest of type B containing a key of type A. Let T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>n-1</sub>=B, T<sub>n</sub>=A denote a sequence of key types that you can go through to get a key of type B and then use that to get another key of type A. As mentioned above, we know such a sequence must exist. We can also assume that T<sub>i</sub> != A for 1 &lt; i &lt; n. Otherwise, we could just chop off part of the sequence to get a faster method! Now we consider two cases:
+
+<ul>
+<li> Suppose that T<sub>1</sub> != A. Then you can use your key of type A to open anything you want, and we claim the resulting configuration will still be connected.
+<br/>
+<br/>
+To prove this, pick an arbitrary key type C (possibly equal to A). Before opening any chests, we know there is some sequence of key types S<sub>1</sub>, S<sub>2</sub>, ..., S<sub>m</sub>=C that will give you a key of type C. If A is not part of this list, then opening a chest of type A does not interfere with getting a key of type C. Otherwise, the S list and T list intersect somewhere, so we can let j be the largest integer such that S<sub>j</sub> equals some T<sub>i</sub>. Then after using our A key, we can still get a key of type C in the following way: T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>i</sub>=S<sub>j</sub>, S<sub>j+1</sub>, ... S<sub>m</sub>=C.
+<br/>
+<br/>
+Since this is true for every C, we know the configuration is still connected!
+<br/>
+<br/>
+
+<li> Suppose that T<sub>1</sub> = A. In this case, you should use your key to open a chest of type T<sub>2</sub>. You can now still obtain a key of type B, and so the rest of the argument follows exactly as before.
+</ul>
+
+<p>
+Therefore, no matter what happens, you can always open a chest without breaking connectivity, and the claim is proven!
+</p>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,390 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Round 3</h3><h1>Analysis: Go++</h1><h2>go++: Analysis</h2>
+<p>
+To make the analysis a tiny bit easier to follow, we'll typeset strings
+(<b>B</b>, <b>G</b>, and output from the Go++ programs) in monospace font,
+instructions from the first program in normal font, and instructions from the
+second program with an underline.
+</p><p>
+First, let's try to figure out when the problem is impossible to solve. It's
+clearly impossible when <b>B</b> is in <b>G</b>; that case is even in the
+sample input. What about otherwise?
+</p><p>
+Surprisingly, <i>if </i><b>B</b><i> is not in </i><b>G</b><i>, the problem is
+always solvable</i>.
+</p><p>
+To prove this, I'll construct two Go++ programs that, when run as described in
+the problem statement, can produce <i>any</i> <b>L</b>-length string
+<i>except</i> <b>B</b>. That sounds harder than making one that just produces
+the strings in <b>G</b>, but sometimes, making the problem more difficult is a
+great way to gain the insight you need to solve the original problem. For this
+problem in particular, the set <b>G</b> is a red herring!
+</p>
+<h3>The first program</h3>
+<p>
+Given an input string <b>B</b>, construct the first program as follows:
+<ol>
+<li>Start with the inverse of every character of <b>B</b> (<code>0</code>
+&#8614; 1, <code>1</code> &#8614; 0).</li>
+<li>Add a ? instruction after every 0 or 1 instruction.</li>
+</ol>
+For instance, if <b>B</b> = <code>111</code>, which could appear on the Small
+input, the first program is 0?0?0?. If <b>B</b> = <code>010</code>, which could
+only appear on the Large input, the first program is 1?0?1?.
+</p><p>
+Why does this work? Notice that by default, this program generates the opposite
+of <b>B</b>. In order to generate a different string, we need to override one
+or more of the ? instructions; that is, the programs need to be interleaved
+such that right before the ? from the first program, some other instruction
+from the second program changes what it prints. For instance, given the first
+program 1?0?1?, we can print <code>011</code> instead of <code>101</code> using
+the second program <u>01</u>, if it's interleaved as follows:
+1<u>0</u>?0<u>1</u>?1?. In order to print <b>B</b>, we need to override all
+three ? instructions.
+</p><p>
+So how do we prevent that from happening? We write a second program that cannot
+override all three ? instructions. Our solution differs for the Small and Large
+inputs.
+</p>
+<h3>The second program (Small)</h3>
+<p>
+For the Small input, <b>B</b> is always a string of <code>1</code>s. That means
+the first program is always 0?, repeated <b>L</b> times. For instance, if
+<b>B</b> = <code>111</code>, the first program is 0?0?0?.
+</p><p>
+Our second program needs to be able to override any two of those ?
+instructions; that way, we can print any output with up to two <code>1</code>s.
+However, we can't override all three ? instructions, since that means our
+program might print <b>B</b>. So we need a second program that contains
+<b>L</b>-1 <u>1</u>s, but not <b>L</b> <u>1</u>s. The solution to this is
+fairly simple: our second program simply consists of <u>1</u>, repeated
+<b>L</b>-1 times. For instance, if <b>B</b> = <code>111</code>, the second
+program is <u>11</u>.
+</p>
+<h3>The second program (Large)</h3>
+<p>
+To solve the problem for arbitrary <b>B</b>, we need a second program that,
+when taken as a string, has every (<b>L</b>-1)-length string as a subsequence
+(so we can print any string except <b>B</b>), but doesn't have <b>B</b> as a
+subsequence. (Here, we use "subsequence" to mean any set of elements, ordered
+as they appear in the original sequence; they need not be adjacent.) We'll
+discuss how to produce such a program shortly.
+</p><p>
+Now, with our first program and this hypothetical second program, we can
+produce any <b>L</b>-length string except <b>B</b>. That's because the second
+program has every possible subsequence of length <b>L</b>-1, so we can override
+up to <b>L</b>-1 of the ? instructions of the first program. However, we cannot
+override all <b>L</b> of them to produce <b>B</b>, because the second program
+doesn't have <b>B</b> as a subsequence.
+</p><p>
+There are many ways to generate the second program. This one won't produce the
+shortest program, but it is perhaps the easiest to explain:
+<ol>
+<li>Start with a copy of <b>B</b>, excluding the last character.</li>
+<li>Replace each character with a two-character sequence as follows:
+<code>0</code> &#8614; <u>10</u>, <code>1</code> &#8614; <u>01</u>.</li>
+</ol>
+For instance, if <b>B</b> = <code>010</code>, the second program is
+<u>1001</u>. The first <code>0</code> becomes <u>10</u>, the <code>1</code>
+becomes <u>01</u>, and we ignore the last character of <b>B</b>.
+</p><p>
+We outlined the two requirements above for the second program to be valid:
+<ul>
+<li>The second program must have every (<b>L</b>-1)-length string as a
+subsequence.</li>
+<li>The second program must not contain <b>B</b> as a subsequence.</li>
+</ul>
+Now, we will show that the steps above give us a second program that satisfies
+these requirements.
+</p><p>
+To get any (<b>L</b>-1)-length subsequence, split the second program into pairs
+of adjacent instructions. Each pair contains a 0 and a 1, since that's how we
+built the program. So we just pick one character from each pair, and we have
+any (<b>L</b>-1)-length string!
+</p><p>
+Now, let's try to get <b>B</b> as a subsequence of our second program. Say
+<b>B</b> = <code>010</code> and the second program is <u>1001</u>. In order to
+get 010 as a subsequence, we start from finding the first 0 in <u>1001</u>,
+which occurs at the second character. Next we find the first 1 after that,
+which is the fourth character. The pattern continues: because of how we've
+built the second program, we always go through two characters whenever we try
+to find <b>B</b> as a subsequence. And because the second program only has
+2<b>L</b>-2 characters, we can't find all of <b>B</b> as a subsequence.
+Therefore, our second program is valid.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

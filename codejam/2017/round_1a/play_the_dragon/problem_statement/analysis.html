@@ -1,0 +1,398 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Round 1A</h3><h1>Analysis: Play the Dragon</h1><h2>Play the Dragon: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  The Small limits are large enough to foil pure simulation of all possible
+  choices, so we need to have some insights before proceeding.
+</p>
+<ul>
+  <li>The dragon should cure only when it is forced to &mdash; that is, when
+    the knight's next attack would defeat it, and attacking or debuffing would
+    not prevent that. Otherwise, it is always better to do something else.</li>
+  <li>All buffs should come before all attacks, so that each of the dragon's
+    attacks gets the benefit of all of the buffs.</li>
+  <li>The number of buffs directly determines the number of attacks
+    needed.</li>
+  <li>All debuffs should come before all buffs/attacks, so that the total
+    amount of damage the dragon must withstand is minimized.</li>
+  <li>If the knight's first attack will defeat the dragon even if the dragon
+    attacks or debuffs in the first turn, the case is impossible.</li>
+  <li>If the dragon is forced to cure two turns in a row, then the case is
+    impossible, since that implies that the dragon will have to cure every
+    turn.</li>
+</ul>
+<p>
+  These observations add up to a strategy: spend some number D' of turns
+  debuffing, then some number B' of turns buffing, then some number A' of turns
+  attacking, and interleave cures only as needed to not be defeated. Since B'
+  determines A', we only need to consider (D', B') pairs. Since
+  <b>A<sub>k</sub></b> cannot exceed 100, there is no reason to ever do more
+  than 100 debuffs or 100 buffs; moreover, the worst-case scenario can't
+  possibly require more than a couple hundred turns (D' + B' + A'). We can
+  place much smaller upper bounds than those with a little more thought, but it
+  is already clear that direct simulation should be fast enough for the Small
+  dataset.
+</p><p>
+  So, we can proceed with translating the above strategy into code. We must
+  take care to prioritize actions in the right order. In particular, we must
+  avoid curing when we do not need to or failing to cure when we should. Once
+  that is written, we can simulate each possible (D', B') pair and find the
+  global minimum number of turns, or determine that the case is IMPOSSIBLE.
+</p>
+<h3>Large dataset</h3>
+<p>
+  We noted above that all debuffs should come before all buffs/attacks, and
+  that the number of buffs determines the number of attacks. In fact, the
+  buff/attack part of the problem is independent of the debuff part of the
+  problem. Changing the number of debuffs may change the number of cures, but
+  regardless of how many times we debuff, we have nothing to gain by using more
+  than the minimum number of buff + attack turns; that would just make us waste
+  more turns curing.
+</p><p>
+  We can find this minimum number of buff + attack turns as follows. First, we
+  suppose that we will buff 0 times, and we determine the total number of
+  attacks needed to defeat the knight. Then, we can repeatedly increase B' by
+  1 and calculate the number of attack turns A' required at that new level of
+  attack power. As soon as this causes the total to get <i>larger</i>, we can
+  stop (and take the previous total). It is safe to stop at that point because
+  the total number of turns is given by
+</p><p>
+  B' + ceil(<b>H<sub>k</sub></b> / (<b>A<sub>d</sub></b> + B' × <b>B</b>))
+</p><p>
+  The B' part contributes a line with positive slope; the rest contributes a
+  decaying step function. If that step function were a smooth curve, there
+  would be one point at which the rate of decrease from the curve exactly
+  matched the rate of increase from the linear part, and the function would
+  take on our desired minimum there. Because of the discretization, there
+  may actually be multiple values of B' that yield the minimum number of B' +
+  A' turns, but it does not matter which one we choose; only the total matters.
+</p><p>
+  Finding the minimum B' + A' in this way takes O(sqrt(N)) time, where N is the
+  common upper limit for all of the parameters (10<sup>9</sup> for the Large).
+  This is because once we have raised B' to about sqrt(N), we can defeat the
+  knight in about sqrt(N) attack rounds, and there is no need to buff further.
+  It is also possible to solve this part of the problem using binary search or
+  ternary search, or by solving a quadratic equation.
+</p><p>
+  What about the number D' of debuffs? The key observation here is that we do
+  not need to consider every possible value of D'. For instance, suppose that
+  <b>H<sub>d</sub></b> is 100, <b>A<sub>k</sub></b> = 50, and <b>D</b> = 1.
+  Reducing <b>A<sub>k</sub></b> to 49 (which takes 1 turn of debuffing) is as
+  good as reducing <b>A<sub>k</sub></b> to 48 or 34; in all of these cases, the
+  dragon has to cure every other turn. However, reducing <b>A<sub>k</sub></b>
+  to 33 (which takes 17 turns of debuffing) means that the dragon only has to
+  cure on every third turn. We might as well only consider these threshold
+  values of D' = 0, 1, 17, 26, 31...; we can leave out the others. We can find
+  each of these values formulaically in constant time.
+</p><p>
+  Once we have these values, we do not even need to simulate them
+  independently. Note that a simulation with D' = 17 begins by looking like a
+  simulation with D' = 1, since we have to do one debuff before we do the other
+  sixteen. So we can perform a single simulation in which we keep track of
+  a number T of turns used so far, and repeat the following:
+</p>
+<ul>
+  <li>Pretend that we will do no more debuffing. Figure out how many additional
+    turns are needed to buff + attack while curing enough to survive. Compare
+    the total (T plus that number) to the best total we have seen so far.</li>
+  <li>Figure out how many turns are needed to increase the number of debuffs to
+    the next threshold value, while curing enough to survive. Add that number
+    to T.</li>
+</ul>
+<p>
+  It takes additional turns to debuff more, but that debuffing may "pay for
+  itself" by saving curing turns during the buff + attack phase. Our strategy
+  will find the right balance.
+</p><p>
+  Instead of actually simulating the turns, we can take advantage of the way we
+  have chosen threshold values of D': in the debuffing period between two of
+  our values of D', the frequency of curing remains constant. So we can
+  calculate the total number of debuff turns + cures via a formula, and we can
+  do the same for the number of cures in the buff + attack phase. With this
+  optimization, the complexity of this step is O(sqrt(N)); since we also took
+  O(sqrt(N)) time to find the optimal number of B' + A' turns, the algorithm is
+  O(sqrt(N)) overall.
+</p><p>
+  All that remains is to actually implement the above, which is perhaps even
+  harder than coming up with the algorithm; there are many opportunities to
+  make off-by-one errors! Although this is not generally the case in Code Jam,
+  in this particular problem, the limits do allow solutions with some but not
+  all of the above insights, and additional low-level optimizations, to pass
+  within the 8-minute window.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

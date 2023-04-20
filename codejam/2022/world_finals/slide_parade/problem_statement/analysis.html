@@ -1,0 +1,487 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2022 - World Finals</h3><h1>Analysis: Slide Parade</h1><p>
+  In this problem, we are given a simple graph $$$G$$$.
+  We are required to find a sufficiently-small circuit that passes through each edge at least once, and passes through all
+  vertices the same number of times.
+<p>
+  Let the input graph be $$$G = (V, E)$$$.<br>
+  $$$V = \{1, 2, ..., B\}$$$, $$$E = \{(X_1, Y_1), (X_2, Y_2), ..., (X_S, Y_S)\}$$$.
+<p>
+  If the circuit exists, let $$$k$$$ be the number of times that each vertex is passed through.
+  Collecting the edges in the circuit forms a multigraph $$$G' = (V, E')$$$, where $$$E'$$$ is a multiset.
+  $$$G'$$$ has the following properties:
+  <ul>
+    <li>The underlying set of $$$E'$$$ is $$$E$$$. Which means
+    <ul>
+      <li>Each edge in $$$E$$$ appears at least once in $$$E'$$$.
+      <li>Each edge in $$$E'$$$ appears in $$$E$$$.
+    </ul>
+    <li>For each node $$$v$$$, $$$indegree(v) = outdegree(v) = k$$$.
+  </ul>
+<p>
+  On the other hand, if we could find a multigraph $$$G'$$$ satisfying the above properties for some $$$k$$$,
+  then we could compute an answer from $$$G'$$$ with an Eulerian circuit construction algorithm.
+  An Eulerian circuit is a circuit that visits each edge in a graph exactly once.
+  In the following solutions, we will focus on finding a $$$G'$$$ via different approaches.
+<p>
+  Let $$$L$$$ be the output limit $$$10^6$$$.
+  Note that $$$L$$$ is also a significant factor while analyzing the complexity.
+
+<h3>
+  $$$O(L\mathbf{BS})$$$ approach
+</h3>
+<p>
+  In this approach, we will use a max-flow algorithm to find a set of valid multiplicities $$$d_i$$$ for each $$$(X_i, Y_i)$$$ in $$$E$$$.
+  i.e. $$$(X_i, Y_i)$$$ appears $$$d_i$$$ times in $$$E'$$$.
+<p>
+  Note that the total number of edges in the cycle would be $$$k\mathbf{B}$$$, so the upper bound of $$$k$$$ is $$$\dfrac{L}{\mathbf{B}}$$$.
+  Enumerating all possible $$$d_i$$$ is not feasible, but we can try all possible values of $$$k$$$, and see if
+  a set of valid $$$d_i$$$ can be generated under the fixed $$$k$$$.
+  Once we find a set of valid $$$d_i$$$, then $$$G'$$$ is also determined.
+<p>
+  This can be reduced to a <a href="https://en.wikipedia.org/wiki/Maximum_flow_problem" target="_blank">maximum flow problem</a>.
+  We will construct a flow network with source $$$s$$$ and sink $$$t$$$ to help us find a valid set of $$$d_i$$$.
+<p>
+  The vertices of the flow network are:
+  <ul>
+    <li> The source $$$s$$$.
+    <li> The sink $$$t$$$.
+    <li> A node $$$in_v$$$ for each $$$v$$$ in $$$V$$$.
+    <li> A node $$$out_v$$$ for each $$$v$$$ in $$$V$$$.
+  </ul>
+  There are $$$(2\mathbf{B}+2)$$$ vertices in the network in total.
+<p>
+  The edges of the flow network are:
+  <ul>
+    <li> $$$(s, out_v)$$$ for each $$$v$$$ in $$$V$$$, with capacity $$$k$$$.
+    <li> $$$(out_u, in_v)$$$ for each $$$(u, v)$$$ in $$$E$$$. No capacity limit, but the lower bound of flow is 1.
+    <li> $$$(in_v, t)$$$ for each $$$v$$$ in $$$V$$$, with capacity $$$k$$$.
+  </ul>
+  There are $$$(\mathbf{S}+2\mathbf{B})$$$ edges in the network in total.
+<p>
+  The amount of flow through $$$in_v$$$ ($$$out_v$$$, <i>resp.</i>) indicates the indegree (outdegree, <i>resp.</i>) of vertex $$$v$$$ in $$$G'$$$.
+  The amount of flow on $$$(out_u, in_v)$$$ indicates the multiplicity of edge $$$(u, v)$$$.
+<p>
+  Now we search for the maximum flow on the graph.
+  If the total flow is $$$k\mathbf{B}$$$ (the maximum possible), then the amount of flow through
+	$$$in_v$$$ and $$$out_v$$$ is $$$k$$$ for each $$$v$$$,
+  and we have found a valid set of multiplicities $$$d_i$$$.
+  We can then construct $$$G' = (V, E')$$$ with those multiplicities, find an Eulerian circuit in $$$G'$$$, and output that circuit.
+<p>
+  On the other hand, if we don't find such a flow for any possible $$$k$$$, then we output IMPOSSIBLE.
+<p>
+  Now let's analyze the time complexity of this solution.
+  In this solution, we run a maximum flow algorithm for each $$$k$$$.
+  There are $$$\dfrac{L}{\mathbf{B}}$$$ possibilities of $$$k$$$, and the graph has at most $$$O(\mathbf{B})$$$ vertices and $$$O(\mathbf{S})$$$ edges.
+  Thus the total time complexity is $$$O(L\mathbf{BS})$$$,
+  assuming <a href="https://en.wikipedia.org/wiki/Dinic%27s_algorithm" target="_blank">Dinic's $$$O(\mathbf{B^2S})$$$ algorithm</a> is chosen for solving maximum-flow.  This can be made faster by computing a maximum
+	flow for each $$$k$$$ by starting with the flow found for the previous value of $$$k$$$.
+
+</p>
+
+<h3>
+  $$$O(\mathbf{S^2})$$$ approach
+</h3>
+<p>
+
+The previous algorithm could be somewhat slow.
+It would be good if we could generate a graph $$$G'$$$ more directly.
+Consider this simple iterative algorithm that produces a $$$G'$$$:
+
+<ul>
+    <li>Choose an edge (u, v) that is not yet in $$$G'$$$.</li>
+    <li>Add edges on a path from building 1 to building u to $$$G'$$$.</li>
+    <li>Add the edge (u, v) to $$$G'$$$.</li>
+    <li>Add edges on a path from building v to building 1 to $$$G'$$$.</li>
+    <li>Repeat until each edge occurs at least once in $$$G'$$$.</li>
+</ul>
+<p>
+
+The $$$G'$$$ produced by this algorithm is able to produce a circuit, since we can simply follow
+the edges in the same order they were added.
+But the buildings would not necessarily be visited an equal number of times.
+So, it would be good if we could do the following instead:
+
+<ul>
+    <li>Choose an edge $$$(u,v)$$$ that is not yet in $$$G'$$$.</li>
+	  <li>Find a set $$$A$$$ of edges,
+			such that the indegree and outdegree of each node is equal in $$$A$$$,
+			and $$$A$$$ includes $$$(u, v)$$$.</li>
+	  <li>Add $$$A$$$ to $$$G'$$$.</li>
+    <li>Repeat until each edge occurs at least once in $$$G'$$$.</li>
+</ul>
+<p>
+
+If this succeeds, it would yield a $$$G'$$$ with all the required properties we listed earlier.
+Also, if every set $$$A$$$ found in the algorithm was as small as possible,
+that is, if the indegree and outdegree of each node in each $$$A$$$ was $$$1$$$,
+then the total number of edges in $$$G'$$$ would be at most $$$SB$$$, which is at most
+$$$10^6$$$, which conveniently is the limit in the problem!
+<p>
+
+Now, the question arises &mdash; if the problem is possible, can we always find such a set $$$A$$$
+for any edge $$$(u,v)$$$?  We can show that we can.
+<p>
+
+The problem of finding a set $$$A$$$ of edges can be reduced to finding a perfect bipartite matching,
+on a graph similar to the flow graph in the previous solution.
+
+<p>
+  The bipartite graph consists of vertices $$$(s_1, s_2, \dots s_\mathbf{B})$$$ and $$$(t_1, t_2, \dots t_\mathbf{B})$$$.
+  There is an edge $$$(s_u, t_v)$$$ if and only if $$$(u, v)$$$ is in $$$G$$$.  If we use an edge
+	in the perfect matching, then we add the corresponding edge in $$$G$$$ to $$$A$$$.
+<p>
+  We need to show that a perfect matching exists in this graph if the problem instance is possible.
+	To do that, we apply
+	<a href="https://en.wikipedia.org/wiki/Hall%27s_marriage_theorem" target="_blank">Hall's marriage theorem</a>,
+	which is a common technique for proving whether a graph has a perfect matching.
+<p>
+  What we need to prove to use the theorem is the following: if there is a solution to the problem,
+	then for any subset $$$S$$$ of the nodes$$$(s_1, s_2, \dots s_\mathbf{B})$$$,
+  let $$$T$$$ be the set of all nodes adjacent to a node in $$$S$$$.
+	Then $$$|S| \leq |T|$$$.
+	(We must also show that a similar result holds if we start with a subset of the nodes
+	$$$(t_1, t_2, \dots t_\mathbf{B})$$$, but the proof for that is the same.)
+<p>
+	Assume there is a solution to the problem, which has a corresponding multigraph $$$G'$$$, in which
+	the indegree and outdegree of each node is $$$k$$$.
+<p>
+	For each $$$i$$$, let $$$g(s_i)$$$ be the number of edges in $$$G'$$$ whose tail is node $$$i$$$.
+<p>
+	For each $$$i$$$, let $$$g(t_i)$$$ be the number of edges in $$$G'$$$ whose head is node $$$i$$$.
+<p>
+	Now for any pair of $$$S$$$ and $$$T$$$ above,
+  $$$\begin{equation} \sum_{s \in S}{g(s)} \leq \sum_{t \in T}{g(t)} \end{equation}$$$
+	since the edges	in $$$G'$$$ whose head is in $$$T$$$ must include all the edges in $$$G'$$$ whose
+	tail is in $$$S$$$, plus possibly some more.
+	But because $$$G'$$$ corresponds to a solution, the values of $$$g$$$ must all be equal to $$$k$$$.
+	So we can conclude that $$$|S| \leq |T|$$$ as required.
+<p>
+	But this is not exactly the bipartite matching problem we need to solve - we need to include some
+	fixed edge $$$(s_u, t_v)$$$ in the matching each time.  So remove all other edges adjacent to
+	$$$s_u$$$ or $$$t_v$$$ from the bipartite graph, and now define $$$g$$$ as follows:
+<p>
+	For each $$$i$$$, let $$$g(s_i)$$$ be the number of edges in $$$G'$$$ whose tail is node $$$i$$$,
+	excluding those edges	deleted from the bipartite graph.
+<p>
+	For each $$$i$$$, let $$$g(t_i)$$$ be the number of edges in $$$G'$$$ whose head is node $$$i$$$,
+	excluding those edges	deleted from the bipartite graph.
+<p>
+	Consider a set $$$S$$$ which does not contain $$$s_u$$$.
+<p>
+	$$$\begin{equation} k|S|-k \lt \sum_{s \in S}{g(s)}\end{equation}$$$, since less than $$$k$$$
+	edges were removed from the graph.
+	Also, $$$\begin{equation} \sum_{t \in T}{g(t)} \leq k|T| \end{equation}$$$ since $$$k$$$ is still
+	the maximum value of any $$$g(t)$$$.
+	We still have $$$\begin{equation} \sum_{s \in S}{g(s)} \leq \sum_{t \in T}{g(t)} \end{equation}$$$
+	as before, so
+<p>
+	$$$\begin{equation} k|S|-k \lt \sum_{s \in S}{g(s)} \leq \sum_{t \in T}{g(t)} \leq k|T| \end{equation}$$$
+<p>
+	$$$\begin{equation}\therefore k|S|-k \lt k|T| \end{equation}$$$
+<p>
+	$$$\begin{equation}\therefore |S|-1 \lt |T| \end{equation}$$$
+<p>
+	$$$\begin{equation}\therefore |S| \leq |T| \end{equation}$$$ as required.
+<p>
+	The same result holds for sets $$$S$$$ which do contain $$$s_u$$$, since we simply match $$$s_u$$$
+	with $$$t_v$$$ and are left with a set $$$S$$$ without $$$s_u$$$ and we can proceed as above.
+<p>
+  If we fail to find a perfect matching for any edge $$$(s_u, t_v)$$$,
+  then we can deduce that it's impossible to find a solution to the problem.
+<p>
+	This application of Hall's marriage theorem is also known as
+	<a href="https://en.wikipedia.org/wiki/Birkhoff_algorithm" target="_blank">Birkhoff's theorem</a>
+	on
+	<a href = https://en.wikipedia.org/wiki/Doubly_stochastic_matrix>doubly stochastic matrices</a>.
+<p>
+  In the current approach, we find a perfect matching on $$$\mathbf{S}$$$ different bipartite graphs.
+  Each of them has $$$O(\mathbf{B})$$$ vertices and $$$O(\mathbf{S})$$$ edges.
+  The total time complexity is $$$O(\mathbf{BS^2})$$$ if we use a flow-based algorithm.
+<p>
+  However, this approach can still be optimized further.
+  We can make use of a previous result to avoid re-calculating the whole matching every time.
+<p>
+  We first find an arbitrary perfect matching as the base matching.
+  Then, for each edge $$$(s_u, t_v)$$$, if it's not in the base matching, we remove the edges from
+	the matching that	were adjacent to $$$s_u$$$ and $$$t_v$$$, and add the edge $$$(s_u, t_v)$$$.
+  This would make exactly two vertices unmatched (those who originally matched with $$$s_u$$$ and $$$t_v$$$ in the base matching),
+  and we could find the new matching by searching for an augmenting path between the two unmatched vertices.
+<p>
+  Finding the base matching takes $$$O(\mathbf{BS})$$$ time, and for each edge $$$(s_u, t_v)$$$, it takes $$$O(\mathbf{S})$$$ time to find an augmenting path.
+  There are $$$\mathbf{S}$$$ edges in the bipartite graph, so the total time complexity is $$$O(S^2)$$$.
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

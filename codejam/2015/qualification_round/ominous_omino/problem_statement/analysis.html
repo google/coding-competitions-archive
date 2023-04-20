@@ -1,0 +1,573 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2015 - Qualification Round</h3><h1>Analysis: Ominous Omino</h1><h3>Introduction</h3>
+<p>
+There are various aspects to solving this problem. First off, there is one key observation about X-ominoes where X&gt;=7 which we will cover shortly. Beyond that, we describe a brute force solution where we generate all possible X-ominoes, simulate Richard picking one of the X-ominoes, then simulate Gabriel placing that particular X-omino in all possible locations on the grid to determine if a winning configuration can be found. We also present an alternative solution that involves an exhaustive case-by-case analysis of input to determine the winner.
+</p>
+<h3>Trivial case where X&gt;=7</h3>
+<p>
+There is a key observation for X-ominoes where X&gt;=7. We point out that in such cases, it is impossible for Gabriel to win. How is that?
+</p>
+<pre>
+###  ####
+#.#  #.##
+##.  ###.
+</pre>
+<p>
+When X&gt;=7, Richard can always choose a X-omino which has a hole in the middle as shown in the figure above (a 7-omino in the left, and a 10-omino in the right). This means that it is impossible for Gabriel to win using that X-omino at least once, as it is impossible to fill the hole in the middle with another X-omino.
+</p>
+<p>
+Therefore in cases where X&gt;=7, Richard will always win.
+</p>
+<h3>Available cells is a multiple of X</h3>
+<p>
+Another insight is the following: if R*C is not a multiple of X, then it is impossible for Gabriel to win. Why? The X-omino occupies X cells exactly, so if the total number of cells is not a multiple of X, it is impossible to cover all the cells using only X-ominoes. Therefore, in such cases, Richard will always win.
+</p>
+<p>
+In fact, we can extend this principle. Let&#39;s imagine that we have already placed one X-omino in the RxC grid, and it results in the RxC grid being separated into two (or more) edge-connected regions. In the figure below, we use a 4-omino in a 2x6.
+</p>
+<pre>
+.##...
+##....
+</pre>
+<p>
+Since the sizes of the connected component (connected components can be found by using <a href="http://en.wikipedia.org/wiki/Flood_fill" target="_blank">flood fill</a>) of the blank areas represented as &#39;.&#39;  are 1 and 7, and 1 is too small to fit while 7 is not a multiple of X, then it is not possible for Gabriel to win that particular configuration. Therefore we can say that if we ever arrive in a grid configuration where any of the remaining connected components size is not a multiple of X then we can say that Richard will win that particular configuration. If a connected blank area of size M is a multiple of X, it can be guaranteed that there is a way to place M/X X-ominoes to fill in the blank area. It can be proven by using exhaustive case-by-case analysis which is described in the next section.
+</p>
+<p>
+Now, armed with the above knowledge, we proceed with describing a brute force solution. First, we describe a way to generate all possible X-ominoes. Then we describe the general brute force strategy to test if Richard can pick a X-omino that will guarantee him a win, and if he is unable to do so then Gabriel will win.
+</p>
+<h3>Generating all possible X-ominoes</h3>
+<p>
+To generate all possible X-ominoes, we describe a recursive strategy. Let&#39;s start with a 1-omino. Well, for a 1-omino there is trivially only 1 possibility which is the following:
+</p>
+<pre>
+#
+</pre>
+<p>
+Similarly, we can generate the configurations for a 2-omino as follows:
+</p>
+<pre>
+#   ##
+#
+</pre>
+<p>
+How can we do this? We can build the X-ominoes recursively. We start with an empty board (let&#39;s say of size 20x20) then place a &#39;#&#39; in middle. Then we can recursively add a &#39;#&#39; adjacent to any of the existing &#39;#&#39; we have already placed, and stop when we have placed X &#39;#&#39; to create a X-omino. But you might have noticed that this recursive process will likely create a lot of duplicate X-omino configurations, e.g. in the 2-omino case, after placing the &#39;#&#39; in the middle, there are 4 possible placements of an adjacent &#39;#&#39; (labeled as 1-4 in the figure below).
+</p>
+<pre>
+.1.
+4#2
+.3.
+</pre>
+<p>
+This means that this recursive procedure will generate four 2-ominoes! But we know that there are only two 2-ominoes, as &quot;4#&quot; and &quot;#2&quot; are equivalent, and likewise for &quot;1#&quot; and &quot;3#&quot;. Therefore, we can come up with a way to remove duplicate X-omino configurations if needed, which we leave as an exercise.
+</p>
+<p>
+We can precompute all the X-ominoes for 1&lt;=X&lt;=6. Also note that when generating X-ominoes this way, we will generate all X-ominoes under reflection and rotations which we show with an example below:
+</p>
+<pre>
+#.  .#  .##  ##.
+##  ##  ##.  .##
+.#  #.
+</pre>
+<p>
+For our solution, it is fine to generate all such X-ominoes. Note that it is also feasible to generate all possible X-ominoes for X&lt;=6 by hand. We cover this in the &quot;Alternative Solution&quot; section below.
+</p>
+<h3>Brute force strategy</h3>
+<p>
+Now, after we have generated all possible X-ominoes, we proceed with describing the brute force strategy. As mentioned earlier, if X&gt;=7, we report that Richard will win, and also if R*C is not a multiple of X, we report that Richard will win.
+</p>
+<p>
+In the brute force strategy, we simulate Richard picking each of the X-ominoes one-by-one, then simulate if it is possible for Gabriel to win with that particular X-omino. If we can find any X-omino that Richard can pick which results in Gabriel being unable to win, then we report that Richard can win. But if Gabriel wins for all X-ominoes that Richard picks, then we report Gabriel as the winner.
+</p>
+<p>
+Simulating Richard picking a X-omino is straightforward. Richard can pick each of the X-omino one by one. The trickier part is to check if Gabriel can win, we now describe a strategy to perform this check.
+</p>
+<p>
+We take the RxC grid and we have the X-omino that Richard has required that Gabriel use at least once. We can brute force the placement of this X-omino in the RxC grid (NOTE: We have to try the CxR grid too, we elaborate on the reasons to take the CxR grid in a subsequent paragraph). If it is impossible to place the X-omino (e.g. if the width of the X-omino is bigger than C) in either the RxC grid or the CxR grid then we trivially say that Richard wins for that particular X-omino. If it is possible to place the X-omino in a particular location, we still need to check whether it is possible for Gabriel to win. Let’s see some examples. Suppose that the X-omino Richard chose is the following.
+</p>
+<pre>
+.##
+##.
+</pre>
+<p>
+and we are given a 2x4 grid. In that case, we can place the X-omino in the following two configurations.
+</p>
+<pre>
+.##.
+##..
+</pre>
+<p>
+or
+</p>
+<pre>
+..##
+.##.
+</pre>
+<p>
+We notice that in both configurations, the X-omino has divided the grid into two connected components of &#39;.&#39; of size 1 and 3. Well, we had mentioned earlier in the section &quot;Available cells is a multiple of X&quot; that such configurations imply Gabriel will always lose.
+</p>
+<p>
+In fact, after placing a X-omino if it results in connected components of size M where all such M is a multiple of X, then we can say that Gabriel wins with that X-omino placed at that particular location.
+</p>
+<p>
+As another example, if we use the following 4-omino:
+</p>
+<pre>
+##
+##
+</pre>
+<p>
+and we are given a 2x6 grid, and if we placed the 4-omino as follows:
+</p>
+<pre>
+.##...
+.##...
+</pre>
+<p>
+then it is not possible for Gabriel to win (there are two connected regions of size 2 and 6, and 2 and 6 are not multiples of 4). But if we placed the 4-omino as follows:
+</p>
+<pre>
+##....
+##....
+</pre>
+<p>
+or 
+</p>
+<pre>
+..##..
+..##..
+</pre>
+<p>
+Then in both configurations we say that Gabriel wins (in the first case, there is one connected component of size 8, and 8  is multiple of 4; in the second case, there are two connected components of size 4 each, and 4 is a multiple of 4).
+</p>
+<p>
+As mentioned in an earlier paragraph, we try the CxR grid too. The reason is because we have to check for a 90 degree rotation of the X-omino that Richard selected. Remember, Gabriel can rotate or reflect the X-omino when initially placing it on the grid. Instead of rotating the X-omino, we can instead just rotate the grid! Therefore it suffices to check if we can fill a RxC grid, or a CxR grid with that X-omino. Note that we don&#39;t need to consider all possible reflections and rotations of the X-omino because because in grid space, things are symmetric therefore it suffices to check for both the RxC and CxR grid.
+</p>
+<p>
+Therefore to generalize it, after placing the selected X-omino at a particular place, we can check the sizes of the edge-connected &#39;.&#39; components, and if all such components have size M is a multiple of X, then it means that we can always fill the M space with M/X X-ominoes. In such a case, we say that that particular grid configuration is one for which Gabriel can win. An explanation of this winning condition for our brute force solution is based off the conclusion that we arrive at from the &quot;Alternative solution&quot; presented below.
+<p>
+<h3>Alternative solution</h3>
+<p>
+The alternative solution involves careful analysis of various cases. Let <b>S</b> = min(R, C) and <b>L</b> = max(R, C) so that S&lt;=L. Suppose that the grid dimensions are SxL (if the dimensions are LxS, the grid can be rotated without affecting the win conditions).
+</p>
+<p>
+Richard can force a win if any of the following conditions hold; otherwise Gabriel will win.
+</p>
+<ol>
+    <li>X does not divide S*L,</li>
+    <li>X=3 and S=1,</li>
+    <li>X=4 and S&lt;=2,</li>
+    <li>X =5 and either (i) S&lt;=2 or (ii) (S, L) = (3, 5),</li>
+    <li>X=6 and S&lt;=3,</li>
+    <li>X&gt;=7.</li>
+</ol>
+<p>
+We have already explained (1) and (6) in the previous paragraphs. For (2), (3), (4i), (4ii) and (5), Richard can choose the following pieces and always guarantee a win:
+</p>
+<p>
+(2)
+</p>
+<pre>
+#.
+##
+</pre>
+<p>
+It is impossible for Gabriel to fit the above piece in a grid with S=1. Similar explanation follows for the following two cases.
+</p>
+<p>
+(3)
+</p>
+<pre>
+###
+.#.
+</pre>
+<p>
+For the above piece, when the grid has S=2 notice that it will divide the &#39;.&#39; cells into two connected regions and that it is impossible for these regions to have a size which is a multiple of 4. It is impossible for Gabriel to fit the above piece in a grid with S=1.
+</p>
+<p>
+(4i)
+</p>
+<pre>
+#..
+##.
+.##
+</pre>
+<p>
+Similar to the above cases, it is impossible for Gabriel to fit the above piece in a grid with S&lt;=2.
+</p>
+<p>
+(4ii) For this case, Richard can use the same piece as used in (4i). By trying all possibilities, one can see that it is impossible for Gabriel to win with X=5 and a 3x5 grid.
+</p>
+<pre>
+#....  .#...  ..#..
+##...  .##..  ..##.
+.##..  ..##.  ...##
+</pre>
+<p>
+(5)
+</p>
+<pre>
+.#..
+####
+.#..
+</pre>
+<p>
+A similar explanation follows for the above piece as the explanation for (3).
+</p>
+<p>
+For all combinations of X, S and L not satisfied by the above condition, Gabriel will win. We provide here an explanation for the X=6 case, and leave the other cases as an exercise. Let&#39;s consider the 4x6 grid, which is the smallest grid for which S&gt;3 and S*L is a multiple of X. We show below Gabriel&#39;s strategy for filling the 4x6 grid, and then generalize for cases where the grid is bigger than 4x6.
+</p>
+<p>
+First off, we point out that for a 6-omino, there are only &lt;a href="http://en.wikipedia.org/wiki/Hexomino" &gt;35 choices</a>. In fact, listed below are the number of choices for each X-omino:
+<ul>
+    <li>1-omino, 1 choice,</li>
+    <li>2-omino, 1 choice,</li>
+    <li>3-omino, 2 choices,</li>
+    <li>4-omino, <a href="http://en.wikipedia.org/wiki/Tetromino" target="_blank">5 choices</a>,</li>
+    <li>5-omino, <a href="http://en.wikipedia.org/wiki/Pentomino" target="_blank">12 choices</a>.</li>
+</ul>
+</p>
+<p>
+Since the 6-omino only has 35 choices, we list out below a case-by-case analysis of the 35 choices that Richard can make, and Gabriel&#39;s strategy for filling up the rest of the cells to guarantee a win for himself. &#39;#&#39; denotes the original piece that Richard chooses while &#39;a&#39;, &#39;b&#39;, and &#39;c&#39; are 6-ominoes that Gabriel chooses.
+</p>
+<pre>
+######   a#####   a#####   a#####   ####cc   ##abbb   ##abbb
+aaaaaa   aaaaa#   aaaa#c   abb#cc   aab##c   ##abbb   #aabbb
+bbbbbb   bbbbbb   abbbbc   aabbcc   aabbcc   #aaccc   ##accc
+cccccc   cccccc   bbcccc   aabbcc   aabbbc   #aaccc   #aaccc
+
+##abbb   #aabbb   ###bbb   #aaaaa   #aaaaa   aaa#bb   aa#bbb
+#aabbb   ##abbb   #aabbb   ###cca   ####ca   a####b   a####b
+#aaccc   ##accc   #aaccc   #ccccb   #ccccc   aacc#b   aaac#b
+##accc   #aaccc   #aaccc   #bbbbb   bbbbbb   ccccbb   cccccb
+
+a#bbbb   aa#bbb   aa#bbb   a###bb   ###bbb   ###bbb   ###bbb
+a####b   a####b   a####b   aaa##b   #a##bb   aa###b   a###bb
+aacc#b   aaa#bb   aa#ccb   acc#bb   aaaccb   aacccb   aaaccb
+aacccc   cccccc   accccb   accccb   aacccc   aacccb   aacccc
+
+###aaa   aaa#bb   aaa###   aa#bbb   ###bbb   ###bbb   aaaaaa
+###aaa   a###bb   aaab##   a###bb   aa#bbb   aa##bb   ###bbb
+cccbbb   aac##b   bbbb#c   aaa##b   aa##cc   aaa#cb   #c#bbb
+cccbbb   cccccb   bccccc   cccccc   aacccc   accccc   #ccccc
+
+aaaaab   aabbbb   ##bbbb   aaaaaa   aaaaab   aaaabb   ##aaaa
+#a#cbb   a#b#bc   a###bb   #bbbbc   a#bbbb   aa#cbb   c##aab
+###cbb   a###cc   aaa#cc   ##bbcc   ###ccb   ###cbb   cc##bb
+#ccccb   aa#ccc   aacccc   ###ccc   ##cccc   ##cccc   cccbbb
+
+</pre>
+<p>
+Whew, that was a lot of cases! Clearly, Gabriel will always win with a 4x6 grid and any 6-omino that Richard chooses.
+</p>
+<p>
+We now explore the case when the grid is bigger for X=6. Let&#39;s pick the 6x8 grid. To win in such cases, Gabriel can use the following strategy. Gabriel can use the top-left corner of the board to place the piece that Richard chooses so that he can complete a 4x6 portion similar to the manner described in the 35 cases above. Then Gabriel can label the remaining cells using a <a href="http://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank">Hamiltonian path</a> (with cells as vertices, and adjacent cells as neighbors). &#39;Z&#39; denotes the 4x6 portion on the top-left corner of the grid, and the rest is filled with a sequence of &#39;a&#39;-&#39;x&#39; which denotes the Hamiltonian path. In this case, Gabriel can start the path from the top-right corner and &#39;snake&#39; back and forth. In general, depending on the parity of the number of rows of the &#39;Z&#39; region (let&#39;s call the number of these rows T), Gabriel can start from the top-right (when T is even), or from the cell adjacent to the top-right corner of the Z-region (when T is odd) then &#39;snake&#39; back and forth to fill the rest of the cells.
+</p>
+<pre>
+ZZZZZZba
+ZZZZZZcd
+ZZZZZZfe
+ZZZZZZgh
+ponmlkji
+qrstuvwx
+</pre>
+<p>
+Observe that the cells &#39;a&#39;-&#39;x&#39; forms a chain. We can simply chop off this chain into sizes of 6 each (i.e. a 6-omino!). This way, Gabriel can win for X=6 and grids that are bigger than 4x6.
+</p>
+<p>
+Similar to above, we can list out cases for the other X-ominoes, which we leave as an exercise.
+</p>
+
+<p>Here is a sample implementation in Python:
+
+<pre>
+def richard_wins(X, R, C):
+  S = min(R, C)
+  L = max(R, C)
+  if (S * L) % X != 0: return True
+  if X == 3 and S == 1: return True
+  if X == 4 and S &lt;= 2: return True
+  if X == 5 and (S &lt;= 2 or (S, L) == (3, 5)): return True
+  if X == 6 and S &lt;= 3: return True
+  if X &gt;= 7: return True
+  return False
+
+for tc in range(input()):
+  X, R, C = map(int, raw_input().split())
+  print "Case #%d: %s" % (tc + 1,
+    "RICHARD" if richard_wins(X, R, C) else "GABRIEL")
+</pre>
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,459 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - World Finals</h3><h1>Board Meeting</h1><h3>Problem</h3>
+<p>
+  <i>Note that it is not necessary to know anything about the rules of chess to
+    solve this problem.</i>
+</p>
+<p>
+  There are N kings on an infinite chessboard (two-dimensional grid), located
+  in cells with coordinates (X<sub>1</sub>, Y<sub>1</sub>),
+  (X<sub>2</sub>, Y<sub>2</sub>), ..., (X<sub>N</sub>, Y<sub>N</sub>). Both
+  N and the kings' coordinates are unknown to you. However, you do know the
+  following things:
+</p>
+<ul>
+  <li>N is at least 1 and at most <b>N<sub>max</sub></b>.</li>
+  <li>No king's coordinates (X or Y) have an absolute value exceeding
+    <b>M</b>.</li>
+  <li>The N kings are located in N different cells.</li>
+</ul>
+<p>
+  The kings want to meet in a single cell of the board. If some cell (X, Y)
+  were to be chosen as the meeting cell, then in order to get there, the i-th
+  king would use a number of moves equal to the maximum of the absolute values
+  of the differences of coordinates between its cell and the meeting cell:
+  max(|X-X<sub>i</sub>|,|Y-Y<sub>i</sub>|). The total number of moves used by
+  all kings is thus equal to the sum of those maximums over all values of i.
+  Note that it is not relevant to this problem exactly how the kings move on
+  the board &mdash; only the source and destination cells matter, and the
+  number of moves can always be computed using the above formula.
+</p><p>
+  This problem has two phases. In the first phase, you may repeatedly do the
+  following: propose a meeting location (A, B) (with each of A and B between
+  -10&times;<b>M</b> and 10&times;<b>M</b>, inclusive), and have the judge tell
+  you the total number of moves the kings would use to get there &mdash; the
+  sum (over all i) of max(|X<sub>i</sub>-A|,|Y<sub>i</sub>-B|). You can have at
+  most <b>R</b> such exchanges with the judge, choosing your values of A and
+  B each time. Note that the kings do not actually move, so their locations
+  (X<sub>i</sub>, Y<sub>i</sub>) stay the same for all requests within one test
+  case.
+</p><p>
+  In the second phase, the roles are swapped: the judge gives you a meeting
+  cell location (C, D) (with each of C and D between -10&times;<b>M</b> and
+  10&times;<b>M</b>, inclusive), and you must respond with the total number of
+  moves the kings would use to get there, assuming that the kings are in the
+  same locations as in the first phase. There are at most <b>R</b> such
+  exchanges, and you must correctly respond to all of the judge's requests.
+</p>
+
+<h3>Input and output</h3>
+<p>
+  This is an interactive problem. You should make sure you have read the
+  information in the Interactive Problems section of our
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq">FAQ</a>.
+</p>
+<p>
+  Initially, your program should read a single line containing four integers
+  <b>T</b>, <b>N<sub>max</sub></b>, <b>M</b> and <b>R</b>: the number of test
+  cases, the maximum number of kings, the maximum absolute value for any
+  coordinate for any king, and the maximum number of requests per phase,
+  respectively. (Note that the values of <b>M</b> and <b>R</b> are fixed,
+  and are provided as input only for convenience; see the Limits section for
+  more details.) Then, you need to process <b>T</b> test cases.
+</p><p>
+  In each test case, there are two phases. In the first phase, the i-th exchange
+  is as follows:
+</p>
+<ul>
+  <li>Your program sends one line containing two integers A<sub>i</sub> and
+    B<sub>i</sub>, representing the x and y coordinates of a cell.
+    <ul>
+      <li>Both A<sub>i</sub> and B<sub>i</sub> must be between
+        -10&times;<b>M</b> and 10&times;<b>M</b>, inclusive.</li>
+    </ul>
+  </li>
+  <li>The judge responds with one line containing a single integer: the total
+    number of moves the kings need to use to get from their unknown locations to
+    your cell.</li>
+</ul>
+<p>
+  You may initiate at most <b>R</b> such exchanges in this phase. If you make
+  more than <b>R</b> exchanges, or send a request that the judge can not parse
+  or is out of bounds, the judge responds with one line with a single string
+  <code>ERROR</code>.
+</p><p>
+  To end the first phase and switch to the second phase, you must send one line
+  with the string <code>READY</code> (the case does not matter), to which the
+  judge responds with the first request of the second phase.
+</p><p>
+  In the second phase, the i-th exchange is as follows:
+</p>
+<ul>
+  <li>The judge sends one line containing two integers <b>C<sub>i</sub></b> and
+    <b>D<sub>i</sub></b>, representing the x and y coordinates of a cell.
+    <ul>
+      <li>Each of C<sub>i</sub> and D<sub>i</sub> will be between
+        -10&times;<b>M</b> and 10&times;<b>M</b>, inclusive.</li>
+    </ul>
+  </li>
+  <li>Your program must respond with one line containing a single integer: the
+    total number of moves the kings would need to use to get to the given
+    cell.</li>
+</ul>
+<p>
+  The judge is guaranteed to send at least 1 and at most <b>R</b> such
+  requests. If you send an answer that is incorrect or unparseable, the judge
+  responds with <code>ERROR</code> as described above. If you answer all of the
+  requests correctly, the judge sends one line with a single string
+  <code>DONE</code>, at which point your program should initiate the next
+  test case, or terminate with no error if all <b>T</b> test cases have been
+  handled.
+</p><p>
+  After the judge sends a line with <code>ERROR</code>, it does not send any
+  other output. If your program continues to wait for the judge after receiving
+  <code>ERROR</code>, your program will time out, resulting in a Time Limit
+  Exceeded error. Notice that it is your responsibility to have your program
+  exit in time to receive a Wrong Answer judgment instead of a Time Limit
+  Exceeded error. As usual, if the memory limit is exceeded, or your program
+  gets a runtime error, you will receive the appropriate judgment.
+</p><p>
+  The number and location of the kings, as well as the number and positions of
+  the requests that the judge sends during the second phases, are chosen before
+  any exchanges occur.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 60 seconds per test set.<br/>
+  <i>Note that a program that just makes valid exchanges with the judge (and
+    does no other processing) takes the following time in our environment:
+    ~13 seconds for C++, ~24 seconds for Java, ~19 seconds
+    for Python and Go.</i><br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 15.<br/>
+  <b>M</b> = 10<sup>6</sup>.<br/>
+  -<b>M</b> &le; X<sub>i</sub> &le; <b>M</b>, for all i.<br/>
+  -<b>M</b> &le; Y<sub>i</sub> &le; <b>M</b>, for all i.<br/>
+  The pairs (X<sub>i</sub>, Y<sub>i</sub>) are distinct.<br/>
+  -10&times;<b>M</b> &le; <b>C<sub>i</sub></b> &le; 10&times;<b>M</b>,
+    for all i.<br/>
+  -10&times;<b>M</b> &le; <b>D<sub>i</sub></b> &le; 10&times;<b>M</b>,
+    for all i.<br/>
+  <b>R</b> = 1000.<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>N<sub>max</sub></b> = 1.<br/>
+</p>
+
+<h4>Test set 2 (Hidden)</h4>
+<p>
+  <b>N<sub>max</sub></b> = 10.<br/>
+</p>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+<h3>Sample Interaction</h3>
+<p>
+  Note that the following sample interaction is for test set 1, in which there
+  is always exactly one king.
+</p>
+<pre>
+  // Suppose that the judge has decided that in the first test case, the king
+  // is at the coordinates (1, -2), and the requests will be (5, -1) and
+  // (7, 7).
+  t, nmax, m, r = readline_int_list()   // Reads 10 1 1000000 1000
+  // Our solution decides (for whatever reason) to check (3, 3) first.
+  printline 3 3 to stdout
+  flush stdout
+  result = readline_int()               // Reads 5
+  // Our solution now decides (for whatever reason) to check (2, 0).
+  printline 2 0 to stdout
+  flush stdout
+  result = readline_int()               // Reads 2
+  // Our solution concludes that the king is at (3, -2), which is consistent
+  // with the observed information so far, but unfortunately not correct.
+  // Our solution moves on to the request phase.
+  printline READY to stdout
+  request_line = readline()             // Reads 5 -1
+  printline 2 to stdout                 // Wrong answer!
+  request_line = readline()             // Reads ERROR
+  exit                                  // exits to avoid an ambiguous TLE error
+</pre>
+
+    </div>
+  </body>
+</html>

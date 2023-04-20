@@ -1,0 +1,423 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2019 - Round 3</h3><h1>Analysis: Napkin Folding</h1><h3>Test Set 1</h3>
+<p>
+  For Test Set 1, we want to find exactly one folding segment such that when we
+  fold the napkin across the segment, the regions on either side of the segment line up perfectly.
+  Because the folding segment must split the napkin into two symmetric regions,
+  we can show that each of the folding segment's endpoints either coincides with
+  a vertex of the polygon defining the napkin, or is the midpoint of an edge of
+  the polygon. If we tried to make a folding segment connecting any
+  other points, the two parts of the split edge could not possibly line up perfectly. Thus, all we
+  need to do is try every line segment connecting any pair of points that are
+  vertices or midpoints of the polygon's edges. Then, for each potential folding
+  segment, we check whether it is valid by making sure it is fully contained within
+  the polygon and that the two regions it creates are symmetric across the
+  folding line segment.
+</p><p>
+  <a href="https://en.wikipedia.org/wiki/Intersection_(Euclidean_geometry)#Two_line_segments">Checking for intersections between line segments</a> can be
+  done by using only integers.
+  <a href="https://en.wikipedia.org/wiki/Reflection_(mathematics)#Reflection_across_a_line_in_the_plane">Reflecting points across a line</a>
+  or taking the midpoint of a side normally
+  could produce points with non-integer coordinates. But we can scale up our points
+  initially such that if the reflection were to produce a point with non-integer coordinates,
+  it could not possibly be one of the valid endpoints for folding line segments. Of course, we can
+  also choose to work with fractions.
+</p><p>
+  With <b>N</b> points in our polygon, we have 2&times;<b>N</b>
+  points to choose from for our folding segment's endpoints. Each potential
+  folding segment can be checked in O(<b>N</b>) time. Because there are
+  O(<b>N</b><sup>2</sup>) possible segments to check, this results in an
+  O(<b>N</b><sup>3</sup>) overall time complexity.
+</p><p>
+  Note that in order to check for symmetry across a folding segment, we cannot
+  just check that the sets of vertices of the polygons defining each region are
+  symmetrical. Rather, we must show that for every edge of the polygon of one
+  region, there exists exactly one edge in the polygon defining the second
+  region which is symmetric across the folding line segment. In other words, the order in
+  which the points appear on each side matters.
+</p><p>
+  Finally, we can note that if a given line is indeed an axis of symmetry of the polygon,
+  then it is guaranteed that it doesn't intersect the polygon more than twice. This means
+  that we don't need an explicit check in the code for the folding segment not to intersect
+  the polygon outside its endpoints. A similar simplification can be applied to the solution of
+  Test set 2, coming up next.
+</p>
+
+<h3>Test Set 2</h3>
+<p>
+  Since we want to draw a neat folding pattern of <b>K</b>-1 non-intersecting
+  line segments, we must partition our napkin into <b>K</b> regions of identical
+  size and shape, all of which are symmetric with other regions sharing common line
+  segments. Each of these <b>K</b> regions is a polygon with edges that are made up of folding
+  line segments and/or edges or parts of edges from the polygon defining the napkin. It can be
+  shown that at least two of these regions are only adjacent to one line segment
+  in our folding pattern, with the other edges that define the region's polygon
+  coming from the original polygon. Let's call these regions <i>corner regions</i>.
+</p><p>
+  If we have a corner region, we can reflect that region across its one folding
+  line segment to find the region that must be adjacent to it. If we keep
+  reflecting these regions across the edges of their polygons, being careful not
+  to create intersecting regions or leave the polygon defining the napkin, we
+  can reconstruct the neat folding pattern. Thus, every neat folding pattern can
+  be uniquely defined by just one folding line segment connecting two points on
+  the border of the polygon defining the napkin. That segment cuts off a corner
+  region which can be successively reflected to give us the entire folding
+  pattern.
+</p><p>
+  We need to consider pairs of points on the napkin's border defining a folding line segment.
+  For a given candidate folding line segment,
+  we can successively reflect the corner region we form to get the full
+  folding pattern. If we use more than <b>K</b>-1 reflections, or, if after we finish
+  reflecting we don't end up creating the original polygon, we know that the
+  chosen line segment does not give us a neat folding pattern.
+</p><p>
+  Now all that remains is to select all pairs of points on the napkin's border.
+  Clearly we cannot test every pair of points with rational coordinates, because
+  there are infinitely many such points. Rather, we can show that the endpoints of the line
+  segments in our neat folding pattern must be either vertices or points on
+  the polygon's edges that are X/Y of the way between consecutive vertices, where
+  1 &le; X &le; Y-1 and 2 &le; Y &le; <b>K</b> (the proof for this is below).
+  Therefore, we can create all of
+  these candidate points and check every pair. With <b>K</b> &le; 10 and
+  <b>N</b> &le; 200, there are at most 6400 candidate points for the vertices of
+  the line segments in our neat folding pattern. This puts an upper bound of
+  6400<sup>2</sup> on the number of pairs that we might need to check. But, we can reduce this
+  significantly by only considering pairs which create a corner region with an
+  <a href="https://en.wikipedia.org/wiki/Polygon#Area">area</a>
+  equal to 1/<b>K</b> of the napkin's area. Every point can pair with at
+  most 2 other points to create a line segment which is fully within the polygon
+  and splits off a corner region with the proper area. Therefore, we only need
+  to check these pairs.
+</p><p>
+  We can check if a single line segment from a pair of points gives us a valid
+  folding pattern in O(<b>N</b>) time if we are careful to stop once a
+  reflection creates a point which is not on the border of one of our polygon's
+  line segments. We can precompute all the valid points and use a
+  <a href="https://en.wikipedia.org/wiki/Hash_table">hash table</a> for this
+  check. Because all of the points are of the form X/Y &times; p, where p is a point
+  with integer coordinates and Y is between 2 and <b>K</b>, we can multiply
+  everything by <a href="https://en.wikipedia.org/wiki/Least_common_multiple">lcm</a>(2, 3, ..., <b>K</b>) at the beginning and then work in integers,
+  dividing and simplifying fractions only for the output.
+</p><p>
+  To summarize, the algorithm requires these steps:
+</p><ul>
+  <li>1. Compute all possible endpoints. (O(<b>N</b> &times; <b>K</b><sup>2</sup>))</li>
+  <li>2. Find candidate segments to create a corner region. (O(<b>N</b> &times; <b>K</b><sup>2</sup>)).</li>
+  <li>3. For each candidate, fold it up to <b>K</b>-1 times, checking that everything is valid.</li>
+</ul><p>
+There are up to O(<b>N</b> &times; <b>K</b><sup>2</sup>) possible endpoints. If we fix one endpoint
+P and iterate the other, we can compute the area as we advance, finding the up to 2 segments that
+have an endpoint in P in O(<b>N</b> &times; <b>K</b><sup>2</sup>) time. So step 2 takes
+O(<b>N</b><sup>2</sup> &times; <b>K</b><sup>4</sup>) time in total. For step 3, each unfolding
+requires reflecting the current region and finding new folding segments. All of that is linear in
+the size of the region, and the sum over the sizes of all regions is at most the total number
+of endpoints plus 2 &times; <b>K</b> shared ones,
+so this takes O(<b>N</b> &times; <b>K</b><sup>2</sup>) time overall. Putting it all
+together, the algorithm takes O(<b>N</b><sup>2</sup> &times; <b>K</b><sup>4</sup>) time in total.
+It is possible to make it significantly more efficient than that, but the implementation is
+complicated enough as it is.
+</p>
+<h3>Appendix</h3>
+<p>To prove that all folding segments endpoints are X/Y of the way between consecutive vertices for
+1 &le; X &le; Y-1 and 2 &le; Y &le; <b>K</b>,
+we can prove that the number of folding segments that are incident on a non-vertex point of the
+input polygon is odd or zero. If that's true, let P be an endpoint and Q and R be the two vertices
+and/or folding segment endpoints that are closest to P towards each side over the same polygon
+edge E as P. Then, by reflection PQ and PR are equal. By repeating this over E we can see that
+E is divided into equal length sections by every point that is a folding segment endpoint.
+</p><p>
+Now we prove that the number of incident folding segments in a non-vertex point of the polygon is
+odd or zero. Assume that P is a point over an edge E of the polygon with
+I &gt; 1 of incident folding segments. Let Q<sub>i</sub> for i = 1, 2, ..., I
+be the non-P endpoints of each of those segments, in clockwise order. Let Q<sub>0</sub> be the
+reflection of Q<sub>2</sub> across PQ<sub>1</sub> and Q<sub>I+1</sub> the reflection of
+Q<sub>I-1</sub> across PQ<sub>I</sub>. Notice both those points have to be on E. Now, the I+1
+angles Q<sub>i</sub>Q<sub>i+1</sub> for i = 0, 1, ..., I are all equal. Let R<sub>i</sub> be the
+reflection of Q<sub>i</sub> across E. Now, because Q<sub>i</sub> must reflect onto Q<sub>i+2</sub>,
+the length of PQ<sub>0</sub>, PQ<sub>2</sub>, PQ<sub>4</sub>, ..., PQ<sub>I</sub> are all equal,
+and equal to the lengths of PR<sub>2</sub>, PR<sub>4</sub>, ..., PR<sub>I</sub>. Since the angles
+between two consecutive segments of those are also all equal,
+Q<sub>0</sub>Q<sub>2</sub>Q<sub>4</sub>...Q<sub>I</sub>R<sub>I</sub>R<sub>I-2</sub>...R<sub>2</sub>
+is a regular polygon. All points have rational coordinates because they
+are either input points, endpoints of folding segments, or reflections calculated from other
+points with rational coordinates. It is known that the only regular polygon whose vertices have
+rational coordinates in 2 dimensions is the square, which means
+I / 2 + 1 + I / 2 = 4, which implies I = 3 is odd.
+</p><p>
+The following picture illustrates the above proof for the case I = 4. P is the point in the center,
+and line segments of the same color are guaranteed to be of the same length.
+</p>
+<svg width="400" height="300" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<path d="M80.000 150.000L156.008 45.384L278.992 85.344L278.992 214.656L156.008 254.616Z" fill="none" stroke="#24C1E0" stroke-width="2" />
+<path d="M190.000 150.000L80.000 150.000M190.000 150.000L156.008 45.384M190.000 150.000L278.992 85.344M190.000 150.000L278.992 214.656M190.000 150.000L156.008 254.616" fill="none" stroke="#1A73E8" stroke-width="3" />
+<path d="M190.000 150.000L80.783 70.649M190.000 150.000L231.717 21.607M190.000 150.000L325.000 150.000M190.000 150.000L231.717 278.393M190.000 150.000L80.783 229.351" stroke="#EA4335" stroke-width="2" fill="none" />
+<style>.label { font: 18px Arial, sans-serif; }.s { font-size: 14px; }</style><text color="#202124" x="11.000" y="155.000" class="label">R<tspan baseline-shift="-4" class="s">0</tspan> = Q<tspan baseline-shift="-4" class="s">0</tspan></text>
+<text color="#202124" x="54.602" y="63.893" class="label">Q<tspan baseline-shift="-4" class="s">1</tspan></text>
+<text color="#202124" x="129.918" y="35.873" class="label">Q<tspan baseline-shift="-4" class="s">2</tspan></text>
+<text color="#202124" x="238.717" y="29.607" class="label">Q<tspan baseline-shift="-4" class="s">3</tspan></text>
+<text color="#202124" x="286.992" y="85.344" class="label">Q<tspan baseline-shift="-4" class="s">4</tspan></text>
+<text color="#202124" x="331.000" y="155.000" class="label">Q<tspan baseline-shift="-4" class="s">5</tspan> = R<tspan baseline-shift="-4" class="s">5</tspan></text>
+<text color="#202124" x="288.992" y="219.656" class="label">R<tspan baseline-shift="-4" class="s">4</tspan></text>
+<text color="#202124" x="238.717" y="276.393" class="label">R<tspan baseline-shift="-4" class="s">3</tspan></text>
+<text color="#202124" x="146.901" y="276.491" class="label">R<tspan baseline-shift="-4" class="s">2</tspan></text>
+<text color="#202124" x="62.175" y="242.870" class="label">R<tspan baseline-shift="-4" class="s">1</tspan></text>
+</svg><p>
+A consequence of this proof is that for any non-vertex point on the original polygon,
+it must be adjacent to exactly 0, 1 or 3 folding line segments.
+</p>
+
+    </div>
+  </body>
+</html>

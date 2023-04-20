@@ -1,0 +1,496 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2017 - Qualification Round</h3><h1>Analysis: Fashion Show</h1><h2>Fashion Show: Analysis</h2>
+<h3>What's really going on here?</h3>
+<p>
+  The somewhat strange scenario presented in this problem disguises a classic
+  type of chess problem in which pieces must be placed so that they do not
+  attack each other. The
+  <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle">eight queens puzzle</a>
+  is one well-known example. Our problem is more complicated, and it involves
+  three types of piece. Let's restate the rules about how the models can
+  interact in more chess-like terms:
+</p>
+<ul>
+  <li>The <code>+</code> models are bishops. Two bishops may not occupy the
+    same diagonal.</li>
+  <li>The <code>x</code> models are rooks. Two rooks may not occupy the same
+    row or column.</li>
+  <li>The <code>o</code> pieces are queens. Two queens may not occupy the same
+    row, column, or diagonal. Moreover, a queen and a bishop may not occupy the
+    same diagonal; a queen and a rook may not occupy the same row or column.
+  </li>
+</ul>
+<p>
+  Observe that our problem does not accord with typical chess rules about
+  "attacks". For example, in our problem, it is fine for a rook and a bishop to
+  share the same row or column. Also, unlike in chess, a piece between two
+  pieces does not prevent them from "attacking" each other. For example, we do
+  not allow two bishops to share the same diagonal even if there is a rook
+  between them.
+</p>
+<h3>Decomposing the problem</h3>
+<p>
+  How will we deal with this variety of pieces? The critical insight is that
+  the rook and bishop parts of the problem are independent; we can solve them
+  separately, placing as many new pieces in each subproblem as possible, and
+  then merge the answers together. A queen is just a rook plus a bishop; we can
+  add each pre-placed queen into the rook subproblems as a rook and into the
+  bishop subproblem as a bishop. Then, once the subproblems are solved, we can
+  turn any cell that is occupied in both subproblem solutions back into a
+  queen.
+</p><p>
+  This strategy is guaranteed not to violate any rules. A rook subproblem
+  solution will never have two rooks in the same row or column, and a bishop
+  subproblem solution will never have two bishops on the same diagonal. Merging
+  the two subproblems' solutions may generate new queens, but it is impossible
+  for them to violate any rules, since that would imply a rule violation in one
+  of the subproblems. For example, we do not need to worry that we will end up
+  with a queen and a bishop on the same diagonal, since that would only be
+  possible if our bishop solution had two bishops on the same diagonal.
+</p><p>
+  Moreover, as long as we place as many rooks as possible in the rook
+  subproblem, and as many bishops as possible in the bishop subproblem, we are
+  guaranteed the maximum possible amount of style points for our test case.
+  Since queens are worth 2 points, merging a rook and a bishop into a queen has
+  no effect on our score.
+</p><p>
+  Let's walk through an example. This case:
+</p>
+<code>
+  +..<br>
+  +.o<br>
+  x..<br>
+</code>
+<p>
+  can be decomposed into rook and bishop problems:
+</p>
+<code>
+  ... +..<br>
+  ..x +.+<br>
+  x.. ...<br>
+</code>
+<p>
+  which can be solved independently:
+</p>
+<code>
+  .x. +..<br>
+  ..x +.+<br>
+  x.. +..<br>
+</code>
+<p>
+  and then merged back together. Note that we have replaced the former
+  <code>x</code> model from the lower left corner with an <code>o</code> model.
+</p>
+<code>
+  +x.<br>
+  +.o<br>
+  o..<br>
+</code>
+<h3>Solving the subproblems</h3>
+<p>
+  Now all we need are strategies for the subproblems themselves. The rook
+  problem is straightforward. Each rook removes exactly one row and column from
+  further consideration, so any greedy placement strategy that does not violate
+  the rules will place exactly <b>N</b> rooks.
+</p><p>
+  The bishop subproblem is more challenging. We can approach it differently in
+  the Small and Large datasets.
+</p>
+<h4>Bishops: Small dataset</h4>
+<p>
+  In the Small dataset, any pre-placed pieces are all in the top row. Observe
+  that bishops in the same row or column cannot possibly "threaten" each other,
+  and so we can safely add a bishop to any top row cell that does not already
+  have one. So, if we can come up with a general solution pattern in which the
+  top row is always completely filled with bishops, then we can solve any Small
+  test case, because we can safely turn any pre-placed arrangement into a row
+  packed with bishops.
+</p><p>
+  Once the top row is filled with bishops, where else on the board should we
+  put them? The bottom row is farthest away from the constraints imposed by
+  the top row, and we can try putting a bishop in every bottom-row cell except
+  for the cells on either end (which are "threatened" by the bishops at the two
+  ends of the top row). These bishops do not threaten each other or any top row
+  bishops, so this arrangement is valid, and we have a total of 2<b>N</b>-2
+  bishops. No additional bishops can be added after that, though. Have we
+  really placed as many as possible?
+</p><p>
+  At this point, we can experiment and convince ourselves that this solution
+  is probably optimal. We can also take a leap of faith; for a Small dataset in
+  a Qualification Round, there is little incentive not to submit the solution
+  and see if it is correct. Or, we can come up with a proof. An <b>N</b> by
+  <b>N</b> board has 4<b>N</b>-2 different diagonals. Moreover, the parallel
+  diagonals of length 1 in opposite corner cells can never both be used
+  simultaneously, so there are really only 4<b>N</b>-4 simultaneously usable
+  diagonals. Since placing a bishop uses up two diagonals, 2<b>N</b>-2 is an
+  upper bound on the number of bishops we can place. So, our method is optimal!
+</p><p>
+  We must still take care, though, to handle a pre-placed rook/queen correctly
+  if one is present, and to merge the rook and bishop solutions appropriately,
+  creating queens when necessary. We must also be careful with the 1 by 1
+  board, which has no bottom row distinct from its top row.
+</p><p>
+  It is possible to come up with the same construction without realizing that
+  the problem can be decomposed into rooks and bishops; it is just more
+  difficult to justify the optimality of the construction in that case!
+</p>
+<h4>Bishops: Large dataset</h4>
+<p>
+  One helpful observation is that, just as in a chess game, the "white cell"
+  bishops (in our problem, cells for which <b>R<sub>i</sub></b> +
+  <b>C<sub>i</sub></b> is even) are completely independent of the "black cell"
+  bishops (cells for which that sum is odd). So we can consider these as
+  sub-sub-problems.
+</p><p>
+  You can use a
+  <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)#Bipartite_matching">bipartite matching algorithm</a>
+  to place the bishops optimally. There is, however, a greedy strategy; unlike
+  in the rook subproblem, however, not just any greedy strategy will work!
+</p><p>
+  Let's consider an 8 x 8 board with no pre-placed bishops. We'll look at just
+  the "black" cells of the board, and tilt the board 45 degrees clockwise.
+  (Here, <code>.</code>s represent black cells. The <code>@</code>s do not
+  represent cells &mdash; they are just there to orient the image.)
+</p>
+<code>
+  @@@..@@@<br>
+  @@....@@<br>
+  @......@<br>
+  ........<br>
+  @......@<br>
+  @@....@@<br>
+  @@@..@@@<br>
+</code>
+<p>
+  This new board has an important property: any row is a subset of all rows
+  with more black cells than it. For example, the four black cells in the
+  second row are also present in every row with at least four black cells.
+  This property holds regardless of the value of <b>N</b>, or whether we look
+  at "white" or "black" cells. It even holds as we add bishops! Adding a bishop
+  wipes out one entire row and one entire column &mdash; notice that we have
+  made this more like the rook problem &mdash; and since the remaining rows
+  have all lost the same column, the aforementioned property is unchanged.
+</p><p>
+  The property suggests a greedy strategy: first, sort the rows by the number
+  of available cells. Then, pick a "smallest" row (one with a minimal number of
+  available cells), place a bishop in any column in that row, and wipe out that
+  row and column. This strategy is guaranteed to place an optimally large
+  number of bishops. Suppose that we choose a column C in the smallest row R,
+  and another column C' in some other row R', such that C' is also in R. Then C
+  must also be in R', since all columns in the smallest row are in every other
+  row. We can therefore swap them over, and it is equally valid to choose C' in
+  row R and C in row R'.
+</p><p>
+  One tempting (but incorrect) greedy strategy is to go left to right, top to
+  bottom, and greedily place bishops in all legal places. Here is an example of
+  a board for which that fails.
+</p>
+<code>
+  .@@@@<br>
+  ....@<br>
+  ...@@<br>
+  ..@@@<br>
+  .@@@@<br>
+</code>
+<p>
+  The incorrect greedy strategy will only place three bishops, as follows:
+</p>
+<code>
+  +@@@@<br>
+  .+..@<br>
+  ..+@@<br>
+  ..@@@<br>
+  .@@@@<br>
+</code>
+<p>
+  whereas the correct strategy will place four (here is one optimal placement):
+</p>
+<code>
+  .@@@@<br>
+  ...+@<br>
+  ..+@@<br>
+  .+@@@<br>
+  +@@@@<br>
+</code>
+<p>
+  Notice that although we can always place <b>N</b> rooks, the number of
+  bishops we are able to place depends on the pre-placed bishops. This explains
+  why different test cases with the same value of <b>N</b> might have
+  different maximum scores.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

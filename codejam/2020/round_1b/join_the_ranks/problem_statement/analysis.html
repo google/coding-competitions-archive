@@ -1,0 +1,358 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 1B</h3><h1>Analysis: Join the Ranks</h1><h3>Test Set 1</h3>
+<p>
+  Test set 1 contains the 12 possible inputs allowed by the limits. We can try to solve the problem
+  via a
+  <a href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">breadth-first search</a> (BFS),
+  on the graph of states, where a state is the current arrangement of cards in the deck. Notice,
+  however, that cases with 14 total cards would yield an enormous graph and make the solution run
+  too slowly &mdash; probably even too slowly for us to run the code locally to precompute answers
+  that we can then hardcode!
+</p><p>
+  However, one observation will help us: since the success condition does not involve the suits of
+  the cards at all, we can ignore them and work only with the ranks. That dramatically cuts down
+  the number of possible states, by going from
+  (<b>R</b> &times; <b>S</b>)! to (<b>R</b> &times; <b>S</b>)! / ((<b>S</b>!)<sup><b>R</b></sup>).
+  This allows a BFS to finish fast enough for this test set. We can also use this observation while
+  solving the next test set...
+</p>
+<h3>Test Set 2</h3>
+<p>
+  For test set 2, the worst case (<b>R</b>=40, <b>S</b>=40) has around 1.8 x 10<sup>2517</sup>
+  unique orderings. This means that the brute force solution will not work.
+</p><p>
+  Our first important observation is that the reordering operation can decrease the
+  number of adjacent cards of different ranks by at most two. In the starting configuration
+  there are (<b>R</b> &times; <b>S</b>)-1 adjacent cards of different ranks. In the ending
+  configuration there are <b>R</b>-1 adjacent cards of different ranks. So to get from
+  (<b>R</b> &times; <b>S</b>)-1 to <b>R</b>-1 we need at least
+  ceil((<b>R</b> &times; <b>S</b> - <b>R</b>) / 2) operations.
+</p><p>
+  Now that we know ceil((<b>R</b> &times; <b>S</b> - <b>R</b>) / 2) is a lower bound on the answer,
+  if we can come up with a method that is guaranteed to use no more than
+  ceil((<b>R</b> &times; <b>S</b> - <b>R</b>) / 2) steps, then it will always produce a valid
+  answer.
+</p><p>
+  Now we will outline a way to sort the cards using exactly that many operations. The invariant we
+  maintain is that at all times, for the ranks X and Y of any two consecutive cards, either Y = X,
+  or Y = (X + 1) mod <b>R</b>. This is of course true for the initial ordering of the deck.
+</p><p>
+  We repeatedly perform the following operation, as long as the number of adjacent pairs of cards
+  of the same rank is less than <b>R</b> - 1 and the operation would not pick up the bottom card of
+  the deck: find the largest block of consecutive cards from the top that contains exactly 2
+  different ranks to use as pile A. By the invariant, this will be one or more cards with rank X,
+  followed by one or more cards with rank (X+1) mod <b>R</b>. Then, starting from the first card
+  from the top that is not on pile A, take as pile B the largest block of consecutive cards that
+  does not contain any cards of rank X, plus all consecutive cards of rank X that immediately
+  follow that block. Notice that at least one such card of rank X must exist; otherwise, by the
+  invariant, the number of adjacent pairs of cards of different ranks would already be <b>R</b>-1.
+</p><p>
+  We can show that this operation reduces the number of adjacent cards of different ranks by 2 every
+  time it does not pick up the bottom card of the deck. To show this, notice that the bottom of pile
+  B is a card of rank X and the first card left over in the deck is, by the invariant,
+  (X + 1) mod <b>R</b>. That means that the new adjacent pairs are two cards of rank X
+  (the bottom of pile B and the top of pile A) and two cards of rank (X + 1) mod <b>R</b>
+  (the bottom of pile A and the top of the leftover deck). The broken adjacent pairs are &mdash;
+  by definition of piles A and B &mdash; both of cards of different rank. Therefore, the number of
+  adjacent pairs of cards of different rank decreases by 2 with this operation.
+</p><p>
+  Suppose that performing the operation would pick up the bottom card of the deck. That means that
+  all cards of rank X are in two contiguous blocks at the top and bottom of the deck before the
+  operation is performed. In addition, since this is the first time the bottom card of the deck is
+  picked up for an operation, X = <b>R</b>. Because of the invariant, that requires every other rank
+  to be in a single contiguous block. In this ordering, there are exactly <b>R</b> adjacent pairs of
+  cards with different ranks. Instead of the operation above, we finish by making pile A consist of
+  the largest block of consecutive cards of rank <b>R</b>, starting at the top, and pile B be the
+  rest of the deck. After performing the operation, <b>R</b> - 1 pairs of adjacent cards of
+  different ranks remain (by a similar argument as before, ignoring the broken and created pairs
+  that involved the leftover deck, since there is none leftover) and the final card of the deck is
+  still <b>R</b>.
+</p><p>
+  After performing the repeated operation floor((<b>R</b> &times; <b>S</b> - <b>R</b>) / 2)
+  times, the number of adjacent pairs of cards of the same rank decreases to <b>R</b> - 1 if
+  <b>R</b> &times; <b>S</b> - <b>R</b> is even or <b>R</b> if it's odd. Notice that the number
+  remains greater than <b>R</b> before each such operation, so we would never have picked up the
+  bottom card of the deck. In the even case, the number of adjacent pairs of cards of the same rank
+  is now minimum and we never picked up the bottom card of the deck, so we are at exactly the target
+  ordering. In the odd case, we arrive at the case in which we do pick up the bottom card of the
+  deck with our last operation, but as argued above, that operation also leaves the deck in the
+  target order.
+</p>
+
+
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

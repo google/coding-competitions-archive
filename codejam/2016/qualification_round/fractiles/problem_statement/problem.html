@@ -1,0 +1,503 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2016 - Qualification Round</h3><h1>Fractiles</h1><h3>Problem</h3>
+<p>
+Long ago, the Fractal civilization created artwork consisting of linear
+rows of tiles. They had two types of tile that they could use: gold
+(<code>G</code>) and lead (<code>L</code>).
+</p><p>
+Each piece of Fractal artwork is based on two parameters: an original sequence
+of <b>K</b> tiles, and a complexity <b>C</b>. For a given original
+sequence, the artwork with complexity 1 is just that original sequence,
+and the artwork with complexity <i>X</i>+1 consists of the artwork with
+complexity <i>X</i>, transformed as follows:
+<ul>
+<li>replace each <code>L</code> tile in the complexity <i>X</i> artwork with
+another copy of the original sequence</li>
+<li>replace each <code>G</code> tile in the complexity <i>X</i> artwork with
+<b>K</b> <code>G</code> tiles</li>
+</ul>
+<p>
+For example, for an original sequence of <code>LGL</code>, the pieces of
+artwork with complexity 1 through 3 are:
+</p>
+<ul>
+<li><b>C</b> = 1: <code>LGL</code> (which is just the original sequence)
+<li><b>C</b> = 2: <code>LGLGGGLGL</code>
+<li><b>C</b> = 3: <code>LGLGGGLGLGGGGGGGGGLGLGGGLGL</code>
+</ul>
+<p>
+Here's an illustration of how the artwork with complexity 2 is generated from
+the artwork with complexity 1:
+</p><p>
+<img src="fractiles.png"/>
+</p><p>
+You have just discovered a piece of Fractal artwork, but the tiles are too
+dirty for you to tell what they are made of. Because you are an expert
+archaeologist familiar with the local Fractal culture, you know the values of
+<b>K</b> and <b>C</b> for the artwork, but you do not know the original
+sequence. Since gold is exciting, you would like to know whether there is at
+least one <code>G</code> tile in the artwork. Your budget allows you to hire
+<b>S</b> graduate students, each of whom can clean one tile of your choice (out
+of the <b>K</b><sup><b>C</b></sup> tiles in the artwork) to see whether the
+tile is <code>G</code> or <code>L</code>.
+</p>
+<p>
+Is it possible for you to choose a set of no more than <b>S</b> specific tiles
+to clean, such that <i>no matter what</i> the original pattern was, you will be
+able to know for sure whether at least one <code>G</code> tile is present in
+the artwork? If so, which tiles should you clean?
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>. <b>T</b>
+test cases follow. Each consists of one line with three integers: <b>K</b>,
+<b>C</b>, and <b>S</b>.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing <code>Case #x: y</code>, where
+<code>x</code> is the test case number (starting from 1) and <code>y</code> is
+either <code>IMPOSSIBLE</code> if no set of tiles will answer your question, or
+a list of between 1 and <b>S</b> positive integers, which are the positions of
+the tiles that will answer your question. The tile positions are numbered from
+1 for the leftmost tile to <b>K</b><sup><b>C</b></sup> for the rightmost tile.
+Your chosen positions may be in any order, but they must all be different.
+</p>
+<p>
+If there are multiple valid sets of tiles, you may output any of them. Remember that
+once you submit a Small and it is accepted, you will not be able to download and submit another
+Small input. See <a href="https://codingcompetitions.withgoogle.com/codejam/faq">the FAQ</a> for a
+more thorough explanation. <b>This reminder won't appear in problems in later rounds.</b>
+</p>
+<h3>Limits</h3>
+<p>
+Time limit: 20 seconds per test set.<br/>
+Memory limit: 1 GB.<br/>
+1 &le; <b>T</b> &le; 100.<br/>
+1 &le; <b>K</b> &le; 100.<br/>
+1 &le; <b>C</b> &le; 100.<br/>
+<b>K</b><sup><b>C</b></sup> &le; 10<sup>18</sup>.
+</p>
+
+<h4>Small dataset (Test Set 1 - Visible)</h4>
+<p>
+<b>S</b> = <b>K</b>.<br/>
+</p>
+
+<h4>Large dataset (Test Set 2 - Hidden)</h4>
+<p>
+1 &le; <b>S</b> &le; <b>K</b>.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="fractiles_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">5
+2 3 2
+1 1 1
+2 1 1
+2 1 2
+3 2 3
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="fractiles_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 2
+Case #2: 1
+Case #3: IMPOSSIBLE
+Case #4: 1 2
+Case #5: 2 6
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<p>
+Note: for some of these sample cases, other valid solutions exist.
+</p><p>
+In sample case #1, there are four possible original sequences: <code>GG</code>,
+<code>GL</code>, <code>LG</code>, and <code>LL</code>. They would produce the
+following artwork, respectively:
+</p>
+<ul>
+<li>Original sequence <code>GG</code>: <code>GGGGGGGG</code>
+<li>Original sequence <code>GL</code>: <code>GGGGGGGL</code>
+<li>Original sequence <code>LG</code>: <code>LGGGGGGG</code>
+<li>Original sequence <code>LL</code>: <code>LLLLLLLL</code>
+</ul>
+<p>One valid solution is to just look at tile #2. If tile #2 turns out to be
+<code>G</code>, then you will know for sure the artwork contains at least one
+<code>G</code>. (You will not know whether the original sequence is
+<code>GG</code>, <code>GL</code>, or <code>LG</code>, but that doesn't matter.)
+If tile #2 turns out to be <code>L</code>, then you will know that the original
+sequence must be <code>LL</code>, so there are no <code>G</code>s in the
+artwork. So <code>2</code> is a valid solution.
+</p><p>
+On the other hand, it would not be valid to just look at tile #1. If it turns
+out to be <code>L</code>, you will only know that the original sequence could
+have been either <code>LG</code> or <code>LL</code>. If the original sequence
+is <code>LG</code>, there is at least one <code>G</code> in the artwork, but if
+the original sequence is <code>LL</code>, there are no <code>G</code>s. So
+<code>1</code> would not be a valid solution.
+</p><p>
+Note that <code>1 2</code> is also a valid solution, because tile #2 already
+provides all the information you need. <code>1 2 3</code> is not a valid
+solution, because it uses too many tiles.
+</p><p>
+In sample case #2, the artwork must consist of only one tile: either
+<code>G</code> or <code>L</code>. Looking at that tile will trivially tell you
+whether or not the artwork has a <code>G</code> in it.
+</p><p>
+In sample case #3, which would not appear in the Small dataset, the artwork
+must be either <code>GG</code>, <code>GL</code>, <code>LG</code>, or
+<code>LL</code>. You can only look at one tile, and neither of them on its own
+is enough to answer the question. If you see <code>L</code> for tile #1, you
+will not know whether the artwork is <code>LG</code> or <code>LL</code>, so you
+will not know whether any <code>G</code>s are present. If you see
+<code>L</code> for tile #2, you will not know whether the artwork is
+<code>GL</code> or <code>LL</code>, so you will not know whether any
+<code>G</code>s are present.
+</p><p>
+Sample case #4 is like sample case #3, but with access to one more tile. Now
+you can just look at the entire artwork.
+</p><p>
+In sample case #5, there are eight possible original sequences, and they would
+produce the following artwork:
+</p><p>
+<ul>
+<li>Original sequence <code>GGG</code>: <code>GGGGGGGGG</code></li>
+<li>Original sequence <code>GGL</code>: <code>GGGGGGGGL</code></li>
+<li>Original sequence <code>GLG</code>: <code>GGGGLGGGG</code></li>
+<li>Original sequence <code>GLL</code>: <code>GGGGLLGLL</code></li>
+<li>Original sequence <code>LGG</code>: <code>LGGGGGGGG</code></li>
+<li>Original sequence <code>LGL</code>: <code>LGLGGGLGL</code></li>
+<li>Original sequence <code>LLG</code>: <code>LLGLLGGGG</code></li>
+<li>Original sequence <code>LLL</code>: <code>LLLLLLLLL</code></li>
+</ul>
+<p>
+One valid solution is to look at tiles #2 and #6. If they both turn out to
+be <code>L</code>s, the artwork must be all <code>L</code>s. Otherwise, there
+must at least one <code>G</code>. Note that <code>1 2</code> would not be a
+valid solution, because even if those tiles both turn out to be <code>L</code>s,
+that does not rule out an original sequence of <code>LLG</code>.
+<code>6 2</code> would be a valid solution, since the order of the positions
+in your solution does not matter.
+</p>
+
+    </div>
+  </body>
+</html>

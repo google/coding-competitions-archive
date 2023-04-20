@@ -1,0 +1,481 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2020 - Round 2</h3><h1>Security Update</h1><h3>Problem</h3>
+<p>
+  The Apricot Rules company just installed a critical security update on its network. The network
+  has one <i>source computer</i>, and all other computers in the network are connected to the
+  source computer via a sequence of one or more direct bidirectional connections.
+</p><p>
+  This kind of update propagates itself: once a computer receives the update for the first time,
+  that computer immediately begins to transmit the update to all of
+  the computers that are directly connected to it. Each of the direct connections has a
+  <i>latency</i> value: the number of seconds needed for that connection to transmit the update
+  (which is the same in either direction). Therefore, the update does not spread to all computers
+  instantly.
+</p><p>
+  The Apricot Rules engineers do not know any of these latency values, but they know
+  that they are all positive integers. They would like your help in figuring out what these latency
+  values could be, based on how they saw the update spread in a recent experiment.
+</p><p>
+  The Apricot Rules engineers installed the update only on the source computer and then waited
+  for it to propagate throughout the system until every computer was updated. They recorded some
+  information about how the update spread. Specifically, for every computer K other than the
+  source computer, you know exactly one of two things.
+</p>
+<ul>
+  <li>
+    The exact time in seconds between the time when the source computer received the update
+    and the time when K first received the update.
+  </li>
+  <li>
+    The number of other computers (including the source computer) that first got the update
+    strictly before K.
+  </li>
+</ul>
+<p>
+  Notice that multiple computers may have received the update at the exact same time.
+</p><p>
+  You are required to compute a latency in seconds for each of the direct connections between two
+  computers. Each latency value must be a positive integer no greater than 10<sup>6</sup>. The set
+  of latencies that you provide must be consistent with all of the known information. It is
+  guaranteed that there is at least one consistent way to assign latencies.
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>. <b>T</b> test cases follow.
+  Each case begins with one line containing two integers <b>C</b> and <b>D</b>: the number of
+  computers and the number of direct connections, respectively. The computers are numbered from 1 to
+  <b>C</b>, with computer 1 being the source computer.
+</p><p>
+  The next line contains <b>C</b>-1 integers <b>X<sub>2</sub></b>, <b>X<sub>3</sub></b>, ...,
+  <b>X<sub>C</sub></b>. A positive <b>X<sub>i</sub></b> value indicates that computer i received
+  the update <b>X<sub>i</sub></b> seconds after computer 1. A negative <b>X<sub>i</sub></b> value
+  indicates that -<b>X<sub>i</sub></b> other computers received the update strictly before computer
+  i; this value includes the source computer.
+</p><p>
+  After that, there are <b>D</b> more lines that represent the <b>D</b> direct connections in the
+  network. The i-th of these lines contains two integers <b>U<sub>i</sub></b> and
+  <b>V<sub>i</sub></b>, indicating that computers <b>U<sub>i</sub></b> and <b>V<sub>i</sub></b>
+  are directly connected to each other.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y<sub>1</sub> y<sub>2</sub> ...
+  y<sub><b>D</b></sub></code>, where <code>x</code> is the test case number (starting from 1) and
+  <code>y<sub>i</sub></code> is a positive integer not more than 10<sup>6</sup> representing the
+  latency, in seconds, assigned to the i-th direct connection.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 20 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  2 &le; <b>C</b> &le; 100.<br/>
+  <b>C</b> - 1 &le; <b>D</b> &le; 1000.<br/>
+  1 &le; <b>U<sub>i</sub></b> &lt; <b>V<sub>i</sub></b> &le; <b>C</b>, for all i.<br/>
+  (<b>U<sub>i</sub></b>, <b>V<sub>i</sub></b>) &ne; (<b>U<sub>j</sub></b>, <b>V<sub>j</sub></b>),
+  for all i &ne; j.<br/>
+  All computers (except the source computer) are connected to the source computer through a sequence
+  of one or more direct connections.<br/>
+  There exists at least one way of assigning latency values that is consistent with the input.<br/>
+</p>
+
+<h4>Test Set 1 (Visible Verdict)</h4>
+<p>
+  -<b>C</b> &lt; <b>X<sub>i</sub></b> &lt; 0, for all i.
+    (You get the second type of information for all computers.)<br/>
+</p>
+
+<h4>Test Set 2 (Hidden Verdict)</h4>
+<p>
+  -<b>C</b> &lt; <b>X<sub>i</sub></b> &le; 1000, for all i.<br/>
+  <b>X<sub>i</sub></b> &ne; 0, for all i.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper-new">
+    <div class="sampleio-wrapper">
+      <div class="sample-input">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Input</div>
+          <div class="sample-header-download-button">
+            <a href="security_update_sample_ts1_input.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_input_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_input_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_input_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_input_0">3
+4 4
+-1 -3 -2
+1 2
+1 3
+2 4
+3 4
+4 4
+-1 -1 -1
+1 4
+1 2
+1 3
+2 3
+3 2
+-2 -1
+2 3
+1 3
+</pre>
+        </div>
+      </div>
+      <div class="sample-output">
+        <div class="sample-header">
+          <div class="sample-header-text">Sample Output</div>
+          <div class="sample-header-download-button">
+            <a href="security_update_sample_ts1_output.txt" target="_blank" aria-label="Download">
+              <i class="material-icons grey">save_alt</i>
+            </a>
+          </div>
+          <div class="sample-header-copy-button" onclick="
+              const copyText = document.getElementById('sample_output_0').textContent;
+              const textArea = document.createElement('textarea');
+              textArea.textContent = copyText;
+              textArea.style.position = 'absolute';
+              textArea.style.left = '-100%';
+              document.body.append(textArea);
+              textArea.select();
+              document.execCommand('copy');
+              textArea.remove();
+              const copyPopup = document.getElementById('sample_output_copy_popup_0');
+              copyPopup.classList.add('sample-header-copy-popup-shown');
+              setTimeout(function(){ copyPopup.classList.remove('sample-header-copy-popup-shown'); }, 2000);
+          " aria-label="Copy to clipboard">
+            <i class="material-icons grey">content_copy</i>
+            <span class="sample-header-copy-popup" id="sample_output_copy_popup_0">
+              Copied!
+            </span>
+          </div>
+        </div>
+        <div class="sample-content">
+          <pre class="sample-content-text" id="sample_output_0">Case #1: 5 10 1 5
+Case #2: 2020 2020 2020 2020
+Case #3: 1000000 1000000
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<p>
+  In Sample Case #1, the following picture represents the computer network that is illustrated by
+  the sample output. The i-th computer is represented by the circle with the label i. A line
+  linking two circles represents a direct connection. The number on each line represents the
+  latency of the direct connection.
+</p>
+<p style="text-align:left">
+  <img src="images/sample_1.png"/>
+</p><p>
+  In Sample Case #2, the first three connections need to have the same latency, while the fourth
+  can have any valid latency. Note that -2, 0, 1000001, and 3.14 are examples of invalid latencies.
+</p><p>
+  In Sample Case #3, remember that the connections are bidirectional, and so the update can travel
+  from computer 3 to computer 2. Any two valid latency values work here.
+</p><p>
+  The following case could not appear in Test Set 1, but could appear in Test Set 2:
+</p>
+<pre>
+1
+6 9
+10 -2 -5 15 20
+1 2
+1 3
+2 3
+2 4
+2 5
+3 5
+3 6
+4 5
+5 6
+</pre>
+<p>
+  One of the correct outputs is <code>10 12 4 15 8 3 9 7 5</code>, as illustrated by the picture
+  below.
+</p>
+<p style="text-align:left">
+  <img src="images/sample_ts2.png"/>
+</p>
+
+    </div>
+  </body>
+</html>

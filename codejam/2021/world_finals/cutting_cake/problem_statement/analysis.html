@@ -1,0 +1,382 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2021 - World Finals</h3><h1>Analysis: Cutting Cake</h1><a href="https://youtu.be/6vKA-6g9mtk" target="_blank">View problem and solution walkthrough video</a>
+<h3>A Single Icing Patch</h3>
+<p>
+  Let's first consider a case where we have only one icing patch with a vertical edge on the right
+  having enjoyment values $$$\mathbf{A}$$$ and $$$\mathbf{B}$$$.
+  If our vertical cut line is all the way to the left of the triangle, we would get
+  $$$0$$$ enjoyment and our twin would get $$$\mathbf{B}$$$ enjoyment. If our cut line is to the right of the
+  triangle, we would get $$$\mathbf{A}$$$ enjoyment and our twin would get $$$0$$$ enjoyment.
+</p><p align="center">
+<img src="img/analysis1.png" alt="Cake with one icing patch and cut line going through the middle of it.">
+</p><p>
+  Otherwise, our cut is somewhere in the middle of the triangle.
+  In this case, we would get $$$\mathbf{A} \cdot P(X)$$$ enjoyment and our twin would get
+  $$$\mathbf{B} \cdot (1 - P(X))$$$ enjoyment where $$$P(X)$$$ is a value between 0 and 1 representing the
+  proportion of the triangle that is to the left of a cut line at position $$$X$$$.
+</p><p>
+  We can calculate $$$P(X)$$$ by considering
+  <a href="https://en.wikipedia.org/wiki/Similarity_(geometry)#Similar_triangles" target="_blank">similar triangles</a>.
+  Let $$$T_X$$$ be the triangle
+  that is to the left of our cut line when cutting at $$$X$$$. We can notice that $$$T_X$$$ and our
+  full triangle are similar triangles. This means that the ratio between the width and height of
+  $$$T_X$$$ is the same as the ratio for the full triangle. So, given a cut location $$$X$$$, the
+  width and height of $$$T_X$$$ are both $$$\frac{X - \text{left}}{\text{width}}$$$ of the full
+  triangle's width and height respectively.
+  Therefore, we can calculate $$$P(X)$$$ using the following formula:
+</p><p>
+  $$$$P(X) = \left(\frac{X - \text{left}}{\text{width}} \right) ^2$$$$
+</p><p>
+  Notice that $$$P(X)$$$ is a quadratic (polynomial of degree 2).
+  With this, we can write the formulas for our enjoyment and our twin's enjoyment as polynomials
+  in terms of $$$X$$$:
+</p><p>
+  $$$$\text{Our enjoyment} = \mathbf{A} \cdot \left(\frac{X - \text{left}}{\text{width}} \right) ^2$$$$
+  $$$$\text{Twin's enjoyment} = \mathbf{B} \cdot \left(1 - \left(\frac{X - \text{left}}{\text{width}} \right) ^2\right)$$$$
+</p><p>
+  The value we care about is the difference between these enjoyments. So, we can take the
+  difference between enjoyments and solve for the minimum absolute value
+  within a given range of our cut X-coordinate (from the left of the triangle to the right of the
+  triangle). We can do this by checking the following:
+</p>
+<ul>
+  <li>The value at the extreme point of the quadratic, if that's within the interval.</li>
+  <li>The values at each endpoint of the interval.</li>
+  <li>Whether the quadratic crosses 0 within the interval.</li>
+</ul>
+<p>
+  We can know whether the function crosses $$$0$$$ by checking whether the sign at the two endpoints
+  is different. In case the extreme value is within the range, we need to check whether that sign is
+  different from endpoints as well.
+</p><p>
+  Note that our triangle mold might not have a vertical edge. In this case, we can split the
+  triangle in two parts and solve for the left and right sides separately.
+</p><p align="center">
+<img src="img/analysis2.png" alt="Triangle without vertical edge cut in half so each half has a vertical edge.">
+</p><p>
+  The formula for the right side is slightly different but very similar to that used for the left.
+  So, we can calculate the proportion, $$$P(X)$$$, for a triangle with a vertical edge on the left
+  as follows:
+</p><p>
+  $$$$P(X) = 1 - \left(\frac{\text{left} + \text{width} - X}{\text{width}} \right) ^2$$$$
+</p>
+<h3>Many Icing Patches</h3>
+<p>
+  For the full problem, we have many icing patches. If we look at all unique X-coordinates of the
+  vertices representing the triangular icing patches, we can notice that if we cut somewhere
+  between two adjacent X-coordinates, each triangle is either always:
+</p>
+<ul>
+  <li>Entirely to the left of our cut line (contributing to our enjoyment).</li>
+  <li>Entirely to the right of our cut line (contributing to our twin's enjoyment).</li>
+  <li>Cut in two pieces by the cut line (contributing to both our and our twin's enjoyment).</li>
+</ul>
+<p align="center">
+<img src="img/analysis3.png" alt="A cake with three icing patches and vertical dotted lines showing all unique X-coordinates.">
+</p><p>
+  Therefore, for every pair of adjacent X-coordinates, we can add the constant enjoyments from the
+  triangles that are always either to the left or to the right of the cut line to the quadratic functions
+  from the triangles that are being cut. This means that the function $$$D(X)$$$ that represents the
+  difference between enjoyments if we cut at $$$X$$$ is a piece-wise polynomial of degree no more
+  than two.
+  Between every pair of adjacent X-coordinates, we can solve for the minimum absolute value of the
+  difference between our and our twin's enjoyment. Our final answer is then the minimum across all
+  X-coordinate ranges.
+</p><p>
+  Using a <a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" target="_blank">sweep-line</a>
+  technique, we can maintain the polynomials representing our and our twin's
+  enjoyments. Because we need to sort the points by X-coordinate, our overall solution requires
+  $$$O(\mathbf{N} \log \mathbf{N})$$$ operations for sorting and $$$O(\mathbf{N})$$$ operations on fractions.
+  Keep in mind that the numbers for the numerator and denominator might not fit into 64 bit integers.
+  Notice that the size of those numbers grows logarithmically in the size of the input, so
+  $$$O(\mathbf{N} \log \mathbf{N})$$$ operations is a reasonable approximation of the overall time complexity
+  of the algorithm.
+</p>
+<h3>Some behind the scenes trivia</h3>
+<p>
+  Because of the $$$O(\mathbf{N} \log \mathbf{N})$$$ complexity mentioned in the previous paragraph, this problem
+  started out as the same statement but intended to be solved using floating point. However, as
+  illustrated by the fact that it needs fractions with integers that do not fit in 128 bits, the
+  precision was a big problem. The amount of restriction all variables needed to keep the precision
+  issues workable would have made a solution that simply iterates through all triangles for
+  every range and does a ternary search usable. Such a solution can be guessed without understanding
+  the polynomials we explained. Using fractions was a way to require solutions to understand
+  those polynomials. Setting a small value for $$$\mathbf{N}$$$ allows using unbounded integers without
+  worrying about the additional running time. Making all the triangles the same shape also
+  helps with this: it keeps the size of the fractions from getting too big.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+  </body>
+</html>

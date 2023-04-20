@@ -1,0 +1,409 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - Round 3</h3><h1>Analysis: Endless Knight</h1><p>
+  The small dataset can be solved by simple, two-dimensional dynamic
+  programming. In fact, this is obviously the easiest dataset most of the
+  contestants found in this round, with 884 correct submissions. Quite on the
+  contrary, the large dataset turns out to be the most difficulty for this
+  round, solved by only 32 contestants.
+</p><p>
+  Below we outline three tricks one may use in this problem.
+</p>
+
+<h3>Section A. A nice simplification</h3>
+<p>
+  Most people are familiar with lattice walks from (0, 0) to (m, n), where each
+  step one can either increase row by 1 or increase column by 1. The total
+  number of such walks is the binomial number (m+n) choose n. One simple reason
+  is that the set of paths is bijective to the ways you choose m steps for
+  vertical moves among the (m+n) steps.
+</p><p>
+  If there are no rocks, one can see that the situation in this problem is quite
+  similar. In fact, they are essentially the same. After a nice transformation
+  of the input, we can forget about the knight and focus on the normal lattice
+  walks.
+</p><p>
+  In our problem, the two kinds of moves the knight can make correspond to the
+  vectors <nobr>u = (1, 2)</nobr> and <nobr>v = (2, 1)</nobr>. The set of
+  reachable positions forms a lattice with u, v as the basis. To find the
+  coordinate of <nobr>(r, c)</nobr> in the new system is a matter of linear
+  transformation between two bases. In our problem, it is as simple as
+</p>
+<blockquote>
+  r' (2, 1) + c' (1, 2) = (r, c) - (1, 1).
+</blockquote>
+<p>
+  Solving, we get r+c = 2 mod 3, and
+</p>
+<blockquote>
+  r' = r - 1 - (r+c-2)/3, and c' = c - 1 - (r+c-2)/3.
+</blockquote>
+<p>
+  We illustrate using the following picture.
+</p>
+<img src="knight.png" />
+<p>
+  When reading the input, we can transform the points to the new system, and
+  throw away any points that are not reachable. Assume the destination is
+  reachable, otherwise we can simply output 0. We can also disregard any rock
+  with row number or column number that exceeds the destination. In short, we
+  are now in a rectangular lattice in the new coordinate system.
+</p>
+
+<h3>Section B. A key idea</h3>
+<p>
+  Notice that there is an important restriction in our problem: there are at
+  most 10 rocks. The key idea to our solution -- although other solutions are
+  possible as well -- is the inclusion-exclusion principle.
+</p><p>
+  Let S be any subset of rocks (including the empty set). Define f(S) to be the
+  number of ways we can walk from the origin to destination and hitting every
+  rock in S, and possibly hitting some other rocks.
+</p>
+<blockquote>
+  Number of paths that do not hit any rock = &Sigma;<sub>S</sub> f(S)
+  (-1)<sup>|S|</sup>.
+</blockquote>
+<p>
+  <i> Also note:</i> we refer to the Round 1C problem Ugly Numbers. There we
+  needed to consider the multiples of 2, 3, 5, and 7. Some solutions can be
+  viewed as an application of the inclusion-exclusion principle, although this
+  is not necessary for solving that problem.
+</p>
+
+<h3>Section C. N choose K mod 10007?</h3>
+<p>
+  Now we need to calculate f(S) for any S. Let's sort rocks in S from left to
+  right, and for rocks on the same column, pick the higher one first. It should
+  be clear that if some later rock is higher than some earlier ones, then f(S) =
+  0 -- there is no way to hit all the rocks in S.<br>
+  Otherwise, the sorted set S forms a chain from the top-left corner to the
+  lower-right corner
+</p>
+<blockquote>
+  (0, 0) =: (r<sub>0</sub>, c<sub>0</sub>) &rarr; (r<sub>1</sub>, c<sub>1</sub>)
+  &rarr; ... &rarr; (r<sub>k+1</sub>, c<sub>k+1</sub>) := destination
+</blockquote>
+<p>
+  We can view any path hitting all the k rocks as (k+1) stages. f(S) is the
+  product of the number of ways we can do each stage. (This is another important
+  counting principle. It is so important and obvious that usually people don't
+  call it by name. But it does have a name -- the multiplication rule.)
+</p><p>
+  Now, we are back to the classical problem in the beginning of this analysis.
+  Let <nobr>m = (r<sub>i</sub> - r<sub>i-1</sub>)</nobr> and
+  <nobr>n = (c<sub>i</sub> - c<sub>i-1</sub>)</nobr>, the number of ways we can
+  do the i-th stage is exactly (m+n) choose n.
+</p><p>
+  So, is this the end of the story? Not yet. Many contestants failed this
+  problem because it is tricky to compute A choose B mod 10007 quickly and
+  correctly. In this problem, both A and B can be on the order of
+  10<sup>8</sup>. To compute A choose B mod P for a prime number P, one needs
+  some tricks. There are many clever ways you can find, like pre-computing N!
+  for all N, pre-computing the inverse of each number mod P, utilizing the
+  periodicity of the numbers in factorials.<br>
+  What we want to introduce below is a nice theorem that is not as well known as
+  it should be. It removes all the worries about the multiples of P. It is not a
+  difficult theorem, but looks very cute and especially useful for this problem.
+</p><p>
+  <i>Lucas' Theorem:</i> Suppose (n<sub>t</sub>n<sub>t-1</sub>...n<sub>0</sub>)
+  and (k<sub>t</sub>k<sub>t-1</sub>...k<sub>0</sub>) are the representation of n
+  and k in base P, where P is a prime number. Then (n choose k) is the product
+  of (n<sub>i</sub> choose k<sub>i</sub>) in Z<sub>P</sub>.
+</p><p>
+  The following is the choose function from <b>Reid</b>'s beautiful Haskel code.
+</p>
+<pre>
+choose :: Int -&gt; Int -&gt; Int10007
+choose n k | k &gt; n = 0
+choose n k | n &lt; 10007 = 
+  product [ (fromIntegral i) :: Int10007 |  i &lt;- [n-k+1..n] ]
+  / product [ (fromIntegral i) :: Int10007 | i &lt;- [1..k] ]
+choose n k = choose qn qk * choose rn rk
+  where (qn, rn) = n $$$\mathbf{divMod}$$$ 10007
+        (qk, rk) = k $$$\mathbf{divMod}$$$ 10007
+</pre>
+
+<h3>More information</h3>
+<p>
+  <a href="http://www.google.com/search?q=inclusion+exclusion+principle" target="_blank">The inclusion-exclusion principle</a> -
+  <a href="http://www.google.com/search?q=lucas+theorem" target="_blank">Lucas' Theorem</a> -
+  <a href="http://www.google.com/search?hl=en&q=staircase+walk&btnG=Google+Search" target="_blank">Staircase walk</a><br>
+  For the study of lattice points, we refer to any standard text in Discrete
+  Geometry.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

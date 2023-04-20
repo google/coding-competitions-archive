@@ -1,0 +1,368 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2018 - Round 3</h3><h1>Analysis: Raise the Roof</h1><h3>Test set 1</h3>
+<p>
+In Test set 1, the number of columns is small enough to allow a brute force solution.
+The problem guarantees that there is at least one correct order, so we can try all
+possible orders (there are at most 10! = 3628800) until we find a correct one.
+To check a given order, we check every prefix of length
+at least 3, build the roof implied by the last 3 columns of the prefix, and then check that
+all other columns are below it. Since the statement guarantees no 3 points are collinear, any
+subset of 3 points determines a single plane. There are several ways to check if a roof is valid;
+here is one that involves only integer arithmetic:
+</p><p>
+Let p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>k</sub> be the k points in the prefix. Let q be
+the plane that contains p<sub>k-2</sub>, p<sub>k-1</sub> and p<sub>k</sub>.
+For each i between 1 and k - 3, inclusive, we need to check whether p<sub>i</sub> is above q.
+Notice that we can subtract p<sub>k</sub> from all points and the answer to the question doesn't
+change. Thus, we further assume p<sub>k</sub> = (0, 0, 0).
+Let v be a <a href="https://en.wikipedia.org/wiki/Normal_(geometry)">normal</a> to the plane q.
+Project p<sub>i</sub> onto v via
+<a href="https://en.wikipedia.org/wiki/Dot_product">dot product</a> and check whether v and the
+projection are on the same side of q. If they are, then p<sub>i</sub> is above q, otherwise,
+it is not.
+</p><p>
+Since checking a prefix takes O(<b>N</b>) time, and there are O(<b>N</b>) prefixes to check
+for each of the <b>N</b>! orders,
+this yields an O(<b>N</b>! &times; <b>N</b><sup>2</sup>) algorithm that may or may not be fast
+enough depending on your language and implementation. We can speed it up in several ways:
+</p><ul>
+<li>Generate permutations by adding columns one at a time, and check each prefix as soon as it is
+generated. This reduces the complexity to O(<b>N</b>! &times; <b>N</b>) because each prefix is not
+re-checked for each permutation that starts with it. Additionally, when we find a prefix that does
+not work, we do not waste time checking other permutations beginning with that prefix, which
+can further reduce the search space in practice.</li>
+<li>Try a dynamic-programming-on-subsets approach to change the complexity
+to something like O(2<sup><b>N</b></sup> &times; <b>N</b><sup>4</sup>), but whether or not that
+makes the solution faster in practice depends heavily on implementation details.</li>
+</ul>
+<h3>Test set 2</h3>
+<p>
+For Test set 2, any solution that is exponential or factorial in <b>N</b> is doomed from the start,
+so we need a different strategy. One possibility is to approach the problem in reverse:
+start with all columns, find a roof that works, remove a column, and repeat.
+</p><p>
+To formalize this a bit, we start by fixing the last two points q and p from the set of column tips.
+to be the last two columns, in that order. We discuss how to do this later.
+Then, we define s as the set of all column tips except p and q, and repeat the following until
+s is empty:
+<ol>
+  <li>Find a point r such that the plane that contains p, q and r is above all current points.</li>
+  <li>Remove r from the set of current points and set p = q and q = r.</li>
+</ol><p>
+The final output is the reverse of the order the points were taken from s, with p and q at the
+end.
+</p><p>
+To do the first step above (find r),
+we could just try every possible point in s and use the process described above
+to check the condition. This would yield an O(<b>N</b><sup>2</sup>) algorithm for the step.
+To improve upon that, picture the plane containing the last roof, but now being
+supported by the remaining 2 fixed columns. For the very first iteration, the "last roof" needs
+to exist for this algorithm to be valid, and how to define it depends on how we choose p and q.
+For the choice of p and q we explain below, the existence of a possible
+"last roof" is straightforward.
+We can rotate the plane around
+the axis defined by the segment connecting the tips of those two columns, and we want to find
+one of the columns that it touches first.
+(There can be up to two such columns, since we can rotate the plane in either direction.)
+In other words, we should choose a column tip r that minimizes the angle of rotation.
+That is equivalent
+to choosing the r that maximizes the angle between a normal to the plane that contains p, q and r
+and the normal to the "last roof".
+This yields a linear time algorithm for this step.
+</p><p>
+To choose the initial p and q, we can try every possibility, which adds an <b>N</b><sup>2</sup>
+factor to the overall time complexity of the algorithm, or do something better. The last column
+with tip p can always be chosen as one of the tallest columns. Imagine a plane parallel to z = 0
+that passes through p. The plane clearly passes above or touches all other columns, but it's not
+"pierced" by any column, so we can move it around to create a suitable roof. Then, we can
+choose q as a column such that the segment pq has minimal angle with the plane.
+This is similar to what we did above,
+except we are trying rotating the plane around a single point p until it touches another column q.
+This can be done by using the same method of comparing angles against a plane we described in the
+previous paragraph. This involves a one-time linear cost to find q, but then we only do the
+iteration for a single pair. Notice that, for this choice of p and q, there is a clear choice for
+the "last roof", which is the imaginary plane that we rotated to find q.
+</p><p>
+The optimal implementation of the ideas above yields a quadratic algorithm, which is the intended
+solution. Depending on which of
+the optimizations you skip, you can end up with a complexity between O(<b>N</b><sup>2</sup>) and
+O(<b>N</b><sup>5</sup>), which, together with the constant factors of your implementation and
+choice of language, determines whether your solution passes both sets, just Test set 1,
+or neither set.
+</p>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,402 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam 2008 - Qualification Round</h3><h1>Analysis: Fly Swatter</h1><p>
+  This was the hardest problem of the set, as we can see from the submission
+  statistics, but 652 people succeeded in solving it correctly.
+</p><p>
+  The first step in solving this problem involves a standard trick. Instead of
+  looking for the region that will hit the fly's circular body, we look for the
+  region where the center of the fly must avoid. The problem is thus
+  transformed into an equivalent one where we thicken the size of the racquet
+  to <b>t</b> + <b>f</b> and the radius of the strings from <b>r</b> to
+  <b>r</b> + <b>f</b>. And we consider the fly to be simply a single point,
+  only focusing on its center.
+</p><p>
+  Now the main problem is to find the area of the holes (the areas between the
+  strings, or between the strings and the racquet), and divide it by the area
+  of the disc corresponding to the original racquet. It is easy to see this
+  gives the probability that the racquet <i>does not</i> hit the fly.
+</p><p>
+  A simplifying observation is that we can just look at the first quadrant of
+  the circle, because the racquet is symmetrical.
+</p><p>
+  Now we can go through each square gap in the racquet and check a few cases.
+  Each case consists in computing the area of intersection between the square
+  and the circle representing the inside of the racquet.  The case where the
+  square is totally inside or totally outside the circle is easy. The cases
+  left when one corner, two or three corners of the square are inside the
+  circle and the other corners are outside. There are no other cases because we
+  just look at the intersection of a quarter of the circle with small squares.
+</p><p>
+  Each of these cases can be solved by splitting the intersection area into
+  triangles and a <a href="http://mathworld.wolfram.com/CircularSegment.html"
+  target="_blank">circular segment</a>.
+  Here's some code that does this:
+</p>
+<pre>
+double circle_segment(double rad, double th) {
+  return rad*rad*(th - sin(th))/2;
+}
+
+double rad = R-t-f;
+double ar = 0.0;
+for (double x1 = r+f; x1 &lt; R-t-f; x1 += g+2*r)
+for (double y1 = r+f; y1 &lt; R-t-f; y1 += g+2*r) {
+  double x2 = x1 + g - 2*f;
+  double y2 = y1 + g - 2*f;
+  if (x2 &lt;= x1 || y2 &lt;= y1) continue;
+  if (x1*x1 + y1*y1 &gt;= rad*rad) continue;
+  if (x2*x2 + y2*y2 &lt;= rad*rad) {
+    // All points are inside circle.
+    ar += (x2-x1)*(y2-y1);
+  } else if (x1*x1 + y2*y2 &gt;= rad*rad &amp;&amp;
+             x2*x2 + y1*y1 &gt;= rad*rad) {
+    // Only (x1,y1) inside circle.
+    ar += circle_segment(rad, acos(x1/rad) - asin(y1/rad)) +
+          (sqrt(rad*rad - x1*x1)-y1) *
+          (sqrt(rad*rad - y1*y1)-x1) / 2;
+  } else if (x1*x1 + y2*y2 &gt;= rad*rad) {
+    // (x1,y1) and (x2,y1) inside circle.
+    ar += circle_segment(rad, acos(x1/rad) - acos(x2/rad)) +
+          (x2-x1) * (sqrt(rad*rad - x1*x1)-y1 +
+                     sqrt(rad*rad - x2*x2)-y1) / 2;
+  } else if (x2*x2 + y1*y1 &gt;= rad*rad) {
+    // (x1,y1) and (x1,y2) inside circle.
+    ar += circle_segment(rad, asin(y2/rad) - asin(y1/rad)) +
+          (y2-y1) * (sqrt(rad*rad - y1*y1)-x1 +
+                     sqrt(rad*rad - y2*y2)-x1) / 2;
+  } else {
+    // All except (x2,y2) inside circle.
+    ar += circle_segment(rad, asin(y2/rad) - acos(x2/rad)) +
+          (x2-x1)*(y2-y1) -
+          (y2-sqrt(rad*rad - x2*x2)) *
+          (x2-sqrt(rad*rad - y2*y2)) / 2;
+  }
+}
+printf("Case #%d: %.6lf\n", prob++, 1.0 - ar / (PI*R*R/4));
+
+
+</pre>
+
+<p>
+  This solution takes O(<b>S</b><sup>2</sup>) time, where <b>S</b> is the
+  number of vertical strings of the racquet. It's not hard to come up with an
+  O(<b>S</b>) solution because there are at most 4<b>S</b> border squares which
+  can be found efficiently, but the previous solution was fast enough.
+</p><p>
+  Instead of solving the problem exactly, an iterative solution which
+  approximates the area to the needed precision would have also worked. One
+  such solution uses divide and conquer by splitting the square into four
+  smaller squares and then checking the simple cases where the squares are
+  totally inside or totally outside the square.  In the cases where the circle
+  and square intersect just recurse if the current square is larger than some
+  chosen precision.  An observation is that we can divide every length by the
+  radius of the racquet because it gets canceled in the division between the
+  area of the gaps in the racquet and the disc area.  This observation helps
+  the iterative solution since we can make the number of iterations smaller.
+  Here's some sample code:
+</p>
+<pre>
+double intersection(double x1, double y1,
+                    double x2, double y2) {
+  // the normalized radius is 1
+  if (x1*x1 + y1*y1 &gt; 1) {
+    return 0;
+  }
+  if (x2*x2 + y2*y2 &lt; 1) {
+    return (x2-x1) * (y2-y1);
+  }
+  // EPS2 = 1e-6 * 1e-6
+  if ((x2-x1)*(y2-y1) &lt; EPS2) {
+    // this trick helps in doing 10 or 100 times less
+    // iterations than we would need to get the same
+    // precision if we just return 0;
+    return (x2-x1) * (y2-y1) / 2;
+  }
+ 
+  double mx = (x1 + x2) / 2;
+  double my = (y1 + y2) / 2;
+ 
+  return intersection(x1, y1, mx, my) +
+    intersection(mx, y1, x2, my) +
+    intersection(x1, my, mx, y2) +
+    intersection(mx, my, x2, y2);
+}
+
+
+</pre>
+
+
+  <div class="test-data-download-wrapper">
+    <div class="test-data-download-header">
+      <div class="test-data-download-header-text">Test Data</div>
+      <div class="test-data-download-header-download-button">
+        <a href="test_data.zip" target="_blank">
+          <i class="material-icons grey">save_alt</i>
+        </a>
+      </div>
+    </div>
+    <div class="test-data-download-content">
+      <div class="test-data-download-warning">
+        <span class="material-icons" style="color: grey; vertical-align: middle;">info</span>
+        <span style="vertical-align: middle;">We recommend that you practice debugging solutions without looking at the test data.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+  </body>
+</html>
