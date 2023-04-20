@@ -1,0 +1,435 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2019 - Code Jam to I/O for Women</h3><h1>War of the Words</h1><h3>Problem</h3>
+<p>
+  Finally, you are face to face with the leader of the alien robots! You have
+  managed to distract it with its favorite word game, while your fellow
+  Resistance members try to shut down the robots' power supply.
+</p><p>
+  The game uses the robot language, which is made up of 10<sup>5</sup> words:
+  the set of all five-letter strings made up of uppercase English letters
+  between <code>A</code> and <code>J</code>, inclusive. For example,
+  <code>AAAAA</code>, <code>FGHIJ</code>, and <code>BEIGE</code> are among
+  the valid words.
+</p><p>
+  You know that these words have a rank order, with no ties, such that a
+  higher-ranked word beats any lower-ranked word, with the one exception that
+  the lowest-ranked word beats the highest-ranked word. Unfortunately, you do
+  not know the rank order of the words in the robot language!
+</p><p>
+  The game has the following rules:
+</p>
+<ul>
+  <li>Turn 0: You start by naming a word W<sub>0</sub>.</li>
+  <li>Turn 1: The robot names a word W<sub>1</sub>. If W<sub>1</sub> beats
+    W<sub>0</sub>, the robot scores a point.</li>
+  <li>This continues; on turn i, the active player is you if i is even,
+    or the robot if i is odd. The active player names a word W<sub>i</sub>
+    and scores a point if W<sub>i</sub> beats W<sub>i-1</sub>. (If the two
+    words are the same, no point is scored.) The score is not announced &mdash;
+    in particular, you will not know whether each of your words has scored a
+    point!
+  <li>This continues for a total of 201 turns.</li>
+  <li>Notice that you get the last turn (naming W<sub>200</sub>), and that at
+    the end of that turn, each player's score is between 0 and 100,
+    inclusive.</li>
+</ul>
+<p>
+  Thanks to some great work by the Resistance's spies, you know the strategy
+  that the robot will use for every turn of the game. It only cares about
+  scoring 100 points, so on every turn, it will choose a word uniformly at
+  random from all possible words that will score a point on that turn, and
+  independently of all of its previous word choices. The robot knows the rank
+  order of the language, so it has no trouble choosing words!
+</p><p>
+  If you do not score at least <b>N</b> points, the robot will become bored and
+  stop playing with you, so your plan (and the universe) will be
+  doomed!
+</p>
+<h3>Input and output</h3>
+<p>
+  This problem is
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems">interactive</a>,
+  which means that the concepts of input and output are different than in
+  standard Code Jam problems. You will interact with a separate process that
+  both provides you with information and evaluates your responses. All
+  information comes into your program via standard input; anything that you
+  need to communicate should be sent via standard output. Remember that many
+  programming languages buffer the output by default, so make sure your output
+  actually goes out (for instance, by flushing the buffer) before blocking to
+  wait for a response. See the
+  <a href="https://codingcompetitions.withgoogle.com/codejam/faq#interactive-problems">FAQ</a>
+  for an explanation of what it means to flush the buffer. Anything your
+  program sends through standard error is ignored, but it might consume some
+  memory and be counted against your memory limit, so do not overflow it.
+</p><p>
+  In addition, sample solutions to a
+  previous Code Jam interactive problem (in various languages) are provided
+  in the Analysis section of
+  <a href="https://codingcompetitions.withgoogle.com/codejam/round/0000000000000130/0000000000000523">this past problem</a>.
+</p><p>
+  Initially, your program should read a single line containing two integers
+  <b>T</b> and <b>N</b>: the number of test cases, and the number of points you
+  must score in each case. (Notice that the <b>N</b> parameter is the same for
+  every test case in a test set.) Then, you need to process <b>T</b> test cases.
+</p><p>
+  At the start of a test case, the judge chooses a rank order for the words
+  in the robot language, uniformly at random from all such orders, and
+  independently of any previous choices of rank order. (However, the judge
+  uses a deterministic seed, so if your program is deterministic, its
+  interaction with the judge will be the same even across submissions for
+  this problem.)
+</p><p>
+  At the start of a test case, you must output one line with a five-letter
+  string of uppercase English letters in the inclusive range <code>A</code>
+  through <code>J</code>: a valid word W<sub>0</sub> in the robot language.
+  Then you will have 100 exchanges with the judge; the j-th of these
+  (counting starting from 1) proceeds as follows:
+</p>
+<ol>
+  <li>The judge will output one line with a valid word
+    <b>W<sub>2j-1</sub></b>: the robot's word.</li>
+  <li>You output one line with another valid word W<sub>2j</sub>.</li>
+</ol>
+<p>
+  After you send your last word for a test case, your program should terminate
+  if it was the last test case; otherwise, it should output a word to begin the
+  next test case.
+</p><p>
+  If your program outputs something wrong (e.g., gives an invalid word), the
+  judge will send <code>-1</code> to your input stream and it will not send any
+  other output after that. If your program continues to wait for the judge after
+  receiving <code>-1</code>, your program will time out, resulting in a Time
+  Limit Exceeded error. Notice that it is your responsibility to have your
+  program exit in time to receive a Wrong Answer judgment instead of a
+  Time Limit Exceeded error. As usual, if the total time or memory is
+  exceeded, or your program gets a runtime error, you will receive the
+  appropriate judgment.
+</p><p>
+  You should not send additional information to the judge after processing all
+  test cases. In other words, if your program keeps printing to standard output
+  after the last test case, you will get a Wrong Answer judgment.
+</p>
+
+<h3>Limits</h3>
+<p>
+  1 &le; <b>T</b> &le; 50.<br/>
+  Time limit: 40 seconds per test set. (10 seconds per test run.)<br/>
+  Memory limit: 1GB.<br/>
+  <b>W<sub>i</sub></b> is five characters long and consists only of characters
+  in the set of uppercase letters <code>ABCDEFGHIJ</code>, for all odd i. (The
+  robot plays valid words.)<br/>
+</p>
+
+<h4>Test set 1 (Visible)</h4>
+<p>
+  <b>N</b> = 25.<br/>
+</p>
+
+<h4>Test set 2 (Visible)</h4>
+<p>
+  <b>N</b> = 50.<br/>
+</p>
+
+<h3>Sample Interaction</h3>
+<p>
+  Notice that interactive problems do not have sample input and output like
+  other Code Jam problems. Your code will not be run against samples, and the
+  following interaction is just an example.
+</p>
+<pre>
+  t, n = readline_int_list()   // reads 50, 25 into t, n
+  // Before the case starts, the judge silently chooses a rank order for the
+  // 100000 words. Suppose that the word FADED is the lowest-ranked word,
+  // AHEAD is the highest-ranked word, and CAGED and HIGCJ are ranked
+  // such that FADED &lt; CAGED &lt; HIGCJ &lt; AHEAD. As the contestant,
+  // though, we do not know this!
+  printline AHEAD to stdout    // you name AHEAD as word 0. What luck!
+  flush stdout
+  robot_word = readline_str()  // reads FADED into robot_word
+  printline CAGED to stdout    // you name CAGED as word 2
+  flush stdout
+  robot_word = readline_str()  // reads HIGCJ into robot_word
+  printline GAFFED to stdout   // you name an invalid word as word 4
+  flush stdout
+  robot_word = readline_str()  // reads -1 (judge has decided our solution is
+                               //   incorrect)
+  exit                         // exits to avoid an ambiguous TLE error
+</pre>
+
+
+<h3>Testing Tool</h3>
+<p>
+  You can use this testing tool to test locally or on our platform. To test
+  locally, you will need to run the tool in parallel with your code; you can
+  use our <a href="https://storage.googleapis.com/coding-competitions.appspot.com/interactive_runner.py">interactive runner</a>
+  for that. For more information, read the instructions in comments in that
+  file, and also check out the
+  <a href="/codejam/faq#interactive-problems" target="_blank">Interactive Problems section</a>
+  of the FAQ.
+</p><p>
+  Instructions for the testing tool are included in comments within the tool.
+  We encourage you to add your own test cases. Please be advised that although
+  the testing tool is intended to simulate the judging system, it is <b>NOT</b>
+  the real judging system and might behave differently. If your code passes the
+  testing tool but fails the real judge, please check the
+  <a href="/codejam/faq#coding" target="_blank">Coding section</a>
+  of the FAQ to make sure that you are using the same compiler as us.
+</p><p>
+<a href="local_testing_tool.py" download="testing_tool.py">Download testing tool</a>
+</p>
+
+    </div>
+  </body>
+</html>

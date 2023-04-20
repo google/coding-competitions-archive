@@ -1,0 +1,405 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2020 - Code Jam to I/O for Women</h3><h1>Imbalance Obviation</h1><h3>Problem</h3>
+<p> You have a special balance scale, with two pans (left and right) that are
+  both initially empty. You also have a box of identical 1-gram marbles. There
+  are <b>N</b> of these marbles, and the marbles are numbered from 1 to
+  <b>N</b>.
+</p><p>
+  Your scale is very sensitive, and you know that if the total weight on the
+  left pan and the total weight on the right pan ever differ by strictly more
+  than 1 gram, the scale will break. For example, if at some point there are 4
+  marbles in one of the pans, there must be either 3, 4, or 5 marbles in the
+  other pan.
+</p><p>
+  Your friend Libra has challenged you to do the following, without breaking
+  the scale at any point:
+  <ul>
+    <li>First, put all of the marbles on the scale one at a time, in numerical
+      order: marble 1, then marble 2, and so on up to marble <b>N</b>. For each
+      marble, you choose whether to place it on the left pan or on the right
+      pan.</li>
+    <li>Then, remove all of the marbles from the scale one at a time, in an
+      order <b>A<sub>1</sub></b>, <b>A<sub>2</sub></b>, ...,
+      <b>A<sub>N</sub></b> specified by your friend. This order is a
+      permutation of 1, 2, ..., <b>N</b>. The i-th marble you remove must be
+      the marble numbered <b>A<sub>i</sub></b>.
+  </ul>
+</p><p>
+  Can you find a way to do this?
+</p>
+
+<h3>Input</h3>
+<p>
+  The first line of the input gives the number of test cases, <b>T</b>.
+  <b>T</b> test cases follow. Each test case begins with one line with an
+  integer <b>N</b>: the number of marbles. Then, there is one more line with
+  <b>N</b> integers
+  <b>A<sub>1</sub></b>, <b>A<sub>2</sub></b>, ..., <b>A<sub>N</sub></b>,
+  which constitute a permutation of the first <b>N</b> natural numbers.
+  The marble numbered <b>A<sub>i</sub></b> must be the i-th marble that you
+  remove in the removal phase.
+</p>
+
+<h3>Output</h3>
+<p>
+  For each test case, output one line containing <code>Case #x: y</code>,
+  where <code>x</code> is the test case number (starting from 1) and
+  <code>y</code> is a string of <b>N</b> characters. The i-th of these
+  characters (counting starting from 1) should be uppercase <code>L</code> if
+  the i-th numbered marble should be put on the left pan, or uppercase
+  <code>R</code> if it should be put on the right pan.
+</p><p>
+  It is guaranteed that at least one answer exists. If there are multiple valid
+  answers, you may output any one of them.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 20 seconds per test set.<br/>
+  Memory limit: 1GB.<br/>
+  1 &le; <b>T</b> &le; 100.<br/>
+  1 &le; <b>A<sub>i</sub></b> &le; <b>N</b>, for all i.<br/>
+  <b>A<sub>i</sub></b> &ne; <b>A<sub>j</sub></b> for all i &ne; j.<br/>
+</p>
+
+<h4>Test set 1 (Visible Verdict)</h4>
+<p>
+  2 &le; <b>N</b> &le; 16.<br/>
+  <b>N</b> is even.<br/>
+</p>
+
+<h4>Test set 2 (Hidden Verdict)</h4>
+<p>
+  2 &le; <b>N</b> &le; 1000.<br/>
+  <b>N</b> is even.<br/>
+</p>
+
+<h4>Test set 3 (Hidden Verdict)</h4>
+<p>
+  1 &le; <b>N</b> &le; 1000.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">2
+4
+3 1 2 4
+4
+1 2 3 4
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: LRRL
+Case #2: LRLR
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+<p>
+  In Sample Case #1, we will put marble 1 on the left pan, then put marble 2 on
+  the right pan, then put marble 3 on the right pan, then put marble 4 on the
+  left pan. Notice that the total weights on the left and right pans &mdash;
+  (1, 0), (1, 1), (1, 2), and (2, 2) &mdash; never differ by more than 1
+  throughout this process.
+</p><p>
+  Then, we must remove the marbles in the order 3, 1, 2, 4. Again, the total
+  weights on the left and right pans &mdash; (2, 1), (1, 1), (1, 0), (0, 0)
+  &mdash; never differ by more than 1 at any point. We have succeeded!
+</p><p>
+  Also notice that <code>RLLR</code> would be a valid answer for this case, per
+  the same reasoning above (but with the two pans swapped).
+</p><p>
+  Notice that the following are examples of invalid answers for this case:
+  <ul>
+    <li><code>LLRR</code>: breaks the scale when placing marble 2</li>
+    <li><code>LRLR</code>: breaks the scale when removing marble 1 (which is
+      the second marble to be removed)</li>
+  </ul>
+</p><p>
+  Although there are no samples with odd <b>N</b> (since that is only possible
+  in Test Set 3), here are some examples:
+  <ul>
+    <li><code>1</code>: Either <code>L</code> or <code>R</code> would be
+      acceptable.</li>
+    <li><code>2 3 1</code>: <code>LRR</code> and <code>RLL</code> are the only
+      acceptable answers. <code>LLL</code>, <code>LLR</code>, <code>RRL</code>,
+      and <code>RRR</code> would break the scale during the placement phase.
+      <code>LRL</code> and <code>RLR</code> would break the scale during the
+      removal phase.</li>
+  </ul>
+</p>
+
+    </div>
+  </body>
+</html>

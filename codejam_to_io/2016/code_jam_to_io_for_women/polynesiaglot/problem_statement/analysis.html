@@ -1,0 +1,396 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2016 - Code Jam to I/O for Women</h3><h1>Analysis: Polynesiaglot</h1><p>
+In Small dataset 1, all of the cases have only one consonant and only one vowel
+available. One approach is to designate characters like <code>c</code> for the
+consonant and <code>v</code> for the vowel, then generate all strings of length
+<b>L</b> consisting of only <code>c</code>s and/or <code>v</code>s. Then, just
+find the subset of those strings that follow the "Any consonant in a word must
+be immediately followed by a vowel" rule, and find the size of that subset.
+</p>
+<p>
+That subset can be extended to solve Small dataset 2, in which we can have
+multiple consonants and/or vowels. This time, think of <code>c</code> as
+meaning "any one of the available consonants" and <code>v</code> as meaning
+"any one of the available vowels". Then every valid word in the language
+matches exactly one of these templates, and we just have to figure out how
+many words match each template. For example, let's consider <b>C</b> = 2,
+<b>V</b> = 3, <b>L</b> = 2. Then the possible templates are <code>cv</code> and
+<code>vv</code>. For <code>cv</code>, there are 2 choices for the consonant and
+3 choices for the vowel, so there are 2 * 3 = 6 different valid words match
+that template. For <code>vv</code>, there are 3 choices for the first vowel and
+3 choices for the second vowel, so there are 3 * 3 = 9 words the match the
+second template. So the total number of valid words is 6 + 9 = 15.
+</p>
+<p>
+What about the Large dataset? For large values of <b>L</b>, there are far too
+many different templates to generate using the above method.
+</p>
+<p>
+If you looked carefully at the results for Small dataset 1, you might have
+noticed a pattern: for <b>L</b> = 1, 2, 3, 4, 5, 6, 7..., the results are 1, 2,
+3, 5, 8, 13, 21... That's exactly the Fibonacci sequence, in which each term in
+the sequence equals the sum of the two previous terms. Can we frame this
+problem in a similarly recursive way?
+</p>
+<p>
+We will lay out one thorough approach to reaching a recursive formula. Consider
+any valid word of length <i>X</i> in the language. Imagine removing the first
+letter. Then the remainder must also be a valid word. This is because removing
+the first letter can't have created a situation in which a consonant isn't
+followed by a vowel. (If we'd removed the last letter instead, the leftovers
+might have ended in a consonant!) So any valid word in the language is either a
+vowel or a consonant, followed by either some other valid word in the language,
+or the empty word. (That last part is needed to account for valid words of
+length 1.)
+</p>
+<p>
+Let's define <i>W<sub>c</sub></i>(<i>X</i>) as the number of valid words of
+length <i>X</i> starting with a consonant, <i>W<sub>v</sub></i>(<i>X</i>) as
+the number of valid words of length <i>X</i> starting with a vowel, and
+<i>W</i>(<i>X</i>) as the total number of valid words of length <i>X</i>. Then
+we can write:
+</p>
+<p>
+<i>W<sub>c</sub></i>(<i>X</i>) = <b>C</b> * <i>W<sub>v</sub></i>(<i>X</i>-1)<br>
+(For any valid word of length <i>X</i> starting with a consonant, the rest of
+the word can be any valid word of length <i>X</i>-1 starting with a vowel.
+There are <b>C</b> different consonants that we can choose to put in front of
+any of those words.)<br>
+</p>
+<p>
+<i>W<sub>v</sub></i>(<i>X</i>) = <b>V</b> * <i>W</i>(<i>X</i>-1)<br>
+(For any valid word of length <i>X</i> starting with a vowel, the rest of the
+word can be any valid word of length <i>X</i>-1. There are <b>V</b> different
+vowels that we can choose to put in front of any of those words.)<br>
+</p>
+<p>
+Substitute the second equation into the first to get:
+</p>
+<p>
+<i>W<sub>c</sub></i>(<i>X</i>) = <b>C</b> * <b>V</b> * <i>W</i>(<i>X</i>-2)<br>
+</p>
+<p>
+Finally, <i>W</i>(<i>X</i>) is just <i>W<sub>v</sub></i>(<i>X</i>) plus
+<i>W<sub>c</sub></i>(<i>X</i>):
+</p>
+<p>
+<i>W</i>(<i>X</i>) = <b>V</b> * <i>W</i>(<i>X</i>-1) + <b>C</b> * <b>V</b> *
+<i>W</i>(<i>X</i>-2)<br>
+</p>
+<p>
+Since this is a recursive definition, we need some base cases:
+</p>
+<p>
+<i>W</i>(0) = 1<br>
+(We must treat the empty word as a valid basis for building additional
+words.)<br>
+</p>
+<p>
+<i>W</i>(1) = <b>V</b><br>
+(There are <b>V</b> valid words of length 1, since the word can only be one of
+the <b>V</b> different vowels, and not one of the consonants.)<br>
+</p>
+<p>
+You can turn that last equation and the two base cases directly into code. The
+biggest potential problem is repeating the same sub-calculations over and over
+again. One way to avoid that is via memoization, a form of
+<a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic
+programming</a>: create a structure to hold the results of individual
+calculations like <i>W</i>(3). Then, before performing any calculation, check
+the array to see if you already have that result. If you do, just use that; if
+you don't, then compute the result and store it in the array.
+</p>
+<p>
+Alternatively, you can avoid storing so many values by starting from <i>X</i>
+= 0 and working up to <i>X</i> = <b>L</b>, instead of working backwards from
+<i>X</i> = <b>L</b>. Since <i>W</i>(<i>X</i>) only depends on
+<i>W</i>(<i>X</i>-1) and <i>W</i>(<i>X</i>-2), you can compute <i>W</i>(2)
+using <i>W</i>(1) and <i>W</i>(0), then compute <i>W</i>(3) using <i>W</i>(2)
+and <i>W</i>(1) (note that we no longer care about <i>W</i>(0) at this point),
+and so on. This approach only keeps track of three values at a time, whereas
+the memoization approach requires O(<b>L</b>) memory. (You can use a similar
+approach to calculate any Fibonacci number using only two variables.)
+</p>
+<p>
+What about the requirement to provide the remainder modulo 10<sup>9</sup> + 7?
+This is a common situation in programming contests. In languages in which you
+must work with numbers of fixed sizes, you can take the result of every
+intermediate operation (addition or multiplication)  modulo 10<sup>9</sup> + 7.
+You may be tempted to use a language like Python that will handle very large
+numbers, and perform the modulo operation once at the end, but this is not a
+good idea in general &mdash; large numbers in intermediate calculations can slow
+algorithms down considerably. In this case, we'd go from O(<b>L</b>) to
+O(<b>L</b><sup>2</sup>).
+</p>
+<p>
+Note that if we have only one vowel and one consonant, as in Small dataset 1,
+then the last equation reduces to <i>W</i>(<i>X</i>) = <i>W</i>(<i>X</i>-1) +
+<i>W</i>(<i>X</i>-2). This is exactly the recurrence for the Fibonacci
+sequence, which explains the results from Small dataset 1.
+</p>
+<p>
+The solution we have presented requires O(<b>L</b>) operations (i.e., it
+takes time proportional to <b>L</b>). A better solution can take advantage of
+the fact that the <b>L</b>-th term of a sequence defined by a
+<a href=https://en.wikipedia.org/wiki/Recurrence_relation>recurrence relation</a> like the the definition we outlined above can be calculated by using matrix
+exponentiation with only O(log <b>L</b>) matrix multiplications. Since in this
+case the total size of the matrix is bounded, that yields an O(log <b>L</b>)
+algorithm that solves the problem. We leave the details as an exercise for the
+reader.
+</p>
+
+    </div>
+  </body>
+</html>

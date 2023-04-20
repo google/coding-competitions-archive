@@ -1,0 +1,385 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2016 - Code Jam to I/O for Women</h3><h1>Analysis: Password Security</h1><p>
+To solve this problem, let's start with some general observations about the
+passwords:
+<ul>
+<li>If any password is only one letter, then the answer is
+<code>IMPOSSIBLE</code> because that password is guaranteed to appear in any
+permutation of the alphabet. (Incidentally, Google Code Jam does not endorse
+the use of single-character passwords! An attacker with access to a list of
+alphabet letters can quickly try them all.)</li>
+<li>If any password has a repeated letter, it can be ignored, since it cannot
+possibly appear in any permutation of the alphabet.</li>
+</ul>
+</p><p>
+In Small dataset 1, there's only one password. You might have considered
+picking a single permutation and hoping that none of the passwords in the test
+cases happened to be in it. We designed our test cases to thwart that approach:
+for some letter (say, A), they include a set of fifty test cases BA, CA, ...,
+ZA, AB, AC, ..., AZ. No matter where the A is in your chosen string, it will be before
+or after at least one other letter, and is guaranteed to include one of those
+two-letter passwords, so it will fail at least one case.
+</p><p>
+One possible approach for Small dataset 1 is to build an alphabet permutation
+that will definitely not contain each given password:
+<ul>
+<li>If the password is only one letter, return <code>IMPOSSIBLE</code>.</li>
+<li>If the password has a repeated letter, it does not affect the answer, and
+you may return any permutation.</li>
+<li>Otherwise, reverse the password and then tack on whatever remains of the
+alphabet, and return that.</li>
+</ul>
+</p><p>
+Another approach is to produce a set of alphabet permutations of which at least
+one will not contain the password, and then check all of those until you find
+one that works. For example, you can generate every possible rotation of the
+alphabet: ABC...XYZ, BC...XYZA, C...XYZAB, and so on. No string of two or more
+letters can possibly appear in all 26 of those rotations, so one of them must
+work. Or, you can check the alphabet and the reversed alphabet &mdash; again, no
+string of two or more letters can appear in both of those.
+</p><p>
+In Small dataset 2, since there are multiple passwords to contend with, the
+strategies above won't work. Moreover, there are now sets of passwords for
+which there is no solution, even if none of the passwords is a single letter.
+One such set is the tricky set of fifty words mentioned above: BA, CA, ..., ZA,
+AB, AC, ... , AZ. Just as there was no one password that could pass when those
+fifty words were used as individual test cases, there is no solution when all
+of them appear in a single test case. Even when there is a solution, you have
+to find one of the four hundred septillion permutations of the alphabet that
+works.
+</p><p>
+One strategy is to try enumerate all of the impossible scenarios. With some
+thought, it is possible to prove that they always fall into one of three
+categories:
+</p><ol>
+<li>The same letter is required to be at both the beginning and the end. Our
+AB, AC, ..., AZ, BA, CA, ..., ZA example from before falls into this category.
+The first 25 bigrams would force A to be at the end (by prohibiting any other
+letter from appearing after it), and the last 25 bigrams would force A to be
+at the beginning (by prohibiting any other letter from appearing before it).
+</li>
+<li>Two different letters are both required to be at the beginning. For
+example, consider the set BA, CA, ..., ZA, AB, CB, ..., ZB. The first 25
+bigrams would force A to be at the beginning, and the last 25 bigrams would
+force B to be at the beginning. But they can't both be there!</li>
+<li>Two different letters are both required to be at the end. For example: AB,
+AC, ..., AZ, BA, BC, ..., BZ.</li>
+</ol><p>
+We have a truly marvelous demonstration of this proposition which the margins of
+this webpage are too narrow to contain<sup><a href="#footnote1">1</a></sup>.
+</p><p>
+Even if you can't prove to yourself that these are the only three impossible
+cases, you can always run a simulation on a smaller scenario (with, say, all sets of 10 bigrams
+from a six-letter alphabet) to increase your confidence.
+</p><p>
+So, you can explicitly check for these situations, and if the test case doesn't
+fall into one of those categories, it's guaranteed that at least one answer
+exists. Now the problem is to find one! You can use various heuristics to try
+to increase the probability of finding an answer, but you have a perfectly good
+computer. Why not try a bunch of random permutations until one works?
+</p><p>
+It is worth noticing that, if the random procedure does find an answer, it will
+certainly be correct. So, even if you are unconvinced about your impossible
+case enumeration, you can always try it. If the program finishes, then the output
+is guaranteed to be correct. If it does not, it could be that the random procedure
+is too slow in finding a solution, or that you've missed some impossible case.
+</p><p>
+Most Code Jam problems are written such that random approaches take a
+prohibitively long time, if they work at all. However, sometimes you can prove
+to yourself that a random approach is suitable. Consider a case that isn't
+impossible, but is very close to one of the impossible ones. For example, this
+case forces ZA (but not BZA) at the end.
+</p><p>
+AB AC AD AE AF AG AH AI AJ AK AL AM AN AO AP AQ AR AS AT AU AV AW AX AY AZ BA
+CA DA EA FA GA HA IA JA KA LA MA NA OA PA QA RA SA TA UA VA WA XA YA BZA
+</p><p>
+As you can confirm with a simulation, the probability of a random permutation meeting
+this particular set of conditions turns out to be more than 0.147%. Those might not
+be great odds for a personal wager, but they're great odds for a computer that
+can generate and check tens of thousands of alphabet permutations (or more)
+each second. The odds of finding an answer in 1000 tries are
+1 - ((1 - 0.00148)<sup>1000</sup>), or a little over 77%. If we swap out the 1000 for
+10000 to represent 10000 tries, the odds of finding an answer go up to over
+99.9999%. But we also need to consider that there are 100 test cases; if we
+pretend that none of them are IMPOSSIBLE, that drops the overall chance of
+succeeding to a mere 99.996%.
+</p><p>
+So, if you can convince yourself that there can't be cases much worse than the
+one above, you can just run 1000 times &mdash; or, if you want even greater
+certainty and your program is fast enough, 10000 times &mdash; until you find an
+answer.
+</p><p>
+Once you're convinced that your random procedure will either find a correct answer (with very high
+probability) or fail, you can even use a set of 10000 runs with no found answer as "proof"
+(beyond a reasonable doubt, at least) of impossibility
+&mdash; you don't need to explicitly
+check for the types of impossible cases mentioned above at all.
+</p><p>
+Randomized approaches like this are useful outside of programming contest
+problems. Check out the
+<a href="https://en.wikipedia.org/wiki/Fermat_primality_test">Fermat primality
+test</a>, which provides one way of checking whether a number is likely to be
+prime without actually factoring it. Primality tests like that one are commonly
+used as part of encryption systems that rely on a fresh supply of large prime
+numbers.
+</p><hline/><p>
+<small id=footnote1><sup>1</sup> We do have a full proof, but we
+leave it as an exercise for mathematically inclined readers to do
+themselves.</small>
+</p>
+
+    </div>
+  </body>
+</html>

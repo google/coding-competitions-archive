@@ -1,0 +1,408 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/external_hosted/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+    <script>
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$$$','$$$'] ],
+          displayMath: [ ['$$$$','$$$$'] ],
+          skipTags: ["script","noscript","style","textarea","pre"],  // allow <code>.
+          processEscapes: true
+        },
+        showProcessingMessages: false,
+        messageStyle: "none",
+        "HTML-CSS": { scale: 90, fonts: ["TeX"] }
+      });
+      MathJax.Ajax.loadComplete('https://codingcompetitions.withgoogle.com/static/mathjax-config.js');
+      </script>
+    <style>
+.problem-io-wrapper-new .sampleio-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-input {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: -12.5px;
+  margin-right: 12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-output {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px;
+  margin-left: 12.5px;
+  margin-right: -12.5px;
+  max-width: 50%;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-text {
+  flex: 1;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup {
+  visibility: hidden;
+  width: 100px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button .sample-header-copy-popup-shown {
+  visibility: visible;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-header .sample-header-copy-button-hidden {
+  display: none;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 0px 9.5px;
+}
+.problem-io-wrapper-new .sampleio-wrapper .sample-content .sample-content-text {
+  flex-grow: 1;
+  margin: 0px;
+  overflow-x: auto;
+  padding-bottom: 9.5px;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+.test-data-download-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.test-data-download-wrapper .test-data-download-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-text {
+  flex: 1;
+}
+.test-data-download-wrapper .test-data-download-header .test-data-download-header-download-button {
+  display: none;
+  cursor: pointer;
+}
+.test-data-download-wrapper .test-data-download-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #f5f5f5;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+.sample-interaction-wrapper .sample-interaction-header {
+  display: flex;
+  flex-direction: row;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-radius: 4px 4px 0px 0px;
+  padding: 9.5px 9.5px 7px 9.5px;
+  font-family: 'Google Sans';
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.sample-interaction-wrapper .sample-interaction-header .sample-interaction-text {
+  flex: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px 0px 4px 4px;
+  background-color: #e6e6e6;
+  padding: 9.5px 9.5px 9.5px 9.5px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-judge-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: left;
+  flex-grow: 1;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-solution-labels .sample-interaction-solution-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: right;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-output-wrapper .sample-interaction-judge-output-box .sample-interaction-judge-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box {
+  text-align: start;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-output-wrapper .sample-interaction-solution-output-box .sample-interaction-solution-output-test {
+  margin: 0;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-judge-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-right: 20%;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-solution-note {
+  font-style: italic;
+  color: #4e4e4e;
+  margin-left: 20%;
+  text-align: end;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-section-label {
+  font-weight: bold;
+  color: #4e4e4e;
+  text-align: center;
+}
+.sample-interaction-wrapper .sample-interaction-content .sample-interaction-block-spacer {
+  height: 9.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div>
+<h3>Code Jam to I/O for Women 2014 - Code Jam to I/O for Women</h3><h1>Seating Chart</h1><h3>Problem</h3>
+<p>
+Some people believe that the easiest way to ruin a conference is to do a bad job of planning the seating arrangements. The conference's chairperson, Saanvi, is planning seating for the dinner after the keynote address, with <b>N</b> people, and she wants to manually review all possible seating arrangements in order to pick the absolutely best one. To figure out whether that's feasible, she's planning to write a program to compute the number of possible seating arrangements.
+</p>
+
+<p>
+There are <b>K</b> round tables at the dinner, numbered 1 through <b>K</b>. It is important to have exactly the same number of people sitting at each table. If that is impossible (<b>N</b> is not divisible by <b>K</b>), then the table with the most people must have at most one more person sitting at it than the table with the fewest people.
+</p>
+
+<p>
+Each of the <b>N</b> people will be assigned a unique number between 0 and <nobr><b>N</b> - 1</nobr>. What matters is who is sitting next to whom, and not exactly where they're sitting. In other words, two arrangements, A and B, are considered different if there exists a pair of numbers, &alpha; and &beta;, such that persons &alpha; and &beta; are sitting next to each other at the same table in arrangement A, but they are not sitting next to each other in arrangement B.
+</p>
+
+<p>
+For example, if <b>N</b> is 5, and <b>K</b> is 2, we must have 3 people seated at one of the tables, and 2 people seated at the other table. Here is the list of all 10 of the possible arrangements:
+<pre>
+[[0, 1, 2], [3, 4]]
+[[0, 1, 3], [2, 4]]
+[[0, 1, 4], [2, 3]]
+[[0, 2, 3], [1, 4]]
+[[0, 2, 4], [1, 3]]
+[[0, 3, 4], [1, 2]]
+[[1, 2, 3], [0, 4]]
+[[1, 2, 4], [0, 3]]
+[[1, 3, 4], [0, 2]]
+[[2, 3, 4], [0, 1]]
+</pre>
+All other arrangements are similar to one of the arrangements above and are not counted as different. In particular, all of the following arrangements are considered to be the same:
+<pre>
+[[0, 1, 2], [3, 4]]
+[[2, 0, 1], [3, 4]]
+[[1, 2, 0], [4, 3]]
+[[0, 2, 1], [3, 4]]
+[[3, 4], [0, 2, 1]]
+</pre>
+This is because the following pairs of people (and no other pairs) are sitting next to each other in each of these 5 arrangements:
+<pre>
+0 and 1
+0 and 2
+1 and 2
+3 and 4
+</pre>
+</p>
+
+<p>
+Another example is <nobr><b>N</b> = 5</nobr> and <nobr><b>K</b> = 3</nobr>, which requires having two tables with two people each, and one table with a single person sitting at it. There are 15 possible arrangements in this case:
+<pre>
+[[0, 1], [2, 3], [4]]
+[[0, 1], [2, 4], [3]]
+[[0, 1], [3, 4], [2]]
+[[0, 2], [1, 3], [4]]
+[[0, 2], [1, 4], [3]]
+[[0, 2], [3, 4], [1]]
+[[0, 3], [1, 2], [4]]
+[[0, 3], [1, 4], [2]]
+[[0, 3], [2, 4], [1]]
+[[0, 4], [1, 2], [3]]
+[[0, 4], [1, 3], [2]]
+[[0, 4], [2, 3], [1]]
+[[1, 2], [3, 4], [0]]
+[[1, 3], [2, 4], [0]]
+[[1, 4], [2, 3], [0]]
+</pre>
+</p>
+
+<p>
+In this final example, <nobr><b>N</b> = 5</nobr> and <nobr><b>K</b> = 1</nobr>, which means that we only have a single table, seating all 5 guests. Here, the answer is 12:
+<pre>
+[[0, 1, 2, 3, 4]]
+[[0, 1, 2, 4, 3]]
+[[0, 1, 3, 2, 4]]
+[[0, 1, 3, 4, 2]]
+[[0, 1, 4, 2, 3]]
+[[0, 1, 4, 3, 2]]
+[[0, 2, 1, 3, 4]]
+[[0, 2, 1, 4, 3]]
+[[0, 2, 3, 1, 4]]
+[[0, 2, 4, 1, 3]]
+[[0, 3, 1, 2, 4]]
+[[0, 3, 2, 1, 4]]
+</pre>
+</p>
+
+<h3>Input</h3>
+<p>
+The first line of the input gives the number of test cases, <b>T</b>.  <b>T</b> lines, each one containing two integers, <b>N</b> and <b>K</b>.
+</p>
+
+<h3>Output</h3>
+<p>
+For each test case, output one line containing "Case #x: y", where x is the test case number (starting from 1) and y is the number of different possible seating arrangements.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 20 seconds per test set.<br/>
+  Memory limit: 1 GB.<br/>
+  1 &le; <b>K</b> &le; <b>N</b>.<br/>
+</p>
+
+<h4>Small dataset (Test set 1 - Visible)</h4>
+<p>
+1 &le; <b>T</b> &le; 36.<br/>
+1 &le; <b>N</b> &le; 8.<br/>
+</p>
+
+<h4>Large dataset (Test set 2 - Hidden)</h4>
+<p>
+1 &le; <b>T</b> &le; 210.<br/>
+1 &le; <b>N</b> &le; 20.<br/>
+</p>
+
+
+  <h3>Sample</h3>
+  <div class="problem-io-wrapper">
+  <table>
+  <tr>
+  <td>
+  <br/>
+  <span class="io-table-header">Input</span>
+  <br/>&nbsp;
+  </td>
+  <td>
+  <br/>
+  <span class="io-table-header">Output</span>
+  <br/>&nbsp;
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <pre class="io-content">5
+5 2
+5 3
+5 4
+5 1
+1 1
+
+  </pre>
+  </td>
+  <td>
+  <pre class="io-content">Case #1: 10
+Case #2: 15
+Case #3: 10
+Case #4: 12
+Case #5: 1
+
+  </pre>
+  </td></tr></table>
+  </div>
+  
+
+
+    </div>
+  </body>
+</html>
