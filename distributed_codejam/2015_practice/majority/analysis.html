@@ -1,0 +1,23 @@
+<p>
+The intended solution for this problem was an adaptation of <a href="https://en.wikipedia.org/wiki/Boyer-Moore_Majority_Vote_Algorithm" target="_blank">the Boyer-Moore algorithm</a> for calculating the majority. It's a fun algorithm, and it's nice to know it.
+</p>
+
+<p>
+The way it works (on one node) is it does two passes over the input. First, it finds a candidate we suspect of having a majority, with a guarantee that if anybody has a majority, it is the suspect. Once we have a suspect, we can do a second pass to count how many votes the suspect got and verify whether she or he has a majority.
+</p>
+
+<p>
+The way to find the suspect is to notice that if there is a global majority, then removing two votes for different candidates does not cause it to stop being a global majority. So, we will continue removing votes for different candidates, until only votes for one candidate are left; and we will treat this candidate as a suspect. The way to do this is to process the votes one by one, and keep track of the current suspect (the only person with votes, after we remove some pairs of votes for different candidates), and the number of votes for that person. When processing a vote, and we have a suspect with a positive number of votes, we either add one vote, or remove it (depending on whether the vote is for the current suspect or for someone else). When processing a vote with no current suspect, we take the candidate for whom the vote is as the suspect, with one vote.
+</p>
+
+<p>
+Now, how to shard this solution into multiple nodes? It turns out this algorithm adapts really well to sharding. When we reduce the set of votes in each node to one suspect; we send the id of the candidate and the number of votes to one central node. From this calculating one global candidate (again by removing pairs of votes for different candidates) is easy. Once we have a global suspect, we send this to every node, every node counts the number of votes for the global suspect, and verify whether this is indeed a majority candidate.
+</p>
+
+<p>
+There are slower solutions that can pass as well. One such solution is simply to calculate the majority candidate in each node, and then, in each node, count the number of votes for each of these NumberOfNodes candidates. Note that if there is a global majority, it has to be a majority on at least one of the nodes. Another slower, but workable (with care) approach is to do the local calculations simply by counting votes for each candidate (instead of doing the Boyer-Moore algorithm).
+</p>
+
+<p>
+Finally, there are a number of incorrect or randomized solutions that are very hard to eliminate by tests. For instance, to identify the set of candidates everybody should count, we can simply select 100 random votes. If there is a majority, the chances we won't hit it in random 100 votes are below 2<sup>-100</sup>. These reasons eliminated this problem from use in the real contest.
+</p>

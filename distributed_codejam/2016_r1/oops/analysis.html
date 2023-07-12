@@ -1,0 +1,85 @@
+<h2>Oops: Analysis</h2>
+<h3>Deducing the original problem</h3>
+<p>
+Now that we think about it, our sample code might not have been as efficient as
+it could have been! Let's look at the C++ version: what is it doing?
+</p>
+<ul>
+<li>There is a mysterious <code>GetNumber</code> function that takes a single
+input &mdash; a nonnegative number less than <b>N</b> &mdash; and returns a
+number. So, notionally, there is a list of <b>N</b> numbers that the code reads
+from.</li>
+<li>On the k-th node, we examine all possible pairs (i, j) from this list,
+but then we only process the ones for which j modulo <b>NumberOfNodes</b>
+equals k.</li>
+<li>When a node processes a pair (i, j), it finds the value i - j. It stores
+the largest such value it has seen so far, and whenever it finds a larger one,
+it updates its stored value and sends the new value to the master node.</li>
+<li>The master node processes all incoming values, one node at a time, and
+takes the largest of those values.</li>
+<li>Since every pair (i, j) will be handled by one of the nodes, the code,
+when run on all nodes, will find the largest difference between two numbers
+in the list.</li>
+</ul>
+<p>
+So the original statement must have been something like "Given a list of
+<b>N</b> numbers, what is the largest possible difference between them?" Yes,
+that sounds about right. How did we forget that?
+</p><p>
+<h3>The sample code's approach</h3>
+<p>
+Now that we know what we are supposed to be doing, we can assess how well the
+sample code does it:
+</p><p>
+<ul>
+<li>Each node iterates through all <b>N</b><sup>2</sup> combinations of
+selections from <b>N</b>, even though it only acts on a fraction of them.</li>
+<li>Whenever a node finds a difference that is larger than the largest
+difference it has previously seen, it just can't wait to tell the master about
+it, and immediately sends a message with that difference. This creates a lot of
+traffic over the network.</li>
+<li>The master must wait for a node to finish sending all of these messages
+(followed by a DONE message), and then process all of them, before receiving
+messages from the next node.</li>
+</ul>
+</p><p>
+This approach has an O(<b>N</b><sup>2</sup>) searching phase, since all nodes
+operate in parallel. Note that this running time of this phase does not
+improve if we add more nodes.
+</p><p>
+There are cases in which each node produces a large number of messages; for
+example, in the case in which the i-th element of <b>N</b> is i, each node
+will produce <b>N</b> messages. In a case like this, the master has a total of
+<b>NumberOfNodes</b> * <b>N</b> messages to handle in the processing phase. It
+is a bad sign that the only part of our distributed solution that depends
+on the number of nodes gets <i>worse</i> with more nodes!
+</p><p>
+Since <b>NumberOfNodes</b> << <b>N</b> in general, the searching phase
+dominates the processing phase, and the overall running time is
+O(<b>N</b><sup>2</sup>) overall. This is rather embarrassing. We only vaguely
+remember writing this code after a long night at our favorite dance club, but
+that is no excuse! Now that we have our wits about us, how can we do better?
+</p>
+<h3>A better approach</h3>
+<p>
+<ul>
+<li>Observe that the largest difference between two numbers in our list will be
+between the largest and smallest numbers in the list. This reduces the problem
+to finding those largest and smallest values.</li>
+<li>We can give each node an equal portion of the list. Each node can look
+through its portion, find the locally largest and smallest numbers, and send
+those to the master.</li>
+<li>The master can receive all of the (locally largest, locally smallest) pairs
+and find the globally largest and smallest numbers. Then it can compute and
+return the difference between those extremes.</li>
+</ul>
+<p>
+In this approach, we make a single parallelized pass over the data, so the
+running time of the search phase is O(<b>N</b> / <b>NumberOfNodes</b>). The
+processing phase has an O(<b>NumberOfNodes</b>) running time. Again, since
+<b>NumberOfNodes</b> << <b>N</b> in general, and the master only has to
+process two values from each node, the search phase dominates and the overall
+running time is O(<b>N</b> / <b>NumberOfNodes</b>) &mdash; much better!
+Note that a single-node version of this method is O(<b>N</b>), which is still
+better than our sample code.
+</p>

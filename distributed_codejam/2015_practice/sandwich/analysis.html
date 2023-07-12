@@ -1,0 +1,11 @@
+<p>
+Instead of finding the beginning and end with the best tastes, we will try to find the &quot;middle&quot; - a continuous piece of the sandwich with the worst taste possible, and subtract that from the whole sandwich.
+</p>
+
+<p>
+We will split the sandwich into NumberOfNodes equal, continuous parts. For each part, we will calculate four numbers: the total taste of this part, the taste of the least-tasty continuous piece of this part, the taste of the least-tasty prefix of this part, and the taste of the least tasty suffix of this part. Once we have those 4 numbers from each node, we can send them to one selected master node. The least tasty continuous piece is either going to be contained fully in one of the parts (in which case it's simply the least-tasty continuous piece of this part), or it's going to be a suffix of some part, a number (possibly zero) of parts in the middle that are taken as a whole, and the prefix of some other part. Checking all the possibilities is easy to do in O(M<sup>2</sup>), and can be done in O(M).
+</p>
+
+<p>
+Finding the four numbers for one part is also relatively easy. We process the part, piece by piece. One trick, to avoid processing the sandwich both ways, is to look for the least-tasty prefix and the most-tasty prefix; and then to get the least-tasty suffix we subtract the most-tasty prefix from the whole sandwich.
+</p>

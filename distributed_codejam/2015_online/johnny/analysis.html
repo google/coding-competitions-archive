@@ -1,0 +1,19 @@
+<p>
+This is a graph problem - we have a directed graph with exactly one edge between every pair of vertices (such a graph is called a <a href="https://en.wikipedia.org/wiki/Tournament_(graph_theory)" target="_blank">tournament</a>), and we are supposed to split its vertices into two groups, so that every edge between the first and the second group is directed from the first into the second group (additionally maximizing the size of the first group).
+</p>
+
+<p>
+One approach that some contestants tried (and some even succeeded) is to do some variant of topological sorting on the graph. This would be easy on a single node, but is hard to parallelize efficiently.
+</p>
+
+<p>
+The simplest approach to parallelization is degree-based. Observe that if we have a correct split of the graph, with the first set containing K vertices, and the second set containing N-K, then the out-degree of every vertex in the first group has to be at least N-K, and the out-degree of every vertex in the second group has to be at most N-K-1. So, if we calculate the out-degree of each vertex, we can order the vertices by degree, and we know that the desired split (if it exists) will be obtained by taking some prefix of the ordered list.
+</p>
+
+<p>
+Calculating the out-degrees parallelizes trivially, we can do this in O(N<sup>2</sup> / NumberOfNodes()) time, and then ship the O(N) vertex degree values to one master node, and sort them in O(N log N) time.
+</p>
+
+<p>
+Moreover, a split will be correct if and only if there are exactly K(N-K) edges leaving the first group. Notice that there will be always K(K-1) / 2 edges within the first group - exactly one for every pair of vertices. Thus, the master node can iterate over the vertices, keeping track of the sum of the out-degrees of already visited vertices; and return the largest group size that satisfies the degree condition.
+</p>

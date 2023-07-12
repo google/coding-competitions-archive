@@ -1,0 +1,110 @@
+<h3>Problem</h3>
+
+<h2>Query of Death</h2>
+
+<p>
+  We planned a nice simple warm-up DCJ problem for you this year: find the sum
+  of many values. You can call a <code>GetLength()</code> function to get the
+  number of values and a <code>GetValue(i)</code> function to get the i-th of
+  those values; to make it even easier, each of those values is either 0 or 1.
+  Simple, right? Unfortunately, we have been having a technical difficulty, and
+  now the contest is starting and it is too late to fix it.
+</p><p>
+  The issue is that there is exactly one value of i &mdash; we are not sure
+  what that value is, but we will call it i<sub>qod</sub> &mdash; that is a
+  "query of death" (a term occasionally used at Google for a query with severe
+  adverse effects) that causes the following malfunction. The first time that
+  GetValue(i<sub>qod</sub>) is called on a node, the function will return the
+  correct i<sub>qod</sub>-th value. However, this will cause the GetValue
+  function to "break" on that node. After that, <i>every</i> future call to
+  GetValue(i) on that node will return 0 or 1 purely at (pseudo)random,
+  independently of the value of i or of any previous calls. Other nodes are
+  not affected when a node breaks in this way, but the malfunction can still
+  happen in the future: any other node on which you call
+  GetValue(i<sub>qod</sub>) will also break.
+</p><p>
+  The i<sub>qod</sub> value that causes the breakage is the same for every node
+  within a test case; it may vary across test cases, though. Nodes do not
+  remain broken across different test cases.
+</p><p>
+  As an example, suppose that we have two unbroken nodes A and B, and two
+  values i<sub>ok</sub> and i<sub>qod</sub>. Then the following sequence of
+  calls would produce the following results:
+</p>
+<ol>
+  <li>GetValue(i<sub>ok</sub>) on node A: the correct value is returned.</li>
+  <li>GetValue(i<sub>qod</sub>) on node A: the correct value is returned, but
+    node A breaks.</li>
+  <li>GetValue(i<sub>ok</sub>) on node B: the correct value is returned.</li>
+  <li>GetValue(i<sub>ok</sub>) on node A: a random value is returned.</li>
+  <li>GetValue(i<sub>qod</sub>) on node A: a random value is returned.</li>
+  <li>GetValue(i<sub>qod</sub>) on node B: the correct value is returned, but
+    node B breaks.</li>
+  <li>GetValue(i<sub>qod</sub>) on node B: a random value is returned.</li>
+  <li>GetValue(i<sub>ok</sub>) on node B: a random value is returned.</li>
+  <li>GetValue(i<sub>qod</sub>) on node A: a random value is returned.</li>
+  <li>GetValue(i<sub>ok</sub>) on node A: a random value is returned.</li>
+</ol>
+<p>
+  We apologize for the inconvenience, but can you find the sum anyway?
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "query_of_death"; see the sample inputs below for
+  examples in your language. It defines two methods:
+<ul>
+<li><b>GetLength()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the total number of values to be summed up.
+    (This function still works correctly even on a broken node.)</li>
+  <li>Expect each call to take 0.2 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetValue(i)</b>:
+  <ul>
+    <li>Takes a 64-bit number in the range 0 &le; <code>i</code> &lt;
+      <code>GetLength()</code>.</li>
+    <li>Returns a 32-bit number (which is always either 0 or 1): the
+      <code>i</code>-th value if the node is not broken, or 0 or 1 at
+      (pseudo)random if the node is broken.</li>
+  <li>Expect each call to take 0.2 microseconds.</li>
+  </ul>
+</li>
+</ul>
+</p>
+
+<h3>Output</h3>
+<p>
+Output a single line with one integer: the sum of all of the values.
+
+<h3>Limits</h3>
+<p>
+Time limit: 2 seconds.<br/>
+Memory limit per node: 128 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+There is exactly one i<sub>qod</sub> value, which is the same for each node,
+and it is within the allowed range for GetLength().<br/>
+0 &le; GetValue(i) &le; 1, for all i.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+Number of nodes: 10.<br/>
+1 &le; GetLength() &le; 10<sup>4</sup>.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+Number of nodes: 100.<br/>
+1 &le; GetLength() &le; 10<sup>8</sup>.<br/>
+</p>
+
+<p>
+  The code for the samples simulates the node-breaking behavior described in
+  the statement; the actual test cases have the specified behavior, but the
+  implementation (e.g., of randomness on a broken node) is not necessarily the
+  same.
+</p>

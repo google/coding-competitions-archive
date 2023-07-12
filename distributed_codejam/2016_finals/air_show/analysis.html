@@ -1,0 +1,141 @@
+<h2>Air Show: Analysis</h2>
+<h3>Math, the whole math and nothing but the math</h3>
+<p>
+We are given two polylines in 3D, along with a time for each segment. Let
+  <i>p<sub>0</sub></i>, <i>p<sub>1</sub></i>, ..., <i>p<sub><b>N</b></sub></i> to the list of transition
+points for airplane 0, with corresponding times <i>t<sub>0</sub></i>, <i>t<sub>1</sub></i>, ...,
+<i>t<sub><b>N</b> - 1</sub></i>, such that its i-th move takes <i>t<sub>i</sub></i> time and flies from
+point <i>p<sub>i</sub></i> to point <i>p<sub>i + 1</sub></i>. Let
+<i>q<sub>0</sub></i>, <i>q<sub>1</sub></i>, ..., <i>q<sub><b>N</b></sub></i> be the list of points
+for airplane 1 with corresponding times <i>u<sub>0</sub></i>, <i>u<sub>1</sub></i>, ...,
+<i>u<sub><b>N</b> - 1</sub></i>. Given a point <i>p<sub>i</sub></i>, we want to find a corresponding
+flight segment of the other airplane [<i>q<sub>j</sub></i>, <i>q<sub>j + 1</sub></i>] such that
+while airplane 0 is at <i>p<sub>i</sub></i> airplane 1 is flying that segment. Formally,
+that means:<br/>
+<i>u<sub>0</sub></i> + <i>u<sub>1</sub></i> + ... + <i>u<sub>j - 1</sub></i> &le;
+<i>t<sub>0</sub></i> + <i>t<sub>1</sub></i> + ... + <i>t<sub>i - 1</sub></i> &le;
+<i>u<sub>0</sub></i> + <i>u<sub>1</sub></i> + ... + <i>u<sub>j - 1</sub></i> + <i>u<sub>j</sub></i>.<br/>
+If we locate such <i>j</i> for each <i>i</i>, we can check whether <i>p<sub>i</sub></i> should be
+counted in the final result by checking that the distance between <i>p<sub>i</sub></i> and the point
+the point <i>q</i> corresponding to the other plane's location at the same time. We can
+get <i>q</i> by linearly interpolating between <i>q<sub>j</sub></i> and <i>q<sub>j + 1</sub></i>.
+<br/>
+<i>t</i> = <i>t<sub>0</sub></i> + <i>t<sub>1</sub></i> + ... + <i>t<sub>i - 1</sub></i> -
+  (<i>u<sub>0</sub></i> + <i>u<sub>1</sub></i> + ... + <i>u<sub>j - 1</sub></i>)<br/>
+<i>q</i> = <i>q<sub>j</sub></i> +
+  (<i>q<sub>j + 1</sub></i> - <i>q<sub>j</sub></i>) <i>t</i> / <i>u<sub>j</sub></i>.<br/>
+While the equations above imply some non-integer division, and the distance checking involves
+square roots, it's not hard to manipulate the expressions by squaring and multiplying both sides
+to get a pure integer arithmetic expression to check whether point i needs to be counted or not.
+That expression does require 128 bit arithmetic, as suggested by the statement.
+Of course, checking for a point of airplane 1 is symmetric.
+</p>
+<h3>Single-machine solutions</h3>
+<p>
+The layout in the previous section lets us write a pretty simple cubic solution: for every point,
+check every segment of the other airplane until you find one that matches its timeframe. Since
+the number of pairs is quadratic, and our equations above have a linear size sum (to get the
+times), the more naive implementation of this approach takes cubic time. The following pseudocode
+shows how to get the result for one airplane; the other one is symmetric.
+</p><pre>
+result = 0
+for i = 1 to GetNumSegments() - 1:
+  for j = 0 to GetNumSegments() - 1:
+    sum_t = SumTimes(0, i)
+    sum_u = SumTimes(1, j)
+    if sum_u &le; sum_t &le; sum_u + GetTime(1, j):
+      if (check using the math above):
+        result = result + 1
+      break
+</pre><p>
+where <code>SumTimes</code> is the accumulated time for a given airplane up to a given point, as
+follows:
+</p><pre>
+SumTimes(a, x)
+  result = 0
+  for i = 0 to x - 1: result = result + GetTime(a, i)
+  return result
+</pre><p>
+It's easy to take this to quadratic by keeping a running total of times instead of calling
+<code>SumTimes</code> all the time:
+</p><pre>
+result = 0
+sum_t = 0
+for i = 1 to GetNumSegments() - 1:
+  sum_t = sum_t + GetTimes(0, i - 1)
+  sum_u = 0
+  for j = 0 to GetNumSegments() - 1:
+    sum_u = sum_u + GetTimes(0, j - 1)
+    if sum_u &le; sum_t &le; sum_u + GetTime(1, j):
+      if (check using the math above):
+        result = result + 1
+      break
+</pre><p>
+And furthermore, noticing that the times are increasing, which means the pairs (point, segment)
+are sorted by both coordinates simultaneously, we can pick up the search for a segment where the
+last point left off, making the algorithm run in linear time.
+</p><pre>
+result = 0
+sum_t = 0
+last_j = 0
+for i = 1 to GetNumSegments() - 1:
+  sum_t = sum_t + GetTimes(0, i - 1)
+  sum_u = 0
+  for j = last_j to GetNumSegments() - 1:
+    sum_u = sum_u + GetTimes(0, j - 1)
+    if sum_u &le; sum_t &le; sum_u + GetTime(1, j):
+      if (check using the math above):
+        result = result + 1
+      last_j = j
+      break
+</pre>
+<h3>A distributed solution</h3>
+<p>
+Now that we have a linear time solution, all that is left is to distribute it. Giving each machine
+a range of indices for the segments and points to consider won't work. Consider a case where
+  <code>GetTime(0, 0)</code> = <code>GetTime(1, GetNumSegments() - 1)</code> = 10<sup>12</sup>
+and all the other times are 1. You need to compare almost all points from airplane 0 with
+the last segment of airplane 1. Of course, most of your machines won't know what to do because they
+don't have that segment assigned. Since the pairing of points and segments is time-based, the
+solution is giving each machine a range of times instead of indices. However, this can't be done
+uniformly, otherwise, a test case with
+<code>GetTime(0, 0)</code> = <code>GetTime(1, 0)</code> = 10<sup>12</sup>
+and all other times equal to 1 will timeout, because a single machine will be assigned almost all
+point/segment pairs.
+</p><p>
+The solution is to adjust the time ranges to contain roughly the same amount of point/segment pairs.
+Or, to simplify, to be able to bound the number of point/segment pairs that a single machine
+processes by something close to <code>GetNumSegments()</code> / <code>NumberOfNodes()</code>.
+Divide the segments of each plane into <code>NumberOfNodes()</code> / 2 parts of roughly equal
+number of segments each
+and give each machine one of those ranges to add up the times of all those segments. Then, send
+all the partial results to a single machine to get aggregates. In this way, we can calculate
+the aggregated time of a particular airplane up to point <i>i</i> for
+<code>GetNumSegments()</code> / 2 different values of <i>i</i> that are (roughly) uniformly
+distributed between 0 and <code>GetNumSegments()</code>. Two of the numbers are going to be equal
+to the total time of the show, so discard those and use the remaining values to separate the total
+time into smaller time windows. Note that each window is guaranteed to span no more than
+2 <code>GetNumSegments()</code> / <code>NumberOfNodes()</code>, only twice the theoretical
+optimum amount. As an implementation detail, we should also couple each window cutting point with
+an airplane and an index. That way, we can get a small interval of indices to consider on each
+machine: just start at the closest index on the left you have for each airplane. By construction,
+this ensures you never iterate more than
+2 <code>GetNumSegments()</code> / <code>NumberOfNodes()</code> indices per plane, since after that
+many consecutive indices, there is surely a new cutting point. There are other implementation
+details to fill in, but we leave those to the reader.
+</p>
+<h3>A quick word on the Small dataset</h3>
+<p>
+This problem had a Small that was different than usual. Solving it did not provide much of a
+stepping stone, if any, toward solving the Large. Since all times are equal, we know that
+airplane 0 will be at its i-th transition point at the same time airplane 1 is at its own
+i-th transition point. That means
+the answer for both airplanes is the same, and we just need to check whether each of those pairs
+of points are closer than the minimum allowed distance. That is easier to do with pure-integer math
+than what we outlined above for the general case, and more importantly, it makes things easier to
+distribute. This is because the pathological cases (designed to disallow giving each machine a
+range of segments or times) that we mentioned can't exist under the highly uniform conditions of
+the Small dataset. So, to write a Small-only solution, just give each machine a roughly equal
+subset of points from each plane, iterate through them, and count how many pairs are at a dangerous
+distance, sending all partial results to a master machine to add up and print out the final result.
+</p>

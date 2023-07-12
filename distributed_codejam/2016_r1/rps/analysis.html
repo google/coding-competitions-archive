@@ -1,0 +1,36 @@
+<h2>Remarkably Parallel Scenario: Analysis</h2>
+<p>
+The title playfully refers to <i>Rather Perplexing Showdown</i>,
+the other "RPS" problem from Saturday's Round 2, but it also alludes to the
+convenient parallelizability of the tournament tree structure. There is one
+wrinkle, though: it is not so convenient to divide up a single-elimination
+tournament tree based on powers of 2 into exactly 100 independent parts! It is
+much more natural to divide such a tree into 2<sup><i>K</i></sup> independent
+parts, each of which is the subtree that determines one of the players in the
+<i>K</i>th from last round of the tournament. Fortunately, it is easy to use a
+number of nodes less than 100, even though your code will run on all of them;
+simply have the unwanted nodes exit immediately, and never send any messages to
+them or receive any messages from them.
+</p><p>
+For example, for <b>N</b> = 25, we can evenly divide the starting lineup among
+64 nodes, with node 0 handling the first 2<sup>25</sup> / 64 = 2<sup>19</sup>
+players, node 0 handling the next 2<sup>19</sup> players, and so on. In this
+way, the i-th node operates on the subtree of the tournament that produces the
+i-th player (counting starting from 0) in the round with 64 players, and these
+subtrees are totally independent of one another. We can have each node send its
+winning player's ID back to a master node, and then the master can finish off
+the 64-player tournament, which is a much smaller version of the original
+problem.
+</p><p>
+Both the master node and the worker nodes (the master can also be a worker) can
+use the same function to determine a tournament winner. One possibility is to
+store all of the players for a given node in a vector, go through that vector
+comparing adjacent pairs and finding winners, populate another vector of half
+the size (or even overwrite the same vector), and so on. The limit on <b>N</b>
+is small enough that there is no need to optimize this part.
+</p><p>
+It is important not to assume that the Large dataset will consist only of
+maximal cases. If you hard-code in a choice of 64 nodes, for example, your
+solution might fail on a case like <b>N</b> = 3 (which only has 8 players),
+depending on your implementation.
+</p>

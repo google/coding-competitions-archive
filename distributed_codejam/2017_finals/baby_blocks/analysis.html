@@ -1,0 +1,45 @@
+<h2>Baby Blocks: Analysis</h2>
+<h3>Small dataset: a single-node solution</h3>
+<p>
+A single-node solution for this problem can be described, and implemented,
+in a few lines. Let S<sub>i</sub> be the sum of the weights of all the blocks between indices
+0 and i, inclusive, and T<sub>j</sub> be the sum of the weights of all the blocks between indices j and N-1,
+inclusive, where N is the total number of blocks. Since all blocks' weights are positive,
+if S<sub>i</sub> &le; T<sub>j</sub>, for all indices j' with j' &lt; j,
+S<sub>i</sub> &le; T<sub>j</sub> &lt; T<sub>j'</sub>. Symmetrically, if
+S<sub>i</sub> &ge; T<sub>j</sub>, for all indices i' with i' &gt; i,
+S<sub>i'</sub> &gt; T<sub>j</sub>. So, we can do the following: Start with the pair
+i = 0, j = N - 1. Based on the comparison, we can increase i, decrease j, or both,
+and that will cover all possible pairs we need to count. Of course, when
+S<sub>i</sub> = T<sub>j</sub>, we add 1 to a running total. Moreover, since the difference
+between i and j decreases with every step, they will meet and the process will stop
+in at most N - 1 steps. Since we examine increasingly long prefixes and suffixes, we
+can also adjust S and T in constant time, and therefore, the algorithm runs in linear
+time overall. This solution is fast enough for the Small dataset, but too slow for the
+Large dataset, and we need to do something distributed.
+</p>
+<h3>Large dataset</h3>
+<p>
+One idea to distribute the solution is simply to assign ranges of both indices to each node,
+and use the single-node solution, adding up all partial results in a master for final output.
+This has two problems. The first one (and the easiest one to solve) is that we need to initialize
+S<sub>i</sub> and T<sub>j</sub> as the sum of possibly many values. This can be solved
+with the most common technique in Distributed Code Jam: a first stage in which each node
+sums up its own ranges and distributes it to other nodes, which can sum a prefix as the sum of
+many of those partial sums. The second problem is more difficult to solve: ranges of values for
+i correspond to ranges of values for j in a way that depends on the value at all indices
+before the first value for i and all indices after the last value for j. Fortunately, there is
+also a less standard but known technique we can use to solve the synchronization. This technique
+also appeared in the more involved problem
+<a href="../../2016_finals/air_show/statement.html">Air Show</a>, from
+the 2016 finals.
+</p><p>
+The idea is to use the first stage to get partial sums of fixed-sized intervals. Then, we can do
+a version of the single-node algorithm using those partial sums as individual weights. Every time
+we move one index, we get a new synchronized pair of indices, together with initial values for
+S<sub>i</sub> and T<sub>j</sub>, for a worker to process. There is a bit more detail, but it is
+described in
+<a href="../../2016_finals/air_show/analysis.html">the analysis for
+Air Show</a>. In that problem, two arrays of integers are synchronized for processing. Here, we are
+synchronizing a single array and its reverse, in a way.
+</p>

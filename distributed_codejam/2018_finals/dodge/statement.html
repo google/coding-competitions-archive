@@ -1,0 +1,141 @@
+<h3>Problem</h3>
+
+<h2>Dodge!</h2>
+<p>
+  You are playing the arcade game &quot;Dodge!&quot;, and you are really
+  motivated to get onto the scoreboard. Unfortunately, the machine you are
+  playing on is old and partially broken, and not all of the buttons work, so
+  you will have to work even harder.
+</p><p>
+  In Dodge!, you control a character who is trying to navigate from one
+  <i>starting cell</i> of an infinite grid &mdash; (0, 0) &mdash; to another
+  <i>target cell</i> &mdash; (<b>N</b>-1, <b>N</b>-1). The down and left
+  buttons are broken, so you can move your character only up and/or to the
+  right. Moreover, you have to watch out for monsters! Normally, you would be
+  able to fight the monsters, but the attack button is also broken, so you can
+  only try to avoid them, and take damage when you do not.
+</p><p>
+  Monsters in the game are generated ("spawned") by monster generators; a
+  spawned monster appears in the same cell as the generator. There is one
+  generator in each column between your starting column and the column
+  containing the target cell, inclusive; these are all located somewhere above
+  the row containing the target cell. Specifically, each can be located
+  in a row between <b>N</b> and <b>N</b> + <b>F</b> - 1, inclusive, where
+  <b>F</b> is a positive integer. (These generators are not necessarily all
+  in the same row.) Monsters spawned by these generators always move
+  downward. (We will say more about <b>F</b> and monster movement in a moment).
+</p><p>
+  Similarly, there is one generator in each row between your starting row and
+  the row containing the target cell, inclusive; these are all located
+  somewhere to the right of the column containing the target cell. Specifically,
+  each can be located in a column between <b>N</b> and <b>N</b> + <b>F</b> - 1.
+  (These generators are not necessarily all in the same column.) Monsters
+  spawned by these generators always move to the left.
+</p><p>
+  The game proceeds in discrete units of time called <i>turns</i>, numbered with
+  integers. In each turn, the following things happen, in order:
+</p>
+<ol>
+  <li>If it is turn 0, you appear in the starting cell.</li>
+  <li>You must move your character one grid cell up or to the right. You cannot
+    remain in your current cell.</li>
+  <li>Every monster moves either down or to the left, depending on which
+    generator spawned it, as described above.</li>
+  <li>You take one point of damage for every monster in the cell you are
+    currently in.</li>
+  <li>If there are two monsters in a single cell, they fight and annihilate
+    each other, and both disappear from the grid forever.</li>
+  <li>If the turn number is divisible by <b>F</b>, each of the generators spawns a
+    new monster. The newly spawned monster is in the same cell as the
+    generator.</li>
+  <li>If you are in the target cell, the game ends.</li>
+  <li>Otherwise, the next turn (numbered one larger than the last turn) starts.</li>
+</ol>
+<p>
+  Note that moving into a cell with a monster in step 2 does not cause you to
+  take damage; the monster is preparing to move out shortly in step 3, and so
+  you can dodge!
+</p><p>
+  Moreover, to make things more challenging, before the player appears in the
+  starting cell, the game has already been running since at least turn
+  <b>-10FN</b>, so there are already monsters on the grid when you enter; note that
+  some of those monsters might have already encountered and annihilated each
+  other.
+</p><p>
+  If you move optimally, what is the minimum amount of damage you will take
+  before the game ends?
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "dodge"; see the sample inputs below for
+  examples in your language. It defines four methods:
+</p>
+<ul>
+  <li><b>GetN()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the number <b>N</b>, as described
+        above.</li>
+      <li>Expect each call to take 0.1 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetSpawningFrequency()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the number <b>F</b>, as described
+        above.</li>
+      <li>Expect each call to take 0.1 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>RowGeneratorPosition(row)</b>:
+    <ul>
+      <li>Takes one 64-bit integer, row - the index of the row, in the range 0
+          &le; row &lt; GetN().</li>
+      <li>Returns a 64-bit integer: the position of the generator in that row.
+          This means there is a generator spawning monsters that move to the left
+          in cell (RowGeneratorPosition(row), row).</li>
+      <li>Expect each call to take 0.1 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>ColumnGeneratorPosition(column)</b>:
+    <ul>
+      <li>Takes one 64-bit integer, column - the index of the column, in the
+          range 0 &le; column &lt; GetN().</li>
+      <li>Returns a 64-bit integer: the position of the generator in that column.
+          This means there is a generator spawning monsters that move down in
+          cell (column, ColumnGeneratorPosition(column)).</li>
+      <li>Expect each call to take 0.1 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single integer: the minimum amount of damage, as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 4 seconds.<br/>
+  Memory limit per node: 256 MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  1 &le; GetSpawningFrequency() &le; 10<sup>6</sup><br/>
+  GetN() &le; RowGeneratorPosition(row) &lt; GetN() + GetSpawningFrequency() for
+  any valid row.<br/>
+  GetN() &le; ColumnGeneratorPosition(column) &lt; GetN() +
+  GetSpawningFrequency() for any valid column.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  Number of nodes: 10 <br/>
+  2 &le; GetN() &le; 100.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  Number of nodes: 100<br/>
+  2 &le; GetN() &le; 30000.<br/>
+</p>

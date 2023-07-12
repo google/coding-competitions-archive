@@ -1,0 +1,128 @@
+<h3>How to solve the problem non-distributedly</h3>
+<p>
+In this problem we are given an arrangement of crate stacks and we have to move the crates around
+to make them evenly distributed. Let us consider these starting stack heights:
+<code>4, 3, 1, 3</code>.
+</p><p>
+There are a total of 11 crates for 4 stacks. By the definition of the statement, we need 3 crates in
+each of the leftmost 3 stacks and 2 crates in the rightmost stack.
+</p><table>
+<tr><td>starting height</td><td>4</td><td>3</td><td>1</td><td>3</td></tr>
+<tr><td>target height</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
+<tr><td>difference</td><td>1</td><td>0</td><td>-2</td><td>1</td></tr>
+</table><p>
+As you can see in the difference row, some stacks will need adjustment.
+</p><p>
+Notice that the movement of crates is commutative. That is, if we have a set of instructions of the
+form "move from crate i to crate j", any order of executing them produces the same result. So, we
+can consider the moves in increasing order of the index of the stack from which crates are removed.
+</p><p>
+It is never optimal to move a crate from stack i to stack j and later a crate
+from stack j to stack i, since we can achieve a strictly better solution by avoiding both moves.
+Since we can only move crates to adjacent stacks, we should never move more than the 1 excess crate
+out of the leftmost stack in the example above. The only place to move the extra crate is the
+neighboring stack to the right, so we just do that, getting to the following state:
+</p><table>
+<tr><td>starting height</td><td>3</td><td>4</td><td>1</td><td>3</td></tr>
+<tr><td>target height</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
+<tr><td>difference</td><td>0</td><td>1</td><td>-2</td><td>1</td></tr>
+</table><p>
+Now we have to process the second stack, and we cannot move any crates back to the first! So, we
+are in a similar situation as before, and with a single additional move we get to:
+</p><table>
+<tr><td>starting height</td><td>3</td><td>3</td><td>2</td><td>3</td></tr>
+<tr><td>target height</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
+<tr><td>difference</td><td>0</td><td>0</td><td>-1</td><td>1</td></tr>
+</table><p>
+Now we get to a stack that has a negative difference. That means we have to bring crates to it.
+However, we can just do that greedily, as everything to the left is already balanced. We just bring
+crates from our right neighbor. Even if that leaves the right neighbor with too few crates, we will
+fix that in the next step. One more move yields:
+</p><table>
+<tr><td>starting height</td><td>3</td><td>3</td><td>3<td><td>2</td></tr>
+<tr><td>target height</td><td>3</td><td>3</td><td>3</td><td>2</td></tr>
+<tr><td>difference</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+</table><p>
+Now we are at the last stack, and of course this has to be balanced, as we have no further stack to
+the right to move crates to or bring crates from. With 3 moves, balanced the stacks in this test
+case.
+</p><p>
+Generalizing what we did in the previous example, we can always greedily choose to balance each
+stack by moving crates to or bringing crates from its right neighbor, as long as we process stacks
+from left to right. Moreover, we can even "owe" a stack crates: for instance, if our initial state
+was <code>0 0 3</code>, our first greedy move would be to move one crate from the middle stack to
+the left, getting to <code>1 -1 3</code>. This poses no problem: the -1 represents a debt
+that will eventually be paid. In this case, processing the second stack would require two moves
+to get 2 crates from its right neighbor and get to <code>1 1 1</code>. As we observed at the
+beginning, the move order is interchangeable, and it is easy to see that there is always an order
+that leaves no stack in negative size. Notice that, as before, there is no other way for the
+stack on the left to get its missing crate than to eventually get it from the middle stack, so
+that decision must be correct.
+</p><p>
+To formalize the solution: it should take exactly
+Moves(i) = |sum of (DesiredHeight(j) - GetStackHeight(j)) over all j &le; i| moves to balance the
+stack in position <code>i</code>. Notice that the summation accounts for whatever changes we did
+when processing stacks to its left.
+This is pretty straightforward to do in linear time non-distributed code:
+</p><pre>
+sum = 0
+result = 0
+for i in range:
+  sum = sum + (GetStackHeight(i) - DesiredHeight(i))
+  result = result + |sum|
+</pre><p>
+where <code>DesiredHeight</code> is pretty easy to implement in constant time.
+</p>
+<h3>How to distribute the solution</h3>
+<p>
+As is usually the case in Distributed Code Jam, linear time is just not fast enough for the
+Large dataset. Since the result is just the sum of something for each index <code>i</code>, can
+we just distribute that sum in the same way that our
+<a href="https://code.google.com/codejam/distributed_guide.html">example codes</a>
+distribute a summation of the input, by making each node sum operate over a particular interval of
+indices?
+</p><p>
+The answer, unfortunately, is no. And the reason is that the value of <code>sum</code> in the
+pseudocode above depends on all previous indices, not just those on a local range, so distributing
+it naively will make each node wait on its left neighbor, thus removing any speedup due to
+parallelization. To avoid the wait, we could make each node calculate its own starting value for
+sum, but that doesn't really work either.
+For instance, if some node processes indices <code>i</code> between 101 and 200, we would need
+<code>sum</code> to start with the sum of all indices up to 100. For a node that processes
+indices between 201 and 300, we would need the sum for all indices up to 200. You can
+easily see that the node that processes the right-most end of the interval needs to know the sum of
+all other indices, which requires reading the entire input.
+</p><p>
+However, we can do an earlier pass in which we calculate the starting value of <code>sum</code> for
+each node, so that a node only needs to read the part of the input it is assigned to
+process. Since <code>sum</code> is just the cumulative function of
+<code>GetStackHeight(i) - DesiredHeight(i)</code>, we can make each node sum over the
+<code>i</code>s that it is assigned, send that sum to the master, and make the master calculate the
+cumulative sums and send each node the one it needs. Of course, we need to do an
+even earlier pass to get DesiredHeight(i) in the first place, since it depends
+on the sum of all of the stack heights. Pseudo-code follows:
+</p><pre>
+On every node:
+  compute sum of heights of all stacks in my_range
+  send sum to master
+Only on master:
+  compute the (at most two) DesiredHeight value(s)
+  send to all nodes
+On every node:
+  sum = 0
+  result = 0
+  for i in my_range:
+    sum = sum + (GetStackHeight(i) - DesiredHeight(i))
+  send sum to master
+Only on master:
+  cumulative_sum = 0
+  for each node, in increasing order of assigned intervals:
+    receive sum and store in node_sum
+    send the node cumulative_sum as its starting value for sum
+    cumulative_sum += node_sum
+On every node:
+  receive cumulative_sum and store in sum
+  do the single node solution and send result to master
+Only on master:
+  receive result from every node and sum them to obtain the final result
+</pre>

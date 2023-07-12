@@ -1,0 +1,159 @@
+<h3>Problem</h3>
+<p>
+Oops.
+</p>
+
+<p>
+The team preparing the Distributed Code Jam made a mess and needs your help. The
+statement and solutions for this problem were lost minutes before the contest,
+and the only thing that could be recovered was a set of correct but really slow
+(and misguided) solutions that were supposed to time out, one per language.
+Fortunately, we still have the test data. Can you reconstruct the statement and
+solve the problem properly based on the recovered slow solutions?
+</p><p>
+<p style="color:red">Notice that in this problem 20 nodes are used to run both the Small and the Large
+datasets, which is not the usual number for Distributed Code Jam problems. 20 nodes were also used
+to run the solutions and produce the answers for the examples.</p>
+</p>
+
+<p>
+The C++ solution:
+<pre>
+#include &lt;message.h&gt;
+#include &lt;stdio.h&gt;
+#include "oops.h"
+
+#define MASTER_NODE 7
+#define DONE -1
+
+int main() {
+  long long N = GetN();
+  long long nodes = NumberOfNodes();
+  long long my_id = MyNodeId();
+  long long best_so_far = 0LL;
+  for (long long i = 0; i &lt; N; ++i) {
+    for (long long j = 0; j &lt; N; ++j) {
+      if (j % nodes == my_id) {
+        long long candidate = GetNumber(i) - GetNumber(j);
+        if (candidate &gt; best_so_far) {
+          best_so_far = candidate;
+          PutLL(MASTER_NODE, candidate);
+          Send(MASTER_NODE);
+        }
+      }
+    }
+  }
+  PutLL(MASTER_NODE, DONE);
+  Send(MASTER_NODE);
+
+  if (my_id == MASTER_NODE) {
+    long long global_best_so_far = 0;
+    for (int node = 0; node &lt; nodes; ++node) {
+      long long received_candidate = 0;
+      while (true) {
+        Receive(node);
+        received_candidate = GetLL(node);
+        if (received_candidate == DONE) {
+          break;
+        }
+        if (received_candidate &gt; global_best_so_far) {
+          global_best_so_far = received_candidate;
+        }
+      }
+    }
+    printf("%lld\n", global_best_so_far);
+  }
+  return 0;
+}
+</pre><p>
+<p>
+The Java solution:
+<pre>
+public class Main {
+  static int MASTER_NODE = 7;
+  static int DONE = -1;
+
+  public static void main(String[] args) {
+    long N = oops.GetN();
+    long nodes = message.NumberOfNodes();
+    long my_id = message.MyNodeId();
+    long best_so_far = 0L;
+    for (long i = 0; i &lt; N; ++i) {
+      for (long j = 0; j &lt; N; ++j) {
+        if (j % nodes == my_id) {
+          long candidate = oops.GetNumber(i) - oops.GetNumber(j);
+          if (candidate &gt; best_so_far) {
+            best_so_far = candidate;
+            message.PutLL(MASTER_NODE, candidate);
+            message.Send(MASTER_NODE);
+          }
+        }
+      }
+    }
+    message.PutLL(MASTER_NODE, DONE);
+    message.Send(MASTER_NODE);
+
+    if (my_id == MASTER_NODE) {
+      long global_best_so_far = 0;
+      for (int node = 0; node &lt; nodes; ++node) {
+        long received_candidate = 0;
+        while (true) {
+          message.Receive(node);
+          received_candidate = message.GetLL(node);
+          if (received_candidate == DONE) {
+            break;
+          }
+          if (received_candidate &gt; global_best_so_far) {
+            global_best_so_far = received_candidate;
+          }
+        }
+      }
+      System.out.println(global_best_so_far);
+    }
+  }
+}
+</pre>
+<h3>Input</h3>
+<p>
+The input library is called "oops"; see the sample inputs below for examples in
+your language. It defines two methods:
+<table>
+  <tr>
+    <th>Method name and parameters</th><th>Parameter limits</th><th>Returns</th>
+    <th>Approximate time for a single call</th>
+  </tr>
+  <tr>
+    <td>GetN()</td><td></td><td>a 64-bit number</td><td>0.05 microseconds</td>
+  </tr>
+  <tr>
+    <td>GetNumber(i)</td><td>0 &le; i &lt; GetN()</td><td>a 64-bit number</td>
+    <td>0.05 microseconds</td>
+  </tr>
+</table>
+</p>
+
+<h3>Output</h3>
+<p>
+Output what either of the solutions above would output, if they ran on 20 nodes without any limits
+on memory, time, number of messages or total size of messages.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 2 seconds.<br/>
+Memory limit per node: 128 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+Number of nodes: 20.<br/>
+-10<sup>18 &le; GetNumber(i) &le; 10<sup>18</sup>, for all i.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+1 &le; GetN() &le; 30,000.
+</p>
+
+<h4>Large dataset</h4>
+<p>
+1 &le; GetN() &le; 10<sup>9</sup>.
+</p>

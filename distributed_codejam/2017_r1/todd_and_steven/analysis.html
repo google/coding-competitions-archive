@@ -1,0 +1,94 @@
+<h2>Todd and Steven: Analysis</h2>
+<p>
+  This problem is about the final merge step of a large
+  <a href="https://en.wikipedia.org/wiki/Merge_sort">mergesort</a>.
+  It turns out not to be helpful that Todd's sequence has only odd values and
+  Steven's sequence has only even values, apart from the implication that no
+  value in either sequence appears again in either sequence. Even under the
+  odd/even constraints, the two sequences could still interleave in any way.
+  However, since we designed the data to have that property for our
+  convenience, it was only fair to tell you about it!
+</p>
+<h3>Small dataset</h3>
+<p>
+  It is possible to solve the Small dataset on a single node by carrying out
+  the entire merge step on that node. We can start with a TOTAL = 0, and
+  indexes T = 0 and S = 0 into Todd's and Steven's sequences. Then, we can
+  repeatedly do the following: check whether Todd's element at T or Steven's
+  element at S is smaller. Let the smaller value be N; then add N XOR (T + S)
+  to our total, and increment T if N came from Todd's sequence or S otherwise.
+  As in any mergesort merge step, we must take care not to try to check an
+  element of a sequence after all of the elements of that sequence have been
+  processed. When we finish, TOTAL modulo 10<sup>9</sup> + 7 is our answer. As
+  usual, we need to avoid overflows by taking modulo after each operation
+  instead of just at the end.
+</p>
+<h3>Large dataset</h3>
+<p>
+  For the Large dataset, we do not have enough time to merge the sequences on a
+  single node. We will have to distribute the data, but we cannot simply have
+  node 0 handle the first hundredth of Todd's sequence (and the parts of
+  Steven's sequence that merge with that), node 1 handle the second hundredth,
+  and so on. For example, it is possible that all of the values in Steven's
+  sequence are smaller than all of the values in Todd's sequence. In such a
+  case, some nodes would process well over 1/100 of the total input, and would
+  spend too much time doing so.
+</p><p>
+  What we really want is a way for the first node to handle the first hundredth
+  of the final <i>merged</i> sequence, the second node to handle the second
+  hundredth, and so on. The tricky part is figuring out just which ranges of
+  indices from each sequence are part of the first, second, etc. hundredths of
+  that merged sequence! We need a way to know this for a given range in the
+  merged sequence without actually calculating the entire merged sequence up to
+  that point.
+</p><p>
+  Intuitively, some sort of binary search should help, but it is challenging to
+  figure out what to binary search on. There are various possible solutions; we
+  will describe one that involves three binary searches but is relatively easy
+  to understand.
+</p><p>
+  Our "outer" binary search will search the range [1, 5 &times; 10<sup>9</sup>]
+  to find the value of the K-th element of the merged sequence, where K will be
+  a value like 1/100 &times; L, where L is the length of the merged sequence.
+  When our search considers a candidate value X, we must determine whether the
+  value is too low, too high, or just right to be the K-th element. To do so,
+  we need to know the number T' of elements in Todd's sequence are less than or
+  equal to X, and the number S' of elements in Steven's sequence that are less
+  than or equal to X. If T' + S' = K, we have found our K-th element; otherwise,
+  we can try a higher or lower value of X, in the usual way for a binary search.
+</p><p>
+  Now all we need is a way to actually find the values of T' and S' above. Since
+  the sequences are sorted, we can use an "inner" binary search on each
+  sequence to look for the number of values in that sequence less than or equal
+  to X.
+</p><p>
+  All that remains is the distribution. The first of the 100 nodes can be
+  responsible for the range of indexes [0, L/100) into the merged sequence; the
+  second can handle [L/100, 2L/100), and so on. Each node uses our multiple
+  binary search strategy once to find each end of its range. Once a node knows
+  its range, it can perform the standard merge step algorithm described in the
+  Small dataset, and keep track of its part of the hash sum. Then, the nodes
+  can send their partial sums to the master, which adds them to get a final
+  answer.
+</p><p>
+  Because each step of the outer binary search involves two more inner binary
+  searches, the time complexity of that part of the method is O((log M)(log L)),
+  where M is the global maximum value among the two sequences and L =
+  <code>GetToddLength()</code> + <code>GetStevenLength()</code> is the length
+  of the merged sequence. Note that this term is <i>not</i> influenced by
+  <code>NumberOfNodes()</code>, since each node simultaneously binary searches
+  on both of those ranges. The merge step is where that savings comes in; it
+  takes O(L / NumberOfNodes()) time. The latter term dominates the former term,
+  and this distributed method is fast enough to solve the Large dataset.
+</p><p>
+  Other solutions are possible. It is possible to use fewer binary searches.
+  For example, you can establish "delimiters" in both sequences (say, 0, 1/40,
+  2/40... of the way through Todd's, and 0, 1/40, 2/40... of the way through
+  Steven's), sort those delimiters together, take pairs of neighboring
+  delimiters, and then treat each pair (x, y) as a "find and sort all values
+  [x, y)" task. These tasks can then be distributed to workers. This method
+  is similar to the one described in our
+  <a href="../../2016_finals/air_show/analysis.html">analysis</a>
+  for the
+  <a href="../../2016_finals/air_show/statement.html">Air Show problem</a> from the 2016 DCJ Finals.
+</p>

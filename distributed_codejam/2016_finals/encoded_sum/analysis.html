@@ -1,0 +1,46 @@
+<h2>Encoded Sum: Analysis</h2>
+<p>
+The problem is about finding an bijective function from ten characters(A..J) to ten digits(0..9) which maximizes the sum of the two numbers created by replacing characters with digits. Trying to calculate the sum for all possible 10! combinations is impractical, and even if calculated, finding the best one can be problematic. In this analysis, we explain a greedy approach.
+</p><p>
+We have two strings X and Y, with fixed length L. Let's define X<sub>i</sub> and Y<sub>i</sub> as the i-th character in X and Y, respectively, and the i-th pair P<sub>i</sub> as (X<sub>i</sub>, Y<sub>i</sub>). Also, for each character, let's define C<sub>i,j</sub> as the number of appearances of character i in P<sub>j</sub> and C<sub>i</sub> as the concatenation of all C<sub>i,j</sub>s, in increasing order of j. Then C<sub>i</sub> can be regarded as a number. Let D<sub>i</sub> be the digit assigned to character i.
+</p><p>
+If the two strings are ACEGIBCEIG and ADFHJDBHFJ (slightly different from the last example case given in the problem), the C<sub>i</sub>s are as follows:
+</p><pre>C<sub>A</sub>: 2000000000
+C<sub>B</sub>: 0000011000
+C<sub>C</sub>: 0100001000
+C<sub>D</sub>: 0100010000
+C<sub>E</sub>: 0010000100
+C<sub>F</sub>: 0010000010
+C<sub>G</sub>: 0001000001
+C<sub>H</sub>: 0001000100
+C<sub>I</sub>: 0000100010
+C<sub>J</sub>: 0000100001</pre>
+<p>
+If each C<sub>i</sub> is a number, the sum can be calculated as the sum of C<sub>i</sub> &times; D<sub>i</sub> for all i. Now, it is clear that assigning larger values D<sub>i</sub> to characters with larger C<sub>i</sub> yields a larger result. So, the problem comes down to sorting the C<sub>i</sub>s in non-decreasing order and using that order to assign the digits.
+</p><p>
+To determine the order, it's necessary to start from the leftmost pair P<sub>0</sub>. For each pair P<sub>i</sub> = (X<sub>i</sub>, Y<sub>i</sub>), there are multiple cases.
+</p><p>
+[a] X<sub>i</sub> &ne; Y<sub>i</sub>,
+<ol>
+  <li>If both X<sub>i</sub> and Y<sub>i</sub> have not appeared before (let's call this "unexplored" status), we can assign them the largest remaining two digits. But, their relative final order can't be determined yet. Let's call these characters "entangled", as once one character is assigned its final digit (let's call this "fixed" status), the other character's digit is also decided. This status may be resolved when processing subsequent pairs.</li>
+  <li>If both X<sub>i</sub> and Y<sub>i</sub> are entangled with each other, their order can't be resolved at this time. There is nothing new to do in this case.</li>
+  <li>If at least one of X<sub>i</sub> or Y<sub>i</sub> is entangled and is not the case of (2), their status can be resolved. Resolve them by assigning X<sub>i</sub> and/or Y<sub>i</sub> the largest digit assigned to their respective entangled pairs and mark all characters involved as fixed.</li>
+  <li>After (3), if both X<sub>i</sub> and Y<sub>i</sub> are in the fixed status, there is nothing new to do in this case.</li>
+  <li>The only remaining case is that only one of X<sub>i</sub> and Y<sub>i</sub> is fixed and the remaining one is unexplored. In this case, give the latter character the largest remaining digit and mark the character as fixed.</li>
+</ol>
+</p><p>
+[b] X<sub>i</sub> = Y<sub>i</sub>,
+<ol>
+  <li>If X<sub>i</sub> is unexplored, give the character the largest remaining digit, and mark it as fixed.</li>
+  <li>If X<sub>i</sub> is entangled, it can be resolved with the other entangled character, and mark them as fixed.</li>
+  <li>If X<sub>i</sub> is fixed, there is nothing new to do in this case.</li>
+</ol>
+</p><p>
+After processing all pairs, there can be still some characters in status other than "fixed". Each entangled pair can be resolved by assigning each member of the pair one of the possible digits arbitrarily, then unexplored characters can be assigned the remaining digits. The result doesn't change in this stage.
+</p><p>
+To distribute the process, the key observation is that only the first occurrence of each pair of characters is important, when processing from left to right, and subsequent occurrences won't change the assignment. So, the whole process is as follows:
+</p><p>
+  <li>Each node finds unique pairs in a section of the input and sends them to the master node in their relative order of occurrence. Since we only need to send at most one instance of each of the 55 pairs, there are at most 55 pairs to send.</li>
+  <li>The master node decides the optimal digit order using the algorithm above on the at most 55 &times; 100 pairs.</li>
+  <li>The calculation of the result can be distributed to worker nodes again. After that, the master node gathers the pieces of the result, processes them modulo 10<sup>9</sup> + 7, and prints the sum.</li>
+</p>

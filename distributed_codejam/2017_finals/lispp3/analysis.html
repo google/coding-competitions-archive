@@ -1,0 +1,164 @@
+<h2>Lisp+++: Analysis</h2>
+
+<p>
+This Finals problem is certainly harder than Round 2 2016's
+<a href="../../2016_r2/lisp_plus_plus/statement.html">Lisp++</a>.
+However, it helps to consider that problem's
+<a href="../../2016_r2/lisp_plus_plus/analysis.html">solution</a> as a
+first step. Both problems involve parsing a simple
+<a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-free grammar</a> by
+matching opening and closing parentheses. What makes Lisp+++ a lot harder is that we also need to
+match each pair of parentheses with a particular <code>+</code> most of the time.
+This seemingly small change means that we can't just rely on
+the count of unmatched opening parentheses as we did in Lisp++. Consider the following example:
+</p><p>
+  <code>((()+()+()))</code>
+</p><p>
+Notice that if we remove all instances of <code>()</code>, we get <code>((++))</code>, where
+opening parentheses can be matched with closing ones, and either can be matched with a plus,
+in the proper order. So just keeping counts of how 'deep' we are for each character won't tell
+us whether the program has proper nesting.
+</p>
+<h3>A single-node solution</h3>
+<p>
+Even though a single-node solution will not pass either dataset for this problem, it is helpful to
+consider one. As the example shows, just counting the frequencies of the different characters is
+not enough. We can see this problem as a parentheses-matching problem with two types of opening
+parentheses and closing parentheses. Openings are <code>(</code> and </code>(+</code>, and closings
+are <code>+)</code> and <code>)</code>. Of course, each opening type matches exactly one closing
+type, and vice versa. An important caveat is that <code>(+</code> and <code>+)</code> do not appear
+consecutively, but need to have a valid program in between. However, the hard matching part involves
+finding a suitable 3-match by first pairing each <code>+</code> with a <code>(</code> and <code>)</code>,
+and then matching the types described above.
+</p><p>
+On a single machine, we can make do with a stack of openings, onto which we push any <code>(</code> or
+<code>+</code> that we see. Whenever we see a <code>)</code>, we try to pop either a single <code>(</code>
+or a pair <code>(+</code>. To avoid stuff like <code>++</code>, <code>(+</code>, <code>+)</code> and
+<code>(())</code>, we can just remember whether the top of the stack is the last element we've seen, and
+act accordingly before pushing a <code>+</code> or popping. If we are about to push a <code>+</code>, the
+top needs to be a <code>(</code> and not the last character seen from the input. If we are about to pop a
+pair <code>(+</code>, the top should not be the last character seen from the input. If we are about
+to pop a single <code>(</code>, on the other hand, it should be the last character seen, since
+<code>()</code> is valid but <code>(</code><i>P</i><code>)</code> for a program <i>P</i> is not. As soon as
+we detect an error, we finish. Notice that as long as the stack is valid, there is a way to complete the
+string to empty the stack without errors: just add the appropriate closing for each <code>(</code> or
+<code>(+</code> in the stack, inserting extra <code>()</code> as needed. If no error is detected,
+the solution can decide between outputting -1 and the length of the string by checking if the
+stack is empty at the end.
+</p><p>
+This solution takes time linear on the input size, but that's too slow for the input bounds of
+this problem. Moreover, the stack can get really large, so the memory limit is also an issue. We
+need a solution that reduces both the running time and the memory requirements by distributing
+the work.
+</p>
+<h3>Small dataset</h3>
+<p>
+There are two similar solutions to the Small dataset. Both depend on dividing the work evenly
+between nodes and combining the results in a master,
+taking advantage of the extra limit on the number of <code>+</code> characters in the input.
+When distributing the strategy mentioned above, the algorithm gets only a bit more complicated
+than the single-node algorithm.
+Each node gets a substring S from the input. For any node except the one getting the
+leftmost piece, there could be pluses and closing parentheses on it that need to be matched with
+pluses and/or opening parentheses that are outside of S. To represent them, we introduce a
+second stack that we call the left stack. The original stack in the single-node solution is,
+accordingly, the right stack. We work as in the single-node algorithm, except that if the
+right stack is empty, and we see a <code>+</code> or a <code>)</code>, we push it onto the left
+stack. This means that is pending matching with characters to the left of S. Opening parentheses
+are always pushed to the right stack. If there is something in the right stack, any match must use
+it before something can be pending on the left stack. Once a node is finished parsing its substring,
+it will have left and right stacks (either could be empty), and it may have found an error.
+</p><p>
+We can then take advantage of the extra Small limit on <code>+</code>es to "compress" these stacks
+to send them all to a single master. Since stacks contain a single type of parenthesis and up to
+100 pluses, we can represent them as a list of up to 101 integers by counting the size of each
+block of consecutive parentheses together. Then, the master can simulate matching large consecutive
+pieces, instead of matching individual parentheses.
+</p><p>
+A more insightful solution with a simpler implementation is to observe the effect of the <code>+</code>
+limit on the single-node solution. Any popping from the stack that is not immediately after a push
+requires a <code>+</code> to not be an error. This implies that at most the top 101 opening parentheses
+can be successfully matched and popped. A stack can also contain up to 100 pluses. This makes only
+the top 201 characters relevant, but it's also important to distinguish a stack with 201 characters
+from one with 202 or more, due to the need to recognize the empty stack at the end. This means
+only the top 202 elements in the stack are really impactful on the final answer and we can
+discard the rest.
+</p><p>
+In the distributed solution we started above,
+instead of compressing, we can just ship the topmost 202 elements of the right stacks (or all if
+less than that) to the master. Similarly, at most the bottom-most 202 elements of a left stack can
+produce a successful match and pop when combining, so we can ship only those. This requires the
+master to receive and process up to 404 &times; 99 characters, which it can do using the regular
+algorithm instead of trying to speed through compressed stacks. Notice that for left stacks, you
+need to either reconstruct the stack or ship input indices instead of characters to be able to know the
+error place once the error is detected. Right stacks, on the other hand, can be sent as characters,
+as all errors when processing the right stacks are checked in the workers, not in the master.
+</p><p>
+After combining the received left and right stacks, the master outputs the earliest error among
+the internal errors reported by workers and its own discoveries while combining.
+</p><p>
+The first stage of this algorithm takes time O(N / M), where N is the length of the input and M is
+the number of machines, as building the stacks requires a single pass over the assigned substring,
+with each character requiring only constant time to process (it only depends on the tops of the
+stacks). The combine stage is linear on the size of the things received by the master, which makes
+it negligible, so the overall time complexity is O(N / M).
+</p>
+<h3>Large dataset</h3>
+<p>
+For the Large dataset we use the same initial approach of building a left and right stack on each
+node for a substring of the input. Unfortunately, we can't afford to send them all to a master,
+since matching elements can be arbitrarily far apart, spanning multiple nodes. Moreover, the stacks are
+not highly compressible &mdash; quite the opposite! Since each parentheses type <code>(</code> or
+<code>(+</code> on a right stack matches a particular type <code>+)</code> or <code>)</code> on a left
+stack, and they can be arbitrarily interleaved, stacks have an information density higher than 1 bit
+per 2 characters. We are not allowed enough communication size to send that amount, even with great
+compression.
+</p><p>
+Before continuing, please be advised that we will skip even more details than in the solutions
+presented before. There are many details to take into account, mostly due to
+translating the "is the top of the stack the last element pushed" of the single-node algorithm
+into a distributed solution. As an illustration, the first official solution we wrote for this
+problem had 35 ifs and 8 fors, which makes for 43 comparisons, all of which have to be just right.
+</p><p>
+We will let L<sub>i</sub> and R<sub>i</sub> represent the left and right stacks from node i,
+assuming that nodes with smaller indices are assigned substrings closer to the beginning of the
+string. Then, the stacks are logically arranged in the following way:
+</p><p>
+L<sub>0</sub> R<sub>0</sub> L<sub>1</sub> R<sub>1</sub> L<sub>2</sub> R<sub>2</sub> ...
+</p><p>
+From this, we can see that L<sub>0</sub> should be empty, or otherwise it will necessarily
+cause an error. Also, the right part of R<sub>i</sub> must match the left part of L<sub>i+1</sub>.
+Moreover, at least one of them (the one with the fewest parentheses) is matched completely in that
+pairing. This hints at a possible solution: a master gathers data about the number of
+parentheses on each stack, and processes them in the order shown above. The master builds a
+stack of pending right stacks. Each right stack is added to it. Each left stack is matched to the
+top right stack. That empties at least one of them. If the right stack empties, it is removed from
+the stack of right stacks. If the left stack is not exhausted, it is matched with the new top,
+and so on, until either the left stack is exhausted or the stack of right stacks is empty. If there
+is left stack after emptying the right stacks, there is an error in there and we need to match
+no further. Otherwise, we continue with the right stacks that remain.
+</p><p>
+During this algorithm, the master needs to keep track of sub-stacks as stacks are sometimes
+partially matched after a pairing, and also to explain the pairing to worker nodes.
+Each sub-stack is an interval of parentheses within a stack, with all the associated pluses. We
+can represent stacks by an interval of positions. Reprocessing those positions with the original
+algorithm will yield the same stack. We can represent a sub-stack as an interval of <i>remaining</i>
+parentheses within a stack. Parentheses that are fully matched within a worker node are counted, as
+they do not appear in the stacks the master considers. Since each pairing exhausts at least one stack,
+and there are 2M stacks, there are at most 2M pairings. This means we can assign each worker at most 2
+pairings and they will all be processed. Processing a pairing requires reading at most 2 N / M
+characters, for a total of 4 N / M, because a stack contains at most N / M characters. Depending on
+the strategy to assign pairs to workers, it's possible to get the number of characters a worker needs
+to process in the worst case down to 2 N / M overall.
+</p><p>
+Then, each worker reports up to 3 errors to the master:
+one initial internal error from the first stage, and up to two errors from the pairings. The master
+gathers all those errors and reports the earliest, or uses the same strategy of checking whether
+the stack of right stacks is empty to decide between -1 and the length of the input.
+</p><p>
+As a quick overview of where all those technicalities arise, notice that stacks or sub-stacks may
+eventually consist of a single <code>+</code>, which can't really be matched directly and must wait to
+be attached in between another pair. When that happens, we need to carry the index to avoid an extra
+full reconstruction just for that character. Additionally, one needs to keep track of whether the
+top of the right stack or sub-stack is the last character in the input while matching a pair.
+</p>

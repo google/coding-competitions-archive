@@ -1,0 +1,76 @@
+<h2>Flagpoles: Analysis</h2>
+
+<p>
+As we can see from the definition in the problem statement, a consecutive set of flagpoles having
+collinear tips is equivalent to the corresponding input values forming an
+<a href="https://en.wikipedia.org/wiki/Arithmetic_progression">arithmetic progression</a>.
+This means the problem translates into finding the longest contiguous subsequence forming an
+arithmetic progression. Since the difference between any two consecutive elements in the
+progression is the same, we can simplify this further by considering an altered input: the list of
+differences between consecutive elements. A contiguous subsequence of size <i>k</i> which is an
+arithmetic progression in the input corresponds to a contiguous subsequence of size <i>k</i>-1 in
+the altered input. After having a special case for an input with a single element, this poses no
+additional problem as there is always an arithmetic progression of length at least 2.
+</p><p>
+From the paragraph above, we now have to solve a much easier problem: given a list of integers,
+find the length of the longest consecutive subsequence of elements that are all equal.
+From this point, we will focus on solving the altered problem. The result we look for can then
+be found simply by adding 1 to the result of the altered problem.
+</p>
+
+<h3>A single-node solution</h3>
+
+<p>
+The problem is almost trivial on a single node in quadratic time, and a simple loop can also solve
+it in linear time, as the following pseudocode illustrates:
+</p><pre>
+previous = first element of the altered input
+current = best = 1
+for each x in the altered input except the first:
+  if x == previous:
+    current = current + 1
+    best = max(best, current)
+  else:
+    previous = x
+    current = 1
+</pre>
+
+<h3>A distributed solution</h3>
+
+<p>
+While the single node solution is good enough to pass the Small dataset, we need to go sublinear to
+get a shot at the Large set, as there isn't enough time to even read the entire input on a
+single node.
+</p><p>
+The first thing to try, as it's common practice in Distributed Code Jam, is to partition the input
+into 100 evenly-sized pieces and get each node to process one piece. If we do that, we can
+immediately notice there are two distinct cases:
+</p><ol>
+  <li>The longest contiguous subsequence of equal numbers is all contained in one piece.</li>
+  <li>It spans multiple pieces.</li>
+</ol><p>
+Case 1 is easy to resolve with our division strategy: each node will report to a master it's
+internal result and the master will just take the maximum. However, this will overlook case 2,
+so we need to do something extra. Examining the result for this case more closely, we can see that
+the longest contiguous subsequence starts inside some node i, then covers nodes
+<i>i</i>+1, <i>i</i>+2, ...,<i>j</i>-2, <i>j</i>-1 completely, and then finishes somewhere within
+node <i>j</i>, for some pair of indices <i>i</i> &lt; <i>j</i> (if <i>j</i> = <i>i</i> + 1, then no
+node is covered completely). That means that, for each node, only a prefix or suffix will be
+important (in nodes where the all the elements in the split are equal, the coverage is both a
+prefix and a suffix). Putting it all together, each node needs to calculate and report to a master:
+</p><ul>
+<li>An internal result (to cover case 1).</li>
+<li>The leftmost and rightmost elements in its range.</li>
+<li>The length of the largest prefix of elements equal to its leftmost element.</li>
+<li>The length of the largest suffix of elements equal to its rightmost element.</li>
+</ul><p>
+With that information, the master can calculate the best option for case 2 by trying every possible
+pair of nodes (since there are only 100): for each <i>i</i> &lt; <i>j</i>, we can consider a
+solution if the rightmost element of <i>i</i> is equal to the leftmost element of <i>j</i>, and for
+each k, <i>i</i> &lt; <i>k</i> &lt; <i>j</i>, the leftmost and rightmost element of <i>k</i> are
+equal and equal to the other two, and the size of <i>k</i>'s longest suffix and prefix coincides
+with its range length (that is, all elements inside node <i>k</i> are equal). In that case, a
+possible result is the longest suffix from <i>i</i> + the longest prefix from <i>j</i> + the length
+of the range for each each <i>k</i>. This part can be optimized to be linear in the number of
+nodes, but there is no need for it, since the number of nodes is so small.
+</p>

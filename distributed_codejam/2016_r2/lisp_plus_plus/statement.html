@@ -1,0 +1,98 @@
+<h3>Problem</h3>
+<h2>Lisp++</h2>
+<p>
+Alyssa is a huge fan of the Lisp programming language, but she wants it to have
+even more parentheses, so she is designing a new language, Lisp++. A valid
+Lisp++ program consists of one of the following. (In this specification,
+<i>P</i> stands for some valid program -- not necessarily the same program each time.)
+  <ul>
+  <li><code>()</code> Literally, just an opening parenthesis and a closing
+    parenthesis.</li>
+  <li><code>(</code><i>P</i><code>)</code> A program within a pair of enclosing
+    parentheses. </li>
+  <li><i>P</i><i>P</i> Two programs (not necessarily the same), back to
+    back.</li>
+  </ul>
+</p><p>
+Alyssa is working on a compiler for Lisp++. The compiler must be able to
+evaluate a string consisting of <code>(</code> characters and/or <code>)</code>
+characters to determine whether it is a valid Lisp++ program, and provide the
+user with some helpful information if it is not. If the program is valid, the
+compiler should print -1. Otherwise, it should print the length of the longest
+prefix that could be extended into a valid program by adding zero or more
+additional characters to the end. If that prefix is the empty prefix, the
+compiler should print 0. In particular, if the input string is not a valid program, but can be
+extended to a valid program, the compiler should print the length of the input string.
+</p><p>
+For example:
+<ul>
+<li><code>()(()())</code> is a valid program, so the compiler should print
+-1.</li>
+<li><code>(()))</code> is not a valid program. The prefix <code>(())</code> is
+the longest prefix that is or could be extended into a valid program (in this
+case, it already is one), so the compiler should print 4. The only longer
+prefix is <code>(()))</code> (i.e., the entire string), but there is no way to
+add (any number of) characters to the end of that string to make it into a
+valid program.</li>
+<li><code>)</code> is not a valid program. The prefix <code>)</code> cannot be
+extended into a valid program. The empty prefix is not a valid program, but it
+can easily be extended into one (by adding <code>()</code>, for example). So
+the compiler should print 0.</li>
+</ul>
+<p>
+Given a string, what should Alyssa's compiler print?
+</p>
+
+<h3>Input</h3>
+<p>
+The input library is called "lisp_plus_plus"; see the sample inputs below for
+examples in your language. It defines two methods:
+</p>
+<ul>
+  <li><b>GetLength()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the length of the string.</li>
+      <li>Expect each call to take 0.07 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetCharacter(i)</b>:
+    <ul>
+      <li>Takes a 64-bit integer in the range 0 &le; i &lt; GetLength().</li>
+      <li>Returns a character: either <code>(</code> or <code>)</code>, the
+        character at position i.</li>
+      <li>Expect each call to take 0.07 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+Output a single line with a single integer: what the compiler should print, as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 3 seconds.<br/>
+Memory limit per node: 128 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+GetCharacter(i) is always <code>(</code> or <code>)</code>.<br/>
+</p>
+
+<h4>Small input</h4>
+<p>
+Number of nodes: 10.<br/>
+1 &le; GetLength() &le; 10<sup>6</sup>.
+</p>
+
+<h4>Large input</h4>
+<p>
+Number of nodes: 100.<br/>
+1 &le; GetLength() &le; 10<sup>9</sup>.
+</p>
+
+<p>
+The sample input files are the same examples from the problem statement, in
+the same order.
+</p>

@@ -1,0 +1,109 @@
+<h2>Toothpick Sculpture: Analysis</h2>
+<p>
+The statement asks us to select a subset of tootkpicks to stabilize. The subset must
+be such that, for any pair of touching toothpicks, at least one of them is in this subset. This
+means that in the set of toothpicks that are not chosen, no two toothpicks touch, making it an
+<a href="https://en.wikipedia.org/wiki/Independent_set_(graph_theory)">independent set</a>.
+Moreover, minimizing the cost of the chosen set is equivalent to maximizing the cost of the
+not-chosen set, making the problem equivalent to finding a maximum independent set, which is an
+NP-complete problem in general graphs. This brings us to one major point of the problem:
+the maximum independent set problem can be solved for a tree via a simple recursion, and of course,
+a similar recursion solves the complementary problem that we are given.
+<h3>A simple single-machine solution</h3>
+<p>
+Like many tree problems, this one can be solved via a divide and conquer strategy.
+For each subtree, we want two pieces of data: the minimum cost of a set including the root, and the
+minimum cost of a set with no additional restrictions.
+We need both of these
+pieces of data because when combining information from the children of a given node, we
+need to know if we are in a position to skip the cost of the root or not. This is better explained
+by the following recursive pseudo-code:
+</p><pre>
+Solve(subtree):
+  if subtree is empty, return (0, 0)
+  result_child_1 = Solve(child1(subtree))
+  result_child_2 = Solve(child2(subtree))
+  best_with_root = Cost(root(subtree)) + result_child_1.best + result_child_2.best
+  best_without_root = result_child_1.best_with_root + result_child_2.best_with_root
+  best = min(best_with_root, best_without_root)
+  return (best, best_with_root)
+</pre><p>
+Notice above that if we decide to pay the cost for the current root, we can just take the best set
+for each child. However, if we decide to skip the cost of the current root,
+we need to require a set from each child that contains that child.
+</p><p>
+The first problem is that the size of the tree makes recursion impossible due to stack
+limitations. You can just write your own stack to simulate the recursion, but a simpler and faster
+way is to do a <a href="https://en.wikipedia.org/wiki/Topological_sorting">topological sort</a> of
+the nodes, and then solve them in reverse order, from leaves to root.
+</p>
+<h3>Distributing the solution: Small dataset</h3>
+<p>
+A single machine solution gets you nothing in the finals, because even Smalls are big. In this case,
+the Small guaranteed the input is a path, which makes the solution be essentially the same
+recursion described above, but with one of the children of each node missing.
+However, this is a lot easier to distribute: first,
+partition the path, then, have each machine compute the results of a single part of the path
+relative to two variables: the results coming from the following piece of the
+path that went to another machine. Since results are always linear in terms of the variables,
+you can keep computing the results without the size of the representation growing too much.
+</p><p>
+Partitioning paths is simple: just choosing <i>k</i> out of <i>n</i> random points yields an
+expected maximum piece size of <i>n</i> log <i>k</i> / <i>k</i>, which is pretty close to the
+optimal <i>n</i> / <i>k</i>. However, in this problem the input is nicely prepartitioned:
+choosing toothpicks 0 through 999 as piece starting yields a perfect partition. This is more pieces
+than there are machines, but we can have each machine compute several of them, either by assigning
+each machine a range of pieces, or by having a master assign a new piece each time a worker
+machine finishes the previous one.
+</p>
+<h3>Distributing the solution: Large dataset</h3>
+<p>
+The Large dataset, however, is a different monster to battle. We pre-partitioned the input for a
+reason: partitioning trees well is hard (and, incidentally, one main focus of the
+<a href="../../2015_finals/shipping/statement.html">shipping</a> problem from
+the 2015 Distributed Code Jam Finals). For instance, if you have a complete binary tree and you
+pick random nodes
+to act as roots of each of the pieces, you are highly likely to end up with one giant piece
+attached to the actual root and many tiny pieces, because in a complete binary tree, most of the
+nodes are close to the leaves and far from the root, where big pieces should start.
+Fortunately, the statement provides us with a nice partition. The question is what to do with it!
+</p><p>
+The usual way to approach a problem like this is to have each piece report some result to the
+master and have the master combine them into a final result. In this case, each piece is adjacent
+to possibly many
+other pieces, so we can't use the trick we used for the Small, since the value of the expression
+representing the result grows exponentially with the number <i>p</i> of "pending" pieces (which
+in a path, is just 1). Think about it this way: for each adjacent subtree, we have two results to
+choose from, so we have 2<sup><i>p</i></sup> ways to combine its results.
+</p><p>
+One way to deal with this issue is to stop the exponential explosion before it starts: proceed as
+in the Small, representing results as linear expressions based on two variables identified with the
+two results coming from a single piece. In some cases you will get integers as results,
+because there is no other piece starting below in the current subtree. As soon as you need to
+combine two linear expressions into a quadratic one, don't. Instead, create a new variable in the
+current node and remember how to calculate it. Now, the result is back to linear. Since there are
+1000 pieces, there are 999 merges and thus 999 virtual variables. When we finish everything, every
+variable can be calculated from at most two others, so we have a new binary tree over which we can
+calculate a similar recursion.
+<p></p>
+There are two ways to implement this idea. One is to have a master assign both subtrees and virtual
+variables and have the workers report back to it. Another is to assign each worker a range of
+subtrees or pieces and a range of values to use for its necessary virtual variable calculation.
+As a particular implementation detail, we can represent the result from each subtree with five
+integers <code>i, a, b, c, d</code> representing <code>best</code> and <code>best_with_root</code>
+above as follows:
+</p><pre>
+if i = -1: best = a = b, best_with_root = c = d
+else: best = min(a + best_i, b + best_with_root_i),
+      best_with_root = min(c + best_i, d + best_with_root_i)
+</pre><p>
+where <code>best_i</code> and <code>best_with_root_i</code> represent the specific result from
+the piece or virtual variable <code>i</code>.
+Notice that <code>i = -1</code> represents a result with no pending variable.
+The result is always one of the
+possibilities from the pending result plus some overhead for the rest of the set. The integers
+<code>a, b, c, d</code> represent that overhead in each of the four combinations. When we have to
+combine two of these results with <code>i</code> &ne; -1, we just create a new variable and remember
+which two results we have to use to calculate its value, once we have all the information to
+calculate them.
+</p>

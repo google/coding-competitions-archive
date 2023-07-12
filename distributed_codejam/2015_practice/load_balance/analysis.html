@@ -1,0 +1,31 @@
+<p>
+The problem asks, given a set of numbers, is it possible to split them into two sets with equal sums. This is a case of the classic <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" target="_blank">Subset Sum</a> problem.
+</p>
+
+<p>
+Let's begin by describing two single-node solutions for this problem. The first one is a naive solution that simply calculates all the possible sums (all 2<sup>N</sup> of them, each in O(N) operations), and check whether any of them is equal to half of the total sum. This can be optimized, by iterating over the sets in a smarter order, to run in O(2<sup>N</sup>) time, without the O(N) factor.
+</p>
+
+<p>
+A much faster solution is meet-in-the-middle. This works as follows: we split the N numbers into two parts. For each part, we calculate all the 2<sup>N/2</sup> sums, and then sort them. Then, we try to find a pair - one sum from the first part and one sum from the second - that adds up to the required half of the total. We do this by sorting both sets of sums, and then holding an iterator on each of the sorted sets. The iterator on the first set begins on the highest number, the iterator on the second one begins on the lowest number. If the total sum pointed to the two iterators is higher than what we are looking for, we increment the second iterator, if the total is lower, we decrement the first. This runs in O(2<sup>N/2</sup> N), where the O(N) factor is for sorting. Again, this can be optimized to run in O(2<sup>N/2</sup>) time, and with enough optimizations, it was possible to solve this problem on a single node (which is why we used it in a practice contest, and not in the real one).
+</p>
+
+<p>
+Now let's talk about sharding this problem. The first idea that comes to mind is to take the first log(M) elements of the set, and assign each of the nodes a particular set of these elements, that we assume will go into the final sum. This effectively decreases N by log(M), and so has a runtime of O(N 2<sup>(N - log(M)) / 2</sup>) = O(N 2<sup>N/2</sup> / sqrt(M)), again with optimizations possible to get rid of the N factor. However, one feels that this is suboptimal - ideally, having M nodes we should be able to speed up the solution M times. Can we do this?
+</p>
+
+<p>
+Let's begin with an approach that doesn't really work, but shows what we should be trying to achieve. Let's do almost the same thing as we did in the classical meet-in-the-middle solution, but assign each node a remainder modulo M. A node with remainder K assigned will be looking for solutions where the sum in the left part equals K mod M (and so the sum in the right part equals (half of total - K) mod M). If we were able to generate the list of such sums which add up to K mod M fast, and if these lists were of roughly equal length for each K, then each list would be of length O(2<sup>N/2</sup> / M), and we would have a O(N 2<sup>N/2</sup> / M), possibly with optimizations to get rid of the N factor, if we could generate them sorted.
+</p>
+
+<p>
+First, how to generate the lists. The problem boils down to: we have X numbers (X = N / 2), and we want to generate all the sums of these X numbers that equal K mod M. One simple way to do it is to split X in half again, generate all sums of the X/2 numbers in each half, bucket them by remainder mod M, and then join the appropriate buckets. We have 2<sup>X/2</sup> sums in each half, which is less than O(2<sup>X</sup> / M) numbers we want to generate, so we can easily afford this.
+</p>
+
+<p>
+Unfortunately, the M lists we generate have no reason to be of equal size. First, because even a random split would introduce somewhat unequal lists, and second, because the test data might be (and was) crafted to defeat such an approach. To solve this, instead of doing the split modulo M, we can do the split modulo some random number around 10M. We also have to take care to deduplicate the sums we generate, in order to deal with the case where all the numbers in the input are equal (and so would land in one bucket).
+</p>
+
+<p>
+We leave the question of whether it is possible to get rid of the N factor in this solution to the reader. The tests are crafted to allow the O(N 2<sup>N/2</sup> / M) solution pass. A well-crafted, single-node implementation of the O(2<sup>N/2</sup>) solution might fit in time (and memory) as well, which is why we used this problem in the practice contest, and not in the real one!
+</p>

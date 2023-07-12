@@ -1,0 +1,111 @@
+<h3>Problem</h3>
+
+<h2>Lisp+++</h2>
+<p>
+  After a year of parenthetical bliss using
+  <a href="../../2016_r2/lisp_plus_plus/statement.html">Lisp++</a>,
+  Alyssa thought it was finally time to go beyond the parentheses. She decided
+  to create an extension of the language that adds the + operator to simplify
+  the semantics. She fittingly named the new language Lisp+++.
+</p><p>
+  A valid Lisp+++ program consists of one of the following. (In this
+  specification, <i>P</i> stands for some valid program -- not necessarily the
+  same program each time.)
+</p><ul>
+    <li><code>()</code> Literally, just an opening parenthesis and a closing
+    parenthesis.</li>
+    <li><i>P</i><i>P</i> Two programs (not necessarily the same), back to
+      back.</li>
+    <li><code>(</code><i>P</i><code>+</code><i>P</i><code>)</code> A pair of
+      parentheses enclosing two programs (not necessarily the same), separated
+      by a <code>+</code> character.</li>
+</ul><p>
+  Alyssa's new Lisp+++ requires a compiler that must be able to evaluate a
+  string consisting of <code>(</code>, <code>)</code>, and/or <code>+</code>
+  characters and determine whether it is a valid Lisp+++ program, and provide
+  the user with some helpful information if it is not. If the program is valid,
+  the compiler should print -1. Otherwise, it should print the length of the
+  longest prefix that could be extended into a valid program by adding one or
+  more additional characters to the end. If that prefix is the empty prefix,
+  the compiler should print 0. In particular, if the input string is not a
+  valid program, but can be extended to a valid program, the compiler should
+  print the length of the input string.
+</p><p>
+For example:
+<ul>
+  <li><code>(()+())()</code> is a valid program, so the compiler should print
+    -1.</li>
+  <li><code>(()()+)</code> is not a valid program. The prefix
+    <code>(()()+</code> is the longest prefix that is or could be extended into
+    a valid program; in this case, one possible valid extension is
+    <code>(()()+())</code>. So, the compiler should print 6. The only longer
+    prefix is <code>(()()+)</code> (i.e., the entire string), but there is
+    no way to add (any number of) characters to the end of that string to make
+    it into a valid program.</li>
+  <li><code>)</code> is not a valid program. The prefix <code>)</code> cannot
+    be extended into a valid program. The empty prefix is not a valid program,
+    but it can easily be extended into one (by adding <code>()</code>, for
+    example). So the compiler should print 0.</li>
+</ul>
+<p>
+  Given a string, what should Alyssa's Lisp+++ compiler print?
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "lispp3"; see the sample inputs below for
+  examples in your language. It defines two methods:
+</p>
+<ul>
+  <li><b>GetLength()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 32-bit integer: the length of the string.</li>
+      <li>Expect each call to take 0.08 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetCharacter(i)</b>:
+    <ul>
+      <li>Takes a 64-bit integer in the range 0 &le; i &lt; GetLength().</li>
+      <li>Returns a character <code>(</code>, <code>)</code>, or
+        <code>+</code>: the character at position i, counting from left to
+        right.</li>
+      <li>Expect each call to take 0.08 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single line with a single integer: what the compiler should print,
+  as described above.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Number of nodes: 100 <b>(for both the Small and Large datasets)</b>.<br/>
+  Time limit: 5 seconds.<br/>
+  Memory limit per node: 128 MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 128 KB.
+    <b>(Notice this is less than usual.)</b><br/>
+  1 &le; GetLength() &le; 10<sup>9</sup>.
+  GetCharacter(i) is always <code>(</code>, <code>)</code>, or
+    <code>+</code>.<br/>
+</p>
+
+<h4>Small input</h4>
+<p>
+  number of i such that GetCharacter(i) = <code>+</code> &le; 100.
+    (There are at most 100 <code>+</code>s in the input.)
+</p>
+
+<h4>Large input</h4>
+<p>
+  No additional limits. (There may be more than 100 <code>+</code>s in the input.)
+</p>
+
+<p>
+  The sample input files are the same examples from the problem statement, in
+  the same order.
+</p>

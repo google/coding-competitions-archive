@@ -1,0 +1,70 @@
+<h2>Towels: Analysis</h2>
+<p>
+  If a single-node solution were allowed, this would be a relatively simple simulation question -
+  we would keep the cleanliness of top towels of each stack in a priority queue, so that the
+  cleanest towel is at the top, and simulate the process of people entering the gym and picking
+  towels. Ah, but here even the Small dataset required a distributed solution!
+</p>
+<p>
+  One key observation is to notice that if towel <i>A</i> is immediately below towel <i>B</i> on
+  some stack, and <i>A</i> is cleaner than <i>B</i>, then after <i>B</i> is picked up, the next
+  person is guaranteed to pick <i>A</i> - since <i>B</i> was the cleanest towel for the first
+  of the two people, <i>A</i> will be the cleanest towel for the second of them. This extends
+  further on - all the towels below <i>B</i> that are cleaner than <i>B</i> will be taken
+  immediately after <i>B</i>. We can join all such towels in a &quot;towel group&quot; represented
+  by <i>B</i> (since all these towels will be taken together).
+</p>
+<p>
+  After we do this, note that the leading towels of towel groups on any stack are sorted by
+  cleanliness (since for each towel we merged all the cleaner towels immediately below it into the
+  same group, so the towel that's left has to be dirtier), and the gym users will pick towel groups
+  in order of increasing dirtiness.
+</p>
+<p>
+  Now, if we decide which towel is the dirtiest towel <i>D</i> that will be picked, we will be able to
+  almost fully simulate the process on each stack - we will never pick any towel dirtier than <i>D</i>,
+  we will pick the whole group below any towel cleaner than <i>D</i>, and the only unknown is how
+  many towels from the group headed by <i>D</i> we will pick. This suggests a binary search
+  approach to find the dirtiest towel we will pick up. There are three different ways to proceed from
+  this point. In each of them, we divide the stacks roughly equally between the nodes, with each node
+  responsible for some of the stacks. Once we know <i>D</i>, and how many towels are picked up
+  before <i>D</i> gets picked, we can send this information to all the nodes, and the node that is
+  responsible for <i>D</i> can iterate over the last stack, figure out the towel we will pick, and
+  output the result.
+</p>
+<p>
+  The first approach is to simply run a binary search to find <i>D</i>, coordinated by a master
+  node. Within each step of the binary search, on each node, we will simulate on each node picking towels up to
+  dirtiness <i>D</i>, and report back how many towels we picked up (possibly a range, if <i>D</i>
+  happens to be within our node). Then, the master node sums up how many towels were picked up in
+  total - if it's more than the desired number, we need a cleaner <i>D</i>, and if it's too few, we need
+  a dirtier <i>D</i>. With <b>N = NumberOfStacks * NumberOfTowelsInStack</b> and
+  <b>M = NumberOfNodes</b>, we will need O(<b>N</b> / <b>M</b>) operations in each step, and
+  O(log(<b>N</b>)) steps. There is also one technical hurdle - with around 30 rounds of
+  communication, and 100 messages sent from the master in each round, we will run over the limit
+  on the number of messages sent from the master. To fix this, we can use a tiered strategy (the
+  master sends the request for calculation to, say, 10 children, and each of those sends to 9
+  children of its own). This approach takes O((<b>N</b> log <b>N</b>) / <b>M</b>) time, and
+  O(log <b>N</b>) rounds of communication, which can run in time, although some care is needed.
+</p>
+<p>
+  An alternative approach to distributing binary search is to trade communication for computation.
+  The idea is that instead of the master sending one value at a time to children, it will send,
+  say, 1000 values, and the child will return the number of towels picked up up to that dirtiness
+  value for each of those 1000 values. This means we will be done in three iterations, which solves
+  the problem of too many messages. Within each node, we can either run a full simulation, noting
+  when we reach one of the interesting values, or we can define the groups, sort all of them, and
+  then do a binary search to answer each query in O(log <b>N/M</b>) time. Both these approaches are
+  considerably faster than the first one.
+</p>
+<p>
+  Finally, we can try to have the best of all worlds. If, in an iteration of binary search, we learn
+  that we should go lower (that is, choose fewer towels), we will never need to process half of the
+  towels again. If we learn we should go higher, we can go over the first half of the towels, throw
+  them out, and also never process them again. In both cases, for the Large dataset, we need to keep
+  the list of stacks in a list, not an array, so we can avoid processing stacks that have no
+  interesting towels in them. This way, the size of the set to consider is halved in each iteration,
+  and so the total computation time on each node will sum up to O(<b>N/M</b>), and not O(<b>N</b>
+  log <b>N</b> / M). This approach is also compatible with the 1000-ary search (although the gain
+  is smaller there).
+</p>

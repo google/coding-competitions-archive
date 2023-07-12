@@ -1,0 +1,61 @@
+<h3>Problem</h3>
+<p>
+In a certain country that shall remain unnamed, people live in <b>N</b> villages along river valleys separated by mountain ranges. Due to the geography of the country, it is extremely difficult to cross over mountains. The only practical way to get from one village to another is by following rivers. All of the rivers are part of the same system and each river connects to another river downstream, until eventually all water in the system passes through a single point to enter the sea. There is a village at every point where two rivers join and at each river's source, and there is one village at the mouth of the entire river system, where it meets the sea. There may be also be villages at other points along rivers. No two villages are at the same location along a river, and there is exactly one path between any two villages. In other words, the villages and the paths between them form a tree.
+</p>
+
+<p>
+You are in charge of managing a shipping company that delivers packages between villages by transporting them on boats along the rivers. Since there is only one path between any two villages, you fortunately do not have to worry about finding the shortest path to use. Unfortunately, however, the country is in the middle of a civil war, with <b>K</b> rival factions battling for control. Each village is under the control of exactly one of the factions. Luckily, conditions are stable at the moment and no village is going to change factions anytime soon.
+</p>
+
+<p>
+As a neutral company, you are able to send your boats through every village, but only under the condition that each of the factions is allowed to use your shipping services for free, by loading additional packages onto any of your boats that pass between villages under the control of that faction. Every time one of your boats passes through a village (including the village at which your boat begins its route), you may be given an additional package occupying 1 unit of capacity on your boat, to be transported to another village further along on your boat's current route that is occupied by the same faction.  Because the factions do not want their packages to be intercepted by other factions, you will be given a package to transport between two villages only if every village on the path between them (including the destination) is occupied by the same faction. Once you deliver a package, you can reuse the space for another package later on, but multiple packages at the same time require multiple units of capacity.
+</p>
+
+<p>
+You are now faced with the problem of guaranteeing enough extra capacity on your boats to transport these extra packages. You have <b>Q</b> shipments, each of which has a source village and a destination village. You will use a different boat for each shipment. For each shipment, determine the number of units of capacity to reserve on your boat in order to carry all of the additional packages for the various factions in the worst case.
+</p>
+
+
+<h3>Input</h3>
+<p>
+The input library is called "shipping"; see the sample inputs below for examples in your language. It defines 6 methods:
+<ul>
+<li>NumberOfVillages()</li>
+<li>VillageFaction(village_index)</li>
+<li>VillageImmediatelyDownstream(village_index)</li>
+<li>NumberOfShipments()</li>
+<li>GetShipmentSource(shipment_id)</li>
+<li>GetShipmentDestination(shipment_id)</li>
+</ul>
+
+Villages and shipments are both zero-indexed. VillageImmediatelyDownstream returns the index of the village that lies immediately downstream, except for the village at the mouth of the river system, whose return value is the index of this village (since no other village is downstream, just the sea).<br/>
+
+A single call of VillageImmediatelyDownstream will take approximately 0.04 microseconds. A single call of VillageFaction will take approximately 0.02 microseconds.
+</p>
+
+<h3>Output</h3>
+
+<p>
+Output a space-separated list of integers, where the i-th integer is the minimum number of units of capacity needed for the boat delivering the i-th shipment to carry all additional packages in the worst case.
+</p>
+
+<h3>Limits</h3>
+<p>
+Each node will have access to 256MB of RAM, and a time limit of 5 seconds.<br/>
+1 &le; NumberOfVillages() &le; 10<sup>8</sup><br/>
+0 &le; VillageFaction(i) &le; 10<sup>6</sup> for all villages<br/>
+0 &le; GetShipmentSource(i), GetShipmentDestination(i) &lt; NumberOfVillages() for all shipments<br/>
+The VillageImmediatelyDownstream method will describe a tree (that is, there will be only one path between any two villages).<br/>
+Your solution will run on 100 nodes in both inputs.<br/>
+</p>
+
+<h3>Small Input</h3>
+<p>
+1 &le; NumberOfShipments() &le; 10<br/>
+VillageImmediatelyDownstream(i) &le; i for all villages<br/>
+</p>
+
+<h3>Large input</h3>
+<p>
+1 &le; NumberOfShipments() &le; 20,000<br/>
+</p>

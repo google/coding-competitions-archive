@@ -1,0 +1,89 @@
+<h3>Problem</h3>
+
+<h2>Kenneth</h2>
+<p>
+There are strange signals being beamed from outer space, and you have set up nodes
+to record them. Now you would like to find the frequency of those signals
+in order to be able to block them out.
+</p>
+
+<p>
+The recorded signal consists of some string <i>s</i>, repeated some number of
+times. The length of <i>s</i> is called the <i>frequency</i> of the signal.
+It is guaranteed that you recorded the whole signal, from beginning to end.
+</p>
+
+<p>
+Each node now holds a part of the recorded signal. That is, the whole signal
+(which is <i>s</i> repeated a certain number of times) is broken up into
+<i>NumberOfNodes()</i> contiguous pieces, and the <i>i</i>th node holds the
+<i>i</i>th piece of the signal. The pieces do not necessarily contain whole
+repetitions of <i>s</i> &mdash; for example, if the signal is the string AAB repeated
+three times, and <i>NumberOfNodes()</i> is 4, the first node might contain
+AAB, the second AA, the third BAA, and the fourth just B.
+</p>
+
+<p>
+Your task is to determine the frequency (that is, the length of the string
+<i>s</i>). If there are many possible strings <i>s</i>, choose the shortest
+one possible.
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "kenneth"; see the sample inputs below for
+  examples in your language. It defines two methods:
+</p>
+<ul>
+  <li><b>GetPieceLength(node_index)</b>:
+    <ul>
+      <li>Takes a 64-bit integer: the index of the node we want to know
+        about.</li>
+      <li>If the index is less than 0 or greater than 99, this will crash.</li>
+      <li>Returns a 64-bit integer: the length of the signal piece on that
+        node.</li>
+      <li>Expect each call to take 0.07 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetSignalCharacter(position)</b>:
+    <ul>
+      <li>Takes a 64-bit number: the position of the character in the
+        signal (counting starting from 0).</li>
+      <li>If the position is less than sum(GetPieceLength(i)) for i &lt;
+        MyNodeId(), this will crash.</li>
+      <li>Similarly, if the position is equal to or greater than
+        sum(GetPieceLength(i)) for i &le; MyNodeId(), this will crash.</li>
+      <li>Otherwise, returns the character from the given position in the
+        signal. The character is an uppercase letter of the English
+        alphabet.</li>
+      <li>Expect each call to take 0.07 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single integer: the smallest possible frequency of the signal.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 4 seconds.<br/>
+  Number of nodes: 100 (for the Small dataset, too!)<br/>
+  Memory limit per node: 256 MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  1 &le; GetPieceLength(node_index) &le; 10<sup>7</sup>.<br/>
+  GetSignalCharacter(position) returns a uppercase letter between A and Z, inclusive.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  GetPieceLength returns the same value for all nodes.<br/>
+  The frequency is no larger than GetPieceLength(0) / 2.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+No extra limitations.
+</p>

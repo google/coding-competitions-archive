@@ -1,0 +1,15 @@
+<p>
+The natural approach to this problem is to have each node take ownership of some range [A, B] of the files, sort them, and calculate the checksum for these files. Then, all the checksums would get shipped to a designated master node, which would sum all the checksums. The first idea might be to simply sort the files that begin in our range &ndash; but that idea does not work, since some of the files that begin in this range might not end up in this range after sorting.
+</p>
+
+<p>
+The next idea should be to extend the range somewhat, sort the extended range, and hope that files from the smaller range now got correctly sorted. How much do we need to extend the range for this to work (and does it even work at all)?
+</p>
+
+<p>
+Let's denote MaxDistance() by K. It turns out that if we sort the range [A - K, B + K], the files that land in [A, B] will be in the correct places. Take any file with identifier X that lands in the range [A, B] after sorting the whole range. We will prove it lands in the same place after sorting [A - K, B + K]. If it lands in place Y, it means there are exactly Y files with smaller identifiers. For X to land on a position smaller than Y after sorting [A - K, B + K], one of these Y smaller files would either have to land after Y within the range [A - K, B + K] (impossible, since this range is sorted, and we assume X landed on a position smaller than Y), or be outside of this range. In this situation it would mean it is on the right of B + K which contradicts the problem statement because the initial index of a file which has to end up in the interval [A, B] was placed more than K positions away.
+</p>
+
+<p>
+So, the correct solution is to split the range into equal parts, assign one part to each node, extend each part by MaxDistance() in either direction, sort and send the checksum of the files that landed in our part to some master node for summing up.
+</p>

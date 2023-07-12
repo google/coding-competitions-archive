@@ -1,0 +1,145 @@
+<h3>Problem</h3>
+<h2>Median</h2>
+<p>
+  In this year's online rounds, we ran into trouble with queries of death and
+  broken memory, so to make it up to you, we decided to put a very easy
+  median-finding problem in the Finals. We were determined to avoid any
+  more issues with peach smoothie spills, so we asked our DCJ (Data Curating
+  Janitor) to set up two special arrays of 100 nodes for this problem, one for
+  each of the Small and Large datasets.
+</p><p>
+  Our DCJ prepared each array according to our instruction:
+</p>
+<ol>
+  <li>Choose N pieces of data to store. Since the problem is about
+    finding a median, each of the N pieces of data is a non-negative integer.
+    (The same number might appear more than once in the data.) N is also
+    guaranteed to be odd, because who likes finding the median of an even
+    number of integers?</li>
+  <li>A median-finding problem would be far too easy if the data were given
+    in order, so, choose one of the N! permutations of the data uniformly at
+    (pseudo-)random.</li>
+  <li>Write these N pieces of data, in the order of the chosen permutation,
+    clockwise around the edge of a circular disk, starting from a
+    <i>fixed point</i> on the very bottom.</li>
+  <li>Make one exact copy of that disk for each node to use. </li>
+  <li>A contestant can call GetData(i) on a node. Each disk has a data-reading
+    needle that starts at the same fixed point. That node will move its
+    data-reading needle to read and return the data i places away (clockwise)
+    from the fixed point, and then the data-reading needle will go back to
+    the fixed point. Since the disk is a circle, it is allowed for i to be
+    greater than or equal to N; the node will return the (i % N)th piece of
+    data. For example, for N = 5, calls to GetData(0) and GetData(5) would
+    return the same piece of data.</li>
+  <li>A contestant can also call GetN() to learn the value of N.</li>
+</ol>
+<p>
+  Our DCJ (Data Curating Janitor) completed these tasks the night before the
+  Finals, and, to celebrate, we threw a party and brought in a DCJ (Disc
+  Controlling Jockey) to play some music. Unfortunately, this morning, we
+  learned that the Disc Controlling Jockey mistook our array of nodes for the
+  Large dataset for a very elaborate turntable, and might have spun any or all
+  of the disks! This means that, <u>for the Large dataset only</u>, even though
+  all the nodes' disks have the same data in the same clockwise order,
+  <i>their fixed points might no longer be the same</i>. For example, a piece
+  of data that one node thinks is the 0th might be the 3rd on another node!
+</p><p>
+  Moreover, we forgot to ban flavors of smoothie other than peach, and our
+  Disc Controlling Jockey also spilled a strawberry smoothie all over the array
+  of nodes for the Large dataset. Because of this,
+  <u>for the Large dataset only</u>, the GetN() function no longer returns any
+  useful data.
+</p><p>
+  The Finals have already started, and we do not have time to fix the system.
+  Can you find the median of the data anyway?
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "median"; see the sample inputs below for
+  examples in your language. It defines two methods:
+</p>
+<ul>
+  <li><b>GetN()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 32-bit integer.</li>
+      <li>Expect each call to take 0.1 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetData(i)</b>:
+    <ul>
+      <li>Takes exactly one 64-bit integer argument: an index i, 0 &le; i &le;
+        <code>10<sup>18</sup></code>.</li>
+      <li>Returns a 32-bit integer: the number that is i places away clockwise
+        from the node's fixed point, as described in the problem statement.</li>
+      <li>Expect each call to take 0.1 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+<p>
+  The data is generated as follows: values for N, a data set of N integers
+  X<sub>0</sub>, X<sub>1</sub>, ..., X<sub>N-1</sub>, and
+  100 "delta" integers d<sub>0</sub>, d<sub>1</sub>, ..., d<sub>99</sub> are
+  chosen by the test setter. Then, a permutation P of the integers
+  0 through N-1 is chosen uniformly at (pseudo)-random*; all nodes use the same
+  values of N, Xs, ds and P. <br/>
+  GetN() returns N in the Small dataset and -1 in the Large dataset, on all nodes.<br/>
+  GetValue(i) on node j returns X<sub>P[(i + d<sub>j</sub>) % N]</sub>.<br/>
+</p><p>
+*: for technical reasons, the randomness used is weaker than something like
+<code>std::random_shuffle</code> in C++ or <code>java.util.Collections.shuffle</code> in Java.
+For transparency, this is the exact procedure used to retrieve the i-th (0-based) element out of
+N of a random permutation (you do not necesarilly need to fully understand this to solve the
+problem):
+</p><code>
+  int index = i;<br/>
+  do {<br/>
+&nbsp;&nbsp; int MASK = (power == 32) ? ~0 : ((1 &lt;&lt; power) - 1);<br/>
+&nbsp;&nbsp; index += add;<br/>
+&nbsp;&nbsp; index *= m1;<br/>
+&nbsp;&nbsp; index &amp;= MASK;<br/>
+&nbsp;&nbsp; index ^= index &gt;&gt; ((power / 2) + 1);<br/>
+&nbsp;&nbsp; index += add2;<br/>
+&nbsp;&nbsp; index *= m2;<br/>
+&nbsp;&nbsp; index &amp;= MASK;<br/>
+&nbsp;&nbsp; index ^= index &gt;&gt; (2 * power / 3);<br/>
+  } while (index &gt;= N);<br/>
+  return index;
+</code><p>
+where <code>power</code> is ceil(log<sub>2</sub>(N)), and <code>add</code>, <code>add2</code>,
+<code>m1</code> and <code>m2</code> are distinct constants between 0 and N - 1, inclusive,
+such that <code>m1</code> and <code>m2</code> are odd.
+</p>
+
+<h3>Output</h3>
+<p>
+  Output one line with a single integer: the median of the data.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Number of nodes: 100 <b>(for both the Small and Large datasets)</b>.<br/>
+  Time limit: 7 seconds.<br/>
+  Memory limit per node: 32 MB. <b>(Notice this is less than usual.)</b><br/>
+  Maximum number of messages a single node can send: 5000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  1 &le; X<sub>i</sub> &le; 10<sup>9</sup>, for all i.<br/>
+  N % 2 = 1. (N is odd.)<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  d<sub>i</sub> = 0, for all i. (The nodes all indexed relative to the same
+    original fixed point.)<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  0 &le; d<sub>i</sub> &lt; N, for all i.<br/>
+</p>
+
+The sample input has access to GetN() for all cases, but contains values of d<sub>i</sub>
+other than 0. To test the Small dataset, you can edit the files to have all d<sub>i</sub>
+equal to 0 (the answer is of course the same). To test the Large, you can just not use
+the GetN() function.

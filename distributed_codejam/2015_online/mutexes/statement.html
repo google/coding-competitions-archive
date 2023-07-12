@@ -1,0 +1,97 @@
+<h3>Problem</h3>
+
+<p>
+In writing multi-threaded programs one of the big problems is to prevent
+concurrent access to data. One of the more common mechanisms for doing this is
+using <i>mutual exclusion locks</i> (also called <i>mutexes</i>). A <i>mutex</i>
+is something that can be acquired by only one thread at a time. If one thread
+has already acquired the mutex, and a second thread tries to acquire it, the
+second thread will wait until the first thread releases the mutex, and only then
+will it proceed (with acquiring the mutex and doing whatever it planned on
+doing next).
+</p>
+
+<p>
+A danger when using mutexes is <i>deadlock</i> &mdash; a situation where some
+threads block each other and will never proceed. A deadlock occurs when each one
+thread has already acquired mutex <b>A</b>, and now tries to acquire mutex
+<b>B</b>, while another thread has already acquired mutex <b>B</b> and tries to
+acquire mutex <b>A</b> (more complex scenarios with more threads are also
+possible, but we will only be concerned with the two-thread situation).
+</p>
+
+<p>
+You are now analyzing a two-threaded program, and trying to determine whether it
+will deadlock. You know the exact set of mutex operations (acquire and release)
+each of the two threads will perform, in order. However, you do not know how
+quickly each thread will perform each of its operations &mdash; it is possible,
+for instance, for one thread to perform almost all of its operations, then for
+the other thread to catch up, and then for the first thread to proceed.
+</p>
+
+<p>
+You are interested in determining whether it is possible that the two threads
+will deadlock. Initially all the mutexes are released. We assume that when a
+thread has finished all of its operations, it releases all the mutexes it
+still has acquired.
+</p>
+
+<h3>Input</h3>
+<p>
+The input library will be called &quot;mutexes&quot;; see the sample inputs
+below for examples in your language. It will define two methods:
+NumberOfOperations(i), which will return the number of operations thread
+<i>i</i> performs (<i>i</i> has to be 0 or 1), and GetOperation(i, index),
+which will report what the <i>index</i>th operation performed by thread <i>i</i>
+is (where <i>i</i> is 0 or 1, and
+0&nbsp;&le;&nbsp;<i>index</i>&nbsp;&lt;&nbsp;NumberOfOperations(i)). This will
+be a positive number <i>X</i> if the <i>index</i>th operation is to acquire
+mutex <i>X</i>, and a negative number <i>-X</i> if the <i>index</i>th
+operation is to release mutex <i>X</i>.<br/>
+The sequence of operations for a single thread will always be valid, that is,
+a given thread will never try to acquire a lock it has already acquired (and not
+yet released), or release a lock it has already released (and not yet acquired)
+or has never acquired in the first place. A thread's first operation on a lock
+(if any) will always be an acquire operation.<br/>
+One call to GetOperation will take approximately 0.005 microseconds, with the
+exception of the first call, which will cache the input values and might take
+up to 100 milliseconds.<br/>
+</p>
+
+<h3>Output</h3>
+<p>
+Output the smallest total number of operations the two threads can perform
+before deadlocking (including the last two acquire operations), if a deadlock
+is possible, or the word <code>OK</code> if a deadlock can't happen.
+</p>
+
+<h3>Limits</h3>
+<p>
+Each node will have access to 256MB of RAM, and a time limit of 4 seconds.<br/>
+-10<sup>5</sup> &le; GetOperation(i, index) &le; 10<sup>5</sup> for all valid
+<i>i</i> and <i>index</i>. GetOperation will never return 0.<br/>
+</p>
+
+<h4>Small input</h4>
+<p>
+Your solution will run on 10 nodes.<br/>
+1 &le; NumberOfOperations(i) &le; 1000 for both possible values of <i>i</i>.
+<br/>
+</p>
+
+<h4>Large input</h4>
+<p>
+Your solution will run on 100 nodes.<br/>
+1 &le; NumberOfOperations(i) &le; 4 &times;10<sup>4</sup> for both possible
+values of <i>i</i>.
+<br/>
+</p>
+
+<p>
+The fastest way to deadlock in the third example is for the first thread to
+perform the first three operations (ending up with mutexes 1, 2 and 3), then
+for the first thread to perform the first operation (acquiring mutex 4). At
+this point both threads try to perform one operation more (the first thread
+trying to acquire mutex 4, the second thread trying to acquire mutex 3) and
+deadlock.
+</p>

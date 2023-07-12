@@ -1,0 +1,107 @@
+<h2>Stones: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  The optimal strategy is not to always jump as far as each stone lets us jump;
+  this might cause us to skip a stone that could have let us jump even farther.
+  However, we cannot afford to explicitly check each possible jump length from
+  each stone, even if we use dynamic programming.
+</p><p>
+  We can solve the Small dataset on a single node as follows. We will iterate
+  through the stones from start to finish, and as we do this, we will keep
+  track of a few things:
+</p>
+<ul>
+  <li>num_jumps: how many jumps we have made so far (initially 0)</li>
+  <li>current_farthest: the farthest stone we could reach with the jumps we
+    have made</li>
+  <li>possible_farthest: the farthest stone we could in theory reach from all
+    the stones processed so far</li>
+</ul>
+<p>
+  As our iteration examines each stone, we update possible_farthest, replacing
+  it if our current stone would let us get even farther than that. Whenever our
+  iteration passes the current_farthest stone, we increase num_jumps by one,
+  and say that with this one extra jump, we can reach any stone that we could
+  reach from all the stones processed so far. That is, we set current_farthest
+  to possible_farthest. Then, we continue to iterate and update
+  possible_farthest, etc., until we are done.
+</p><p>
+  This solution takes constant memory and takes time linear in the number of
+  stones.
+</p>
+<h3>Large dataset</h3>
+<p>
+  To solve the Large dataset, we will use the following observation: if there
+  is a stone X from which we can jump to A, and a stone Y from which we can
+  jump to B, where X &lt; Y and A &gt; B, then the answer does not change if we
+  increase the jump length in Y to reach A. The reason is that even if we make
+  the change, any path that would use stone Y can be modified to use X instead
+  (and so the fact we increased the jump length at Y doesn't improve the
+  answer, and clearly does not make it worse). This allows us to replace the
+  sequence of jump targets (i.e., the sequence i + GetJumpLength(i)) with the
+  smallest larger non-decreasing sequence. After this transformation, the
+  optimum solution is always to jump as far as possible (since the farther away
+  we land, the farther away the next jump will go).
+</p><p>
+  However, if we need to split the data up across multiple nodes, we cannot
+  easily execute the above greedy strategy. For example, suppose that we have
+  1000000 stones per node, and that on node 0, we find that we should jump from
+  stone 0 to stone 1000, and from stone 1000 to stone 999000, and from stone
+  999000 to stone 1234567, which is on node 1. But what if some later stone
+  on node 0 would let us get even farther, to 1600000, whereas the stones
+  between 1234567 and 1600000 waste time by only allowing tiny jumps? If we
+  were not distributing the solution, our greedy strategy would have caught
+  this by making the value at stone 1234567 at least 1600000. But when we are
+  calculating the transformed jump target values on node 1 alone, it has no way
+  of knowing about this possible jump to 1600000 from node 0, and it may come
+  up with a smaller value. So we also need to consider the case in which we jump
+  to the last stone in node 0, and then jump from there to the next node, or
+  even to some other more distant node. (Why the last stone? We already know we
+  can get out of node 0 in one more jump from stone 999000, so we have our pick
+  of all remaining nodes 999000-999999 as the next target, and it can only help
+  us to pick 999999.)
+</p><p>
+  So, in each node (in parallel), we want, for each stone, to precompute two
+  things:
+</p>
+<ol>
+  <li>If we jump as far as possible each time, what's the last stone we visit
+    in this node's range?</li>
+  <li>How many jumps do we need from here to reach that last stone?</li>
+</ol>
+<p>
+  After completing these calculations in a node, we will know the last stone we
+  will definitely land on in that current node. Then, we must alert the next
+  node to two possibilities: either we jump as far as possible from that stone
+  (and land in some future node), or we jump from there to the very last stone
+  in the current node, and from there to some future node. (Other options are
+  strictly worse given the transformation we made earlier.) We can summarize
+  these two possibilities in three values:
+</p>
+<ul>
+  <li>the cost so far</li>
+  <li>the stone we would jump to from the last stone we will definitely land
+    on in the current node</li>
+  <li>the stone we would jump to from the last stone in the current node</li>
+</ul>
+<p>
+  Note that we send only two possible jump lengths out of each node: where we
+  can land with COST jumps, and where we can land with COST + 1 jumps. This
+  makes sense for any node &mdash; notice that if we can get out of that node in
+  COST jumps, we can get to any of the stones in that and previous nodes in
+  COST jumps, and so we can get to any reachable stone from those stones in
+  COST + 1 jumps. So, it never makes sense to make COST + 2 or more jumps.
+</p><p>
+  When a node receives the three values from the previous node, it must first
+  check whether the least far of those two jumps goes over the entire node. If
+  so, it passes along the info to the next node. If not, it evaluates the
+  two jumps (keeping in mind that the farther of the two might still go over
+  the entire node). It uses the per-position calculations it has already
+  performed to calculate and send its own set of three values, maintaining the
+  invariants that the farther of the two jumps always has a cost one larger.
+  (We leave the remaining implementation details to the reader.)
+</p><p>
+  This solution is O(NumberOfStones / NumberOfNodes) in both time and memory.
+  The precomputation phase dominates the communication phase, assuming that
+  the time to transmit messages is small.
+</p>
