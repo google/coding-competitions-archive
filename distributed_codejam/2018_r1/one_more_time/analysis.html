@@ -1,0 +1,89 @@
+<h2>One More Time: Analysis</h2>
+<p>
+  This problem has two parts: figuring out what the code does, and doing it better.
+</p>
+<h3>What is the problem?</h3>
+<p>
+  The most important realization is that the value of <code>calculate(index)</code> does not
+  depend on the node in which the call is made. This is because the only part of
+  the body of <code>calculate</code> that is node-dependent is the first 3 lines;
+  those lines call <code>get_number</code>, which in turn "questions" some other node
+  for index, which is answered by returning <code>calculate(index)</code>, too. So, this
+  part either hangs forever or ends up returning the result of the last 4 lines of
+  the given code back to the original questioner.
+</p><p>
+  To see that it doesn't hang forever, notice that replacing
+  <code>MyNodeId()</code> inside the condition in the first line of
+  <code>calculate(index)</code> with the definition of
+  <code>responsible_node</code> calculated in <code>get_number</code>
+  gives us
+  <code>index &lt; 1 + ((index - 1) * NumberOfNodes() / GetN()) * GetN() / NumberOfNodes()</code>
+  which is always false. Because the division is truncated, we can't just simplify to
+  <code>index &lt; index</code>. However,
+  <code>((index - 1) * NumberOfNodes() / GetN()) * GetN()</code>
+  is just <code>((index - 1) * NumberOfNodes() - (((index - 1) * NumberOfNodes()) % GetN())</code>.
+  Dividing by <code>NumberOfNodes()</code> we obtain
+  <code>(index - 1) - ((((index - 1) * NumberOfNodes()) % GetN()) / NumberOfNodes())</code> and
+  <code>index - 1 &lt; GetN()</code>, which makes the subtrahend equal to 0.
+  A faster way to arrive to the same conclusion is to notice that the statement assumes the given
+  code is correct for the given inputs, so it must terminate.
+</p><p>
+  This leaves us with the problem of calculating F(<code>GetN()</code>), where
+  F is defined by F(i) = F(i-1) + <code>GetM()</code> * F(i-2) + F(i/3) + <code>GetA</code>(n)
+  with F(0) = F(1) = F(2) = 1. For the Small dataset, since <code>GetM()</code> = 0, this
+  reduces to F(i) = F(i-1) + F(i/3) + <code>GetA</code>(n).
+</p>
+<h3>A faster approach</h3>
+<p>
+  Non-distributedly, we can calculate this in O(<code>GetN()</code>) with a simple
+  dynamic programming algorithm that keeps an array of values we know for F, and calculates
+  them in increasing order. To distribute this, we have to think further.
+</p><p>
+  We can take advantage of the fact that to calculate F over a range of values
+  [A, B], we only need to know F(A-1), F(A-2) and F over the range [A/3, B/3].
+  We can make a particular node responsible for the ranges [3<sup>i</sup>A, 3<sup>i</sup>B]
+  for each i, which leaves us only the values F(3<sup>i</sup>A-1) and F(3<sup>i</sup>A-2))
+  to require externally. To simplify the notation, assume we start by computing F in the
+  range [0, X] for a sufficiently large X in every node, using the single-node version
+  above, so that they all have a basis to start that doesn't require information from other
+  nodes.
+</p><p>
+  Then, we can proceed in stages. In stage i, a node computes F on all values in the
+  range [3<sup>i</sup>A, 3<sup>i</sup>B], using the values computed in the previous stage,
+  and the values F(3<sup>i</sup>A-1) and F(3<sup>i</sup>A-2)) it receives via message from another
+  node, if they are not in the [0, X] range. The problem is that this is a serial algorithm.
+  The only node that can proceed is the one starting with a range [X + 1, B], which can then pass
+  some values to some other node that can now calculate [B + 1, C], etc, but all nodes except
+  one are waiting on some other node for its two extra values! This distribution strategy does
+  not gain us anything.
+</p><p>
+  To do better, let us split the Small and Large datasets. For the Small dataset,
+  each node only requires one pending value F(3<sup>i</sup>A-1).
+  The sequence for the Small dataset is linear on the
+  pending values. That is, if F(3<sup>i</sup>A-1) decreases by 1, then so do F(3<sup>i</sup>A),
+  F(3<sup>i</sup>A+1), etc.
+  So, during stage i, every node can calculate its range assuming the extra
+  value it doesn't know is 0, and then, when that value arrives from another node,
+  add it to every calculated value.
+</p><p>
+  For the Large dataset, the sequence behaves like a modified Fibonacci
+  sequence. That is, if F(3<sup>i</sup>A-1) decreases by 1,
+  then F(3<sup>i</sup>A) decreases by 1, F(3<sup>i</sup>A+1) decreases by 1 + M,
+  F(3<sup>i</sup>A+2) decreases by 2M + 1,
+  F(3<sup>i</sup>A+3) decreases by M<sup>2</sup> + 3M + 1, and in general
+  F(3<sup>i</sup>A+k) decreases by Fib(k+1), where Fib(k) is the k-th term in the
+  <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>
+  Similarly, if we decrease F(3<sup>i</sup>A-2) by 1, F(3<sup>i</sup>A+k) decreases
+  by <code>GetM()</code> &times; Fib(k). As for the Small dataset, each node can
+  calculate the values in its range for stage i assuming the two pending values are
+  zero, and then apply the actual values when they arrive using the formula above.
+  Doing this efficiently requires pre-computing the Fibonacci sequence on each node,
+  but we only need few terms: if the maximum range of any stage is of size K, we need
+  at most K+2 terms of the sequence. We can do this at the beginning of the process
+  with minimal impact on the overall running time.
+</p><p>
+  A comment on the value of X above: while the minimum possible value for it is rather small,
+  in practice it's better to set it to a high value like 10<sup>7</sup> to save the first
+  few stages in which the ranges calculated by each node are small and the running time
+  is dominated by the latency of passing around messages.
+</p>

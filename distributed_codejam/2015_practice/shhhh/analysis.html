@@ -1,0 +1,15 @@
+<p>
+The problem is deceptively simple - find the distance between two nodes in a cycle. However, the input is too large to process it in one node. The natural hope would be to split the cycle into 100 equal parts, and have each node process one part. However, it's not obvious how to do that!
+</p>
+
+<p>
+One idea that comes to mind is to randomize &ndash; have each node start from a random vertex, and travel forward. The first question is &quot;when to stop&quot;? Since you don't know how long do you have to travel, one possibility is for all the 100 nodes to know the set of their starting points (including vertices zero and one), and to calculate the distance to the next starting point. This allows carries an overhead of O(log M) for checking, at each vertex, whether it is one of the starting points. This would be good enough if all the intervals we traversed were of equal length. Unfortunately, they are not &mdash; on average, when randomly dividing a circle into K parts, the longest of those parts is of length log(K) / K of the whole circle. And an overhead of log(M)<sup>2</sup> is very likely to be too high to fit within the time limit.
+</p>
+
+<p>
+The way around this problem is to identify more of the &quot;special&quot; points than just N - for instance, M log(M) of them. Then, the average length of the traversed interval is O(log(M log M) / (M log M)) = O(1 / M). We have more points to check, but checking whether a point is a special point is still done in O(log (M log M)) = O(log M) operations. However, splitting these points equally between the nodes doesn't really solve the problem (because each node will get O(log M) intervals, and we're back to where we started). Instead, we need a system where a node that got a short interval can dynamically decide to pick up a new interval.
+</p>
+
+<p>
+One way to handle this is to designate one node to be the master, and to handle distributing the intervals to calculate. This will also be the node that will output the answer. When any other node, going around the cycle from one special point, finds another special point, it will report the distance between them to the master. The master will then tell the reporting node what is the next special point it should start from (or that the calculation is finished, and it should exit). This way, if the longest interval is of length O(N/M), each node will do at most O(N / M) steps in the graph, and so the total complexity will be O(N log M / M).
+</p>

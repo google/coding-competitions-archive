@@ -1,0 +1,141 @@
+<h2>Kenneth: Analysis</h2>
+<p>
+  Let us call the full recorded signal R. The goal of this problem is to find
+  the shortest possible string S such that R is composed of the concatenation
+  of some number of copies of S. |S| (that is, the length of S) is the
+  "frequency" (as defined in the problem statement) that we are looking for.
+</p><p>
+  By calling GetPieceLength() on every node, we can find |R|, which is at most
+  10<sup>9</sup>. |S| must be a divisor of this number; we can calculate the
+  full set of possible divisors, of which there are
+  <a href="http://oeis.org/A066150">at most 1344</a>.
+</p><p>
+  For |S| to be a valid "frequency" for the string, we need R[i] = R[i-|S|] for
+  any i. There are two things we need to check to validate this condition:
+  it must be true within each node, and, if it is true, all of the nodes must
+  agree on what S actually is. For instance, if we are checking |S| = 4, and
+  node 0 has <code>DABCDABCDA</code> and node 1 has <code>CDABCDABCD</code>,
+  the condition holds within each node, but node 0 thinks S is <code>DABC</code>
+  and node 1 thinks S is <code>ABCD</code>. Note that a candidate length
+  |S| = 4 implies that S must start at the third character on node 1.
+</p><p>
+  Let U denote the piece of S stored on some node. For checking within that
+  node, the naive approach of simply checking all letters U[i] will be too slow
+  &mdash; we have up to 10<sup>7</sup> letters on each node, and up to 1344
+  divisors, and over half of those could be smaller than 10<sup>5</sup>. We
+  need a faster way of checking a single divisor.
+</p><p>
+  Fortunately, the condition U[i] = U[i-|S|] for any i is equivalent to simply
+  saying that the prefix of U of length |U|-|S| is also a suffix of U. There
+  are a number of ways to check this; the simplest and fastest one is probably
+  the
+  <a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm">Knuth-Morris-Pratt (KMP) algorithm</a>.
+  Specifically, we have each node calculate the KMP "partial match" table for
+  its piece. From the KMP table, we can calculate the set of all
+  suffix-prefixes of U (and allow for log-time lookup in it, or even constant
+  time if we are willing to spend the memory on that). This makes it easy to
+  check the condition for each of our candidate value of |S|, without doing
+  redundant work.
+</p><p>
+  An alternative approach is to use
+  <a href="https://en.wikipedia.org/wiki/Rolling_hash">polynomial hashing</a>
+  to calculate the hash of any substring, and check that the hashes of the
+  prefix and suffix of length |U|-|S| are the same. This may be a better choice
+  in the long run, since, as we will see, we will need a polynomial hash for a
+  later step of the solution anyway.
+</p>
+<h3>Small dataset</h3>
+<p>
+  In the Small dataset, each of the 100 nodes has data of the same length
+  |U|, and |S| is guaranteed to be at most half of |U|, so |S| is at most
+  |R| / 200. This guarantees that the entire string S is present at least once
+  on every node, and also narrows down the number of candidate values of |S| we
+  must check. So, our Small solution is as follows:
+</p>
+<ol>
+  <li>On each node:
+    <ol>
+      <li>Precalculate rolling hashes for each position in the node's
+        piece.</li>
+      <li>For each candidate value of |S| &le; |R| / 200:
+        <ol>
+          <li>Use KMP or the hashes to determine whether |S| is valid from this
+            node's point of view.</li>
+          <li>Find the hash of the S implied by that |S|.</li>
+        </ol>
+      </li>
+      <li>For each valid candidate |S|, send |S| and the hash to the master.
+      </li>
+    </ol>
+  </li>
+  <li>On the master: Check all possible values of |S|, starting from the
+    smallest. If a value is a valid candidate on every node, and the hashes for
+    that candidate on all of those nodes match, then that value is our answer.
+  </li>
+</ol>
+<h3>Large dataset</h3>
+<p>
+  For the Large dataset, the process for checking whether a candidate |S| is
+  valid on a given node is the same. What changes is the validation, since it
+  is not necessarily the case that all of S is contained within any particular
+  node.
+</p><p>
+  Consider some candidate |S|. We may eliminate it in some node by using the
+  KMP or hash check. Otherwise, each node knows some substring, or possibly
+  some prefix and some suffix, of the corresponding S, and we need to check
+  whether all these pieces actually match up. So, let us pick some instance of
+  S in the full recorded signal R &mdash; for instance, the first |S|
+  characters. These are possibly split between nodes somehow. Let's call this
+  instance of S the "canonical instance"; we will check whether all the nodes
+  have data that matches the canonical instance.
+</p><p>
+  The canonical instance may be split between one or more nodes; let us
+  consider one such node. Given a candidate length |S|, that node knows which
+  parts of the candidate string S it has. It also knows the lengths of the
+  signal pieces on the other nodes, so, for each of those nodes, it might be
+  able to predict at least part of what that node "should" see, and in which
+  positions. So, it can relay that "prediction" to the other nodes.
+</p><p>
+  Of course, we can't afford to send predictions as entire strings, so we'll use
+  polynomial hashing. The huge advantage is that once a node has the polynomial
+  hash table calculated, then when it receives a hash of a prediction, it can
+  check in constant time whether it matches the expected value.
+</p><p>
+  So, our Large solution is:
+<ol>
+  <li>On each node i:
+    <ol>
+      <li>Precalculate rolling hashes for each position in the node's
+        piece.</li>
+      <li>For each candidate value of |S|:
+        <ol>
+          <li>Use KMP or the hashes to determine whether |S| is valid from this
+            node's point of view.</li>
+          <li>Calculate the polynomial hash of S<sub>i</sub> "intersected" with
+            S<sub>j</sub> (that is, node i's predictions about node j) for each
+            j &ne; i. (It might be two hashes, if a beginning and an end piece
+            of S are visible on node i, and both of these intersect with a
+            particular node j).</li>
+        </ol>
+      </li>
+      <li>Send that data to all other nodes. The message from one node to
+        another contains at most 1344 x 2 hashes, plus 1344 booleans, so it
+        uses a total of 22KB of data, more or less.
+      </li>
+      <li>
+        Check whether all the received hashes match its own data, for each |S|.
+        This also does not take very many operations, since each check takes
+        linear time. This produces a bit vector of length at most 1344; send
+        that to the master.
+      </li>
+    </ol>
+  </li>
+  <li>On the master: Check all possible values of |S|, starting from the
+    smallest, until we find one that is valid in every vector.
+  </li>
+</ol>
+<p>
+  The rest comes down to implementation details like avoiding weak hashes
+  (e.g., hashing modulo 2<sup>64</sup>) that could be broken by test cases.
+</p>
+

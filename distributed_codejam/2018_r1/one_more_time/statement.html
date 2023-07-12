@@ -1,0 +1,146 @@
+<h3>Problem</h3>
+<h2>...One More Time.</h2>
+<p>
+  We really thought we had it covered, especially after we didn't make this mistake in 2017.
+  But - one more time -
+  we have lost the problem statement and the solutions, and all we have left are these two correct,
+  but far too slow (and misguided) solutions, one per language. Fortunately, we still have the test
+  data. Can you still solve the problem?
+</p>
+
+<p>
+The C++ solution:
+<pre>
+#include &lt;message.h&gt;
+#include &lt;stdio.h&gt;
+#include "more.h"
+
+long long int get_number(long long index) {
+  int responsible_node = (index - 1) * NumberOfNodes() / GetN();
+  PutLL(responsible_node, index);
+  Send(responsible_node);
+  Receive(responsible_node);
+  return GetLL(responsible_node);
+}
+
+long long int calculate(long long int index) {
+  if (index &lt; 1 + MyNodeId() * GetN() / NumberOfNodes()) {
+    return get_number(index);
+  }
+  if (index &lt; 3) return 1LL;
+  return (calculate(index - 1) + GetM() * calculate(index - 2) + calculate(index / 3) + GetA(index))
+      % GetP();
+}
+
+int main() {
+  if (MyNodeId() &lt; NumberOfNodes() - 1) {
+    while (true) {
+      int questioner = Receive(-1);
+      long long index = GetLL(questioner);
+      if (index == 0) return 0;
+      PutLL(questioner, calculate(index));
+      Send(questioner);
+    }
+  } else {
+    printf("%lld\n", calculate(GetN()));
+    for (int node = 0; node &lt; NumberOfNodes() - 2; ++node) {
+      PutLL(node, 0);
+      Send(node);
+    }
+    return 0;
+  }
+}
+</pre><p>
+<p>
+The Java solution:
+<pre>
+public class Main {
+  private static long getNumber(long index) {
+    int responsible_node = (index - 1) * message.NumberOfNodes() / more.GetN();
+    message.PutLL(responsible_node, index);
+    message.Send(responsible_node);
+    message.Receive(responsible_node);
+    return message.GetLL(responsible_node);
+  }
+
+  private static long calculate(long index) {
+    if (index &lt; 1 + message.MyNodeId() * more.GetN() / message.NumberOfNodes()) {
+      return Main.getNumber(index);
+    }
+    if (index &lt; 3) return 1LL;
+    return (Main.calculate(index - 1) + more.GetM() * Main.calculate(index - 2) +
+            Main.calculate(index / 3) + more.GetA(index)) % more.GetP();
+  }
+
+  public static void main(String[] args) {
+    if (message.MyNodeId() &lt; message.NumberOfNodes() - 1) {
+      while (true) {
+        int questioner = message.Receive(-1);
+        long index = message.GetLL(questioner);
+        if (index == 0) {
+          return;
+        }
+        message.PutLL(questioner, Main.calculate(index));
+        message.Send(questioner);
+      }
+    } else {
+      System.out.println(Main.calculate(more.GetN()));
+      for (int node = 0; node &lt; message.NumberOfNodes() - 2; ++node) {
+        message.PutLL(node, 0);
+        message.Send(node);
+      }
+    }
+</pre>
+<h3>Input</h3>
+<p>
+The input library is called "more"; see the sample inputs below for examples in
+your language. It defines four methods:
+<table>
+  <tr>
+    <th>Method name and parameters</th><th>Parameter limits</th><th>Returns</th>
+    <th>Approximate time for a single call</th>
+  </tr>
+  <tr>
+    <td>GetN()</td><td></td><td>a 64-bit integer</td><td>0.05 microseconds</td>
+  </tr>
+  <tr>
+    <td>GetP()</td><td></td><td>a 64-bit integer</td><td>0.05 microseconds</td>
+  </tr>
+  <tr>
+    <td>GetM()</td><td></td><td>a 64-bit integer</td><td>0.05 microseconds</td>
+  </tr>
+  <tr>
+    <td>GetA(i)</td><td>3 &le; i &le; GetN()</td><td>a 64-bit integer</td>
+    <td>0.05 microseconds</td>
+  </tr>
+</table>
+</p>
+
+<h3>Output</h3>
+<p>
+Output what either of the solutions above would output, if they ran without any limits
+on memory, time, number of messages or total size of messages.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 7 seconds.<br/>
+Memory limit per node: 256 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+2 &le; GetP() &le; 10<sup>6</sup>.<br/>
+0 &le; GetA(i) &lt; GetP(), for all i.<br/>
+3 &le; GetN() &le; 10<sup>9</sup>.<br/>
+0 &le; GetM() &lt; P.<br/>
+Number of nodes: 100 (for the Small dataset, too!).<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  GetM() = 0.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  No extra restrictions.
+</p>

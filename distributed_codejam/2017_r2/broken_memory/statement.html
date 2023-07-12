@@ -1,0 +1,92 @@
+<h3>Problem</h3>
+
+<h2>Broken Memory</h2>
+
+<p>
+As you may remember from
+<a href="../../2016_r1/oops/statement.html">last</a>
+<a href="../../2016_r2/again/statement.html">year</a>,
+we have a tendency to screw things up at the worst possible moment. For 2017, we promised ourselves
+that we wouldn't misplace any test cases, though, and we delivered. Unfortunately, last night we
+spilled a peach smoothie over some of our Google Cloud servers. We immediately called the
+Dedicated Cloud Janitor (DCJ), but he was fed up with our continuous messes and refused to help.
+So, we are turning to our most powerful allies, our contestants, to once again rescue us from
+ourselves.
+</p><p>
+Fortunately, the servers were already loaded with the data for the problems, so before the damage,
+the memory was exactly the same in all of them.
+We conducted a preliminary investigation that revealed that every node's memory was damaged in
+a <i>different</i> place.
+</p><p>
+We have narrowed the search to a relatively small part of the memory, and we have encoded that as a
+list of integers for your convenience. Each node has the same list of integers, except at exactly
+one damaged position; the value there will be <i>different</i> from the corresponding value on all
+other nodes.
+</p><p>
+For example, suppose the original data is represented by the following list of integers: 1 5 9 3 1.
+Suppose the broken index for node 0 is 2. That means that when requesting the values for indices
+0, 1, 3 and 4, the returned value will be correct (1, 5, 3 and 1, respectively). However,
+when requesting the value for index 2 on node 0, the returned value could be 1 or 5 or 352462352,
+for example, but definitely not the correct one (9). If, on the other hand, node 1's broken index
+is 0, then, when requesting the value of indices 1, 2, 3 and 4, the correct values (5, 9, 3 and 1,
+respectively) will be returned, but when requesting index 0, the returned value could be 9 or 5 or
+379009, but definitely not the correct one (1). Notice that for node 3, neither index 2 nor index 0
+can be the broken index, because each node is broken at a different index from all other nodes.
+</p><p>
+Can you find the broken index on each node for us?
+</p>
+
+<h3>Input</h3>
+<p>
+The input library is called "broken_memory"; see the sample inputs below for
+examples in your language. It defines two methods:
+</p>
+<ul>
+<li><b>GetLength()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of values in the part of the memory where all the damage
+    happened.</li>
+  <li>Expect each call to take 0.02 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetValue(i)</b>:
+  <ul>
+  <li>Takes a 64-bit number in the range 0 &le; i &lt; GetLength()</li>
+  <li>Returns a 64-bit integer: the i-th value in the memory.</li>
+  <li>Expect each call to take 0.02 microseconds.</li>
+  </ul>
+</li>
+</ul>
+
+<h3>Output</h3>
+<p>
+Output a single line with <code>NumberOfNodes()</code> integers: the broken index for each node,
+in ascending order of node ID.</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 2 seconds.<br/>
+Memory limit per node: 256 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 128 KB. <b>(Notice that this is less than
+  usual.)</b><br/>
+1 &le; GetValue(i) &le; 10<sup>18</sup>, for all i.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+Number of nodes: 10.<br/>
+10 &le; GetLength() &le; 1000.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+Number of nodes: 100.<br/>
+100 &le; GetLength() &le; 10<sup>7</sup>.<br/>
+</p>
+
+<p>
+<b>In this problem, the sample inputs are valid for running on 10 nodes, and the sample outputs
+   are computed using 10 nodes.</b>
+</p>

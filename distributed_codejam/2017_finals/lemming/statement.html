@@ -1,0 +1,102 @@
+<h3>Problem</h3>
+
+<h2>Lemming</h2>
+<p>
+Our Distributed Code Jam team has a pet lemming, Larry, who likes to follow instructions. To give
+Larry some exercise, we place him on a table with grid of cells, each of which contains an arrow
+pointing either up, down, left, or right. Larry will always move one unit in the direction indicated
+by his current cell. If this takes him off the edge of the table, he falls harmlessly onto some
+padding. Otherwise, he follows the direction indicated by his new cell, and so on, possibly
+continuing in an infinite loop.
+</p>
+<p>
+We don't want Larry to fall off the table or exercise forever, so we want to turn one or more of
+the existing cells on the table into blank <i>pickup points</i>.
+If Larry starts on or reaches a pickup point, we pick him up and the exercise period is over.
+</p>
+<p>
+What is the minimum number of cells that we need to change into pickup points to ensure that no
+matter where Larry is initially placed on the grid, he will eventually be picked up, instead of
+falling off the table or exercising forever?
+</p>
+
+<h3>Input</h3>
+<p>
+The input library is called "lemming"; see the sample inputs below for examples in your
+language. It defines three methods:
+<ul>
+<li><b>GetRows()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of rows in the input grid.</li>
+  <li>Expect each call to take 0.06 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetColumns()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of columns in the input grid.</li>
+  <li>Expect each call to take 0.06 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetDirection(r, c)</b>:
+  <ul>
+  <li>Takes two 64-bit integers in the ranges 0 &le; r &lt; GetRows(),
+    0 &le; c &lt; GetColumns().</li>
+    <li>Returns a character: the contents of the cell at row r and column c of the input grid.
+      The character is one of <code>^</code> (ASCII code 94), lowercase <code>v</code>,
+      <code>&lt;</code>, <code>&gt;</code> which represents up, down, left and right respectively.
+      Rows are numbered from top to bottom. Columns are numbered from left to right,
+      as explained above.
+    </li>
+  <li>Expect each call to take 0.06 microseconds.</li>
+  </ul>
+</li>
+</ul>
+</p>
+
+<h3>Output</h3>
+<p>
+Output one line with a single integer: the minimum number of pickup points that you need to create.
+</p>
+
+<h3>Limits</h3>
+<p>
+Number of nodes: 100 <b>(for both the Small and Large datasets)</b>.<br/>
+Time limit: 15 seconds.<br/>
+Memory limit per node: 1 GB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+1 &le; GetRows() &le; 30,000.<br/>
+1 &le; GetColumns() &le; 30,000.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+GetDirection(r, c) is one of the characters <code>v</code>, <code>&lt;</code>,
+<code>&gt;</code>, for all r and c.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+GetDirection(r, c) is one of the characters <code>^</code>, <code>v</code>, <code>&lt;</code>,
+<code>&gt;</code>, for all r and c.<br/>
+</p>
+
+<p>
+For ease of reading, these are the input matrices in the samples:
+</p><pre>
+&lt;v&gt;&lt;
+&lt;&lt;v&gt;
+&gt;&gt;&lt;&gt;
+
+&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;
+
+&lt;v&lt;
+&gt;&gt;^
+v&gt;&gt;
+^^^
+</pre>
+<p>
+Note that the last sample case would not appear in the Small dataset.
+</p>

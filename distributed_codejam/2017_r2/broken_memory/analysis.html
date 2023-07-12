@@ -1,0 +1,99 @@
+<h2>Broken Memory: Analysis</h2>
+
+<h3>Small dataset</h3>
+
+<p>
+In this problem, for the first time
+(<a href="../../2017_r1/query_of_death/statement.html">arguably</a>)
+in DCJ history, the input data is different on each node. Since
+the output asks for the location of the points of difference for all nodes, even the most efficient
+solution must use every node in some way. There is no sneaking through this problem with a purely
+single-node solution!
+</p><p>
+The Small dataset is an exercise in understanding an unusual statement and knowing your DCJ
+primitives. The input size is small enough that you can have every node read the entire input, ship
+everything to a master node, and then have the master node compare all of the data to see where the
+points of difference are for each node.
+</p>
+
+<h3>Large dataset</h3>
+
+<p>
+As usual, the Large dataset is where the real challenge lies. There is too much data for a node to
+send, so we need to send a "summary" instead. This summary must be compact and must allow us to
+check for differences; a natural solution is
+<a href="https://en.wikipedia.org/wiki/Hash_function">hashing</a>. Choosing a hash function for
+this problem is not trivial; we discuss it in a separate section below. We will proceed assuming
+that we have a workable hash function.
+</p><p>
+It would be useless to have each node send a single hash of the complete data, and then compare
+those hashes; they would all be different, because all the nodes have different data. What if we
+instead send a hash of some initial region of the data? If two nodes have equal hashes for that
+region, then their points of difference must not be in that region; if they have unequal hashes,
+at least one of the nodes has a point of difference in that region.
+</p><p>
+We can generalize this insight into an approach resembling binary search. We start by splitting the
+data into two intervals. We compare hashes from every node for each interval, and keep only the
+intervals where hashes differ. Then we divide each of those intervals into two intervals, and so
+on. Since there are exactly <code>NumberOfNodes()</code> = 100 broken positions overall, the number
+of surviving intervals at the end of each step will never exceed 100, although we may examine as
+many as 20000 (200 intervals, each calculated on each node) in a step. However, if we try to use
+all nodes at once, this method will be too slow. Notice that when we compare the 100 hashes for a
+given interval, we know that at least 99 of them will be the same. That sounds like wasted effort!
+</p><p>
+A better solution is to pair up the nodes and run the same hash-comparison algorithm for each pair
+in parallel. Now, the number of surviving intervals per stage is at most 2 instead of 100, and
+since all the pairs are being compared in parallel, the process should be about 50 times faster.
+The only issue is that for each pair, we will find the locations of the two points of difference,
+but for each one, we won't know which node in the pair has the correct value and which has the
+different value. We can easily take care of that in a final step by running the Small solution
+discussed above on the 100 points of difference instead of the entire input. Alternatively, we can
+simply compare the data from the two points of difference retrieved from each pair of nodes with
+the corresponding data from any other node, which will be guaranteed to have the correct data at
+both of those points.
+</p><p>
+Halving the intervals in each step of our algorithm results in log_2 N stages. Since each step
+requires sending hashes, our running time includes a term of log_2 N times this communication
+latency. If we divide the intervals into K parts instead, we will get log_K N stages; this reduces
+communication latency but makes the computational cost of each step larger. The Testrun "problem"
+can be used to find a good compromise value of K; you can generate your own worst-case dataset to
+test on easily by tweaking the code in the provided samples. In our implementation, we got good
+results with K = 40. However, the solution is so fast that the differences are small.
+</p>
+
+<h3>A word on hashing</h3>
+
+<p>
+The described solution relies heavily on hashing without going into much detail about it. The first
+thing to notice is that our use of hashing is really specific: we need to be able to accurately
+compare two integer sequences of the same length that differ at up to two positions at the most.
+That's quite different from standard applications like a hash table. In a hash table, we need
+millions or more hashes to not collide with each other, so the probability of collision has to be
+very small. In our case, we are comparing a much smaller number of hashes, and only two at a time,
+so we can get away with somewhat larger collision probabilities. On the other hand, we are hashing
+lots of long sequences that are mostly the same, and it would be better to be able to do that
+without always going through the entire sequence, as simple hashing mechanisms generally do.
+</p><p>
+A common trick to define a function that depends on two indices f(<i>i</i>, <i>j</i>) and
+represents something about the subsequence between <i>i</i> and <i>j</i> is to define it as
+f(<i>i</i>, <i>j</i>) = g(<i>j</i>) - g(<i>i</i>-1), where g is something that we can precalculate
+efficiently. Since the domain of g is only linear on the size of the input, this is plausible in
+our case. The canonical example of use of this technique is the sum, where
+f(<i>i</i>, <i>j</i>) = sum of the subsequence between the indices <i>i</i> and <i>j</i> and
+g(<i>k</i>) = sum of the subsequence between indices 0 and <i>k</i>. Of course, the sum is a really
+bad hash in our case; for example, the sequences 1 3 3 7 and 1 7 3 3 will hash to the same value
+despite differing at only 2 positions. (Notice that the sum would be a perfect hashing if we were
+guaranteed to have a difference of at most 1 position between the sequences.) Choosing any
+commutative operation, like the product, won't help, as any commutative operation will be equal
+when computed over two sequences that have the same multiset of values, as in the example above.
+</p><p>
+A simple solution to this problem is to define f as the sum over the indices <i>k</i> between
+<i>i</i> and <i>j</i> of something other than <code>GetValue(<i>k</i>)</code>. In particular, we
+can include the value of <i>k</i> itself and sum, for instance,
+<i>k</i> &times; <code>GetValue(<i>k</i>)</code>. This breaks commutativity. Unfortunately, for
+this particular option, collisions are pretty easy to produce by engineering the input sequences
+carefully. However, we can use hash1(<i>k</i>) &times; hash2(<code>GetValue(<i>k</i>)</code>) where
+hash1 and hash2 are fast hash functions for integers. In this case, to produce collisions by
+engineering the sequences, the DCJ staff would need to break the hash functions, which is assumed
+to be an almost impossible task.
+</p>

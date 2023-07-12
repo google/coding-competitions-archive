@@ -1,0 +1,130 @@
+<h3>Problem</h3>
+
+<h2>Khazad-d&ucirc;m</h2>
+<p>
+  The dwarves are trying to build a new path through the mountains.
+  The mountains might be difficult terrain, with high peaks and deep valleys,
+  and the road cannot be too steep, so some excavating and/or bridge-building
+  will be needed.
+</p><p>
+  The dwarves want the moon to shine on the road in all places, so they will
+  not be tunneling. Where the road goes above the ground level, they will build
+  a bridge; where the road goes below the original ground level, they will dig
+  up the mountain to remove all the rock that would have been above the road.
+  This excavation serves two purposes: first, it enables the road to be built
+  in the fresh air, and second, it provides material which will be used to
+  pave and decorate the road.
+</p><p>
+  The dwarves have produced a cross-sectional map of the part of the mountains
+  they will build through. Starting from point 0 (one edge of that
+  cross-section), they have measured the elevation (in centimeters) at every
+  1-centimeter increment along the path. Between each two mapped points, the
+  mountains are linear: if at centimeter K the mountains are A<sub>K</sub>
+  centimeters high, and at centimeter K + 1 the mountains are A<sub>K+1</sub>
+  centimeters high, then at centimeter K + t, for t in the continuous interval
+  [0, 1], the mountains are t A<sub>K+1</sub> + (1 - t) A<sub>K</sub>
+  centimeters high. Note that a height of "zero" is an arbitrary baseline, and
+  it is possible for the dwarves to dig arbitrarily deep. The road can start
+  and end at any height (so we can enter the cross section below, at, or above
+  the original ground level at point zero, and similarly exit at any height).
+</p><p>
+  The dwarves must decide how high the road will go at every point.
+  The incline of the road can never be larger than 45 degrees &mdash; that is,
+  the road cannot gain or lose more than X centimeters vertically over a
+  horizontal distance of X centimeters for any (not necessarily integer) X.
+  The road can go higher than the original height of the mountains (bridges
+  will be built in these places), or lower (the mountains will be excavated
+  in these places). In order to provide enough material to build
+  the road, at least GramsToExcavate() grams of the mountains need to be
+  excavated; one square centimeter of cross-section of the mountains weighs
+  one gram. Note that only the rock above the road level can be excavated, one
+  cannot simply excavate some rock from under a bridge, because that would
+  look ugly and would not meet the dwarven standards of craftsmanship!
+</p>
+<p>
+  These constraints (the incline no larger than 45 degrees, and at least
+  GramsToExcavate() material excavated) allow multiple possible plans.
+  Due to lessons learned in the past, the dwarves want not to dig too deep,
+  so out of all the plans, they will choose the one in which the depth of the
+  road &mdash; the largest negative vertical distance between the original height
+  of the mountains at a certain point along the road (any point, not only the
+  ones where measurements were taken), and the road surface at that point &mdash;
+  is as small as possible. Can you help the dwarves find this minimum depth?
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "khazaddum"; see the sample inputs below for
+  examples in your language. It defines three methods:
+</p>
+<ul>
+  <li><b>GetRangeLength()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the length of the mountain range, in
+        centimeters (so, the number of points measured is one larger).</li>
+      <li>Expect each call to take 0.05 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GramsToExcavate()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the minimum number of grams the dwarves
+        have to excavate.</li>
+      <li>Expect each call to take 0.05 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetHeight(position)</b>:
+    <ul>
+      <li>Takes one 64-bit integer, position (the position along the
+        cross-section, in centimeters, from the starting point). If position
+        is smaller than 0 or larger than GetRangeLength(), this will
+        crash.</li>
+      <li>Returns a 64-bit integer: the elevation at that point, in
+        centimeters.</li>
+      <li>Expect each call to take 0.05 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single real number: the minimum depth (in centimeters) the dwarves
+  have to dig. The answer will be considered correct if it is within an
+  absolute or relative error of 10<sup>-6</sup> of the correct answer. See the
+  <a href="https://code.google.com/codejam/resources/faq#floating_point">FAQ</a>
+  for an explanation of what that means, and what formats of real numbers we
+  accept.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 9 seconds.<br/>
+  Memory limit per node: 512MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  1 &le; GramsToExcavate() &le; 10<sup>8</sup> &times; GetRangeLength().<br/>
+  0 &le; GetHeight(i) &le; 10<sup>8</sup>.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  Number of nodes: 10.<br/>
+  1 &le; GetRangeLength() &le; 1000.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  Number of nodes: 100.<br/>
+  1 &le; GetRangeLength() &le; 10<sup>8</sup>.<br/>
+</p>
+
+<p>
+  The following image illustrates the solution to the second sample case. The
+  black line represents the road (which includes a bridge); the light and dark
+  red areas, respectively, represent the parts of the mountain range that the
+  dwarves have excavated and have not excavated.
+</p>
+<p>
+  <img alt="Illustration of the second sample case." src="kd_example2.png">
+</p>

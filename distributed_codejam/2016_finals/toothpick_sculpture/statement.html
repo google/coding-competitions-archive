@@ -1,0 +1,127 @@
+<h3>Problem</h3>
+<h2>Toothpick Sculpture</h2>
+<p>
+Your friend Cody-Jamal is an artist. He is working on a new sculpture concept made of toothpicks.
+Each toothpick has two ends. Each sculpture features a single <i>foundational toothpick</i>
+resting horizontally on the ground. Every other toothpick rests horizontally with its midpoint
+on one of the ends of exactly one other toothpick. This means each toothpick can have zero, one
+or two other toothpicks resting on it, forming a binary tree of toothpicks, with the foundational
+toothpick as the root.
+Toothpicks do not touch otherwise. Let
+<i>t<sub>1</sub></i> be any toothpick, and let <i>t<sub>1</sub></i> rest on <i>t<sub>2</sub></i>,
+<i>t<sub>2</sub></i> rest on <i>t<sub>3</sub></i>, and so on; there is an eventual
+<i>t<sub>k</sub></i> that is the foundational toothpick.
+</p><p>
+For instance, in the following picture you can see a sculpture with 5 toothpicks. The black
+toothpick is the foundational toothpick, resting on the ground. The green and blue toothpicks are
+resting on the black toothpick, while the red and yellow toothpicks are resting on the blue one.
+<br/>
+<img src="toothpicks.png"/>
+</p><p>
+Cody-Jamal made exactly 1000 sculptures, each using exactly <b>N</b> toothpicks, that were
+exhibited for 1000 days in the largest 1000 cities in the world. As the grand finale, he is
+planning on placing the foundational toothpicks of 999 of his sculptures on open ends of toothpicks
+of other sculptures, effectively creating a larger version of a sculpture with the same concept,
+with 1000 &times; <b>N</b> total toothpicks. He plans on displaying it by placing the foundational
+toothpick of the structure on top of the Burj Khalifa in Dubai, the tallest building in the world.
+</p></p>
+Cody-Jamal is enthusiastically telling you his new plan, when your
+engineering mind notices that the high winds at that altitude will make the structure unstable, so
+you suggest gluing touching toothpicks together. Cody-Jamal's artistic vision, however, disagrees.
+The fragility of the construction is part of the conceptual appeal of the piece, he says.
+You two decide to compromise and use almost invisible carbon nanotube columns to support some
+toothpicks.
+</p><p>
+A toothpick (foundational or not) is individually stable if and only if it is
+supported by a carbon nanotube column. Your math quickly shows that the
+whole structure can be considered stable if and only if, for each toothpick <i>t</i> that is
+not the foundational toothpick, either <i>t</i> is individually stable, or <i>t</i> rests on an
+individually stable toothpick.
+</p><p>
+Carbon nanotube columns are expensive, though. The cost of the column required to stabilize each
+toothpick may vary depending on several factors. You decide to write a computer program to assist
+in choosing a set of toothpicks good enough to make the structure stable while minimizing the sum
+of the cost of the carbon nanotubes required to stabilize each toothpick.
+</p>
+
+<h3>Input</h3>
+<p>
+Toothpicks are numbered with integers between 0 and 1000<b>N</b> - 1, inclusive. Integers between
+0 and 999 identify the foundational toothpicks of the original sculptures, and 0 is also the
+foundational toothpick
+of the large combined sculpture. The numbering of all of the other toothpicks is arbitrary.
+By way of construction, if you consider a graph made of all toothpicks with two toothpicks
+being adjacent if they touch each other, the <b>N</b> toothpicks corresponding to any original
+sculpture form a connected subgraph.
+</p><p>
+The input library is called "toothpick_sculpture"; see the sample inputs below for examples in your
+language. It defines three methods:
+<ul>
+<li><b>GetNumToothpicks()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+    <li>Returns a 64-bit integer: the number <b>N</b> of toothpicks in each original sculpture.</li>
+  <li>Expect each call to take 0.06 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetCost(i)</b>:
+  <ul>
+  <li>Takes a 64-bit integer in the range 0 &le; i &lt; 1000 &times; GetNumToothpicks().</li>
+  <li>Returns a 64-bit integer: the cost of stabilizing toothpick i.</li>
+  <li>Expect each call to take 0.06 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetToothpickAtEnd(i, e)</b>:
+  <ul>
+  <li>Takes two 64-bit integers in the ranges 0 &le; i &lt; 1000 &times; GetNumToothpicks(),
+    0 &le; e &lt; 2.</li>
+  <li>Returns a 64-bit integer: the id of the toothpick resting on end e of toothpick i in the
+    large sculpture, or -1 if there is no toothpick resting there.</li>
+  <li>Expect each call to take 0.06 microseconds.</li>
+  </ul>
+</li>
+</ul>
+</p>
+
+<h3>Output</h3>
+<p>
+Output a single line with a single integer: the minimum sum of the cost to build the necessary
+carbon nanotubes and make the structure stable.
+</p><p>
+<b>Recursive solutions, beware! The process stack size is limited to 8 MB and the JVM thread stack
+  size is limited to 1MB. Attempting to change this programatically will result in a Rule
+  Violation.</b>
+</p>
+
+<h3>Limits</h3>
+<p>
+Number of nodes: 100. <b>(Notice that the number of nodes is the same for both the Small and Large
+  datasets.)</b><br/>
+Time limit: 6 seconds.<br/>
+Memory limit per node: 512 MB.<br/>
+Maximum number of messages a single node can send: 5000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+1 &le; GetNumToothpicks() &le; 10<sup>6</sup>.<br/>
+1 &le; GetCost(i) &lt; 10<sup>9</sup>, for all i.<br/>
+-1 &le; GetToothpickAtEnd(i, e) &lt; GetNumToothpicks() &times; 1000, for all i, e.<br/>
+GetToothpickAtEnd(i, e) &ne; 0, for all i, e.<br/>
+Let <i>G</i> be the graph with toothpicks as nodes and two nodes connected if and only if
+the corresponding toothpicks touch in the sculpture:<br/>
+<i>G</i> is a connected tree.<br/>
+Removing the edges between toothpicks 1 through 999 and the toothpicks they are resting on
+results in exactly 1000 connected components of GetNumToothpicks() nodes each.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+GetToothpickAtEnd(i, 1) = -1, for all i.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+No additional limits.
+</p>
+
+<p>
+Note that the last sample case would not appear in the Small dataset.
+</p>

@@ -1,0 +1,82 @@
+<h2>Lemming</h2>
+<p>
+In the problem, we are given what is effectively a
+<a href="https://en.wikipedia.org/wiki/Pseudoforest#Graphs_of_functions">functional graph</a>
+on a matrix: Each cell of the matrix is assigned a "next" cell, or it points to the outside.
+If we define the graph's set of nodes as the cells of the matrix plus one node to
+represent "outside", that points to itself, the definition fits precisely.
+As you can see in the article linked above, each connected component of a functional
+graph is a cycle with trees rooted at nodes in the cycle and the edges pointing in
+the direction of the root.
+</p><p>
+The defined graph contains a single one-node cycle, which is the outside node,
+as no other node points to itself.
+Each other cycle is a potential trap that may leave the lemming roaming
+forever unless we add a pickup point. On the other hand, setting a pickup point on any
+node in a cycle is enough to "break it" and ensure that the lemming will be safe if
+he starts at any point in that cycle. Moreover, this single fix also saves the lemming
+when starting on a node of the connected component that is not in the cycle. Edges
+point towards the root there, so following them will eventually lead the
+lemming into the cycle, which we have already shown is safe after the fix.
+</p><p>
+However, the component with the special single-node cycle remains, which can't
+be fixed in the same way because the "outside" node is not a cell, and so it
+can't be turned into a pickup point. There is also a greedy strategy that works here:
+for each node that points directly to the outside node, it is clear that we
+need to make it a pickup point; otherwise, the lemming starting there would fall off
+the matrix. Using our functional graph model of the problem, we can see that it is
+also enough to fix just those cells: any other node in the matrix is part of a
+tree whose edges lead to the root (the "outside"). That path has a next-to-last
+node before the root, and that node is necessarilly fixed by the rule above.
+</p><p>
+To sum up, we need to count the number of cycles, and the number of cells that
+point to the outside, and sum those two values. The result is a minimal number
+of pickup points that prevent the lemming from falling off the matrix or looping around forever.
+</p><p>
+We can implement this count in linear time. Counting the cells that point
+directly outside is simple and quick. To count cycles, we can just follow
+edges starting at a cell, and keeping track of the visited nodes, both in the current
+path and in the previous paths (for instance, keep an integer set at -1 for non-visited
+nodes, and a path id for visited nodes, which increases for every new path).
+If we encounter a node visited in the current path, we have detected
+a cycle. If we go outside the matrix or encouter a node visited before, we stop
+and discard the current path. Note that the first time each component is
+visited, its central cycle will be discovered. Every subsequent time
+we visit that component, edges on the trees will be traversed, and the search will
+stop when it reaches the root, which is on the already-discovered central cycle.
+</p><p>
+Unfortunately, linear time is, as usual, not fast enough in Distributed Code
+Jam. It's easy to distribute the task of counting the cells that point to the
+outside; we can even do this in a single node. But it is more difficult to
+distribute the task of counting cycles, so, from now on, we will focus on that.
+</p>
+<h3>Small dataset</h3>
+<p>
+In the Small dataset, upward moves are forbidden. This means that the only possible
+cycles are of length two, with two cells that are horizontally adjacent. These can be
+counted by assigning a number of rows of the matrix to each worker. As long as
+each worker has an entire row, it can detect cycles within itself and the
+combination of results is just the sum of all partial results.
+</p>
+<h3>Large dataset</h3>
+<p>
+For the large dataset, we need to find a way to distribute the full algorithm
+to search for paths. Fortunately, the idea behind the distribution is not too
+complex to describe. Unfortunately, the implementation can be a bit tricky.
+</p><p>
+We start by dividing the matrix evenly across machines. The easiest way is to give
+each node a rectangular strip of a few rows or columns. Then, each machine can
+follow the algorithm laid out at the beginning of this analysis, except that there is
+a third "stop case" when following a path: moving into some other machine's
+territory. When that happens, we need to record the exit point in all cells of the
+path. If we reach a cell that we have already visited, it may be from an already
+fixed component, in which case we do nothing futher, or it may be a cell leading
+to another machine, in which case we record that in the current path as well.
+In this way, we end up with some partial paths that are not in fixed components,
+but rather go from one cell in the outer edge of the machine's assigned area to
+another. Luckily, the size of these edges is small enough that we can send the
+connectivity information over the network to a master. Using all of this information,
+master can build a new graph to see how many cycles form when those partial paths
+are joined, and add that count to the sum of the partial results received
+from workers from components that were entirely within one worker.
+</p>

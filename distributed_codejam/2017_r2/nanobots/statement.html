@@ -1,0 +1,109 @@
+<h3>Problem</h3>
+
+<h2>Nanobots</h2>
+<p>
+  A group of medical researchers is working on a new treatment to fight bacteria. In the
+  treatment, special nanobots are transferred into the patient's body, where they
+  locate and trap any harmful bacteria. This allows the patient to get better, and the
+  researchers can later retrieve the trapped bacteria for further study.
+</p><p>
+  Not any nanobot can trap any bacterium, though. A nanobot can be characterized by two traits:
+  size and speed. A nanobot can only trap bacteria that are smaller than it (otherwise, the
+  bacteria will not fit in the nanobot's cage) and also slower than it (otherwise, the bacteria can
+  escape the nanobot). Formally, a nanobot with speed A and size B can trap a bacterium with speed
+  C and size D if and only if A &gt; C and B &gt; D. The speeds and sizes of both nanobots and
+  bacteria are in the inclusive range [1, <code>GetRange()</code>].
+</p>
+<p>
+  You have a group of nanobots and you want to know how effective they are at trapping bacteria.
+  Your goal is to find how many of the <code>GetRange()</code><sup>2</sup> possible bacteria get
+  trapped by the team of nanobots. Unfortunately, you cannot directly examine the speed and size
+  of your nanobots. You can only experiment by introducing a bacterium with a specific size and
+  speed, and watching whether this bacterium gets trapped by the team of nanobots or not.
+  A team of nanobots will trap a bacterium with speed C and size D if and only if there is at
+  least one nanobot in the team that has both speed strictly greater than C and size strictly
+  greater than D.
+</p><p>
+  You may carry out as many experiments of this sort as you want... within the allowed running time
+  for the problem, of course! You can choose the speed and size of the bacteria in each experiment,
+  and for each one, you receive one piece of data: whether or not the bacteria was trapped.
+  Each experiment uses the full team of nanobots, and the same nanobot can catch bacteria in
+  different experiments. Based on
+  that information, you need to determine how many of the <code>GetRange()</code><sup>2</sup>
+  possible bacteria would be trapped by the team of nanobots. (Because the speed can take any
+  integer value in [1, <code>GetRange()</code>], and the same is true for the size, there are
+  <code>GetRange()</code><sup>2</sup> possible bacteria.) Since the output can be a really big
+  number, we only ask you to output the remainder of dividing the result by the prime
+  10<sup>9</sup>+7 (1000000007).
+</p><p>
+  Distributed Code Jam is not a licensed physician. Nothing in this problem statement should be
+  construed as an attempt to offer medical advice. Distributed Code Jam is also not a licensed
+  scientist. Nothing in this problem statement should be construed as an attempt to offer
+  scientific advice. Using nanobots to fight harmful bacteria definitely sounds cool, though.
+</p>
+
+<h3>Input</h3>
+<p>
+The input library is called "nanobots"; see the sample inputs below for examples in your
+language. It defines three methods:
+</p>
+<ul>
+<li><b>GetNumNanobots()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of nanobots on the team.</li>
+  <li>Expect each call to take 0.2 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetRange()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the maximum valid value for speeds and sizes of
+    both bacteria and nanobots.</li>
+  <li>Expect each call to take 0.2 microseconds.</li>
+  </ul>
+</li>
+<li><b>Experiment(c, d)</b>:
+  <ul>
+  <li>Takes exactly two 64-bit integer arguments: a size c and a speed d,
+    1 &le; c,d &le; <code>GetRange()</code>.</li>
+  <li>Returns a char: <code>T</code> if a bacteria with size c and speed d is trapped by
+    the nanobots, or <code>E</code> if it escapes.</li>
+  <li>Expect each call to take 0.2 microseconds.</li>
+  </ul>
+</li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output one line with a single integer: how many of the different bacteria with both size and speed
+  in the inclusive range [1, <code>GetRange()</code>] would be trapped by the nanobots,
+  modulo the prime 10<sup>9</sup>+7 (1000000007). Two bacteria are considered different if and only
+  if they have different speed and/or different size.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 18 seconds.<br/>
+Memory limit per node: 256 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+2 &le; GetRange() &le; 10<sup>12</sup>.<br/>
+<code>Experiment(c, d)</code> is either uppercase <code>T</code> or uppercase <code>E</code>, for
+  all c, d.<br/>
+The results of <code>Experiment</code> are consistent with the same team of
+<code>GetNumNanobots()</code> nanobots across all nodes. <br/>
+It is possible that multiple nanobots might have the same size and speed.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  Number of nodes: 10. <br/>
+  1 &le; <code>GetNumNanobots()</code> &le; 10<sup>5</sup>.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  Number of nodes: 100. <br/>
+  1 &le; <code>GetNumNanobots()</code> &le; 10<sup>7</sup>.<br/>
+</p>

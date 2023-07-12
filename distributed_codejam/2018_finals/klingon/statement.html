@@ -1,0 +1,116 @@
+<h3>Problem</h3>
+
+<h2>Klingon</h2>
+<p>
+  You are playing a computer game about Klingons. A part of this game is a quiz,
+  about Klingons, in the Klingon language.
+  It would probably be much easier if you spoke even one word of Klingon.
+  Unfortunately, you do not. Fortunately, you are allowed arbitrarily many attempts to pass the
+  quiz, and the questions are always the same.
+</p><p>
+  The quiz consists of <b>Q</b> questions. Each question has <b>A</b> answers,
+  and only one of those answers is correct. You will answer the questions one at a time,
+  and you only get one attempt at each question. If you answer
+  all <b>Q</b> questions without giving more than <b>W</b> wrong answers,
+  you will get the secret code that you can redeem for your very own Klingon
+  starship.
+</p>
+<p>
+  The game does not tell you whether you have gotten a particular question right or wrong
+  (or maybe it does, but in Klingon...), but it does keep track of how many wrong answers you
+  have given so far. If you give a wrong answer after having already given <b>W</b> other wrong
+  answers (that is, if you give the (<b>W</b>+1)th wrong answer), then instead of moving on, the
+  game will tell you that you have lost, play a sad sound, and reset. After the reset, your count
+  of wrong answers resets to zero, and you will be asked the same questions (starting from the
+  beginning), in the same order, and with the same correct answers.
+</p>
+<p>
+  To make your task easier, you have found 100 servers (nodes) that all run independent
+  instances of the same quiz (with the same questions and correct answers). That is, each
+  node maintains its own independent state of which question you are on, how many wrong
+  answers you have given so far, etc.
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "klingon"; see the sample inputs below for
+  examples in your language. It defines four methods:
+</p>
+<ul>
+  <li><b>GetNumberOfQuestions()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the number of questions <b>Q</b> in the quiz.</li>
+      <li>Expect each call to take 0.02 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetAllowedNumberOfWrongAnswers()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the number of wrong answers <b>W</b> you can give without
+        losing the game.</li>
+      <li>Expect each call to take 0.02 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetNumberOfPossibleAnswers()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit integer: the number of possible answers <b>A</b> to every question.</li>
+      <li>Expect each call to take 0.02 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>Answer(answer)</b>:
+    <ul>
+      <li>Takes one 64-bit integer, answer (the answer you are providing) in
+        the range 0 &le; answer &lt; GetNumberOfPossibleAnswers(). </li>
+      <li>Calling Answer() means that you answer the current question, and you choose the answer you
+        provide as the argument. If answer is outside of the allowed range, the program will
+        terminate and you will receive a "Wrong Answer" verdict. Answer() returns a 32-bit integer denoting the results of your answer:
+        <ul>
+          <li>
+            -1 if your answer was the (<b>W</b>+1)th incorrect answer in this playthrough. After
+            this, the game resets (so, the next question you'll be answering is the first question).
+          </li>
+          <li>
+            A positive number that is the secret code if your answer was not the (<b>W</b>+1)th
+            incorrect answer, and you were answering the last question. Subsequent calls to Answer()
+            will return 0.
+          </li>
+          <li>
+            0 in all other cases.
+          </li>
+        </ul>
+      </li>
+      <li>Expect each call to take 0.02 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single integer: the secret code obtained at the end of the game.
+  Note that you must actually output the code, on a single node (as usual);
+  just receiving the code does not constitute solving the problem.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 10 seconds.<br/>
+  Number of nodes: 100 (for the Small dataset, too!)<br/>
+  Memory limit per node: 256MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  1 &le; GetNumberOfQuestions() &le; 25000.<br/>
+  GetAllowedNumberOfWrongAnswers() = 3000.<br/>
+  2 &le; GetNumberOfPossibleAnswers() &le; 50000.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  0 is never the correct answer to any question.
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  No extra restrictions.
+</p>

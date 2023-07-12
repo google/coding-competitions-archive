@@ -1,0 +1,35 @@
+
+<h2>Lisp++: Analysis</h2>
+<h3>How can we recognize a Lisp++ valid program?</h3>
+<p>
+It is not hard to show that a Lisp++ program is valid if and only if each prefix of the program has at least as many opening parentheses as closing parentheses, and the overall program has the same amount of both in total. Let us prove it:
+</p><p>
+Let o(X) and c(X) be the number of opening and closing parentheses of a string X, respectively. Assume there is a string of parentheses P that has the aforementioned properties that is not a valid program. Then o(P) = c(P) and for each prefix X of P o(X) &ge; c(X). If there is at least one proper prefix A such that o(A) = c(A), decompose P into AB (choose any such A if multiple exist). Since o(A) = c(A) and each prefix of A is also a prefix of P, A fulfills the hypotheses, and it's shorter than P, so A is a valid program. Now, each prefix D of length k of B is a prefix C of length |A| + k of P minus A. Then, o(D) = o(C) - o(A) &ge; c(C) - o(A) = c(C) - c(A) = c(D). Similarly, o(B) = c(B). B is shorter than P and fulfills the hypothesis, so B is also a valid program, and therefore AB = P is a valid program by definition, which contradicts the assumption.
+</p><p>
+In the other direction, assume P is a valid program of minimum length that does not have the mentioned properties. The program () does have both properties, so P &ne; (). If P = (A) with A a valid program, since A has the properties, P also has them because each proper prefix of P has one more opening parentheses and no more closing parentheses than a prefix of A, and the totals are both one more than the totals for A. Finally, if P = AB with A and B valid programs, the totals of each parenthesis type in P are equal because they are in both A and B, and each proper prefix of P is either a proper prefix of A, all of A (both of which trivially have at least as many opening parentheses as closing parentheses) or a proper prefix of B plus A. Since A has the counts balanced, and the proper prefix of B has more opening parentheses, the resulting proper prefix of P will also have more opening parentheses.
+</p><p>
+Furthermore, it is easy to see that if P is a string of parentheses that has more opening parentheses than closing parentheses on every prefix, it can be extended to a valid program simply by appending enough closing parentheses. Therefore, we have to find the first position in the input program such that the number of opening parentheses up to that position is less than the number of closing parenteheses. This is easy to do in a single node with the following pseudocode:
+</p><pre>
+x = 0
+for each character c in position i in the input:
+  if c == '(':
+    x = x + 1
+  else
+    x = x - 1
+  if x < 0: return i
+if x == 0:
+  return the length of the input
+else:
+  return -1
+</pre>
+<h3>Distributing the solution</h3>
+Let us assign each node 1 / <code>NumberOfNodes()</code> of the input string, awaiting information from a previous node. The information consists of:
+<ul>
+<li>The difference in number of parentheses of the previous part of the string.</li>
+<li>Whether a result was already found.</li>
+</ul>
+Time complexity is still O(<code>GetLength()</code>) as single node version, as each node is idle until all previous nodes finish their work. However, we can do something similar to the trick from
+<a href="../../2016_r1/crates/statement.html">Rearranging Crates</a> in Round 1. We calculate the difference in parentheses from each segment independently, send them all to the master, let the master calculate the initial imbalance from each node, and then have each node report a result back to the master. Of course, the master should only consider the result from the node reporting an error on the shortest prefix of the string, and the node considering the right end of the string needs to report whether it finished with an <code>x</code> equal to 0 or greater than 0 if there was no error.
+</p><p>
+Another way to implement the same idea is to send the master the totals and the deepest imbalance found within each node. That way, the master can use that information directly to know which part of the string the first error is in, and then simply process that part, without using the other nodes again. This saves some message passing, and possibly simplifies the distribution, at the expense of making the code more redundant. The difference in running time between both versions is negligible.
+</p>

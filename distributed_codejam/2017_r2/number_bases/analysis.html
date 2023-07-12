@@ -1,0 +1,94 @@
+<h2>Number Bases: Analysis</h2>
+<h3>A non-distributed solution</h3>
+<p>
+Even for the Small limits, checking a single base for correctness is time consuming, so trying
+many bases is a non-starter proposition. Luckily, we have our math training. You may have
+learned about doing <a href="https://en.wikipedia.org/wiki/Addition#Carry">addition by carry</a>
+in elementary school, and possibly learned about how that
+<a href="https://en.wikipedia.org/wiki/Addition#Addition_in_other_bases">generalizes to
+arbitrary bases</a> some time later. Either way, we can try to simulate the carry algorithm,
+deferring the decision of what base we are using for as long as we can.
+</p><p>
+To simplify, we'll let X[i] denote the i-th digit of X (that is, <code>GetX(i)</code>, with
+increasing i meaning more significant digits), and we'll define Y[i] and Z[i] similarly.
+We start by adding X[0] + Y[0], remembering that we need (X[0] + Y[0]) % B = Z[0].
+</p><ul>
+<li>If X[0] + Y[0] = Z[0], the requirement always holds for valid bases and there is no carry
+in any of those.</li>
+<li>If X[0] + Y[0] &lt; Z[0], the case is IMPOSSIBLE, since we already know that B &gt; Z[0]
+and this implies (X[0] + Y[0]) % B = X[0] + Y[0].</li>
+<li>If X[0] + Y[0] > Z[0], then B = X[0] + Y[0] - Z[0], so Z[0] is the result for the
+current column and there is 1 to carry. (We must continue to investigate these and other
+digits, though, to make sure that X + Y = Z really is valid under base B. In particular,
+we should check that X[0], Y[0] and Z[0] are all greater than B, either at this point or
+later.)</li>
+</ul><p>
+Notice that, if we have more than one candidate base after the first column
+(i.e., X[0] + Y[0] = Z[0]), there was no carry, so we can repeat the check above for the second
+column. If there is one base candidate, we only need to simulate the addition in that base and
+check that it works. All in all, we can decide with a single linear pass over the input whether
+we have a single base, multiple bases, or no base. It's important to check that the found base
+is larger than all digits (including the ones seen before we found a single candidate base),
+either by remembering a running maximum digit seen, or by doing a second pass to check.
+</p><p>
+There is a two-pass strategy that greatly simplifies the algorithm. On a first pass, see if
+there is any column i such that X[i] + Y[i] &ne; Z[i]. If there aren't any, the answer is
+NON-UNIQUE. If there is, use the least significant of those (i.e., the minimum such i) one
+to determine if there is a base candidate B (or if there is none and so the result is
+IMPOSSIBLE). It won't work to use columns other than the least significant one with a
+difference, because they may depend on some carry that changes the calculations. If the
+least significant column yields a candidate base B, just run a second pass to check that
+all digits are less than B, and whether the addition holds. If the check is good, B is the
+answer; otherwise, it is IMPOSSIBLE.
+</p><p>
+The described non-distributed algorithm is enough to solve the Small dataset on a single node.
+</p>
+<h3>A distributed solution</h3>
+<p>
+As usual, even a linear algorithm is not fast enough for the Large dataset unless we
+distribute it. The two-pass version of the algorithm above is the easiest to distribute.
+First, assign each node a consecutive portion of each input (digit i of all of X, Y and Z
+should be assigned to the same machine) such that each node gets about 1/100th of the total.
+Then, the first pass is easy to distribute: each node can report back to the master the
+minimum i such that X[i] + Y[i] &ne; Z[i] in its range, if there is one, and the master
+can choose among those, if there is one. After that, the master can decide on a result or
+a candidate B, that it can report back to the nodes to do the check in their assigned
+portion. Checking for all digits to be less than B is simple, but checking the addition is
+a little more nuanced. Nodes treating ranges that are not the least significant one need
+to know whether there is a carry. Fortunately, if a node is treating a range [i, j] of
+positions, checking position i-1 is enough to know if there is carry at position i. If
+X[i-1] + Y[i-1] &gt; Z[i-1], then there is a carry. Otherwise, there is definitely not a
+carry, because B is at least 2 and this precludes the possibility of an additional 1 due to
+carry from position i-2. Thus, each node can check its own range to see if base B is indeed
+possible and then report back to the master. If all nodes report yes, the master can output
+B. Otherwise, the master can output IMPOSSIBLE.
+</p><p>
+Even without using the trick to check only the column i-1 to decide whether or not the
+range [i, j] starts with some carry, there is the possibility of having each node calculate
+two answers: one that assumes that there is an initial carry, and one that assumes there is
+not. As part of each answer, each node also reports whether it's sending any carry out of its
+last column. Then, the master can process them from least to most significant, picking the
+appropriate answer from each pair.
+</p>
+<h3>A "polynomial" solution</h3>
+<p>
+A more theory-intensive but possibly simpler way to solve the problem is to
+see the sequences as polynomials in a single variable B. Then, the equation is true if and only
+if the polynomial P = X + Y - Z evaluates to 0 for a given value of B.
+If X[i] + Y[i] - Z[i] = 0 for all i, then P = 0, and thus any sufficiently large integer is a valid
+base, so the answer is NON-UNIQUE. Otherwise, using the
+<a href="https://en.wikipedia.org/wiki/Rational_root_theorem">rational root theorem</a>, we can
+limit the number of roots of P to positive divisors of
+|X[i] + Y[i] - Z[i]| for the smallest i such that |X[i] + Y[i] - Z[i]| is not zero.
+The largest such divisor is |X[i] + Y[i] - Z[i]|, and the second largest is at most
+|X[i] + Y[i] - Z[i]|/2, which is necessarilly not greater than one of X[i], Y[i] or Z[i], and
+hence, not a valid base. Therefore, B = |X[i] + Y[i] - Z[i]| is the only candidate base (we stated
+this before, with a different proof). To check that candidate base B, we can evaluate P(B) modulo Q,
+for a few large prime values of Q. If P(B) mod Q is non-zero for any Q > 1, then P(B) is certainly
+non-zero. Otherwise, it is zero with probability ~1/Q. After three big prime values for Q, the
+probability of getting a false positive is extremely low. This algorithm is fairly easy to
+implement in linear time, and also to distribute. We also need to check that B is larger
+than all the given digits, which we do in the same way as in the other presented solution.
+This approach saves us the hassle of dealing with carries manually, which is the most error-prone
+part of the algorithm, and also a small annoyance while distributing it.
+</p>

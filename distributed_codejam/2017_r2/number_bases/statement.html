@@ -1,0 +1,118 @@
+<h3>Problem</h3>
+
+<h2>Number Bases</h2>
+
+<p>
+  You are given three sequences X, Y, and Z of equal length. The sequences
+  consist of digits. In this problem we deal with non-decimal bases,
+  so digits are arbitrary non-negative integers, not necessarily restricted to
+  the usual 0 through 9 range.
+</p><p>
+  Your task is to investigate the possible bases for which the equation
+  <b>X + Y = Z</b> is both valid and holds true. You must determine whether
+  there is no such base, more than one such base, or only one such base. If
+  there is only one such base, you must find it.
+</p><p>
+  For X + Y = Z to be valid in base B, all digits in all sequences have
+  to be strictly less than B. For X + Y = Z to be true in base B, the sum of
+  the integer denoted by X in base B and the integer denoted by Y in base B has
+  to be equal to the integer denoted by Z in base B.
+</p><p>
+  More formally: let S[i] be the i-th digit from the right of a sequence of
+  digits S, with i counted starting from 0. Then, for a given S and an integer
+  base B, we will define the integer denoted by S in base B as f(S, B) = the
+  sum of all S[i] &times; B<sup>i</sup>. Then the equation X + Y = Z is true
+  for a base B if and only if f(X, B) + f(Y, B) = f(Z, B).
+</p><p>
+  For example, consider the sequences X = {1, 2, 3}, Y = {4, 5, 6} and Z = {5,
+  8, 0}, written with the most significant digits on the left, as usual. That
+  is, X[0] = 3, X[1] = 2 and X[2] = 1.
+  B = 8 is an invalid base, because it is not strictly greater than the
+  middle digit of Z. B = 10 is a valid base, but the expression is not true in
+  that case because 123 + 456 &ne; 580. B = 9 is a valid base that also makes
+  the expression true, because {1, 2, 3} in base 9 is 102, {4, 5, 6} in base 9
+  is 375 and {5, 8, 0} in base 9 is 477, and 102 + 375 = 477. For this case,
+  B = 9 is the only possible choice of a valid base B that makes the expression
+  true.
+</p><p>
+  On the other hand, the one-digit sequences X = {10}, Y = {20} and
+  Z = {30} have multiple bases for which the equation X + Y = Z is both valid
+  and true. Any value of B greater than 30 would suffice.
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "number_bases"; see the sample inputs below for
+  examples in your language. It defines four methods:
+</p>
+<ul><li><b>GetLength()</b>:
+  <ul>
+    <li>Takes no argument.</li>
+    <li>Returns a 64-bit integer: the number of digits in each digit sequence
+      X, Y, and Z.
+    </li>
+    <li>Expect each call to take 0.34 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetDigitX(i)</b>:
+  <ul>
+    <li>Takes a 64-bit integer in the range 0 &le; i &lt; GetLength().</li>
+    <li>Returns a 64-bit integer: the i-th digit in the digit sequence X,
+      numbered from right (least significant) to left (most significant).
+      That is, GetDigitX(0) is the least significant digit of X and
+      GetDigitX(GetLength() - 1) is the most significant digit of X.</li>
+    <li>Expect each call to take 0.34 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetDigitY(i)</b>:
+  <ul>
+    <li>Takes a 64-bit integer in the range 0 &le; i &lt; GetLength().</li>
+    <li>Returns a 64-bit integer: the i-th digit in the digit sequence Y,
+      numbered from right (least significant) to left (most significant).</li>
+    <li>Expect each call to take 0.34 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetDigitZ(i)</b>:
+  <ul>
+    <li>Takes a 64-bit integer in the range 0 &le; i &lt; GetLength().</li>
+    <li>Returns a 64-bit integer: the i-th digit in the digit sequence Z,
+      numbered from right (least significant) to left (most significant).</li>
+    <li>Expect each call to take 0.34 microseconds.</li>
+  </ul>
+</li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single line with a single token <code>x</code>. If there is a single
+  base B that makes the expression valid and true, <code>x</code> must be the
+  base 10 representation of B. If there are multiple values of B that make the
+  expression valid and true, <code>x</code> must be <code>NON-UNIQUE</code>. If
+  there is no such value of B, <code>x</code> must be <code>IMPOSSIBLE</code>.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 3 seconds.<br/>
+  Memory limit per node: 128 MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  0 &le; GetDigitX(i) &le; 10<sup>6</sup>, for all i.<br/>
+  0 &le; GetDigitY(i) &le; 10<sup>6</sup>, for all i.<br/>
+  0 &le; GetDigitZ(i) &le; 10<sup>6</sup>, for all i.<br/>
+  (Contrary to typical notation, it is possible for any of the digit sequences
+  in the input to have a zero at its most significant position. Valid bases are
+  not restricted to be less than 10<sup>6</sup> or any other upper bound.)<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  Number of nodes: 10.<br/>
+  1 &le; GetLength() &le; 10<sup>6</sup>.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  Number of nodes: 100.<br/>
+  1 &le; GetLength() &le; 10<sup>8</sup>.<br/>
+</p>

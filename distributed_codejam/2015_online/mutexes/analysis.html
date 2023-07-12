@@ -1,0 +1,38 @@
+<p>
+The optimal and correct approach for this problem is to use dynamic programming to find out if it is possible to end up in a deadlock.
+</p>
+
+<p>
+The program keeps track of which program states can be reached. We define a program state to be a pair of: the number of steps thread 1 performed, and the number of steps thread 2 performed. Note that if one of the threads didn't perform any steps, the state is reachable (because one thread will never deadlock by itself).
+</p>
+
+<p>
+A deadlock is, by definition, a state that the program can reach, but in which neither thread can perform a step.
+</p>
+
+<p>
+A state is reachable if one of the previous states (that is, ones where one of the threads performed a step less) is reachable, and after the thread performs the extra step, no mutex is acquired by both of the threads. Note that the condition "no mutex is acquired by both of the threads" is independent from which thread is actually performing the step - it's simply checking whether the sets of held mutexes is disjoint.
+</p>
+
+<p>
+We shard the DP by the steps taken by the first thread. That is, each node is assigned a range of steps for the first thread, and processes those. From the previous node, we only need the information about the reachability of the states just one step before for the first thread (and all possible values for the second thread).
+</p>
+
+<p>
+Note that such a two-dimensional DP is relatively easy to parallelize. We can organize each node iterating on the steps of the second thread in the outer loop, and on the steps of the first thread in the inner loop. Then, after O(N/M) calculations, the first node will have the first reachability value available for the second node. In the first approximation, we can imagine each node shipping each value immediately to the next node when it is available. Then after O(M) iterations each node will have something to process, and so the total runtime of the algorithm will be O(N<sup>2</sup> / NumberOfNodes()). In reality, sending the values one-by-one is too expensive, and they have to be shipped in chunks (for instance, N/M values in a single chunk), which still gives us a complexity estimate of O(N<sup>2</sup> / NumberOfNodes()).
+</p>
+
+<p>
+To calculate the set of held mutexes, we want to access the information "is any mutex double-held" in constant time. What we do is as follows:<br/>
+<ul>
+<li>We assume for a moment that any mutex can be held by both threads.</li>
+<li>When processing a state, we want to know for each mutex by how many threads
+  is it held.</li>
+<li>Additionally, we want to know how many mutexes are double-held.</li>
+</ul>
+Updating this data when performing a single step is simple. The initial state of the program is also simple (and getting to the initial state at the beginning of our chunk of thread one steps is also simple). After each full range of thread one steps, we get back to the known state simply by reversing the operations taken, in reverse order.
+</p>
+
+<p>
+Some of the solutions that passed our tests neglected checking the reachability condition, and yet still passed (because the test-cases we prepared didn't cover this, unfortunately). Solutions that would have passed a fuller set of test cases have been submitted, e.g., by Eryx and Lovro.
+</p>

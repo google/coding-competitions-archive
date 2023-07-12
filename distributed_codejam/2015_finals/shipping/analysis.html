@@ -1,0 +1,522 @@
+<p>In the small input, we can take advantage of the fact that the villages downstream have smaller indices to shard the input simply by village index. Each node can read a range of villages into memory and store the appropriate part of the tree (including color information). Then, processing a single query begins on node holding the most upstream villages.</p>
+
+<p>A query consists of two branches, both going downstream, until they meet. So, each node will pass to the next node either the information that the branches already met, and no more processing needs to be done, or the state of each of the two branches. The state contains the following information: what village are we currently at, what is the longest consecutive sequence of same-faction villages we passed, and how long is the current string of consecutive same-faction villages. When getting a query, each node can easily extend it by traversing the tree upwards. This will work fast enough for the small number of queries we have.</p>
+
+<p>For the large input, we will need to shard the tree of villages differently. We'll need to do something similar to the Shhhh problem in the practice online round - randomly pick, say, 10^5 key villages (including all query endpoints), and for each of those calculate what is the next key village downstream (or, if we reach the ocean, remember that there's no key village downstream). Additionally, we will want to know precalculated information about the part of the river between the two key villages - what is the longest single-faction string in it, how long is the single-faction prefix and single-faction suffix of the part of the river, and are all the villages on this part of the river controlled by the same faction.</p>
+
+<p>A similar probability calculation as we did for Shhhh leads to the following conclusions: a) it's better to dynamically assign the key villages to nodes (so that we don't get one node getting only long paths to traverse), and b) it's highly unlikely, if we do dynamic assignment, that a single node will get significantly more than O(NumberOfVillages / NumberOfNodes) nodes to traverse.</p>
+
+<p>Once we have all this information on a master node, we can precalculate most of the answer for a single query by traversing the tree of key villages. Since query endpoints are also key villages, we can go up the tree from them till we reach a common key village. Then, we should take the two villages that were the previous villages on each branch, and go up the real tree of villages until the paths meet (since the first common key village might be downstream from the first common village).</p>
+
+<p>Doing a direct traversal of the tree of key villages for each query will be too slow - O(|key villages| x |queries|), we can speed it up by caching shortcuts in the tree of key villages. For instance, for each key village, we can cache the path (and all the information we store about a path) to the key village downstream, key village two away, key village four away, etc. - with this information we can pre-process all the queries in O(|queries| x log |key villages|) time.</p>
+
+<p>Once a query is pre-processed, we need to calculate the final answer by traversing, on average, O(NumberOfVillages / |key villages|) nodes up the tree for a single query. We can distribute that among nodes, each node getting O(NumberOfShipments / NumberOfNodes) queries to process. Processing a query is simply going up the tree with both branches until they meet.</p>
+
+<p>One more implementational note is that we will also store the depth of each node in both trees (the input tree of villages, and the tree of key villages), to allow us to know, when we have two branches, which branch should we move up to make them meet.</p>
+
+<p>Since no-one managed to solve the large input during the contest, we provide the code of the sample solution for reference.</p>
+
+<pre>
+#include "shipping.h"
+#include "message.h"
+
+using namespace std;
+
+// The overall design of the solution is as follows:
+// 1) First, observe that if for a number of paths we have precalculated the
+// values "length-of-same-color-prefix", "length-of-same-color-suffix",
+// "max-internal-same-color-sequence-length" and "is-all-of-same-color", we can
+// easily glue such precalculated data together. The solution, on the highest
+// level, will be based on such precalculations. We will also calculate the
+// length of each such path.
+// 2) In the whole tree, we mark a certain set of key vertices. We intend to
+// precalculate the paths between key vertices. The set of key vertices will
+// contain all the query endpoints, and a number of other random enough points.
+// Each node will calculate this set independently (but consistently).
+// Calculation is O(K log K).
+// 3) We will then do the precalculation. There are two ways of doing it -
+// first, we can statically assign key vertex ranges to worker nodes; second, we
+// can calculate dynamically, each node signing in with a master when it
+// finishes calculating a block of key vertices to get a new block. We implement
+// both, I believe the dynamic version to be significantly faster. The
+// precalculation is pretty trivial going up the tree; we check (in log-time)
+// whether we reached another key vertex at each step. In the dynamic version,
+// the load will spread equally if we have at least log N blocks per node, in
+// the static version there will be an extra log N factor.
+// This is O(N / M) reads, O(N log N / M) operations (the long pole is checking
+// whether it's a known vertex), and O(M log N) messages sent to/from the
+// master.
+// 4) The master obtains all the precalculated values, and effectively
+// constructs a tree with edges being the precalculated paths. This tree can
+// still be a pretty long path, so we do log-compression on the paths in the
+// tree (that is, for each node, we store precomputed paths to ancestors of
+// levels 1, 2, 4, 8, etc.). This is O(K log K), where K is the number of key
+// vertices, in terms of CPU and memory. We could skip this step (and avoid
+// paying the K log K), but then the next step is O(K Q) on the master.
+// 5) Then, the master tackles the queries one-by-one. For each query, the
+// master first finds the least-common-ancestor of the endpoints. If it happens
+// to be one of the query vertices, the answer can be fully computed locally
+// (remember all query vertices are key vertices). Otherwise, we go one step
+// down (find the last two key vertices on the two paths to the common
+// ancestor). This step is O(Q log K) on the master.
+// 6) We have, on average, N / K nodes between these two last vertices and the
+// real LCA. We ship the pair (precalculated path from query start to last key
+// vertex, precalculated path from query end to last key vertex) to one of the
+// workers, and move on to the next query. The worker (in the precalculated
+// paths) gets the depths to the nearest key ancestor, so it can go up the tree
+// with the deeper vertex first, and then with both, step by step, to find the
+// real LCA. This will be N / K reads on average, so it we will do O(N Q / K M)
+// reads for all the queries. To avoid unnecessary network traffic, we can batch
+// the requests in larger groups (so we send a total of ~10 batches of requests
+// to each worker node).
+//
+// The total costs (assuming K is at least M log N).
+// - CPU on the master: O(K log K + Q log K)
+// - CPU on the worker: O(K log K + N log N / M + N Q / K M)
+// - Reads on the worker: O(N / M + N Q / K M)
+// - Messages: roughly 2 log N messages between master and each node.
+//
+// It seems optimal to push K up to Q, and there doesn't seem to be a real gain
+// from going much higher.
+//
+// The protocols:
+// A) For part 1 (processing the tree):
+// Master request:
+// [ Char(0), Int(num of key verts to process), Int(index of the first one) ]
+// Worker response:
+// [ Int(number of key verts processed), Int(index of the first one) [...] ]
+// and then #key_verts_processed blocks of the form:
+// [ Int(nearest key ancestor, or -1 if none), Int(distance to the ancestor),
+//   Int(length of the same-color prefix), Int(length of same-color suffix),
+//   Int(length of the longest same-color internal path),
+//   Char(0 if there are multiple colors inside, 1 the path is one color) ]
+// If the first int is -1, the other fields are still there, and carry the
+// semantics of the path to the root of the whole tree.
+//
+// B) For part 2 (answering queries):
+// Master request:
+// [ Char(1), Int(num of queries to process), Int(index of the first query)
+//   [...] ]
+// and then #queries_to_process block of the form:
+// [ Int(first_key_vertex), Int(longest same-color path up to first key),
+//   Int(length of same-color suffix up to first-key),
+//   Int(depth of first key in the real tree)
+//   + the same four entries for the second key ]
+// Worker response:
+// [ Int(num queries processed), Int(index of the first one), [...] ]
+// and then #queries_processed entries of Int(answer for the query).
+//
+// C) A Master request [ Char(2) ] means "Terminate", no response is required.
+
+#define KEY_VERTS 100000
+#define BATCH_COUNT 4
+#define MAX_Q 20000
+
+int N;
+int Q;
+int NoN;
+int key_vertices[KEY_VERTS + 10];
+int NKV;  // Number of key vertices.
+
+// Prepare the list of "key" vertices
+void ListCrucialVertices() {
+  set&lt;int&gt; kverts;
+  if (N &lt;= KEY_VERTS) {
+    for (int i = 0; i &lt; N; ++i) {
+      key_vertices[i] = i;
+      NKV = N;
+    }
+    key_vertices[NKV] = N + 10;
+    return;
+  }
+  for (int i = 0; i &lt; Q; ++i) {
+    kverts.insert(GetShipmentSource(i));
+    kverts.insert(GetShipmentDestination(i));
+  }
+  int candidate = 0;
+  while (kverts.size() &lt; KEY_VERTS) {
+    candidate += 1500450271;  // Just a random prime.
+    candidate %= N;
+    kverts.insert(candidate);
+  }
+  NKV = 0;
+  for (auto i : kverts) {
+    key_vertices[NKV++] = i;
+  }
+  key_vertices[NKV] = N + 10;
+}
+
+void Init() {
+  N = NumberOfVillages();
+  Q = NumberOfShipments();
+  NoN = NumberOfNodes();
+  ListCrucialVertices();
+}
+
+struct Path {
+  Path() {}
+  explicit Path(int index)
+      : from(index),
+        to(index),
+        length(1),
+        prefix(1),
+        suffix(1),
+        internal(1),
+        whole(true) {}
+
+  int from;
+  int to;  // We use "-1" as a special value to mean "root".
+  // The lengths here are given in vertices.
+  int length;
+  int prefix;
+  int suffix;
+  int internal;
+  bool whole;
+};
+
+// Joining two paths.
+Path Join(const Path &amp;A, const Path &amp;B) {
+  Path result;
+  result.from = A.from;
+  assert(A.to == B.from);
+  result.to = B.to;
+  result.length = A.length + B.length - 1;
+  result.prefix = A.whole ? A.prefix + B.prefix - 1 : A.prefix;
+  result.suffix = B.whole ? A.suffix + B.suffix - 1 : B.suffix;
+  result.whole = A.whole &amp;&amp; B.whole;
+  result.internal = max(max(A.internal, B.internal), A.suffix + B.prefix - 1);
+  return result;
+}
+
+// The precalculated upward paths for all the key vertices. tree[v][d] is the
+// precalculated path from key vertex v to it's ancestor on level (1 &lt;&lt; d) - so,
+// tree[v][0] is the path to the nearest ancestor, tree[v][1] the path to the
+// grandfather, tree[v][2] to great-great-grandfather, and so on.
+//
+// The reason we dynamically allocate this is so we can allocate it for the
+// master only. Since the size of this array is some 60MB, allocating it in
+// every single worker would take 6GB, and might hurt our ability to run local
+// tests.
+Path (* tree)[25];
+// This is the depth in the key-vertex forest. 0 means that the vertex has no
+// key ancestor.
+int depths[KEY_VERTS];
+// This is the depth in the real tree. 0 means the key vertex is the root.
+int real_depths[KEY_VERTS];
+
+void MasterDistributePathCalculation() {
+  // We want to send roughly BATCH_COUNT batches to each node. This means
+  // roughly NKV / (NoN * BATCH_COUNT) key vertices per batch.
+  int batch_size = NKV / (NoN * BATCH_COUNT) + 1;
+  int current = 0;  // The beginning of the next batch to send.
+  int in_flight = 0;  // Number of in-flight requests.
+  queue&lt;int&gt; nodes;  // Nodes not currently processing anything.
+  for (int node = 1; node &lt; NoN; ++node) {
+    nodes.push(node);
+  }
+  while (current &lt; NKV || in_flight &gt; 0) {
+    if (nodes.empty() || current &gt;= NKV) {
+      // We receive if we have no ready workers, or if we already pushed out all
+      // the work for processing.
+      int sending_node = Receive(-1);
+      nodes.push(sending_node);
+      in_flight -= 1;
+      int num = GetInt(sending_node);
+      int vert = GetInt(sending_node);
+      for (int i = 0; i &lt; num; ++i) {
+        tree[vert][0].from = vert;
+        tree[vert][0].to = GetInt(sending_node);
+        tree[vert][0].length = GetInt(sending_node);
+        tree[vert][0].prefix = GetInt(sending_node);
+        tree[vert][0].suffix = GetInt(sending_node);
+        tree[vert][0].internal = GetInt(sending_node);
+        tree[vert][0].whole = GetChar(sending_node);
+        vert += 1;
+      }
+    } else {
+      // Otherwise, we send the next block for processing.
+      int num = min(batch_size, NKV - current);
+      int processor = nodes.front();
+      nodes.pop();
+      in_flight += 1;
+      PutChar(processor, 0);
+      PutInt(processor, num);
+      PutInt(processor, current);
+      current += num;
+      Send(processor);
+    }
+  }
+}
+
+void WorkerCalculatePath() {
+  int num = GetInt(0);
+  int first = GetInt(0);
+  PutInt(0, num);
+  PutInt(0, first);
+  for (int key_vert = first; key_vert &lt; first + num; key_vert++) {
+    int vert = key_vertices[key_vert];
+    int ccolor = VillageFaction(vert);
+    int length = 0;
+    int prefix = 1;
+    int suffix = 1;
+    int internal = 1;
+    bool whole = true;
+    // Go up the tree.
+    while (true) {
+      int parent = VillageImmediatelyDownstream(vert);
+      if (parent == vert) {
+        PutInt(0, -1);
+        break;
+      }
+      vert = parent;
+      int ncolor = VillageFaction(vert);
+      length += 1;
+      if (ncolor != ccolor) {
+        whole = false;
+        suffix = 1;
+      } else {
+        suffix += 1;
+        internal = max(suffix, internal);
+        if (whole) prefix += 1;
+      }
+      ccolor = ncolor;
+      auto key_index = lower_bound(&amp;key_vertices[0], &amp;key_vertices[NKV], vert);
+      if (*key_index == vert) {
+        PutInt(0, key_index - &amp;key_vertices[0]);
+        break;
+      }
+    }
+    PutInt(0, length);
+    PutInt(0, prefix);
+    PutInt(0, suffix);
+    PutInt(0, internal);
+    PutChar(0, whole);
+  }
+  Send(0);
+}
+
+void MasterCompressPaths() {
+  // This will be overridden when we end compression for a given vertex - that
+  // is, when it has a ancestor of level X, but this ancestor doesn't have
+  // another ancestor of level X (so we don't have an ancestor of level X+1).
+  // This implies we never override it for vertices with no ancestor, so we
+  // initialize it to zero for them.
+  for (int v = 0; v &lt; NKV; ++v) depths[v] = 0;
+
+  bool still_compressing;
+  int depth_log = 1;
+  do {
+    still_compressing = false;
+    for (int v = 0; v &lt; NKV; ++v) {
+      Path &amp;previous = tree[v][depth_log - 1];
+      int parent = previous.to;
+      if (parent != -1) {
+        tree[v][depth_log] =
+            Join(previous, tree[parent][depth_log - 1]);
+        if (tree[parent][depth_log - 1].to == -1) {
+          depths[v] = (1 &lt;&lt; (depth_log - 1)) + depths[parent];
+        }
+        still_compressing = true;
+      } else {
+        real_depths[v] = tree[v][depth_log - 1].length;
+        tree[v][depth_log] = tree[v][depth_log - 1];
+      }
+    }
+    depth_log += 1;
+  } while (still_compressing);
+}
+
+void PreSolveAndPutQuery(int processor, int query) {
+  int first_real_value = GetShipmentSource(query);
+  int second_real_value = GetShipmentDestination(query);
+  int first =
+      lower_bound(&amp;key_vertices[0], &amp;key_vertices[NKV], first_real_value) -
+      &amp;key_vertices[0];
+  int second =
+      lower_bound(&amp;key_vertices[0], &amp;key_vertices[NKV], second_real_value) -
+      &amp;key_vertices[0];
+  int fdepth = depths[first];
+  int sdepth = depths[second];
+
+  // Assume the end of the query is deeper than the beginning.
+  if (fdepth &gt; sdepth) {
+    swap(fdepth, sdepth);
+    swap(first, second);
+  }
+
+  Path fpath(first);
+  Path spath(second);
+
+  // Go up the tree with the second vertex, until we are at the same depth as
+  // the first vertex.
+  int diff = sdepth - fdepth;
+  int cjump = 0;
+  while (diff &gt; 0) {
+    if (diff &amp; 1) {
+      spath = Join(spath, tree[spath.to][cjump]);
+    }
+    diff /= 2;
+    cjump += 1;
+  }
+
+  // Now jump up with both vertices, to get to the two key vertices on the paths
+  // with a common ancestor.
+  cjump = 0;
+  while (tree[fpath.to][cjump].to != tree[spath.to][cjump].to) cjump++;
+  for (int jump = cjump - 1; jump &gt;= 0; --jump) {
+    if (tree[fpath.to][jump].to != tree[spath.to][jump].to) {
+      fpath = Join(fpath, tree[fpath.to][jump]);
+      spath = Join(spath, tree[spath.to][jump]);
+    }
+  }
+  PutInt(processor, fpath.to);
+  PutInt(processor, fpath.internal);
+  PutInt(processor, fpath.suffix);
+  PutInt(processor, real_depths[fpath.to]);
+  PutInt(processor, spath.to);
+  PutInt(processor, spath.internal);
+  PutInt(processor, spath.suffix);
+  PutInt(processor, real_depths[spath.to]);
+}
+
+void MasterSolveQueries() {
+  int answers[MAX_Q + 10];
+
+  // We want to send roughly BATCH_COUNT batches to each node. This means
+  // roughly Q / (NoN * BATCH_COUNT) queries per batch.
+  int batch_size = Q / (NoN * BATCH_COUNT) + 1;
+  int current = 0;  // The beginning of the next batch to send.
+  int in_flight = 0;  // Number of in-flight requests.
+  queue&lt;int&gt; nodes;  // Nodes not currently processing anything.
+  for (int node = 1; node &lt; NoN; ++node) nodes.push(node);
+  while (current &lt; Q || in_flight &gt; 0) {
+    if (nodes.empty() || current &gt;= Q) {
+      // We receive if we have no ready workers, or if we already pushed out all
+      // the work for processing.
+      int sending_node = Receive(-1);
+      nodes.push(sending_node);
+      in_flight -= 1;
+      int num = GetInt(sending_node);
+      int query = GetInt(sending_node);
+      for (int i = 0; i &lt; num; ++i) {
+        answers[query] = GetInt(sending_node);
+        query += 1;
+      }
+    } else {
+      // Otherwise, we send the next block for processing.
+      int num = min(batch_size, Q - current);
+      int processor = nodes.front();
+      nodes.pop();
+      in_flight += 1;
+      PutChar(processor, 1);
+      PutInt(processor, num);
+      PutInt(processor, current);
+      for (int i = 0; i &lt; num; ++i) {
+        PreSolveAndPutQuery(processor, current + i);
+      }
+      current += num;
+      Send(processor);
+    }
+  }
+  for (int i = 1; i &lt; NoN; ++i) {
+    PutChar(i, 2);
+    Send(i);
+  }
+  for (int i = 0; i &lt; Q; ++i) {
+    if (i) printf(" ");
+    printf("%d", answers[i] - 1);
+  }
+  printf("\n");
+}
+
+struct Suffix {
+  int end;
+  int internal;
+  int suffix;
+  int color;
+  int depth;
+};
+
+void Extend(Suffix *s) {
+  int parent = VillageImmediatelyDownstream(s-&gt;end);
+  int ncolor = VillageFaction(parent);
+  if (s-&gt;color == ncolor) {
+    s-&gt;suffix += 1;
+    s-&gt;internal = max(s-&gt;suffix, s-&gt;internal);
+  } else {
+    s-&gt;suffix = 1;
+    s-&gt;color = ncolor;
+  }
+  s-&gt;end = parent;
+  s-&gt;depth -= 1;
+}
+
+void WorkerHandleQuery() {
+  int num = GetInt(0);
+  PutInt(0, num);
+  PutInt(0, GetInt(0));  // Bounce the first query number.
+  for (int query = 0; query &lt; num; ++query) {
+    Suffix f;
+    f.end = key_vertices[GetInt(0)];
+    f.internal = GetInt(0);
+    f.suffix = GetInt(0);
+    f.color = VillageFaction(f.end);
+    f.depth = GetInt(0);
+
+    Suffix s;
+    s.end = key_vertices[GetInt(0)];
+    s.internal = GetInt(0);
+    s.suffix = GetInt(0);
+    s.color = VillageFaction(s.end);
+    s.depth = GetInt(0);
+
+    while (f.depth &gt; s.depth) {
+      Extend(&amp;f);
+    }
+    while (s.depth &gt; f.depth) {
+      Extend(&amp;s);
+    }
+    while (f.end != s.end) {
+      Extend(&amp;f);
+      Extend(&amp;s);
+    }
+    int result = max(max(f.internal, s.internal), f.suffix + s.suffix - 1);
+    PutInt(0, result);
+  }
+  Send(0);
+}
+
+void Master() {
+  tree = new Path[KEY_VERTS][25];
+  MasterDistributePathCalculation();
+  MasterCompressPaths();
+  MasterSolveQueries();
+}
+
+void Worker() {
+  while (true) {
+    Receive(0);
+    char command = GetChar(0);
+    switch (command) {
+      case 0:
+        WorkerCalculatePath();
+        break;
+      case 1:
+        WorkerHandleQuery();
+        break;
+      default:
+        return;
+    }
+  }
+}
+
+int main() {
+  Init();
+  if (MyNodeId() == 0) {
+    Master();
+  } else {
+    Worker();
+  }
+  return 0;
+}
+</pre>

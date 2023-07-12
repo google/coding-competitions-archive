@@ -1,0 +1,63 @@
+
+<h2>... we did it again: Analysis</h2>
+<h3>Deducing the original problem</h3>
+<p>
+As was the case in <a href="../../2016_r1/oops/statement.html">Oops, from Round 1</a>, it's necessary to look at some source code first. What is it doing?
+</p><p>
+<ul>
+  <li>There are two mysterious functions, <code>GetA</code> and <code>GetB</code> that take a single input &mdash; a number between 0 and <code>GetN()</code> - 1 &mdash; and return an integer. So, notionally, there are two lists of <code>GetN()</code> numbers that the code reads from.</li>
+  <li>On the k-th node, we examine all pairs (i, j) </code>0 &le; i, j &lt; GetN()</code>, but only process the pairs for which (i + j) modulo <code>NumberOfNodes()</code> equals k.</li>
+  <li>When a node processes a pair (i, j), it calculates <code>GetA(i) * GetB(j)</code> and sends that value to the master.</li>
+  <li>The master node adds all incoming values and calculates the summation modulo <code>LARGE_PRIME</code>.</li>
+<li>Note that the <code>MASTER_NODE</code> (node 0) only sums the results from <i>other</i> nodes. Pairs with (i + j) modulo <code>NumberOfNodes()</code> equal to 0 are therefore skipped.</li>
+</ul>
+Incidentally, the last point shows that changing the number of nodes doesn't just change the running time... it also changes the result! This is why the samples, the small case, and the large case all use a given fixed number of 20 nodes.
+</p><p>
+So the original statement must have been something like:
+"Given two list of <code>GetN()</code> numbers, what is the sum of <code>GetA(i) * GetB(j)</code> for all (i, j) where (i + j) modulo <code>NumberOfNodes()</code> does not equal 0?"
+</p>
+
+<h3>The sample code's approach</h3>
+<p>
+Now that we know what we are supposed to be doing, we can assess how badly the
+sample code actually does it:
+</p>
+<p>
+<ul>
+  <li>Each node iterates through all <code>GetN()</code><sup>2</sup> pairs of (i, j), even though it only acts on a fraction of them.</li>
+  <li>Each node sends a message for each pair it processes which creates a O(<code>GetN()</code><sup>2</sup>) of traffic over the network.</li>
+  <li>The master node then sums the values obtained from the approximately <code>GetN()</code><sup>2</sup> messages.</li>
+</ul>
+</p><p>
+This approach has an O(<code>GetN()</code><sup>2</sup>) calculation and summation phase. Note that this running time does not improve if we add more nodes.
+</p><p>
+O(<code>GetN()</code><sup>2</sup>) run time is rather embarrassing. We only vaguely
+remember writing this code after a long night of caffeine fueled Dungeon &amp; Dragons, but
+that's no excuse! Now that we have our wits about us, how can we do better?
+</p>
+
+<h3>A better approach</h3>
+<ul>
+  <li>Observe that the sum of the product of multiple pairs can be rearranged to use a single multiplication:<br/>
+    <code>
+      GetA(a<sub>0</sub>) &times; GetB(b<sub>0</sub>) + GetA(a<sub>0</sub>) &times; GetB(b<sub>1</sub>) +
+      GetA(a<sub>1</sub>) &times; GetB(b<sub>0</sub>) + GetA(a<sub>1</sub>) &times; GetB(b<sub>1</sub>) =
+    </code><br/><code>
+      (GetA(a<sub>0</sub>) + GetA(a<sub>1</sub>)) &times; (GetB(b<sub>0</sub>) + GetB(b<sub>1</sub>)).
+    </code>
+  </li>
+  <li>The example above generalizes easily to more than 2 elements from each of A and B, in particular, we can aggregate all elements with a given remainder modulo <code>NumberOfNodes()</code>, as all of those impact the result in the same way.</li>
+  <li>The k-th node (including the master!) can calculate the sum of A and B for each index that has k as remainder when dividing by <code>NumberOfNodes()</code>. Notice that this divides the indices pretty evenly across nodes:
+<pre>
+SumGetA[k] = GetA(k) + GetA(k + NumberOfNodes()) + GetA(k + 2 &times; NumberOfNodes()) + ...
+SumGetB[k] = GetB(k) + GetB(k + NumberOfNodes() + GetB(k + 2 &times; NumberOfNodes()) + ...
+</pre></li>
+  <li>Note: intermediate values are calculated modulo <code>LARGE_PRIME</code> to avoid overflows.</li>
+  <li>The master node can calculate the overall result modulo  <code>LARGE_PRIME</code> as <code>SumGetA[i] &times; SumGetB[j]</code> for all pairs (i, j) where (i + j) modulo <code>NumberOfNodes()</code> does not equal 0 (<code>MASTER_NODE</code>).</li>
+</ul>
+
+<p>
+In this approach, we make a single parallelized pass over the data, so the running time of this phase is O(<code>GetN()</code> / <code>NumberOfNodes()</code>). The second phase has an O(<code>NumberOfNodes()</code><sup>2</sup>) running time. Since <code>NumberOfNodes()</code> << <code>GetN()</code> in general, and the master node only has to process two values from each node, the first phase dominates and the overall running time is O(<code>GeN()</code> / <code>NumberOfNodes()</code>) &mdash; much better!
+</p><p>
+Notice that a single-node version of this method is O(<code>GetN()</code>), which is still better than our sample code.
+</p>

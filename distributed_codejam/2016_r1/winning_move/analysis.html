@@ -1,0 +1,75 @@
+<h2>The Only Winning Move: Analysis</h2>
+<h3>How should we handle the input data?</h3>
+<p>
+Given infinite memory, this problem is not too tough: one approach is to sort
+the input data in non-decreasing order and then read it from left to right,
+looking for the first unique number. As is usually the case in DCJ, though,
+there is too much data to fit on a single node, so we will have to divide the
+task up among nodes. It's tough to split up a sort among nodes without
+exceeding the memory limit of any of them or running out of time, especially
+with edge cases in the mix... and you should assume that we will put in edge
+cases! So we need another approach.
+</p><p>
+What should each node do? We can't just find the smallest locally unique number
+on each node; what if all of these numbers turn out to be the same, for
+instance, and some other globally unique number is unaccounted for? Nor is it
+enough to find and send all locally unique numbers on each node. What if the
+smallest of these locally unique numbers also appears multiple times on a
+different node, and so is not globally unique?
+</p><p>
+One approach that works is to have each node produce a list with all of the
+locally unique numbers and two copies of all of the locally non-unique numbers.
+(It is also possible to produce two lists, one with the locally unique numbers
+and one with one copy of each of the locally non-unique numbers.) It is
+possible for this step not to reduce the amount of data at all, but in most
+cases, this local pruning will help.
+</p>
+<h3>How should we handle the processed data?</h3>
+<p>
+If we try to send all of this processed data to a single master node, the
+master may not have enough memory to handle it. Consider a case in which every
+number is different, for example. We could not have solved that case on a
+single node, so it will not work to send that data back to a single node. What
+if we spread the load around?
+</p><p>
+One promising idea is to send all of the 1s to node 1, all of the 2s to node 2,
+and so on, with every number being sent to the node with ID equal to that
+number modulo the number of nodes. Then, for example, node 1 sees all the 1s in
+existence. If it sees two or more 1s, then 1 is not globally unique; if it sees
+exactly one, then 1 is globally unique. We only need to find the smallest
+such globally unique number from each node. We do not need to worry that
+multiple nodes may find the same globally unique number, since any given number
+has had all of its copies directed to only one particular node.
+</p><p>
+Once again, we can imagine a test case that will make this fail: what if all
+the numbers are different, but all are a multiple of the number of nodes? Then
+they will all go to the same node and overwhelm it. A way around this is to
+come up with a hash function that maps each number to a node in a less
+predictable way. This will work even if all of the numbers in the test case are
+the same, since each node will send at most two copies of a given number.
+</p>
+<h3>Hey, this is MapReduce!</h3>
+<p>
+In fact, it is a double
+<a href="https://en.wikipedia.org/wiki/MapReduce">MapReduce</a>:
+</p>
+<ul>
+<li>Map 1: A master evenly divides up the input data among all nodes. (You
+don't need to have a master do this explicitly; you can just have each node
+read the appropriate range of the data.)</li>
+<li>Reduce 1: Each node produces a list of numbers with one copy of each
+locally unique number and two copies of each locally non-unique number.</li>
+<li>Map 2: Each node sends those numbers to reducers using a hash.</li>
+<li>Reduce 2: Each node finds the smallest of its numbers (if any) that is
+globally unique.</li>
+<li>Final step: Each node sends those smallest globally unique numbers (or 0)
+to a master node, which picks the smallest positive number or 0.</li>
+</ul>
+<p>
+We do not need to earmark one set of nodes as mappers and another as reducers.
+All nodes can act as reducers for step 1, and then become reducers for step 2.
+</p><p>
+Since both reducing steps involve sorting, this solution has a time complexity
+of O(GetNumPlayers() log GetNumPlayers() / NumberOfNodes()), which is fast
+enough in practice under the given limits.
+</p>

@@ -1,0 +1,84 @@
+<h2>Query of Death: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+  It is often possible in DCJ to write sufficiently fast single-node solutions
+  for Small datasets. This problem is a notable exception: it is impossible to
+  write <i>any</i> single-node solution! As soon as the query of death (QoD) is
+  made, there is no way to get the values from any other positions... and of
+  course there is no way to ensure that the QoD is made last.
+</p><p>
+  However, it is possible to write a Small-only solution that uses only two
+  nodes. The first node starts at position 0 and reads each position many times.
+  If the returned value is always the same at a given position, then it is safe
+  to move on to the next position, but if the returned value is inconsistent at
+  a given position, then that position must be the QoD. At that point, the
+  first node sends the index of the QoD and the cumulative total so far
+  (including the correct value at the QoD position) to the second node, and
+  the second node starts one position after the QoD and finishes totaling up
+  the remaining values. If you check 100 times at each position, your odds of
+  getting fooled (by a broken node that appears consistent) are only about 1 in
+  10<sup>32</sup>. Even with up to 10000 positions and multiple test cases, the
+  odds of failure are negligible; you might be better off worrying about cosmic
+  rays interfering with the hardware running the program!
+</p>
+<h3>Large dataset</h3>
+<p>
+  The Large cases have many more values, and it is too slow to step through
+  them cautiously, and too risky to decrease the number of checks at each
+  position too much. It is possible to strike the right balance between caution
+  and speed, and to otherwise refine this strategy until it can pass the Large
+  (with a little luck), but this is not necessary. There is a solution that is
+  much less error-prone.
+</p><p>
+  Our solution uses a pool of worker nodes and a master node; the master
+  keeps track of how many and which workers are broken. It also knows the range
+  of positions in which the QoD could be; initially, this "range of interest"
+  is [0, <code>GetLength()</code>). The algorithm repeats this cycle:
+</p>
+<ol>
+  <li>The master splits the range of interest up as evenly as possible across
+    all workers that are not broken, and tells each worker which subrange to
+    look at. It keeps track of which subrange it assigned to which worker.</li>
+  <li>Each worker reads the data in its subrange and sums up the values. Then,
+    it checks, e.g., the last position in the subrange 100 times to see whether
+    the QoD has caused it to break. If so, when it sends back its total, it
+    also sends back an indication that it is broken. (If a worker is assigned
+    an empty range, it just returns a "total" of 0.)</li>
+  <li>The master totals up the values from all non-broken workers, and updates
+    the range of interest to match the subrange assigned to the worker that
+    just broke. It also removes that worker from the pool. Then the master
+    assigns tasks to workers again, and so on.</li>
+  <li>Eventually, a worker will report that it has broken even after being
+    assigned a range of only 1 position; at that point, the master will know
+    the position of the QoD. It can add the value from that node and the other
+    values from the other nodes to its total, and then return the answer.</li>
+</ol>
+<p>
+  Let <i>w</i> be the number of worker nodes, which is
+  <code>NumberOfNodes()</code> or <code>NumberOfNodes()</code>-1, depending on
+  whether you use the master as a worker. Then the size of the range shrinks by
+  a factor of <i>w</i> with the first cycle, <i>w</i>-1 with the second cycle,
+  and so on, with exactly one worker breaking in each cycle; however, the range
+  contracts fast enough that there is no danger of running out of workers, even
+  in the Small dataset. The running time is dominated by the first cycle; most
+  of the values are read only once, and only 1/<i>w</i> of them are read twice,
+  and only 1/(<i>w</i>)(<i>w</i>-1) are read three times, and so on. Letting
+  <i>n</i> = <code>GetLength()</code>, the overall running time of that first
+  cycle is <i>O</i>(<i>n</i> / <i>w</i>), and both our Small and Large datasets
+  use enough nodes to allow us to safely ignore the contribution from the other
+  cycles. There are log<sub><i>w</i></sub>(<i>n</i>) cycles, and the
+  master-worker communication in these introduces another additive factor, but
+  again, especially in our Large datasets, this will be drowned out by the time
+  taken just to read all the data.
+</p><p>
+  Note that this method is substantially faster than the cautious strategy
+  mentioned above, which has a worst-case running time of O(<i>n</i> * number
+  of checks at each position / <code>NumberOfNodes()</code>).
+</p><p>
+  A single pass of the Large idea already narrows the range of where the QoD
+  might be by a factor of 100, so we can use the Small solution to finish
+  instead of the multiple-pass algorithm explained above. You should probably
+  choose the option that fits your coding style best, as multiple passes over
+  the same code mean shorter overall code, but also slightly more complicated
+  (and potentially error-prone) logic.
+</p>

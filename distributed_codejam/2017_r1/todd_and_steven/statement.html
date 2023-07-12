@@ -1,0 +1,112 @@
+<h3>Problem</h3>
+
+<h2>Todd and Steven</h2>
+<p>
+  By now, it is a programming interview clich&eacute;: How do you sort a very
+  large sequence of unique integers in increasing order? Finally, we are ready
+  to reveal the correct answer:
+</p>
+<ol>
+  <li>Give all of the odd integers from the sequence to one assistant named
+    Todd, and ask Todd to sort those integers in increasing order.</li>
+  <li>Give all of the even integers from the sequence to another assistant
+    named Steven, and ask Steven to sort those integers in increasing
+    order.</li>
+  <li>Merge Todd's sequence with Steven's sequence to produce the final
+    sorted sequence.</li>
+</ol>
+<p>
+  Todd and Steven have already performed steps 1 and 2 on a certain sequence,
+  and now we would like you to perform step 3. Since the resulting sorted
+  sequence can be very long, we only ask you to output a hash of it as proof
+  that you found it. Let X<sub>j</sub> denote the j-th element (counting
+  starting from 0) of the merged sequence. Please find the sum, over all j, of
+  (X<sub>j</sub>) XOR j. (Here XOR refers to the
+  <a href="https://en.wikipedia.org/wiki/Exclusive_or#Bitwise_operation">bitwise operation</a>
+  between the two integers, represented in both C++ and Java by the operator
+  <code>^</code>.) Since the output can be a really big number, we only ask you
+  to output the remainder of dividing the result by the prime 10<sup>9</sup>+7
+  (1000000007).
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "todd_and_steven"; see the sample inputs below
+  for examples in your language. It defines two methods:
+</p>
+<ul>
+<li><b>GetToddLength()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of values in Todd's sorted
+    sequence.</li>
+  <li>Expect each call to take 0.05 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetToddValue(i)</b>:
+  <ul>
+    <li>Takes a 64-bit integer argument in the range 0 &le; i &lt;
+      <code>GetToddLength()</code>.</li>
+    <li>Returns a 64-bit integer: the i-th value of Todd's sorted
+      sequence.</li>
+    <li>Expect each call to take 0.05 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetStevenLength()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of values in Steven's sorted
+    sequence.</li>
+  <li>Expect each call to take 0.05 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetStevenValue(i)</b>:
+  <ul>
+    <li>Takes a 64-bit integer argument in the range 0 &le; i &lt;
+      <code>GetStevenLength()</code>.</li>
+    <li>Returns a 64-bit integer: the i-th value of Steven's sorted
+      sequence.</li>
+    <li>Expect each call to take 0.05 microseconds.</li>
+  </ul>
+</li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output one line with a single 64-bit integer: the sum described in the
+  problem statement, modulo the prime 10<sup>9</sup>+7 (1000000007).
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 4 seconds.<br/>
+  Memory limit per node: 128 MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+  1 &le; <code>GetToddValue(i)</code> &le; 5 &times; 10<sup>9</sup>, for all
+    i.<br/>
+  <code>GetToddValue(i)</code> &lt; <code>GetToddValue(i + 1)</code>, for all
+    i. (Todd's sequence is sorted in increasing order.)<br/>
+  <code>GetToddValue(i)</code> % 2 = 1, for all i. (All elements in Todd's
+    sequence are odd.)<br/>
+  1 &le; <code>GetStevenValue(i)</code> &le; 5 &times; 10<sup>9</sup>, for all
+    i.<br/>
+  <code>GetStevenValue(i)</code> &lt; <code>GetStevenValue(i + 1)</code> for
+    all i. (Steven's sequence is sorted in increasing order.)<br/>
+  <code>GetStevenValue(i)</code> % 2 = 0, for all i. (All elements in Steven's
+    sequence are even.)<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  Number of nodes: 10. <br/>
+  1 &le; <code>GetToddLength()</code> &le; 10<sup>6</sup>.<br/>
+  1 &le; <code>GetStevenLength()</code> &le; 10<sup>6</sup>.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  Number of nodes: 100. <br/>
+  1 &le; <code>GetToddLength()</code> &le; 10<sup>9</sup>.<br/>
+  1 &le; <code>GetStevenLength()</code> &le; 10<sup>9</sup>.<br/>
+</p>

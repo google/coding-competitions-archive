@@ -1,0 +1,77 @@
+<h2>Weird Editor: Analysis</h2>
+<h3>Small dataset</h3>
+<p>
+This problem has a deceptively simple single-node solution if tackled
+from the right angle. First, notice that the order in which we apply the operations
+doesn't matter, so we only need to pick which digits to remove and we can append
+the appropriate number of zeroes at the end.
+Naturally, we want to prioritize maximizing the most significant digit, then give
+second priority to maximizing the second most significant digit, and so on.
+We can then see that if the first occurrence of the maximum digit in our number
+is at index i, we should remove all digits up to and including index i - 1.
+Moreover, if there are any other occurrences of that maximum, we want to remove
+any other digits between those occurrences, to ensure that our result starts
+with as many copies of the maximum as possible.
+</p><p>
+Combining the above insights, we can see that we should remove any non-maximum digit
+that appears before a maximum digit. What about the digits that follow the last
+occurrence of the maximum digit? These represent a smaller instance of the same problem
+(with a new maximum digit), so we could solve it in the same way.
+This approach can be tricky to implement and can take O(N<sup>2</sup>) time,
+where N = <code>GetNumberLength()</code>, in the worst case; a variant that makes one
+forward pass through the data for each digit is O(10N) and is fast enough to pass the
+Small. (With 10 nodes available for the Small, this solution can even be distributed.)
+But we can do even better by approaching the problem in reverse, from the least
+significant digit backwards to the most.
+</p><p>
+Let N = <code>GetNumberLength()</code> and d<sub>i</sub> = <code>GetDigit(i)</code>.
+Consider the last digit d<sub>N-1</sub> in the input. It is always optimal to to not
+remove it; if it is a zero, removing it does nothing, and otherwise, removing it
+would be strictly worse.
+Now consider the next to last digit d<sub>N-2</sub>. For any fixed string of digits
+s that we choose to keep from among the first N-2, our options for the final value
+are either sd<sub>N-2</sub>d<sub>N-1</sub>0000... or sd<sub>N-1</sub>000....
+For all s, the former is larger if and only if d<sub>N-2</sub> &ge; d<sub>N-1</sub>.
+This same argument generalizes to all digits: we should keep a digit
+d<sub>i</sub> if there is no larger digit to its right. Notice that we have arrived
+at the same conclusion as before.
+</p><p>
+We can adapt this idea into a single-node solution as follows: from the least significant
+digit to the most significant, keep track of the maximum digit M seen so far, and use the
+current digit d<sub>i</sub> if d<sub>i</sub> &ge; M. To accumulate the actual result, we
+should also keep a running total T and the number of digits used so far D. Then,
+to represent appeding the current digit d<sub>i</sub> to the left of our new number,
+we add d<sub>i</sub> &times; 10<sup>D</sup> to T.
+At the end, we need to append N-D zeroes to the right, which we can do by multiplying
+by 10<sup>N-D</sup>. All operations need to be done modulo 10<sup>9</sup> + 7 to avoid
+overflows. Exponentiating can be done in
+<a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring">logarithmic time</a> on the
+exponent, which makes this solution require only O(N log N) time and a single pass over the
+input.
+</p>
+<h3>Large dataset</h3>
+<p>
+As usual in Distributed Code Jam, even a linear solution is too slow
+for the Large dataset, and we need to improve further. If we take the
+usual route of dividing the input into <code>NumberOfNodes()</code>
+evenly sized chunks so that each worker can handle one of them, we'll
+quickly notice that, other than the worker handling the rightmost
+piece, each worker is missing the a key piece of information. When
+starting from digit d<sub>j</sub> and going backwards, we need to know
+the largest digit occurring between indices j+1 and N-1 &mdash; that is,
+max(d<sub>j+1</sub>, d<sub>j+2</sub>, ..., d<sub>N-1</sub>) &mdash;
+to initialize the "maximum so far" value M from our single-node algorithm.
+To calculate those <code>NumberOfNodes()</code> additional values, we can
+do a preliminary pass and have each worker send the largest value
+from within its range max(d<sub>i</sub>, d<sub>i+1</sub>, ..., d<sub>j</sub>)
+for an inclusive range [i, j]. Then, a
+single master can do a linear pass and calculate the value needed
+for worker k as the maximum of the maxima reported by workers
+k+1 through <code>NumberOfNodes()</code>-1. This
+preliminary pass technique is similar to the one needed for the
+<a href="../../2016_r1/crates/statement.html">
+Crates</a> problem from Round 1 of Distributed Code Jam 2016.
+</p><p>
+Other more complicated single-node solutions can also be distributed effectively,
+but with significantly more effort than the right-to-left solution presented here.
+</p>

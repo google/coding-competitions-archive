@@ -1,0 +1,49 @@
+
+<h2>gas_stations: Analysis</h2>
+<h3>Road-centric idea</h3>
+<p>
+Consider a 1-km segment between two stations. Assume that, whenever the car uses gas, it uses the oldest gas in the tank (this doesn't change the results, of course). Careful inspection shows the liter of gas used to drive a segment between kms i and i+1 can only come from stations at kms in the interval [max(0, i - <code>GetTankSize()</code> + 1), i]. If we use gas that comes from a station with index j < i - <code>GetTankSize()</code> + 1, then all j-i 1-km segments in the interval [j, i+1] have to use gas from a station with index less than or equal to j, which means all the gas for the interval was on the car when we departed the station at j, which contradicts the maximum tank size. At the same time, if we choose for every segment a station in range, and at every station we get exactly what was assigned for segments ahead, it is easy to verify that we get a valid gas-plan for the trip.
+</p><p>
+Having a fixed interval for each segment, it's clear that we want to get the gas at the station in the interval with minimum price. So, the solution is the sum for each i in [0, <code>GetNumKms()</code>-1] of the minimum of the set {<code>GetGasPrice(j)</code> : j in [max(0, i - <code>GetTankSize()</code> + 1), i]}.
+</p><p>
+From this, we can see a trivial O(<code>GetNumKms()</code> &times; <code>GetTankSize()</code>) algorithm that solves the problem, but this is too slow, even for the Small dataset.
+</p>
+<h3>An O(n log n) algorithm</h3>
+<p>
+We can use a sliding window to maintain the set of current stations. From one segment to the next we need to add at most one new price and remove at most one price that should no longer be considered, and standard sorted structures like C++'s <code>set</code> or Java's <code>TreeSet</code> provide insertion, deletion and finding the minimum in efficient logarithmic time. This yields a clear and concise O(n log n) algorithm.
+</p><p>
+To distribute this algorithm and get a <code>NumberOfNodes()</code>x speedup, as we usually want, each node can first calculate minimum price for its entire assigned interval and broadcast it to all other nodes. Each node can exploit this information to make the size of the sliding window bounded by <code>GetNumKms()</code>/<code>NumberOfNodes()</code> (10^7). The idea is: if the tank size is big, the range of indices assigned to some other nodes are going to be included in every interval considered in a given node, so instead of doing the sliding window through those, we just skip them and use their overall minimum as an additional possible price for every internval. Unfortunately, memory limit can be a problem without careful planning, as sorted tree structures tends to incur in a large constant for their linear memory requirements. Dividing segments further (for example, use 1000 intervals instead of 100) and reusing memory can be one solution, but this may make implementation complicated.
+</p>
+<h3>Two-way scanning in O(n)</h3>
+<p>
+Instead of maintaining a sorted structure, we can use two-way scanning. Let's think of some arbitrary 2 &times; <code>GetTankSize()</code> km interval in the middle of the road and get the price for each segment in there. Then, the pseudocode for calculating answer for this interval is something like this:
+</p><pre>
+for i in [interval_start, interval_start + 2 &times; GetTankSize())
+  result = result + min({GetGasPrice(j) : j in [max(0, i - GetTankSize() + 1), i]})
+</pre>
+<p>
+The main idea is slicing calcuation in two parts and calculate separately. The code can be rewritten:
+</p><pre>
+middle = interval_start + GetTankSize()
+for i in [interval_start, interval_start + 2 &times; GetTankSize())
+  result = result + min(
+    min({GetGasPrice(j) : j in [max(0, i -GetTankSize() + 1), middle]}) ,
+    min({GetGasPrice(j) : j in [middle + 1, i]}) )
+</pre><p>
+With this new version, it's easy to see that we can precalculate all the minimums over sets in linear time to avoid the nested loops, like this:
+</p><pre>
+middle = interval_start + GetTankSize()
+min_backwards[0] = GetGasPrice(middle - 1)
+min_forward[0] = GetGasPrice(middle)
+for i in [1, GetTankSize())
+  min_backwards[i] = min(min_backwards[i - 1], GetGasPrice(middle - 1 - i))
+  min_forward[i] = min(min_forward[i - 1], GetGasPrice(middle + i))
+result = result + min_backwards[GetTankSize() - 1] +  min_forward[GetTankSize() - 1]
+for i in [interval_start + 1, interval_start + 2 &times; GetTankSize() - 1)
+  result = result + min( min_backwards[middle - i - 1], min_forward[i - interval_start] )
+</pre>
+To run this on a single node, we need to do it for <code>interval_start</code> that is a multiple of 2 &times; <code>GetTankSize()</code>, and be careful with the last interval that might be smaller, to get every minimum we need exactly once. Since we need to process O(<code>GetNumKms()</code> / (2 &times; <code>GetTankSize()</code>) intervals, and each take time O(2 &times; <code>GetTankSize()</code>), the total running time is O(<code>GetNumKms()</code>).
+</p><p>
+To distribute this linear algorithm, we just use a similar idea than for the less efficient sliding window algorithm distribution: the <code>min_backwards</code>/<code>min_forward</code> arrays simply replace the sorted tree structure as a more efficient way to calculate the sliding window part, and the speedup by skipping large contiguous part that are present in every interval is the same.
+Notice that, in case the tank is small enough to not skip anything, but large enough to be significant, we need the multiple intervals trick to achieve true linear time, even in the distributed case.
+</p>

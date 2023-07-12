@@ -1,0 +1,89 @@
+<h3>Problem</h3>
+<p>
+Your Rock-Paper-Scissors tournament yesterday went so well that you've been
+asked to organize another one. It will be a single-elimination tournament with
+<b>N</b> rounds. 2<b><sup>N</sup></b> players will participate, and they
+will have unique ID numbers in the range 0 through 2<b><sup>N</sup></b>-1,
+inclusive.
+</p><p>
+Initially, the players will be lined up from left to right, in increasing
+order by ID number. In each round, the first and second players in the lineup
+(starting from the left) will play a match against each other, and the third
+and fourth players in the lineup (if they exist) will play a match against each
+other, and so on; all of these matches will occur simultaneously. The winners
+of these matches will remain in the lineup, in the same relative order, and the
+losers will leave the lineup and go home. Then a new round will begin. This
+will continue until only one player remains in the lineup; that player will be
+declared the winner.
+</p><p>
+In each Rock-Paper-Scissors match, each of the two players secretly chooses one
+of <i>Rock</i>, <i>Paper</i>, or <i>Scissors</i>, and then they compare their
+choices. Rock beats Scissors, Scissors beats Paper, and Paper beats Rock. If
+one player's choice beats the other player's choice, then that player wins and
+the match is over. You are tired of worrying about ties, so you have decided
+that if the players make the same choice, the player on the left wins the match.
+</p><p>
+You know that the players this year are not very strategic, and each one has a
+preferred move and will only ever play that move. Fortunately, you know every
+player's preferred move, so you can figure out: what is the ID number of the
+player who will win the tournament?
+</p>
+Here's an example tournament with <b>N</b> = 2:
+</p>
+<img src="rps_example.png">
+<p>
+In Round 1, player 1 beats player 0 (since Rock always beats Scissors), and
+player 2 beats player 3 (since the player with the lower number wins a tie).
+In Round 2, player 2 beats player 1 (since Paper always beats Rock). So,
+player 2 is the winner.
+</p>
+
+<h3>Input</h3>
+<p>
+The input library will be called "rps"; see the sample inputs below for
+examples in your language. It defines two methods: GetN(), which returns the
+number <b>N</b> of rounds in the tournament, and GetFavoriteMove(id), which
+returns the favorite move of the player with ID number id, for
+0 &le; id &lt; 2<sup>GetN()</sup>. This move will always be either
+<code>R</code>, <code>P</code>, or <code>S</code>, representing Rock, Paper, or
+Scissors, respectively.
+</p>
+<table>
+  <tr>
+    <th>Method name and parameters</th><th>Parameter limits</th><th>Returns</th>
+    <th>Approximate time for a single call</th>
+  </tr>
+  <tr>
+    <td>GetN()</td><td></td><td>a 64-bit number</td><td>0.09 microseconds</td>
+  </tr>
+  <tr>
+    <td>GetFavoriteMove(i)</td><td>0 &le; i &lt; 2<sup>GetN()</sup></td><td>a character</td>
+    <td>0.09 microseconds</td>
+  </tr>
+</table>
+<h3>Output</h3>
+<p>
+Output one value: the ID number of the winning player.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 3 seconds.<br/>
+Memory limit per node: 128 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+GetFavoriteMove(id) is always one of <code>R</code>, <code>P</code>, or
+<code>S</code> for all valid values of id.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+Number of nodes: 10.<br/>
+1 &le; GetN() &le; 10.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+Number of nodes: 100.<br/>
+1 &le; GetN() &le; 28.<br/>
+</p>

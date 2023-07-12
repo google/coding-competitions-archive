@@ -1,0 +1,101 @@
+<h3>Problem</h3>
+
+<h2>Virus</h2>
+<p>
+  A virus has crept into a small cluster of DCJ judging machines. We have
+  isolated the issue, and it will not affect the contest, but we now want to
+  identify the root cause of the issue - the exact node or nodes where the virus
+  was inserted.
+</p><p>
+  The virus has three effects:
+</p><ol>
+    <li>Whenever any message is sent from an infected node to another node
+      &mdash; that is, when an infected node invokes the <code>Send</code>
+      function with the first argument different from its node ID &mdash; all
+      the bytes in a message are turned to zeroes. That is, if the receiving
+      node calls <code>GetChar</code>, it will get a zero byte (that is, the
+      byte 00000000). If it calls <code>GetInt</code> or <code>GetLL</code>,
+      it will get zero. Note that this does not happen for messages the node
+      sends to itself.</li>
+    <li>Whenever anything is printed to stdout by an infected node, it is
+      changed to a single letter "<code>X</code>".</li>
+    <li>Whenever any infected node sends a message, this message spreads the
+      virus. If another node <code>Receive</code>s that message, it is, from
+      that moment on, also infected.</li>
+  </ol>
+<p>
+  Your program must print only the IDs of the originally infected nodes &mdash;
+  that is, the nodes that were infected before your
+  program started to run. Do not include other nodes that were not originally
+  infected, but became infected in the course of solving the problem. Each test
+  case is independent; infected nodes do not "carry over" between test cases.
+</p>
+
+<h3>Input</h3>
+<p>
+  The input library is called "virus"; see the sample inputs below for
+  examples in your language. It works a bit differently than in other DCJ
+  problems. Note that technically no input library is needed for this
+  problem. However, to assist in testing, we provide a helper input
+  library. It defines four functions. These functions, in your local
+  environment, simulate the behavior of the virus. In the DCJ environment,
+  of course, there is no need to simulate the behavior of the virus,
+  because it is really there! However, for convenience, we still provide
+  the virus library; its functions will simply forward to corresponding
+  functions in the message library (so that you can test and submit the same
+  code). The functions provided are:
+</p>
+<ul>
+  <li><b>VirusPutChar(target, value)</b></li>
+  <li><b>VirusSend(target)</b></li>
+  <li><b>VirusReceive(source)</b>
+    <ul>
+      <li>These functions take the same arguments as their message library
+        equivalents, but the test implementations provided will simulate the
+        virus library. The implementation that will be used in the DCJ system
+        will just forward to the message library.
+      </li>
+    </ul>
+  </li>
+  <li><b>PrintNumber(number)</b>:
+    <ul>
+      <li>Takes a 64-bit integer: the number to print.</li>
+      <li>Prints a line containing that one number to stdout.</li>
+      <li>In the test version, it will print the letter <code>X</code> instead
+        if the node is infected.</li>
+    </ul>
+  </li>
+  <li>The test version of the virus library has the list of infected nodes
+    hardcoded into it in the first few lines. You have to change that in order
+    to test different scenarios.
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  In the first line of the output, print one number <b>N</b>: the number of
+  originally infected nodes.
+</p>
+<p>
+  In the next <b>N</b> lines, print the IDs of the originally infected nodes,
+  one per line, in increasing order.
+</p>
+
+<h3>Limits</h3>
+<p>
+  Time limit: 8 seconds.<br/>
+  Number of nodes: 40 (for the Small dataset, too!)<br/>
+  Memory limit per node: 256 MB.<br/>
+  Maximum number of messages a single node can send: 1000.<br/>
+  Maximum total size of messages a single node can send: 8 MB.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+  There will be exactly one originally infected node.
+</p>
+
+<h4>Large dataset</h4>
+<p>
+  The number of originally infected nodes will be between 0 and 3, inclusive.
+</p>

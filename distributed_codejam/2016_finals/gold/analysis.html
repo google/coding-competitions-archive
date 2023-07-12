@@ -1,0 +1,70 @@
+<h2>Gold: Analysis</h2>
+<h3>A binary search approach</h3>
+<p>
+Let's try to solve the following subproblem: given two integers L and R (1 &le; L &le; R &le;
+<code>RoadLength()</code>), standing for the left and right ends of an interval, determine whether
+there is at least one nugget at a position inside the interval [L, R], and if there is, find the
+position of one of them.
+</p><p>
+If one or both of L and R are <code>X</code> (that is, a nugget), we are done. If we find that one
+or both are <code>=</code>, we can just move that side of the interval one position toward the
+inside. Since there are never two <code>=</code>s in a row, that does not affect the overall
+complexity.
+</p><p>
+If L is <code>&gt;</code> and R is <code>&lt;</code>, it is clear that there is at least one nugget
+in the interval. In this case, we can easily find a nugget by binary searching for its position.
+Consider the position M = (L + R) / 2. If there is not a nugget at that position, at least one of
+[L, M] or [M, R] has at least one nugget (and we know which direction(s) to look in), and so on,
+recursively. The complexity is O(log(R - L + 1)).
+</p><p>
+If L is not <code>&gt;</code>, let's try to find the first <code>&gt;</code> symbol in the interval.
+If L is <code>&lt;</code>, let's jump to the position L + 2, because we can be sure that there is
+no nugget at L + 1 (otherwise, L would have been <code>&gt;</code> or <code>=</code>). If L + 2 is
+<code>&lt;</code>, we can jump to L + 4. (Remember that if we encounter <code>=</code>,
+we move one position towards the inside of the interval.) Generally, if we are at position L + p and
+we see <code>&lt;</code>, it means that there is no nugget in the interval [L, L+ p + p - 1], so we
+can jump to position L + 2 * p, and proceed in this way, doubling our jump length each time, until
+we find <code>&gt;</code> or a nugget or reach
+R (which means there is no nugget inside the interval).
+</p><p>
+A symmetric strategy works for finding the first <code>&lt;</code> starting from R and moving left.
+So, combining all of the above, for any interval, we can determine whether there is at least one
+nugget inside the interval, and the position of one nugget if so, in O(log(R - L + 1)) time.
+</p>
+<h3>A Small solution</h3>
+<p>
+Using the above algorithm, we can write and distribute a naive solution. We divide the total
+<code>RoadLength()</code> into <code>NumberOfNodes()</code> intervals and have each node find the
+XOR of all nuggets in its interval.
+</p><p>
+On each node, we can keep a queue of intervals that initially holds [L, R]. If we find a nugget at
+position N inside the interval [L, R], we should check the two intervals [L, N - 1] and [N + 1, R].
+For each nugget, 2 intervals will be added, so at most 2 * (number of nuggets actually present in
+[L, R]) + 1 intervals will be examined. The maximum worst-case size of the queue is
+<code>NumberOfNuggets()</code> + 1. The complexity of such a solution for a single node is
+O(<code>NumberOfNuggets()</code> * log(<code>RoadLength()</code>)). This solution passes the Small,
+since the nuggets are approximately evenly distributed; the distribution reduces the complexity by
+a factor close to <code>NumberOfNodes()</code>. However, this will be too slow for the Large
+dataset, because, for example, the interval assigned to one node might contain all the nuggets.
+</p>
+<h3>A Large solution</h3>
+<p>
+Let's introduce the operation <i>Reduce-Road-K</i> which reduces the road at least K times.
+Every node will process its interval and check whether there are at least
+<code>NumberOfNuggets()</code> / <code>NumberOfNodes()</code> * K nuggets; it will return a special
+value (meaning that the interval had too many nuggets) if so, or it will return the XOR of all
+discovered nuggets otherwise.
+</p><p>
+By the pigeonhole principle, at most <code>NumberOfNodes()</code> / K nodes will return this special
+value for their corresponding intervals. So the total length we must examine is reduced
+to at most <code>RoadLength()</code> / K after one operation of <i>Reduce-Road-K</i>. The intervals
+that had too many nuggets, we must re-examine. A master node redistributes this remaining blocks
+into the nodes again, for another pass, until all gold has been discovered. We need at most
+log<sub>K</sub>(<code>RoadLength()</code>) steps of this process.
+</p><p>
+The complexity of that deterministic solution for one node is
+O(log<sub>K</sub>(<code>RoadLength()</code>) * <code>NumberOfNuggets()</code>
+/ <code>NumberOfNodes()</code> * K * log(<code>RoadLength()</code>)).
+It is up to the solver to choose a good value of K; we got good results with K = 3.
+</p>
+

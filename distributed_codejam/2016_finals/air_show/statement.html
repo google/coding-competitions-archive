@@ -1,0 +1,121 @@
+<h3>Problem</h3>
+<h2>Air Show</h2>
+<p>
+We are planning an awesome air show. The most impressive act features two airplanes doing acrobatic
+moves together in the air. The flight plan for each plane is already finalized. These plans may
+cause the planes to get very close to each other, which is dangerous; you have been hired to assess
+the extent of this risk.
+</p><p>
+A flight plan for one plane is a sequence of <b>N</b> timed segments. Within each segment a
+plane flies straight at a constant speed. However, a plane may change direction and speed
+dramatically when changing segments. Formally, the flight plan consists of an ordered list of
+<b>N</b> + 1 3-dimensional points
+P<sub>0</sub>, P<sub>1</sub>, ..., P<sub><b>N</b></sub> and an ordered list of <b>N</b> transition
+times T<sub>0</sub>, T<sub>1</sub>, ..., T<sub><b>N</b> - 1</sub>. As its i-th move, for each i in
+{0, 1, ..., <b>N</b> - 1},
+the plane following this plan flies from P<sub>i</sub> to P<sub>i + 1</sub> at a constant
+speed in exactly T<sub>i</sub> seconds. Since the planes are working together as a single act,
+the sum of the times for each segment must be equal for both planes.
+</p><p>
+A transition instant is a time in between two consecutive moves (even when two consecutive moves
+happen to require no change in speed or direction). That is, the <b>N</b> - 1 transition instants
+for a plane with the flight plan above happen exactly at times
+T<sub>0</sub>, T<sub>0</sub> + T<sub>1</sub>, T<sub>0</sub> + T<sub>1</sub> + T<sub>2</sub>, ...,
+T<sub>0</sub> + T<sub>1</sub> + ... + T<sub>N - 2</sub>. The starting and finishing times
+are not considered transition instants.
+</p><p>
+Transition instants are the most dangerous times for pilots. Given a minimum safe distance
+<b>D</b>, for each plane <i>p</i>, we ask you to count the number of transition instants
+when <i>p</i> is at a distance strictly less than <b>D</b> from the other plane. You may consider
+each plane to be a single point. If both planes occupy the same point at the same instant, no
+collision occurs; the planes just pass through each other and continue.
+</p><p>
+The arithmetic for this problem for our official solution requires integers with more than 64 bits.
+<code>__int128</code> is available in our C++ installation and <code>BigInteger</code> is available
+for Java.
+</p>
+
+<h3>Input</h3>
+<p>
+The input library is called "air_show"; see the sample inputs below for examples in your
+language. It defines four methods:
+<ul>
+<li><b>GetSafeDistance()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the minimum safe distance <b>D</b>.</li>
+  <li>Expect each call to take 0.5 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetNumSegments()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number of segments <b>N</b> of each flight plan.</li>
+  <li>Expect each call to take 0.5 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetTime(a, i)</b>:
+  <ul>
+  <li>Takes two 64-bit integers in the ranges 0 &le; a &lt; 2,
+      0 &le; i &lt; GetNumSegments().</li>
+  <li>Returns a 64-bit integer: the time used for move i of plane a
+      (shown as T<sub>i</sub> above).
+  </li>
+  <li>Expect each call to take 0.5 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetPosition(a, i)</b>:
+  <ul>
+  <li>Takes two 64-bit integers in the ranges 0 &le; a &lt; 2, 0 &le;
+    i &le; GetNumSegments().</li>
+  <li>Returns a 64-bit integer: an encoding of point i of the flight plan of plane a
+    (shown as P<sub>i</sub> above). Point (x, y, z), with each coordinate ranging between
+    0 and 2<sup>20</sup>-1, is encoded as the integer
+    x &times; 2<sup>40</sup> + y &times; 2<sup>20</sup> + z.
+  </li>
+  <li>Expect each call to take 2.5 microseconds.</li>
+  </ul>
+</li>
+</ul>
+</p>
+
+<h3>Output</h3>
+<p>
+Output a single line with two integers <code>r<sub>0</sub></code> and <code>r<sub>1</sub></code>
+separated by a single space, where <code>r<sub>i</sub></code> is the number of dangerous moments
+for plane i in which it is strictly closer than GetSafeDistance() to the other plane.
+</p>
+
+<h3>Limits</h3>
+<p>
+Number of nodes: 100. <b>(Notice that the number of nodes is the same for both the Small and
+  Large datasets.)</b><br/>
+Time limit: 14 seconds.<br/>
+Memory limit per node: 512 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 128 KB. <b>(Notice that this is less than
+  usual.)</b><br/>
+1 &le; GetSafeDistance() &lt; 2<sup>20</sup>.<br/>
+2 &le; GetNumSegments() &le; 10<sup>8</sup>.<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+0 &le; GetPosition(a, i) &lt; 2<sup>40</sup>, for all a and i. (The x-coordinate of all points is
+0, while coordinates y and z range between 0 and 2<sup>20</sup> - 1.)<br/>
+GetTime(a, i) = 1, for all a and i.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+0 &le; GetPosition(a, i) &lt; 2<sup>60</sup>, for all a and i. (All coordinates range between 0
+  and 2<sup>20</sup> - 1.)<br/>
+1 &le; GetTime(a, i) &lt; 10<sup>9</sup>, for all a and i.<br/>
+  GetTime(0, 0) + GetTime(0, 1) + ... + GetTime(0, GetNumSegments() - 1) =
+GetTime(1, 0) + GetTime(1, 1) + ... + GetTime(1, GetNumSegments() - 1). (The sum of all the values
+of GetTime(a, _) for each a is the same.)<br/>
+GetTime(0, 0) + GetTime(0, 1) + ... + GetTime(0, GetNumSegments() - 1) &le; 10<sup>12</sup>.
+  (The total time of a flight plan does not exceed 10<sup>12</sup>.)<br/>
+</p>
+
+Note that the last 2 sample cases would not appear in the Small dataset.

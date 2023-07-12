@@ -1,0 +1,32 @@
+<h2>Pancakes: Analysis</h2>
+<p>
+The Infinite House of Pancakes made the jump from
+<a href="https://code.google.com/codejam/contest/6224486/dashboard#s=p1">Google</a>
+<a href="https://code.google.com/codejam/contest/6254486/dashboard#s=p1">Code</a>
+<a href="https://code.google.com/codejam/contest/3264486/dashboard#s=p0">Jam</a>
+into Distributed Code Jam! In this case, we want to serve them from a huge stack.
+</p><p>
+As a first approach, we can consider simulating the described process: go around the table checking
+the top of the stack and serving as appropriate, counting the number of times we complete a full
+revolution. We can see that, for some of the largest cases, this is not very efficient. It is not
+hard (give it a try!) to devise a case where we have to skip almost all of the diners in order to
+serve the top pancake. Luckily, we can achieve the needed speed up with a simple idea: instead of
+trying every possible diner, we can jump directly to the one that will get the next pancake in the
+stack. When jumping, we have to check whether we complete a revolution. This is easy to verify as
+we know we complete a revolution every time we serve diner <i>j</i> right after diner <i>i</i>,
+with <i>j</i> &lt; <i>i</i>.
+</p><p>
+This means we can rephrase the problem in more straightforward way for a program: count the number
+of consecutive pairs of integers <i>a</i>, <i>b</i> in the input sequence such that
+<i>b</i> &lt; <i>a</i>. This is trivial to do in a single node, and not so hard to distribute
+either: just split the input into evenly sized parts, give one part to each worker and have it
+count only the decreasing consecutive pairs in it. We have to be a careful now because we don't
+need to split the input itself, but the comparisons that need to be checked. They involve two
+indices each, so we need the last element of a piece to be also considered by the node which
+counts the following piece. As an example, if worker 0 reads the input between indices 0 and 9999,
+for instance, it will be counting 9998 inversions, and worker 1 will need to read starting at 9999,
+not 10000, to be able to compare the numbers at positions 9999 and 10000. Since the number of
+duplicate readings is so small, just one extra call per node, it won't heavily impact our running
+time. After each node made its share of comparisons, it can just ship the total number of
+revolutions it found to a single master, which adds them all up and prints the final result.
+</p>

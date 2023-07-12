@@ -1,0 +1,145 @@
+<h2>Median: Analysis</h2>
+
+<p>
+The Small dataset of this problem is "regular", in the sense that there's a fixed input
+in the form of a list of N integers, and all machines have equal access to all of
+it. For the Large dataset, the situation is quite different. In both, however, we are
+asked to find the median of that list, but we don't have enough time or memory to read the
+entire list in a single machine, so the "regular" algorithms don't work. It is noteworthy
+that we can't have the entire input on memory at the same time, even if we sum up the memory
+for all 100 nodes!
+</p>
+
+<h3>Small dataset</h3>
+
+<p>
+There exist algorithms to sort a list in a distributed way, and linear
+algorithms to find the median are possible to distribute in a similar fashion. However, most of
+those algorithms assume that we can perform linear size communication between the machines, and
+that the entire input can be in memory at the same time.
+</p><p>
+One helpful observation is that we can easily solve the inverse problem: given an integer X, is it
+below, above, or equal to the median? That solution requires a single pass through the input and
+little memory. Moreover, it's trivial to distribute that solution to cut the total time
+by a factor of M = <code>NumberOfNodes()</code>.
+</p><p>
+We can use that observation to do a binary search to get
+the median. This needs log R steps, where R is the range of input values, for an overall time
+complexity of O(N log R / M), which looks pretty good. Unfortunately, log R is about 30 for this
+problem, and 30 passes over 1 / M of the input take 30 &times; N &times; 0.1 microseconds / M,
+which is 30 seconds in the worst case. In practice, it might take a bit less time than that,
+since the 0.1 microseconds per API call is an upper bound, but it would be hard to make this
+solution fast enough to pass.
+</p><p>
+Fortunately, we can do better by doing a K-ary search. Since accessing the input is the slowest
+part of the algorithm, we should try to get more information out of every call. The binary search
+uses each pass to decide between three ranges [L, X - 1], [X, X], and [X + 1, U], where [L, U] is
+the current range being investigated and X is usually their average. In a K-ary search, we
+partition the range into O(K) intervals. And since we are doing that, it is much easier (and more
+efficient in the worst case) to make these intervals of sizes that are as similar as possible.
+This makes each step resemble a <a href="https://en.wikipedia.org/wiki/Bucket_sort">bucket sort</a>:
+we define K buckets and have each node count the number of integers in its range that fall into
+each bucket. Since the buckets are of equal size, we can do this in constant time per integer.
+Then, we send the list of buckets to a master, which can calculate the overall total per bucket
+and make one pass through the buckets to decide which one the median is in.
+</p><p>
+Then, we partition that interval further into buckets until each bucket has size 1. A good choice
+for this problem is 1000 buckets, as they require exactly 3 passes, and the math is really
+simple. To go down to 2 passes we would need 10<sup>4.5</sup> buckets, and that would also make
+the messages larger, but it might be possible to make that strategy work.
+You can see the solution as a K-ary search, or as a distributed
+pseudo-<a href="https://en.wikipedia.org/wiki/Radix_sort">Radix sort</a> on the base-1000
+expression of the integers, where we only keep sorting the range that contains the only
+element that we are interested in (the median).
+The overall time complexity is also O(N log R / M), but since we are using log<sub>1000</sub>
+instead of log<sub>2</sub>, we cut the time by a factor of about 10, which makes it under the
+time limit.
+</p>
+
+<h3>Large dataset</h3>
+
+<p>
+In the Large dataset, we face some additional challenges. We don't know the exact bounds of the
+input list. Moreover, each node gets a different rotation of that list, so we can't partition the
+input by assigning ranges of indices unless we know how rotated the nodes are relative to each
+other. Our solution focuses on finding N and the rotation differences (the d<sub>i</sub>s), and
+then applying the solution explained for the Small dataset.
+</p><p>
+One hint to the solution comes from the strange guarantee that the input is randomly shuffled.
+This means that a medium-sized consecutive part of the data (for instance, a sublist of length
+100) is guaranteed to be unique unless some integer in the list has enormous frequency.
+We define sublist considering a circular list of N integers, as in the problem statement, so
+a sublist may wrap around from the last to the first integer, possibly several times if
+N &lt; 100.
+Luckily, we can detect such a case by random sampling. Also, if a given integer
+X occurs in the data with a frequency 1/2 or higher, the median of the data is necessarily X.
+So we can random sample the data by querying random indices i in the
+range [0, 10<sup>18</sup>]. Since the range is so much larger than N, we can be sure that i % N
+is close to uniformly distributed in [0, N-1], even though we do not know N.
+Then, if we measure the frequency
+of any given integer X to be larger than, say, 6 / 10, we output X. Otherwise, we continue.
+Notice that even with a small number of samples, like 10<sup>5</sup>, the variance is small and we
+can afford a huge margin of error; for example, if the frequency is between 1/2 and 6/10,
+that is fine, since the next step of the algorithm should detect that X is the median.
+Since we can afford to sample a relatively small number of positions, this step doesn't really
+require distribution and takes negligible running time.
+</p><p>
+So, we have ensured that the N sublists of length 100 starting at N consecutive positions (they
+cycle with period N, of course) are unique with high probability. This means
+we can use a
+<a href="https://en.wikipedia.org/wiki/Rolling_hash">sliding window hash</a> to quickly
+identify a repeat. At this point, a solution similar to the one for
+<a href="../../2015_practice/shhhh/statement.html">shhh</a>
+seems possible: we effectively randomize the deltas by choosing a random start index for each
+node. Then, each node hashes its first 100 integers, sends the hash to all other nodes, and then
+receives the hashes found by the other nodes. Then it scans forward, computing a rolling hash as
+it goes, until it sees a known hash; once it does, it tells the master which node's hash it has
+found, and where. Finally, a master uses that information to deduce all deltas and the value of N.
+The master can do that by detecting the order in which the starting points of each node appear
+in the cycle and then adding up the distances between
+itself and any other node. The sum of all <code>NumberOfNodes()</code> distances is the value of
+N. However, this approach has some issues:
+</p><ul>
+  <li>If N is small, the probability of two deltas being equal can be large, and even 1 if
+    N &lt; <code>NumberOfNodes()</code>. That is not unworkable, but it adds case-work code
+    to handle the case of the initial hash being equal for two nodes.</li>
+  <li>As mentioned in the
+    <a href="../../2015_practice/shhhh/statement.html">
+    analysis for shhh</a>, this solution
+    can be slow. If the deltas for a given test case are not randomized, then in the worst case,
+    a node may have to scan O(N) values before recognizing a hash. Even if the deltas are
+    randomized, the expected largest gap before finding a hash is not reduced by a factor linear
+    in the number of machines, but rather by a square-root factor, so traversing that gap can
+    still be slow. This can be made to work with a careful implementation, but it's potentially
+    risky.
+</ul><p>
+Luckily, there is a better way: have a single canonical node hash the sublist starting at positions
+that are multiples of K, and then have all nodes look for those and find a delta relative
+to the canonical node. This requires no randomization and is guaranteed to have each search be at
+most K steps long. With a choice like K = 10<sup>7</sup> for the gap between hashes, we get
+100 different hashes to search through (the same as in the previous option), but we have a
+guarantee to finish in at most K = N / 100 steps, which would be the highly unlikely best-case
+scenario in the shhh-like solution. Additionally, having the
+canonical node perform the same search starting from position 1 will give its delta relative to
+itself with a value greater than 0, or in other words, the value of N. Another benefit is that the
+delta is given directly, instead of requiring a master pass to calculate them.
+We got even faster overall results with K = 10<sup>6</sup>, and you can use testrun to experiment
+with your code to choose parameters like this one.
+</p><p>
+Notice that is possible that, instead of the "true" value of N, we will find a multiple of N
+instead. This is fine, though, since the median of multiple of copies of the data is the same as
+the median of the original data. (Watch out for non-odd N, though, and define median accordingly!).
+We are guaranteed to find an N that is less than 10<sup>9</sup> + K, which is not significantly
+larger than the actual upper bound. Once we have N and the deltas, we can essentially transform a
+Large test case into a Small one, and apply the Small solution to finish the problem.
+</p><p>
+As a final note, notice that, if we don't perform an advance check for numbers of unusually
+high frequency, sublists starting at different places of the real data may coincide, which
+would break our algorithm to find N and the deltas.
+However, this would only make us get the wrong N and/or wrong deltas, which may make
+our Small solution run on possibly overlapping arbitrary slices of the data for each node.
+Thanks to the random shuffling, though, the median of any sufficiently long slice of data will be
+the high-frequency value, and the same will be true of the union of 100 of those slices. Therefore,
+we can skip the advance check and still get the correct value at the end, even if some
+intermediate values like N and the deltas that we find might be wrong.
+</p>

@@ -1,0 +1,79 @@
+<h2>Nanobots: Analysis</h2>
+<h3>Small dataset: a single-node solution</h3>
+<p>
+Let N = <code>GetRange()</code> and M = <code>GetNumNanobots()</code>.
+A straightforward O(N<sup>2</sup>) solution is to simply query each
+possible combination of speed and size and count the <code>T</code>s.
+This, however, is obviously slow. We can refine it by noticing that
+the valid datasets are not just any combinations of <code>T</code>s
+and <code>E</code>s. If a bacterium with speed c and size d is trapped,
+so is any bacterium with speed &lt;c and size d, or speed c and size
+&lt;d. We can display the data as an N-by-N matrix in which
+columns represent increasing values (from left to right) for speed
+and rows represent increasing values (from top to bottom) for size.
+The key observation is that every row or column will have zero or more
+<code>T</code>s and then only <code>E</code>s. We will get a region
+of <code>T</code>s in a shape like the following. (In this example, the
+team consists of one nanobot with speed 5 and size 3, one with speed
+4 and size 4, one with speed 3 and size 5, and one with speed 2 and
+size 6.)
+</p><p>
+<code>
+TTTTEEE<br/>
+TTTTEEE<br/>
+TTTEEEE<br/>
+TTEEEEE<br/>
+TEEEEEE<br/>
+EEEEEEE<br/>
+EEEEEEE<br/>
+</code><p>
+We can use this to our advantage. If we follow along the border between
+the two types of letters, we can calculate the size of the region of <code>T</code>s
+(which is the answer to the problem) in
+O(N) time, because the border has a length of at most 2N.
+We can start at a corner of the matrix with minimum speed and maximum size, and reduce the size
+until we find a bacterium that can be trapped at size x.
+The rest of the row also consists of
+<code>T</code>s, so we can count x towards our answer. Then we can increase the speed until a
+bacterium is no longer trapped (continuing to add x to the result for
+each row that we pass), then reduce the size again for the new row, and so on.
+</p><p>
+We can further refine that solution by noticing that each step through
+a segment can be done using binary search instead of linear search,
+because each row or column has at most a single place at which we change
+from <code>T</code> to <code>E</code>. This makes the solution
+require only O(M) binary searches (and in the worst case, M is a lot
+smaller than N), for an overall complexity of O(M log N). This is
+sufficient to solve the Small dataset on a single node.
+</p>
+<h3>Large dataset: a distributed solution</h3>
+<p>
+For the Large, a single node solution is too slow. If we partition
+the matrix into strips of rows, it's possible that a single partition
+contains all the corners, so the slowest node still needs to
+process O(M) segments by running O(M) binary searches.
+We need to use a trick similar to those required for for the
+<a href="../../2016_finals/gold/statement.html">Gold</a>
+problem from 2016. One option is to partition the input
+into a lot more than <code>NumberOfNodes()</code> pieces and assign
+each node a random subset of the pieces, such that the expected number
+of corners for the one that gets the most is only
+M / sqrt(<code>NumberOfNodes()</code>). Notice that this increases the total
+number of required binary searches by the number of pieces, so there is a tradeoff
+there, but as long as the number of pieces is significantly smaller than M, it should
+be fine. Notice that all pieces have the steplike shape that makes the solution possible.
+</p><p>
+ Another option, more complicated
+to code but that does not rely on randomness, is to start our work by
+dividing evenly, but only
+let workers examine up to N / <code>NumberOfNodes()</code> segments.
+After this is done, a few workers may have not have finished, but they
+can report their work to a master node, that in turn reassigns the
+unfinished portions for a second pass. As it is shown in the
+<a href="../../2016_finals/gold/analysis.html">analysis
+for Gold</a>,
+only a logarithmic number of
+passes are needed in the worst case, and it works pretty well in
+practice. Please see the analysis for that problem for more details on the math
+behind this distribution technique.
+</p>

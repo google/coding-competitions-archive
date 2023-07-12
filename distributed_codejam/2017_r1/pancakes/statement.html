@@ -1,0 +1,111 @@
+<h3>Problem</h3>
+
+<h2>Pancakes</h2>
+
+<p>
+  At the Infinite House of Pancakes, <b>D</b> hungry diners are seated
+  around a circular table. They are numbered from 0 at the top
+  of the table and clockwise around to <b>D</b>-1. Each diner likes a
+  particular type of pancake: the type with the same number as the
+  diner.
+</p>
+<p>
+  You are a pancake server with a stack of pancakes. You are currently
+  at the top of the table (just about to serve diner 0), and
+  you will walk around the table clockwise, perhaps multiple
+  times. Every time you pass by a diner, if the pancake at the top of
+  the stack is the diner's preferred kind, you will serve that
+  pancake. You will keep serving that diner until the top of the stack
+  no longer matches the diner's preference; then you will move on to
+  the next diner, and so on.
+</p>
+<p>
+  Each time you complete a revolution, after passing by
+   diner <b>D</b>-1 and before reaching diner 0 again, you
+   check to see if the stack is empty.  If so, you are done.
+   Otherwise, you continue clockwise around the table for another
+   revolution, serving the diners.
+</p>
+<p>
+  For example, suppose there are 4 diners and 4 pancakes in the
+  stack 3, 1, 2, 0 in order from top to bottom. You start your first
+  revolution by skipping
+  diners 0, 1 and 2 to serve diner 3 the top pancake, getting the
+  stack down to 1, 2, 0. After that, you go back to diner 0
+  (starting a second revolution), skipping it
+  to get to diner 1 and giving her pancake 1, getting the stack down
+  to 2, 0. Since she doesn't like pancake 2, you go to diner 2, which
+  gets it and you have only a single pancake 0 left. To serve it, you
+  go through diner 3 and back to 0 (starting a third revolution),
+  who gets the final pancake, and your job is done. You required 3
+  revolutions in total for this particular arrangement, even though
+  you didn't need to finish the last one completely.
+</p>
+<p>
+  Note that there may be some diners who do not receive any pancakes.
+</p>
+<p>
+  Given the initial stack of pancakes, how many revolutions will you
+  make around the table?
+</p>
+
+
+<h3>Input</h3>
+<p>
+The input library is called "pancakes"; see the sample inputs below for
+examples in your language. It defines three methods:
+</p><ul>
+<li><b>GetStackSize()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the initial number of pancakes in the stack.</li>
+  <li>Expect each call to take 0.8 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetNumDiners()</b>:
+  <ul>
+  <li>Takes no argument.</li>
+  <li>Returns a 64-bit integer: the number <b>D</b> of diners seated around the table.</li>
+  <li>Expect each call to take 0.8 microseconds.</li>
+  </ul>
+</li>
+<li><b>GetStackItem(i)</b>:
+  <ul>
+  <li>Takes a 64-bit number in the range 0 &le; i &lt; GetStackSize().</li>
+  <li>Returns a 64-bit integer: the i-th pancake type in the stack, where
+    i = 0 corresponds to the first one we plan to serve.</li>
+  <li>Expect each call to take 0.8 microseconds.</li>
+  </ul>
+</li>
+</ul>
+
+<h3>Output</h3>
+<p>
+  Output a single integer: the number of revolutions we make around
+  the table.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 3 seconds.<br/>
+Memory limit per node: 128 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+0 &le; GetStackItem(i) &lt; GetNumDiners().<br/>
+</p>
+
+<h4>Small dataset</h4>
+<p>
+Number of nodes: 10.<br/>
+1 &le; GetStackSize() &le; 10<sup>5</sup>.<br/>
+3 &le; GetNumDiners() &le; 10<sup>6</sup>.<br/>
+</p>
+
+<h4>Large dataset</h4>
+<p>
+Number of nodes: 100.<br/>
+1 &le; GetStackSize() &le; 10<sup>8</sup>.<br/>
+3 &le; GetNumDiners() &le; 10<sup>9</sup>.<br/>
+</p>
+
+The first sample case is the one explained in the statement.

@@ -1,0 +1,145 @@
+<p>Imagine we entered some cell by going, say, up. Then there is some number of rocks we pushed in front of us. The first observation is that if we know this number, the state of the rest of the board is irrelevant. This is because we will never go down or left, and we had no way of impacting anything that's to the right of us, and in our row or higher.</p>
+
+<p>The second observation, rising from the first, is that if we're to reach a given cell (x, y), going from the right, it's always better to have gone to the right as little as possible (because then we have fewer rocks in front of us).</p>
+
+<p>This gives rise to a single-node DP solution in O(N^3). We start in (0, 0), and have pushed 0 rocks in front of us up, and 0 rocks to the right. For each cell, and each direction in (right, up), we store whether the field is reachable from this direction, and if so, what is the minimum number of rocks we're pushing in front of us (or equivalently, from which field in the same row/column we're pushing rocks). When processing a given point, if it is reachable from, say, down, from y', we mark (x+1, y) as reachable from the left from x (unless there are K+1 rocks in a row in front of us), and we mark (x, y+1) as reachable from y', unless there are X rocks in (y', y] and K-X+1 rocks in a row starting from y'.</p>
+
+<p>The improvement to O(N^2) is to precalculate, for each cell, how far can we push from a given position. This is easy to do, iterating with two pointers (one being K rocks away from the other). If we have this, we can check whether we can move forward from (x, y) in constant time.</p>
+
+<p>The first thing to notice (or rather, to learn from the Mutexes problem in the online round) is that an O(N^2) DP can be sharded. Each node is responsible for an (N x N/NumNodes()) strip of the board. You calculate in N/NumNodes() x N/NumNodes() chunks, and once you have the result for a given chunk, you send the values from the edge to the node in front of you, so it can start calculating. So, effectively, you proceed in "diagonals", and in 2NumNodes() steps of size O(N/NumNodes() * N/NumNodes()) you will have calculated everything.</p>
+
+<p>To shard the DP, we will phrase the information in each state as "how many rocks from below (or from the cell we're standing on) are we pushing in front of us already?", and we need to precalculate, for each cell, "what is the maximum number of rocks in front of us with which we'll be able to take one step forward". The number "how many rocks from below are we pushing" is easy to calculate when moving forward - it's the number from the previous field, plus one if there's a rock on the field we're moving on.</p>
+
+<p>So, first, we precalculate "max number of rocks with which we can take a step forward". Let K' be equal to min(K + 1, distance from the wall). Then if there are X rocks in the next K' fields, the number we're looking for is K' - X - 1. Now, this number can be calculated through a DP going down: from the node above, we pass in the number of rocks X in the next K' fields, and to update this number going one field down to row x, we will (possibly) need to read whether there is a rock in x + K + 1 (in order to remove it from the sum, if it exists). So, we'll perform a total of O(N x N/M) extra reads, which is fine.</p>
+
+<p>Since no-one managed to solve this problem during the contest, we provide a sample solution for reference:</p>
+<pre>
+#include &lt;cstdio&gt;
+#include &lt;utility&gt;
+#include &lt;algorithm&gt;
+
+#include "rocks.h"  // NOLINT
+#include "message.h"  // NOLINT
+
+using namespace std;  // NOLINT
+
+// We're going to shard vertically. That is, each node gets a range of y values
+// it is responsible for.
+#define MAXN 10000
+// can_carry_up[i][j] == X means that it is possible to enter (i, j) from below
+// when pushing up to X rocks from rows up to and including j.
+// This is equivalent to the fact that the next K squares above
+// (i, j) contain exactly X empty spaces.
+int can_carry_up[MAXN][MAXN / 10];
+int can_carry_rt[MAXN][MAXN / 10];
+// need_carry_up[i][j] == X means that to enter (i, j) from below, we need to be
+// pushing at least X rocks. If need_carry_up[i][j] + can_carry_up[i][j] &gt; K,
+// the field can't be entered from below.
+int need_carry_up[MAXN][MAXN / 10];
+int need_carry_rt[MAXN][MAXN / 10];
+// A cache of the input.
+bool rock[MAXN][MAXN / 10];
+
+int pass_through[MAXN / 10];
+
+int beg_y;
+int end_y;
+int NoN;
+
+int main() {
+  int N = GetN();
+  int K = GetK();
+  if (MyNodeId() == 0) fprintf(stderr, "N = %d, K = %d\n", N, K);
+  // Let's ensure that every range we deal with has at least one element.
+  int NoN = NumberOfNodes();
+  if (NoN &gt; N) NoN = N;
+  if (MyNodeId() &gt;= NoN) return 0;
+
+  beg_y = (MyNodeId() * N) / NoN;
+  end_y = ((MyNodeId() + 1) * N) / NoN;
+  int ry = end_y - beg_y;
+
+  for (int x = 0; x &lt; N; ++x) for (int y = 0; y &lt;= ry; ++y) {
+    rock[x][y] = (y + beg_y &lt; N) ? IsRock(x, y + beg_y) : true;
+    need_carry_up[x][y] = need_carry_rt[x][y] = K + 1;
+  }
+  if (MyNodeId() == 0) need_carry_up[0][0] = need_carry_rt[0][0] = 0;
+
+  // Calculating "can_carry_rt" is fully local to our rows, so let's calculate
+  // it.
+  for (int y = ry - 1; y &gt;= 0; --y) {
+    int empty = 0;
+    for (int x = N - 1; x &gt;= 0; --x) {
+      can_carry_rt[x][y] = empty;
+      if (!rock[x][y]) empty += 1;
+      if (x + K &lt; N &amp;&amp; !rock[x + K][y]) empty -= 1;
+    }
+  }
+
+  // Calculating "can_carry_up" is more tricky. We need "rock" values from
+  // outside our range, and we need the DP values from the range above us. So,
+  // we'll do a standard 2D DP.
+  for (int block = 0; block &lt; NoN; ++block) {
+    if (MyNodeId() != NoN - 1) {
+      Receive(MyNodeId() + 1);
+    }
+    int beg_x = (block * N) / NoN;
+    int end_x = ((block + 1) * N) / NoN;
+    for (int x = beg_x; x &lt; end_x; ++x) {
+      int empty = (MyNodeId() == NoN - 1) ? 0 : GetInt(MyNodeId() + 1);
+      for (int y = ry - 1; y &gt;= 0; --y) {
+        can_carry_up[x][y] = empty;
+        if (!rock[x][y]) empty += 1;
+        if (y + beg_y + K &lt; N &amp;&amp; !IsRock(x, y + beg_y + K)) empty -= 1;
+      }
+      if (MyNodeId() != 0) PutInt(MyNodeId() - 1, empty);
+    }
+    if (MyNodeId() != 0) {
+      Send(MyNodeId() - 1);
+    }
+  }
+  // Now each node has "can_carry_*" calculated for it's range. We run a
+  // standard 2D DP (in the other direction) to calculate "need_carry_*".
+  for (int block = 0; block &lt; NoN; ++block) {
+    if (MyNodeId() != 0) {
+      Receive(MyNodeId() - 1);
+    }
+    int beg_x = (block * N) / NoN;
+    int end_x = ((block + 1) * N) / NoN;
+    for (int x = beg_x; x &lt; end_x; ++x) {
+      // need_carry_up[x][0] will always come from below.
+      if (MyNodeId() != 0) {
+        need_carry_up[x][0] = GetInt(MyNodeId() - 1);
+      }
+      for (int y = 0; y &lt; ry; ++y) {
+        if (need_carry_up[x][y] &lt;= can_carry_up[x][y]) {
+          if (x + 1 &lt; N) need_carry_rt[x+1][y] = rock[x+1][y] ? 1 : 0;
+          if (y + beg_y + 1 &lt; N &amp;&amp; need_carry_up[x][y + 1] == K + 1) {
+            need_carry_up[x][y + 1] =
+                need_carry_up[x][y] + (rock[x][y + 1] ? 1 : 0);
+          }
+        }
+        if (need_carry_rt[x][y] &lt;= can_carry_rt[x][y]) {
+          if (y + beg_y + 1 &lt; N) need_carry_up[x][y+1] = rock[x][y+1] ? 1 : 0;
+          if (x + 1 &lt; N &amp;&amp; need_carry_rt[x+1][y] == K + 1) {
+            need_carry_rt[x + 1][y] =
+                need_carry_rt[x][y] + (rock[x + 1][y] ? 1 : 0);
+          }
+        }
+        if (y + 1 == ry &amp;&amp; MyNodeId() != NoN - 1) {
+          PutInt(MyNodeId() + 1, need_carry_up[x][ry]);
+        }
+      }
+    }
+    if (MyNodeId() != NoN - 1) {
+      Send(MyNodeId() + 1);
+    }
+  }
+  if (MyNodeId() == NoN - 1) {
+    bool win =
+      need_carry_up[N - 1][ry - 1] == 0 || need_carry_rt[N - 1][ry - 1] == 0;
+    printf("%s\n", win ? "YES" : "NO");
+  }
+  return 0;
+}
+</pre>

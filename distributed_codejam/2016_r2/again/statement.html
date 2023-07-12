@@ -1,0 +1,153 @@
+<h3>Problem</h3>
+<h2>... we did it again</h2>
+<p>
+You know the issue: just as in the Oops problem from Distributed Round 1, we
+have lost our problem statement and the correct solutions, and we only have
+these two correct but slow solutions, one per supported language. Once again,
+we still have our test data. Can you still solve the problem?
+</p><p>
+<b>Notice that in this problem 20 nodes are used to run both the Small and the
+Large datasets, which is not the usual number for Distributed Code Jam
+problems. 20 nodes were also used to run the solutions and produce the answers
+for the examples.</b>
+</p><p>
+The C++ solution:
+</p>
+<pre>
+#include &lt;message.h&gt;
+#include &lt;stdio.h&gt;
+#include "again.h"
+
+#define MASTER_NODE 0
+#define SENDING_DONE -1
+#define LARGE_PRIME 1000000007
+
+int main() {
+  if (MyNodeId() == MASTER_NODE) {
+    long long result = 0;
+    for (int node = 1; node &lt; NumberOfNodes(); ++node) {
+      while (true) {
+        Receive(node);
+        long long value = GetLL(node);
+        if (value == SENDING_DONE) {
+          break;
+        } else {
+          result = (result + value) % LARGE_PRIME;
+        }
+      }
+    }
+    printf("%lld\n", result);
+    return 0;
+  } else {
+    for (long long i = 0; i &lt; GetN(); ++i) {
+      for (long long j = 0; j &lt; GetN(); ++j) {
+        long long value = GetA(i) * GetB(j);
+        if ((i + j) % NumberOfNodes() == MyNodeId()) {
+          PutLL(MASTER_NODE, value);
+          Send(MASTER_NODE);
+        }
+      }
+    }
+    PutLL(MASTER_NODE, SENDING_DONE);
+    Send(MASTER_NODE);
+  }
+  return 0;
+}
+</pre>
+<p>
+The Java solution:
+</p>
+<pre>
+public class Main {
+  static int MASTER_NODE = 0;
+  static long SENDING_DONE = -1;
+  static long LARGE_PRIME = 1000000007;
+
+  public static void main(String[] args) {
+    if (message.MyNodeId() == MASTER_NODE) {
+      long result = 0;
+      for (int node = 1; node &lt; message.NumberOfNodes(); ++node) {
+        while (true) {
+          message.Receive(node);
+          long value = message.GetLL(node);
+          if (value == SENDING_DONE) {
+            break;
+          } else {
+            result = (result + value) % LARGE_PRIME;
+          }
+        }
+      }
+      System.out.println(result);
+    } else {
+      for (long i = 0; i &lt; again.GetN(); ++i) {
+        for (long j = 0; j &lt; again.GetN(); ++j) {
+          long value = again.GetA(i) * again.GetB(j);
+          if ((i + j) % message.NumberOfNodes() == message.MyNodeId()) {
+            message.PutLL(MASTER_NODE, value);
+            message.Send(MASTER_NODE);
+          }
+        }
+      }
+      message.PutLL(MASTER_NODE, SENDING_DONE);
+      message.Send(MASTER_NODE);
+    }
+  }
+}
+</pre>
+
+<h3>Input</h3>
+<p>
+The input library is called "again"; see the sample inputs below for examples
+in your language. It defines three methods:
+</p>
+<ul>
+  <li><b>GetN()</b>:
+    <ul>
+      <li>Takes no argument.</li>
+      <li>Returns a 64-bit number.</li>
+      <li>Expect each call to take 0.05 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetA(i)</b>:
+    <ul>
+      <li>Takes a 64-bit number in the range 0 &le; i &lt; GetN().</li>
+      <li>Returns a 64-bit number.
+      <li>Expect each call to take 0.05 microseconds.</li>
+    </ul>
+  </li>
+  <li><b>GetB(i)</b>:
+    <ul>
+      <li>Takes a 64-bit number in the range 0 &le; i &lt; GetN().</li>
+      <li>Returns a 64-bit number.
+      <li>Expect each call to take 0.05 microseconds.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Output</h3>
+<p>
+Output what either of the solutions above would output, if they ran on 20 nodes
+without any limits on memory, time, number of messages or total size of
+messages.
+</p>
+
+<h3>Limits</h3>
+<p>
+Time limit: 2 seconds.<br/>
+Memory limit per node: 128 MB.<br/>
+Maximum number of messages a single node can send: 1000.<br/>
+Maximum total size of messages a single node can send: 8 MB.<br/>
+Number of nodes: 20.<br/>
+0 &le; GetA(i) &le; 10<sup>9</sup>, for all i.<br/>
+0 &le; GetB(i) &le; 10<sup>9</sup>, for all i.<br/>
+</p>
+
+<h4>Small input</h4>
+<p>
+1 &le; GetN() &le; 30,000.<br/>
+</p>
+
+<h4>Large input</h4>
+<p>
+1 &le; GetN() &le; 10<sup>8</sup>.
+</p>
